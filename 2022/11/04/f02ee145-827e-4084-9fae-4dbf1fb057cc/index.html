@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,18 +125,14 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="adb-over-wifi-always-on"><a href="#adb-over-wifi-always-on" class="headerlink" title="adb over wifi always on"></a>adb over wifi always on</h1><p>warning: could be dangerous cause adb remote connections seem without any password. consider protect that with some proxy.</p>
-<p>turning on:</p>
+	  <h1 id="adb-over-wifi-always-on"><a href="#adb-over-wifi-always-on" class="headerlink" title="adb over wifi always on"></a>adb over wifi always on</h1><p>warning: could be dangerous cause adb remote connections seem without any password. consider protect that with some proxy.<br>turning on:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setprop service.adb.tcp.port 5555</span><br><span class="line">stop adbd</span><br><span class="line">start adbd</span><br></pre></td></tr></table></figure>
 <p>turning off:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setprop service.adb.tcp.port -1</span><br><span class="line">stop adbd</span><br><span class="line">start adbd</span><br></pre></td></tr></table></figure>
-
 <p>set things under <code>/data/adb/services.d/</code> and make them executable</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mount -o remount,rw /</span><br><span class="line"><span class="comment"># then you can modify /sytem/etc/init.d, but not /system/bin cause it is a copy of /data/system/bin. you should create script there.</span></span><br></pre></td></tr></table></figure>
-
 <p>create this under <code>/system/etc/init.d/</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">service adb_wifi_enable /system/bin/adb_wifi_enable.sh</span><br><span class="line">    disabled</span><br><span class="line">    oneshot</span><br><span class="line">    seclabel u:r:magisk:s0</span><br><span class="line"></span><br><span class="line">on property:sys.boot_completed=1</span><br><span class="line">    start adb_wifi_enable</span><br></pre></td></tr></table></figure>
-	  
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">service adb_wifi_enable /system/bin/adb_wifi_enable.sh</span><br><span class="line">disabled</span><br><span class="line">oneshot</span><br><span class="line">seclabel u:r:magisk:s0</span><br><span class="line">on property:sys.boot_completed=1</span><br><span class="line">start adb_wifi_enable</span><br></pre></td></tr></table></figure>	  
 	</div>
 
 	<!-- recommended posts -->
@@ -148,13 +144,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2022/11/04/e6ff2337-31b6-4d2c-b824-603fe629c951/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2022/11/04/e6ff2337-31b6-4d2c-b824-603fe629c951/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2022/11/03/10366990-6de8-4b6d-8f9e-f59a9747b34b/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2022/11/03/10366990-6de8-4b6d-8f9e-f59a9747b34b/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -216,7 +212,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Security/">Security<span>8</span></a></li>
+    <li><a href="/blog/categories/Security/">Security<span>8</span></a></li>
   </li>
 
     </ul>
@@ -229,7 +225,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/Security/">Security<span>3</span></a></li> <li><a href="/tags/Android/">Android<span>4</span></a></li> <li><a href="/tags/WiFi/">WiFi<span>2</span></a></li> <li><a href="/tags/ADB/">ADB<span>2</span></a></li> <li><a href="/tags/Password-Protection/">Password Protection<span>1</span></a></li> <li><a href="/tags/Enabling/">Enabling<span>1</span></a></li> <li><a href="/tags/Disabling/">Disabling<span>1</span></a></li>
+  <li><a href="/blog/tags/Security/">Security<span>3</span></a></li> <li><a href="/blog/tags/Android/">Android<span>4</span></a></li> <li><a href="/blog/tags/WiFi/">WiFi<span>2</span></a></li> <li><a href="/blog/tags/ADB/">ADB<span>2</span></a></li> <li><a href="/blog/tags/Password-Protection/">Password Protection<span>1</span></a></li> <li><a href="/blog/tags/Enabling/">Enabling<span>1</span></a></li> <li><a href="/blog/tags/Disabling/">Disabling<span>1</span></a></li>
 
     </ul>
 	</div>
@@ -269,15 +265,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -291,7 +287,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,18 +125,7 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="HarmonyOS-Device-Log-to-MySQL"><a href="#HarmonyOS-Device-Log-to-MySQL" class="headerlink" title="HarmonyOS Device Log to MySQL"></a>HarmonyOS Device Log to MySQL</h1><p>mysql path:<br>jdbc:mysql:&#x2F;&#x2F;10.33.163.33:3306&#x2F;HTS_DB?characterEncoding&#x3D;UTF-8<br>root<br>pipeline@123</p>
-<p>Logs Path:<br>&#x2F;data&#x2F;data&#x2F;Local&#x2F;DeviceTest&#x2F;20220406163617_hts_project&#x2F;resources&#x2F;HTS&#x2F;android-hts&#x2F;logs</p>
-<p>under logs:<br>%Y.%m.%d_%H.%M.%S_<serial_number><br>select the latest folder</p>
-<p>under selected folder:<br>device_logcat_test_<serial_number>_<unknownInteger>.txt.gz</p>
-<p>decompress using: (before that os.chdir to the selected folder)<br>gzip -d <file></p>
-<p>does the decompression remove the .gz file?<br>it will.</p>
-<p>log format per line:<br>DfxTestLog: A1<testName>_<testName2_contain_test_serial>_DfxTestTime &#x3D; <value> datai&#x3D;4</p>
-<p>from 1 to 13:<br>A1test1..4<br>A2test5<br>A3test1..2<br>B1test1<br>B2test4..6<br>D1test1<br>M1test1</p>
-<p>Tables:</p>
-<p>Performance_Baseline_Info<br>testValue date(%Y-%m-%d) hmsVersion(HMSCore660319) baselineId_id deviceId_id(1,2,4,3,5) deviceType(phone&lt;-1|wearable&lt;-2|car&lt;-4|tv&lt;-3|ecodevice&lt;-5)</p>
-<p>Performance_Daily_Data<br>id features indicators baseValue</p>
-<p>Performance_Device_Info<br>id(to the deviceId_id) model type sn cpu</p>
+	  <p>mysql path:<br>jdbc:mysql:&#x2F;&#x2F;10.33.163.33:3306&#x2F;HTS_DB?characterEncoding&#x3D;UTF-8<br>root<br>pipeline@123<br>Logs Path:<br>&#x2F;data&#x2F;data&#x2F;Local&#x2F;DeviceTest&#x2F;20220406163617_hts_project&#x2F;resources&#x2F;HTS&#x2F;android-hts&#x2F;logs<br>under logs:<br>%Y.%m.%d_%H.%M.%S_<serial_number><br>select the latest folder<br>under selected folder:<br>device_logcat_test_<serial_number><em><unknownInteger>.txt.gz<br>decompress using: (before that os.chdir to the selected folder)<br>gzip -d <file><br>does the decompression remove the .gz file?<br>it will.<br>log format per line:<br>DfxTestLog: A1<testName></em><testName2_contain_test_serial>_DfxTestTime &#x3D; <value> datai&#x3D;4<br>from 1 to 13:<br>A1test1..4<br>A2test5<br>A3test1..2<br>B1test1<br>B2test4..6<br>D1test1<br>M1test1<br>Tables:<br>Performance_Baseline_Info<br>testValue date(%Y-%m-%d) hmsVersion(HMSCore660319) baselineId_id deviceId_id(1,2,4,3,5) deviceType(phone&lt;-1|wearable&lt;-2|car&lt;-4|tv&lt;-3|ecodevice&lt;-5)<br>Performance_Daily_Data<br>id features indicators baseValue<br>Performance_Device_Info<br>id(to the deviceId_id) model type sn cpu</p>
 	  
 	</div>
 
@@ -149,13 +138,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2022/07/14/b77b6a03-11cb-401c-86bf-cd72715aaa70/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2022/07/14/b77b6a03-11cb-401c-86bf-cd72715aaa70/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2022/07/14/7407631d-b486-4c90-9577-45486922b9b1/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2022/07/14/7407631d-b486-4c90-9577-45486922b9b1/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -217,7 +206,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Database-Management/">Database Management<span>2</span></a></li>
+    <li><a href="/blog/categories/Database-Management/">Database Management<span>2</span></a></li>
   </li>
 
     </ul>
@@ -230,7 +219,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/freelancer/">freelancer<span>18</span></a></li>
+  <li><a href="/blog/tags/freelancer/">freelancer<span>18</span></a></li>
 
     </ul>
 	</div>
@@ -270,15 +259,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -292,7 +281,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

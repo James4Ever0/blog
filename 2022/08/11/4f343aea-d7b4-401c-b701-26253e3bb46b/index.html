@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,27 +125,15 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="ramfs-on-macos-linux-and-windows"><a href="#ramfs-on-macos-linux-and-windows" class="headerlink" title="ramfs on macos, linux and windows"></a>ramfs on macos, linux and windows</h1><h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><p>simply use &#x2F;dev&#x2F;shm</p>
-<p>the only difference is that <a target="_blank" rel="noopener" href="https://linuxhint.com/create-ramdisk-linux/">ramfs on linux is unbounded while tmpfs is bounded</a></p>
-<p>create bounded tmpfs:</p>
+	  <h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><p>simply use &#x2F;dev&#x2F;shm<br>the only difference is that <a target="_blank" rel="noopener" href="https://linuxhint.com/create-ramdisk-linux/">ramfs on linux is unbounded while tmpfs is bounded</a><br>create bounded tmpfs:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t tmpfs -o size=2g tmpfs /mnt/tmp</span><br></pre></td></tr></table></figure>
-
 <p>or yoy labor yourself to mount some additional ramfs:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t ramfs -o size=2g ramfs /mnt/tmp</span><br></pre></td></tr></table></figure>
-
-<h2 id="macos"><a href="#macos" class="headerlink" title="macos"></a>macos</h2><p>&#x2F;private&#x2F;tmp is not ramdisk. it is just a directory cleared by startup.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/KizzyCode/ramfs-shell">ram-shell: A simple script to create a in-memory filesystem on macOS</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/srcshelton/ramfs#:~:text=A%20memory-backed%20filesystem%20mounter%20for%20Mac%20OS%20X,not%20survive%20a%20reboot%20or%20even%20being%20unmounted.">RAM-backed filesystem mounter for Mac OS X</a></p>
-<p>create and mount ramdisk:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">#!/bin/sh</span></span><br><span class="line">ramfs_size_mb=2100</span><br><span class="line">mount_point=/tmp/rdisk</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">mkramdisk</span></span>() &#123;</span><br><span class="line">  ramfs_size_sectors=$((<span class="variable">$&#123;ramfs_size_mb&#125;</span>*<span class="number">1024</span>*<span class="number">1024</span>/<span class="number">512</span>))</span><br><span class="line">  ramdisk_dev=`hdid -nomount ram://<span class="variable">$&#123;ramfs_size_sectors&#125;</span>`</span><br><span class="line"></span><br><span class="line">  newfs_hfs -v <span class="string">&#x27;ram disk&#x27;</span> <span class="variable">$&#123;ramdisk_dev&#125;</span></span><br><span class="line">  <span class="built_in">mkdir</span> -p <span class="variable">$&#123;mount_point&#125;</span></span><br><span class="line">  mount -o noatime -t hfs <span class="variable">$&#123;ramdisk_dev&#125;</span> <span class="variable">$&#123;mount_point&#125;</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;remove with:&quot;</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;umount <span class="variable">$&#123;mount_point&#125;</span>&quot;</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;diskutil eject <span class="variable">$&#123;ramdisk_dev&#125;</span>&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/emitial/p/ramfs-on-mac.html">to replace &#x2F;private&#x2F;tmp with ramfs and registered as launchd service</a></p>
-<p>calculate sector numbers by hand:</p>
-<p>disk_size(MiB)* 1024KiB&#x2F;MiB * 1024B&#x2F;KiB &#x2F; 512B&#x2F;sector &#x3D; #sectors</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">hdiutil attach -nomount ram://<span class="comment">#sectors</span></span><br><span class="line"><span class="comment">#get returned value afterwards!</span></span><br><span class="line">newfs_hfs -v <span class="string">&#x27;Ramdisk&#x27;</span> &lt;returned_disk_device_id&gt;</span><br><span class="line"><span class="comment"># maybe you should create apfs case sensitive instead?</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#mount disk</span></span><br><span class="line"><span class="built_in">mkdir</span> -p ~/Ramdisk</span><br><span class="line"><span class="comment"># may change fs type accordingly when using apfs</span></span><br><span class="line">mount -o noatime -t hfs &lt;returned_disk_device_id&gt; ~/Ramdisk</span><br></pre></td></tr></table></figure>
-
-<h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><p><a target="_blank" rel="noopener" href="https://www.geckoandfly.com/21507/ramdisk-virtual-disk-memory/#:~:text=RAMDisk%20is%20a%20program%20that%20takes%20a%20portion,default%20%E2%80%98ReadyBoost%E2%80%99%20found%20in%20Microsoft%20Windows%20operating%20system.">a curated ramdisk software list</a></p>
-<p>use third-party ramdisk tool like <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/imdisk-toolkit/">imdisk</a>, <a target="_blank" rel="noopener" href="https://github.com/Zero3K/ERAM">eram</a> with kernel driver installed, secure boot disabled (no uefi maybe?)</p>
+<h2 id="macos"><a href="#macos" class="headerlink" title="macos"></a>macos</h2><p>&#x2F;private&#x2F;tmp is not ramdisk. it is just a directory cleared by startup.<br><a target="_blank" rel="noopener" href="https://github.com/KizzyCode/ramfs-shell">ram-shell: A simple script to create a in-memory filesystem on macOS</a><br><a target="_blank" rel="noopener" href="https://github.com/srcshelton/ramfs#:~:text=A%20memory-backed%20filesystem%20mounter%20for%20Mac%20OS%20X,not%20survive%20a%20reboot%20or%20even%20being%20unmounted.">RAM-backed filesystem mounter for Mac OS X</a><br>create and mount ramdisk:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">ramfs_size_mb=2100</span><br><span class="line">mount_point=/tmp/rdisk</span><br><span class="line"><span class="function"><span class="title">mkramdisk</span></span>() &#123;</span><br><span class="line">ramfs_size_sectors=$((<span class="variable">$&#123;ramfs_size_mb&#125;</span>*<span class="number">1024</span>*<span class="number">1024</span>/<span class="number">512</span>))</span><br><span class="line">ramdisk_dev=`hdid -nomount ram://<span class="variable">$&#123;ramfs_size_sectors&#125;</span>`</span><br><span class="line">newfs_hfs -v <span class="string">&#x27;ram disk&#x27;</span> <span class="variable">$&#123;ramdisk_dev&#125;</span></span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="variable">$&#123;mount_point&#125;</span></span><br><span class="line">mount -o noatime -t hfs <span class="variable">$&#123;ramdisk_dev&#125;</span> <span class="variable">$&#123;mount_point&#125;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;remove with:&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;umount <span class="variable">$&#123;mount_point&#125;</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;diskutil eject <span class="variable">$&#123;ramdisk_dev&#125;</span>&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/emitial/p/ramfs-on-mac.html">to replace &#x2F;private&#x2F;tmp with ramfs and registered as launchd service</a><br>calculate sector numbers by hand:<br>disk_size(MiB)* 1024KiB&#x2F;MiB * 1024B&#x2F;KiB &#x2F; 512B&#x2F;sector &#x3D; #sectors</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hdiutil attach -nomount ram://<span class="comment">#sectors</span></span><br><span class="line"><span class="comment">#get returned value afterwards!</span></span><br><span class="line">newfs_hfs -v <span class="string">&#x27;Ramdisk&#x27;</span> &lt;returned_disk_device_id&gt;</span><br><span class="line"><span class="comment"># maybe you should create apfs case sensitive instead?</span></span><br><span class="line"><span class="comment">#mount disk</span></span><br><span class="line"><span class="built_in">mkdir</span> -p ~/Ramdisk</span><br><span class="line"><span class="comment"># may change fs type accordingly when using apfs</span></span><br><span class="line">mount -o noatime -t hfs &lt;returned_disk_device_id&gt; ~/Ramdisk</span><br></pre></td></tr></table></figure>
+<h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><p><a target="_blank" rel="noopener" href="https://www.geckoandfly.com/21507/ramdisk-virtual-disk-memory/#:~:text=RAMDisk%20is%20a%20program%20that%20takes%20a%20portion,default%20%E2%80%98ReadyBoost%E2%80%99%20found%20in%20Microsoft%20Windows%20operating%20system.">a curated ramdisk software list</a><br>use third-party ramdisk tool like <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/imdisk-toolkit/">imdisk</a>, <a target="_blank" rel="noopener" href="https://github.com/Zero3K/ERAM">eram</a> with kernel driver installed, secure boot disabled (no uefi maybe?)</p>
 	  
 	</div>
 
@@ -158,13 +146,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2022/08/11/e9f08502-b4a4-4e19-bb63-5159e4e08c14/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2022/08/11/e9f08502-b4a4-4e19-bb63-5159e4e08c14/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2022/08/11/813de677-4b35-4c38-a0b2-b77079f7bc48/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2022/08/11/813de677-4b35-4c38-a0b2-b77079f7bc48/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -226,7 +214,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/RAM-Disk/">RAM Disk<span>1</span></a></li>
+    <li><a href="/blog/categories/RAM-Disk/">RAM Disk<span>1</span></a></li>
   </li>
 
     </ul>
@@ -239,7 +227,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/system-manage/">system manage<span>17</span></a></li> <li><a href="/tags/ramfs/">ramfs<span>1</span></a></li>
+  <li><a href="/blog/tags/system-manage/">system manage<span>17</span></a></li> <li><a href="/blog/tags/ramfs/">ramfs<span>1</span></a></li>
 
     </ul>
 	</div>
@@ -279,15 +267,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -301,7 +289,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

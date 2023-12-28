@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,8 +125,7 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="ffmpeg-one-liners"><a href="#ffmpeg-one-liners" class="headerlink" title="ffmpeg one liners"></a>ffmpeg one liners</h1><h1 id="For-all-snippets-check-documentation-for-details-and-settings"><a href="#For-all-snippets-check-documentation-for-details-and-settings" class="headerlink" title="For all snippets, check documentation for details and settings."></a>For all snippets, check documentation for details and settings.</h1><h2 id="speed-up-ffmpeg-encoding"><a href="#speed-up-ffmpeg-encoding" class="headerlink" title="speed up ffmpeg encoding"></a>speed up ffmpeg encoding</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39981360/article/details/111807188">ffmpeg speedup cli flags</a></p>
-<p><code>ffmpeg -threads 4 -crf 28 -preset ultrafast</code></p>
+	  <h1 id="ffmpeg-one-liners"><a href="#ffmpeg-one-liners" class="headerlink" title="ffmpeg one liners"></a>ffmpeg one liners</h1><h1 id="For-all-snippets-check-documentation-for-details-and-settings"><a href="#For-all-snippets-check-documentation-for-details-and-settings" class="headerlink" title="For all snippets, check documentation for details and settings."></a>For all snippets, check documentation for details and settings.</h1><h2 id="speed-up-ffmpeg-encoding"><a href="#speed-up-ffmpeg-encoding" class="headerlink" title="speed up ffmpeg encoding"></a>speed up ffmpeg encoding</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39981360/article/details/111807188">ffmpeg speedup cli flags</a><br><code>ffmpeg -threads 4 -crf 28 -preset ultrafast</code></p>
 <h1 id="encode-video-from-a-V4L2-device-using-specified-settings"><a href="#encode-video-from-a-V4L2-device-using-specified-settings" class="headerlink" title="encode video from a V4L2 device, using specified settings."></a>encode video from a V4L2 device, using specified settings.</h1><h1 id="x265-worked-somewhat-better-here-and-produced-less-skips-although-uses-10x-CPU-compared-to-x264"><a href="#x265-worked-somewhat-better-here-and-produced-less-skips-although-uses-10x-CPU-compared-to-x264" class="headerlink" title="x265 worked somewhat better here and produced less skips (although uses 10x CPU compared to x264)"></a>x265 worked somewhat better here and produced less skips (although uses 10x CPU compared to x264)</h1><p>ffmpeg -f video4linux2 -framerate 30 -input_format mjpeg -video_size 1920x1080 -i &#x2F;dev&#x2F;video6 -c:v libx265 -preset ultrafast -c:a none -crf 20 out.mp4</p>
 <h1 id="Convert-a-raw-YUYV422-frame-from-my-USB-“microscope”-to-PNG"><a href="#Convert-a-raw-YUYV422-frame-from-my-USB-“microscope”-to-PNG" class="headerlink" title="Convert a raw YUYV422 frame from my USB “microscope” to PNG:"></a>Convert a raw YUYV422 frame from my USB “microscope” to PNG:</h1><h1 id="other-valid-pixel-formats-are-e-g-rgb24-or-yuv420p"><a href="#other-valid-pixel-formats-are-e-g-rgb24-or-yuv420p" class="headerlink" title="other valid pixel formats are e.g. rgb24 or yuv420p"></a>other valid pixel formats are e.g. rgb24 or yuv420p</h1><p>ffmpeg -f rawvideo -video_size 2592x1944 -pixel_format yuyv422 -i input_yuyv422_2592x1944.dat -f image2 output.png</p>
 <h1 id="copy-a-portion-of-a-video-copying-and-not-recoding-Might-need-to-use-the-same-container-as-the-input"><a href="#copy-a-portion-of-a-video-copying-and-not-recoding-Might-need-to-use-the-same-container-as-the-input" class="headerlink" title="copy a portion of a video, copying and not recoding. Might need to use the same container as the input"></a>copy a portion of a video, copying and not recoding. Might need to use the same container as the input</h1><p>ffmpeg -i $input -ss $seek_to_seconds -t $output_length -c:v copy -c:a copy $output</p>
@@ -157,13 +156,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2022/09/12/1300032f-7668-4190-8172-c2aba3659c68/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2022/09/12/1300032f-7668-4190-8172-c2aba3659c68/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2022/09/11/2842d760-78aa-4a8b-8d28-aca75f0d4785/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2022/09/11/2842d760-78aa-4a8b-8d28-aca75f0d4785/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -225,7 +224,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Video-Editing/">Video Editing<span>5</span></a></li>
+    <li><a href="/blog/categories/Video-Editing/">Video Editing<span>5</span></a></li>
   </li>
 
     </ul>
@@ -238,7 +237,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/FFmpeg/">FFmpeg<span>5</span></a></li> <li><a href="/tags/frame-extraction/">frame extraction<span>3</span></a></li> <li><a href="/tags/speeding-up-encoding/">speeding up encoding<span>1</span></a></li> <li><a href="/tags/V4L2-device-video-encoding/">V4L2 device video encoding<span>1</span></a></li> <li><a href="/tags/frame-conversion-to-PNG/">frame conversion to PNG<span>1</span></a></li> <li><a href="/tags/re-encoding-bypass/">re-encoding bypass<span>1</span></a></li> <li><a href="/tags/H-26-exporting/">H.26 exporting<span>1</span></a></li> <li><a href="/tags/HDR-video-conversion/">HDR video conversion<span>1</span></a></li> <li><a href="/tags/audio-video-data-retrieval/">audio/video data retrieval<span>1</span></a></li> <li><a href="/tags/AVI-FLV-to-MP3-conversion/">AVI/FLV to MP3 conversion<span>1</span></a></li> <li><a href="/tags/custom-audio-quality-parameters/">custom audio quality parameters<span>1</span></a></li>
+  <li><a href="/blog/tags/FFmpeg/">FFmpeg<span>5</span></a></li> <li><a href="/blog/tags/frame-extraction/">frame extraction<span>3</span></a></li> <li><a href="/blog/tags/speeding-up-encoding/">speeding up encoding<span>1</span></a></li> <li><a href="/blog/tags/V4L2-device-video-encoding/">V4L2 device video encoding<span>1</span></a></li> <li><a href="/blog/tags/frame-conversion-to-PNG/">frame conversion to PNG<span>1</span></a></li> <li><a href="/blog/tags/re-encoding-bypass/">re-encoding bypass<span>1</span></a></li> <li><a href="/blog/tags/H-26-exporting/">H.26 exporting<span>1</span></a></li> <li><a href="/blog/tags/HDR-video-conversion/">HDR video conversion<span>1</span></a></li> <li><a href="/blog/tags/audio-video-data-retrieval/">audio/video data retrieval<span>1</span></a></li> <li><a href="/blog/tags/AVI-FLV-to-MP3-conversion/">AVI/FLV to MP3 conversion<span>1</span></a></li> <li><a href="/blog/tags/custom-audio-quality-parameters/">custom audio quality parameters<span>1</span></a></li>
 
     </ul>
 	</div>
@@ -278,15 +277,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -300,7 +299,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

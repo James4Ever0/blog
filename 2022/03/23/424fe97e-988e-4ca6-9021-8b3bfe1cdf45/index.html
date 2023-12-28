@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,19 +125,7 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="Intel-9250-bluetooth-Win-server"><a href="#Intel-9250-bluetooth-Win-server" class="headerlink" title="Intel 9250 bluetooth Win server"></a>Intel 9250 bluetooth Win server</h1><p>intel driver &amp; support assistant<br><a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/support/detect.html">https://www.intel.com/content/www/us/en/support/detect.html</a></p>
-<p>unzip the it admin pack for win 10<br><a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/download/16807/intel-wireless-bluetooth-for-it-administrators.html">https://www.intel.com/content/www/us/en/download/16807/intel-wireless-bluetooth-for-it-administrators.html</a></p>
-<p>follow instructions to find and modify driver<br><a target="_blank" rel="noopener" href="https://www.sevenforums.com/network-sharing/415513-intel-wifi-ac-9260-driver-fir-win7-x32-x64.html">https://www.sevenforums.com/network-sharing/415513-intel-wifi-ac-9260-driver-fir-win7-x32-x64.html</a><br>Intel has updated the drivers since my first post. Current is now 20.70</p>
-<p>Download Intel(R) PROSet&#x2F;Wireless Software and Drivers for IT Admins</p>
-<p>You should be downloading WiFi_20.70.0_Driver64_Win7 (your first post mentions both x32 and x64 so I am not sure which one you are running. Hopefully x64) In the package is a Netwsw04.INF file but not a Netwsw03.INF file.</p>
-<p>Something I did not think of until now, is we need to ALSO use the WIN10 download package in order to see the lines where Intel calls out your specific driver. To find that, you need to also download the WiFi_20.70.0_Driver64_Win10 package. Within it, we need to look at the Netwtw06.INF file which is the file that has your device. You will need to cut-n-paste the two lines within that file that contain the string PCI\VEN_8086&amp;DEV_A370&amp;SUBSYS_42A48086. Or better yet forget all that, I’ll just cut-n-paste them now and include them in screenshots. You can ignore the Win10 download altogether in order to keep things straight.</p>
-<p>So we cut and paste those two lines and put them within the Netwsw04.INF file that is in the win7 package. The first one goes at the top of the excludefrom select part, and the next one goes at the top of the DEVICE WIN7_64 section. I will attach a screenshots now of what these new lines look like within my editor. They are the highlighted lines. Since you cannot cut and paste from an image, here is the text of the two lines:</p>
-<p>1st line</p>
-<p>; PCI\VEN_8086&amp;DEV_A370&amp;SUBSYS_42A48086 , \</p>
-<p>2nd line</p>
-<p>%NIC_9462AC_HMC% &#x3D; Install_MPCIEX_DELLM2CRF3DIVERSITY_9462_AC_HMC_WINT_64_AC , PCI\VEN_8086&amp;DEV_A370&amp;SUBSYS_42A48086 ; AC</p>
-<p>As I mentioned before, the first line is near the top of the Netwsw04.inf file and the second line is about 5 pages down.</p>
-<p>Here’s a caveat, a new piece of information that is a potential show-stopper. See where within the second line there are three places where it says “AC”? That appears related to how the setup file integrates the driver later on in the file. Well over in the Win10 package it does not actually say “AC”, instead it says “No_160”, which is something that is part of the win10 package but not part of the win7 package. Based on text within the win10 setup file (the one named Netwsw06.inf) there appears to be a special section specifically for Dell machines called No_160. I’m over my head as to what exactly it all means, other than to say that since there is no section in the Win7 package called No_160, I had to change No_160 to AC in order for the win7 file to process the line, and of course it is possible that this driver cannot install without the No_160 section, meaning it is not installable on win7. So what that all adds up to is that when I first replied to you I was giving this method about a 70% chance of working, but now I would put the odds at 30%.</p>
+	  <p>intel driver &amp; support assistant<br><a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/support/detect.html">https://www.intel.com/content/www/us/en/support/detect.html</a><br>unzip the it admin pack for win 10<br><a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/download/16807/intel-wireless-bluetooth-for-it-administrators.html">https://www.intel.com/content/www/us/en/download/16807/intel-wireless-bluetooth-for-it-administrators.html</a><br>follow instructions to find and modify driver<br><a target="_blank" rel="noopener" href="https://www.sevenforums.com/network-sharing/415513-intel-wifi-ac-9260-driver-fir-win7-x32-x64.html">https://www.sevenforums.com/network-sharing/415513-intel-wifi-ac-9260-driver-fir-win7-x32-x64.html</a><br>Intel has updated the drivers since my first post. Current is now 20.70<br>Download Intel(R) PROSet&#x2F;Wireless Software and Drivers for IT Admins<br>You should be downloading WiFi_20.70.0_Driver64_Win7 (your first post mentions both x32 and x64 so I am not sure which one you are running. Hopefully x64) In the package is a Netwsw04.INF file but not a Netwsw03.INF file.<br>Something I did not think of until now, is we need to ALSO use the WIN10 download package in order to see the lines where Intel calls out your specific driver. To find that, you need to also download the WiFi_20.70.0_Driver64_Win10 package. Within it, we need to look at the Netwtw06.INF file which is the file that has your device. You will need to cut-n-paste the two lines within that file that contain the string PCI\VEN_8086&amp;DEV_A370&amp;SUBSYS_42A48086. Or better yet forget all that, I’ll just cut-n-paste them now and include them in screenshots. You can ignore the Win10 download altogether in order to keep things straight.<br>So we cut and paste those two lines and put them within the Netwsw04.INF file that is in the win7 package. The first one goes at the top of the excludefrom select part, and the next one goes at the top of the DEVICE WIN7_64 section. I will attach a screenshots now of what these new lines look like within my editor. They are the highlighted lines. Since you cannot cut and paste from an image, here is the text of the two lines:<br>1st line<br>; PCI\VEN_8086&amp;DEV_A370&amp;SUBSYS_42A48086 , <br>2nd line<br>%NIC_9462AC_HMC% &#x3D; Install_MPCIEX_DELLM2CRF3DIVERSITY_9462_AC_HMC_WINT_64_AC , PCI\VEN_8086&amp;DEV_A370&amp;SUBSYS_42A48086 ; AC<br>As I mentioned before, the first line is near the top of the Netwsw04.inf file and the second line is about 5 pages down.<br>Here’s a caveat, a new piece of information that is a potential show-stopper. See where within the second line there are three places where it says “AC”? That appears related to how the setup file integrates the driver later on in the file. Well over in the Win10 package it does not actually say “AC”, instead it says “No_160”, which is something that is part of the win10 package but not part of the win7 package. Based on text within the win10 setup file (the one named Netwsw06.inf) there appears to be a special section specifically for Dell machines called No_160. I’m over my head as to what exactly it all means, other than to say that since there is no section in the Win7 package called No_160, I had to change No_160 to AC in order for the win7 file to process the line, and of course it is possible that this driver cannot install without the No_160 section, meaning it is not installable on win7. So what that all adds up to is that when I first replied to you I was giving this method about a 70% chance of working, but now I would put the odds at 30%.</p>
 	  
 	</div>
 
@@ -150,13 +138,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2022/03/30/21feff7a-49d0-444d-b33f-4b2644ef4eca/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2022/03/30/21feff7a-49d0-444d-b33f-4b2644ef4eca/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2022/03/05/ffa78a99-c9b8-4e05-9092-2069bbaaa245/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2022/03/05/ffa78a99-c9b8-4e05-9092-2069bbaaa245/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -218,7 +206,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Drivers-updates/">Drivers updates<span>1</span></a></li>
+    <li><a href="/blog/categories/Drivers-updates/">Drivers updates<span>1</span></a></li>
   </li>
 
     </ul>
@@ -231,7 +219,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/linux/">linux<span>10</span></a></li> <li><a href="/tags/alienware/">alienware<span>1</span></a></li> <li><a href="/tags/bluetooth/">bluetooth<span>1</span></a></li> <li><a href="/tags/driver/">driver<span>2</span></a></li> <li><a href="/tags/intel/">intel<span>1</span></a></li>
+  <li><a href="/blog/tags/linux/">linux<span>10</span></a></li> <li><a href="/blog/tags/alienware/">alienware<span>1</span></a></li> <li><a href="/blog/tags/bluetooth/">bluetooth<span>1</span></a></li> <li><a href="/blog/tags/driver/">driver<span>2</span></a></li> <li><a href="/blog/tags/intel/">intel<span>1</span></a></li>
 
     </ul>
 	</div>
@@ -271,15 +259,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -293,7 +281,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

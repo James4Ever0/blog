@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,14 +125,8 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="Graphcore-support-for-AI"><a href="#Graphcore-support-for-AI" class="headerlink" title="Graphcore support for AI"></a>Graphcore support for AI</h1><p>Graphcore’s IPU could be cheaper and faster than NVIDIA’s A100, though need sharing on-board RAM.<br>Supports tensorflow, pytorch, paddlepaddle.<br><a target="_blank" rel="noopener" href="https://docs.graphcore.ai/en/latest/">https://docs.graphcore.ai/en/latest/</a></p>
-<p>pytorch: poptorch, pytorch-lightning(tpu and ipu)</p>
-<p>tensorflow:<br>from tensorflow.python import ipu</p>
-<h1 id="Create-an-IPU-distribution-strategy"><a href="#Create-an-IPU-distribution-strategy" class="headerlink" title="Create an IPU distribution strategy"></a>Create an IPU distribution strategy</h1><p>strategy &#x3D; ipu.ipu_strategy.IPUStrategy()</p>
-<p>with strategy.scope():<br>    …</p>
-<p>paddlepaddle:<br><a target="_blank" rel="noopener" href="https://github.com/graphcore/portfolio-examples/tree/master/paddlepaddle/bert-base">https://github.com/graphcore/portfolio-examples/tree/master/paddlepaddle/bert-base</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/graphcore/Paddle.git">https://github.com/graphcore/Paddle.git</a></p>
-<p>TensorFlow 1 &amp; 2 support with full performant integration with TensorFlow XLA backend<br>PyTorch support for targeting IPU using the PyTorch ATEN backend<br>PopART™ (Poplar Advanced Runtime) for training &amp; inference; supports Python&#x2F;C++ model building plus ONNX model input<br>Full support for PaddlePaddle<br>Other frameworks support coming soon</p>
+	  <p>Graphcore’s IPU could be cheaper and faster than NVIDIA’s A100, though need sharing on-board RAM.<br>Supports tensorflow, pytorch, paddlepaddle.<br><a target="_blank" rel="noopener" href="https://docs.graphcore.ai/en/latest/">https://docs.graphcore.ai/en/latest/</a><br>pytorch: poptorch, pytorch-lightning(tpu and ipu)<br>tensorflow:<br>from tensorflow.python import ipu</p>
+<h1 id="Create-an-IPU-distribution-strategy"><a href="#Create-an-IPU-distribution-strategy" class="headerlink" title="Create an IPU distribution strategy"></a>Create an IPU distribution strategy</h1><p>strategy &#x3D; ipu.ipu_strategy.IPUStrategy()<br>with strategy.scope():<br>…<br>paddlepaddle:<br><a target="_blank" rel="noopener" href="https://github.com/graphcore/portfolio-examples/tree/master/paddlepaddle/bert-base">https://github.com/graphcore/portfolio-examples/tree/master/paddlepaddle/bert-base</a><br><a target="_blank" rel="noopener" href="https://github.com/graphcore/Paddle.git">https://github.com/graphcore/Paddle.git</a><br>TensorFlow 1 &amp; 2 support with full performant integration with TensorFlow XLA backend<br>PyTorch support for targeting IPU using the PyTorch ATEN backend<br>PopART™ (Poplar Advanced Runtime) for training &amp; inference; supports Python&#x2F;C++ model building plus ONNX model input<br>Full support for PaddlePaddle<br>Other frameworks support coming soon</p>
 	  
 	</div>
 
@@ -145,13 +139,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2022/04/21/8f58ded6-5e75-40dd-9c37-999f4e8b65fc/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2022/04/21/8f58ded6-5e75-40dd-9c37-999f4e8b65fc/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2022/04/19/23b6737e-2c90-4408-a1fb-a00c67b84704/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2022/04/19/23b6737e-2c90-4408-a1fb-a00c67b84704/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -213,7 +207,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Technology/">Technology<span>2</span></a></li>
+    <li><a href="/blog/categories/Technology/">Technology<span>2</span></a></li>
   </li>
 
     </ul>
@@ -226,7 +220,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/hardware/">hardware<span>12</span></a></li> <li><a href="/tags/acceleration/">acceleration<span>3</span></a></li> <li><a href="/tags/AI/">AI<span>23</span></a></li> <li><a href="/tags/gpu-alternative/">gpu alternative<span>1</span></a></li> <li><a href="/tags/graphcore/">graphcore<span>1</span></a></li>
+  <li><a href="/blog/tags/hardware/">hardware<span>12</span></a></li> <li><a href="/blog/tags/acceleration/">acceleration<span>3</span></a></li> <li><a href="/blog/tags/AI/">AI<span>23</span></a></li> <li><a href="/blog/tags/gpu-alternative/">gpu alternative<span>1</span></a></li> <li><a href="/blog/tags/graphcore/">graphcore<span>1</span></a></li>
 
     </ul>
 	</div>
@@ -266,15 +260,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -288,7 +282,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,36 +125,22 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="docker-usage-issues"><a href="#docker-usage-issues" class="headerlink" title="docker usage issues"></a>docker usage issues</h1><p>login mysql with empty password then execute command to make it remotely available:</p>
+	  <p>login mysql with empty password then execute command to make it remotely available:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot --password= -e <span class="string">&quot;grant all privileges on *.* to root@&#x27;%&#x27; identified by &#x27;&#x27; with grant option; commit;&quot;</span></span><br></pre></td></tr></table></figure>
-
 <p>create volume and attach volume to container, since containers will be reset after system restarts.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker volume create &lt;volume_name&gt;</span><br><span class="line">docker run -it -d --<span class="built_in">rm</span> -v &lt;volume_name&gt;:&lt;container_mountpoint&gt; --name &lt;container_name&gt; &lt;image_name&gt;</span><br><span class="line">docker volume inspect &lt;volume_name&gt; <span class="comment"># get info on created volume</span></span><br></pre></td></tr></table></figure>
-
-<p>when using mindsdb, it sucks because having bad pypi mirrors.</p>
-<p>set pip index url globally:</p>
+<p>when using mindsdb, it sucks because having bad pypi mirrors.<br>set pip index url globally:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip config <span class="built_in">set</span> global.index-url https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
-
 <p>or pass it as environment variable:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -d -e PIP_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple -n &lt;container_name&gt; &lt;image_name&gt;</span><br></pre></td></tr></table></figure>
-
-<p>if you want to save container states into images, use <code>docker commit &lt;container_name&gt; &lt;image_name&gt;[:image_tag]</code></p>
-<p>Keep in mind that the <code>docker commit</code> command only saves the changes made to a container’s file system. It does not save any changes made to the container’s settings or network configurations. To save all changes made to a container, including settings and network configurations, you can use the <code>docker export</code> and <code>docker import</code> commands instead.</p>
-<p>when exporting ports, if not specifying host ip, you cannot reach the service inside the container. do this instead: <code>docker run -p 0.0.0.0:&lt;host_port&gt;:&lt;container_port&gt; &lt;rest_commands&gt;</code></p>
-<p>it seems to be the proxy (fastgithub). disable http proxy so we can connect to container again, or use clash to make rules to let “localhost” or subnet requests passing through.</p>
-<p>if you want to change ip routings or some other configurations passed when <code>docker run</code>, you need to change the file called <code>hostconfig.json</code> located in <code>/var/lib/docker/containers/&lt;container_id&gt;</code> with <code>PortBindings</code> sections. you stop the container first. find and change the config file then start it. <a target="_blank" rel="noopener" href="https://ahelpme.com/software/docker/docker-change-the-port-mapping-of-an-existing-container/#:~:text=Here%20is%20the%20whole%20procedure%3A%201%20Stop%20the,Docker%20container%20service.%205%20Start%20the%20docker%20container.">tutorial</a></p>
-<p>seems not working. fuck.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&quot;PortBindings&quot;: &#123;</span><br><span class="line">    &quot;80/tcp&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;HostPort&quot;: &quot;8080&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>containers can only contact each other if they share the same network. better give unique ip for each container within same network. it can also use container name as host name instead of static ip. <a target="_blank" rel="noopener" href="https://maximorlov.com/4-reasons-why-your-docker-containers-cant-talk-to-each-other/">tutorial</a></p>
-<p>create a network (not overlapping with anything shown in <code>ifconfig</code>, notice the subnet mask):</p>
+<p>if you want to save container states into images, use <code>docker commit &lt;container_name&gt; &lt;image_name&gt;[:image_tag]</code><br>Keep in mind that the <code>docker commit</code> command only saves the changes made to a container’s file system. It does not save any changes made to the container’s settings or network configurations. To save all changes made to a container, including settings and network configurations, you can use the <code>docker export</code> and <code>docker import</code> commands instead.<br>when exporting ports, if not specifying host ip, you cannot reach the service inside the container. do this instead: <code>docker run -p 0.0.0.0:&lt;host_port&gt;:&lt;container_port&gt; &lt;rest_commands&gt;</code><br>it seems to be the proxy (fastgithub). disable http proxy so we can connect to container again, or use clash to make rules to let “localhost” or subnet requests passing through.<br>if you want to change ip routings or some other configurations passed when <code>docker run</code>, you need to change the file called <code>hostconfig.json</code> located in <code>/var/lib/docker/containers/&lt;container_id&gt;</code> with <code>PortBindings</code> sections. you stop the container first. find and change the config file then start it. <a target="_blank" rel="noopener" href="https://ahelpme.com/software/docker/docker-change-the-port-mapping-of-an-existing-container/#:~:text=Here%20is%20the%20whole%20procedure%3A%201%20Stop%20the,Docker%20container%20service.%205%20Start%20the%20docker%20container.">tutorial</a><br>seems not working. fuck.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&quot;PortBindings&quot;: &#123;</span><br><span class="line">&quot;80/tcp&quot;: [</span><br><span class="line">&#123;</span><br><span class="line">&quot;HostPort&quot;: &quot;8080&quot;</span><br><span class="line">&#125;</span><br><span class="line">],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>containers can only contact each other if they share the same network. better give unique ip for each container within same network. it can also use container name as host name instead of static ip. <a target="_blank" rel="noopener" href="https://maximorlov.com/4-reasons-why-your-docker-containers-cant-talk-to-each-other/">tutorial</a><br>create a network (not overlapping with anything shown in <code>ifconfig</code>, notice the subnet mask):</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network create --subnet=172.18.0.0/16 &lt;network_name&gt;</span><br></pre></td></tr></table></figure>
-
 <p>start container with given network (again not overlapping with addresses in <code>ifconfig</code>, not the starting address):</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --<span class="built_in">rm</span> -d -it --net &lt;network_name&gt; --ip &lt;ipaddress&gt; --name &lt;container_name&gt;</span><br></pre></td></tr></table></figure>
 <p>to check what ip the container is at:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect &lt;container_id/container_name&gt; | grep IPAddress</span><br></pre></td></tr></table></figure>
-
 <p>now you might can talk to the container without port mappings.</p>
 	  
 	</div>
@@ -168,13 +154,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2022/12/11/f867e0e7-a473-4b9a-af9d-d01e7d4c871f/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2022/12/11/f867e0e7-a473-4b9a-af9d-d01e7d4c871f/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2022/12/10/f79db9b7-459c-4d4b-9922-b528ccee0c30/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2022/12/10/f79db9b7-459c-4d4b-9922-b528ccee0c30/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -236,7 +222,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Docker/">Docker<span>3</span></a></li>
+    <li><a href="/blog/categories/Docker/">Docker<span>3</span></a></li>
   </li>
 
     </ul>
@@ -249,7 +235,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/Docker/">Docker<span>4</span></a></li> <li><a href="/tags/MySQL/">MySQL<span>1</span></a></li> <li><a href="/tags/Databases/">Databases<span>1</span></a></li> <li><a href="/tags/Volumes/">Volumes<span>1</span></a></li> <li><a href="/tags/Pip-URLs/">Pip URLs<span>1</span></a></li> <li><a href="/tags/Container-Management/">Container Management<span>1</span></a></li> <li><a href="/tags/Networking/">Networking<span>1</span></a></li>
+  <li><a href="/blog/tags/Docker/">Docker<span>4</span></a></li> <li><a href="/blog/tags/MySQL/">MySQL<span>1</span></a></li> <li><a href="/blog/tags/Databases/">Databases<span>1</span></a></li> <li><a href="/blog/tags/Volumes/">Volumes<span>1</span></a></li> <li><a href="/blog/tags/Pip-URLs/">Pip URLs<span>1</span></a></li> <li><a href="/blog/tags/Container-Management/">Container Management<span>1</span></a></li> <li><a href="/blog/tags/Networking/">Networking<span>1</span></a></li>
 
     </ul>
 	</div>
@@ -289,15 +275,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -311,7 +297,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

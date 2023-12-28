@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,24 +125,7 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="Chatbot-Self-hosted-Model-Cloud-Deploy-Cloud-services-Free-website-hosting-service"><a href="#Chatbot-Self-hosted-Model-Cloud-Deploy-Cloud-services-Free-website-hosting-service" class="headerlink" title="Chatbot, Self-hosted Model, Cloud Deploy, Cloud services, Free website hosting service"></a>Chatbot, Self-hosted Model, Cloud Deploy, Cloud services, Free website hosting service</h1><p><a target="_blank" rel="noopener" href="https://vercel.com/">vercel</a> hosts frontend only apps, could be useful if you want.</p>
-<p>可以提取关键词然后到百度必应上面搜索 获取相关内容 注意语种一致性</p>
-<p>search huggingface with julia or python:<br>huggingface_hub(python)</p>
-<p>可以用huggingface的api来翻译 对接英文的chatbot (blenderbot, dialo-gpt)<br>add timeout to these api requests</p>
-<p>可以把训练好的中文chatbot放到huggingface上面去 用kaggle放<br><a target="_blank" rel="noopener" href="https://github.com/yangjianxin1/GPT2-chitchat">https://github.com/yangjianxin1/GPT2-chitchat</a></p>
-<p>could use this method to generate title for videos. i mean generally.</p>
-<p>could host the model on huggingface, or baidu aistudio, heroku or your own machine</p>
-<p>configure accelerated inference on huggingface (free for cpu, paid gpu):<br><a target="_blank" rel="noopener" href="https://huggingface.co/docs/api-inference/quicktour">https://huggingface.co/docs/api-inference/quicktour</a></p>
-<p>huggingface inference apis:<br><a target="_blank" rel="noopener" href="https://huggingface.co/inference-api">https://huggingface.co/inference-api</a></p>
-<p>huggingface conversational (chatbot) models:<br><a target="_blank" rel="noopener" href="https://huggingface.co/models?pipeline_tag=conversational&sort=downloads">https://huggingface.co/models?pipeline_tag=conversational&amp;sort=downloads</a></p>
-<p>heroku, use fastapi as interface:<br><a target="_blank" rel="noopener" href="https://fastapi.tiangolo.com/">https://fastapi.tiangolo.com</a><br><a target="_blank" rel="noopener" href="https://www.kaggle.com/getting-started/208405">https://www.kaggle.com/getting-started/208405</a><br><a target="_blank" rel="noopener" href="https://signup.heroku.com/">https://signup.heroku.com</a></p>
-<p>heroku alternatives:<br>back4app, google app engine</p>
-<p>aistudio api, maybe you need to train or find a paddpepaddle based chatbot:<br><a target="_blank" rel="noopener" href="https://ai.baidu.com/ai-doc/AISTUDIO/bk3e382cq#%E5%88%9B%E5%BB%BA%E5%9C%A8%E7%BA%BFapi%E6%9C%8D%E5%8A%A1">https://ai.baidu.com/ai-doc/AISTUDIO/bk3e382cq#创建在线api服务</a><br>一个项目可以创建至多五个沙盒服务, 并选择其中一个沙盒服务部署为线上服务.<br>沙盒服务如果连续超过24小时无调用将自动调整为暂停状态.<br>线上服务如果连续超过14天无调用将自动调整为暂停状态.</p>
-<p>paddlenlp<br><a target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/projectdetail/3723144?channelType=0&channel=0">https://aistudio.baidu.com/aistudio/projectdetail/3723144?channelType=0&amp;channel=0</a></p>
-<p>paddlepaddle chat model:<br>plato2<br><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/Knover">https://github.com/PaddlePaddle/Knover</a><br><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/Knover/tree/develop/projects/PLATO-2">https://github.com/PaddlePaddle/Knover/tree/develop/projects/PLATO-2</a><br><a target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/projectdetail/1886227?channelType=0&channel=0">https://aistudio.baidu.com/aistudio/projectdetail/1886227?channelType=0&amp;channel=0</a></p>
-<p>中文chatbot:<br><a target="_blank" rel="noopener" href="https://github.com/zhaoyingjun/chatbot">https://github.com/zhaoyingjun/chatbot</a><br><a target="_blank" rel="noopener" href="https://github.com/Dimsmary/Ossas_ChatBot">https://github.com/Dimsmary/Ossas_ChatBot</a></p>
-<p>教程<br><a target="_blank" rel="noopener" href="https://github.com/lcdevelop/ChatBotCourse">https://github.com/lcdevelop/ChatBotCourse</a><br><a target="_blank" rel="noopener" href="https://github.com/fendouai/Awesome-Chatbot">https://github.com/fendouai/Awesome-Chatbot</a></p>
-<p>语料库<br><a target="_blank" rel="noopener" href="https://github.com/codemayq/chinese_chatbot_corpus">https://github.com/codemayq/chinese_chatbot_corpus</a></p>
+	  <p><a target="_blank" rel="noopener" href="https://vercel.com/">vercel</a> hosts frontend only apps, could be useful if you want.<br>可以提取关键词然后到百度必应上面搜索 获取相关内容 注意语种一致性<br>search huggingface with julia or python:<br>huggingface_hub(python)<br>可以用huggingface的api来翻译 对接英文的chatbot (blenderbot, dialo-gpt)<br>add timeout to these api requests<br>可以把训练好的中文chatbot放到huggingface上面去 用kaggle放<br><a target="_blank" rel="noopener" href="https://github.com/yangjianxin1/GPT2-chitchat">https://github.com/yangjianxin1/GPT2-chitchat</a><br>could use this method to generate title for videos. i mean generally.<br>could host the model on huggingface, or baidu aistudio, heroku or your own machine<br>configure accelerated inference on huggingface (free for cpu, paid gpu):<br><a target="_blank" rel="noopener" href="https://huggingface.co/docs/api-inference/quicktour">https://huggingface.co/docs/api-inference/quicktour</a><br>huggingface inference apis:<br><a target="_blank" rel="noopener" href="https://huggingface.co/inference-api">https://huggingface.co/inference-api</a><br>huggingface conversational (chatbot) models:<br><a target="_blank" rel="noopener" href="https://huggingface.co/models?pipeline_tag=conversational&sort=downloads">https://huggingface.co/models?pipeline_tag=conversational&amp;sort=downloads</a><br>heroku, use fastapi as interface:<br><a target="_blank" rel="noopener" href="https://fastapi.tiangolo.com/">https://fastapi.tiangolo.com</a><br><a target="_blank" rel="noopener" href="https://www.kaggle.com/getting-started/208405">https://www.kaggle.com/getting-started/208405</a><br><a target="_blank" rel="noopener" href="https://signup.heroku.com/">https://signup.heroku.com</a><br>heroku alternatives:<br>back4app, google app engine<br>aistudio api, maybe you need to train or find a paddpepaddle based chatbot:<br><a target="_blank" rel="noopener" href="https://ai.baidu.com/ai-doc/AISTUDIO/bk3e382cq#%E5%88%9B%E5%BB%BA%E5%9C%A8%E7%BA%BFapi%E6%9C%8D%E5%8A%A1">https://ai.baidu.com/ai-doc/AISTUDIO/bk3e382cq#创建在线api服务</a><br>一个项目可以创建至多五个沙盒服务, 并选择其中一个沙盒服务部署为线上服务.<br>沙盒服务如果连续超过24小时无调用将自动调整为暂停状态.<br>线上服务如果连续超过14天无调用将自动调整为暂停状态.<br>paddlenlp<br><a target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/projectdetail/3723144?channelType=0&channel=0">https://aistudio.baidu.com/aistudio/projectdetail/3723144?channelType=0&amp;channel=0</a><br>paddlepaddle chat model:<br>plato2<br><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/Knover">https://github.com/PaddlePaddle/Knover</a><br><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/Knover/tree/develop/projects/PLATO-2">https://github.com/PaddlePaddle/Knover/tree/develop/projects/PLATO-2</a><br><a target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/projectdetail/1886227?channelType=0&channel=0">https://aistudio.baidu.com/aistudio/projectdetail/1886227?channelType=0&amp;channel=0</a><br>中文chatbot:<br><a target="_blank" rel="noopener" href="https://github.com/zhaoyingjun/chatbot">https://github.com/zhaoyingjun/chatbot</a><br><a target="_blank" rel="noopener" href="https://github.com/Dimsmary/Ossas_ChatBot">https://github.com/Dimsmary/Ossas_ChatBot</a><br>教程<br><a target="_blank" rel="noopener" href="https://github.com/lcdevelop/ChatBotCourse">https://github.com/lcdevelop/ChatBotCourse</a><br><a target="_blank" rel="noopener" href="https://github.com/fendouai/Awesome-Chatbot">https://github.com/fendouai/Awesome-Chatbot</a><br>语料库<br><a target="_blank" rel="noopener" href="https://github.com/codemayq/chinese_chatbot_corpus">https://github.com/codemayq/chinese_chatbot_corpus</a></p>
 	  
 	</div>
 
@@ -155,13 +138,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2022/07/14/4887de13-b333-4e89-b106-dcf7ddcef5cf/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2022/07/14/4887de13-b333-4e89-b106-dcf7ddcef5cf/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2022/07/14/f8de6157-4e2e-49e7-8d1b-8860e4e8184a/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2022/07/14/f8de6157-4e2e-49e7-8d1b-8860e4e8184a/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -223,7 +206,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/AI-development/">AI development<span>2</span></a></li>
+    <li><a href="/blog/categories/AI-development/">AI development<span>2</span></a></li>
   </li>
 
     </ul>
@@ -236,7 +219,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/chatbot/">chatbot<span>8</span></a></li> <li><a href="/tags/pyjom/">pyjom<span>42</span></a></li> <li><a href="/tags/%E7%99%BD%E5%AB%96/">白嫖<span>6</span></a></li> <li><a href="/tags/conversation/">conversation<span>4</span></a></li> <li><a href="/tags/cloud/">cloud<span>1</span></a></li> <li><a href="/tags/model-zoo/">model zoo<span>4</span></a></li> <li><a href="/tags/training-data/">training data<span>1</span></a></li>
+  <li><a href="/blog/tags/chatbot/">chatbot<span>8</span></a></li> <li><a href="/blog/tags/pyjom/">pyjom<span>42</span></a></li> <li><a href="/blog/tags/%E7%99%BD%E5%AB%96/">白嫖<span>6</span></a></li> <li><a href="/blog/tags/conversation/">conversation<span>4</span></a></li> <li><a href="/blog/tags/cloud/">cloud<span>1</span></a></li> <li><a href="/blog/tags/model-zoo/">model zoo<span>4</span></a></li> <li><a href="/blog/tags/training-data/">training data<span>1</span></a></li>
 
     </ul>
 	</div>
@@ -276,15 +259,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -298,7 +281,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

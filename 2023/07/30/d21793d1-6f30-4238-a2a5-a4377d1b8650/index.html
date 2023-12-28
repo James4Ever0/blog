@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,14 +125,10 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="Docker-container-storage-quota"><a href="#Docker-container-storage-quota" class="headerlink" title="Docker container storage quota"></a>Docker container storage quota</h1><p><code>--storage-opt</code> is supported only for overlay over xfs with ‘pquota’ mount option.</p>
-<p>change data-root to somewhere else in <code>/etc/docker/daemon.json</code></p>
-<p>edit <code>/etc/fstab</code> and add our xfs block on new line (find uuid using blkid)</p>
+	  <h1 id="Docker-container-storage-quota"><a href="#Docker-container-storage-quota" class="headerlink" title="Docker container storage quota"></a>Docker container storage quota</h1><p><code>--storage-opt</code> is supported only for overlay over xfs with ‘pquota’ mount option.<br>change data-root to somewhere else in <code>/etc/docker/daemon.json</code><br>edit <code>/etc/fstab</code> and add our xfs block on new line (find uuid using blkid)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --storage-opt size=10M --<span class="built_in">rm</span> -it alpine</span><br></pre></td></tr></table></figure>
-
 <p>when using <a target="_blank" rel="noopener" href="https://docs.docker.com/storage/storagedriver/device-mapper-driver">devmapper</a> make sure size is greater than 10G (default)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --storage-opt size=11G --r<span class="string">&#x27;m -it alpine</span></span><br></pre></td></tr></table></figure>
-
 <p>zfs, vfs (not a unionfs, but for testing) storage drivers also supports disk quota. you may use it by changing <code>data-root</code> to the related storage device.</p>
 	  
 	</div>
@@ -146,13 +142,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2023/08/07/73f2a784-813b-4c25-bde5-61f690b56b9f/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2023/08/07/73f2a784-813b-4c25-bde5-61f690b56b9f/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2023/07/27/bf0191c3-1c1c-4bf6-a7ce-742e4f5f58b2/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2023/07/27/bf0191c3-1c1c-4bf6-a7ce-742e4f5f58b2/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -214,7 +210,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Docker/">Docker<span>3</span></a></li>
+    <li><a href="/blog/categories/Docker/">Docker<span>3</span></a></li>
   </li>
 
     </ul>
@@ -227,7 +223,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/Docker/">Docker<span>4</span></a></li> <li><a href="/tags/storage/">storage<span>2</span></a></li> <li><a href="/tags/container/">container<span>1</span></a></li> <li><a href="/tags/quota/">quota<span>1</span></a></li> <li><a href="/tags/overlay/">overlay<span>1</span></a></li> <li><a href="/tags/XFS/">XFS<span>1</span></a></li> <li><a href="/tags/devmapper/">devmapper<span>1</span></a></li>
+  <li><a href="/blog/tags/Docker/">Docker<span>4</span></a></li> <li><a href="/blog/tags/storage/">storage<span>2</span></a></li> <li><a href="/blog/tags/container/">container<span>1</span></a></li> <li><a href="/blog/tags/quota/">quota<span>1</span></a></li> <li><a href="/blog/tags/overlay/">overlay<span>1</span></a></li> <li><a href="/blog/tags/XFS/">XFS<span>1</span></a></li> <li><a href="/blog/tags/devmapper/">devmapper<span>1</span></a></li>
 
     </ul>
 	</div>
@@ -267,15 +263,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -289,7 +285,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,56 +125,7 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="video-generation-modification-vfx-from-text"><a href="#video-generation-modification-vfx-from-text" class="headerlink" title="video generation&#x2F;modification (vfx) from text"></a>video generation&#x2F;modification (vfx) from text</h1><p>达摩院放出了<a target="_blank" rel="noopener" href="https://modelscope.cn/models/damo/text-to-video-synthesis/summary">文本生成视频模型</a>，支持英文输入</p>
-<p><a target="_blank" rel="noopener" href="https://huggingface.co/damo-vilab/modelscope-damo-text-to-video-synthesis">huggingface space</a></p>
-<p>model weights:</p>
-<table>
-<thead>
-<tr>
-<th>weight path</th>
-<th>weight size</th>
-<th>model name</th>
-<th>author</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/damo-vilab/text-to-video-ms-1.7b">text-to-video-ms-1.7b</a></td>
-<td>unknown</td>
-<td>unknown</td>
-<td>damo-vilab</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/damo-vilab/modelscope-damo-text-to-video-synthesis">modelscope-damo-text-to-video-synthesis</a></td>
-<td>unknown</td>
-<td>unknown</td>
-<td>damo-vilab</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/damo-vilab/text-to-video-ms-1.7b-legacy">text-to-video-ms-1.7b-legacy</a></td>
-<td>unknown</td>
-<td>unknown</td>
-<td>damo-vilab</td>
-</tr>
-</tbody></table>
-<p>can also use from modelscope:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> modelscope.pipelines <span class="keyword">import</span> pipeline</span><br><span class="line"><span class="keyword">from</span> modelscope.utils.constant <span class="keyword">import</span> Tasks</span><br><span class="line"></span><br><span class="line">p = pipeline(<span class="string">&#x27;text-to-video-synthesis&#x27;</span>, <span class="string">&#x27;damo/text-to-video-synthesis&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://huggingface.co/spaces/PAIR">PAIR</a> now releases <a target="_blank" rel="noopener" href="https://huggingface.co/spaces/PAIR/Text2Video-Zero">Text2Video-Zero</a> which leverages existing stable diffusion models to generate video. also released a bunch of controlnet dreambooth weights.</p>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://github.com/lucidrains">lucidrains</a> is a workaholic on transformer implementations. we should scrape all the repos and index them. there are <a target="_blank" rel="noopener" href="https://github.com/lucidrains/memory-efficient-attention-pytorch">faster language models</a> to train.</p>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://github.com/lucidrains/phenaki-pytorch">Phenaki Video</a>, which uses Mask GIT to produce text guided videos of up to 2 minutes in length, in Pytorch</p>
-<p><a target="_blank" rel="noopener" href="https://dreamix-video-editing.github.io/">dreamix</a> (not open-source)</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/timothybrooks/instruct-pix2pix">instruct-pix2pix</a> requires 16GB+ VRAM</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/omerbt/Text2LIVE">text2live</a> modify video by text prompt (such as add fire in mouth)</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/lucidrains/recurrent-interface-network-pytorch">recurrent-interface-network-pytorch</a> using diffusion to generate images and video</p>
-<p>high quality! <a target="_blank" rel="noopener" href="https://github.com/lucidrains/imagen-pytorch/blob/main/imagen_pytorch/imagen_video.py">imagegen-video code</a> with <a target="_blank" rel="noopener" href="https://imagen.research.google/video/">demo</a> and <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2210.02303.pdf">paper</a></p>
-<p>抄视频 视频的时间要讲究 看看是抄一年前的好还是抄刚刚发布的好</p>
-<p>在发布的一个视频当中 最多抄某个作者的两三个符合要求的片段</p>
-<p>use editly smooth&#x2F;slick transitions and subtitles to beat the copy-detection algorithm, also consider color change in ffmpeg</p>
-<p>动态 专栏也可以抄</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/lucidrains/make-a-video-pytorch">make-a-video</a></p>
-<p>谷歌AI歌手震撼来袭！AudioLM简单听几秒，便能谱曲写歌 <a target="_blank" rel="noopener" href="https://www.kuxai.com/article/398">https://www.kuxai.com/article/398</a></p>
+	  <h2 id="达摩院放出了文本生成视频模型，支持英文输入huggingface-spacemodel-weights-weight-path-weight-size-model-name-author-–-–-–-–-text-to-video-ms-1-7b-unknown-unknown-damo-vilab-modelscope-damo-text-to-video-synthesis-unknown-unknown-damo-vilab-text-to-video-ms-1-7b-legacy-unknown-unknown-damo-vilab-can-also-use-from-modelscope"><a href="#达摩院放出了文本生成视频模型，支持英文输入huggingface-spacemodel-weights-weight-path-weight-size-model-name-author-–-–-–-–-text-to-video-ms-1-7b-unknown-unknown-damo-vilab-modelscope-damo-text-to-video-synthesis-unknown-unknown-damo-vilab-text-to-video-ms-1-7b-legacy-unknown-unknown-damo-vilab-can-also-use-from-modelscope" class="headerlink" title="达摩院放出了文本生成视频模型，支持英文输入huggingface spacemodel weights:| weight path | weight size | model name | author || – | – | – | – || text-to-video-ms-1.7b | unknown | unknown | damo-vilab || modelscope-damo-text-to-video-synthesis | unknown | unknown | damo-vilab || text-to-video-ms-1.7b-legacy | unknown | unknown | damo-vilab |can also use from modelscope:"></a>达摩院放出了<a target="_blank" rel="noopener" href="https://modelscope.cn/models/damo/text-to-video-synthesis/summary">文本生成视频模型</a>，支持英文输入<br><a target="_blank" rel="noopener" href="https://huggingface.co/damo-vilab/modelscope-damo-text-to-video-synthesis">huggingface space</a><br>model weights:<br>| weight path | weight size | model name | author |<br>| – | – | – | – |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/damo-vilab/text-to-video-ms-1.7b">text-to-video-ms-1.7b</a> | unknown | unknown | damo-vilab |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/damo-vilab/modelscope-damo-text-to-video-synthesis">modelscope-damo-text-to-video-synthesis</a> | unknown | unknown | damo-vilab |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/damo-vilab/text-to-video-ms-1.7b-legacy">text-to-video-ms-1.7b-legacy</a> | unknown | unknown | damo-vilab |<br>can also use from modelscope:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> modelscope.pipelines <span class="keyword">import</span> pipeline</span><br><span class="line"><span class="keyword">from</span> modelscope.utils.constant <span class="keyword">import</span> Tasks</span><br><span class="line">p = pipeline(<span class="string">&#x27;text-to-video-synthesis&#x27;</span>, <span class="string">&#x27;damo/text-to-video-synthesis&#x27;</span>)</span><br></pre></td></tr></table></figure></h2><h2 id="PAIR-now-releases-Text2Video-Zero-which-leverages-existing-stable-diffusion-models-to-generate-video-also-released-a-bunch-of-controlnet-dreambooth-weights"><a href="#PAIR-now-releases-Text2Video-Zero-which-leverages-existing-stable-diffusion-models-to-generate-video-also-released-a-bunch-of-controlnet-dreambooth-weights" class="headerlink" title="PAIR now releases Text2Video-Zero which leverages existing stable diffusion models to generate video. also released a bunch of controlnet dreambooth weights."></a><a target="_blank" rel="noopener" href="https://huggingface.co/spaces/PAIR">PAIR</a> now releases <a target="_blank" rel="noopener" href="https://huggingface.co/spaces/PAIR/Text2Video-Zero">Text2Video-Zero</a> which leverages existing stable diffusion models to generate video. also released a bunch of controlnet dreambooth weights.</h2><h2 id="lucidrains-is-a-workaholic-on-transformer-implementations-we-should-scrape-all-the-repos-and-index-them-there-are-faster-language-models-to-train"><a href="#lucidrains-is-a-workaholic-on-transformer-implementations-we-should-scrape-all-the-repos-and-index-them-there-are-faster-language-models-to-train" class="headerlink" title="lucidrains is a workaholic on transformer implementations. we should scrape all the repos and index them. there are faster language models to train."></a><a target="_blank" rel="noopener" href="https://github.com/lucidrains">lucidrains</a> is a workaholic on transformer implementations. we should scrape all the repos and index them. there are <a target="_blank" rel="noopener" href="https://github.com/lucidrains/memory-efficient-attention-pytorch">faster language models</a> to train.</h2><p><a target="_blank" rel="noopener" href="https://github.com/lucidrains/phenaki-pytorch">Phenaki Video</a>, which uses Mask GIT to produce text guided videos of up to 2 minutes in length, in Pytorch<br><a target="_blank" rel="noopener" href="https://dreamix-video-editing.github.io/">dreamix</a> (not open-source)<br><a target="_blank" rel="noopener" href="https://github.com/timothybrooks/instruct-pix2pix">instruct-pix2pix</a> requires 16GB+ VRAM<br><a target="_blank" rel="noopener" href="https://github.com/omerbt/Text2LIVE">text2live</a> modify video by text prompt (such as add fire in mouth)<br><a target="_blank" rel="noopener" href="https://github.com/lucidrains/recurrent-interface-network-pytorch">recurrent-interface-network-pytorch</a> using diffusion to generate images and video<br>high quality! <a target="_blank" rel="noopener" href="https://github.com/lucidrains/imagen-pytorch/blob/main/imagen_pytorch/imagen_video.py">imagegen-video code</a> with <a target="_blank" rel="noopener" href="https://imagen.research.google/video/">demo</a> and <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2210.02303.pdf">paper</a><br>抄视频 视频的时间要讲究 看看是抄一年前的好还是抄刚刚发布的好<br>在发布的一个视频当中 最多抄某个作者的两三个符合要求的片段<br>use editly smooth&#x2F;slick transitions and subtitles to beat the copy-detection algorithm, also consider color change in ffmpeg<br>动态 专栏也可以抄<br><a target="_blank" rel="noopener" href="https://github.com/lucidrains/make-a-video-pytorch">make-a-video</a><br>谷歌AI歌手震撼来袭！AudioLM简单听几秒，便能谱曲写歌 <a target="_blank" rel="noopener" href="https://www.kuxai.com/article/398">https://www.kuxai.com/article/398</a></p>
 	  
 	</div>
 
@@ -187,13 +138,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2022/10/10/473bdfde-c954-47bf-8374-eaf94dff3e14/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2022/10/10/473bdfde-c954-47bf-8374-eaf94dff3e14/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2022/10/07/8af19f01-dc07-443f-a6fc-fe16550b337a/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2022/10/07/8af19f01-dc07-443f-a6fc-fe16550b337a/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -255,7 +206,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/AI-Video-Generation/">AI Video Generation<span>1</span></a></li>
+    <li><a href="/blog/categories/AI-Video-Generation/">AI Video Generation<span>1</span></a></li>
   </li>
 
     </ul>
@@ -268,7 +219,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/GitHub/">GitHub<span>12</span></a></li> <li><a href="/tags/text-to-video/">text-to-video<span>2</span></a></li> <li><a href="/tags/video-generation/">video generation<span>5</span></a></li> <li><a href="/tags/AI/">AI<span>23</span></a></li> <li><a href="/tags/tools/">tools<span>7</span></a></li> <li><a href="/tags/Hugging-Face/">Hugging Face<span>2</span></a></li> <li><a href="/tags/ModelScope/">ModelScope<span>1</span></a></li> <li><a href="/tags/subtitles/">subtitles<span>1</span></a></li> <li><a href="/tags/editing/">editing<span>1</span></a></li> <li><a href="/tags/AudioLM/">AudioLM<span>1</span></a></li> <li><a href="/tags/music-composition/">music composition<span>1</span></a></li>
+  <li><a href="/blog/tags/GitHub/">GitHub<span>12</span></a></li> <li><a href="/blog/tags/text-to-video/">text-to-video<span>2</span></a></li> <li><a href="/blog/tags/video-generation/">video generation<span>5</span></a></li> <li><a href="/blog/tags/AI/">AI<span>23</span></a></li> <li><a href="/blog/tags/tools/">tools<span>7</span></a></li> <li><a href="/blog/tags/Hugging-Face/">Hugging Face<span>2</span></a></li> <li><a href="/blog/tags/ModelScope/">ModelScope<span>1</span></a></li> <li><a href="/blog/tags/subtitles/">subtitles<span>1</span></a></li> <li><a href="/blog/tags/editing/">editing<span>1</span></a></li> <li><a href="/blog/tags/AudioLM/">AudioLM<span>1</span></a></li> <li><a href="/blog/tags/music-composition/">music composition<span>1</span></a></li>
 
     </ul>
 	</div>
@@ -308,15 +259,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -330,7 +281,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

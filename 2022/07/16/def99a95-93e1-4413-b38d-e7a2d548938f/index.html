@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,19 +125,7 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="github-Gitee-大文件大型repo如何上传"><a href="#github-Gitee-大文件大型repo如何上传" class="headerlink" title="github Gitee 大文件大型repo如何上传"></a>github Gitee 大文件大型repo如何上传</h1><p>using github&#x2F;gitee apis with watchdog.</p>
-<p>exclude xonsh yaml(.yml) files</p>
-<p>if you decide to upload the thing to github privately, and to sync among devices, then you need to deploy and share your ssh key.</p>
-<p>run git related command after opened the vscode repeatedly, just like notable.</p>
-<p>before git submodule .git folder deletion you may record the remote origin url to somewhere in the base folder.</p>
-<p>you could patch the vscode launcher somehow, read the working directory to determine to repeatedly sync or not.</p>
-<p>git init is a manual process.</p>
-<p>also you might need five filelocks: one for main loop process running,  one for git sync, one for local sync, two for remote sync.</p>
-<p>use <code>$@</code> or <code>$*</code> will do to pass arguments to the vscode binary.</p>
-<p>首先不能follow symlink</p>
-<p>其次忽略二进制文件 忽略特定后缀以外的文件</p>
-<p>第一次建立的时候 递归扫描所有文件 去除大文件 append到.gitignore根目录下面</p>
-<p>下一次 git add .之前 利用git的功能寻找有变化的文件目录 把大文件目录append到.gitignore里面</p>
+	  <p>using github&#x2F;gitee apis with watchdog.<br>exclude xonsh yaml(.yml) files<br>if you decide to upload the thing to github privately, and to sync among devices, then you need to deploy and share your ssh key.<br>run git related command after opened the vscode repeatedly, just like notable.<br>before git submodule .git folder deletion you may record the remote origin url to somewhere in the base folder.<br>you could patch the vscode launcher somehow, read the working directory to determine to repeatedly sync or not.<br>git init is a manual process.<br>also you might need five filelocks: one for main loop process running,  one for git sync, one for local sync, two for remote sync.<br>use <code>$@</code> or <code>$*</code> will do to pass arguments to the vscode binary.<br>首先不能follow symlink<br>其次忽略二进制文件 忽略特定后缀以外的文件<br>第一次建立的时候 递归扫描所有文件 去除大文件 append到.gitignore根目录下面<br>下一次 git add .之前 利用git的功能寻找有变化的文件目录 把大文件目录append到.gitignore里面</p>
 	  
 	</div>
 
@@ -150,13 +138,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2022/07/17/a2de93ec-b01d-4446-8bf2-746b937847d9/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2022/07/17/a2de93ec-b01d-4446-8bf2-746b937847d9/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2022/07/15/578cd41c-a854-463d-a38c-4ae95dacccfa/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2022/07/15/578cd41c-a854-463d-a38c-4ae95dacccfa/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -218,7 +206,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/API/">API<span>5</span></a></li>
+    <li><a href="/blog/categories/API/">API<span>5</span></a></li>
   </li>
 
     </ul>
@@ -231,7 +219,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/sync/">sync<span>9</span></a></li> <li><a href="/tags/cloud-sync/">cloud sync<span>2</span></a></li> <li><a href="/tags/system-manage/">system manage<span>17</span></a></li> <li><a href="/tags/git-manage/">git manage<span>1</span></a></li> <li><a href="/tags/repo-manage/">repo manage<span>1</span></a></li>
+  <li><a href="/blog/tags/sync/">sync<span>9</span></a></li> <li><a href="/blog/tags/cloud-sync/">cloud sync<span>2</span></a></li> <li><a href="/blog/tags/system-manage/">system manage<span>17</span></a></li> <li><a href="/blog/tags/git-manage/">git manage<span>1</span></a></li> <li><a href="/blog/tags/repo-manage/">repo manage<span>1</span></a></li>
 
     </ul>
 	</div>
@@ -271,15 +259,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -293,7 +281,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

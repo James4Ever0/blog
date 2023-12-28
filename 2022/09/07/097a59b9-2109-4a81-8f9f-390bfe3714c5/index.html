@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,40 +125,13 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="vapoursynth-光流算法-补帧-画面优化-denoising"><a href="#vapoursynth-光流算法-补帧-画面优化-denoising" class="headerlink" title="vapoursynth 光流算法 补帧 画面优化 denoising"></a>vapoursynth 光流算法 补帧 画面优化 denoising</h1><p><a target="_blank" rel="noopener" href="https://github.com/GoodManWEN/nazobase">nazobase</a> NAZOrip basement, with cython dll <a target="_blank" rel="noopener" href="https://www.nazorip.site/archives/37/">docs</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/kewenyu/DBmbk">DBmbk</a> a debanding toolkit, for easier bezier curve generation</p>
-<p><a target="_blank" rel="noopener" href="https://ffmpeg.org/ffmpeg-filters.html#sr">ffmpeg super resolution filter</a> could get faster if run on gpu with <a target="_blank" rel="noopener" href="https://www.tensorflow.org/install/lang_c">libtensorflow</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/HighVoltageRocknRoll/sr">VESPCN: real-time super resolution</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/stax76/mpv.net">mpv</a> is a media player with VapourSynth built-in, and that’s probably how vapoursynth gets in my mac via brew dependency manager</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/UniversalAl/view">view.py</a> is Python module for vapoursynth scripts that previews clips</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/WolframRhodium/muvsfunc/wiki/OpenCV-Python-for-VapourSynth">to use opencv functions with vapoursynth</a></p>
-<p>svp is <a target="_blank" rel="noopener" href="https://www.svp-team.com/zh/get/#">free on linux</a>, offering <a target="_blank" rel="noopener" href="https://www.svp-team.com/wiki/SVP:VLC#Using_SVP_in_VLC">plugin for vlc</a> while vlc cannot be run as root</p>
-<p>you might harvest some prebuilt binaries of vapoursynth plugins for linux</p>
-<p>补帧算法可适用于我们的动态水印追踪系统 但是可能需要优化 才能做到比较快速的补帧 因为水印所在位置的区间实际上只是白色的 不需要过于复杂的网络 同时这种补出来的水印需要逐帧处理 或者两帧一处理 生成的区间数量会非常的多</p>
-<p>it is much easier to do this on windows since we need quick evaluation. might run this on virtualbox?</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Bl4Cc4t/homebrew-vsplugins/tree/master/Formula">build scripts</a> on how to build plugins for macos, including how to configure the installation prefix.</p>
-<p>brew compatible, macos compatible vapoursynth plugin build script provider: <a target="_blank" rel="noopener" href="https://github.com/Bl4Cc4t/homebrew-vsplugins">homebrew-vsplugins</a> does not provide build scripts for all plugins avaliable for windows, and it requires <a target="_blank" rel="noopener" href="https://github.com/Bl4Cc4t/homebrew-vsplugins/blob/master/linkvsp.sh">additional linking</a></p>
-<p><a target="_blank" rel="noopener" href="https://forum.doom9.org/showthread.php?t=175522">tutorial</a> on how to configure it: (is it intel only?)</p>
-<p>Alternative VapourSynth Install Method (Brew):<br>IMPORTANT: Brew users will need to create and set the autoload folder prior to installing VapourSynth! Simply run the following commands:<br>Code:</p>
+	  <p><a target="_blank" rel="noopener" href="https://github.com/GoodManWEN/nazobase">nazobase</a> NAZOrip basement, with cython dll <a target="_blank" rel="noopener" href="https://www.nazorip.site/archives/37/">docs</a><br><a target="_blank" rel="noopener" href="https://github.com/kewenyu/DBmbk">DBmbk</a> a debanding toolkit, for easier bezier curve generation<br><a target="_blank" rel="noopener" href="https://ffmpeg.org/ffmpeg-filters.html#sr">ffmpeg super resolution filter</a> could get faster if run on gpu with <a target="_blank" rel="noopener" href="https://www.tensorflow.org/install/lang_c">libtensorflow</a><br><a target="_blank" rel="noopener" href="https://github.com/HighVoltageRocknRoll/sr">VESPCN: real-time super resolution</a><br><a target="_blank" rel="noopener" href="https://github.com/stax76/mpv.net">mpv</a> is a media player with VapourSynth built-in, and that’s probably how vapoursynth gets in my mac via brew dependency manager<br><a target="_blank" rel="noopener" href="https://github.com/UniversalAl/view">view.py</a> is Python module for vapoursynth scripts that previews clips<br><a target="_blank" rel="noopener" href="https://github.com/WolframRhodium/muvsfunc/wiki/OpenCV-Python-for-VapourSynth">to use opencv functions with vapoursynth</a><br>svp is <a target="_blank" rel="noopener" href="https://www.svp-team.com/zh/get/#">free on linux</a>, offering <a target="_blank" rel="noopener" href="https://www.svp-team.com/wiki/SVP:VLC#Using_SVP_in_VLC">plugin for vlc</a> while vlc cannot be run as root<br>you might harvest some prebuilt binaries of vapoursynth plugins for linux<br>补帧算法可适用于我们的动态水印追踪系统 但是可能需要优化 才能做到比较快速的补帧 因为水印所在位置的区间实际上只是白色的 不需要过于复杂的网络 同时这种补出来的水印需要逐帧处理 或者两帧一处理 生成的区间数量会非常的多<br>it is much easier to do this on windows since we need quick evaluation. might run this on virtualbox?<br><a target="_blank" rel="noopener" href="https://github.com/Bl4Cc4t/homebrew-vsplugins/tree/master/Formula">build scripts</a> on how to build plugins for macos, including how to configure the installation prefix.<br>brew compatible, macos compatible vapoursynth plugin build script provider: <a target="_blank" rel="noopener" href="https://github.com/Bl4Cc4t/homebrew-vsplugins">homebrew-vsplugins</a> does not provide build scripts for all plugins avaliable for windows, and it requires <a target="_blank" rel="noopener" href="https://github.com/Bl4Cc4t/homebrew-vsplugins/blob/master/linkvsp.sh">additional linking</a><br><a target="_blank" rel="noopener" href="https://forum.doom9.org/showthread.php?t=175522">tutorial</a> on how to configure it: (is it intel only?)<br>Alternative VapourSynth Install Method (Brew):<br>IMPORTANT: Brew users will need to create and set the autoload folder prior to installing VapourSynth! Simply run the following commands:<br>Code:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /usr/local/lib/vapoursynth</span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$HOME</span>/Library/Application Support/VapourSynth&quot;</span></span><br><span class="line"><span class="built_in">touch</span> <span class="string">&quot;<span class="variable">$HOME</span>/Library/Application Support/VapourSynth/vapoursynth.conf&quot;</span></span><br><span class="line"><span class="built_in">echo</span> UserPluginDir=/usr/local/lib/vapoursynth &gt;&gt; <span class="string">&quot;<span class="variable">$HOME</span>/Library/Application Support/VapourSynth/vapoursynth.conf&quot;</span></span><br><span class="line"><span class="built_in">echo</span> SystemPluginDir=/usr/local/lib/vapoursynth &gt;&gt; <span class="string">&quot;<span class="variable">$HOME</span>/Library/Application Support/VapourSynth/vapoursynth.conf&quot;</span></span><br></pre></td></tr></table></figure>
 <p>(Optional) Create desktop shortcuts for the plugins and scripts folders. Run the following commands in terminal:<br>Code:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> <span class="variable">$HOME</span>/Desktop/VapourSynth</span><br><span class="line"><span class="built_in">ln</span> -s /usr/local/lib/vapoursynth <span class="variable">$HOME</span>/Desktop/VapourSynth/Plugins</span><br><span class="line"><span class="built_in">ln</span> -s /usr/local/lib/python3.9/site-packages <span class="variable">$HOME</span>/Desktop/VapourSynth/Scripts</span><br></pre></td></tr></table></figure>
 <p>Use brew command:<br>Code:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install vapoursynth</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://github.com/WolframRhodium/VapourSynth-BM3DCUDA">bm3d denoising using cuda</a></p>
-<p><a target="_blank" rel="noopener" href="https://vsdb.top/plugins/fft3dfilter">fft3d denoising</a></p>
-<p><a target="_blank" rel="noopener" href="https://learnopencv.com/optical-flow-in-opencv/">python opencv 光流算法详解</a> 分为sparse和dense两种 某种程度上都可以计算场景的变换激烈程度</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/vineeths96/Video-Interpolation-using-Deep-Optical-Flow">frame interpolation using deep optical flow</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/open-mmlab/mmflow">openmmlab mmflow</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/google-research/frame-interpolation">google research: FILM (frame interpolation for large motion)</a></p>
-<p><a target="_blank" rel="noopener" href="http://www.vapoursynth.com/doc/gettingstarted.html">vapoursynth get started (official doc)</a></p>
-<p><a target="_blank" rel="noopener" href="http://vsdb.top/">vapoursynth plugin database</a> only provide prebuilt binaries for windows while the plugin source code might work with linux and macos (if it has the source code)</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/vapoursynth/vsrepo">VSRepo plugin manager</a> installing vapoursynth plugin via commandline tool and vsrepo is only supported on windows, for other platforms we need to compile plugins manually. </p>
-<p><a target="_blank" rel="noopener" href="https://www.nazorip.site/category/Tutorials/">nazorip vapoursynth blogs</a></p>
-<p><a target="_blank" rel="noopener" href="https://nazorip.site/archives/32/">nazorip bezier curve</a></p>
-<p><a target="_blank" rel="noopener" href="https://nazorip.site/archives/56/">nazorip gamma curve and convolution</a></p>
-<p><a target="_blank" rel="noopener" href="https://nazorip.site/archives/56/">flowpy: tool for visualizing and processing image with optical flow</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install vapoursynth</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://github.com/WolframRhodium/VapourSynth-BM3DCUDA">bm3d denoising using cuda</a><br><a target="_blank" rel="noopener" href="https://vsdb.top/plugins/fft3dfilter">fft3d denoising</a><br><a target="_blank" rel="noopener" href="https://learnopencv.com/optical-flow-in-opencv/">python opencv 光流算法详解</a> 分为sparse和dense两种 某种程度上都可以计算场景的变换激烈程度<br><a target="_blank" rel="noopener" href="https://github.com/vineeths96/Video-Interpolation-using-Deep-Optical-Flow">frame interpolation using deep optical flow</a><br><a target="_blank" rel="noopener" href="https://github.com/open-mmlab/mmflow">openmmlab mmflow</a><br><a target="_blank" rel="noopener" href="https://github.com/google-research/frame-interpolation">google research: FILM (frame interpolation for large motion)</a><br><a target="_blank" rel="noopener" href="http://www.vapoursynth.com/doc/gettingstarted.html">vapoursynth get started (official doc)</a><br><a target="_blank" rel="noopener" href="http://vsdb.top/">vapoursynth plugin database</a> only provide prebuilt binaries for windows while the plugin source code might work with linux and macos (if it has the source code)<br><a target="_blank" rel="noopener" href="https://github.com/vapoursynth/vsrepo">VSRepo plugin manager</a> installing vapoursynth plugin via commandline tool and vsrepo is only supported on windows, for other platforms we need to compile plugins manually.<br><a target="_blank" rel="noopener" href="https://www.nazorip.site/category/Tutorials/">nazorip vapoursynth blogs</a><br><a target="_blank" rel="noopener" href="https://nazorip.site/archives/32/">nazorip bezier curve</a><br><a target="_blank" rel="noopener" href="https://nazorip.site/archives/56/">nazorip gamma curve and convolution</a><br><a target="_blank" rel="noopener" href="https://nazorip.site/archives/56/">flowpy: tool for visualizing and processing image with optical flow</a></p>
 	  
 	</div>
 
@@ -171,13 +144,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2022/09/07/c8439b3e-7642-4f70-89db-33a18544be1a/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2022/09/07/c8439b3e-7642-4f70-89db-33a18544be1a/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2022/09/06/ac4e3e75-c9bc-483e-9396-bf1408629e63/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2022/09/06/ac4e3e75-c9bc-483e-9396-bf1408629e63/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -239,7 +212,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Video-Processing/">Video Processing<span>4</span></a></li>
+    <li><a href="/blog/categories/Video-Processing/">Video Processing<span>4</span></a></li>
   </li>
 
     </ul>
@@ -252,7 +225,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/VapourSynth/">VapourSynth<span>2</span></a></li> <li><a href="/tags/video-processing/">video processing<span>7</span></a></li> <li><a href="/tags/optical-flow-algorithms/">optical flow algorithms<span>1</span></a></li> <li><a href="/tags/frame-interpolation/">frame interpolation<span>3</span></a></li> <li><a href="/tags/denoising/">denoising<span>1</span></a></li> <li><a href="/tags/Python-scripting/">Python scripting<span>2</span></a></li> <li><a href="/tags/nazobase/">nazobase<span>1</span></a></li> <li><a href="/tags/DBmbk/">DBmbk<span>1</span></a></li> <li><a href="/tags/ffmpeg/">ffmpeg<span>4</span></a></li>
+  <li><a href="/blog/tags/VapourSynth/">VapourSynth<span>2</span></a></li> <li><a href="/blog/tags/video-processing/">video processing<span>7</span></a></li> <li><a href="/blog/tags/optical-flow-algorithms/">optical flow algorithms<span>1</span></a></li> <li><a href="/blog/tags/frame-interpolation/">frame interpolation<span>3</span></a></li> <li><a href="/blog/tags/denoising/">denoising<span>1</span></a></li> <li><a href="/blog/tags/Python-scripting/">Python scripting<span>2</span></a></li> <li><a href="/blog/tags/nazobase/">nazobase<span>1</span></a></li> <li><a href="/blog/tags/DBmbk/">DBmbk<span>1</span></a></li> <li><a href="/blog/tags/ffmpeg/">ffmpeg<span>4</span></a></li>
 
     </ul>
 	</div>
@@ -292,15 +265,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -314,7 +287,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

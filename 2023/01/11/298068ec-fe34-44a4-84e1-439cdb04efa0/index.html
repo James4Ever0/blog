@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,12 +125,8 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="pyttsx3-cross-platform-tts-generator"><a href="#pyttsx3-cross-platform-tts-generator" class="headerlink" title="pyttsx3 cross platform tts generator"></a>pyttsx3 cross platform tts generator</h1><p>By looking into the <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/naturallanguage?preferredLanguage=occ">NaturalLanguage Framework</a> on macOS, I find text classifier and embeddings inside.</p>
-<p>It will leverage default TTS engine on Windows and macOS, but for linux you must install espeak.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyttsx3</span><br><span class="line">engine = pyttsx3.init()</span><br><span class="line"></span><br><span class="line"><span class="comment"># dir(engine.getProperty(&quot;voices&quot;)[0]) -&gt; [&#x27;age&#x27;, &#x27;gender&#x27;, &#x27;id&#x27;, &#x27;languages&#x27;, &#x27;name&#x27;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The voices are related to languages. Set it properly.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># you want &quot;en_US&quot; and &quot;zh_CN&quot;</span></span><br><span class="line"><span class="comment"># [[&#x27;en_US&#x27;], [&#x27;it_IT&#x27;], [&#x27;sv_SE&#x27;], [&#x27;fr_CA&#x27;], [&#x27;de_DE&#x27;], [&#x27;he_IL&#x27;], [&#x27;id_ID&#x27;], [&#x27;en_GB&#x27;], [&#x27;es_AR&#x27;], [&#x27;nl_BE&#x27;], [&#x27;en-scotland&#x27;], [&#x27;en_US&#x27;], [&#x27;ro_RO&#x27;], [&#x27;pt_PT&#x27;], [&#x27;es_ES&#x27;], [&#x27;es_MX&#x27;], [&#x27;th_TH&#x27;], [&#x27;en_AU&#x27;], [&#x27;ja_JP&#x27;], [&#x27;sk_SK&#x27;], [&#x27;hi_IN&#x27;], [&#x27;it_IT&#x27;], [&#x27;pt_BR&#x27;], [&#x27;ar_SA&#x27;], [&#x27;hu_HU&#x27;], [&#x27;zh_TW&#x27;], [&#x27;el_GR&#x27;], [&#x27;ru_RU&#x27;], [&#x27;en_IE&#x27;], [&#x27;es_ES&#x27;], [&#x27;nb_NO&#x27;], [&#x27;es_MX&#x27;], [&#x27;en_IN&#x27;], [&#x27;en_US&#x27;], [&#x27;da_DK&#x27;], [&#x27;fi_FI&#x27;], [&#x27;zh_HK&#x27;], [&#x27;en_ZA&#x27;], [&#x27;fr_FR&#x27;], [&#x27;zh_CN&#x27;], [&#x27;en_IN&#x27;], [&#x27;en_US&#x27;], [&#x27;nl_NL&#x27;], [&#x27;tr_TR&#x27;], [&#x27;ko_KR&#x27;], [&#x27;ru_RU&#x27;], [&#x27;pl_PL&#x27;], [&#x27;cs_CZ&#x27;]]</span></span><br><span class="line">engine.setProperty(<span class="string">&#x27;voice&#x27;</span>, engine.getProperty(<span class="string">&quot;voices&quot;</span>)[<span class="number">39</span>].<span class="built_in">id</span>)</span><br><span class="line"></span><br><span class="line">engine.save_to_file(<span class="string">&quot;你好 世界&quot;</span>, <span class="string">&#x27;output.wav&#x27;</span>)</span><br><span class="line">engine.runAndWait()</span><br><span class="line"></span><br><span class="line">engine.setProperty(<span class="string">&#x27;rate&#x27;</span>, <span class="number">125</span>) <span class="comment"># setting up new voice rate</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The punctuals make the bot to pause for some time. Maybe you should control that yourself.</span></span><br><span class="line">engine.save_to_file(<span class="string">&quot;你好，世界&quot;</span>, <span class="string">&#x27;output.wav&#x27;</span>)</span><br><span class="line">engine.runAndWait()</span><br></pre></td></tr></table></figure>
-
-
-	  
+	  <p>By looking into the <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/naturallanguage?preferredLanguage=occ">NaturalLanguage Framework</a> on macOS, I find text classifier and embeddings inside.<br>It will leverage default TTS engine on Windows and macOS, but for linux you must install espeak.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyttsx3</span><br><span class="line">engine = pyttsx3.init()</span><br><span class="line"><span class="comment"># dir(engine.getProperty(&quot;voices&quot;)[0]) -&gt; [&#x27;age&#x27;, &#x27;gender&#x27;, &#x27;id&#x27;, &#x27;languages&#x27;, &#x27;name&#x27;]</span></span><br><span class="line"><span class="comment"># The voices are related to languages. Set it properly.</span></span><br><span class="line"><span class="comment"># you want &quot;en_US&quot; and &quot;zh_CN&quot;</span></span><br><span class="line"><span class="comment"># [[&#x27;en_US&#x27;], [&#x27;it_IT&#x27;], [&#x27;sv_SE&#x27;], [&#x27;fr_CA&#x27;], [&#x27;de_DE&#x27;], [&#x27;he_IL&#x27;], [&#x27;id_ID&#x27;], [&#x27;en_GB&#x27;], [&#x27;es_AR&#x27;], [&#x27;nl_BE&#x27;], [&#x27;en-scotland&#x27;], [&#x27;en_US&#x27;], [&#x27;ro_RO&#x27;], [&#x27;pt_PT&#x27;], [&#x27;es_ES&#x27;], [&#x27;es_MX&#x27;], [&#x27;th_TH&#x27;], [&#x27;en_AU&#x27;], [&#x27;ja_JP&#x27;], [&#x27;sk_SK&#x27;], [&#x27;hi_IN&#x27;], [&#x27;it_IT&#x27;], [&#x27;pt_BR&#x27;], [&#x27;ar_SA&#x27;], [&#x27;hu_HU&#x27;], [&#x27;zh_TW&#x27;], [&#x27;el_GR&#x27;], [&#x27;ru_RU&#x27;], [&#x27;en_IE&#x27;], [&#x27;es_ES&#x27;], [&#x27;nb_NO&#x27;], [&#x27;es_MX&#x27;], [&#x27;en_IN&#x27;], [&#x27;en_US&#x27;], [&#x27;da_DK&#x27;], [&#x27;fi_FI&#x27;], [&#x27;zh_HK&#x27;], [&#x27;en_ZA&#x27;], [&#x27;fr_FR&#x27;], [&#x27;zh_CN&#x27;], [&#x27;en_IN&#x27;], [&#x27;en_US&#x27;], [&#x27;nl_NL&#x27;], [&#x27;tr_TR&#x27;], [&#x27;ko_KR&#x27;], [&#x27;ru_RU&#x27;], [&#x27;pl_PL&#x27;], [&#x27;cs_CZ&#x27;]]</span></span><br><span class="line">engine.setProperty(<span class="string">&#x27;voice&#x27;</span>, engine.getProperty(<span class="string">&quot;voices&quot;</span>)[<span class="number">39</span>].<span class="built_in">id</span>)</span><br><span class="line">engine.save_to_file(<span class="string">&quot;你好 世界&quot;</span>, <span class="string">&#x27;output.wav&#x27;</span>)</span><br><span class="line">engine.runAndWait()</span><br><span class="line">engine.setProperty(<span class="string">&#x27;rate&#x27;</span>, <span class="number">125</span>) <span class="comment"># setting up new voice rate</span></span><br><span class="line"><span class="comment"># The punctuals make the bot to pause for some time. Maybe you should control that yourself.</span></span><br><span class="line">engine.save_to_file(<span class="string">&quot;你好，世界&quot;</span>, <span class="string">&#x27;output.wav&#x27;</span>)</span><br><span class="line">engine.runAndWait()</span><br></pre></td></tr></table></figure>	  
 	</div>
 
 	<!-- recommended posts -->
@@ -142,13 +138,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2023/01/11/1c7b1977-d706-4c3d-9763-c467e44bce8a/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2023/01/11/1c7b1977-d706-4c3d-9763-c467e44bce8a/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2023/01/10/c06d566c-5d1c-474e-9239-4acd4b560923/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2023/01/10/c06d566c-5d1c-474e-9239-4acd4b560923/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -210,7 +206,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Text-to-Speech/">Text to Speech<span>1</span></a></li>
+    <li><a href="/blog/categories/Text-to-Speech/">Text to Speech<span>1</span></a></li>
   </li>
 
     </ul>
@@ -223,7 +219,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/pyttsx3/">pyttsx3<span>1</span></a></li> <li><a href="/tags/text-to-speech/">text-to-speech<span>1</span></a></li> <li><a href="/tags/library/">library<span>1</span></a></li> <li><a href="/tags/cross-platform/">cross-platform<span>1</span></a></li> <li><a href="/tags/voice/">voice<span>1</span></a></li> <li><a href="/tags/language/">language<span>3</span></a></li> <li><a href="/tags/speech-rate/">speech-rate<span>1</span></a></li>
+  <li><a href="/blog/tags/pyttsx3/">pyttsx3<span>1</span></a></li> <li><a href="/blog/tags/text-to-speech/">text-to-speech<span>1</span></a></li> <li><a href="/blog/tags/library/">library<span>1</span></a></li> <li><a href="/blog/tags/cross-platform/">cross-platform<span>1</span></a></li> <li><a href="/blog/tags/voice/">voice<span>1</span></a></li> <li><a href="/blog/tags/language/">language<span>3</span></a></li> <li><a href="/blog/tags/speech-rate/">speech-rate<span>1</span></a></li>
 
     </ul>
 	</div>
@@ -263,15 +259,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -285,7 +281,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

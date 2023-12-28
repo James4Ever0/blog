@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,29 +125,20 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="systemd-on-linux-maintainence-details"><a href="#systemd-on-linux-maintainence-details" class="headerlink" title="systemd on linux, maintainence details"></a>systemd on linux, maintainence details</h1><h2 id="view-full-logs"><a href="#view-full-logs" class="headerlink" title="view full logs"></a>view full logs</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">journalctl -u &lt;serviceName&gt;.service</span><br></pre></td></tr></table></figure>
-
+	  <h2 id="view-full-logs"><a href="#view-full-logs" class="headerlink" title="view full logs"></a>view full logs</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">journalctl -u &lt;serviceName&gt;.service</span><br></pre></td></tr></table></figure>
 <h2 id="create-install-restart-reload"><a href="#create-install-restart-reload" class="headerlink" title="create, install, restart, reload"></a>create, install, restart, reload</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/systemd/system</span><br><span class="line">create &lt;serviceName&gt;.service</span><br><span class="line">systemctl <span class="built_in">enable</span> &lt;serviceName&gt;.service</span><br><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl start &lt;serviceName&gt;.service</span><br></pre></td></tr></table></figure>
-
-<h2 id="sample-systemd-service-config-files"><a href="#sample-systemd-service-config-files" class="headerlink" title="sample systemd service config files"></a>sample systemd service config files</h2><p>maybe we should add some autorestart configs at it?</p>
-<p>frpc_service.service</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[<span class="title class_">Unit</span>]</span><br><span class="line"><span class="title class_">Description</span>=frpc service, expose ssh, webdav and code-server ports</span><br><span class="line"><span class="title class_">Wants</span>=network.<span class="property">target</span></span><br><span class="line"><span class="title class_">After</span>=syslog.<span class="property">target</span> network-online.<span class="property">target</span></span><br><span class="line"></span><br><span class="line">[<span class="title class_">Service</span>]</span><br><span class="line"><span class="title class_">Type</span>=simple</span><br><span class="line"><span class="title class_">User</span>=root</span><br><span class="line"><span class="title class_">ExecStart</span>=<span class="regexp">/root/</span>frp_client_linux/frp_0<span class="number">.36</span>.2_linux_amd64/frpc -c frpc.<span class="property">ini</span></span><br><span class="line"><span class="title class_">WorkingDirectory</span>=<span class="regexp">/root/</span>frp_client_linux/frp_0<span class="number">.36</span>.2_linux_amd64</span><br><span class="line"><span class="title class_">Restart</span>=on-failure</span><br><span class="line"><span class="title class_">RestartSec</span>=<span class="number">10</span></span><br><span class="line"><span class="title class_">KillMode</span>=process</span><br><span class="line"></span><br><span class="line">[<span class="title class_">Install</span>]</span><br><span class="line"><span class="title class_">WantedBy</span>=multi-user.<span class="property">target</span></span><br></pre></td></tr></table></figure>
-
+<h2 id="sample-systemd-service-config-files"><a href="#sample-systemd-service-config-files" class="headerlink" title="sample systemd service config files"></a>sample systemd service config files</h2><p>maybe we should add some autorestart configs at it?<br>frpc_service.service</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[<span class="title class_">Unit</span>]</span><br><span class="line"><span class="title class_">Description</span>=frpc service, expose ssh, webdav and code-server ports</span><br><span class="line"><span class="title class_">Wants</span>=network.<span class="property">target</span></span><br><span class="line"><span class="title class_">After</span>=syslog.<span class="property">target</span> network-online.<span class="property">target</span></span><br><span class="line">[<span class="title class_">Service</span>]</span><br><span class="line"><span class="title class_">Type</span>=simple</span><br><span class="line"><span class="title class_">User</span>=root</span><br><span class="line"><span class="title class_">ExecStart</span>=<span class="regexp">/root/</span>frp_client_linux/frp_0<span class="number">.36</span>.2_linux_amd64/frpc -c frpc.<span class="property">ini</span></span><br><span class="line"><span class="title class_">WorkingDirectory</span>=<span class="regexp">/root/</span>frp_client_linux/frp_0<span class="number">.36</span>.2_linux_amd64</span><br><span class="line"><span class="title class_">Restart</span>=on-failure</span><br><span class="line"><span class="title class_">RestartSec</span>=<span class="number">10</span></span><br><span class="line"><span class="title class_">KillMode</span>=process</span><br><span class="line">[<span class="title class_">Install</span>]</span><br><span class="line"><span class="title class_">WantedBy</span>=multi-user.<span class="property">target</span></span><br></pre></td></tr></table></figure>
 <p>pyjom_webdav_rclone_service.service</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[<span class="title class_">Unit</span>]</span><br><span class="line"><span class="title class_">Description</span>=rclone webdav served on pyjom, after the disk is mounted</span><br><span class="line"></span><br><span class="line">[<span class="title class_">Service</span>]</span><br><span class="line"><span class="title class_">User</span>=root</span><br><span class="line"><span class="title class_">ExecStart</span>=<span class="regexp">/usr/</span>bin/python3 mount_help_and_serve_pyjom.<span class="property">py</span></span><br><span class="line"><span class="title class_">WorkingDirectory</span>=<span class="regexp">/root/</span><span class="title class_">Desktop</span>/works/restore_sessions</span><br><span class="line"></span><br><span class="line">[<span class="title class_">Install</span>]</span><br><span class="line"><span class="title class_">WantedBy</span>=multi-user.<span class="property">target</span></span><br></pre></td></tr></table></figure>
-
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[<span class="title class_">Unit</span>]</span><br><span class="line"><span class="title class_">Description</span>=rclone webdav served on pyjom, after the disk is mounted</span><br><span class="line">[<span class="title class_">Service</span>]</span><br><span class="line"><span class="title class_">User</span>=root</span><br><span class="line"><span class="title class_">ExecStart</span>=<span class="regexp">/usr/</span>bin/python3 mount_help_and_serve_pyjom.<span class="property">py</span></span><br><span class="line"><span class="title class_">WorkingDirectory</span>=<span class="regexp">/root/</span><span class="title class_">Desktop</span>/works/restore_sessions</span><br><span class="line">[<span class="title class_">Install</span>]</span><br><span class="line"><span class="title class_">WantedBy</span>=multi-user.<span class="property">target</span></span><br></pre></td></tr></table></figure>
 <p>tempthrottle.service</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[<span class="title class_">Unit</span>]</span><br><span class="line"><span class="title class_">Description</span>=temperature control, cpu temperature under <span class="number">60</span> celsius</span><br><span class="line"></span><br><span class="line">[<span class="title class_">Service</span>]</span><br><span class="line"><span class="title class_">User</span>=root</span><br><span class="line"><span class="title class_">ExecStart</span>=<span class="regexp">/usr/</span>bin/python3 tempthrottle_daemon.<span class="property">py</span></span><br><span class="line"><span class="title class_">WorkingDirectory</span>=<span class="regexp">/root/</span><span class="title class_">Desktop</span>/works/restore_sessions</span><br><span class="line"></span><br><span class="line">[<span class="title class_">Install</span>]</span><br><span class="line"><span class="title class_">WantedBy</span>=multi-user.<span class="property">target</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[<span class="title class_">Unit</span>]</span><br><span class="line"><span class="title class_">Description</span>=temperature control, cpu temperature under <span class="number">60</span> celsius</span><br><span class="line">[<span class="title class_">Service</span>]</span><br><span class="line"><span class="title class_">User</span>=root</span><br><span class="line"><span class="title class_">ExecStart</span>=<span class="regexp">/usr/</span>bin/python3 tempthrottle_daemon.<span class="property">py</span></span><br><span class="line"><span class="title class_">WorkingDirectory</span>=<span class="regexp">/root/</span><span class="title class_">Desktop</span>/works/restore_sessions</span><br><span class="line">[<span class="title class_">Install</span>]</span><br><span class="line"><span class="title class_">WantedBy</span>=multi-user.<span class="property">target</span></span><br></pre></td></tr></table></figure>
 <p>clash_fastgithub.service</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[<span class="title class_">Unit</span>]</span><br><span class="line"><span class="title class_">Description</span>=<span class="title class_">Clash</span> <span class="title class_">Fastgithub</span> <span class="title class_">Proxy</span></span><br><span class="line"><span class="title class_">After</span>=network.<span class="property">target</span></span><br><span class="line"></span><br><span class="line">[<span class="title class_">Service</span>]</span><br><span class="line"><span class="title class_">Type</span>=simple</span><br><span class="line"><span class="title class_">Restart</span>=always</span><br><span class="line"><span class="title class_">ExecStart</span>=<span class="regexp">/usr/</span>bin/clash -d /etc/clash</span><br><span class="line"></span><br><span class="line">[<span class="title class_">Install</span>]</span><br><span class="line"><span class="title class_">WantedBy</span>=multi-user.<span class="property">target</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[<span class="title class_">Unit</span>]</span><br><span class="line"><span class="title class_">Description</span>=<span class="title class_">Clash</span> <span class="title class_">Fastgithub</span> <span class="title class_">Proxy</span></span><br><span class="line"><span class="title class_">After</span>=network.<span class="property">target</span></span><br><span class="line">[<span class="title class_">Service</span>]</span><br><span class="line"><span class="title class_">Type</span>=simple</span><br><span class="line"><span class="title class_">Restart</span>=always</span><br><span class="line"><span class="title class_">ExecStart</span>=<span class="regexp">/usr/</span>bin/clash -d /etc/clash</span><br><span class="line">[<span class="title class_">Install</span>]</span><br><span class="line"><span class="title class_">WantedBy</span>=multi-user.<span class="property">target</span></span><br></pre></td></tr></table></figure>
 <p>tujia_scraper_qq_bot.service</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[<span class="title class_">Unit</span>]</span><br><span class="line"><span class="title class_">Description</span>=two crucial <span class="attr">services</span>: tujia scraper, qq bot</span><br><span class="line"><span class="title class_">Wants</span>=network.<span class="property">target</span></span><br><span class="line"><span class="title class_">After</span>=syslog.<span class="property">target</span> network-online.<span class="property">target</span></span><br><span class="line"></span><br><span class="line">[<span class="title class_">Service</span>]</span><br><span class="line"><span class="title class_">Environment</span>=<span class="string">&quot;DISPLAY=:1&quot;</span></span><br><span class="line"><span class="title class_">Environment</span>=<span class="string">&quot;XAUTHORITY=/root/.Xauthority&quot;</span></span><br><span class="line"><span class="title class_">User</span>=root</span><br><span class="line"><span class="title class_">ExecStart</span>=<span class="regexp">/usr/</span>bin/python3 main_daemon.<span class="property">py</span></span><br><span class="line"><span class="title class_">WorkingDirectory</span>=<span class="regexp">/root/</span><span class="title class_">Desktop</span>/works/restore_sessions</span><br><span class="line"></span><br><span class="line">[<span class="title class_">Install</span>]</span><br><span class="line"><span class="title class_">WantedBy</span>=graphical.<span class="property">target</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[<span class="title class_">Unit</span>]</span><br><span class="line"><span class="title class_">Description</span>=two crucial <span class="attr">services</span>: tujia scraper, qq bot</span><br><span class="line"><span class="title class_">Wants</span>=network.<span class="property">target</span></span><br><span class="line"><span class="title class_">After</span>=syslog.<span class="property">target</span> network-online.<span class="property">target</span></span><br><span class="line">[<span class="title class_">Service</span>]</span><br><span class="line"><span class="title class_">Environment</span>=<span class="string">&quot;DISPLAY=:1&quot;</span></span><br><span class="line"><span class="title class_">Environment</span>=<span class="string">&quot;XAUTHORITY=/root/.Xauthority&quot;</span></span><br><span class="line"><span class="title class_">User</span>=root</span><br><span class="line"><span class="title class_">ExecStart</span>=<span class="regexp">/usr/</span>bin/python3 main_daemon.<span class="property">py</span></span><br><span class="line"><span class="title class_">WorkingDirectory</span>=<span class="regexp">/root/</span><span class="title class_">Desktop</span>/works/restore_sessions</span><br><span class="line">[<span class="title class_">Install</span>]</span><br><span class="line"><span class="title class_">WantedBy</span>=graphical.<span class="property">target</span></span><br></pre></td></tr></table></figure>
 <p>sync_git_repos_syncdog.service</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[<span class="title class_">Unit</span>]</span><br><span class="line"><span class="title class_">Description</span>=syncdog (server), to sync things to the cloud (github)</span><br><span class="line"><span class="title class_">Wants</span>=sshd.<span class="property">service</span></span><br><span class="line"><span class="title class_">Wants</span>=network.<span class="property">target</span></span><br><span class="line"></span><br><span class="line">[<span class="title class_">Service</span>]</span><br><span class="line"><span class="title class_">User</span>=root</span><br><span class="line"><span class="title class_">ExecStart</span>=<span class="regexp">/usr/</span>bin/python3 syncdog_test.<span class="property">py</span></span><br><span class="line"><span class="title class_">WorkingDirectory</span>=<span class="regexp">/root/</span><span class="title class_">Desktop</span>/works/sync_git_repos</span><br><span class="line"></span><br><span class="line">[<span class="title class_">Install</span>]</span><br><span class="line"><span class="title class_">WantedBy</span>=multi-user.<span class="property">target</span></span><br></pre></td></tr></table></figure>
-	  
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[<span class="title class_">Unit</span>]</span><br><span class="line"><span class="title class_">Description</span>=syncdog (server), to sync things to the cloud (github)</span><br><span class="line"><span class="title class_">Wants</span>=sshd.<span class="property">service</span></span><br><span class="line"><span class="title class_">Wants</span>=network.<span class="property">target</span></span><br><span class="line">[<span class="title class_">Service</span>]</span><br><span class="line"><span class="title class_">User</span>=root</span><br><span class="line"><span class="title class_">ExecStart</span>=<span class="regexp">/usr/</span>bin/python3 syncdog_test.<span class="property">py</span></span><br><span class="line"><span class="title class_">WorkingDirectory</span>=<span class="regexp">/root/</span><span class="title class_">Desktop</span>/works/sync_git_repos</span><br><span class="line">[<span class="title class_">Install</span>]</span><br><span class="line"><span class="title class_">WantedBy</span>=multi-user.<span class="property">target</span></span><br></pre></td></tr></table></figure>	  
 	</div>
 
 	<!-- recommended posts -->
@@ -159,13 +150,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2022/08/09/c5f9bccf-7662-4477-a3b2-1954708b1ec7/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2022/08/09/c5f9bccf-7662-4477-a3b2-1954708b1ec7/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2022/08/08/63eeaf5e-73d1-4bed-b5a6-320ac4a831a0/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2022/08/08/63eeaf5e-73d1-4bed-b5a6-320ac4a831a0/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -227,7 +218,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/System-Administration/">System Administration<span>1</span></a></li>
+    <li><a href="/blog/categories/System-Administration/">System Administration<span>1</span></a></li>
   </li>
 
     </ul>
@@ -240,7 +231,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/linux/">linux<span>10</span></a></li> <li><a href="/tags/systemd/">systemd<span>2</span></a></li> <li><a href="/tags/system-manage/">system manage<span>17</span></a></li> <li><a href="/tags/service/">service<span>5</span></a></li>
+  <li><a href="/blog/tags/linux/">linux<span>10</span></a></li> <li><a href="/blog/tags/systemd/">systemd<span>2</span></a></li> <li><a href="/blog/tags/system-manage/">system manage<span>17</span></a></li> <li><a href="/blog/tags/service/">service<span>5</span></a></li>
 
     </ul>
 	</div>
@@ -280,15 +271,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -302,7 +293,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

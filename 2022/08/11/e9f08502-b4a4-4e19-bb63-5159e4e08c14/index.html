@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,20 +125,10 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="the-kali-command-on-macos"><a href="#the-kali-command-on-macos" class="headerlink" title="the kali command on macos"></a>the kali command on macos</h1><h2 id="debugging"><a href="#debugging" class="headerlink" title="debugging"></a>debugging</h2><p>when kali is off, this mac will go crazy and hang everything.</p>
-<p>need to scan for kali existance on demand, not all the time.</p>
-<h2 id="developing"><a href="#developing" class="headerlink" title="developing"></a>developing</h2><p>should we use p2p networks to speed up remote connections like <code>n2n</code> or <code>tinc</code>?</p>
-<p>would it be interesting to run all our kali connectors ranged from vscode-ssh-connect, rclone mount and direct ssh connection via <code>kali</code> command dynamically by our kali discovery service, if we can reload the nginx daemon on demand.</p>
-<p>using redis to store some daemon reported values.</p>
-<p>how about we set the workding directory of <code>redis-server</code> to <code>/tmp</code> so that the <code>dump.rdb</code> file will never take space after reboot?</p>
-<p>we need to know if this will successifully launch after reboot since <code>/tmp</code> may not exist by that time</p>
-<p>default redis server port: 6379</p>
-<p>install redis-server service:</p>
+	  <h2 id="debugging"><a href="#debugging" class="headerlink" title="debugging"></a>debugging</h2><p>when kali is off, this mac will go crazy and hang everything.<br>need to scan for kali existance on demand, not all the time.</p>
+<h2 id="developing"><a href="#developing" class="headerlink" title="developing"></a>developing</h2><p>should we use p2p networks to speed up remote connections like <code>n2n</code> or <code>tinc</code>?<br>would it be interesting to run all our kali connectors ranged from vscode-ssh-connect, rclone mount and direct ssh connection via <code>kali</code> command dynamically by our kali discovery service, if we can reload the nginx daemon on demand.<br>using redis to store some daemon reported values.<br>how about we set the workding directory of <code>redis-server</code> to <code>/tmp</code> so that the <code>dump.rdb</code> file will never take space after reboot?<br>we need to know if this will successifully launch after reboot since <code>/tmp</code> may not exist by that time<br>default redis server port: 6379<br>install redis-server service:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">easyd -w /tmp -l redis_server -- /opt/homebrew/bin/redis-server</span><br></pre></td></tr></table></figure>
-
-<p>first value is <code>online</code>.</p>
-<p>next value is <code>kali_ip</code>.</p>
-<p>using both value to determine whether to connect to kali or not, and the exact address.</p>
+<p>first value is <code>online</code>.<br>next value is <code>kali_ip</code>.<br>using both value to determine whether to connect to kali or not, and the exact address.</p>
 	  
 	</div>
 
@@ -151,13 +141,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2022/08/12/28f2c636-2561-4c66-a195-5cc94df36bc5/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2022/08/12/28f2c636-2561-4c66-a195-5cc94df36bc5/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2022/08/11/4f343aea-d7b4-401c-b701-26253e3bb46b/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2022/08/11/4f343aea-d7b4-401c-b701-26253e3bb46b/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -219,7 +209,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Troubleshooting/">Troubleshooting<span>8</span></a></li>
+    <li><a href="/blog/categories/Troubleshooting/">Troubleshooting<span>8</span></a></li>
   </li>
 
     </ul>
@@ -232,7 +222,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/remote-control/">remote control<span>6</span></a></li> <li><a href="/tags/system-manage/">system manage<span>17</span></a></li> <li><a href="/tags/service/">service<span>5</span></a></li> <li><a href="/tags/host-discovery/">host discovery<span>1</span></a></li>
+  <li><a href="/blog/tags/remote-control/">remote control<span>6</span></a></li> <li><a href="/blog/tags/system-manage/">system manage<span>17</span></a></li> <li><a href="/blog/tags/service/">service<span>5</span></a></li> <li><a href="/blog/tags/host-discovery/">host discovery<span>1</span></a></li>
 
     </ul>
 	</div>
@@ -272,15 +262,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -294,7 +284,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

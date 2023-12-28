@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,47 +125,13 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="MySQL-Cheatsheet"><a href="#MySQL-Cheatsheet" class="headerlink" title="MySQL Cheatsheet"></a>MySQL Cheatsheet</h1><p>MySQL Reference Card<br>Version: 0.1<br>Author: ProgM4c</p>
-<p>Attribute Types</p>
-<p>Numbers<br>Name<br>Coded on<br>Name<br>Coded on<br>TINYINT<br>1 byte<br>FLOAT(W, D)<br>4 bytes<br>SMALLINT<br>2 bytes<br>DOUBLE(W, D)<br>8 bytes<br>MEDIUMINT<br>3 bytes<br>W: width(number of digits with the ‘.’)<br>D: number of decimals<br>INT<br>4 bytes</p>
-<p>BIGINT<br>8 bytes</p>
-<p>Parameters:<br>    • UNSIGNED<br>    • ZEROFILL</p>
-<p>Coded on:<br>    • SIGNED :<br>    • UNSIGNED: </p>
-<p>Strings (between ‘ ‘)<br>Name<br>Size<br>CHAR(M)<br>String with fixed size, 1 &lt;&#x3D; M &lt;&#x3D; 255<br>VARCHAR(M)<br>String with variable size, 1 &lt;&#x3D; M &lt;&#x3D; 255<br>TINYTEXT<br>Max length &#x3D; 255<br>TEXT<br>Max length &#x3D; 65535<br>MEDIUMTEXT<br>Max length &#x3D; 16777215<br>LONGTEXT<br>Max length &#x3D; 4294967295<br>DECIMAL(M, D)<br>Simulate a floating point number in a string format</p>
-<p>Date and Time<br>Name<br>Format<br>DATE<br>AAAA-MM-JJ<br>DATETIME<br>AAAA-MM-JJ HH:MM:SS<br>TIMESTAMP<br>AAAAMMJJHHMMSS<br>TIMESTAMP(M)<br>First M characters of a TIMESTAMP<br>TIME<br>HH:MM:SS<br>YEAR<br>AAAA</p>
-<p>ENUM: take one value in the defined list (can be NULL)<br>syntax:<br>attr_name ENUM(‘value1’, ‘value2’, …) {NULL | NOT NULL}</p>
-<p>Database queries</p>
-<p>create a database<br>CREATE DATABASE [IF NOT EXISTS] <db_name>;</p>
-<p>delete  a database<br>DROP DATABSE [IF EXISTS] <db_name>;</p>
-<p>rename a database<br>ALTER DATABASE <db_name> RENAME <db_new_name>;</p>
-<p>list databases<br>SHOW DATABASES;</p>
-<p>select a database<br>USE <db_name>;</p>
-<p>Table queries</p>
-<p>show a table<br>SHOW TABLES;</p>
-<p>rename a table<br>ALTER TABLE <table_name> RENAME <new_name>;</p>
-<p>describe a table<br>DESCRIBE <table>;</p>
-<p>delete a table<br>DROP TABLE <table_name>;</p>
-<p>type of constraints<br>    • NOT NULL<br>    • UNIQUE<br>    • PRIMARY KEY &#x3D; NOT NULL + UNIQUE<br>    • FOREIGN KEY<br>    • CHECK<br>    • DEFAULT<br>    • AUTO_INCREMENT</p>
-<p>create a table<br>CREATE TABLE <table_name> (<br>    <attr1> <datatype1>(size) <constraints>,<br>    <attr1> <datatype1>(size) <constraints>,<br>    …<br>    PRIMARY KEY(<pk>)<br>);</p>
-<p>add &#x2F; delete a constraints<br>ALTER TABLE <table_name> ADD CONSTRAINT <const_name> TYPEOFCONSTRAINT (<attr1>, …)<br>ALTER TABLE <table_name> DROP [CONSTRAINT <const_name> | TYPEOFCONSTRAINT <const_name>];</p>
-<p>Modify table structure</p>
-<p>add &#x2F; delete attribute<br>ALTER TABLE <table_name> ADD <attr> <type> [FIRST|AFTER <other_attr>];<br>ALTER TABLE <table_name> DROP <attr> ;</p>
-<p>add &#x2F; delete default value to an column<br>ALTER TABLE <table_name> ALTER <attr> {SET DEFAULT <default_value>|DROP DEFAULT};</p>
-<p>change definition of an attribute without&#x2F;with renaming it<br>ALTER TABLE <table_name> MODIFY <attr_name> <new_type>;<br>ALTER TABLE <table_name> CHANGE <attr_name> <attr_new_name> <new_type>;<br>Inserting data<br>INSERT INTO <table_name>(<col1>, <col2>, …) VALUES (<val1>, <val2>, …);</p>
-<p>Modifying data<br>UPDATE <table_name><br>SET <field1> &#x3D; <val1>, <field2> &#x3D; <val2>, …<br>WHERE <condition>;</p>
-<p>Deleting data<br>DELETE FROM <table_name> WHERE <condition>;</p>
-<p>Retrieving data<br>Select statement<br>SELECT [ DISTINCT ] attributs<br>[ INTO OUTFILE fichier ]<br>[ FROM relation ]<br>[ WHERE condition ]<br>[ GROUP BY attributs [ ASC | DESC ] ]<br>[ HAVING condition ]<br>[ ORDER BY attributs ]<br>[ LIMIT [a,] b ]</p>
-<h1 id="operators-in-a-where-clause"><a href="#operators-in-a-where-clause" class="headerlink" title="operators in a where clause"></a>operators in a where clause</h1><p>Equal<br>&lt;&gt;<br>Not equal. Note: In some versions of SQL this operator may be written as !&#x3D;</p>
+	  <h1 id="MySQL-Reference-CardVersion-0-1Author-ProgM4cAttribute-TypesNumbersNameCoded-onNameCoded-onTINYINT1-byteFLOAT-W-D-4-bytesSMALLINT2-bytesDOUBLE-W-D-8-bytesMEDIUMINT3-bytesW-width-number-of-digits-with-the-‘-’-D-number-of-decimalsINT4-bytesBIGINT8-bytesParameters-•-UNSIGNED•-ZEROFILLCoded-on-•-SIGNED-•-UNSIGNED-Strings-between-‘-‘-NameSizeCHAR-M-String-with-fixed-size-1"><a href="#MySQL-Reference-CardVersion-0-1Author-ProgM4cAttribute-TypesNumbersNameCoded-onNameCoded-onTINYINT1-byteFLOAT-W-D-4-bytesSMALLINT2-bytesDOUBLE-W-D-8-bytesMEDIUMINT3-bytesW-width-number-of-digits-with-the-‘-’-D-number-of-decimalsINT4-bytesBIGINT8-bytesParameters-•-UNSIGNED•-ZEROFILLCoded-on-•-SIGNED-•-UNSIGNED-Strings-between-‘-‘-NameSizeCHAR-M-String-with-fixed-size-1" class="headerlink" title="MySQL Reference CardVersion: 0.1Author: ProgM4cAttribute TypesNumbersNameCoded onNameCoded onTINYINT1 byteFLOAT(W, D)4 bytesSMALLINT2 bytesDOUBLE(W, D)8 bytesMEDIUMINT3 bytesW: width(number of digits with the ‘.’)D: number of decimalsINT4 bytesBIGINT8 bytesParameters:• UNSIGNED• ZEROFILLCoded on:• SIGNED :• UNSIGNED:Strings (between ‘ ‘)NameSizeCHAR(M)String with fixed size, 1 &lt;&#x3D; M &lt;&#x3D; 255VARCHAR(M)String with variable size, 1 &lt;&#x3D; M &lt;&#x3D; 255TINYTEXTMax length &#x3D; 255TEXTMax length &#x3D; 65535MEDIUMTEXTMax length &#x3D; 16777215LONGTEXTMax length &#x3D; 4294967295DECIMAL(M, D)Simulate a floating point number in a string formatDate and TimeNameFormatDATEAAAA-MM-JJDATETIMEAAAA-MM-JJ HH:MM:SSTIMESTAMPAAAAMMJJHHMMSSTIMESTAMP(M)First M characters of a TIMESTAMPTIMEHH:MM:SSYEARAAAAENUM: take one value in the defined list (can be NULL)syntax:attr_name ENUM(‘value1’, ‘value2’, …) {NULL | NOT NULL}Database queriescreate a databaseCREATE DATABASE [IF NOT EXISTS] ;delete  a databaseDROP DATABSE [IF EXISTS] ;rename a databaseALTER DATABASE  RENAME ;list databasesSHOW DATABASES;select a databaseUSE ;Table queriesshow a tableSHOW TABLES;rename a tableALTER TABLE  RENAME ;describe a tableDESCRIBE ;delete a tableDROP TABLE ;type of constraints• NOT NULL• UNIQUE• PRIMARY KEY &#x3D; NOT NULL + UNIQUE• FOREIGN KEY• CHECK• DEFAULT• AUTO_INCREMENTcreate a tableCREATE TABLE  ( (size) , (size) ,…PRIMARY KEY());add &#x2F; delete a constraintsALTER TABLE  ADD CONSTRAINT  TYPEOFCONSTRAINT (, …)ALTER TABLE  DROP [CONSTRAINT  | TYPEOFCONSTRAINT ];Modify table structureadd &#x2F; delete attributeALTER TABLE  ADD   [FIRST|AFTER ];ALTER TABLE  DROP  ;add &#x2F; delete default value to an columnALTER TABLE  ALTER  {SET DEFAULT |DROP DEFAULT};change definition of an attribute without&#x2F;with renaming itALTER TABLE  MODIFY  ;ALTER TABLE  CHANGE   ;Inserting dataINSERT INTO (, , …) VALUES (, , …);Modifying dataUPDATE SET  &#x3D; ,  &#x3D; , …WHERE ;Deleting dataDELETE FROM  WHERE ;Retrieving dataSelect statementSELECT [ DISTINCT ] attributs[ INTO OUTFILE fichier ][ FROM relation ][ WHERE condition ][ GROUP BY attributs [ ASC | DESC ] ][ HAVING condition ][ ORDER BY attributs ][ LIMIT [a,] b ]operators in a where clause"></a>MySQL Reference Card<br>Version: 0.1<br>Author: ProgM4c<br>Attribute Types<br>Numbers<br>Name<br>Coded on<br>Name<br>Coded on<br>TINYINT<br>1 byte<br>FLOAT(W, D)<br>4 bytes<br>SMALLINT<br>2 bytes<br>DOUBLE(W, D)<br>8 bytes<br>MEDIUMINT<br>3 bytes<br>W: width(number of digits with the ‘.’)<br>D: number of decimals<br>INT<br>4 bytes<br>BIGINT<br>8 bytes<br>Parameters:<br>• UNSIGNED<br>• ZEROFILL<br>Coded on:<br>• SIGNED :<br>• UNSIGNED:<br>Strings (between ‘ ‘)<br>Name<br>Size<br>CHAR(M)<br>String with fixed size, 1 &lt;&#x3D; M &lt;&#x3D; 255<br>VARCHAR(M)<br>String with variable size, 1 &lt;&#x3D; M &lt;&#x3D; 255<br>TINYTEXT<br>Max length &#x3D; 255<br>TEXT<br>Max length &#x3D; 65535<br>MEDIUMTEXT<br>Max length &#x3D; 16777215<br>LONGTEXT<br>Max length &#x3D; 4294967295<br>DECIMAL(M, D)<br>Simulate a floating point number in a string format<br>Date and Time<br>Name<br>Format<br>DATE<br>AAAA-MM-JJ<br>DATETIME<br>AAAA-MM-JJ HH:MM:SS<br>TIMESTAMP<br>AAAAMMJJHHMMSS<br>TIMESTAMP(M)<br>First M characters of a TIMESTAMP<br>TIME<br>HH:MM:SS<br>YEAR<br>AAAA<br>ENUM: take one value in the defined list (can be NULL)<br>syntax:<br>attr_name ENUM(‘value1’, ‘value2’, …) {NULL | NOT NULL}<br>Database queries<br>create a database<br>CREATE DATABASE [IF NOT EXISTS] <db_name>;<br>delete  a database<br>DROP DATABSE [IF EXISTS] <db_name>;<br>rename a database<br>ALTER DATABASE <db_name> RENAME <db_new_name>;<br>list databases<br>SHOW DATABASES;<br>select a database<br>USE <db_name>;<br>Table queries<br>show a table<br>SHOW TABLES;<br>rename a table<br>ALTER TABLE <table_name> RENAME <new_name>;<br>describe a table<br>DESCRIBE <table>;<br>delete a table<br>DROP TABLE <table_name>;<br>type of constraints<br>• NOT NULL<br>• UNIQUE<br>• PRIMARY KEY &#x3D; NOT NULL + UNIQUE<br>• FOREIGN KEY<br>• CHECK<br>• DEFAULT<br>• AUTO_INCREMENT<br>create a table<br>CREATE TABLE <table_name> (<br><attr1> <datatype1>(size) <constraints>,<br><attr1> <datatype1>(size) <constraints>,<br>…<br>PRIMARY KEY(<pk>)<br>);<br>add &#x2F; delete a constraints<br>ALTER TABLE <table_name> ADD CONSTRAINT <const_name> TYPEOFCONSTRAINT (<attr1>, …)<br>ALTER TABLE <table_name> DROP [CONSTRAINT <const_name> | TYPEOFCONSTRAINT <const_name>];<br>Modify table structure<br>add &#x2F; delete attribute<br>ALTER TABLE <table_name> ADD <attr> <type> [FIRST|AFTER <other_attr>];<br>ALTER TABLE <table_name> DROP <attr> ;<br>add &#x2F; delete default value to an column<br>ALTER TABLE <table_name> ALTER <attr> {SET DEFAULT <default_value>|DROP DEFAULT};<br>change definition of an attribute without&#x2F;with renaming it<br>ALTER TABLE <table_name> MODIFY <attr_name> <new_type>;<br>ALTER TABLE <table_name> CHANGE <attr_name> <attr_new_name> <new_type>;<br>Inserting data<br>INSERT INTO <table_name>(<col1>, <col2>, …) VALUES (<val1>, <val2>, …);<br>Modifying data<br>UPDATE <table_name><br>SET <field1> &#x3D; <val1>, <field2> &#x3D; <val2>, …<br>WHERE <condition>;<br>Deleting data<br>DELETE FROM <table_name> WHERE <condition>;<br>Retrieving data<br>Select statement<br>SELECT [ DISTINCT ] attributs<br>[ INTO OUTFILE fichier ]<br>[ FROM relation ]<br>[ WHERE condition ]<br>[ GROUP BY attributs [ ASC | DESC ] ]<br>[ HAVING condition ]<br>[ ORDER BY attributs ]<br>[ LIMIT [a,] b ]<br>operators in a where clause</h1><p>Equal<br>&lt;&gt;<br>Not equal. Note: In some versions of SQL this operator may be written as !&#x3D;</p>
 <blockquote>
 </blockquote>
 <p>Greater than<br>&lt;<br>Less than</p>
 <blockquote>
-<p>&#x3D;<br>Greater than or equal<br>&lt;&#x3D;<br>Less than or equal<br>BETWEEN<br>Between an inclusive range<br>LIKE<br>Search for a pattern (‘%’ any sequence of characters ‘_’ any character)<br>[NOT] IN<br>To specify multiple possible values for a column<br>IS [NOT] NULL<br>To check if the value of a column is NULL or not<br>AND OR NOT<br>Filter records based on more than once condition</p>
+<p>&#x3D;<br>Greater than or equal<br>&lt;&#x3D;<br>Less than or equal<br>BETWEEN<br>Between an inclusive range<br>LIKE<br>Search for a pattern (‘%’ any sequence of characters ‘_’ any character)<br>[NOT] IN<br>To specify multiple possible values for a column<br>IS [NOT] NULL<br>To check if the value of a column is NULL or not<br>AND OR NOT<br>Filter records based on more than once condition<br>Sub-requests<br>SELECT * FROM <table> WHERE prix &gt; (SELECT MIN(prix) FROM tab2)<br>SELECT * FROM <table> WHERE nom NOT IN (SELECT nom FROM tab2)<br>SELECT * FROM <table> WHERE prix &gt; ALL (SELECT prix FROM tab2) (sup. à ttes les valeurs)<br>SELECT * FROM <table> WHERE prix &gt; ANY (SELECT prix FROM tab2) (sup. à au moins 1)<br>SQL aliases on column &#x2F; table<br>SELECT <column> AS <col_alias> FROM <table>		(alias a result)<br>SELECT <column> FROM <table> AS <new_name>		(alias a table name)<br>SQL functions<br>AVG()		- (moyenne)<br>COUNT()	- (nombre d’élément)<br>MAX()		- (maximum)<br>MIN()		- (minimum)<br>SUM()		- (somme)<br>UCASE()<br>LCASE()<br>LEN()<br>NOW()<br>FORMAT()</p>
 </blockquote>
-<p>Sub-requests<br>SELECT * FROM <table> WHERE prix &gt; (SELECT MIN(prix) FROM tab2)<br>SELECT * FROM <table> WHERE nom NOT IN (SELECT nom FROM tab2)<br>SELECT * FROM <table> WHERE prix &gt; ALL (SELECT prix FROM tab2) (sup. à ttes les valeurs)<br>SELECT * FROM <table> WHERE prix &gt; ANY (SELECT prix FROM tab2) (sup. à au moins 1)</p>
-<p>SQL aliases on column &#x2F; table<br>SELECT <column> AS <col_alias> FROM <table>		(alias a result)<br>SELECT <column> FROM <table> AS <new_name>		(alias a table name)</p>
-<p>SQL functions<br>AVG()		- (moyenne)<br>COUNT()	- (nombre d’élément)<br>MAX()		- (maximum)<br>MIN()		- (minimum)<br>SUM()		- (somme)</p>
-<p>UCASE()<br>LCASE()<br>LEN()<br>NOW()<br>FORMAT()</p>
 	  
 	</div>
 
@@ -178,13 +144,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2022/06/03/1c787b18-5280-4e45-bca9-93d623ecc506/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2022/06/03/1c787b18-5280-4e45-bca9-93d623ecc506/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2022/06/03/66e8b272-cb07-4ec9-a59e-cff0c3cb654a/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2022/06/03/66e8b272-cb07-4ec9-a59e-cff0c3cb654a/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -246,7 +212,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Database-Management/">Database Management<span>2</span></a></li>
+    <li><a href="/blog/categories/Database-Management/">Database Management<span>2</span></a></li>
   </li>
 
     </ul>
@@ -259,7 +225,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/reference/">reference<span>5</span></a></li> <li><a href="/tags/database/">database<span>3</span></a></li> <li><a href="/tags/mysql/">mysql<span>1</span></a></li>
+  <li><a href="/blog/tags/reference/">reference<span>5</span></a></li> <li><a href="/blog/tags/database/">database<span>3</span></a></li> <li><a href="/blog/tags/mysql/">mysql<span>1</span></a></li>
 
     </ul>
 	</div>
@@ -299,15 +265,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -321,7 +287,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

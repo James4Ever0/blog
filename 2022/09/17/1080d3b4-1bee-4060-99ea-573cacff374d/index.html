@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,15 +125,12 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="numpy-and-pandas-deduplication"><a href="#numpy-and-pandas-deduplication" class="headerlink" title="numpy and pandas deduplication"></a>numpy and pandas deduplication</h1><p><a target="_blank" rel="noopener" href="https://datascienceparichay.com/article/numpy-remove-duplicates-from-array/#:~:text=Use%20the%20np.unique%20%28%29%20function%20to%20remove%20duplicates,remove%20duplicate%20columns%20from%20a%202-D%20Numpy%20array.">numpy remove duplicates from array</a></p>
+	  <p><a target="_blank" rel="noopener" href="https://datascienceparichay.com/article/numpy-remove-duplicates-from-array/#:~:text=Use%20the%20np.unique%20%28%29%20function%20to%20remove%20duplicates,remove%20duplicate%20columns%20from%20a%202-D%20Numpy%20array.">numpy remove duplicates from array</a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(np.unique(ar, axis=<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
-
 <p><a target="_blank" rel="noopener" href="https://pypi.org/project/dupandas/#:~:text=dupandas%20is%20a%20python%20package%20to%20perform%20data,Matchers%20that%20can%20handle%20spelling%20differences%20and%20phonetics.">dupandas</a>: remove duplicates with custom rules like levenshtein distance, spelling differences and phonetics (fuzzy maching) for english (most likely?)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install dupandas</span><br></pre></td></tr></table></figure>
-
 <p><a target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.drop_duplicates.html">pandas drop_duplicates</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.drop_duplicates(subset=[<span class="string">&#x27;brand&#x27;</span>, <span class="string">&#x27;style&#x27;</span>], keep=<span class="string">&#x27;last&#x27;</span>)</span><br></pre></td></tr></table></figure>
-	  
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.drop_duplicates(subset=[<span class="string">&#x27;brand&#x27;</span>, <span class="string">&#x27;style&#x27;</span>], keep=<span class="string">&#x27;last&#x27;</span>)</span><br></pre></td></tr></table></figure>	  
 	</div>
 
 	<!-- recommended posts -->
@@ -145,13 +142,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2022/09/17/dbfb7abd-2e08-4a7d-9672-f8f1623a14fe/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2022/09/17/dbfb7abd-2e08-4a7d-9672-f8f1623a14fe/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2022/09/17/0f7f8506-82e6-4649-8804-f9df48da97ee/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2022/09/17/0f7f8506-82e6-4649-8804-f9df48da97ee/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -213,7 +210,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Numpy/">Numpy<span>1</span></a></li>
+    <li><a href="/blog/categories/Numpy/">Numpy<span>1</span></a></li>
   </li>
 
     </ul>
@@ -226,7 +223,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/Numpy/">Numpy<span>1</span></a></li> <li><a href="/tags/Duplicate-removal/">Duplicate removal<span>1</span></a></li> <li><a href="/tags/Arrays/">Arrays<span>1</span></a></li> <li><a href="/tags/np-unique/">np.unique()<span>1</span></a></li> <li><a href="/tags/Pandas/">Pandas<span>1</span></a></li> <li><a href="/tags/Drop-duplicates/">Drop_duplicates<span>1</span></a></li> <li><a href="/tags/Dupandas/">Dupandas<span>1</span></a></li>
+  <li><a href="/blog/tags/Numpy/">Numpy<span>1</span></a></li> <li><a href="/blog/tags/Duplicate-removal/">Duplicate removal<span>1</span></a></li> <li><a href="/blog/tags/Arrays/">Arrays<span>1</span></a></li> <li><a href="/blog/tags/np-unique/">np.unique()<span>1</span></a></li> <li><a href="/blog/tags/Pandas/">Pandas<span>1</span></a></li> <li><a href="/blog/tags/Drop-duplicates/">Drop_duplicates<span>1</span></a></li> <li><a href="/blog/tags/Dupandas/">Dupandas<span>1</span></a></li>
 
     </ul>
 	</div>
@@ -266,15 +263,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -288,7 +285,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

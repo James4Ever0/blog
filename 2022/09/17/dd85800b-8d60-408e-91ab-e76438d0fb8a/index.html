@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,9 +125,8 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="opencv-corner-detection"><a href="#opencv-corner-detection" class="headerlink" title="opencv corner detection"></a>opencv corner detection</h1><p><a target="_blank" rel="noopener" href="https://docs.opencv.org/4.x/df/d0c/tutorial_py_fast.html">fast algorithm for corner detection</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cv2 <span class="keyword">as</span> cv</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line">img = cv.imread(<span class="string">&#x27;blox.jpg&#x27;</span>,<span class="number">0</span>) <span class="comment"># `&lt;opencv_root&gt;/samples/data/blox.jpg`</span></span><br><span class="line"><span class="comment"># Initiate FAST object with default values</span></span><br><span class="line">fast = cv.FastFeatureDetector_create()</span><br><span class="line"><span class="comment"># find and draw the keypoints</span></span><br><span class="line">kp = fast.detect(img,<span class="literal">None</span>)</span><br><span class="line">img2 = cv.drawKeypoints(img, kp, <span class="literal">None</span>, color=(<span class="number">255</span>,<span class="number">0</span>,<span class="number">0</span>))</span><br><span class="line"><span class="comment"># Print all default params</span></span><br><span class="line"><span class="built_in">print</span>( <span class="string">&quot;Threshold: &#123;&#125;&quot;</span>.<span class="built_in">format</span>(fast.getThreshold()) )</span><br><span class="line"><span class="built_in">print</span>( <span class="string">&quot;nonmaxSuppression:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(fast.getNonmaxSuppression()) )</span><br><span class="line"><span class="built_in">print</span>( <span class="string">&quot;neighborhood: &#123;&#125;&quot;</span>.<span class="built_in">format</span>(fast.getType()) )</span><br><span class="line"><span class="built_in">print</span>( <span class="string">&quot;Total Keypoints with nonmaxSuppression: &#123;&#125;&quot;</span>.<span class="built_in">format</span>(<span class="built_in">len</span>(kp)) )</span><br><span class="line">cv.imwrite(<span class="string">&#x27;fast_true.png&#x27;</span>, img2)</span><br><span class="line"><span class="comment"># Disable nonmaxSuppression</span></span><br><span class="line">fast.setNonmaxSuppression(<span class="number">0</span>)</span><br><span class="line">kp = fast.detect(img, <span class="literal">None</span>)</span><br><span class="line"><span class="built_in">print</span>( <span class="string">&quot;Total Keypoints without nonmaxSuppression: &#123;&#125;&quot;</span>.<span class="built_in">format</span>(<span class="built_in">len</span>(kp)) )</span><br><span class="line">img3 = cv.drawKeypoints(img, kp, <span class="literal">None</span>, color=(<span class="number">255</span>,<span class="number">0</span>,<span class="number">0</span>))</span><br><span class="line">cv.imwrite(<span class="string">&#x27;fast_false.png&#x27;</span>, img3)</span><br></pre></td></tr></table></figure>
-	  
+	  <p><a target="_blank" rel="noopener" href="https://docs.opencv.org/4.x/df/d0c/tutorial_py_fast.html">fast algorithm for corner detection</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cv2 <span class="keyword">as</span> cv</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line">img = cv.imread(<span class="string">&#x27;blox.jpg&#x27;</span>,<span class="number">0</span>) <span class="comment"># `&lt;opencv_root&gt;/samples/data/blox.jpg`</span></span><br><span class="line"><span class="comment"># Initiate FAST object with default values</span></span><br><span class="line">fast = cv.FastFeatureDetector_create()</span><br><span class="line"><span class="comment"># find and draw the keypoints</span></span><br><span class="line">kp = fast.detect(img,<span class="literal">None</span>)</span><br><span class="line">img2 = cv.drawKeypoints(img, kp, <span class="literal">None</span>, color=(<span class="number">255</span>,<span class="number">0</span>,<span class="number">0</span>))</span><br><span class="line"><span class="comment"># Print all default params</span></span><br><span class="line"><span class="built_in">print</span>( <span class="string">&quot;Threshold: &#123;&#125;&quot;</span>.<span class="built_in">format</span>(fast.getThreshold()) )</span><br><span class="line"><span class="built_in">print</span>( <span class="string">&quot;nonmaxSuppression:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(fast.getNonmaxSuppression()) )</span><br><span class="line"><span class="built_in">print</span>( <span class="string">&quot;neighborhood: &#123;&#125;&quot;</span>.<span class="built_in">format</span>(fast.getType()) )</span><br><span class="line"><span class="built_in">print</span>( <span class="string">&quot;Total Keypoints with nonmaxSuppression: &#123;&#125;&quot;</span>.<span class="built_in">format</span>(<span class="built_in">len</span>(kp)) )</span><br><span class="line">cv.imwrite(<span class="string">&#x27;fast_true.png&#x27;</span>, img2)</span><br><span class="line"><span class="comment"># Disable nonmaxSuppression</span></span><br><span class="line">fast.setNonmaxSuppression(<span class="number">0</span>)</span><br><span class="line">kp = fast.detect(img, <span class="literal">None</span>)</span><br><span class="line"><span class="built_in">print</span>( <span class="string">&quot;Total Keypoints without nonmaxSuppression: &#123;&#125;&quot;</span>.<span class="built_in">format</span>(<span class="built_in">len</span>(kp)) )</span><br><span class="line">img3 = cv.drawKeypoints(img, kp, <span class="literal">None</span>, color=(<span class="number">255</span>,<span class="number">0</span>,<span class="number">0</span>))</span><br><span class="line">cv.imwrite(<span class="string">&#x27;fast_false.png&#x27;</span>, img3)</span><br></pre></td></tr></table></figure>	  
 	</div>
 
 	<!-- recommended posts -->
@@ -139,13 +138,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2022/09/17/aaa93578-1ef4-4ad2-8a1c-b261b71028b7/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2022/09/17/aaa93578-1ef4-4ad2-8a1c-b261b71028b7/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2022/09/17/bc193727-3bc6-4586-9f67-d0570983b8ca/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2022/09/17/bc193727-3bc6-4586-9f67-d0570983b8ca/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -207,7 +206,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Computer-Vision/">Computer Vision<span>3</span></a></li>
+    <li><a href="/blog/categories/Computer-Vision/">Computer Vision<span>3</span></a></li>
   </li>
 
     </ul>
@@ -220,7 +219,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/OpenCV/">OpenCV<span>3</span></a></li> <li><a href="/tags/Fast-algorithm/">Fast algorithm<span>1</span></a></li> <li><a href="/tags/Corner-detection/">Corner detection<span>1</span></a></li> <li><a href="/tags/Image-processing/">Image processing<span>1</span></a></li> <li><a href="/tags/FAST-object/">FAST object<span>1</span></a></li> <li><a href="/tags/fast-true-png/">fast_true.png<span>1</span></a></li> <li><a href="/tags/fast-false-png/">fast_false.png<span>1</span></a></li>
+  <li><a href="/blog/tags/OpenCV/">OpenCV<span>3</span></a></li> <li><a href="/blog/tags/Fast-algorithm/">Fast algorithm<span>1</span></a></li> <li><a href="/blog/tags/Corner-detection/">Corner detection<span>1</span></a></li> <li><a href="/blog/tags/Image-processing/">Image processing<span>1</span></a></li> <li><a href="/blog/tags/FAST-object/">FAST object<span>1</span></a></li> <li><a href="/blog/tags/fast-true-png/">fast_true.png<span>1</span></a></li> <li><a href="/blog/tags/fast-false-png/">fast_false.png<span>1</span></a></li>
 
     </ul>
 	</div>
@@ -260,15 +259,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -282,7 +281,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

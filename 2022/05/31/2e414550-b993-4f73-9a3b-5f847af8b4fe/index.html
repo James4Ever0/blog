@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,48 +125,13 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="Video-delogo-inpainting"><a href="#Video-delogo-inpainting" class="headerlink" title="Video delogo&#x2F;inpainting"></a>Video delogo&#x2F;inpainting</h1><p>propainter remove watermark with tracking, entity segmentation</p>
-<p>you can use <a target="_blank" rel="noopener" href="https://github.com/LAION-AI/LAION-5B-WatermarkDetection">clip</a> for watermark detection, but you don’t know where. fuck. you better train it yourself.</p>
-<p><a target="_blank" rel="noopener" href="https://wandb.ai/arkseal/laion-watermark-detection/artifacts/model/model/f88165bb9d2cbccc51b5">watermark detection model</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> timm</span><br><span class="line"><span class="comment"># all other pytorch imports</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Not used but necessary when running on images</span></span><br><span class="line">transforms = T.Compose([</span><br><span class="line">    T.Resize((<span class="number">256</span>, <span class="number">256</span>)),</span><br><span class="line">    T.ToTensor(),</span><br><span class="line">    T.Normalize([<span class="number">0.485</span>, <span class="number">0.456</span>, <span class="number">0.406</span>], [<span class="number">0.229</span>, <span class="number">0.224</span>, <span class="number">0.225</span>])</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create model</span></span><br><span class="line">model = timm.create_model(<span class="string">&#x27;efficientnet_b3a&#x27;</span>, pretrained=<span class="literal">False</span>, num_classes=<span class="number">2</span>)</span><br><span class="line">model.classifier = nn.Sequential(</span><br><span class="line">    nn.Linear(in_features=<span class="number">1536</span>, out_features=<span class="number">625</span>),</span><br><span class="line">    nn.ReLU(),</span><br><span class="line">    nn.Dropout(p=<span class="number">0.3</span>),</span><br><span class="line">    nn.Linear(in_features=<span class="number">625</span>, out_features=<span class="number">256</span>),</span><br><span class="line">    nn.ReLU(),</span><br><span class="line">    nn.Linear(in_features=<span class="number">256</span>, out_features=<span class="number">2</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Load model weights</span></span><br><span class="line">state_dict = torch.load(<span class="string">&#x27;./model.pt&#x27;</span>)</span><br><span class="line">model.load_state_dict(state_dict).<span class="built_in">eval</span>().to(device)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Sample Image</span></span><br><span class="line">im = torch.randn(<span class="number">8</span>, <span class="number">3</span>, <span class="number">256</span>, <span class="number">256</span>)</span><br><span class="line"><span class="keyword">with</span> torch.no_grad():</span><br><span class="line">    pred = model(im)</span><br><span class="line">syms = F.softmax(pred, dim=<span class="number">1</span>).detach().cpu().numpy().tolist()</span><br><span class="line"><span class="keyword">for</span> water_sym, clear_sym <span class="keyword">in</span> syms:</span><br><span class="line">    <span class="comment"># Do whatever you want with the watermark simlarity</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="image-local-contrast-enhancement-for-removing-hard-to-detect-watermarks"><a href="#image-local-contrast-enhancement-for-removing-hard-to-detect-watermarks" class="headerlink" title="image local contrast enhancement, for removing hard-to-detect watermarks"></a>image local contrast enhancement, for removing hard-to-detect watermarks</h2><p>maybe you can use the same trick (context preserving sliding window) from your search engine to here (image preprocessing)!</p>
-<p>paddleocr识别效果最好 可以识别水印位置 以及文字</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Tejesh-Raut/Image-Linear-Contrast-Stretching-HE-AHE-CLAHE-Gray-Scale-Transformation">Linear Contrast Stretching, HE, AHE, CLAHE of an image using matlab</a></p>
-<p>Histogram Equalization (HE)</p>
-<p>Adaptive Histogram Equalization (AHE)</p>
-<p>Contrast Limited Adaptive Histogram Equalisation (CLAHE)</p>
-<p>experiment path:</p>
-<p><code>pyjom/tests/remove_subtle_watermark_local_contrast_ocr</code></p>
-<p><a target="_blank" rel="noopener" href="https://cn.bing.com/search?q=image+local+contrast&qs=n&form=QBRE&sp=-1&pq=image+local+contrast&sc=2-20&sk=&cvid=55BB4B6B6AE74F8FA6271F34C6201403&ghsh=0&ghacc=0&ghpl=">bing query for image local contrast</a></p>
-<p><a target="_blank" rel="noopener" href="https://darktable-org.github.io/luadocs/lua.scripts.manual/scripts/examples/api_version">darktable lua api and scripting</a></p>
-<p><a target="_blank" rel="noopener" href="https://docs.darktable.org/usermanual/development/en/module-reference/processing-modules/local-contrast/">darktable local contrast</a> darktable is an open-sourced photography postprocessing software</p>
-<p>configurations:</p>
+	  <h1 id="Video-delogo-inpainting"><a href="#Video-delogo-inpainting" class="headerlink" title="Video delogo&#x2F;inpainting"></a>Video delogo&#x2F;inpainting</h1><p>propainter remove watermark with tracking, entity segmentation<br>you can use <a target="_blank" rel="noopener" href="https://github.com/LAION-AI/LAION-5B-WatermarkDetection">clip</a> for watermark detection, but you don’t know where. fuck. you better train it yourself.<br><a target="_blank" rel="noopener" href="https://wandb.ai/arkseal/laion-watermark-detection/artifacts/model/model/f88165bb9d2cbccc51b5">watermark detection model</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> timm</span><br><span class="line"><span class="comment"># all other pytorch imports</span></span><br><span class="line"><span class="comment"># Not used but necessary when running on images</span></span><br><span class="line">transforms = T.Compose([</span><br><span class="line">T.Resize((<span class="number">256</span>, <span class="number">256</span>)),</span><br><span class="line">T.ToTensor(),</span><br><span class="line">T.Normalize([<span class="number">0.485</span>, <span class="number">0.456</span>, <span class="number">0.406</span>], [<span class="number">0.229</span>, <span class="number">0.224</span>, <span class="number">0.225</span>])</span><br><span class="line">])</span><br><span class="line"><span class="comment"># Create model</span></span><br><span class="line">model = timm.create_model(<span class="string">&#x27;efficientnet_b3a&#x27;</span>, pretrained=<span class="literal">False</span>, num_classes=<span class="number">2</span>)</span><br><span class="line">model.classifier = nn.Sequential(</span><br><span class="line">nn.Linear(in_features=<span class="number">1536</span>, out_features=<span class="number">625</span>),</span><br><span class="line">nn.ReLU(),</span><br><span class="line">nn.Dropout(p=<span class="number">0.3</span>),</span><br><span class="line">nn.Linear(in_features=<span class="number">625</span>, out_features=<span class="number">256</span>),</span><br><span class="line">nn.ReLU(),</span><br><span class="line">nn.Linear(in_features=<span class="number">256</span>, out_features=<span class="number">2</span>)</span><br><span class="line">)</span><br><span class="line"><span class="comment"># Load model weights</span></span><br><span class="line">state_dict = torch.load(<span class="string">&#x27;./model.pt&#x27;</span>)</span><br><span class="line">model.load_state_dict(state_dict).<span class="built_in">eval</span>().to(device)</span><br><span class="line"><span class="comment"># Sample Image</span></span><br><span class="line">im = torch.randn(<span class="number">8</span>, <span class="number">3</span>, <span class="number">256</span>, <span class="number">256</span>)</span><br><span class="line"><span class="keyword">with</span> torch.no_grad():</span><br><span class="line">pred = model(im)</span><br><span class="line">syms = F.softmax(pred, dim=<span class="number">1</span>).detach().cpu().numpy().tolist()</span><br><span class="line"><span class="keyword">for</span> water_sym, clear_sym <span class="keyword">in</span> syms:</span><br><span class="line"><span class="comment"># Do whatever you want with the watermark simlarity</span></span><br></pre></td></tr></table></figure>
+<h2 id="image-local-contrast-enhancement-for-removing-hard-to-detect-watermarks"><a href="#image-local-contrast-enhancement-for-removing-hard-to-detect-watermarks" class="headerlink" title="image local contrast enhancement, for removing hard-to-detect watermarks"></a>image local contrast enhancement, for removing hard-to-detect watermarks</h2><p>maybe you can use the same trick (context preserving sliding window) from your search engine to here (image preprocessing)!<br>paddleocr识别效果最好 可以识别水印位置 以及文字<br><a target="_blank" rel="noopener" href="https://github.com/Tejesh-Raut/Image-Linear-Contrast-Stretching-HE-AHE-CLAHE-Gray-Scale-Transformation">Linear Contrast Stretching, HE, AHE, CLAHE of an image using matlab</a><br>Histogram Equalization (HE)<br>Adaptive Histogram Equalization (AHE)<br>Contrast Limited Adaptive Histogram Equalisation (CLAHE)<br>experiment path:<br><code>pyjom/tests/remove_subtle_watermark_local_contrast_ocr</code><br><a target="_blank" rel="noopener" href="https://cn.bing.com/search?q=image+local+contrast&qs=n&form=QBRE&sp=-1&pq=image+local+contrast&sc=2-20&sk=&cvid=55BB4B6B6AE74F8FA6271F34C6201403&ghsh=0&ghacc=0&ghpl=">bing query for image local contrast</a><br><a target="_blank" rel="noopener" href="https://darktable-org.github.io/luadocs/lua.scripts.manual/scripts/examples/api_version">darktable lua api and scripting</a><br><a target="_blank" rel="noopener" href="https://docs.darktable.org/usermanual/development/en/module-reference/processing-modules/local-contrast/">darktable local contrast</a> darktable is an open-sourced photography postprocessing software<br>configurations:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">details: 443</span><br><span class="line">highlights: 36</span><br><span class="line">shadows: 25</span><br><span class="line">midtone range: 0.16</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://imagej.net/plugins/clahe">imagej clahe local contrast enhancement</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/tunai/l2uwe">l2uwe</a> L^2UWE: A Framework for the Efficient Enhancement of Low-Light Underwater Images Using Local Contrast and Multi-Scale Fusion written in matlab</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/pengyan510/glcae">glcae</a> Global and Local Contrast Adaptive Enhancement for Non-uniform Illumination Color Images in python</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/tahanimadmad/CNN-Based-X-ray-Morphological-Decomposition-">CNN-Based-X-ray-Morphological-Decomposition</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/search?p=2&q=image+local+contrast&type=Repositories">github query for local image contrast</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Auggen21/image_processing_basics">image processing basics</a> Image Reading, writing, histogram, histogram equalization, local histogram equalization, low pass filter, high pass filter, geometrical transformation</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Dinista/Contrast-Normalization">contrast normalization</a> is an implementation that applies local contrast normalization to images in matlab</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/topics/contrast-enhancement?l=python">contrast enhancement</a> as a github topic</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/VincentStimper/mclahe">mclahe</a> NumPy and Tensorflow implementation of the Multidimensional Contrast Limited Adaptive Histogram Equalization (MCLAHE) procedure</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/AIM-Harvard/DeepContrast">deepcontrast</a> A deep learning-based fully-automatic intravenous contrast detection tool for head-and-neck and chest CT scans.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/swz30/MIRNetv2">mirnetv2</a> (TPAMI 2022) Learning Enriched Features for Fast Image Restoration and Enhancement. Results on Defocus Deblurring, Denoising, Super-resolution, and image enhancement</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/lafith/pymusica">pymusica</a> is a contrast enhancement approach involving non linear mapping of Laplacian pyramid.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Mamdasn/imWeightedThresholdedheq">imWeightedThresholdedheq</a> attempts to enhance contrast of a given image or video by employing a method called weighted thresholded histogram equalization (WTHE).</p>
-<p><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/wand-local_contrast-function-python/">imagemagick wand local_contrast function</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/dimimal/dual_gamma_clahe">dual gamma clahe</a> Automatic Contrast-Limited Adaptive Histogram Equalization With Dual Gamma Correction</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Mamdasn/imhblpce">imhblpce</a> attempts to enhance contrast of a given image by employing a method called HBLPCE.</p>
-<p><a target="_blank" rel="noopener" href="https://ww2.mathworks.cn/help/images/ref/localcontrast.html">matlab localcontrast for image</a></p>
+<p><a target="_blank" rel="noopener" href="https://imagej.net/plugins/clahe">imagej clahe local contrast enhancement</a><br><a target="_blank" rel="noopener" href="https://github.com/tunai/l2uwe">l2uwe</a> L^2UWE: A Framework for the Efficient Enhancement of Low-Light Underwater Images Using Local Contrast and Multi-Scale Fusion written in matlab<br><a target="_blank" rel="noopener" href="https://github.com/pengyan510/glcae">glcae</a> Global and Local Contrast Adaptive Enhancement for Non-uniform Illumination Color Images in python<br><a target="_blank" rel="noopener" href="https://github.com/tahanimadmad/CNN-Based-X-ray-Morphological-Decomposition-">CNN-Based-X-ray-Morphological-Decomposition</a><br><a target="_blank" rel="noopener" href="https://github.com/search?p=2&q=image+local+contrast&type=Repositories">github query for local image contrast</a><br><a target="_blank" rel="noopener" href="https://github.com/Auggen21/image_processing_basics">image processing basics</a> Image Reading, writing, histogram, histogram equalization, local histogram equalization, low pass filter, high pass filter, geometrical transformation<br><a target="_blank" rel="noopener" href="https://github.com/Dinista/Contrast-Normalization">contrast normalization</a> is an implementation that applies local contrast normalization to images in matlab<br><a target="_blank" rel="noopener" href="https://github.com/topics/contrast-enhancement?l=python">contrast enhancement</a> as a github topic<br><a target="_blank" rel="noopener" href="https://github.com/VincentStimper/mclahe">mclahe</a> NumPy and Tensorflow implementation of the Multidimensional Contrast Limited Adaptive Histogram Equalization (MCLAHE) procedure<br><a target="_blank" rel="noopener" href="https://github.com/AIM-Harvard/DeepContrast">deepcontrast</a> A deep learning-based fully-automatic intravenous contrast detection tool for head-and-neck and chest CT scans.<br><a target="_blank" rel="noopener" href="https://github.com/swz30/MIRNetv2">mirnetv2</a> (TPAMI 2022) Learning Enriched Features for Fast Image Restoration and Enhancement. Results on Defocus Deblurring, Denoising, Super-resolution, and image enhancement<br><a target="_blank" rel="noopener" href="https://github.com/lafith/pymusica">pymusica</a> is a contrast enhancement approach involving non linear mapping of Laplacian pyramid.<br><a target="_blank" rel="noopener" href="https://github.com/Mamdasn/imWeightedThresholdedheq">imWeightedThresholdedheq</a> attempts to enhance contrast of a given image or video by employing a method called weighted thresholded histogram equalization (WTHE).<br><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/wand-local_contrast-function-python/">imagemagick wand local_contrast function</a><br><a target="_blank" rel="noopener" href="https://github.com/dimimal/dual_gamma_clahe">dual gamma clahe</a> Automatic Contrast-Limited Adaptive Histogram Equalization With Dual Gamma Correction<br><a target="_blank" rel="noopener" href="https://github.com/Mamdasn/imhblpce">imhblpce</a> attempts to enhance contrast of a given image by employing a method called HBLPCE.<br><a target="_blank" rel="noopener" href="https://ww2.mathworks.cn/help/images/ref/localcontrast.html">matlab localcontrast for image</a></p>
 <h2 id="global-contrast-enhancement"><a href="#global-contrast-enhancement" class="headerlink" title="global contrast enhancement"></a>global contrast enhancement</h2><p><a target="_blank" rel="noopener" href="https://github.com/Mamdasn/im2dhisteq">im2dhiseq</a>  attempts to enhance contrast of a given image by equalizing its two dimensional histogram.</p>
-<h2 id="previous-research"><a href="#previous-research" class="headerlink" title="previous research"></a>previous research</h2><p>deeplearning_inpainting:<br><a target="_blank" rel="noopener" href="https://github.com/Sanster/lama-cleaner">https://github.com/Sanster/lama-cleaner</a></p>
-<p>ffmpeg delogo:<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/2eb1811b5fc6">https://www.jianshu.com/p/2eb1811b5fc6</a><br><a target="_blank" rel="noopener" href="https://hhsprings.bitbucket.io/docs/programming/examples/ffmpeg/blurring_unsharping/delogo_removelogo.html">https://hhsprings.bitbucket.io/docs/programming/examples/ffmpeg/blurring_unsharping/delogo_removelogo.html</a><br><a target="_blank" rel="noopener" href="https://securitronlinux.com/debian-testing/remove-a-logo-from-a-video-easily-with-ffmpeg/">https://securitronlinux.com/debian-testing/remove-a-logo-from-a-video-easily-with-ffmpeg/</a></p>
-<p>opencv inpainting&#x2F;blurring with edge blending</p>
-<p>opencv morphlogical operations:<br><a target="_blank" rel="noopener" href="https://pyimagesearch.com/2021/04/28/opencv-morphological-operations/">https://pyimagesearch.com/2021/04/28/opencv-morphological-operations/</a></p>
+<h2 id="previous-research"><a href="#previous-research" class="headerlink" title="previous research"></a>previous research</h2><p>deeplearning_inpainting:<br><a target="_blank" rel="noopener" href="https://github.com/Sanster/lama-cleaner">https://github.com/Sanster/lama-cleaner</a><br>ffmpeg delogo:<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/2eb1811b5fc6">https://www.jianshu.com/p/2eb1811b5fc6</a><br><a target="_blank" rel="noopener" href="https://hhsprings.bitbucket.io/docs/programming/examples/ffmpeg/blurring_unsharping/delogo_removelogo.html">https://hhsprings.bitbucket.io/docs/programming/examples/ffmpeg/blurring_unsharping/delogo_removelogo.html</a><br><a target="_blank" rel="noopener" href="https://securitronlinux.com/debian-testing/remove-a-logo-from-a-video-easily-with-ffmpeg/">https://securitronlinux.com/debian-testing/remove-a-logo-from-a-video-easily-with-ffmpeg/</a><br>opencv inpainting&#x2F;blurring with edge blending<br>opencv morphlogical operations:<br><a target="_blank" rel="noopener" href="https://pyimagesearch.com/2021/04/28/opencv-morphological-operations/">https://pyimagesearch.com/2021/04/28/opencv-morphological-operations/</a></p>
 	  
 	</div>
 
@@ -179,13 +144,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2022/05/31/8926a23b-7f8a-4942-9461-c762c8944427/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2022/05/31/8926a23b-7f8a-4942-9461-c762c8944427/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2022/05/31/aa8d7a4c-8554-4045-b60b-e45d331ada07/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2022/05/31/aa8d7a4c-8554-4045-b60b-e45d331ada07/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -247,7 +212,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/AI/">AI<span>7</span></a></li>
+    <li><a href="/blog/categories/AI/">AI<span>7</span></a></li>
   </li>
 
     </ul>
@@ -260,7 +225,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/stub/">stub<span>63</span></a></li> <li><a href="/tags/dewatermark/">dewatermark<span>2</span></a></li> <li><a href="/tags/remove-watermark/">remove watermark<span>1</span></a></li> <li><a href="/tags/royalty-free/">royalty free<span>1</span></a></li>
+  <li><a href="/blog/tags/stub/">stub<span>63</span></a></li> <li><a href="/blog/tags/dewatermark/">dewatermark<span>2</span></a></li> <li><a href="/blog/tags/remove-watermark/">remove watermark<span>1</span></a></li> <li><a href="/blog/tags/royalty-free/">royalty free<span>1</span></a></li>
 
     </ul>
 	</div>
@@ -300,15 +265,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -322,7 +287,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,26 +125,11 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="random-giphy-gifs"><a href="#random-giphy-gifs" class="headerlink" title="random giphy gifs"></a>random giphy gifs</h1><h2 id="gif-ratings"><a href="#gif-ratings" class="headerlink" title="gif ratings"></a>gif ratings</h2><p><a target="_blank" rel="noopener" href="https://support.giphy.com/hc/en-us/articles/360058840971-Content-Rating">official doc</a></p>
-<p>vulgar rate:</p>
-<p>r &gt; pg-13 &gt; pg &gt; g</p>
-<p>while ‘y’ means accepting all shits, not ‘youth’ nor ‘young’</p>
-<h2 id="implementation"><a href="#implementation" class="headerlink" title="implementation"></a>implementation</h2><p>giphy has many extensible apis. i guess most media platforms are all the same (complex enough), but we have to start somewhere though…</p>
-<p>giphy has ‘clips’ now. clips are gifs with sound, just like short videos.</p>
-<p>beta key limitations:</p>
-<p>1000 requests per day, 42 requests per hour</p>
-<p><del>or just use the public beta key? does that subject to the rate limit?</del></p>
-<p>this public beta key is trashed.</p>
+	  <h2 id="gif-ratings"><a href="#gif-ratings" class="headerlink" title="gif ratings"></a>gif ratings</h2><p><a target="_blank" rel="noopener" href="https://support.giphy.com/hc/en-us/articles/360058840971-Content-Rating">official doc</a><br>vulgar rate:<br>r &gt; pg-13 &gt; pg &gt; g<br>while ‘y’ means accepting all shits, not ‘youth’ nor ‘young’</p>
+<h2 id="implementation"><a href="#implementation" class="headerlink" title="implementation"></a>implementation</h2><p>giphy has many extensible apis. i guess most media platforms are all the same (complex enough), but we have to start somewhere though…<br>giphy has ‘clips’ now. clips are gifs with sound, just like short videos.<br>beta key limitations:<br>1000 requests per day, 42 requests per hour<br><del>or just use the public beta key? does that subject to the rate limit?</del><br>this public beta key is trashed.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="variable constant_">PUBLIC_BETA_API_KEY</span> = <span class="string">&#x27;dc6zaTOxFJmzC&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>is this public api key? maybe it is both api and sdk key.<br>Gc7131jiJuvI7IdN0HZ1D7nh0ow5BU6g</p>
-<p>api keys:<br>IoJVsWoxDPKBr6gOcCgOPWAB25773hqP<br>lTRWAEGHjB1AkfO0sk2XTdujaPB5aH7X</p>
-<p>sdk keys:<br>6esYBEm9OG3wAifbBFZ2mA0Ml6Ic0rvy<br>sXpGFDGZs0Dv1mmNFvYaGUvYwKX0PWIh</p>
-<p>to use api:<br><a target="_blank" rel="noopener" href="https://github.com/austinkelleher/giphy-api">https://github.com/austinkelleher/giphy-api</a></p>
-<p>to use sdk:<br><a target="_blank" rel="noopener" href="https://github.com/Giphy/giphy-js/blob/master/packages/fetch-api/README.md">https://github.com/Giphy/giphy-js/blob/master/packages/fetch-api/README.md</a></p>
-<p>find public api keys inside html:</p>
+<p>is this public api key? maybe it is both api and sdk key.<br>Gc7131jiJuvI7IdN0HZ1D7nh0ow5BU6g<br>api keys:<br>IoJVsWoxDPKBr6gOcCgOPWAB25773hqP<br>lTRWAEGHjB1AkfO0sk2XTdujaPB5aH7X<br>sdk keys:<br>6esYBEm9OG3wAifbBFZ2mA0Ml6Ic0rvy<br>sXpGFDGZs0Dv1mmNFvYaGUvYwKX0PWIh<br>to use api:<br><a target="_blank" rel="noopener" href="https://github.com/austinkelleher/giphy-api">https://github.com/austinkelleher/giphy-api</a><br>to use sdk:<br><a target="_blank" rel="noopener" href="https://github.com/Giphy/giphy-js/blob/master/packages/fetch-api/README.md">https://github.com/Giphy/giphy-js/blob/master/packages/fetch-api/README.md</a><br>find public api keys inside html:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_MOBILE_API_KEY</span> = <span class="string">&quot;L8eXbxrbPETZxlvgXN9kIEzQ55Df04v0&quot;</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_WEB_API_KEY</span> = <span class="string">&quot;Gc7131jiJuvI7IdN0HZ1D7nh0ow5BU6g&quot;</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_FOUR_O_FOUR_API_KEY</span> = <span class="string">&quot;MRwXFtxAnaHo3EUMrSefHWmI0eYz5aGe&quot;</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_STORIES_AND_GIPHY_TV_API_KEY</span> = <span class="string">&quot;3eFQvabDx69SMoOemSPiYfh9FY0nzO9x&quot;</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_DEFAULT_API_SERVICE_KEY</span> = <span class="string">&quot;5nt3fDeGakBKzV6lHtRM1zmEBAs6dsIc&quot;</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_GET_POST_HEADERS_KEY</span> = <span class="string">&quot;e0771ed7b244ec9c942bea646ad08e6bf514f51a&quot;</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_MEDIUM_BLOG_API_KEY</span> = <span class="string">&quot;i3dev0tcpgvcuaocfmdslony2q9er7tvfndxcszm&quot;</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_EMBED_KEY</span> = <span class="string">&quot;eDs1NYmCVgdHvI1x0nitWd5ClhDWMpRE&quot;</span></span><br></pre></td></tr></table></figure>
-
 <p>search for ‘ear flops’ to locate the tags in ‘samoyed.html’</p>
 	  
 	</div>
@@ -158,13 +143,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2022/09/11/40045752-3d9f-448c-81f9-83bf56fa84ec/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2022/09/11/40045752-3d9f-448c-81f9-83bf56fa84ec/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2022/09/10/afb0e7a8-9f05-497b-b492-baf9b4ca5821/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2022/09/10/afb0e7a8-9f05-497b-b492-baf9b4ca5821/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -226,7 +211,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/API/">API<span>5</span></a></li>
+    <li><a href="/blog/categories/API/">API<span>5</span></a></li>
   </li>
 
     </ul>
@@ -239,7 +224,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/Giphy/">Giphy<span>2</span></a></li> <li><a href="/tags/Documentation/">Documentation<span>2</span></a></li> <li><a href="/tags/Libraries/">Libraries<span>4</span></a></li> <li><a href="/tags/API-Keys/">API Keys<span>1</span></a></li> <li><a href="/tags/SDK/">SDK<span>1</span></a></li> <li><a href="/tags/Implementation-Details/">Implementation Details<span>1</span></a></li> <li><a href="/tags/Services/">Services<span>1</span></a></li>
+  <li><a href="/blog/tags/Giphy/">Giphy<span>2</span></a></li> <li><a href="/blog/tags/Documentation/">Documentation<span>2</span></a></li> <li><a href="/blog/tags/Libraries/">Libraries<span>4</span></a></li> <li><a href="/blog/tags/API-Keys/">API Keys<span>1</span></a></li> <li><a href="/blog/tags/SDK/">SDK<span>1</span></a></li> <li><a href="/blog/tags/Implementation-Details/">Implementation Details<span>1</span></a></li> <li><a href="/blog/tags/Services/">Services<span>1</span></a></li>
 
     </ul>
 	</div>
@@ -279,15 +264,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -301,7 +286,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

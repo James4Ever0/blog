@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,28 +125,17 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="Copy-Symlink-itself-to-change-pyjom’s-location-install-easyd-services-for-macos-local-pyjom-watchdog"><a href="#Copy-Symlink-itself-to-change-pyjom’s-location-install-easyd-services-for-macos-local-pyjom-watchdog" class="headerlink" title="Copy Symlink itself to change pyjom’s location, install easyd services for macos local pyjom watchdog"></a>Copy Symlink itself to change pyjom’s location, install easyd services for macos local pyjom watchdog</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /media/root/parrot</span><br><span class="line"><span class="built_in">cp</span> -R -P /media/root/help1/pyjom .</span><br></pre></td></tr></table></figure>
-
-<p>because of the qqChatBot task, pyjom on kali may be syncing too often. need to check the watchdog logs.</p>
-<p>turned out it is the <code>__pycache__</code> dirs to be blamed</p>
-<p>disable all sync related services on macos for debug:</p>
-<p>main issue happens after local vscode launched.</p>
-<p>the issue is such that the proxy setting not right.</p>
-<p>to debug the service:</p>
+	  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /media/root/parrot</span><br><span class="line"><span class="built_in">cp</span> -R -P /media/root/help1/pyjom .</span><br></pre></td></tr></table></figure>
+<p>because of the qqChatBot task, pyjom on kali may be syncing too often. need to check the watchdog logs.<br>turned out it is the <code>__pycache__</code> dirs to be blamed<br>disable all sync related services on macos for debug:<br>main issue happens after local vscode launched.<br>the issue is such that the proxy setting not right.<br>to debug the service:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl debug gui/501/pyjom_local_syncdog --stdout --stderr</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># to be succint:</span></span><br><span class="line">launchctl list | grep syncdog | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span> | xargs -I abc <span class="built_in">kill</span> -s TERM abc</span><br><span class="line"></span><br><span class="line"><span class="comment"># instead of:</span></span><br><span class="line"><span class="comment">#launchctl list | grep pyjom_local_syncdog # to get process pid</span></span><br><span class="line"><span class="comment">#kill -s TERM &lt;service_pid&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># to be succint:</span></span><br><span class="line">launchctl list | grep syncdog | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span> | xargs -I abc <span class="built_in">kill</span> -s TERM abc</span><br><span class="line"><span class="comment"># instead of:</span></span><br><span class="line"><span class="comment">#launchctl list | grep pyjom_local_syncdog # to get process pid</span></span><br><span class="line"><span class="comment">#kill -s TERM &lt;service_pid&gt;</span></span><br></pre></td></tr></table></figure>
 <p>we need to add some code for it. consider adding something alike to that to kali?</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">os.environ[<span class="string">&quot;http_proxy&quot;</span>]=<span class="string">&quot;http://localhost:7930&quot;</span></span><br><span class="line">os.environ[<span class="string">&quot;https_proxy&quot;</span>]=<span class="string">&quot;http://localhost:7930&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">launchctl stop gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl <span class="built_in">kill</span> TERM gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl unload gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl <span class="built_in">disable</span> gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl remove gui/501/pyjom_local_watchdog;</span><br><span class="line"></span><br><span class="line">launchctl stop gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl <span class="built_in">kill</span> TERM gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl unload gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl <span class="built_in">disable</span> gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl remove gui/501/pyjom_local_syncdog</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.environ[<span class="string">&quot;http_proxy&quot;</span>]=<span class="string">&quot;http://localhost:7930&quot;</span></span><br><span class="line">os.environ[<span class="string">&quot;https_proxy&quot;</span>]=<span class="string">&quot;http://localhost:7930&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">launchctl stop gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl <span class="built_in">kill</span> TERM gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl unload gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl <span class="built_in">disable</span> gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl remove gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl stop gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl <span class="built_in">kill</span> TERM gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl unload gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl <span class="built_in">disable</span> gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl remove gui/501/pyjom_local_syncdog</span><br></pre></td></tr></table></figure>
 <p>install macos pyjom watchdog (local):</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">easyd -l pyjom_local_watchdog -w /Users/jamesbrown/Desktop/works/sync_git_repos -- /usr/bin/python3 /Users/jamesbrown/Desktop/works/sync_git_repos/watchdog_macos.py</span><br></pre></td></tr></table></figure>
-
 <p>install macos pyjom syncdog (local):</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">easyd -l pyjom_local_syncdog -w /Users/jamesbrown/Desktop/works/sync_git_repos -- /usr/bin/python3 /Users/jamesbrown/Desktop/works/sync_git_repos/syncdog_macos.py</span><br></pre></td></tr></table></figure>
-	  
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">easyd -l pyjom_local_syncdog -w /Users/jamesbrown/Desktop/works/sync_git_repos -- /usr/bin/python3 /Users/jamesbrown/Desktop/works/sync_git_repos/syncdog_macos.py</span><br></pre></td></tr></table></figure>	  
 	</div>
 
 	<!-- recommended posts -->
@@ -158,13 +147,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2022/08/11/813de677-4b35-4c38-a0b2-b77079f7bc48/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2022/08/11/813de677-4b35-4c38-a0b2-b77079f7bc48/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2022/08/11/2a69a080-7a45-4b12-aca1-b81c0fd1737c/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2022/08/11/2a69a080-7a45-4b12-aca1-b81c0fd1737c/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -226,7 +215,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Troubleshooting/">Troubleshooting<span>8</span></a></li>
+    <li><a href="/blog/categories/Troubleshooting/">Troubleshooting<span>8</span></a></li>
   </li>
 
     </ul>
@@ -239,7 +228,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/macos/">macos<span>7</span></a></li> <li><a href="/tags/system-manage/">system manage<span>17</span></a></li> <li><a href="/tags/service/">service<span>5</span></a></li> <li><a href="/tags/launchd/">launchd<span>1</span></a></li> <li><a href="/tags/relocation/">relocation<span>1</span></a></li>
+  <li><a href="/blog/tags/macos/">macos<span>7</span></a></li> <li><a href="/blog/tags/system-manage/">system manage<span>17</span></a></li> <li><a href="/blog/tags/service/">service<span>5</span></a></li> <li><a href="/blog/tags/launchd/">launchd<span>1</span></a></li> <li><a href="/blog/tags/relocation/">relocation<span>1</span></a></li>
 
     </ul>
 	</div>
@@ -279,15 +268,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -301,7 +290,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

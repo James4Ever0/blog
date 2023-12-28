@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,33 +125,10 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="Neo4j-learning-notes"><a href="#Neo4j-learning-notes" class="headerlink" title="Neo4j learning notes"></a>Neo4j learning notes</h1><p><a target="_blank" rel="noopener" href="https://neo4j.com/download">neo4j desktop</a> provide free multi graph databases support, enable you to create and use multiple graph datases at once</p>
-<p>to query undirected relationships:<br>match () – (p) return p</p>
-<p>create fulltext index<br>create fulltext index lucene for (n:Person) on each [n.title, n.description]<br>call db.index.fulltext.queryNodes(“titlesAndDescriptions”, “Full Metal Jacket”) yield node, score return node, score</p>
-<p>calculate customer rating cosine similarity for recommendation:<br><a target="_blank" rel="noopener" href="https://neo4j.com/graphgists/northwind-recommendation-engine">https://neo4j.com/graphgists/northwind-recommendation-engine</a><br>match (c1:customer)-[r1:rated]-(:product)-[r2:rated]-(c2:customer)<br>with sum(r1.score<em>r2.score) as dot_product,<br>sqrt(reduce(x&#x3D;0, a in r1.score | x+a^2)) as r1_length,<br>sqrt(reduce(y&#x3D;0, b in r2.score | y+b^2)) as r2_length<br>merge (c1)-[s:similarity}]-(c2)<br>set s +&#x3D;  {score:dot_product&#x2F;(r1_length</em>r2_length)</p>
-<p>use collect to turn maps into lists:<br>match (p) return collect(p.names)</p>
-<p>exist subquery:<br>match (n:Person) where exists {<br>match (n) –(t:Tech)<br>where size((t)-[:likes]-(:Person)) &gt;2<br>}<br>return n.name</p>
-<p>list comprehension:<br>return [x in range(0,10) where x%3 &#x3D; 0| x&#x2F;2] as list<br>return [x in range(0,10) where not x in range(4,10) |x ] as list</p>
-<p>to use conditional matches or regular expressions:<br>match () – (p) where p.name in [“helen”] or p.name &#x3D;~ “.<em>chinese.</em>“ return p</p>
-<p>create index on properties:<br>create index for (n:Category) on (n.categoryName)</p>
-<p>asterisks:</p>
-<p>load csv:<br>load csv with headers from “<a target="_blank" rel="noopener" href="http://localhost/person.csv">http://localhost/person.csv</a>“ as line<br>call {with line<br>merge (n:person {id: toInteger(line.id)})<br>set n.name &#x3D; line.name<br>} in transactions of 2 rows</p>
-<p>count nodes:<br>match (n) return count(n)</p>
-<p>match relationship patterns:<br>match (n) -[:friend|hater*3]-&gt;(p) return p limit 20</p>
-<p>node can have multiple labels, while relationship can only have one type, both specified after the colon.</p>
-<p>simple case expression:<br>match(n)<br>return<br>case n.eyes<br>when “blue” then 1<br>when “brown” then 2<br>else 3<br>end as result</p>
-<p>generic case expression<br>match (n)<br>return<br>case<br>when n.eyes &#x3D; “blue” then 1<br>when n.age &gt; 40 then 2<br>else 3 &#x2F;&#x2F; if without else then return null<br>end as result</p>
-<p>inequality symbol: &lt;&gt;</p>
-<p>mutating updating node properties:<br>match(n)<br>set n+&#x3D;{name:”helen”} &#x2F;&#x2F; if using &#x3D; the properties will be totally replaced instead of update.<br>return n.name</p>
-<p>merge can only ensure the existance of one node or pattern at a time, no comma</p>
-<p>plus can concatenate strings</p>
-<p>tenporal dataformat can be used as numbers to compute.</p>
-<p>Map operators<br>. for static value access by key, [] for dynamic value access by key</p>
-<p>List operators</p>
+	  <p><a target="_blank" rel="noopener" href="https://neo4j.com/download">neo4j desktop</a> provide free multi graph databases support, enable you to create and use multiple graph datases at once<br>to query undirected relationships:<br>match () – (p) return p<br>create fulltext index<br>create fulltext index lucene for (n:Person) on each [n.title, n.description]<br>call db.index.fulltext.queryNodes(“titlesAndDescriptions”, “Full Metal Jacket”) yield node, score return node, score<br>calculate customer rating cosine similarity for recommendation:<br><a target="_blank" rel="noopener" href="https://neo4j.com/graphgists/northwind-recommendation-engine">https://neo4j.com/graphgists/northwind-recommendation-engine</a><br>match (c1:customer)-[r1:rated]-(:product)-[r2:rated]-(c2:customer)<br>with sum(r1.score<em>r2.score) as dot_product,<br>sqrt(reduce(x&#x3D;0, a in r1.score | x+a^2)) as r1_length,<br>sqrt(reduce(y&#x3D;0, b in r2.score | y+b^2)) as r2_length<br>merge (c1)-[s:similarity}]-(c2)<br>set s +&#x3D;  {score:dot_product&#x2F;(r1_length</em>r2_length)<br>use collect to turn maps into lists:<br>match (p) return collect(p.names)<br>exist subquery:<br>match (n:Person) where exists {<br>match (n) –(t:Tech)<br>where size((t)-[:likes]-(:Person)) &gt;2<br>}<br>return n.name<br>list comprehension:<br>return [x in range(0,10) where x%3 &#x3D; 0| x&#x2F;2] as list<br>return [x in range(0,10) where not x in range(4,10) |x ] as list<br>to use conditional matches or regular expressions:<br>match () – (p) where p.name in [“helen”] or p.name &#x3D;~ “.<em>chinese.</em>“ return p<br>create index on properties:<br>create index for (n:Category) on (n.categoryName)<br>asterisks:<br>load csv:<br>load csv with headers from “<a target="_blank" rel="noopener" href="http://localhost/person.csv">http://localhost/person.csv</a>“ as line<br>call {with line<br>merge (n:person {id: toInteger(line.id)})<br>set n.name &#x3D; line.name<br>} in transactions of 2 rows<br>count nodes:<br>match (n) return count(n)<br>match relationship patterns:<br>match (n) -[:friend|hater*3]-&gt;(p) return p limit 20<br>node can have multiple labels, while relationship can only have one type, both specified after the colon.<br>simple case expression:<br>match(n)<br>return<br>case n.eyes<br>when “blue” then 1<br>when “brown” then 2<br>else 3<br>end as result<br>generic case expression<br>match (n)<br>return<br>case<br>when n.eyes &#x3D; “blue” then 1<br>when n.age &gt; 40 then 2<br>else 3 &#x2F;&#x2F; if without else then return null<br>end as result<br>inequality symbol: &lt;&gt;<br>mutating updating node properties:<br>match(n)<br>set n+&#x3D;{name:”helen”} &#x2F;&#x2F; if using &#x3D; the properties will be totally replaced instead of update.<br>return n.name<br>merge can only ensure the existance of one node or pattern at a time, no comma<br>plus can concatenate strings<br>tenporal dataformat can be used as numbers to compute.<br>Map operators<br>. for static value access by key, [] for dynamic value access by key<br>List operators</p>
 <ul>
-<li>for concatenation, IN to check existence of an element in a list, [] for accessing element(s) dynamically</li>
+<li>for concatenation, IN to check existence of an element in a list, [] for accessing element(s) dynamically<br>recommendation steps:<br>first find targets by meta relatonships<br>next sort recommendation by frequency, ratings or occurance<br>third filter items by topics or properties</li>
 </ul>
-<p>recommendation steps:<br>first find targets by meta relatonships<br>next sort recommendation by frequency, ratings or occurance<br>third filter items by topics or properties</p>
 	  
 	</div>
 
@@ -164,13 +141,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2022/06/03/71e31f75-b989-4ac8-b4e8-ee024d5ac047/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2022/06/03/71e31f75-b989-4ac8-b4e8-ee024d5ac047/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2022/06/02/87b67abb-5976-4e4b-8dce-8279a62107ad/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2022/06/02/87b67abb-5976-4e4b-8dce-8279a62107ad/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -232,7 +209,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Neo4j/">Neo4j<span>1</span></a></li>
+    <li><a href="/blog/categories/Neo4j/">Neo4j<span>1</span></a></li>
   </li>
 
     </ul>
@@ -245,7 +222,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/graph-database/">graph database<span>4</span></a></li> <li><a href="/tags/pyjom/">pyjom<span>42</span></a></li> <li><a href="/tags/self-learning/">self-learning<span>2</span></a></li> <li><a href="/tags/syntax/">syntax<span>1</span></a></li>
+  <li><a href="/blog/tags/graph-database/">graph database<span>4</span></a></li> <li><a href="/blog/tags/pyjom/">pyjom<span>42</span></a></li> <li><a href="/blog/tags/self-learning/">self-learning<span>2</span></a></li> <li><a href="/blog/tags/syntax/">syntax<span>1</span></a></li>
 
     </ul>
 	</div>
@@ -285,15 +262,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -307,7 +284,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

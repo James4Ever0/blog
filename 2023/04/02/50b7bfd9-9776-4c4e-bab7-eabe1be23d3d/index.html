@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,1072 +125,7 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="chatgpt-clones-computer-automation-with-ai"><a href="#chatgpt-clones-computer-automation-with-ai" class="headerlink" title="chatgpt clones, computer automation with ai"></a>chatgpt clones, computer automation with ai</h1><p>simply because the original note on chatgpt is too long, we start a new one, with more topics and more resources.</p>
-<hr>
-<p>visit <a target="_blank" rel="noopener" href="https://poe.com/">poe.com</a> for a bunch of free chatbots, including GPT-4</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/chathub-dev/chathub">chathub</a> is a browser plugin which you can use ChatGPT, Bing and Bard</p>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://bellard.org/ts_server/">ts_server</a> supports a bunch of models like GPT-J, GPT-NeoX, GPT-Neo, OPT, Fairseq GPT, M2M100, CodeGen, GPT2, T5, RWKV, LLAMA and Stable Diffusion, used by <a target="_blank" rel="noopener" href="https://textsynth.com/">textsynth.com</a></p>
-<hr>
-<p>to manage python versions and environments, <a target="_blank" rel="noopener" href="https://github.com/pyenv/pyenv">pyenv</a> and <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/venv.html">venv</a> is lightweight and <a target="_blank" rel="noopener" href="https://docs.conda.io/en/latest/miniconda.html">miniconda</a> or <a target="_blank" rel="noopener" href="https://mamba.readthedocs.io/en/latest/user_guide/mamba.html">mamba</a> is more sophisticated.</p>
-<hr>
-<p>javascript code for extracting model list from huggingface personal homepage:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">of</span> <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&quot;h4&quot;</span>)) &#123;<span class="keyword">var</span> t = i.<span class="property">innerText</span>; <span class="keyword">var</span> tlist = t.<span class="title function_">split</span>(<span class="string">&quot;/&quot;</span>); <span class="keyword">var</span> t0 = tlist[<span class="number">0</span>]; <span class="keyword">var</span> t1 = tlist[<span class="number">1</span>]; arr.<span class="title function_">push</span>(<span class="string">`| [<span class="subst">$&#123;t1&#125;</span>](https://huggingface.co/<span class="subst">$&#123;t&#125;</span>) | unknown | unknown | <span class="subst">$&#123;t0&#125;</span> |`</span>)&#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr.<span class="title function_">join</span>(<span class="string">&#x27;</span></span><br><span class="line"><span class="string">&#x27;</span>));</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>convert arxiv paper (pdf) into html: <a target="_blank" rel="noopener" href="https://www.arxiv-vanity.com/">arxiv vanity</a> (you will have a better view than before, though <a target="_blank" rel="noopener" href="https://www.arxiv-vanity.com/papers/2303.12712/">will not always work</a>) code <a target="_blank" rel="noopener" href="https://github.com/arxiv-vanity/arxiv-vanity">on github</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.aminer.cn/">aminer</a> is similar to <a target="_blank" rel="noopener" href="https://paperswithcode.com/">paperswithcode</a>, in which you may find interesting papers.</p>
-<hr>
-<p>someone prefers <a target="_blank" rel="noopener" href="https://github.com/bojone/bert4keras">bert4keras</a> since it implements multiple LLM into Keras, also easy for GPT-2 LoRA training (by adding a single layer)</p>
-<hr>
-<p>people love to post uncensorable links and torrents to <a target="_blank" rel="noopener" href="https://archive.org/">internet archive</a> and <a target="_blank" rel="noopener" href="https://github.com/The-Eye-Team">the-eye</a>, just like the gpt-4chan</p>
-<hr>
-<p>to create a simple API (compatible with OpenAI APIs) for LLMs, use <a target="_blank" rel="noopener" href="https://github.com/lhenault/simpleAI">SimpleAI</a></p>
-<h2 id="fine-tuning-and-tricks"><a href="#fine-tuning-and-tricks" class="headerlink" title="fine-tuning and tricks"></a>fine-tuning and tricks</h2><p><a target="_blank" rel="noopener" href="https://github.com/huggingface/peft">PEFT</a> (Parameter Efficient Fine Tuning) supports LoRA, Prefix Tuning, P-Tuning and Prompt Tuning.</p>
-<h2 id="computer-automation-with-ai"><a href="#computer-automation-with-ai" class="headerlink" title="computer automation with ai"></a>computer automation with ai</h2><h3 id="virtual-machines-and-environments"><a href="#virtual-machines-and-environments" class="headerlink" title="virtual machines and environments"></a>virtual machines and environments</h3><p>it is not feasible to install <a target="_blank" rel="noopener" href="https://ubuntu.com/download/server/arm">ubuntu arm</a> on macos m1 with virtualbox. use <a target="_blank" rel="noopener" href="https://getutm.app/">utm.app</a> instead. <a target="_blank" rel="noopener" href="https://docs.getutm.app/guides/ubuntu/">instructions on installing ubuntu with utm</a> includes guides on sharing clipboard and directory.</p>
-<h3 id="papers"><a href="#papers" class="headerlink" title="papers"></a>papers</h3><p><a target="_blank" rel="noopener" href="https://www.arxiv-vanity.com/papers/1312.5602/">playing atari using q-learning</a> (viewing deepmind paper with arxiv vanity)</p>
-<h3 id="models"><a href="#models" class="headerlink" title="models"></a>models</h3><p><a target="_blank" rel="noopener" href="https://openai.com/research/vpt">video pretraining</a> can perform minecraft diamond mining tasks with keyboard and mouse movements</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/openai/Video-Pre-Training">code and model</a></p>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://github.com/amazon-science/mm-cot">mm-cot</a> (multimodal chain-of-thought) by amazon, with <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1FtTYOJPHnWnFfCxNC6M3gar4RAX5E21b/view">model weights</a></p>
-<h3 id="data-collectors-and-controllers"><a href="#data-collectors-and-controllers" class="headerlink" title="data collectors and controllers"></a>data collectors and controllers</h3><p><a target="_blank" rel="noopener" href="https://python-mss.readthedocs.io/">mss</a> for screenshot, remember to save raw pixels to SSD, then compress into mp4 with ffmpeg for further training (mind the timestamp!)</p>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://github.com/openai/go-vncdriver">go-vncdriver</a> by openai, to compile you need to clone the repo and modify code to find headers for libjpeg-turbo and python.</p>
-<p><a target="_blank" rel="noopener" href="https://pypi.org/project/libvncdriver/">libvncdriver</a></p>
-<p><a target="_blank" rel="noopener" href="https://pypi.org/project/asyncvnc/">asyncvnc</a> (supports apple vnc), side project: <a target="_blank" rel="noopener" href="https://github.com/ronf/asyncssh">asyncssh</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/masamitsu-murase/python_vnc_client">python-vnc-client</a> with keydown&#x2F;keyup event support</p>
-<p><a target="_blank" rel="noopener" href="https://pypi.org/project/vncdotool/">vncdotool</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/cair/pyVNC">pyVNC</a></p>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://python-mss.readthedocs.io/">pynput</a> as input event listener and actor, listener may have some strange keycodes when pressing modifier keys on windows.</p>
-<p>note that special care needed for aligning mouse location with screenshot size</p>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://github.com/lucidrains/vit-pytorch">ViT-pytorch</a> can be used in many ViT-based models, listed and implemented in the repo.</p>
-<h3 id="spaces"><a href="#spaces" class="headerlink" title="spaces"></a>spaces</h3><p>openai <a target="_blank" rel="noopener" href="https://github.com/openai/universe">universe</a> (blog post <a target="_blank" rel="noopener" href="https://openai.com/blog/universe/">here</a>) and <a target="_blank" rel="noopener" href="https://github.com/openai/universe-starter-agent">starter agents</a>, remotes are using vnc protocol and a reward protocol using websocket sending json (can send actions). they prefer <a target="_blank" rel="noopener" href="https://tigervnc.org/">TigerVNC</a>, maybe that will send the existing monitor instead of invisible ones.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/openai/gym">gym</a> is classic and modular. <a target="_blank" rel="noopener" href="https://github.com/openai/atari-py">atari-py</a> enables old games</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/openai/retro">retro</a> deprecates universe, but might help with general computer controlling AI systems since they are compatible. human don’t play games all day and night. beware of this and don’t turn the model into a heavy gamer.</p>
-<p>there is no meaning of recording terminal input&#x2F;output when using tools like <code>vim</code>. get screenshots, keystrokes and mouse clicks instead (using <code>ttyd</code>, <a target="_blank" rel="noopener" href="https://github.com/marmelab/gremlins.js"><code>gremlins.js</code></a> or <a target="_blank" rel="noopener" href="https://github.com/zhuochun/monkey.js"><code>monkey.js</code></a>). <code>tkterminal</code> won’t do. it is just a thin wrapper around <code>subprocess.run</code></p>
-<p>talking of browser, you can spin up <a target="_blank" rel="noopener" href="https://github.com/novnc/noVNC">novnc</a> server and let the <a target="_blank" rel="noopener" href="https://github.com/marmelab/gremlins.js"><code>gremlins.js</code></a> do its job.</p>
-<h2 id="accelerators"><a href="#accelerators" class="headerlink" title="accelerators"></a>accelerators</h2><h3 id="cformers"><a href="#cformers" class="headerlink" title="cformers"></a><a target="_blank" rel="noopener" href="https://github.com/NolanoOrg/cformers/">cformers</a></h3><p>cpu only</p>
-<p>able to install from pip</p>
-<h3 id="ggml"><a href="#ggml" class="headerlink" title="ggml"></a><a target="_blank" rel="noopener" href="https://github.com/ggerganov/ggml">ggml</a></h3><p>cpu only</p>
-<p>cpp, only compile from source</p>
-<h3 id="flexgen"><a href="#flexgen" class="headerlink" title="flexgen"></a><a target="_blank" rel="noopener" href="https://github.com/FMInference/FlexGen">flexgen</a></h3><p>gpu is mandatory, better than deepspeed and <a target="_blank" rel="noopener" href="https://github.com/huggingface/accelerate">Hugging Face Accelerate</a></p>
-<h2 id="open-source-model-and-weights"><a href="#open-source-model-and-weights" class="headerlink" title="open source model and weights"></a>open source model and weights</h2><p><a target="_blank" rel="noopener" href="https://github.com/imaurer/awesome-decentralized-llm">awesome decentralized llm</a> listed up-to-date related chatgpt-like repositories, datasets, model weights and resources.</p>
-<hr>
-<p>model weights of open source chatgpt alternatives:</p>
-<table>
-<thead>
-<tr>
-<th>weight path</th>
-<th>model size</th>
-<th>model name</th>
-<th>author</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/mrsteyk/openchatgpt-neox-125m">openchatgpt-neox-125m</a></td>
-<td>125m</td>
-<td>gpt-neox</td>
-<td>mrsteyk</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/mrsteyk/openchatgpt-neo-125m">openchatgpt-neo-125m</a></td>
-<td>125m</td>
-<td>gpt-neo</td>
-<td>mrsteyk</td>
-</tr>
-</tbody></table>
-<h3 id="LLaMA"><a href="#LLaMA" class="headerlink" title="LLaMA"></a>LLaMA</h3><p>it’s public.</p>
-<table>
-<thead>
-<tr>
-<th>weight path</th>
-<th>model name</th>
-<th>author</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/decapoda-research/llama-13b-hf-int4">llama-13b-hf-int4</a></td>
-<td>13b</td>
-<td>decapoda-research</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/decapoda-research/llama-65b-hf-int4">llama-65b-hf-int4</a></td>
-<td>65b</td>
-<td>decapoda-research</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/decapoda-research/llama-30b-hf-int4">llama-30b-hf-int4</a></td>
-<td>30b</td>
-<td>decapoda-research</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/decapoda-research/llama-7b-hf-int4">llama-7b-hf-int4</a></td>
-<td>7b</td>
-<td>decapoda-research</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/decapoda-research/llama-30b-hf">llama-30b-hf</a></td>
-<td>30b</td>
-<td>decapoda-research</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/decapoda-research/llama-65b-hf">llama-65b-hf</a></td>
-<td>65b</td>
-<td>decapoda-research</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/decapoda-research/llama-13b-hf">llama-13b-hf</a></td>
-<td>13b</td>
-<td>decapoda-research</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/decapoda-research/llama-7b-hf">llama-7b-hf</a></td>
-<td>7b</td>
-<td>decapoda-research</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/decapoda-research/llama-smallint-pt">llama-smallint-pt</a></td>
-<td>unknown</td>
-<td>decapoda-research</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/decapoda-research/llama-7b-hf-int8">llama-7b-hf-int8</a></td>
-<td>7b</td>
-<td>decapoda-research</td>
-</tr>
-</tbody></table>
-<h3 id="ChatYuan"><a href="#ChatYuan" class="headerlink" title="ChatYuan"></a><a target="_blank" rel="noopener" href="https://github.com/clue-ai/ChatYuan">ChatYuan</a></h3><p>v2 is censored.</p>
-<hr>
-<p>model weights:</p>
-<table>
-<thead>
-<tr>
-<th>weight path</th>
-<th>model size</th>
-<th>model name</th>
-<th>author</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/ClueAI/ChatYuan-large-v1">ChatYuan-large-v1</a></td>
-<td>unknown</td>
-<td>unknown</td>
-<td>ClueAI</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/ClueAI/ChatYuan-large-v2-paddle">ChatYuan-large-v2-paddle</a></td>
-<td>unknown</td>
-<td>unknown</td>
-<td>ClueAI</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/ClueAI/ChatYuan-large-v2">ChatYuan-large-v2</a></td>
-<td>unknown</td>
-<td>unknown</td>
-<td>ClueAI</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/ClueAI/ChatYuan-large-v1-paddle">ChatYuan-large-v1-paddle</a></td>
-<td>unknown</td>
-<td>unknown</td>
-<td>ClueAI</td>
-</tr>
-</tbody></table>
-<h3 id="Deepshard"><a href="#Deepshard" class="headerlink" title="Deepshard"></a><a target="_blank" rel="noopener" href="https://huggingface.co/swype/">Deepshard</a></h3><p>LLaMA trained on <a target="_blank" rel="noopener" href="https://huggingface.co/datasets/swype/instruct-102.4k">custom instruction dataset</a>.</p>
-<hr>
-<p>model weights:</p>
-<table>
-<thead>
-<tr>
-<th>weight path</th>
-<th>weight size</th>
-<th>model name</th>
-<th>author</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/swype/deepshard-13B-ft">deepshard-13B-ft</a></td>
-<td>13b</td>
-<td>deepshard</td>
-<td>swype</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/swype/deepshard-13B-raw">deepshard-13B-raw</a></td>
-<td>13b</td>
-<td>deepshard</td>
-<td>swype</td>
-</tr>
-</tbody></table>
-<h3 id="ChatGLM"><a href="#ChatGLM" class="headerlink" title="ChatGLM"></a><a target="_blank" rel="noopener" href="https://chatglm.cn/blog">ChatGLM</a></h3><p>Currently only open-sourced 6B version.</p>
-<p>You can train ChatGLM using GXT3090: <a target="_blank" rel="noopener" href="https://github.com/yuanzhoulvpi2017/zero_nlp/tree/main/simple_thu_chatglm6b">simple_thu_chatglm6b</a></p>
-<p>Using 7GB VRAM, train ChatGLM with <a target="_blank" rel="noopener" href="https://github.com/THUDM/ChatGLM-6B/tree/main/ptuning">P-tuning</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/ssbuild/chatglm_finetuning">chatglm_finetuning</a> supports loading from int4 weights</p>
-<hr>
-<p>model weights:</p>
-<table>
-<thead>
-<tr>
-<th>weight path</th>
-<th>weight size</th>
-<th>model name</th>
-<th>author</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/silver/chatglm-6b-int4-slim">chatglm-6b-int4-slim</a></td>
-<td>6b</td>
-<td>chatglm</td>
-<td>silver</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/silver/chatglm-6b-slim">chatglm-6b-slim</a></td>
-<td>6b</td>
-<td>chatglm</td>
-<td>silver</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/silver/chatglm-6b-int4-qe-slim">chatglm-6b-int4-qe-slim</a></td>
-<td>6b</td>
-<td>chatglm</td>
-<td>silver</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/THUDM/chatglm-6b-int4">chatglm-6b-int4</a></td>
-<td>6b</td>
-<td>chatglm</td>
-<td>THUDM</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/THUDM/chatglm-6b-int4-qe">chatglm-6b-int4-qe</a></td>
-<td>6b</td>
-<td>chatglm</td>
-<td>THUDM</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/THUDM/chatglm-6b">chatglm-6b</a></td>
-<td>6b</td>
-<td>chatglm</td>
-<td>THUDM</td>
-</tr>
-</tbody></table>
-<h3 id="ChatDoctor"><a href="#ChatDoctor" class="headerlink" title="ChatDoctor"></a><a target="_blank" rel="noopener" href="https://huggingface.co/zl111/ChatDoctor">ChatDoctor</a></h3><p><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/nyanko7/LLaMA-65B">LLaMA-65B</a> trained on medical dataset <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1lyfqIwlLSClhgrCutWuEe_IACNq6XNUt/view?usp=sharing">InstructorDoctor-200k</a></p>
-<h3 id="BELLE"><a href="#BELLE" class="headerlink" title="BELLE"></a><a target="_blank" rel="noopener" href="https://github.com/LianjiaTech/BELLE">BELLE</a></h3><p>开源中文对话大模型</p>
-<hr>
-<p>model weights:</p>
-<table>
-<thead>
-<tr>
-<th>weight path</th>
-<th>weight size</th>
-<th>model name</th>
-<th>author</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/BelleGroup/BELLE-LLAMA-7B-0.6M">BELLE-LLAMA-7B-0.6M</a></td>
-<td>7B</td>
-<td>LLaMA</td>
-<td>BelleGroup</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/BelleGroup/BELLE-LLAMA-7B-2M">BELLE-LLAMA-7B-2M</a></td>
-<td>7B</td>
-<td>LLaBLOOMZMA</td>
-<td>BelleGroup</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/BelleGroup/BELLE-LLAMA-7B-2M-gptq">BELLE-LLAMA-7B-2M-gptq</a></td>
-<td>7B</td>
-<td>LLaMA</td>
-<td>BelleGroup</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/BelleGroup/BELLE-LLAMA-13B-2M">BELLE-LLAMA-13B-2M</a></td>
-<td>13B</td>
-<td>LLaMA</td>
-<td>BelleGroup</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/BelleGroup/BELLE-7B-gptq">BELLE-7B-gptq</a></td>
-<td>7B</td>
-<td>BLOOMZ</td>
-<td>BelleGroup</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/BelleGroup/BELLE-7B-2M">BELLE-7B-2M</a></td>
-<td>7B</td>
-<td>BLOOMZ</td>
-<td>BelleGroup</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/BelleGroup/BELLE-7B-0.6M">BELLE-7B-0.6M</a></td>
-<td>7B</td>
-<td>BLOOMZ</td>
-<td>BelleGroup</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/BelleGroup/BELLE-7B-0.2M">BELLE-7B-0.2M</a></td>
-<td>7B</td>
-<td>BLOOMZ</td>
-<td>BelleGroup</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/BelleGroup/BELLE-7B-1M">BELLE-7B-1M</a></td>
-<td>7B</td>
-<td>BLOOMZ</td>
-<td>BelleGroup</td>
-</tr>
-</tbody></table>
-<h3 id="baize"><a href="#baize" class="headerlink" title="baize"></a><a target="_blank" rel="noopener" href="https://github.com/project-baize/baize">baize</a></h3><p>trained on ChatGPT self-chatting data</p>
-<hr>
-<p>model weights:</p>
-<table>
-<thead>
-<tr>
-<th>weight path</th>
-<th>weight size</th>
-<th>model name</th>
-<th>author</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/project-baize/baize-lora-30B">baize-lora-30B</a></td>
-<td>30b</td>
-<td>baize</td>
-<td>project-baize</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/project-baize/baize-lora-13B">baize-lora-13B</a></td>
-<td>13b</td>
-<td>baize</td>
-<td>project-baize</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/project-baize/baize-healthcare-lora-7b">baize-healthcare-lora-7b</a></td>
-<td>7B</td>
-<td>baize</td>
-<td>project-baize</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/project-baize/baize-lora-7B">baize-lora-7B</a></td>
-<td>7B</td>
-<td>baize</td>
-<td>project-baize</td>
-</tr>
-</tbody></table>
-<h3 id="dolly"><a href="#dolly" class="headerlink" title="dolly"></a><a target="_blank" rel="noopener" href="https://github.com/databrickslabs/dolly">dolly</a></h3><p>model arch is gpt-j, trained on alpaca dataset</p>
-<hr>
-<p>model weights:</p>
-<table>
-<thead>
-<tr>
-<th>weight path</th>
-<th>weight size</th>
-<th>model name</th>
-<th>author</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/databricks/dolly-v1-6b">dolly-v1-6b</a></td>
-<td>6b</td>
-<td>dolly</td>
-<td>databricks</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/samwit/dolly-lora">dolly-lora</a></td>
-<td>unknown</td>
-<td>dolly</td>
-<td>samwit</td>
-</tr>
-</tbody></table>
-<h3 id="FastChat-Vicuna"><a href="#FastChat-Vicuna" class="headerlink" title="FastChat (Vicuna)"></a><a target="_blank" rel="noopener" href="https://github.com/lm-sys/FastChat">FastChat</a> (Vicuna)</h3><p><a target="_blank" rel="noopener" href="https://chat.lmsys.org/">web interface</a></p>
-<hr>
-<p>model weights:</p>
-<p>| weight path | weight size | model name | author |<br>| – | – | – |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/chavinlo/vicuna">vicuna</a> | unknown | Vicuna | chavinlo |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/chavinlo/vicuna2">vicuna2</a> | unknown | Vicuna | chavinlo |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/lmsys/vicuna-13b-delta-v0">vicuna-13b-delta-v0</a> | 13b | Vicuna | lmsys |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/anon8231489123/vicuna-13b-GPTQ-4bit-128g">vicuna-13b-GPTQ-4bit-128g</a> | 13b | vicuna | anon8231489123 |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/eachadea/ggml-vicuna-13b-4bit">ggml-vicuna-13b-4bit</a> | 13b | vicuna | eachadea |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/eachadea/vicuna-13b">vicuna-13b</a> | 13b | vicuna | eachadea |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/vicuna4all/vicuna4all">vicuna4all</a> | 13b | vicuna | vicuna4all |</p>
-<p>download official delta weights via [magnet](magnet:?xt&#x3D;urn:btih:a7fac57094561a63d53eed943f904abf24c6969d&amp;dn&#x3D;Vicuna-13B-HF-fp16-delta-merged_2023-04-03&amp;tr&#x3D;udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker-udp.gbitt.info%3a80%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker1.bt.moack.co.kr%3a80%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker.tiny-vps.com%3a6969%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker2.dler.org%3a80%2fannounce&amp;tr&#x3D;udp%3a%2f%2fopentracker.i2p.rocks%3a6969%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker.altrosky.nl%3a6969%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker.theoks.net%3a6969%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker.dler.org%3a6969%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker.torrent.eu.org%3a451%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker.openbittorrent.com%3a6969%2fannounce&amp;tr&#x3D;https%3a%2f%2fopentracker.i2p.rocks%3a443%2fannounce&amp;tr&#x3D;http%3a%2f%2ftracker.openbittorrent.com%3a80%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker.moeking.me%3a6969%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker.monitorit4.me%3a6969%2fannounce&amp;tr&#x3D;udp%3a%2f%2f9.rarbg.com%3a2810%2fannounce<br>based)</p>
-<h3 id="Bloom-z"><a href="#Bloom-z" class="headerlink" title="Bloom-z"></a>Bloom-z</h3><p>there is <a target="_blank" rel="noopener" href="https://github.com/NouamaneTazi/bloomz.cpp">bloomz.cpp</a>, converted model weights on <a target="_blank" rel="noopener" href="https://huggingface.co/models?other=bloom&other=ggml">huggingface</a></p>
-<h3 id="Alpaca"><a href="#Alpaca" class="headerlink" title="Alpaca"></a><a target="_blank" rel="noopener" href="https://github.com/tatsu-lab/stanford_alpaca">Alpaca</a></h3><p>alpaca is LLaMA tuned on ChatGPT self-instruct dataset. officially there is just code and dataset, model weights are community provided.</p>
-<p>ggml version: <a target="_blank" rel="noopener" href="https://github.com/antimatter15/alpaca.cpp">alpaca.cpp</a></p>
-<p>example on how to load PEFT patched alpaca model: <a href="0https://github.com/aspctu/alpaca-lora/blob/main/generate.py">alpaca-lora&#x2F;generate.py</a></p>
-<p>it’s better to check for <a target="_blank" rel="noopener" href="https://github.com/abetlen/llama-cpp-python">python bindings</a> and <a target="_blank" rel="noopener" href="https://github.com/abdeladim-s/pyllamacpp">webui</a> like <a target="_blank" rel="noopener" href="https://github.com/ViperX7/Alpaca-Turbo">Alpaca-Turbo</a> and <a target="_blank" rel="noopener" href="https://cocktailpeanut.github.io/dalai/">Dalai</a> for further development and interactions.</p>
-<hr>
-<p>fine-tuning:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/lxe/simple-llama-finetuner">simple-llama-finetuner</a> using LoRA, 16GB VRAM minimum</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/tloen/alpaca-lora">alpaca-lora</a>: the OG LoRA alpaca</p>
-<hr>
-<p>community model weights:</p>
-<table>
-<thead>
-<tr>
-<th>weight path</th>
-<th>weight size</th>
-<th>model name</th>
-<th>author</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/tloen/alpaca-lora-7b">alpaca-lora-7b</a></td>
-<td>7b</td>
-<td>Alpaca</td>
-<td>tloen</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/chavinlo/alpaca-native">Alpaca Native</a></td>
-<td>7B</td>
-<td>Alpaca</td>
-<td>chavinlo</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/chavinlo/Alpaca-65B">Alpaca-65B</a></td>
-<td>65B</td>
-<td>Alpaca</td>
-<td>chavinlo</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/chavinlo/alpaca-13b">Alpaca 13B</a></td>
-<td>13B</td>
-<td>Alpaca</td>
-<td>chavinlo</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/chavinlo/gpt4-x-alpaca">GPT4-X-Alpaca</a></td>
-<td>13B</td>
-<td>Alpaca</td>
-<td>chavinlo</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/chavinlo/toolpaca">Toolpaca</a></td>
-<td>13B</td>
-<td>Alpaca</td>
-<td>chavinlo</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/nlpcloud/instruct-gpt-j-fp16">instruct-gpt-j-fp16</a></td>
-<td>6B</td>
-<td>GPT-J</td>
-<td>nlpcloud</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/baseten/alpaca-30b">alpaca-30b</a></td>
-<td>30b</td>
-<td>Alpaca</td>
-<td><a target="_blank" rel="noopener" href="https://abuqader.substack.com/p/releasing-alpaca-30b">baseten</a></td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/chansung/alpaca-lora-65b">alpaca-lora-65b</a></td>
-<td>65b</td>
-<td>alpaca</td>
-<td>chansung</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/chansung/alpaca-lora-30b">alpaca-lora-30b</a></td>
-<td>30b</td>
-<td>alpaca</td>
-<td>chansung</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/chansung/koalpaca-lora-13b">koalpaca-lora-13b</a></td>
-<td>13b</td>
-<td>koalpaca</td>
-<td>chansung</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/chansung/alpaca-lora-13b">alpaca-lora-13b</a></td>
-<td>13b</td>
-<td>alpaca</td>
-<td>chansung</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/samwit/alpaca13B-lora">alpaca13B-lora</a></td>
-<td>13b</td>
-<td>alpaca</td>
-<td>samwit</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/samwit/alpaca7B-lora">alpaca7B-lora</a></td>
-<td>7b</td>
-<td>alpaca</td>
-<td>samwit</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/samwit/bloompaca-7b1-lora">bloompaca-7b1-lora</a></td>
-<td>7b</td>
-<td>bloom</td>
-<td>samwit</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/Pi3141/gpt4-x-alpaca-native-13B-ggml">gpt4-x-alpaca-native-13B-ggml</a></td>
-<td>13b</td>
-<td>alpaca</td>
-<td>Pi3141</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/Pi3141/alpaca-native-7B-ggml">alpaca-native-7B-ggml</a></td>
-<td>7b</td>
-<td>alpaca</td>
-<td>Pi3141</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/Pi3141/alpaca-native-13B-ggml">alpaca-native-13B-ggml</a></td>
-<td>13b</td>
-<td>alpaca</td>
-<td>Pi3141</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/Pi3141/alpaca-lora-30B-ggml">alpaca-lora-30B-ggml</a></td>
-<td>30b</td>
-<td>alpaca</td>
-<td>Pi3141</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/Pi3141/alpaca-lora-7B-ggml">alpaca-lora-7B-ggml</a></td>
-<td>7b</td>
-<td>alpaca</td>
-<td>Pi3141</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/Pi3141/alpaca-lora-13B-ggml">alpaca-lora-13B-ggml</a></td>
-<td>13b</td>
-<td>alpaca</td>
-<td>Pi3141</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/Pi3141/alpaca-7b-native-enhanced">alpaca-7b-native-enhanced</a></td>
-<td>7b</td>
-<td>alpaca</td>
-<td>Pi3141</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/anon8231489123/gpt4-x-alpaca-13b-native-4bit-128g">gpt4-x-alpaca-13b-native-4bit-128g</a></td>
-<td>13b</td>
-<td>alpaca</td>
-<td>anon8231489123</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/eachadea/ggml-gpt4-x-alpaca-13b-native-4bit">ggml-gpt4-x-alpaca-13b-native-4bit</a></td>
-<td>13b</td>
-<td>alpaca</td>
-<td>eachadea</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/teknium/alpaca-13b-hf-fp16">alpaca-13b-hf-fp16</a></td>
-<td>13b</td>
-<td>alpaca</td>
-<td>teknium</td>
-</tr>
-</tbody></table>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://github.com/sahil280114/codealpaca">codealpaca</a> only provides <a target="_blank" rel="noopener" href="https://huggingface.co/datasets/sahil2801/CodeAlpaca-20k">dataset</a> for training a code generation model, there are multiple models trained on this dataset, including <a target="_blank" rel="noopener" href="https://huggingface.co/LinhDuong/bloom-7b1-lora-codealpaca20k">bloom-7b1-lora-codealpaca20k</a></p>
-<h3 id="togethercomputer"><a href="#togethercomputer" class="headerlink" title="togethercomputer"></a><a target="_blank" rel="noopener" href="https://huggingface.co/togethercomputer">togethercomputer</a></h3><p>released <a target="_blank" rel="noopener" href="https://github.com/togethercomputer/OpenChatKit">openchatkit</a> with retrieval ability and <a target="_blank" rel="noopener" href="https://huggingface.co/spaces/togethercomputer/OpenChatKit">its huggingface space</a></p>
-<hr>
-<p>model weights:</p>
-<table>
-<thead>
-<tr>
-<th>weight path</th>
-<th>weight size</th>
-<th>model name</th>
-<th>author</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/togethercomputer/GPT-NeoXT-Chat-Base-20B">GPT-NeoXT-Chat-Base-20B</a></td>
-<td>20B</td>
-<td>GPT-NeoXT</td>
-<td>togethercomputer</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/togethercomputer/Pythia-Chat-Base-7B">Pythia-Chat-Base-7B</a></td>
-<td>7B</td>
-<td>Pythia</td>
-<td>togethercomputer</td>
-</tr>
-</tbody></table>
-<hr>
-<p>moderation model weights:</p>
-<table>
-<thead>
-<tr>
-<th>weight path</th>
-<th>weight size</th>
-<th>model name</th>
-<th>author</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/togethercomputer/GPT-JT-Moderation-6B">GPT-JT-Moderation-6B</a></td>
-<td>6B</td>
-<td>GPT-JT</td>
-<td>togethercomputer</td>
-</tr>
-</tbody></table>
-<h3 id="SpikeGPT"><a href="#SpikeGPT" class="headerlink" title="SpikeGPT"></a><a target="_blank" rel="noopener" href="https://github.com/ridgerchu/SpikeGPT">SpikeGPT</a></h3><p>inspired by RWKV</p>
-<hr>
-<p>model weights:</p>
-<table>
-<thead>
-<tr>
-<th>weight path</th>
-<th>weight size</th>
-<th>model name</th>
-<th>author</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/ridger/SpikeGPT-BookCorpus">SpikeGPT-BookCorpus</a></td>
-<td>unknown</td>
-<td>SpikeGPT</td>
-<td>ridger</td>
-</tr>
-</tbody></table>
-<h3 id="RWKV"><a href="#RWKV" class="headerlink" title="RWKV"></a><a target="_blank" rel="noopener" href="https://github.com/BlinkDL/RWKV-LM">RWKV</a></h3><hr>
-<p>RWKV combines attention with RNN so the token window can be much larger.</p>
-<p><a target="_blank" rel="noopener" href="https://huggingface.co/docs/transformers/model_doc/led">Longformer</a> is similar to this. Model weights in <a target="_blank" rel="noopener" href="https://github.com/allenai/longformer">github repo</a> or <a target="_blank" rel="noopener" href="https://huggingface.co/allenai/longformer-base-4096">huggingface</a>.</p>
-<hr>
-<p>now we have <a target="_blank" rel="noopener" href="https://github.com/saharNooby/rwkv.cpp">rwkv.cpp</a> (4bit quantization), build upon ggml and sure it works on cpu.</p>
-<p><a target="_blank" rel="noopener" href="https://pypi.org/project/rwkvstic/">rwkvstic</a> (with 8bit &amp; offload for low VRAM GPUs)</p>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://github.com/Blealtan/RWKV-LM-LoRA">RWKV-LoRA</a> supports <code>RWKV-v4-NeoX</code></p>
-<hr>
-<p>model weights:</p>
-<table>
-<thead>
-<tr>
-<th>weight path</th>
-<th>weight size</th>
-<th>model name</th>
-<th>author</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/BlueSunflower/RWKV-7B-alpaca-finetuned">RWKV-7B-alpaca-finetuned</a></td>
-<td>7b</td>
-<td>RWKV</td>
-<td>BlueSunflower</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/BlueSunflower/rwkv-4-14B-alpaca-finetune-lora-weights">rwkv-4-14B-alpaca-finetune-lora-weights</a></td>
-<td>14b</td>
-<td>RWKV</td>
-<td>BlueSunflower</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/Hazzzardous/rwkv-fastquant">rwkv-fastquant</a></td>
-<td>unknown</td>
-<td>rwkv</td>
-<td>Hazzzardous</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/Hazzzardous/rwkv-onnx">rwkv-onnx</a></td>
-<td>unknown</td>
-<td>rwkv</td>
-<td>Hazzzardous</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/Hazzzardous/RWKV-8Bit">RWKV-8Bit</a></td>
-<td>unknown</td>
-<td>rwkv</td>
-<td>Hazzzardous</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/BlinkDL/rwkv-4-raven">rwkv-4-raven</a></td>
-<td>unknown</td>
-<td>rwkv</td>
-<td>BlinkDL</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/BlinkDL/rwkv-4-pile-7b">rwkv-4-pile-7b</a></td>
-<td>7b</td>
-<td>rwkv</td>
-<td>BlinkDL</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/BlinkDL/rwkv-4-pile-14b">rwkv-4-pile-14b</a></td>
-<td>14b</td>
-<td>rwkv</td>
-<td>BlinkDL</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/BlinkDL/rwkv-4-pile-430m">rwkv-4-pile-430m</a></td>
-<td>430m</td>
-<td>rwkv</td>
-<td>BlinkDL</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/BlinkDL/rwkv-4-pile-3b">rwkv-4-pile-3b</a></td>
-<td>3b</td>
-<td>rwkv</td>
-<td>BlinkDL</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/BlinkDL/rwkv-4-pile-1b5">rwkv-4-pile-1b5</a></td>
-<td>1.5b</td>
-<td>rwkv</td>
-<td>BlinkDL</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/BlinkDL/rwkv-4-pile-169m">rwkv-4-pile-169m</a></td>
-<td>169m</td>
-<td>unknown</td>
-<td>BlinkDL</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/BlinkDL/rwkv-3-pile-1b5">rwkv-3-pile-1b5</a></td>
-<td>1.5b</td>
-<td>rwkv</td>
-<td>BlinkDL</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/BlinkDL/rwkv-3-pile-430m">rwkv-3-pile-430m</a></td>
-<td>430m</td>
-<td>rwkv</td>
-<td>BlinkDL</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/BlinkDL/rwkv-2-pile-430m">rwkv-2-pile-430m</a></td>
-<td>430m</td>
-<td>rwkv</td>
-<td>BlinkDL</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/BlinkDL/rwkv-3-pile-169m">rwkv-3-pile-169m</a></td>
-<td>169m</td>
-<td>rwkv</td>
-<td>BlinkDL</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/mrsteyk/RWKV-LM-safetensors">RWKV-LM-safetensors</a></td>
-<td>unknown</td>
-<td>RWKV</td>
-<td>mrsteyk</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/mrsteyk/openchatrwkv-430m-r2.0.1">openchatrwkv-430m-r2.0.1</a></td>
-<td>430m</td>
-<td>RWKV</td>
-<td>mrsteyk</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/mrsteyk/openchatrwkw-430m-r2">openchatrwkw-430m-r2</a></td>
-<td>430m</td>
-<td>RWKV</td>
-<td>mrsteyk</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/mrsteyk/openchatrwkv-430m">openchatrwkv-430m</a></td>
-<td>430m</td>
-<td>RWKV</td>
-<td>mrsteyk</td>
-</tr>
-</tbody></table>
-<p>encrypted alpaca model weights released by point-network: <a target="_blank" rel="noopener" href="https://github.com/pointnetwork/point-alpaca">point-alpaca</a> </p>
-<h3 id="gpt4all-by-nomic"><a href="#gpt4all-by-nomic" class="headerlink" title="gpt4all by nomic"></a><a target="_blank" rel="noopener" href="https://github.com/nomic-ai/gpt4all">gpt4all</a> by nomic</h3><p>LLaMA trained on massive collection of clean assistant dialog data, with model weights</p>
-<p>you need to install nomic to run the model:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install nomic</span><br></pre></td></tr></table></figure>
-
-<p>to run it on gpu, you need to install <a target="_blank" rel="noopener" href="https://github.com/nomic-ai/nomic/tree/main/bin">this</a></p>
-<h3 id="openassistant"><a href="#openassistant" class="headerlink" title="openassistant"></a><a target="_blank" rel="noopener" href="https://github.com/LAION-AI/Open-Assistant">openassistant</a></h3><p>researchers of open-assistant like <a target="_blank" rel="noopener" href="https://huggingface.co/andreaskoepf">andreaskoepf</a> has releasesed <a target="_blank" rel="noopener" href="https://huggingface.co/andreaskoepf/oasst-sft-3-pythia-12b-epoch-3.5">oasst-sft-3-pythia-12b-epoch-3.5</a> and still updating</p>
-<hr>
-<p>model weights:</p>
-<table>
-<thead>
-<tr>
-<th>weight path</th>
-<th>weight size</th>
-<th>model name</th>
-<th>author</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/dvruette/oasst-llama-13b-2-epochs">oasst-llama-13b-2-epochs</a></td>
-<td>13b</td>
-<td>llama</td>
-<td>dvruette</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/dvruette/oasst-llama-13b-1000-steps">oasst-llama-13b-1000-steps</a></td>
-<td>13b</td>
-<td>llama</td>
-<td>dvruette</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/dvruette/oasst-gpt-neox-20b-1000-steps">oasst-gpt-neox-20b-1000-steps</a></td>
-<td>20b</td>
-<td>gpt-neox</td>
-<td>dvruette</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/dvruette/oasst-gpt-neox-20b-3000-steps">oasst-gpt-neox-20b-3000-steps</a></td>
-<td>20b</td>
-<td>gpt-neox</td>
-<td>dvruette</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/dvruette/oasst-pythia-12b-6000-steps">oasst-pythia-12b-6000-steps</a></td>
-<td>12b</td>
-<td>pythia</td>
-<td>dvruette</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/dvruette/oasst-pythia-12b-3000-steps">oasst-pythia-12b-3000-steps</a></td>
-<td>12b</td>
-<td>pythia</td>
-<td>dvruette</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/dvruette/oasst-pythia-12b-flash-attn-5000-steps">oasst-pythia-12b-flash-attn-5000-steps</a></td>
-<td>12b</td>
-<td>pythia</td>
-<td>dvruette</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/dvruette/oasst-pythia-6.9b-4000-steps">oasst-pythia-6.9b-4000-steps</a></td>
-<td>12b</td>
-<td>pythia</td>
-<td>dvruette</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/OpenAssistant/oasst-sft-1-pythia-12b">oasst-sft-1-pythia-12b</a></td>
-<td>12b</td>
-<td>pythia</td>
-<td>OpenAssistant</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/OpenAssistant/galactica-6.7b-finetuned">galactica-6.7b-finetuned</a></td>
-<td>6.7b</td>
-<td>galatica</td>
-<td>OpenAssistant</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/andreaskoepf/oasst-sft-4-pythia-12b-epoch-3.5">oasst-sft-4-pythia-12b-epoch-3.5</a></td>
-<td>12b</td>
-<td>pythia</td>
-<td>andreaskoepf</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/andreaskoepf/pythia-12b-pre-2000">pythia-12b-pre-2000</a></td>
-<td>12b</td>
-<td>pythia</td>
-<td>andreaskoepf</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/andreaskoepf/pythia-12b-pre-3500">pythia-12b-pre-3500</a></td>
-<td>12b</td>
-<td>pythia</td>
-<td>andreaskoepf</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/andreaskoepf/oasst-sft-3-pythia-12b-epoch-3.5">oasst-sft-3-pythia-12b-epoch-3.5</a></td>
-<td>12b</td>
-<td>pythia</td>
-<td>andreaskoepf</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/andreaskoepf/oasst-sft-3-pythia-12b-epoch-2.35">oasst-sft-3-pythia-12b-epoch-2.35</a></td>
-<td>12b</td>
-<td>pythia</td>
-<td>andreaskoepf</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/andreaskoepf/oasst-sft-2-candidiate-0">oasst-sft-2-candidiate-0</a></td>
-<td>unknown</td>
-<td>unknown</td>
-<td>andreaskoepf</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/andreaskoepf/oasst-sft-2-pythia-12b-4000">oasst-sft-2-pythia-12b-4000</a></td>
-<td>12b</td>
-<td>pythia</td>
-<td>andreaskoepf</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/andreaskoepf/oasst-sft-1-gpt-neox-2000">oasst-sft-1-gpt-neox-2000</a></td>
-<td>unknown</td>
-<td>gpt-neox</td>
-<td>andreaskoepf</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/andreaskoepf/oasst-1_12b_4500">oasst-1_12b_4500</a></td>
-<td>12b</td>
-<td>unknown</td>
-<td>andreaskoepf</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/andreaskoepf/oasst-1_12b_1500">oasst-1_12b_1500</a></td>
-<td>12b</td>
-<td>unknown</td>
-<td>andreaskoepf</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/andreaskoepf/oasst-1_12b_3000">oasst-1_12b_3000</a></td>
-<td>12b</td>
-<td>unknown</td>
-<td>andreaskoepf</td>
-</tr>
-</tbody></table>
-<hr>
-<p>reward model weights:</p>
-<table>
-<thead>
-<tr>
-<th>weight path</th>
-<th>weight size</th>
-<th>model name</th>
-<th>author</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/OpenAssistant/reward-model-deberta-v3-large">reward-model-deberta-v3-large</a></td>
-<td>unknown</td>
-<td>deberta-v3</td>
-<td>OpenAssistant</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/OpenAssistant/reward-model-deberta-v3-large-v2">reward-model-deberta-v3-large-v2</a></td>
-<td>unknown</td>
-<td>deberta-v3</td>
-<td>OpenAssistant</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/OpenAssistant/reward-model-electra-large-discriminator">reward-model-electra-large-discriminator</a></td>
-<td>unknown</td>
-<td>electra-large</td>
-<td>OpenAssistant</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/OpenAssistant/reward-model-deberta-v3-base">reward-model-deberta-v3-base</a></td>
-<td>unknown</td>
-<td>deberta-v3</td>
-<td>OpenAssistant</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/andreaskoepf/oasst-rm-1-pythia-1b">oasst-rm-1-pythia-1b</a></td>
-<td>1b</td>
-<td>pythia</td>
-<td>andreaskoepf</td>
-</tr>
-</tbody></table>
-<h3 id="openflamingo"><a href="#openflamingo" class="headerlink" title="openflamingo"></a><a target="_blank" rel="noopener" href="https://github.com/mlfoundations/open_flamingo">openflamingo</a></h3><p>using <a target="_blank" rel="noopener" href="https://huggingface.co/openai/clip-vit-large-patch14">CLIP ViT-L</a> and <a target="_blank" rel="noopener" href="https://ai.facebook.com/blog/large-language-model-llama-meta-ai/">LLaMA-7B</a>, model weights on <a target="_blank" rel="noopener" href="https://huggingface.co/openflamingo/OpenFlamingo-9B">huggingface</a></p>
-<h3 id="cerebras-gpt"><a href="#cerebras-gpt" class="headerlink" title="cerebras gpt"></a><a target="_blank" rel="noopener" href="https://www.cerebras.net/blog/cerebras-gpt-a-family-of-open-compute-efficient-large-language-models/">cerebras gpt</a></h3><p>open sourced <a target="_blank" rel="noopener" href="https://huggingface.co/cerebras">model weights</a> and <a target="_blank" rel="noopener" href="https://github.com/Cerebras/modelzoo">training code</a></p>
-<hr>
-<p>model weights:</p>
-<table>
-<thead>
-<tr>
-<th>weight path</th>
-<th>weight size</th>
-<th>model name</th>
-<th>author</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/samwit/cerebras-gpt-6.7b-lora">cerebras-gpt-6.7b-lora</a></td>
-<td>6.7b</td>
-<td>cerebras-gpt</td>
-<td>samwit</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/lxe/Cerebras-GPT-2.7B-Alpaca-SP">Cerebras-GPT-2.7B-Alpaca-SP</a></td>
-<td>2.7b</td>
-<td>cerebras-gpt</td>
-<td>lxe</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/lxe/Cerebras-GPT-2.7B-Alpaca-SP-ggml">Cerebras-GPT-2.7B-Alpaca-SP-ggml</a></td>
-<td>2.7b</td>
-<td>cerebras-gpt</td>
-<td>lxe</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/lxe/lora-cerebras-gpt2.7b-alpaca-shortprompt">lora-cerebras-gpt2.7b-alpaca-shortprompt</a></td>
-<td>2.7b</td>
-<td>cerebras-gpt</td>
-<td>lxe</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/cerebras/Cerebras-GPT-13B">Cerebras-GPT-13B</a></td>
-<td>13b</td>
-<td>cerebras-gpt</td>
-<td>cerebras</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/cerebras/Cerebras-GPT-6.7B">Cerebras-GPT-6.7B</a></td>
-<td>6.7b</td>
-<td>cerebras-gpt</td>
-<td>cerebras</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/cerebras/Cerebras-GPT-2.7B">Cerebras-GPT-2.7B</a></td>
-<td>2.7b</td>
-<td>cerebras-gpt</td>
-<td>cerebras</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/cerebras/Cerebras-GPT-1.3B">Cerebras-GPT-1.3B</a></td>
-<td>1.3b</td>
-<td>cerebras-gpt</td>
-<td>cerebras</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/cerebras/Cerebras-GPT-590M">Cerebras-GPT-590M</a></td>
-<td>590m</td>
-<td>cerebras-gpt</td>
-<td>cerebras</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/cerebras/Cerebras-GPT-256M">Cerebras-GPT-256M</a></td>
-<td>256m</td>
-<td>cerebras-gpt</td>
-<td>cerebras</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener" href="https://huggingface.co/cerebras/Cerebras-GPT-111M">Cerebras-GPT-111M</a></td>
-<td>111m</td>
-<td>cerebras-gpt</td>
-<td>cerebras</td>
-</tr>
-</tbody></table>
-<h3 id="ColossalChat"><a href="#ColossalChat" class="headerlink" title="ColossalChat"></a>ColossalChat</h3><p><a target="_blank" rel="noopener" href="https://github.com/orgs/hpcaitech/projects/17/views/1">Coati-7B</a> has no public model weights, but claimed to be trained efficiently</p>
-<p>you need to install <a target="_blank" rel="noopener" href="https://github.com/hpcaitech/transformers">LLaMA compatible transformers library</a></p>
-<p>train on <a target="_blank" rel="noopener" href="https://github.com/XueFuzhao/InstructionWild">InstructionWild</a></p>
-<h2 id="enhancements"><a href="#enhancements" class="headerlink" title="enhancements"></a>enhancements</h2><h3 id="using-external-tools"><a href="#using-external-tools" class="headerlink" title="using external tools"></a>using external tools</h3><p><a target="_blank" rel="noopener" href="https://github.com/lucidrains/toolformer-pytorch">toolformer-pytorch</a> (WORK IN PROGRESS)</p>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://github.com/emcf/engshell">engshell</a>: using LLM to execute command</p>
-<h3 id="using-ai-models"><a href="#using-ai-models" class="headerlink" title="using ai models"></a>using ai models</h3><p>Microsoft <a target="_blank" rel="noopener" href="https://github.com/microsoft/JARVIS">JARVIS</a> aka <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2303.17580">HuggingGPT</a> leverages huggingface models so ChatGPT can complete complex multimodal tasks.</p>
-<h3 id="retrieval-plugins"><a href="#retrieval-plugins" class="headerlink" title="retrieval plugins"></a>retrieval plugins</h3><p><a target="_blank" rel="noopener" href="https://github.com/wawawario2/long_term_memory">long term memory</a> for <a target="_blank" rel="noopener" href="https://github.com/oobabooga/text-generation-webui">oobabooga&#x2F;text-generation-webui</a> (can run pythia, galatica, opt, gpt-j, gpt-4chan, rwkv and support quantization&#x2F;acceleration), also<br><a target="_blank" rel="noopener" href="https://github.com/theubie/complex_memory">complex memory</a> (KoboldAI-like)</p>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://github.com/kaixindelele/ChatPaper">chatpaper</a> summarize paper content.</p>
-<p>similar website: <a target="_blank" rel="noopener" href="https://typeset.io/">typeset.io</a> (can ask questions and explain confusing text, math symbols and tables)</p>
-<p>related projects: <a target="_blank" rel="noopener" href="https://huggingface.co/spaces/ShiwenNi/ChatReviewer">ChatReviewer</a> <a target="_blank" rel="noopener" href="https://huggingface.co/spaces/wangrongsheng/ChatImprovement">ChatImprovement</a> <a target="_blank" rel="noopener" href="https://huggingface.co/spaces/ShiwenNi/ChatResponse">ChatResponse</a> <a target="_blank" rel="noopener" href="https://github.com/WangRongsheng/ChatGenTitle">ChatGenTitle</a></p>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://github.com/openai/chatgpt-retrieval-plugin">chatgpt retrieval plugin</a> chop document into chunks, process them into vectors and search them using one of many vector search backends. hosted as a fastapi service.</p>
-<h2 id="datasets"><a href="#datasets" class="headerlink" title="datasets"></a>datasets</h2><h3 id="assistant-dialogue"><a href="#assistant-dialogue" class="headerlink" title="assistant dialogue"></a>assistant dialogue</h3><p><a target="_blank" rel="noopener" href="https://github.com/radi-cho/botbots/">botbots</a> dataset (two chatgpt talking to each other), created by using <a target="_blank" rel="noopener" href="https://github.com/radi-cho/datasetGPT">datasetGPT</a> (LLM automation tool)</p>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/RyokoAI/ShareGPT52K">ShareGPT52k</a>, also <a target="_blank" rel="noopener" href="https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna_unfiltered">ShareGPT90k</a> (Vicuna)</p>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/swype/instruct-102.4k">instruct-102.4k</a> by <a target="_blank" rel="noopener" href="https://swype.com/">swype</a></p>
-<hr>
-<p>datasets by BELLE:</p>
-<p><a target="_blank" rel="noopener" href="https://huggingface.co/BelleGroup/train_1M_CN">train_1M_CN</a></p>
-<p><a target="_blank" rel="noopener" href="https://huggingface.co/BelleGroup/train_0.5M_CN">train_0.5M_CN</a></p>
-<p><a target="_blank" rel="noopener" href="https://huggingface.co/BelleGroup/multiturn_chat_0.8M">multiturn_chat_0.8M</a></p>
-<p><a target="_blank" rel="noopener" href="https://huggingface.co/BelleGroup/school_math_0.25M">school_math_0.25M</a></p>
-<h3 id="unsupervised-pretraining"><a href="#unsupervised-pretraining" class="headerlink" title="unsupervised pretraining"></a>unsupervised pretraining</h3><p><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/RyokoAI/Fandom23K">Fandom23K</a> (text classification), part of <a target="_blank" rel="noopener" href="https://github.com/RyokoAI/BigKnow2022">BigKnow2022</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/yuxdux/kinda-llama">Kinda LLaMA</a> replicates LLaMA dataset, including scraped webpages, code and stackexchange data.</p>
-<p><a target="_blank" rel="noopener" href="https://huggingface.co/oscar-corpus">oscar-corpus</a> needs to be downloaded with access token, by accepting agreement with account. containing categorized content and adult content.</p>
-<h2 id="dataset-preprocessing"><a href="#dataset-preprocessing" class="headerlink" title="dataset preprocessing"></a>dataset preprocessing</h2><p><a target="_blank" rel="noopener" href="https://github.com/google-research/deduplicate-text-datasets">deduplicate text dataset</a> in rust, may remove verbose substrings like “to go to the”</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/oscar-project">oscar project</a> (Open Super-large Crawled Aggregated coRpus) contains some tool for adult content filtering and deduplication.</p>
-<h2 id="NLP-tools-training-methods"><a href="#NLP-tools-training-methods" class="headerlink" title="NLP tools &amp; training methods"></a>NLP tools &amp; training methods</h2><p><a target="_blank" rel="noopener" href="https://fasttext.cc/docs/en/support.html">fasttext</a> for efficient learning of word representations and sentence classification.</p>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://docs.langchain.com/docs/">langchain</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/microsoft/prompt-engine">prompt-engine</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/openai/openai-python/blob/main/chatml.md">chatml</a>: markup language for ChatGPT, by openai</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Intuitive-Systems/react-agent-ts">react-agent-ts</a> enables LLM to chat and use tools by internal dialogues.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/yoheinakajima/babyagi">babyagi</a>: AI-powered task management system. original post on <a target="_blank" rel="noopener" href="https://twitter.com/yoheinakajima/status/1640934505048588290">twitter</a></p>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://arxiv-vanity.com/papers/2302.02676">Chain-of-hindsights</a> (can learn from negative feedback) in <a target="_blank" rel="noopener" href="https://github.com/lhao499/CoH">jax</a> and <a target="_blank" rel="noopener" href="https://github.com/mukhal/CoH-pytorch">pytorch</a></p>
+	  <h2 id="simply-because-the-original-note-on-chatgpt-is-too-long-we-start-a-new-one-with-more-topics-and-more-resources"><a href="#simply-because-the-original-note-on-chatgpt-is-too-long-we-start-a-new-one-with-more-topics-and-more-resources" class="headerlink" title="simply because the original note on chatgpt is too long, we start a new one, with more topics and more resources."></a>simply because the original note on chatgpt is too long, we start a new one, with more topics and more resources.</h2><h2 id="visit-poe-com-for-a-bunch-of-free-chatbots-including-GPT-4chathub-is-a-browser-plugin-which-you-can-use-ChatGPT-Bing-and-Bard"><a href="#visit-poe-com-for-a-bunch-of-free-chatbots-including-GPT-4chathub-is-a-browser-plugin-which-you-can-use-ChatGPT-Bing-and-Bard" class="headerlink" title="visit poe.com for a bunch of free chatbots, including GPT-4chathub is a browser plugin which you can use ChatGPT, Bing and Bard"></a>visit <a target="_blank" rel="noopener" href="https://poe.com/">poe.com</a> for a bunch of free chatbots, including GPT-4<br><a target="_blank" rel="noopener" href="https://github.com/chathub-dev/chathub">chathub</a> is a browser plugin which you can use ChatGPT, Bing and Bard</h2><h2 id="ts-server-supports-a-bunch-of-models-like-GPT-J-GPT-NeoX-GPT-Neo-OPT-Fairseq-GPT-M2M100-CodeGen-GPT2-T5-RWKV-LLAMA-and-Stable-Diffusion-used-by-textsynth-com"><a href="#ts-server-supports-a-bunch-of-models-like-GPT-J-GPT-NeoX-GPT-Neo-OPT-Fairseq-GPT-M2M100-CodeGen-GPT2-T5-RWKV-LLAMA-and-Stable-Diffusion-used-by-textsynth-com" class="headerlink" title="ts_server supports a bunch of models like GPT-J, GPT-NeoX, GPT-Neo, OPT, Fairseq GPT, M2M100, CodeGen, GPT2, T5, RWKV, LLAMA and Stable Diffusion, used by textsynth.com"></a><a target="_blank" rel="noopener" href="https://bellard.org/ts_server/">ts_server</a> supports a bunch of models like GPT-J, GPT-NeoX, GPT-Neo, OPT, Fairseq GPT, M2M100, CodeGen, GPT2, T5, RWKV, LLAMA and Stable Diffusion, used by <a target="_blank" rel="noopener" href="https://textsynth.com/">textsynth.com</a></h2><h2 id="to-manage-python-versions-and-environments-pyenv-and-venv-is-lightweight-and-miniconda-or-mamba-is-more-sophisticated"><a href="#to-manage-python-versions-and-environments-pyenv-and-venv-is-lightweight-and-miniconda-or-mamba-is-more-sophisticated" class="headerlink" title="to manage python versions and environments, pyenv and venv is lightweight and miniconda or mamba is more sophisticated."></a>to manage python versions and environments, <a target="_blank" rel="noopener" href="https://github.com/pyenv/pyenv">pyenv</a> and <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/venv.html">venv</a> is lightweight and <a target="_blank" rel="noopener" href="https://docs.conda.io/en/latest/miniconda.html">miniconda</a> or <a target="_blank" rel="noopener" href="https://mamba.readthedocs.io/en/latest/user_guide/mamba.html">mamba</a> is more sophisticated.</h2><h2 id="javascript-code-for-extracting-model-list-from-huggingface-personal-homepage"><a href="#javascript-code-for-extracting-model-list-from-huggingface-personal-homepage" class="headerlink" title="javascript code for extracting model list from huggingface personal homepage:"></a>javascript code for extracting model list from huggingface personal homepage:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">of</span> <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&quot;h4&quot;</span>)) &#123;<span class="keyword">var</span> t = i.<span class="property">innerText</span>; <span class="keyword">var</span> tlist = t.<span class="title function_">split</span>(<span class="string">&quot;/&quot;</span>); <span class="keyword">var</span> t0 = tlist[<span class="number">0</span>]; <span class="keyword">var</span> t1 = tlist[<span class="number">1</span>]; arr.<span class="title function_">push</span>(<span class="string">`| [<span class="subst">$&#123;t1&#125;</span>](https://huggingface.co/<span class="subst">$&#123;t&#125;</span>) | unknown | unknown | <span class="subst">$&#123;t0&#125;</span> |`</span>)&#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr.<span class="title function_">join</span>(<span class="string">&#x27;</span></span><br><span class="line"><span class="string">&#x27;</span>));</span><br></pre></td></tr></table></figure></h2><h2 id="convert-arxiv-paper-pdf-into-html-arxiv-vanity-you-will-have-a-better-view-than-before-though-will-not-always-work-code-on-githubaminer-is-similar-to-paperswithcode-in-which-you-may-find-interesting-papers"><a href="#convert-arxiv-paper-pdf-into-html-arxiv-vanity-you-will-have-a-better-view-than-before-though-will-not-always-work-code-on-githubaminer-is-similar-to-paperswithcode-in-which-you-may-find-interesting-papers" class="headerlink" title="convert arxiv paper (pdf) into html: arxiv vanity (you will have a better view than before, though will not always work) code on githubaminer is similar to paperswithcode, in which you may find interesting papers."></a>convert arxiv paper (pdf) into html: <a target="_blank" rel="noopener" href="https://www.arxiv-vanity.com/">arxiv vanity</a> (you will have a better view than before, though <a target="_blank" rel="noopener" href="https://www.arxiv-vanity.com/papers/2303.12712/">will not always work</a>) code <a target="_blank" rel="noopener" href="https://github.com/arxiv-vanity/arxiv-vanity">on github</a><br><a target="_blank" rel="noopener" href="https://www.aminer.cn/">aminer</a> is similar to <a target="_blank" rel="noopener" href="https://paperswithcode.com/">paperswithcode</a>, in which you may find interesting papers.</h2><h2 id="someone-prefers-bert4keras-since-it-implements-multiple-LLM-into-Keras-also-easy-for-GPT-2-LoRA-training-by-adding-a-single-layer"><a href="#someone-prefers-bert4keras-since-it-implements-multiple-LLM-into-Keras-also-easy-for-GPT-2-LoRA-training-by-adding-a-single-layer" class="headerlink" title="someone prefers bert4keras since it implements multiple LLM into Keras, also easy for GPT-2 LoRA training (by adding a single layer)"></a>someone prefers <a target="_blank" rel="noopener" href="https://github.com/bojone/bert4keras">bert4keras</a> since it implements multiple LLM into Keras, also easy for GPT-2 LoRA training (by adding a single layer)</h2><h2 id="people-love-to-post-uncensorable-links-and-torrents-to-internet-archive-and-the-eye-just-like-the-gpt-4chan"><a href="#people-love-to-post-uncensorable-links-and-torrents-to-internet-archive-and-the-eye-just-like-the-gpt-4chan" class="headerlink" title="people love to post uncensorable links and torrents to internet archive and the-eye, just like the gpt-4chan"></a>people love to post uncensorable links and torrents to <a target="_blank" rel="noopener" href="https://archive.org/">internet archive</a> and <a target="_blank" rel="noopener" href="https://github.com/The-Eye-Team">the-eye</a>, just like the gpt-4chan</h2><h2 id="to-create-a-simple-API-compatible-with-OpenAI-APIs-for-LLMs-use-SimpleAI-fine-tuning-and-tricksPEFT-Parameter-Efficient-Fine-Tuning-supports-LoRA-Prefix-Tuning-P-Tuning-and-Prompt-Tuning-computer-automation-with-ai-virtual-machines-and-environmentsit-is-not-feasible-to-install-ubuntu-arm-on-macos-m1-with-virtualbox-use-utm-app-instead-instructions-on-installing-ubuntu-with-utm-includes-guides-on-sharing-clipboard-and-directory-papersplaying-atari-using-q-learning-viewing-deepmind-paper-with-arxiv-vanity-modelsvideo-pretraining-can-perform-minecraft-diamond-mining-tasks-with-keyboard-and-mouse-movementscode-and-model"><a href="#to-create-a-simple-API-compatible-with-OpenAI-APIs-for-LLMs-use-SimpleAI-fine-tuning-and-tricksPEFT-Parameter-Efficient-Fine-Tuning-supports-LoRA-Prefix-Tuning-P-Tuning-and-Prompt-Tuning-computer-automation-with-ai-virtual-machines-and-environmentsit-is-not-feasible-to-install-ubuntu-arm-on-macos-m1-with-virtualbox-use-utm-app-instead-instructions-on-installing-ubuntu-with-utm-includes-guides-on-sharing-clipboard-and-directory-papersplaying-atari-using-q-learning-viewing-deepmind-paper-with-arxiv-vanity-modelsvideo-pretraining-can-perform-minecraft-diamond-mining-tasks-with-keyboard-and-mouse-movementscode-and-model" class="headerlink" title="to create a simple API (compatible with OpenAI APIs) for LLMs, use SimpleAI## fine-tuning and tricksPEFT (Parameter Efficient Fine Tuning) supports LoRA, Prefix Tuning, P-Tuning and Prompt Tuning.## computer automation with ai### virtual machines and environmentsit is not feasible to install ubuntu arm on macos m1 with virtualbox. use utm.app instead. instructions on installing ubuntu with utm includes guides on sharing clipboard and directory.### papersplaying atari using q-learning (viewing deepmind paper with arxiv vanity)### modelsvideo pretraining can perform minecraft diamond mining tasks with keyboard and mouse movementscode and model"></a>to create a simple API (compatible with OpenAI APIs) for LLMs, use <a target="_blank" rel="noopener" href="https://github.com/lhenault/simpleAI">SimpleAI</a><br>## fine-tuning and tricks<br><a target="_blank" rel="noopener" href="https://github.com/huggingface/peft">PEFT</a> (Parameter Efficient Fine Tuning) supports LoRA, Prefix Tuning, P-Tuning and Prompt Tuning.<br>## computer automation with ai<br>### virtual machines and environments<br>it is not feasible to install <a target="_blank" rel="noopener" href="https://ubuntu.com/download/server/arm">ubuntu arm</a> on macos m1 with virtualbox. use <a target="_blank" rel="noopener" href="https://getutm.app/">utm.app</a> instead. <a target="_blank" rel="noopener" href="https://docs.getutm.app/guides/ubuntu/">instructions on installing ubuntu with utm</a> includes guides on sharing clipboard and directory.<br>### papers<br><a target="_blank" rel="noopener" href="https://www.arxiv-vanity.com/papers/1312.5602/">playing atari using q-learning</a> (viewing deepmind paper with arxiv vanity)<br>### models<br><a target="_blank" rel="noopener" href="https://openai.com/research/vpt">video pretraining</a> can perform minecraft diamond mining tasks with keyboard and mouse movements<br><a target="_blank" rel="noopener" href="https://github.com/openai/Video-Pre-Training">code and model</a></h2><h2 id="mm-cot-multimodal-chain-of-thought-by-amazon-with-model-weights-data-collectors-and-controllersmss-for-screenshot-remember-to-save-raw-pixels-to-SSD-then-compress-into-mp4-with-ffmpeg-for-further-training-mind-the-timestamp"><a href="#mm-cot-multimodal-chain-of-thought-by-amazon-with-model-weights-data-collectors-and-controllersmss-for-screenshot-remember-to-save-raw-pixels-to-SSD-then-compress-into-mp4-with-ffmpeg-for-further-training-mind-the-timestamp" class="headerlink" title="mm-cot (multimodal chain-of-thought) by amazon, with model weights### data collectors and controllersmss for screenshot, remember to save raw pixels to SSD, then compress into mp4 with ffmpeg for further training (mind the timestamp!)"></a><a target="_blank" rel="noopener" href="https://github.com/amazon-science/mm-cot">mm-cot</a> (multimodal chain-of-thought) by amazon, with <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1FtTYOJPHnWnFfCxNC6M3gar4RAX5E21b/view">model weights</a><br>### data collectors and controllers<br><a target="_blank" rel="noopener" href="https://python-mss.readthedocs.io/">mss</a> for screenshot, remember to save raw pixels to SSD, then compress into mp4 with ffmpeg for further training (mind the timestamp!)</h2><h2 id="go-vncdriver-by-openai-to-compile-you-need-to-clone-the-repo-and-modify-code-to-find-headers-for-libjpeg-turbo-and-python-libvncdriverasyncvnc-supports-apple-vnc-side-project-asyncsshpython-vnc-client-with-keydown-keyup-event-supportvncdotoolpyVNC"><a href="#go-vncdriver-by-openai-to-compile-you-need-to-clone-the-repo-and-modify-code-to-find-headers-for-libjpeg-turbo-and-python-libvncdriverasyncvnc-supports-apple-vnc-side-project-asyncsshpython-vnc-client-with-keydown-keyup-event-supportvncdotoolpyVNC" class="headerlink" title="go-vncdriver by openai, to compile you need to clone the repo and modify code to find headers for libjpeg-turbo and python.libvncdriverasyncvnc (supports apple vnc), side project: asyncsshpython-vnc-client with keydown&#x2F;keyup event supportvncdotoolpyVNC"></a><a target="_blank" rel="noopener" href="https://github.com/openai/go-vncdriver">go-vncdriver</a> by openai, to compile you need to clone the repo and modify code to find headers for libjpeg-turbo and python.<br><a target="_blank" rel="noopener" href="https://pypi.org/project/libvncdriver/">libvncdriver</a><br><a target="_blank" rel="noopener" href="https://pypi.org/project/asyncvnc/">asyncvnc</a> (supports apple vnc), side project: <a target="_blank" rel="noopener" href="https://github.com/ronf/asyncssh">asyncssh</a><br><a target="_blank" rel="noopener" href="https://github.com/masamitsu-murase/python_vnc_client">python-vnc-client</a> with keydown&#x2F;keyup event support<br><a target="_blank" rel="noopener" href="https://pypi.org/project/vncdotool/">vncdotool</a><br><a target="_blank" rel="noopener" href="https://github.com/cair/pyVNC">pyVNC</a></h2><h2 id="pynput-as-input-event-listener-and-actor-listener-may-have-some-strange-keycodes-when-pressing-modifier-keys-on-windows-note-that-special-care-needed-for-aligning-mouse-location-with-screenshot-size"><a href="#pynput-as-input-event-listener-and-actor-listener-may-have-some-strange-keycodes-when-pressing-modifier-keys-on-windows-note-that-special-care-needed-for-aligning-mouse-location-with-screenshot-size" class="headerlink" title="pynput as input event listener and actor, listener may have some strange keycodes when pressing modifier keys on windows.note that special care needed for aligning mouse location with screenshot size"></a><a target="_blank" rel="noopener" href="https://python-mss.readthedocs.io/">pynput</a> as input event listener and actor, listener may have some strange keycodes when pressing modifier keys on windows.<br>note that special care needed for aligning mouse location with screenshot size</h2><h2 id="ViT-pytorch-can-be-used-in-many-ViT-based-models-listed-and-implemented-in-the-repo-spacesopenai-universe-blog-post-here-and-starter-agents-remotes-are-using-vnc-protocol-and-a-reward-protocol-using-websocket-sending-json-can-send-actions-they-prefer-TigerVNC-maybe-that-will-send-the-existing-monitor-instead-of-invisible-ones-gym-is-classic-and-modular-atari-py-enables-old-gamesretro-deprecates-universe-but-might-help-with-general-computer-controlling-AI-systems-since-they-are-compatible-human-don’t-play-games-all-day-and-night-beware-of-this-and-don’t-turn-the-model-into-a-heavy-gamer-there-is-no-meaning-of-recording-terminal-input-output-when-using-tools-like-vim-get-screenshots-keystrokes-and-mouse-clicks-instead-using-ttyd-gremlins-js-or-monkey-js-tkterminal-won’t-do-it-is-just-a-thin-wrapper-around-subprocess-runtalking-of-browser-you-can-spin-up-novnc-server-and-let-the-gremlins-js-do-its-job-accelerators-cformerscpu-onlyable-to-install-from-pip-ggmlcpu-onlycpp-only-compile-from-source-flexgengpu-is-mandatory-better-than-deepspeed-and-Hugging-Face-Accelerate-open-source-model-and-weightsawesome-decentralized-llm-listed-up-to-date-related-chatgpt-like-repositories-datasets-model-weights-and-resources"><a href="#ViT-pytorch-can-be-used-in-many-ViT-based-models-listed-and-implemented-in-the-repo-spacesopenai-universe-blog-post-here-and-starter-agents-remotes-are-using-vnc-protocol-and-a-reward-protocol-using-websocket-sending-json-can-send-actions-they-prefer-TigerVNC-maybe-that-will-send-the-existing-monitor-instead-of-invisible-ones-gym-is-classic-and-modular-atari-py-enables-old-gamesretro-deprecates-universe-but-might-help-with-general-computer-controlling-AI-systems-since-they-are-compatible-human-don’t-play-games-all-day-and-night-beware-of-this-and-don’t-turn-the-model-into-a-heavy-gamer-there-is-no-meaning-of-recording-terminal-input-output-when-using-tools-like-vim-get-screenshots-keystrokes-and-mouse-clicks-instead-using-ttyd-gremlins-js-or-monkey-js-tkterminal-won’t-do-it-is-just-a-thin-wrapper-around-subprocess-runtalking-of-browser-you-can-spin-up-novnc-server-and-let-the-gremlins-js-do-its-job-accelerators-cformerscpu-onlyable-to-install-from-pip-ggmlcpu-onlycpp-only-compile-from-source-flexgengpu-is-mandatory-better-than-deepspeed-and-Hugging-Face-Accelerate-open-source-model-and-weightsawesome-decentralized-llm-listed-up-to-date-related-chatgpt-like-repositories-datasets-model-weights-and-resources" class="headerlink" title="ViT-pytorch can be used in many ViT-based models, listed and implemented in the repo.### spacesopenai universe (blog post here) and starter agents, remotes are using vnc protocol and a reward protocol using websocket sending json (can send actions). they prefer TigerVNC, maybe that will send the existing monitor instead of invisible ones.gym is classic and modular. atari-py enables old gamesretro deprecates universe, but might help with general computer controlling AI systems since they are compatible. human don’t play games all day and night. beware of this and don’t turn the model into a heavy gamer.there is no meaning of recording terminal input&#x2F;output when using tools like vim. get screenshots, keystrokes and mouse clicks instead (using ttyd, gremlins.js or monkey.js). tkterminal won’t do. it is just a thin wrapper around subprocess.runtalking of browser, you can spin up novnc server and let the gremlins.js do its job.## accelerators### cformerscpu onlyable to install from pip### ggmlcpu onlycpp, only compile from source### flexgengpu is mandatory, better than deepspeed and Hugging Face Accelerate## open source model and weightsawesome decentralized llm listed up-to-date related chatgpt-like repositories, datasets, model weights and resources."></a><a target="_blank" rel="noopener" href="https://github.com/lucidrains/vit-pytorch">ViT-pytorch</a> can be used in many ViT-based models, listed and implemented in the repo.<br>### spaces<br>openai <a target="_blank" rel="noopener" href="https://github.com/openai/universe">universe</a> (blog post <a target="_blank" rel="noopener" href="https://openai.com/blog/universe/">here</a>) and <a target="_blank" rel="noopener" href="https://github.com/openai/universe-starter-agent">starter agents</a>, remotes are using vnc protocol and a reward protocol using websocket sending json (can send actions). they prefer <a target="_blank" rel="noopener" href="https://tigervnc.org/">TigerVNC</a>, maybe that will send the existing monitor instead of invisible ones.<br><a target="_blank" rel="noopener" href="https://github.com/openai/gym">gym</a> is classic and modular. <a target="_blank" rel="noopener" href="https://github.com/openai/atari-py">atari-py</a> enables old games<br><a target="_blank" rel="noopener" href="https://github.com/openai/retro">retro</a> deprecates universe, but might help with general computer controlling AI systems since they are compatible. human don’t play games all day and night. beware of this and don’t turn the model into a heavy gamer.<br>there is no meaning of recording terminal input&#x2F;output when using tools like <code>vim</code>. get screenshots, keystrokes and mouse clicks instead (using <code>ttyd</code>, <a target="_blank" rel="noopener" href="https://github.com/marmelab/gremlins.js"><code>gremlins.js</code></a> or <a target="_blank" rel="noopener" href="https://github.com/zhuochun/monkey.js"><code>monkey.js</code></a>). <code>tkterminal</code> won’t do. it is just a thin wrapper around <code>subprocess.run</code><br>talking of browser, you can spin up <a target="_blank" rel="noopener" href="https://github.com/novnc/noVNC">novnc</a> server and let the <a target="_blank" rel="noopener" href="https://github.com/marmelab/gremlins.js"><code>gremlins.js</code></a> do its job.<br>## accelerators<br>### <a target="_blank" rel="noopener" href="https://github.com/NolanoOrg/cformers/">cformers</a><br>cpu only<br>able to install from pip<br>### <a target="_blank" rel="noopener" href="https://github.com/ggerganov/ggml">ggml</a><br>cpu only<br>cpp, only compile from source<br>### <a target="_blank" rel="noopener" href="https://github.com/FMInference/FlexGen">flexgen</a><br>gpu is mandatory, better than deepspeed and <a target="_blank" rel="noopener" href="https://github.com/huggingface/accelerate">Hugging Face Accelerate</a><br>## open source model and weights<br><a target="_blank" rel="noopener" href="https://github.com/imaurer/awesome-decentralized-llm">awesome decentralized llm</a> listed up-to-date related chatgpt-like repositories, datasets, model weights and resources.</h2><h2 id="model-weights-of-open-source-chatgpt-alternatives-weight-path-model-size-model-name-author-–-–-–-–-openchatgpt-neox-125m-125m-gpt-neox-mrsteyk-openchatgpt-neo-125m-125m-gpt-neo-mrsteyk-LLaMAit’s-public-weight-path-model-name-author-–-–-–-llama-13b-hf-int4-13b-decapoda-research-llama-65b-hf-int4-65b-decapoda-research-llama-30b-hf-int4-30b-decapoda-research-llama-7b-hf-int4-7b-decapoda-research-llama-30b-hf-30b-decapoda-research-llama-65b-hf-65b-decapoda-research-llama-13b-hf-13b-decapoda-research-llama-7b-hf-7b-decapoda-research-llama-smallint-pt-unknown-decapoda-research-llama-7b-hf-int8-7b-decapoda-research-ChatYuanv2-is-censored"><a href="#model-weights-of-open-source-chatgpt-alternatives-weight-path-model-size-model-name-author-–-–-–-–-openchatgpt-neox-125m-125m-gpt-neox-mrsteyk-openchatgpt-neo-125m-125m-gpt-neo-mrsteyk-LLaMAit’s-public-weight-path-model-name-author-–-–-–-llama-13b-hf-int4-13b-decapoda-research-llama-65b-hf-int4-65b-decapoda-research-llama-30b-hf-int4-30b-decapoda-research-llama-7b-hf-int4-7b-decapoda-research-llama-30b-hf-30b-decapoda-research-llama-65b-hf-65b-decapoda-research-llama-13b-hf-13b-decapoda-research-llama-7b-hf-7b-decapoda-research-llama-smallint-pt-unknown-decapoda-research-llama-7b-hf-int8-7b-decapoda-research-ChatYuanv2-is-censored" class="headerlink" title="model weights of open source chatgpt alternatives:| weight path | model size | model name | author || – | – | – | – || openchatgpt-neox-125m | 125m | gpt-neox | mrsteyk || openchatgpt-neo-125m | 125m | gpt-neo | mrsteyk |### LLaMAit’s public.| weight path | model name | author || – | – | – || llama-13b-hf-int4 | 13b |decapoda-research || llama-65b-hf-int4 | 65b |decapoda-research || llama-30b-hf-int4 | 30b |decapoda-research || llama-7b-hf-int4 | 7b |decapoda-research || llama-30b-hf | 30b |decapoda-research || llama-65b-hf | 65b |decapoda-research || llama-13b-hf | 13b |decapoda-research || llama-7b-hf | 7b |decapoda-research || llama-smallint-pt | unknown |decapoda-research || llama-7b-hf-int8 | 7b | decapoda-research |### ChatYuanv2 is censored."></a>model weights of open source chatgpt alternatives:<br>| weight path | model size | model name | author |<br>| – | – | – | – |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/mrsteyk/openchatgpt-neox-125m">openchatgpt-neox-125m</a> | 125m | gpt-neox | mrsteyk |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/mrsteyk/openchatgpt-neo-125m">openchatgpt-neo-125m</a> | 125m | gpt-neo | mrsteyk |<br>### LLaMA<br>it’s public.<br>| weight path | model name | author |<br>| – | – | – |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/decapoda-research/llama-13b-hf-int4">llama-13b-hf-int4</a> | 13b |decapoda-research |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/decapoda-research/llama-65b-hf-int4">llama-65b-hf-int4</a> | 65b |decapoda-research |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/decapoda-research/llama-30b-hf-int4">llama-30b-hf-int4</a> | 30b |decapoda-research |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/decapoda-research/llama-7b-hf-int4">llama-7b-hf-int4</a> | 7b |decapoda-research |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/decapoda-research/llama-30b-hf">llama-30b-hf</a> | 30b |decapoda-research |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/decapoda-research/llama-65b-hf">llama-65b-hf</a> | 65b |decapoda-research |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/decapoda-research/llama-13b-hf">llama-13b-hf</a> | 13b |decapoda-research |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/decapoda-research/llama-7b-hf">llama-7b-hf</a> | 7b |decapoda-research |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/decapoda-research/llama-smallint-pt">llama-smallint-pt</a> | unknown |decapoda-research |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/decapoda-research/llama-7b-hf-int8">llama-7b-hf-int8</a> | 7b | decapoda-research |<br>### <a target="_blank" rel="noopener" href="https://github.com/clue-ai/ChatYuan">ChatYuan</a><br>v2 is censored.</h2><h2 id="model-weights-weight-path-model-size-model-name-author-–-–-–-–-ChatYuan-large-v1-unknown-unknown-ClueAI-ChatYuan-large-v2-paddle-unknown-unknown-ClueAI-ChatYuan-large-v2-unknown-unknown-ClueAI-ChatYuan-large-v1-paddle-unknown-unknown-ClueAI-DeepshardLLaMA-trained-on-custom-instruction-dataset"><a href="#model-weights-weight-path-model-size-model-name-author-–-–-–-–-ChatYuan-large-v1-unknown-unknown-ClueAI-ChatYuan-large-v2-paddle-unknown-unknown-ClueAI-ChatYuan-large-v2-unknown-unknown-ClueAI-ChatYuan-large-v1-paddle-unknown-unknown-ClueAI-DeepshardLLaMA-trained-on-custom-instruction-dataset" class="headerlink" title="model weights:| weight path | model size | model name | author || – | – | – | – || ChatYuan-large-v1 | unknown | unknown | ClueAI || ChatYuan-large-v2-paddle | unknown | unknown | ClueAI || ChatYuan-large-v2 | unknown | unknown | ClueAI || ChatYuan-large-v1-paddle | unknown | unknown | ClueAI |### DeepshardLLaMA trained on custom instruction dataset."></a>model weights:<br>| weight path | model size | model name | author |<br>| – | – | – | – |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/ClueAI/ChatYuan-large-v1">ChatYuan-large-v1</a> | unknown | unknown | ClueAI |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/ClueAI/ChatYuan-large-v2-paddle">ChatYuan-large-v2-paddle</a> | unknown | unknown | ClueAI |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/ClueAI/ChatYuan-large-v2">ChatYuan-large-v2</a> | unknown | unknown | ClueAI |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/ClueAI/ChatYuan-large-v1-paddle">ChatYuan-large-v1-paddle</a> | unknown | unknown | ClueAI |<br>### <a target="_blank" rel="noopener" href="https://huggingface.co/swype/">Deepshard</a><br>LLaMA trained on <a target="_blank" rel="noopener" href="https://huggingface.co/datasets/swype/instruct-102.4k">custom instruction dataset</a>.</h2><h2 id="model-weights-weight-path-weight-size-model-name-author-–-–-–-–-deepshard-13B-ft-13b-deepshard-swype-deepshard-13B-raw-13b-deepshard-swype-ChatGLMCurrently-only-open-sourced-6B-version-You-can-train-ChatGLM-using-GXT3090-simple-thu-chatglm6bUsing-7GB-VRAM-train-ChatGLM-with-P-tuningchatglm-finetuning-supports-loading-from-int4-weights"><a href="#model-weights-weight-path-weight-size-model-name-author-–-–-–-–-deepshard-13B-ft-13b-deepshard-swype-deepshard-13B-raw-13b-deepshard-swype-ChatGLMCurrently-only-open-sourced-6B-version-You-can-train-ChatGLM-using-GXT3090-simple-thu-chatglm6bUsing-7GB-VRAM-train-ChatGLM-with-P-tuningchatglm-finetuning-supports-loading-from-int4-weights" class="headerlink" title="model weights:| weight path | weight size | model name | author || – | – | – | – || deepshard-13B-ft | 13b | deepshard | swype || deepshard-13B-raw | 13b | deepshard | swype |### ChatGLMCurrently only open-sourced 6B version.You can train ChatGLM using GXT3090: simple_thu_chatglm6bUsing 7GB VRAM, train ChatGLM with P-tuningchatglm_finetuning supports loading from int4 weights"></a>model weights:<br>| weight path | weight size | model name | author |<br>| – | – | – | – |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/swype/deepshard-13B-ft">deepshard-13B-ft</a> | 13b | deepshard | swype |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/swype/deepshard-13B-raw">deepshard-13B-raw</a> | 13b | deepshard | swype |<br>### <a target="_blank" rel="noopener" href="https://chatglm.cn/blog">ChatGLM</a><br>Currently only open-sourced 6B version.<br>You can train ChatGLM using GXT3090: <a target="_blank" rel="noopener" href="https://github.com/yuanzhoulvpi2017/zero_nlp/tree/main/simple_thu_chatglm6b">simple_thu_chatglm6b</a><br>Using 7GB VRAM, train ChatGLM with <a target="_blank" rel="noopener" href="https://github.com/THUDM/ChatGLM-6B/tree/main/ptuning">P-tuning</a><br><a target="_blank" rel="noopener" href="https://github.com/ssbuild/chatglm_finetuning">chatglm_finetuning</a> supports loading from int4 weights</h2><h2 id="model-weights-weight-path-weight-size-model-name-author-–-–-–-–-chatglm-6b-int4-slim-6b-chatglm-silver-chatglm-6b-slim-6b-chatglm-silver-chatglm-6b-int4-qe-slim-6b-chatglm-silver-chatglm-6b-int4-6b-chatglm-THUDM-chatglm-6b-int4-qe-6b-chatglm-THUDM-chatglm-6b-6b-chatglm-THUDM-ChatDoctorLLaMA-65B-trained-on-medical-dataset-InstructorDoctor-200k-BELLE开源中文对话大模型"><a href="#model-weights-weight-path-weight-size-model-name-author-–-–-–-–-chatglm-6b-int4-slim-6b-chatglm-silver-chatglm-6b-slim-6b-chatglm-silver-chatglm-6b-int4-qe-slim-6b-chatglm-silver-chatglm-6b-int4-6b-chatglm-THUDM-chatglm-6b-int4-qe-6b-chatglm-THUDM-chatglm-6b-6b-chatglm-THUDM-ChatDoctorLLaMA-65B-trained-on-medical-dataset-InstructorDoctor-200k-BELLE开源中文对话大模型" class="headerlink" title="model weights:| weight path | weight size | model name | author || – | – | – | – || chatglm-6b-int4-slim | 6b | chatglm | silver || chatglm-6b-slim | 6b | chatglm | silver || chatglm-6b-int4-qe-slim | 6b | chatglm | silver || chatglm-6b-int4 | 6b | chatglm | THUDM || chatglm-6b-int4-qe | 6b | chatglm | THUDM || chatglm-6b | 6b | chatglm | THUDM |### ChatDoctorLLaMA-65B trained on medical dataset InstructorDoctor-200k### BELLE开源中文对话大模型"></a>model weights:<br>| weight path | weight size | model name | author |<br>| – | – | – | – |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/silver/chatglm-6b-int4-slim">chatglm-6b-int4-slim</a> | 6b | chatglm | silver |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/silver/chatglm-6b-slim">chatglm-6b-slim</a> | 6b | chatglm | silver |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/silver/chatglm-6b-int4-qe-slim">chatglm-6b-int4-qe-slim</a> | 6b | chatglm | silver |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/THUDM/chatglm-6b-int4">chatglm-6b-int4</a> | 6b | chatglm | THUDM |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/THUDM/chatglm-6b-int4-qe">chatglm-6b-int4-qe</a> | 6b | chatglm | THUDM |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/THUDM/chatglm-6b">chatglm-6b</a> | 6b | chatglm | THUDM |<br>### <a target="_blank" rel="noopener" href="https://huggingface.co/zl111/ChatDoctor">ChatDoctor</a><br><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/nyanko7/LLaMA-65B">LLaMA-65B</a> trained on medical dataset <a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1lyfqIwlLSClhgrCutWuEe_IACNq6XNUt/view?usp=sharing">InstructorDoctor-200k</a><br>### <a target="_blank" rel="noopener" href="https://github.com/LianjiaTech/BELLE">BELLE</a><br>开源中文对话大模型</h2><h2 id="model-weights-weight-path-weight-size-model-name-author-–-–-–-–-BELLE-LLAMA-7B-0-6M-7B-LLaMA-BelleGroup-BELLE-LLAMA-7B-2M-7B-LLaBLOOMZMA-BelleGroup-BELLE-LLAMA-7B-2M-gptq-7B-LLaMA-BelleGroup-BELLE-LLAMA-13B-2M-13B-LLaMA-BelleGroup-BELLE-7B-gptq-7B-BLOOMZ-BelleGroup-BELLE-7B-2M-7B-BLOOMZ-BelleGroup-BELLE-7B-0-6M-7B-BLOOMZ-BelleGroup-BELLE-7B-0-2M-7B-BLOOMZ-BelleGroup-BELLE-7B-1M-7B-BLOOMZ-BelleGroup-baizetrained-on-ChatGPT-self-chatting-data"><a href="#model-weights-weight-path-weight-size-model-name-author-–-–-–-–-BELLE-LLAMA-7B-0-6M-7B-LLaMA-BelleGroup-BELLE-LLAMA-7B-2M-7B-LLaBLOOMZMA-BelleGroup-BELLE-LLAMA-7B-2M-gptq-7B-LLaMA-BelleGroup-BELLE-LLAMA-13B-2M-13B-LLaMA-BelleGroup-BELLE-7B-gptq-7B-BLOOMZ-BelleGroup-BELLE-7B-2M-7B-BLOOMZ-BelleGroup-BELLE-7B-0-6M-7B-BLOOMZ-BelleGroup-BELLE-7B-0-2M-7B-BLOOMZ-BelleGroup-BELLE-7B-1M-7B-BLOOMZ-BelleGroup-baizetrained-on-ChatGPT-self-chatting-data" class="headerlink" title="model weights:| weight path | weight size | model name | author || – | – | – | – || BELLE-LLAMA-7B-0.6M | 7B | LLaMA | BelleGroup || BELLE-LLAMA-7B-2M | 7B | LLaBLOOMZMA | BelleGroup || BELLE-LLAMA-7B-2M-gptq | 7B | LLaMA | BelleGroup || BELLE-LLAMA-13B-2M | 13B | LLaMA | BelleGroup || BELLE-7B-gptq | 7B | BLOOMZ | BelleGroup || BELLE-7B-2M | 7B | BLOOMZ | BelleGroup || BELLE-7B-0.6M | 7B | BLOOMZ | BelleGroup || BELLE-7B-0.2M | 7B | BLOOMZ | BelleGroup || BELLE-7B-1M | 7B | BLOOMZ | BelleGroup |### baizetrained on ChatGPT self-chatting data"></a>model weights:<br>| weight path | weight size | model name | author |<br>| – | – | – | – |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/BelleGroup/BELLE-LLAMA-7B-0.6M">BELLE-LLAMA-7B-0.6M</a> | 7B | LLaMA | BelleGroup |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/BelleGroup/BELLE-LLAMA-7B-2M">BELLE-LLAMA-7B-2M</a> | 7B | LLaBLOOMZMA | BelleGroup |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/BelleGroup/BELLE-LLAMA-7B-2M-gptq">BELLE-LLAMA-7B-2M-gptq</a> | 7B | LLaMA | BelleGroup |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/BelleGroup/BELLE-LLAMA-13B-2M">BELLE-LLAMA-13B-2M</a> | 13B | LLaMA | BelleGroup |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/BelleGroup/BELLE-7B-gptq">BELLE-7B-gptq</a> | 7B | BLOOMZ | BelleGroup |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/BelleGroup/BELLE-7B-2M">BELLE-7B-2M</a> | 7B | BLOOMZ | BelleGroup |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/BelleGroup/BELLE-7B-0.6M">BELLE-7B-0.6M</a> | 7B | BLOOMZ | BelleGroup |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/BelleGroup/BELLE-7B-0.2M">BELLE-7B-0.2M</a> | 7B | BLOOMZ | BelleGroup |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/BelleGroup/BELLE-7B-1M">BELLE-7B-1M</a> | 7B | BLOOMZ | BelleGroup |<br>### <a target="_blank" rel="noopener" href="https://github.com/project-baize/baize">baize</a><br>trained on ChatGPT self-chatting data</h2><h2 id="model-weights-weight-path-weight-size-model-name-author-–-–-–-–-baize-lora-30B-30b-baize-project-baize-baize-lora-13B-13b-baize-project-baize-baize-healthcare-lora-7b-7B-baize-project-baize-baize-lora-7B-7B-baize-project-baize-dollymodel-arch-is-gpt-j-trained-on-alpaca-dataset"><a href="#model-weights-weight-path-weight-size-model-name-author-–-–-–-–-baize-lora-30B-30b-baize-project-baize-baize-lora-13B-13b-baize-project-baize-baize-healthcare-lora-7b-7B-baize-project-baize-baize-lora-7B-7B-baize-project-baize-dollymodel-arch-is-gpt-j-trained-on-alpaca-dataset" class="headerlink" title="model weights:| weight path | weight size | model name | author || – | – | – | – || baize-lora-30B | 30b | baize | project-baize || baize-lora-13B | 13b | baize | project-baize || baize-healthcare-lora-7b | 7B | baize | project-baize || baize-lora-7B | 7B | baize | project-baize |### dollymodel arch is gpt-j, trained on alpaca dataset"></a>model weights:<br>| weight path | weight size | model name | author |<br>| – | – | – | – |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/project-baize/baize-lora-30B">baize-lora-30B</a> | 30b | baize | project-baize |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/project-baize/baize-lora-13B">baize-lora-13B</a> | 13b | baize | project-baize |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/project-baize/baize-healthcare-lora-7b">baize-healthcare-lora-7b</a> | 7B | baize | project-baize |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/project-baize/baize-lora-7B">baize-lora-7B</a> | 7B | baize | project-baize |<br>### <a target="_blank" rel="noopener" href="https://github.com/databrickslabs/dolly">dolly</a><br>model arch is gpt-j, trained on alpaca dataset</h2><h2 id="model-weights-weight-path-weight-size-model-name-author-–-–-–-–-dolly-v1-6b-6b-dolly-databricks-dolly-lora-unknown-dolly-samwit-FastChat-Vicuna-web-interface"><a href="#model-weights-weight-path-weight-size-model-name-author-–-–-–-–-dolly-v1-6b-6b-dolly-databricks-dolly-lora-unknown-dolly-samwit-FastChat-Vicuna-web-interface" class="headerlink" title="model weights:| weight path | weight size | model name | author || – | – | – | – || dolly-v1-6b | 6b | dolly | databricks || dolly-lora | unknown | dolly | samwit |### FastChat (Vicuna)web interface"></a>model weights:<br>| weight path | weight size | model name | author |<br>| – | – | – | – |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/databricks/dolly-v1-6b">dolly-v1-6b</a> | 6b | dolly | databricks |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/samwit/dolly-lora">dolly-lora</a> | unknown | dolly | samwit |<br>### <a target="_blank" rel="noopener" href="https://github.com/lm-sys/FastChat">FastChat</a> (Vicuna)<br><a target="_blank" rel="noopener" href="https://chat.lmsys.org/">web interface</a></h2><h2 id="model-weights-weight-path-weight-size-model-name-author-–-–-–-vicuna-unknown-Vicuna-chavinlo-vicuna2-unknown-Vicuna-chavinlo-vicuna-13b-delta-v0-13b-Vicuna-lmsys-vicuna-13b-GPTQ-4bit-128g-13b-vicuna-anon8231489123-ggml-vicuna-13b-4bit-13b-vicuna-eachadea-vicuna-13b-13b-vicuna-eachadea-vicuna4all-13b-vicuna-vicuna4all-download-official-delta-weights-via-magnet-magnet-xt-urn-btih-a7fac57094561a63d53eed943f904abf24c6969d-dn-Vicuna-13B-HF-fp16-delta-merged-2023-04-03-tr-udp-3a-2f-2ftracker-opentrackr-org-3a1337-2fannounce-tr-udp-3a-2f-2ftracker-udp-gbitt-info-3a80-2fannounce-tr-udp-3a-2f-2ftracker1-bt-moack-co-kr-3a80-2fannounce-tr-udp-3a-2f-2ftracker-tiny-vps-com-3a6969-2fannounce-tr-udp-3a-2f-2ftracker2-dler-org-3a80-2fannounce-tr-udp-3a-2f-2fopentracker-i2p-rocks-3a6969-2fannounce-tr-udp-3a-2f-2ftracker-altrosky-nl-3a6969-2fannounce-tr-udp-3a-2f-2ftracker-theoks-net-3a6969-2fannounce-tr-udp-3a-2f-2ftracker-dler-org-3a6969-2fannounce-tr-udp-3a-2f-2ftracker-torrent-eu-org-3a451-2fannounce-tr-udp-3a-2f-2ftracker-openbittorrent-com-3a6969-2fannounce-tr-https-3a-2f-2fopentracker-i2p-rocks-3a443-2fannounce-tr-http-3a-2f-2ftracker-openbittorrent-com-3a80-2fannounce-tr-udp-3a-2f-2ftracker-moeking-me-3a6969-2fannounce-tr-udp-3a-2f-2ftracker-monitorit4-me-3a6969-2fannounce-tr-udp-3a-2f-2f9-rarbg-com-3a2810-2fannouncebased-Bloom-zthere-is-bloomz-cpp-converted-model-weights-on-huggingface-Alpacaalpaca-is-LLaMA-tuned-on-ChatGPT-self-instruct-dataset-officially-there-is-just-code-and-dataset-model-weights-are-community-provided-ggml-version-alpaca-cppexample-on-how-to-load-PEFT-patched-alpaca-model-alpaca-lora-generate-pyit’s-better-to-check-for-python-bindings-and-webui-like-Alpaca-Turbo-and-Dalai-for-further-development-and-interactions"><a href="#model-weights-weight-path-weight-size-model-name-author-–-–-–-vicuna-unknown-Vicuna-chavinlo-vicuna2-unknown-Vicuna-chavinlo-vicuna-13b-delta-v0-13b-Vicuna-lmsys-vicuna-13b-GPTQ-4bit-128g-13b-vicuna-anon8231489123-ggml-vicuna-13b-4bit-13b-vicuna-eachadea-vicuna-13b-13b-vicuna-eachadea-vicuna4all-13b-vicuna-vicuna4all-download-official-delta-weights-via-magnet-magnet-xt-urn-btih-a7fac57094561a63d53eed943f904abf24c6969d-dn-Vicuna-13B-HF-fp16-delta-merged-2023-04-03-tr-udp-3a-2f-2ftracker-opentrackr-org-3a1337-2fannounce-tr-udp-3a-2f-2ftracker-udp-gbitt-info-3a80-2fannounce-tr-udp-3a-2f-2ftracker1-bt-moack-co-kr-3a80-2fannounce-tr-udp-3a-2f-2ftracker-tiny-vps-com-3a6969-2fannounce-tr-udp-3a-2f-2ftracker2-dler-org-3a80-2fannounce-tr-udp-3a-2f-2fopentracker-i2p-rocks-3a6969-2fannounce-tr-udp-3a-2f-2ftracker-altrosky-nl-3a6969-2fannounce-tr-udp-3a-2f-2ftracker-theoks-net-3a6969-2fannounce-tr-udp-3a-2f-2ftracker-dler-org-3a6969-2fannounce-tr-udp-3a-2f-2ftracker-torrent-eu-org-3a451-2fannounce-tr-udp-3a-2f-2ftracker-openbittorrent-com-3a6969-2fannounce-tr-https-3a-2f-2fopentracker-i2p-rocks-3a443-2fannounce-tr-http-3a-2f-2ftracker-openbittorrent-com-3a80-2fannounce-tr-udp-3a-2f-2ftracker-moeking-me-3a6969-2fannounce-tr-udp-3a-2f-2ftracker-monitorit4-me-3a6969-2fannounce-tr-udp-3a-2f-2f9-rarbg-com-3a2810-2fannouncebased-Bloom-zthere-is-bloomz-cpp-converted-model-weights-on-huggingface-Alpacaalpaca-is-LLaMA-tuned-on-ChatGPT-self-instruct-dataset-officially-there-is-just-code-and-dataset-model-weights-are-community-provided-ggml-version-alpaca-cppexample-on-how-to-load-PEFT-patched-alpaca-model-alpaca-lora-generate-pyit’s-better-to-check-for-python-bindings-and-webui-like-Alpaca-Turbo-and-Dalai-for-further-development-and-interactions" class="headerlink" title="model weights:| weight path | weight size | model name | author || – | – | – || vicuna | unknown | Vicuna | chavinlo || vicuna2 | unknown | Vicuna | chavinlo || vicuna-13b-delta-v0 | 13b | Vicuna | lmsys || vicuna-13b-GPTQ-4bit-128g | 13b | vicuna | anon8231489123 || ggml-vicuna-13b-4bit | 13b | vicuna | eachadea || vicuna-13b | 13b | vicuna | eachadea || vicuna4all | 13b | vicuna | vicuna4all |download official delta weights via [magnet](magnet:?xt&#x3D;urn:btih:a7fac57094561a63d53eed943f904abf24c6969d&amp;dn&#x3D;Vicuna-13B-HF-fp16-delta-merged_2023-04-03&amp;tr&#x3D;udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker-udp.gbitt.info%3a80%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker1.bt.moack.co.kr%3a80%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker.tiny-vps.com%3a6969%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker2.dler.org%3a80%2fannounce&amp;tr&#x3D;udp%3a%2f%2fopentracker.i2p.rocks%3a6969%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker.altrosky.nl%3a6969%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker.theoks.net%3a6969%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker.dler.org%3a6969%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker.torrent.eu.org%3a451%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker.openbittorrent.com%3a6969%2fannounce&amp;tr&#x3D;https%3a%2f%2fopentracker.i2p.rocks%3a443%2fannounce&amp;tr&#x3D;http%3a%2f%2ftracker.openbittorrent.com%3a80%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker.moeking.me%3a6969%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker.monitorit4.me%3a6969%2fannounce&amp;tr&#x3D;udp%3a%2f%2f9.rarbg.com%3a2810%2fannouncebased)### Bloom-zthere is bloomz.cpp, converted model weights on huggingface### Alpacaalpaca is LLaMA tuned on ChatGPT self-instruct dataset. officially there is just code and dataset, model weights are community provided.ggml version: alpaca.cppexample on how to load PEFT patched alpaca model: alpaca-lora&#x2F;generate.pyit’s better to check for python bindings and webui like Alpaca-Turbo and Dalai for further development and interactions."></a>model weights:<br>| weight path | weight size | model name | author |<br>| – | – | – |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/chavinlo/vicuna">vicuna</a> | unknown | Vicuna | chavinlo |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/chavinlo/vicuna2">vicuna2</a> | unknown | Vicuna | chavinlo |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/lmsys/vicuna-13b-delta-v0">vicuna-13b-delta-v0</a> | 13b | Vicuna | lmsys |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/anon8231489123/vicuna-13b-GPTQ-4bit-128g">vicuna-13b-GPTQ-4bit-128g</a> | 13b | vicuna | anon8231489123 |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/eachadea/ggml-vicuna-13b-4bit">ggml-vicuna-13b-4bit</a> | 13b | vicuna | eachadea |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/eachadea/vicuna-13b">vicuna-13b</a> | 13b | vicuna | eachadea |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/vicuna4all/vicuna4all">vicuna4all</a> | 13b | vicuna | vicuna4all |<br>download official delta weights via [magnet](magnet:?xt&#x3D;urn:btih:a7fac57094561a63d53eed943f904abf24c6969d&amp;dn&#x3D;Vicuna-13B-HF-fp16-delta-merged_2023-04-03&amp;tr&#x3D;udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker-udp.gbitt.info%3a80%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker1.bt.moack.co.kr%3a80%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker.tiny-vps.com%3a6969%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker2.dler.org%3a80%2fannounce&amp;tr&#x3D;udp%3a%2f%2fopentracker.i2p.rocks%3a6969%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker.altrosky.nl%3a6969%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker.theoks.net%3a6969%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker.dler.org%3a6969%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker.torrent.eu.org%3a451%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker.openbittorrent.com%3a6969%2fannounce&amp;tr&#x3D;https%3a%2f%2fopentracker.i2p.rocks%3a443%2fannounce&amp;tr&#x3D;http%3a%2f%2ftracker.openbittorrent.com%3a80%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker.moeking.me%3a6969%2fannounce&amp;tr&#x3D;udp%3a%2f%2ftracker.monitorit4.me%3a6969%2fannounce&amp;tr&#x3D;udp%3a%2f%2f9.rarbg.com%3a2810%2fannounce<br>based)<br>### Bloom-z<br>there is <a target="_blank" rel="noopener" href="https://github.com/NouamaneTazi/bloomz.cpp">bloomz.cpp</a>, converted model weights on <a target="_blank" rel="noopener" href="https://huggingface.co/models?other=bloom&other=ggml">huggingface</a><br>### <a target="_blank" rel="noopener" href="https://github.com/tatsu-lab/stanford_alpaca">Alpaca</a><br>alpaca is LLaMA tuned on ChatGPT self-instruct dataset. officially there is just code and dataset, model weights are community provided.<br>ggml version: <a target="_blank" rel="noopener" href="https://github.com/antimatter15/alpaca.cpp">alpaca.cpp</a><br>example on how to load PEFT patched alpaca model: <a href="0https://github.com/aspctu/alpaca-lora/blob/main/generate.py">alpaca-lora&#x2F;generate.py</a><br>it’s better to check for <a target="_blank" rel="noopener" href="https://github.com/abetlen/llama-cpp-python">python bindings</a> and <a target="_blank" rel="noopener" href="https://github.com/abdeladim-s/pyllamacpp">webui</a> like <a target="_blank" rel="noopener" href="https://github.com/ViperX7/Alpaca-Turbo">Alpaca-Turbo</a> and <a target="_blank" rel="noopener" href="https://cocktailpeanut.github.io/dalai/">Dalai</a> for further development and interactions.</h2><h2 id="fine-tuning-simple-llama-finetuner-using-LoRA-16GB-VRAM-minimumalpaca-lora-the-OG-LoRA-alpaca"><a href="#fine-tuning-simple-llama-finetuner-using-LoRA-16GB-VRAM-minimumalpaca-lora-the-OG-LoRA-alpaca" class="headerlink" title="fine-tuning:simple-llama-finetuner using LoRA, 16GB VRAM minimumalpaca-lora: the OG LoRA alpaca"></a>fine-tuning:<br><a target="_blank" rel="noopener" href="https://github.com/lxe/simple-llama-finetuner">simple-llama-finetuner</a> using LoRA, 16GB VRAM minimum<br><a target="_blank" rel="noopener" href="https://github.com/tloen/alpaca-lora">alpaca-lora</a>: the OG LoRA alpaca</h2><h2 id="community-model-weights-weight-path-weight-size-model-name-author-–-–-–-–-alpaca-lora-7b-7b-Alpaca-tloen-Alpaca-Native-7B-Alpaca-chavinlo-Alpaca-65B-65B-Alpaca-chavinlo-Alpaca-13B-13B-Alpaca-chavinlo-GPT4-X-Alpaca-13B-Alpaca-chavinlo-Toolpaca-13B-Alpaca-chavinlo-instruct-gpt-j-fp16-6B-GPT-J-nlpcloud-alpaca-30b-30b-Alpaca-baseten-alpaca-lora-65b-65b-alpaca-chansung-alpaca-lora-30b-30b-alpaca-chansung-koalpaca-lora-13b-13b-koalpaca-chansung-alpaca-lora-13b-13b-alpaca-chansung-alpaca13B-lora-13b-alpaca-samwit-alpaca7B-lora-7b-alpaca-samwit-bloompaca-7b1-lora-7b-bloom-samwit-gpt4-x-alpaca-native-13B-ggml-13b-alpaca-Pi3141-alpaca-native-7B-ggml-7b-alpaca-Pi3141-alpaca-native-13B-ggml-13b-alpaca-Pi3141-alpaca-lora-30B-ggml-30b-alpaca-Pi3141-alpaca-lora-7B-ggml-7b-alpaca-Pi3141-alpaca-lora-13B-ggml-13b-alpaca-Pi3141-alpaca-7b-native-enhanced-7b-alpaca-Pi3141-gpt4-x-alpaca-13b-native-4bit-128g-13b-alpaca-anon8231489123-ggml-gpt4-x-alpaca-13b-native-4bit-13b-alpaca-eachadea-alpaca-13b-hf-fp16-13b-alpaca-teknium"><a href="#community-model-weights-weight-path-weight-size-model-name-author-–-–-–-–-alpaca-lora-7b-7b-Alpaca-tloen-Alpaca-Native-7B-Alpaca-chavinlo-Alpaca-65B-65B-Alpaca-chavinlo-Alpaca-13B-13B-Alpaca-chavinlo-GPT4-X-Alpaca-13B-Alpaca-chavinlo-Toolpaca-13B-Alpaca-chavinlo-instruct-gpt-j-fp16-6B-GPT-J-nlpcloud-alpaca-30b-30b-Alpaca-baseten-alpaca-lora-65b-65b-alpaca-chansung-alpaca-lora-30b-30b-alpaca-chansung-koalpaca-lora-13b-13b-koalpaca-chansung-alpaca-lora-13b-13b-alpaca-chansung-alpaca13B-lora-13b-alpaca-samwit-alpaca7B-lora-7b-alpaca-samwit-bloompaca-7b1-lora-7b-bloom-samwit-gpt4-x-alpaca-native-13B-ggml-13b-alpaca-Pi3141-alpaca-native-7B-ggml-7b-alpaca-Pi3141-alpaca-native-13B-ggml-13b-alpaca-Pi3141-alpaca-lora-30B-ggml-30b-alpaca-Pi3141-alpaca-lora-7B-ggml-7b-alpaca-Pi3141-alpaca-lora-13B-ggml-13b-alpaca-Pi3141-alpaca-7b-native-enhanced-7b-alpaca-Pi3141-gpt4-x-alpaca-13b-native-4bit-128g-13b-alpaca-anon8231489123-ggml-gpt4-x-alpaca-13b-native-4bit-13b-alpaca-eachadea-alpaca-13b-hf-fp16-13b-alpaca-teknium" class="headerlink" title="community model weights:| weight path | weight size | model name | author || – | – | – | – || alpaca-lora-7b | 7b | Alpaca | tloen || Alpaca Native | 7B | Alpaca | chavinlo || Alpaca-65B | 65B | Alpaca | chavinlo || Alpaca 13B | 13B | Alpaca | chavinlo || GPT4-X-Alpaca | 13B | Alpaca | chavinlo || Toolpaca | 13B | Alpaca | chavinlo || instruct-gpt-j-fp16 | 6B | GPT-J | nlpcloud || alpaca-30b | 30b | Alpaca | baseten || alpaca-lora-65b | 65b | alpaca | chansung || alpaca-lora-30b | 30b | alpaca | chansung || koalpaca-lora-13b | 13b | koalpaca | chansung || alpaca-lora-13b | 13b | alpaca | chansung || alpaca13B-lora | 13b | alpaca | samwit || alpaca7B-lora | 7b | alpaca | samwit || bloompaca-7b1-lora | 7b | bloom | samwit || gpt4-x-alpaca-native-13B-ggml | 13b | alpaca | Pi3141 || alpaca-native-7B-ggml | 7b | alpaca | Pi3141 || alpaca-native-13B-ggml | 13b | alpaca | Pi3141 || alpaca-lora-30B-ggml | 30b | alpaca | Pi3141 || alpaca-lora-7B-ggml | 7b | alpaca | Pi3141 || alpaca-lora-13B-ggml | 13b | alpaca | Pi3141 || alpaca-7b-native-enhanced | 7b | alpaca | Pi3141 || gpt4-x-alpaca-13b-native-4bit-128g | 13b | alpaca | anon8231489123 || ggml-gpt4-x-alpaca-13b-native-4bit | 13b | alpaca | eachadea || alpaca-13b-hf-fp16 | 13b | alpaca | teknium |"></a>community model weights:<br>| weight path | weight size | model name | author |<br>| – | – | – | – |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/tloen/alpaca-lora-7b">alpaca-lora-7b</a> | 7b | Alpaca | tloen |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/chavinlo/alpaca-native">Alpaca Native</a> | 7B | Alpaca | chavinlo |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/chavinlo/Alpaca-65B">Alpaca-65B</a> | 65B | Alpaca | chavinlo |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/chavinlo/alpaca-13b">Alpaca 13B</a> | 13B | Alpaca | chavinlo |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/chavinlo/gpt4-x-alpaca">GPT4-X-Alpaca</a> | 13B | Alpaca | chavinlo |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/chavinlo/toolpaca">Toolpaca</a> | 13B | Alpaca | chavinlo |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/nlpcloud/instruct-gpt-j-fp16">instruct-gpt-j-fp16</a> | 6B | GPT-J | nlpcloud |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/baseten/alpaca-30b">alpaca-30b</a> | 30b | Alpaca | <a target="_blank" rel="noopener" href="https://abuqader.substack.com/p/releasing-alpaca-30b">baseten</a> |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/chansung/alpaca-lora-65b">alpaca-lora-65b</a> | 65b | alpaca | chansung |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/chansung/alpaca-lora-30b">alpaca-lora-30b</a> | 30b | alpaca | chansung |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/chansung/koalpaca-lora-13b">koalpaca-lora-13b</a> | 13b | koalpaca | chansung |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/chansung/alpaca-lora-13b">alpaca-lora-13b</a> | 13b | alpaca | chansung |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/samwit/alpaca13B-lora">alpaca13B-lora</a> | 13b | alpaca | samwit |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/samwit/alpaca7B-lora">alpaca7B-lora</a> | 7b | alpaca | samwit |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/samwit/bloompaca-7b1-lora">bloompaca-7b1-lora</a> | 7b | bloom | samwit |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/Pi3141/gpt4-x-alpaca-native-13B-ggml">gpt4-x-alpaca-native-13B-ggml</a> | 13b | alpaca | Pi3141 |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/Pi3141/alpaca-native-7B-ggml">alpaca-native-7B-ggml</a> | 7b | alpaca | Pi3141 |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/Pi3141/alpaca-native-13B-ggml">alpaca-native-13B-ggml</a> | 13b | alpaca | Pi3141 |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/Pi3141/alpaca-lora-30B-ggml">alpaca-lora-30B-ggml</a> | 30b | alpaca | Pi3141 |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/Pi3141/alpaca-lora-7B-ggml">alpaca-lora-7B-ggml</a> | 7b | alpaca | Pi3141 |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/Pi3141/alpaca-lora-13B-ggml">alpaca-lora-13B-ggml</a> | 13b | alpaca | Pi3141 |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/Pi3141/alpaca-7b-native-enhanced">alpaca-7b-native-enhanced</a> | 7b | alpaca | Pi3141 |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/anon8231489123/gpt4-x-alpaca-13b-native-4bit-128g">gpt4-x-alpaca-13b-native-4bit-128g</a> | 13b | alpaca | anon8231489123 |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/eachadea/ggml-gpt4-x-alpaca-13b-native-4bit">ggml-gpt4-x-alpaca-13b-native-4bit</a> | 13b | alpaca | eachadea |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/teknium/alpaca-13b-hf-fp16">alpaca-13b-hf-fp16</a> | 13b | alpaca | teknium |</h2><h2 id="codealpaca-only-provides-dataset-for-training-a-code-generation-model-there-are-multiple-models-trained-on-this-dataset-including-bloom-7b1-lora-codealpaca20k-togethercomputerreleased-openchatkit-with-retrieval-ability-and-its-huggingface-space"><a href="#codealpaca-only-provides-dataset-for-training-a-code-generation-model-there-are-multiple-models-trained-on-this-dataset-including-bloom-7b1-lora-codealpaca20k-togethercomputerreleased-openchatkit-with-retrieval-ability-and-its-huggingface-space" class="headerlink" title="codealpaca only provides dataset for training a code generation model, there are multiple models trained on this dataset, including bloom-7b1-lora-codealpaca20k### togethercomputerreleased openchatkit with retrieval ability and its huggingface space"></a><a target="_blank" rel="noopener" href="https://github.com/sahil280114/codealpaca">codealpaca</a> only provides <a target="_blank" rel="noopener" href="https://huggingface.co/datasets/sahil2801/CodeAlpaca-20k">dataset</a> for training a code generation model, there are multiple models trained on this dataset, including <a target="_blank" rel="noopener" href="https://huggingface.co/LinhDuong/bloom-7b1-lora-codealpaca20k">bloom-7b1-lora-codealpaca20k</a><br>### <a target="_blank" rel="noopener" href="https://huggingface.co/togethercomputer">togethercomputer</a><br>released <a target="_blank" rel="noopener" href="https://github.com/togethercomputer/OpenChatKit">openchatkit</a> with retrieval ability and <a target="_blank" rel="noopener" href="https://huggingface.co/spaces/togethercomputer/OpenChatKit">its huggingface space</a></h2><h2 id="model-weights-weight-path-weight-size-model-name-author-–-–-–-–-GPT-NeoXT-Chat-Base-20B-20B-GPT-NeoXT-togethercomputer-Pythia-Chat-Base-7B-7B-Pythia-togethercomputer"><a href="#model-weights-weight-path-weight-size-model-name-author-–-–-–-–-GPT-NeoXT-Chat-Base-20B-20B-GPT-NeoXT-togethercomputer-Pythia-Chat-Base-7B-7B-Pythia-togethercomputer" class="headerlink" title="model weights:| weight path | weight size | model name | author || – | – | – | – || GPT-NeoXT-Chat-Base-20B | 20B | GPT-NeoXT | togethercomputer || Pythia-Chat-Base-7B | 7B | Pythia | togethercomputer |"></a>model weights:<br>| weight path | weight size | model name | author |<br>| – | – | – | – |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/togethercomputer/GPT-NeoXT-Chat-Base-20B">GPT-NeoXT-Chat-Base-20B</a> | 20B | GPT-NeoXT | togethercomputer |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/togethercomputer/Pythia-Chat-Base-7B">Pythia-Chat-Base-7B</a> | 7B | Pythia | togethercomputer |</h2><h2 id="moderation-model-weights-weight-path-weight-size-model-name-author-–-–-–-–-GPT-JT-Moderation-6B-6B-GPT-JT-togethercomputer-SpikeGPTinspired-by-RWKV"><a href="#moderation-model-weights-weight-path-weight-size-model-name-author-–-–-–-–-GPT-JT-Moderation-6B-6B-GPT-JT-togethercomputer-SpikeGPTinspired-by-RWKV" class="headerlink" title="moderation model weights:| weight path | weight size | model name | author || – | – | – | – || GPT-JT-Moderation-6B | 6B | GPT-JT | togethercomputer |### SpikeGPTinspired by RWKV"></a>moderation model weights:<br>| weight path | weight size | model name | author |<br>| – | – | – | – |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/togethercomputer/GPT-JT-Moderation-6B">GPT-JT-Moderation-6B</a> | 6B | GPT-JT | togethercomputer |<br>### <a target="_blank" rel="noopener" href="https://github.com/ridgerchu/SpikeGPT">SpikeGPT</a><br>inspired by RWKV</h2><h2 id="model-weights-weight-path-weight-size-model-name-author-–-–-–-–-SpikeGPT-BookCorpus-unknown-SpikeGPT-ridger-RWKV"><a href="#model-weights-weight-path-weight-size-model-name-author-–-–-–-–-SpikeGPT-BookCorpus-unknown-SpikeGPT-ridger-RWKV" class="headerlink" title="model weights:| weight path | weight size | model name | author || – | – | – | – || SpikeGPT-BookCorpus | unknown | SpikeGPT | ridger |### RWKV"></a>model weights:<br>| weight path | weight size | model name | author |<br>| – | – | – | – |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/ridger/SpikeGPT-BookCorpus">SpikeGPT-BookCorpus</a> | unknown | SpikeGPT | ridger |<br>### <a target="_blank" rel="noopener" href="https://github.com/BlinkDL/RWKV-LM">RWKV</a></h2><h2 id="RWKV-combines-attention-with-RNN-so-the-token-window-can-be-much-larger-Longformer-is-similar-to-this-Model-weights-in-github-repo-or-huggingface"><a href="#RWKV-combines-attention-with-RNN-so-the-token-window-can-be-much-larger-Longformer-is-similar-to-this-Model-weights-in-github-repo-or-huggingface" class="headerlink" title="RWKV combines attention with RNN so the token window can be much larger.Longformer is similar to this. Model weights in github repo or huggingface."></a>RWKV combines attention with RNN so the token window can be much larger.<br><a target="_blank" rel="noopener" href="https://huggingface.co/docs/transformers/model_doc/led">Longformer</a> is similar to this. Model weights in <a target="_blank" rel="noopener" href="https://github.com/allenai/longformer">github repo</a> or <a target="_blank" rel="noopener" href="https://huggingface.co/allenai/longformer-base-4096">huggingface</a>.</h2><h2 id="now-we-have-rwkv-cpp-4bit-quantization-build-upon-ggml-and-sure-it-works-on-cpu-rwkvstic-with-8bit-offload-for-low-VRAM-GPUs"><a href="#now-we-have-rwkv-cpp-4bit-quantization-build-upon-ggml-and-sure-it-works-on-cpu-rwkvstic-with-8bit-offload-for-low-VRAM-GPUs" class="headerlink" title="now we have rwkv.cpp (4bit quantization), build upon ggml and sure it works on cpu.rwkvstic (with 8bit &amp; offload for low VRAM GPUs)"></a>now we have <a target="_blank" rel="noopener" href="https://github.com/saharNooby/rwkv.cpp">rwkv.cpp</a> (4bit quantization), build upon ggml and sure it works on cpu.<br><a target="_blank" rel="noopener" href="https://pypi.org/project/rwkvstic/">rwkvstic</a> (with 8bit &amp; offload for low VRAM GPUs)</h2><h2 id="RWKV-LoRA-supports-RWKV-v4-NeoX"><a href="#RWKV-LoRA-supports-RWKV-v4-NeoX" class="headerlink" title="RWKV-LoRA supports RWKV-v4-NeoX"></a><a target="_blank" rel="noopener" href="https://github.com/Blealtan/RWKV-LM-LoRA">RWKV-LoRA</a> supports <code>RWKV-v4-NeoX</code></h2><h2 id="model-weights-weight-path-weight-size-model-name-author-–-–-–-–-RWKV-7B-alpaca-finetuned-7b-RWKV-BlueSunflower-rwkv-4-14B-alpaca-finetune-lora-weights-14b-RWKV-BlueSunflower-rwkv-fastquant-unknown-rwkv-Hazzzardous-rwkv-onnx-unknown-rwkv-Hazzzardous-RWKV-8Bit-unknown-rwkv-Hazzzardous-rwkv-4-raven-unknown-rwkv-BlinkDL-rwkv-4-pile-7b-7b-rwkv-BlinkDL-rwkv-4-pile-14b-14b-rwkv-BlinkDL-rwkv-4-pile-430m-430m-rwkv-BlinkDL-rwkv-4-pile-3b-3b-rwkv-BlinkDL-rwkv-4-pile-1b5-1-5b-rwkv-BlinkDL-rwkv-4-pile-169m-169m-unknown-BlinkDL-rwkv-3-pile-1b5-1-5b-rwkv-BlinkDL-rwkv-3-pile-430m-430m-rwkv-BlinkDL-rwkv-2-pile-430m-430m-rwkv-BlinkDL-rwkv-3-pile-169m-169m-rwkv-BlinkDL-RWKV-LM-safetensors-unknown-RWKV-mrsteyk-openchatrwkv-430m-r2-0-1-430m-RWKV-mrsteyk-openchatrwkw-430m-r2-430m-RWKV-mrsteyk-openchatrwkv-430m-430m-RWKV-mrsteyk-encrypted-alpaca-model-weights-released-by-point-network-point-alpaca-gpt4all-by-nomicLLaMA-trained-on-massive-collection-of-clean-assistant-dialog-data-with-model-weightsyou-need-to-install-nomic-to-run-the-model-to-run-it-on-gpu-you-need-to-install-this-openassistantresearchers-of-open-assistant-like-andreaskoepf-has-releasesed-oasst-sft-3-pythia-12b-epoch-3-5-and-still-updating"><a href="#model-weights-weight-path-weight-size-model-name-author-–-–-–-–-RWKV-7B-alpaca-finetuned-7b-RWKV-BlueSunflower-rwkv-4-14B-alpaca-finetune-lora-weights-14b-RWKV-BlueSunflower-rwkv-fastquant-unknown-rwkv-Hazzzardous-rwkv-onnx-unknown-rwkv-Hazzzardous-RWKV-8Bit-unknown-rwkv-Hazzzardous-rwkv-4-raven-unknown-rwkv-BlinkDL-rwkv-4-pile-7b-7b-rwkv-BlinkDL-rwkv-4-pile-14b-14b-rwkv-BlinkDL-rwkv-4-pile-430m-430m-rwkv-BlinkDL-rwkv-4-pile-3b-3b-rwkv-BlinkDL-rwkv-4-pile-1b5-1-5b-rwkv-BlinkDL-rwkv-4-pile-169m-169m-unknown-BlinkDL-rwkv-3-pile-1b5-1-5b-rwkv-BlinkDL-rwkv-3-pile-430m-430m-rwkv-BlinkDL-rwkv-2-pile-430m-430m-rwkv-BlinkDL-rwkv-3-pile-169m-169m-rwkv-BlinkDL-RWKV-LM-safetensors-unknown-RWKV-mrsteyk-openchatrwkv-430m-r2-0-1-430m-RWKV-mrsteyk-openchatrwkw-430m-r2-430m-RWKV-mrsteyk-openchatrwkv-430m-430m-RWKV-mrsteyk-encrypted-alpaca-model-weights-released-by-point-network-point-alpaca-gpt4all-by-nomicLLaMA-trained-on-massive-collection-of-clean-assistant-dialog-data-with-model-weightsyou-need-to-install-nomic-to-run-the-model-to-run-it-on-gpu-you-need-to-install-this-openassistantresearchers-of-open-assistant-like-andreaskoepf-has-releasesed-oasst-sft-3-pythia-12b-epoch-3-5-and-still-updating" class="headerlink" title="model weights:| weight path | weight size | model name | author || – | – | – | – || RWKV-7B-alpaca-finetuned | 7b | RWKV | BlueSunflower || rwkv-4-14B-alpaca-finetune-lora-weights | 14b | RWKV | BlueSunflower || rwkv-fastquant | unknown | rwkv | Hazzzardous || rwkv-onnx | unknown | rwkv | Hazzzardous || RWKV-8Bit | unknown | rwkv | Hazzzardous || rwkv-4-raven | unknown | rwkv | BlinkDL || rwkv-4-pile-7b | 7b | rwkv | BlinkDL || rwkv-4-pile-14b | 14b | rwkv | BlinkDL || rwkv-4-pile-430m | 430m | rwkv | BlinkDL || rwkv-4-pile-3b | 3b | rwkv | BlinkDL || rwkv-4-pile-1b5 | 1.5b | rwkv | BlinkDL || rwkv-4-pile-169m | 169m | unknown | BlinkDL || rwkv-3-pile-1b5 | 1.5b | rwkv | BlinkDL || rwkv-3-pile-430m | 430m | rwkv | BlinkDL || rwkv-2-pile-430m | 430m | rwkv | BlinkDL || rwkv-3-pile-169m | 169m | rwkv | BlinkDL || RWKV-LM-safetensors | unknown | RWKV | mrsteyk || openchatrwkv-430m-r2.0.1 | 430m | RWKV | mrsteyk || openchatrwkw-430m-r2 | 430m | RWKV | mrsteyk || openchatrwkv-430m | 430m | RWKV | mrsteyk |encrypted alpaca model weights released by point-network: point-alpaca### gpt4all by nomicLLaMA trained on massive collection of clean assistant dialog data, with model weightsyou need to install nomic to run the model:to run it on gpu, you need to install this### openassistantresearchers of open-assistant like andreaskoepf has releasesed oasst-sft-3-pythia-12b-epoch-3.5 and still updating"></a>model weights:<br>| weight path | weight size | model name | author |<br>| – | – | – | – |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/BlueSunflower/RWKV-7B-alpaca-finetuned">RWKV-7B-alpaca-finetuned</a> | 7b | RWKV | BlueSunflower |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/BlueSunflower/rwkv-4-14B-alpaca-finetune-lora-weights">rwkv-4-14B-alpaca-finetune-lora-weights</a> | 14b | RWKV | BlueSunflower |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/Hazzzardous/rwkv-fastquant">rwkv-fastquant</a> | unknown | rwkv | Hazzzardous |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/Hazzzardous/rwkv-onnx">rwkv-onnx</a> | unknown | rwkv | Hazzzardous |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/Hazzzardous/RWKV-8Bit">RWKV-8Bit</a> | unknown | rwkv | Hazzzardous |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/BlinkDL/rwkv-4-raven">rwkv-4-raven</a> | unknown | rwkv | BlinkDL |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/BlinkDL/rwkv-4-pile-7b">rwkv-4-pile-7b</a> | 7b | rwkv | BlinkDL |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/BlinkDL/rwkv-4-pile-14b">rwkv-4-pile-14b</a> | 14b | rwkv | BlinkDL |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/BlinkDL/rwkv-4-pile-430m">rwkv-4-pile-430m</a> | 430m | rwkv | BlinkDL |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/BlinkDL/rwkv-4-pile-3b">rwkv-4-pile-3b</a> | 3b | rwkv | BlinkDL |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/BlinkDL/rwkv-4-pile-1b5">rwkv-4-pile-1b5</a> | 1.5b | rwkv | BlinkDL |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/BlinkDL/rwkv-4-pile-169m">rwkv-4-pile-169m</a> | 169m | unknown | BlinkDL |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/BlinkDL/rwkv-3-pile-1b5">rwkv-3-pile-1b5</a> | 1.5b | rwkv | BlinkDL |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/BlinkDL/rwkv-3-pile-430m">rwkv-3-pile-430m</a> | 430m | rwkv | BlinkDL |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/BlinkDL/rwkv-2-pile-430m">rwkv-2-pile-430m</a> | 430m | rwkv | BlinkDL |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/BlinkDL/rwkv-3-pile-169m">rwkv-3-pile-169m</a> | 169m | rwkv | BlinkDL |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/mrsteyk/RWKV-LM-safetensors">RWKV-LM-safetensors</a> | unknown | RWKV | mrsteyk |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/mrsteyk/openchatrwkv-430m-r2.0.1">openchatrwkv-430m-r2.0.1</a> | 430m | RWKV | mrsteyk |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/mrsteyk/openchatrwkw-430m-r2">openchatrwkw-430m-r2</a> | 430m | RWKV | mrsteyk |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/mrsteyk/openchatrwkv-430m">openchatrwkv-430m</a> | 430m | RWKV | mrsteyk |<br>encrypted alpaca model weights released by point-network: <a target="_blank" rel="noopener" href="https://github.com/pointnetwork/point-alpaca">point-alpaca</a><br>### <a target="_blank" rel="noopener" href="https://github.com/nomic-ai/gpt4all">gpt4all</a> by nomic<br>LLaMA trained on massive collection of clean assistant dialog data, with model weights<br>you need to install nomic to run the model:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install nomic</span><br></pre></td></tr></table></figure><br>to run it on gpu, you need to install <a target="_blank" rel="noopener" href="https://github.com/nomic-ai/nomic/tree/main/bin">this</a><br>### <a target="_blank" rel="noopener" href="https://github.com/LAION-AI/Open-Assistant">openassistant</a><br>researchers of open-assistant like <a target="_blank" rel="noopener" href="https://huggingface.co/andreaskoepf">andreaskoepf</a> has releasesed <a target="_blank" rel="noopener" href="https://huggingface.co/andreaskoepf/oasst-sft-3-pythia-12b-epoch-3.5">oasst-sft-3-pythia-12b-epoch-3.5</a> and still updating</h2><h2 id="model-weights-weight-path-weight-size-model-name-author-–-–-–-–-oasst-llama-13b-2-epochs-13b-llama-dvruette-oasst-llama-13b-1000-steps-13b-llama-dvruette-oasst-gpt-neox-20b-1000-steps-20b-gpt-neox-dvruette-oasst-gpt-neox-20b-3000-steps-20b-gpt-neox-dvruette-oasst-pythia-12b-6000-steps-12b-pythia-dvruette-oasst-pythia-12b-3000-steps-12b-pythia-dvruette-oasst-pythia-12b-flash-attn-5000-steps-12b-pythia-dvruette-oasst-pythia-6-9b-4000-steps-12b-pythia-dvruette-oasst-sft-1-pythia-12b-12b-pythia-OpenAssistant-galactica-6-7b-finetuned-6-7b-galatica-OpenAssistant-oasst-sft-4-pythia-12b-epoch-3-5-12b-pythia-andreaskoepf-pythia-12b-pre-2000-12b-pythia-andreaskoepf-pythia-12b-pre-3500-12b-pythia-andreaskoepf-oasst-sft-3-pythia-12b-epoch-3-5-12b-pythia-andreaskoepf-oasst-sft-3-pythia-12b-epoch-2-35-12b-pythia-andreaskoepf-oasst-sft-2-candidiate-0-unknown-unknown-andreaskoepf-oasst-sft-2-pythia-12b-4000-12b-pythia-andreaskoepf-oasst-sft-1-gpt-neox-2000-unknown-gpt-neox-andreaskoepf-oasst-1-12b-4500-12b-unknown-andreaskoepf-oasst-1-12b-1500-12b-unknown-andreaskoepf-oasst-1-12b-3000-12b-unknown-andreaskoepf"><a href="#model-weights-weight-path-weight-size-model-name-author-–-–-–-–-oasst-llama-13b-2-epochs-13b-llama-dvruette-oasst-llama-13b-1000-steps-13b-llama-dvruette-oasst-gpt-neox-20b-1000-steps-20b-gpt-neox-dvruette-oasst-gpt-neox-20b-3000-steps-20b-gpt-neox-dvruette-oasst-pythia-12b-6000-steps-12b-pythia-dvruette-oasst-pythia-12b-3000-steps-12b-pythia-dvruette-oasst-pythia-12b-flash-attn-5000-steps-12b-pythia-dvruette-oasst-pythia-6-9b-4000-steps-12b-pythia-dvruette-oasst-sft-1-pythia-12b-12b-pythia-OpenAssistant-galactica-6-7b-finetuned-6-7b-galatica-OpenAssistant-oasst-sft-4-pythia-12b-epoch-3-5-12b-pythia-andreaskoepf-pythia-12b-pre-2000-12b-pythia-andreaskoepf-pythia-12b-pre-3500-12b-pythia-andreaskoepf-oasst-sft-3-pythia-12b-epoch-3-5-12b-pythia-andreaskoepf-oasst-sft-3-pythia-12b-epoch-2-35-12b-pythia-andreaskoepf-oasst-sft-2-candidiate-0-unknown-unknown-andreaskoepf-oasst-sft-2-pythia-12b-4000-12b-pythia-andreaskoepf-oasst-sft-1-gpt-neox-2000-unknown-gpt-neox-andreaskoepf-oasst-1-12b-4500-12b-unknown-andreaskoepf-oasst-1-12b-1500-12b-unknown-andreaskoepf-oasst-1-12b-3000-12b-unknown-andreaskoepf" class="headerlink" title="model weights:| weight path | weight size | model name | author || – | – | – | – || oasst-llama-13b-2-epochs | 13b | llama | dvruette || oasst-llama-13b-1000-steps | 13b | llama | dvruette || oasst-gpt-neox-20b-1000-steps | 20b | gpt-neox | dvruette || oasst-gpt-neox-20b-3000-steps | 20b | gpt-neox | dvruette || oasst-pythia-12b-6000-steps | 12b | pythia | dvruette || oasst-pythia-12b-3000-steps | 12b | pythia | dvruette || oasst-pythia-12b-flash-attn-5000-steps | 12b | pythia | dvruette || oasst-pythia-6.9b-4000-steps | 12b | pythia | dvruette || oasst-sft-1-pythia-12b | 12b | pythia | OpenAssistant || galactica-6.7b-finetuned | 6.7b | galatica | OpenAssistant || oasst-sft-4-pythia-12b-epoch-3.5 | 12b | pythia | andreaskoepf || pythia-12b-pre-2000 | 12b | pythia | andreaskoepf || pythia-12b-pre-3500 | 12b | pythia | andreaskoepf || oasst-sft-3-pythia-12b-epoch-3.5 | 12b | pythia | andreaskoepf || oasst-sft-3-pythia-12b-epoch-2.35 | 12b | pythia | andreaskoepf || oasst-sft-2-candidiate-0 | unknown | unknown | andreaskoepf || oasst-sft-2-pythia-12b-4000 | 12b | pythia | andreaskoepf || oasst-sft-1-gpt-neox-2000 | unknown | gpt-neox | andreaskoepf || oasst-1_12b_4500 | 12b | unknown | andreaskoepf || oasst-1_12b_1500 | 12b | unknown | andreaskoepf || oasst-1_12b_3000 | 12b | unknown | andreaskoepf |"></a>model weights:<br>| weight path | weight size | model name | author |<br>| – | – | – | – |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/dvruette/oasst-llama-13b-2-epochs">oasst-llama-13b-2-epochs</a> | 13b | llama | dvruette |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/dvruette/oasst-llama-13b-1000-steps">oasst-llama-13b-1000-steps</a> | 13b | llama | dvruette |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/dvruette/oasst-gpt-neox-20b-1000-steps">oasst-gpt-neox-20b-1000-steps</a> | 20b | gpt-neox | dvruette |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/dvruette/oasst-gpt-neox-20b-3000-steps">oasst-gpt-neox-20b-3000-steps</a> | 20b | gpt-neox | dvruette |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/dvruette/oasst-pythia-12b-6000-steps">oasst-pythia-12b-6000-steps</a> | 12b | pythia | dvruette |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/dvruette/oasst-pythia-12b-3000-steps">oasst-pythia-12b-3000-steps</a> | 12b | pythia | dvruette |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/dvruette/oasst-pythia-12b-flash-attn-5000-steps">oasst-pythia-12b-flash-attn-5000-steps</a> | 12b | pythia | dvruette |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/dvruette/oasst-pythia-6.9b-4000-steps">oasst-pythia-6.9b-4000-steps</a> | 12b | pythia | dvruette |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/OpenAssistant/oasst-sft-1-pythia-12b">oasst-sft-1-pythia-12b</a> | 12b | pythia | OpenAssistant |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/OpenAssistant/galactica-6.7b-finetuned">galactica-6.7b-finetuned</a> | 6.7b | galatica | OpenAssistant |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/andreaskoepf/oasst-sft-4-pythia-12b-epoch-3.5">oasst-sft-4-pythia-12b-epoch-3.5</a> | 12b | pythia | andreaskoepf |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/andreaskoepf/pythia-12b-pre-2000">pythia-12b-pre-2000</a> | 12b | pythia | andreaskoepf |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/andreaskoepf/pythia-12b-pre-3500">pythia-12b-pre-3500</a> | 12b | pythia | andreaskoepf |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/andreaskoepf/oasst-sft-3-pythia-12b-epoch-3.5">oasst-sft-3-pythia-12b-epoch-3.5</a> | 12b | pythia | andreaskoepf |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/andreaskoepf/oasst-sft-3-pythia-12b-epoch-2.35">oasst-sft-3-pythia-12b-epoch-2.35</a> | 12b | pythia | andreaskoepf |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/andreaskoepf/oasst-sft-2-candidiate-0">oasst-sft-2-candidiate-0</a> | unknown | unknown | andreaskoepf |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/andreaskoepf/oasst-sft-2-pythia-12b-4000">oasst-sft-2-pythia-12b-4000</a> | 12b | pythia | andreaskoepf |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/andreaskoepf/oasst-sft-1-gpt-neox-2000">oasst-sft-1-gpt-neox-2000</a> | unknown | gpt-neox | andreaskoepf |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/andreaskoepf/oasst-1_12b_4500">oasst-1_12b_4500</a> | 12b | unknown | andreaskoepf |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/andreaskoepf/oasst-1_12b_1500">oasst-1_12b_1500</a> | 12b | unknown | andreaskoepf |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/andreaskoepf/oasst-1_12b_3000">oasst-1_12b_3000</a> | 12b | unknown | andreaskoepf |</h2><h2 id="reward-model-weights-weight-path-weight-size-model-name-author-–-–-–-–-reward-model-deberta-v3-large-unknown-deberta-v3-OpenAssistant-reward-model-deberta-v3-large-v2-unknown-deberta-v3-OpenAssistant-reward-model-electra-large-discriminator-unknown-electra-large-OpenAssistant-reward-model-deberta-v3-base-unknown-deberta-v3-OpenAssistant-oasst-rm-1-pythia-1b-1b-pythia-andreaskoepf-openflamingousing-CLIP-ViT-L-and-LLaMA-7B-model-weights-on-huggingface-cerebras-gptopen-sourced-model-weights-and-training-code"><a href="#reward-model-weights-weight-path-weight-size-model-name-author-–-–-–-–-reward-model-deberta-v3-large-unknown-deberta-v3-OpenAssistant-reward-model-deberta-v3-large-v2-unknown-deberta-v3-OpenAssistant-reward-model-electra-large-discriminator-unknown-electra-large-OpenAssistant-reward-model-deberta-v3-base-unknown-deberta-v3-OpenAssistant-oasst-rm-1-pythia-1b-1b-pythia-andreaskoepf-openflamingousing-CLIP-ViT-L-and-LLaMA-7B-model-weights-on-huggingface-cerebras-gptopen-sourced-model-weights-and-training-code" class="headerlink" title="reward model weights:| weight path | weight size | model name | author || – | – | – | – || reward-model-deberta-v3-large | unknown | deberta-v3 | OpenAssistant || reward-model-deberta-v3-large-v2 | unknown | deberta-v3 | OpenAssistant || reward-model-electra-large-discriminator | unknown | electra-large | OpenAssistant || reward-model-deberta-v3-base | unknown | deberta-v3 | OpenAssistant || oasst-rm-1-pythia-1b | 1b | pythia | andreaskoepf |### openflamingousing CLIP ViT-L and LLaMA-7B, model weights on huggingface### cerebras gptopen sourced model weights and training code"></a>reward model weights:<br>| weight path | weight size | model name | author |<br>| – | – | – | – |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/OpenAssistant/reward-model-deberta-v3-large">reward-model-deberta-v3-large</a> | unknown | deberta-v3 | OpenAssistant |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/OpenAssistant/reward-model-deberta-v3-large-v2">reward-model-deberta-v3-large-v2</a> | unknown | deberta-v3 | OpenAssistant |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/OpenAssistant/reward-model-electra-large-discriminator">reward-model-electra-large-discriminator</a> | unknown | electra-large | OpenAssistant |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/OpenAssistant/reward-model-deberta-v3-base">reward-model-deberta-v3-base</a> | unknown | deberta-v3 | OpenAssistant |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/andreaskoepf/oasst-rm-1-pythia-1b">oasst-rm-1-pythia-1b</a> | 1b | pythia | andreaskoepf |<br>### <a target="_blank" rel="noopener" href="https://github.com/mlfoundations/open_flamingo">openflamingo</a><br>using <a target="_blank" rel="noopener" href="https://huggingface.co/openai/clip-vit-large-patch14">CLIP ViT-L</a> and <a target="_blank" rel="noopener" href="https://ai.facebook.com/blog/large-language-model-llama-meta-ai/">LLaMA-7B</a>, model weights on <a target="_blank" rel="noopener" href="https://huggingface.co/openflamingo/OpenFlamingo-9B">huggingface</a><br>### <a target="_blank" rel="noopener" href="https://www.cerebras.net/blog/cerebras-gpt-a-family-of-open-compute-efficient-large-language-models/">cerebras gpt</a><br>open sourced <a target="_blank" rel="noopener" href="https://huggingface.co/cerebras">model weights</a> and <a target="_blank" rel="noopener" href="https://github.com/Cerebras/modelzoo">training code</a></h2><h2 id="model-weights-weight-path-weight-size-model-name-author-–-–-–-–-cerebras-gpt-6-7b-lora-6-7b-cerebras-gpt-samwit-Cerebras-GPT-2-7B-Alpaca-SP-2-7b-cerebras-gpt-lxe-Cerebras-GPT-2-7B-Alpaca-SP-ggml-2-7b-cerebras-gpt-lxe-lora-cerebras-gpt2-7b-alpaca-shortprompt-2-7b-cerebras-gpt-lxe-Cerebras-GPT-13B-13b-cerebras-gpt-cerebras-Cerebras-GPT-6-7B-6-7b-cerebras-gpt-cerebras-Cerebras-GPT-2-7B-2-7b-cerebras-gpt-cerebras-Cerebras-GPT-1-3B-1-3b-cerebras-gpt-cerebras-Cerebras-GPT-590M-590m-cerebras-gpt-cerebras-Cerebras-GPT-256M-256m-cerebras-gpt-cerebras-Cerebras-GPT-111M-111m-cerebras-gpt-cerebras-ColossalChatCoati-7B-has-no-public-model-weights-but-claimed-to-be-trained-efficientlyyou-need-to-install-LLaMA-compatible-transformers-librarytrain-on-InstructionWild-enhancements-using-external-toolstoolformer-pytorch-WORK-IN-PROGRESS"><a href="#model-weights-weight-path-weight-size-model-name-author-–-–-–-–-cerebras-gpt-6-7b-lora-6-7b-cerebras-gpt-samwit-Cerebras-GPT-2-7B-Alpaca-SP-2-7b-cerebras-gpt-lxe-Cerebras-GPT-2-7B-Alpaca-SP-ggml-2-7b-cerebras-gpt-lxe-lora-cerebras-gpt2-7b-alpaca-shortprompt-2-7b-cerebras-gpt-lxe-Cerebras-GPT-13B-13b-cerebras-gpt-cerebras-Cerebras-GPT-6-7B-6-7b-cerebras-gpt-cerebras-Cerebras-GPT-2-7B-2-7b-cerebras-gpt-cerebras-Cerebras-GPT-1-3B-1-3b-cerebras-gpt-cerebras-Cerebras-GPT-590M-590m-cerebras-gpt-cerebras-Cerebras-GPT-256M-256m-cerebras-gpt-cerebras-Cerebras-GPT-111M-111m-cerebras-gpt-cerebras-ColossalChatCoati-7B-has-no-public-model-weights-but-claimed-to-be-trained-efficientlyyou-need-to-install-LLaMA-compatible-transformers-librarytrain-on-InstructionWild-enhancements-using-external-toolstoolformer-pytorch-WORK-IN-PROGRESS" class="headerlink" title="model weights:| weight path | weight size | model name | author || – | – | – | – || cerebras-gpt-6.7b-lora | 6.7b | cerebras-gpt | samwit || Cerebras-GPT-2.7B-Alpaca-SP | 2.7b | cerebras-gpt | lxe || Cerebras-GPT-2.7B-Alpaca-SP-ggml | 2.7b | cerebras-gpt | lxe || lora-cerebras-gpt2.7b-alpaca-shortprompt | 2.7b | cerebras-gpt | lxe || Cerebras-GPT-13B | 13b | cerebras-gpt | cerebras || Cerebras-GPT-6.7B | 6.7b | cerebras-gpt | cerebras || Cerebras-GPT-2.7B | 2.7b | cerebras-gpt | cerebras || Cerebras-GPT-1.3B | 1.3b | cerebras-gpt | cerebras || Cerebras-GPT-590M | 590m | cerebras-gpt | cerebras || Cerebras-GPT-256M | 256m | cerebras-gpt | cerebras || Cerebras-GPT-111M | 111m | cerebras-gpt | cerebras |### ColossalChatCoati-7B has no public model weights, but claimed to be trained efficientlyyou need to install LLaMA compatible transformers librarytrain on InstructionWild## enhancements### using external toolstoolformer-pytorch (WORK IN PROGRESS)"></a>model weights:<br>| weight path | weight size | model name | author |<br>| – | – | – | – |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/samwit/cerebras-gpt-6.7b-lora">cerebras-gpt-6.7b-lora</a> | 6.7b | cerebras-gpt | samwit |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/lxe/Cerebras-GPT-2.7B-Alpaca-SP">Cerebras-GPT-2.7B-Alpaca-SP</a> | 2.7b | cerebras-gpt | lxe |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/lxe/Cerebras-GPT-2.7B-Alpaca-SP-ggml">Cerebras-GPT-2.7B-Alpaca-SP-ggml</a> | 2.7b | cerebras-gpt | lxe |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/lxe/lora-cerebras-gpt2.7b-alpaca-shortprompt">lora-cerebras-gpt2.7b-alpaca-shortprompt</a> | 2.7b | cerebras-gpt | lxe |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/cerebras/Cerebras-GPT-13B">Cerebras-GPT-13B</a> | 13b | cerebras-gpt | cerebras |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/cerebras/Cerebras-GPT-6.7B">Cerebras-GPT-6.7B</a> | 6.7b | cerebras-gpt | cerebras |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/cerebras/Cerebras-GPT-2.7B">Cerebras-GPT-2.7B</a> | 2.7b | cerebras-gpt | cerebras |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/cerebras/Cerebras-GPT-1.3B">Cerebras-GPT-1.3B</a> | 1.3b | cerebras-gpt | cerebras |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/cerebras/Cerebras-GPT-590M">Cerebras-GPT-590M</a> | 590m | cerebras-gpt | cerebras |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/cerebras/Cerebras-GPT-256M">Cerebras-GPT-256M</a> | 256m | cerebras-gpt | cerebras |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/cerebras/Cerebras-GPT-111M">Cerebras-GPT-111M</a> | 111m | cerebras-gpt | cerebras |<br>### ColossalChat<br><a target="_blank" rel="noopener" href="https://github.com/orgs/hpcaitech/projects/17/views/1">Coati-7B</a> has no public model weights, but claimed to be trained efficiently<br>you need to install <a target="_blank" rel="noopener" href="https://github.com/hpcaitech/transformers">LLaMA compatible transformers library</a><br>train on <a target="_blank" rel="noopener" href="https://github.com/XueFuzhao/InstructionWild">InstructionWild</a><br>## enhancements<br>### using external tools<br><a target="_blank" rel="noopener" href="https://github.com/lucidrains/toolformer-pytorch">toolformer-pytorch</a> (WORK IN PROGRESS)</h2><h2 id="engshell-using-LLM-to-execute-command-using-ai-modelsMicrosoft-JARVIS-aka-HuggingGPT-leverages-huggingface-models-so-ChatGPT-can-complete-complex-multimodal-tasks-retrieval-pluginslong-term-memory-for-oobabooga-text-generation-webui-can-run-pythia-galatica-opt-gpt-j-gpt-4chan-rwkv-and-support-quantization-acceleration-alsocomplex-memory-KoboldAI-like"><a href="#engshell-using-LLM-to-execute-command-using-ai-modelsMicrosoft-JARVIS-aka-HuggingGPT-leverages-huggingface-models-so-ChatGPT-can-complete-complex-multimodal-tasks-retrieval-pluginslong-term-memory-for-oobabooga-text-generation-webui-can-run-pythia-galatica-opt-gpt-j-gpt-4chan-rwkv-and-support-quantization-acceleration-alsocomplex-memory-KoboldAI-like" class="headerlink" title="engshell: using LLM to execute command### using ai modelsMicrosoft JARVIS aka HuggingGPT leverages huggingface models so ChatGPT can complete complex multimodal tasks.### retrieval pluginslong term memory for oobabooga&#x2F;text-generation-webui (can run pythia, galatica, opt, gpt-j, gpt-4chan, rwkv and support quantization&#x2F;acceleration), alsocomplex memory (KoboldAI-like)"></a><a target="_blank" rel="noopener" href="https://github.com/emcf/engshell">engshell</a>: using LLM to execute command<br>### using ai models<br>Microsoft <a target="_blank" rel="noopener" href="https://github.com/microsoft/JARVIS">JARVIS</a> aka <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2303.17580">HuggingGPT</a> leverages huggingface models so ChatGPT can complete complex multimodal tasks.<br>### retrieval plugins<br><a target="_blank" rel="noopener" href="https://github.com/wawawario2/long_term_memory">long term memory</a> for <a target="_blank" rel="noopener" href="https://github.com/oobabooga/text-generation-webui">oobabooga&#x2F;text-generation-webui</a> (can run pythia, galatica, opt, gpt-j, gpt-4chan, rwkv and support quantization&#x2F;acceleration), also<br><a target="_blank" rel="noopener" href="https://github.com/theubie/complex_memory">complex memory</a> (KoboldAI-like)</h2><h2 id="chatpaper-summarize-paper-content-similar-website-typeset-io-can-ask-questions-and-explain-confusing-text-math-symbols-and-tables-related-projects-ChatReviewer-ChatImprovement-ChatResponse-ChatGenTitle"><a href="#chatpaper-summarize-paper-content-similar-website-typeset-io-can-ask-questions-and-explain-confusing-text-math-symbols-and-tables-related-projects-ChatReviewer-ChatImprovement-ChatResponse-ChatGenTitle" class="headerlink" title="chatpaper summarize paper content.similar website: typeset.io (can ask questions and explain confusing text, math symbols and tables)related projects: ChatReviewer ChatImprovement ChatResponse ChatGenTitle"></a><a target="_blank" rel="noopener" href="https://github.com/kaixindelele/ChatPaper">chatpaper</a> summarize paper content.<br>similar website: <a target="_blank" rel="noopener" href="https://typeset.io/">typeset.io</a> (can ask questions and explain confusing text, math symbols and tables)<br>related projects: <a target="_blank" rel="noopener" href="https://huggingface.co/spaces/ShiwenNi/ChatReviewer">ChatReviewer</a> <a target="_blank" rel="noopener" href="https://huggingface.co/spaces/wangrongsheng/ChatImprovement">ChatImprovement</a> <a target="_blank" rel="noopener" href="https://huggingface.co/spaces/ShiwenNi/ChatResponse">ChatResponse</a> <a target="_blank" rel="noopener" href="https://github.com/WangRongsheng/ChatGenTitle">ChatGenTitle</a></h2><h2 id="chatgpt-retrieval-plugin-chop-document-into-chunks-process-them-into-vectors-and-search-them-using-one-of-many-vector-search-backends-hosted-as-a-fastapi-service-datasets-assistant-dialoguebotbots-dataset-two-chatgpt-talking-to-each-other-created-by-using-datasetGPT-LLM-automation-tool"><a href="#chatgpt-retrieval-plugin-chop-document-into-chunks-process-them-into-vectors-and-search-them-using-one-of-many-vector-search-backends-hosted-as-a-fastapi-service-datasets-assistant-dialoguebotbots-dataset-two-chatgpt-talking-to-each-other-created-by-using-datasetGPT-LLM-automation-tool" class="headerlink" title="chatgpt retrieval plugin chop document into chunks, process them into vectors and search them using one of many vector search backends. hosted as a fastapi service.## datasets### assistant dialoguebotbots dataset (two chatgpt talking to each other), created by using datasetGPT (LLM automation tool)"></a><a target="_blank" rel="noopener" href="https://github.com/openai/chatgpt-retrieval-plugin">chatgpt retrieval plugin</a> chop document into chunks, process them into vectors and search them using one of many vector search backends. hosted as a fastapi service.<br>## datasets<br>### assistant dialogue<br><a target="_blank" rel="noopener" href="https://github.com/radi-cho/botbots/">botbots</a> dataset (two chatgpt talking to each other), created by using <a target="_blank" rel="noopener" href="https://github.com/radi-cho/datasetGPT">datasetGPT</a> (LLM automation tool)</h2><h2 id="ShareGPT52k-also-ShareGPT90k-Vicuna"><a href="#ShareGPT52k-also-ShareGPT90k-Vicuna" class="headerlink" title="ShareGPT52k, also ShareGPT90k (Vicuna)"></a><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/RyokoAI/ShareGPT52K">ShareGPT52k</a>, also <a target="_blank" rel="noopener" href="https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna_unfiltered">ShareGPT90k</a> (Vicuna)</h2><h2 id="instruct-102-4k-by-swype"><a href="#instruct-102-4k-by-swype" class="headerlink" title="instruct-102.4k by swype"></a><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/swype/instruct-102.4k">instruct-102.4k</a> by <a target="_blank" rel="noopener" href="https://swype.com/">swype</a></h2><h2 id="datasets-by-BELLE-train-1M-CNtrain-0-5M-CNmultiturn-chat-0-8Mschool-math-0-25M-unsupervised-pretrainingFandom23K-text-classification-part-of-BigKnow2022Kinda-LLaMA-replicates-LLaMA-dataset-including-scraped-webpages-code-and-stackexchange-data-oscar-corpus-needs-to-be-downloaded-with-access-token-by-accepting-agreement-with-account-containing-categorized-content-and-adult-content-dataset-preprocessingdeduplicate-text-dataset-in-rust-may-remove-verbose-substrings-like-“to-go-to-the”oscar-project-Open-Super-large-Crawled-Aggregated-coRpus-contains-some-tool-for-adult-content-filtering-and-deduplication-NLP-tools-training-methodsfasttext-for-efficient-learning-of-word-representations-and-sentence-classification"><a href="#datasets-by-BELLE-train-1M-CNtrain-0-5M-CNmultiturn-chat-0-8Mschool-math-0-25M-unsupervised-pretrainingFandom23K-text-classification-part-of-BigKnow2022Kinda-LLaMA-replicates-LLaMA-dataset-including-scraped-webpages-code-and-stackexchange-data-oscar-corpus-needs-to-be-downloaded-with-access-token-by-accepting-agreement-with-account-containing-categorized-content-and-adult-content-dataset-preprocessingdeduplicate-text-dataset-in-rust-may-remove-verbose-substrings-like-“to-go-to-the”oscar-project-Open-Super-large-Crawled-Aggregated-coRpus-contains-some-tool-for-adult-content-filtering-and-deduplication-NLP-tools-training-methodsfasttext-for-efficient-learning-of-word-representations-and-sentence-classification" class="headerlink" title="datasets by BELLE:train_1M_CNtrain_0.5M_CNmultiturn_chat_0.8Mschool_math_0.25M### unsupervised pretrainingFandom23K (text classification), part of BigKnow2022Kinda LLaMA replicates LLaMA dataset, including scraped webpages, code and stackexchange data.oscar-corpus needs to be downloaded with access token, by accepting agreement with account. containing categorized content and adult content.## dataset preprocessingdeduplicate text dataset in rust, may remove verbose substrings like “to go to the”oscar project (Open Super-large Crawled Aggregated coRpus) contains some tool for adult content filtering and deduplication.## NLP tools &amp; training methodsfasttext for efficient learning of word representations and sentence classification."></a>datasets by BELLE:<br><a target="_blank" rel="noopener" href="https://huggingface.co/BelleGroup/train_1M_CN">train_1M_CN</a><br><a target="_blank" rel="noopener" href="https://huggingface.co/BelleGroup/train_0.5M_CN">train_0.5M_CN</a><br><a target="_blank" rel="noopener" href="https://huggingface.co/BelleGroup/multiturn_chat_0.8M">multiturn_chat_0.8M</a><br><a target="_blank" rel="noopener" href="https://huggingface.co/BelleGroup/school_math_0.25M">school_math_0.25M</a><br>### unsupervised pretraining<br><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/RyokoAI/Fandom23K">Fandom23K</a> (text classification), part of <a target="_blank" rel="noopener" href="https://github.com/RyokoAI/BigKnow2022">BigKnow2022</a><br><a target="_blank" rel="noopener" href="https://github.com/yuxdux/kinda-llama">Kinda LLaMA</a> replicates LLaMA dataset, including scraped webpages, code and stackexchange data.<br><a target="_blank" rel="noopener" href="https://huggingface.co/oscar-corpus">oscar-corpus</a> needs to be downloaded with access token, by accepting agreement with account. containing categorized content and adult content.<br>## dataset preprocessing<br><a target="_blank" rel="noopener" href="https://github.com/google-research/deduplicate-text-datasets">deduplicate text dataset</a> in rust, may remove verbose substrings like “to go to the”<br><a target="_blank" rel="noopener" href="https://github.com/oscar-project">oscar project</a> (Open Super-large Crawled Aggregated coRpus) contains some tool for adult content filtering and deduplication.<br>## NLP tools &amp; training methods<br><a target="_blank" rel="noopener" href="https://fasttext.cc/docs/en/support.html">fasttext</a> for efficient learning of word representations and sentence classification.</h2><h2 id="langchainprompt-enginechatml-markup-language-for-ChatGPT-by-openaireact-agent-ts-enables-LLM-to-chat-and-use-tools-by-internal-dialogues-babyagi-AI-powered-task-management-system-original-post-on-twitter"><a href="#langchainprompt-enginechatml-markup-language-for-ChatGPT-by-openaireact-agent-ts-enables-LLM-to-chat-and-use-tools-by-internal-dialogues-babyagi-AI-powered-task-management-system-original-post-on-twitter" class="headerlink" title="langchainprompt-enginechatml: markup language for ChatGPT, by openaireact-agent-ts enables LLM to chat and use tools by internal dialogues.babyagi: AI-powered task management system. original post on twitter"></a><a target="_blank" rel="noopener" href="https://docs.langchain.com/docs/">langchain</a><br><a target="_blank" rel="noopener" href="https://github.com/microsoft/prompt-engine">prompt-engine</a><br><a target="_blank" rel="noopener" href="https://github.com/openai/openai-python/blob/main/chatml.md">chatml</a>: markup language for ChatGPT, by openai<br><a target="_blank" rel="noopener" href="https://github.com/Intuitive-Systems/react-agent-ts">react-agent-ts</a> enables LLM to chat and use tools by internal dialogues.<br><a target="_blank" rel="noopener" href="https://github.com/yoheinakajima/babyagi">babyagi</a>: AI-powered task management system. original post on <a target="_blank" rel="noopener" href="https://twitter.com/yoheinakajima/status/1640934505048588290">twitter</a></h2><p><a target="_blank" rel="noopener" href="https://arxiv-vanity.com/papers/2302.02676">Chain-of-hindsights</a> (can learn from negative feedback) in <a target="_blank" rel="noopener" href="https://github.com/lhao499/CoH">jax</a> and <a target="_blank" rel="noopener" href="https://github.com/mukhal/CoH-pytorch">pytorch</a></p>
 <h2 id="interfaces"><a href="#interfaces" class="headerlink" title="interfaces"></a>interfaces</h2><p><a target="_blank" rel="noopener" href="https://github.com/nsarrazin/serge">serge</a> is dockerized and the needs of RAM is according to the size of the model (alpaca), using CPU only</p>
 	  
 	</div>
@@ -1204,13 +139,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2023/04/02/a2943ff1-11b5-4747-a3c3-e60289b58111/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2023/04/02/a2943ff1-11b5-4747-a3c3-e60289b58111/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2023/03/06/b876a672-24c2-4589-a254-43fac776304d/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2023/03/06/b876a672-24c2-4589-a254-43fac776304d/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -1272,7 +207,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/RWKV-Language-Models/">RWKV Language Models<span>1</span></a></li>
+    <li><a href="/blog/categories/RWKV-Language-Models/">RWKV Language Models<span>1</span></a></li>
   </li>
 
     </ul>
@@ -1285,7 +220,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/RWKV/">RWKV<span>1</span></a></li> <li><a href="/tags/language-models/">language models<span>2</span></a></li> <li><a href="/tags/Hugging-Face/">Hugging Face<span>2</span></a></li> <li><a href="/tags/Baize/">Baize<span>1</span></a></li> <li><a href="/tags/Dolly/">Dolly<span>1</span></a></li> <li><a href="/tags/LLaMA-NLP-models/">LLaMA NLP models<span>1</span></a></li> <li><a href="/tags/download-links/">download links<span>1</span></a></li> <li><a href="/tags/installation-instructions/">installation instructions<span>1</span></a></li> <li><a href="/tags/fine-tuned-models/">fine-tuned models<span>1</span></a></li> <li><a href="/tags/Alpaca/">Alpaca<span>1</span></a></li>
+  <li><a href="/blog/tags/RWKV/">RWKV<span>1</span></a></li> <li><a href="/blog/tags/language-models/">language models<span>2</span></a></li> <li><a href="/blog/tags/Hugging-Face/">Hugging Face<span>2</span></a></li> <li><a href="/blog/tags/Baize/">Baize<span>1</span></a></li> <li><a href="/blog/tags/Dolly/">Dolly<span>1</span></a></li> <li><a href="/blog/tags/LLaMA-NLP-models/">LLaMA NLP models<span>1</span></a></li> <li><a href="/blog/tags/download-links/">download links<span>1</span></a></li> <li><a href="/blog/tags/installation-instructions/">installation instructions<span>1</span></a></li> <li><a href="/blog/tags/fine-tuned-models/">fine-tuned models<span>1</span></a></li> <li><a href="/blog/tags/Alpaca/">Alpaca<span>1</span></a></li>
 
     </ul>
 	</div>
@@ -1325,15 +260,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -1347,7 +282,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

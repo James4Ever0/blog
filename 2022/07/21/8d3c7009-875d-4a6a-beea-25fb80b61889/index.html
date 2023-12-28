@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,24 +125,8 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="Cloud-based-Github-Web-IDE-VSCode-auto-commit-and-lightweight-terminal-IDE"><a href="#Cloud-based-Github-Web-IDE-VSCode-auto-commit-and-lightweight-terminal-IDE" class="headerlink" title="Cloud based Github Web IDE, VSCode auto commit and lightweight terminal IDE"></a>Cloud based Github Web IDE, VSCode auto commit and lightweight terminal IDE</h1><p>solved by gitfs</p>
-<p>libgit2 sucks.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/presslabs/gitfs">most stars</a><br>this gitfs is actually a searchable git history filesystem.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/semk/GitFS">tested</a></p>
-<p><a target="_blank" rel="noopener" href="https://gitee.com/wuyu15255872976/gitee-python-client/tree/master/gitee_client/apis">gitee python api, first step is to get access token by login</a></p>
-<p><a target="_blank" rel="noopener" href="https://gitee.com/api/v5/swagger#/postV5ReposOwnerRepoContentsPath">gitee apis</a></p>
-<p>can we mount git&#x2F;github repo as user filesystem(fuse)?</p>
-<p>usually read-only github&#x2F;git filesystems, but this one is different. <a target="_blank" rel="noopener" href="https://github.com/danishprakash/githubfs">it</a> is backed by <a target="_blank" rel="noopener" href="https://pygithub.readthedocs.io/en/latest/examples/Repository.html#update-a-file-in-the-repository">writable github apis</a> and is written in python, with <a target="_blank" rel="noopener" href="https://github.com/terencehonles/fusepy">python implementation of fuse</a> which is updated <a target="_blank" rel="noopener" href="https://github.com/fusepy/fusepy">here</a>. this pygithub has trending api(maybe?) which is useful for social engineering or propaganda.</p>
-<p>we could also implement a watchdog like system to check against the files using pygithub.</p>
-<p>cloud based github ide includes gitpod.io, github.dev, pythonanywhere but these are with serious limitations, most importantly without autocommit or too restricted to write code.</p>
-<p>browse github repo as remote filesystem(vscode insider):<br><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=github.remotehub">https://marketplace.visualstudio.com/items?itemName=github.remotehub</a></p>
-<p>the vscode desktop is too resource heavy. though we have found <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=emjio.git-auto-commit">a plugin to auto commit</a> that also has <a target="_blank" rel="noopener" href="https://github.com/emjio/git-auto-commit">a github repo</a> to git repo(only for vscode insider):</p>
-<p>spacevim with <a target="_blank" rel="noopener" href="https://github.com/jordst/colorscheme">custom color theme</a> and nerdfont installed.</p>
-<p><a target="_blank" rel="noopener" href="https://spacevim.org/documentation/">spacevim documentation</a></p>
-<p><a target="_blank" rel="noopener" href="https://vim.fandom.com/wiki">vim wiki by fandom</a></p>
-<p>run multiple vim commands at once:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:cd / | NERDTree</span><br></pre></td></tr></table></figure>
-	  
+	  <p>solved by gitfs<br>libgit2 sucks.<br><a target="_blank" rel="noopener" href="https://github.com/presslabs/gitfs">most stars</a><br>this gitfs is actually a searchable git history filesystem.<br><a target="_blank" rel="noopener" href="https://github.com/semk/GitFS">tested</a><br><a target="_blank" rel="noopener" href="https://gitee.com/wuyu15255872976/gitee-python-client/tree/master/gitee_client/apis">gitee python api, first step is to get access token by login</a><br><a target="_blank" rel="noopener" href="https://gitee.com/api/v5/swagger#/postV5ReposOwnerRepoContentsPath">gitee apis</a><br>can we mount git&#x2F;github repo as user filesystem(fuse)?<br>usually read-only github&#x2F;git filesystems, but this one is different. <a target="_blank" rel="noopener" href="https://github.com/danishprakash/githubfs">it</a> is backed by <a target="_blank" rel="noopener" href="https://pygithub.readthedocs.io/en/latest/examples/Repository.html#update-a-file-in-the-repository">writable github apis</a> and is written in python, with <a target="_blank" rel="noopener" href="https://github.com/terencehonles/fusepy">python implementation of fuse</a> which is updated <a target="_blank" rel="noopener" href="https://github.com/fusepy/fusepy">here</a>. this pygithub has trending api(maybe?) which is useful for social engineering or propaganda.<br>we could also implement a watchdog like system to check against the files using pygithub.<br>cloud based github ide includes gitpod.io, github.dev, pythonanywhere but these are with serious limitations, most importantly without autocommit or too restricted to write code.<br>browse github repo as remote filesystem(vscode insider):<br><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=github.remotehub">https://marketplace.visualstudio.com/items?itemName=github.remotehub</a><br>the vscode desktop is too resource heavy. though we have found <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=emjio.git-auto-commit">a plugin to auto commit</a> that also has <a target="_blank" rel="noopener" href="https://github.com/emjio/git-auto-commit">a github repo</a> to git repo(only for vscode insider):<br>spacevim with <a target="_blank" rel="noopener" href="https://github.com/jordst/colorscheme">custom color theme</a> and nerdfont installed.<br><a target="_blank" rel="noopener" href="https://spacevim.org/documentation/">spacevim documentation</a><br><a target="_blank" rel="noopener" href="https://vim.fandom.com/wiki">vim wiki by fandom</a><br>run multiple vim commands at once:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:cd / | NERDTree</span><br></pre></td></tr></table></figure>	  
 	</div>
 
 	<!-- recommended posts -->
@@ -154,13 +138,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2022/07/22/a5e9c6eb-7b70-4d0f-94dd-8f44af5a8490/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2022/07/22/a5e9c6eb-7b70-4d0f-94dd-8f44af5a8490/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2022/07/18/7ca8f838-902a-4e05-9dd7-5770a638c952/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2022/07/18/7ca8f838-902a-4e05-9dd7-5770a638c952/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -222,7 +206,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/GitFS/">GitFS<span>1</span></a></li>
+    <li><a href="/blog/categories/GitFS/">GitFS<span>1</span></a></li>
   </li>
 
     </ul>
@@ -235,7 +219,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/sync/">sync<span>9</span></a></li> <li><a href="/tags/agile-editing/">agile editing<span>1</span></a></li> <li><a href="/tags/cloud-IDE/">cloud IDE<span>1</span></a></li> <li><a href="/tags/devops/">devops<span>1</span></a></li>
+  <li><a href="/blog/tags/sync/">sync<span>9</span></a></li> <li><a href="/blog/tags/agile-editing/">agile editing<span>1</span></a></li> <li><a href="/blog/tags/cloud-IDE/">cloud IDE<span>1</span></a></li> <li><a href="/blog/tags/devops/">devops<span>1</span></a></li>
 
     </ul>
 	</div>
@@ -275,15 +259,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -297,7 +281,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -153,21 +153,7 @@
 <li><input disabled="" type="checkbox"> wechat customized</li>
 <li><input disabled="" type="checkbox"> bilibili per user customized</li>
 </ul>
-<h2 id="dog-cat-video-generation"><a href="#dog-cat-video-generation" class="headerlink" title="dog&#x2F;cat video generation"></a>dog&#x2F;cat video generation</h2><h3 id="make-render-engine-runnable"><a href="#make-render-engine-runnable" class="headerlink" title="make render engine runnable"></a>make render engine runnable</h3><p>issues:</p>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> video length too long (10 mins)<br>it was the speed calculation error.</li>
-<li><input checked="" disabled="" type="checkbox"> bgm somehow not in sync (too broad bpm&#x2F;clip ranges?)</li>
-<li><input disabled="" type="checkbox"> to analyze the peaks (abrupt changes) in bgm and grab louder peaks using <code>pyloudnorm</code> (getting audio volume)<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install pyloudnorm</span><br></pre></td></tr></table></figure></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> soundfile <span class="keyword">as</span> sf</span><br><span class="line"><span class="keyword">import</span> pyloudnorm <span class="keyword">as</span> pyln</span><br><span class="line"></span><br><span class="line">data, rate = sf.read(<span class="string">&quot;0055014.wav&quot;</span>) <span class="comment"># load audio (with shape (samples, channels))</span></span><br><span class="line"><span class="built_in">print</span>(data.shape)</span><br><span class="line">meter = pyln.Meter(rate) <span class="comment"># create BS.1770 meter</span></span><br><span class="line">loudness = meter.integrated_loudness(data) <span class="comment"># measure loudness</span></span><br><span class="line"><span class="built_in">print</span>(loudness)</span><br></pre></td></tr></table></figure>
-<ul>
-<li><input disabled="" type="checkbox"> place video on loudest points, abrupt changes detected by talib or just take direvative and gaussian average</li>
-<li><input disabled="" type="checkbox"> video too repetitive (small corpus?)</li>
-<li><input checked="" disabled="" type="checkbox"> do not remove subtitle and crop active region (reviewer’s resource not used? but i rather advise you to do it directly since it requires less computational power)</li>
-<li><input disabled="" type="checkbox"> do not have minimum motion threshold (reviewer’s fault? also recommend you to do this in producer)</li>
-</ul>
-<hr>
-<ul>
+<h2 id="dog-cat-video-generation"><a href="#dog-cat-video-generation" class="headerlink" title="dog&#x2F;cat video generation"></a>dog&#x2F;cat video generation</h2><h3 id="make-render-engine-runnable"><a href="#make-render-engine-runnable" class="headerlink" title="make render engine runnable"></a>make render engine runnable</h3><h2 id="issues-x-video-length-too-long-10-mins-it-was-the-speed-calculation-error-x-bgm-somehow-not-in-sync-too-broad-bpm-clip-ranges-to-analyze-the-peaks-abrupt-changes-in-bgm-and-grab-louder-peaks-using-pyloudnorm-getting-audio-volume-place-video-on-loudest-points-abrupt-changes-detected-by-talib-or-just-take-direvative-and-gaussian-average-video-too-repetitive-small-corpus-x-do-not-remove-subtitle-and-crop-active-region-reviewer’s-resource-not-used-but-i-rather-advise-you-to-do-it-directly-since-it-requires-less-computational-power-do-not-have-minimum-motion-threshold-reviewer’s-fault-also-recommend-you-to-do-this-in-producer"><a href="#issues-x-video-length-too-long-10-mins-it-was-the-speed-calculation-error-x-bgm-somehow-not-in-sync-too-broad-bpm-clip-ranges-to-analyze-the-peaks-abrupt-changes-in-bgm-and-grab-louder-peaks-using-pyloudnorm-getting-audio-volume-place-video-on-loudest-points-abrupt-changes-detected-by-talib-or-just-take-direvative-and-gaussian-average-video-too-repetitive-small-corpus-x-do-not-remove-subtitle-and-crop-active-region-reviewer’s-resource-not-used-but-i-rather-advise-you-to-do-it-directly-since-it-requires-less-computational-power-do-not-have-minimum-motion-threshold-reviewer’s-fault-also-recommend-you-to-do-this-in-producer" class="headerlink" title="issues:- [x] video length too long (10 mins)it was the speed calculation error.- [x] bgm somehow not in sync (too broad bpm&#x2F;clip ranges?)- [ ] to analyze the peaks (abrupt changes) in bgm and grab louder peaks using pyloudnorm (getting audio volume)- [ ] place video on loudest points, abrupt changes detected by talib or just take direvative and gaussian average- [ ] video too repetitive (small corpus?)- [x] do not remove subtitle and crop active region (reviewer’s resource not used? but i rather advise you to do it directly since it requires less computational power)- [ ] do not have minimum motion threshold (reviewer’s fault? also recommend you to do this in producer)"></a>issues:<br>- [x] video length too long (10 mins)<br>it was the speed calculation error.<br>- [x] bgm somehow not in sync (too broad bpm&#x2F;clip ranges?)<br>- [ ] to analyze the peaks (abrupt changes) in bgm and grab louder peaks using <code>pyloudnorm</code> (getting audio volume)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install pyloudnorm</span><br></pre></td></tr></table></figure><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> soundfile <span class="keyword">as</span> sf</span><br><span class="line"><span class="keyword">import</span> pyloudnorm <span class="keyword">as</span> pyln</span><br><span class="line">data, rate = sf.read(<span class="string">&quot;0055014.wav&quot;</span>) <span class="comment"># load audio (with shape (samples, channels))</span></span><br><span class="line"><span class="built_in">print</span>(data.shape)</span><br><span class="line">meter = pyln.Meter(rate) <span class="comment"># create BS.1770 meter</span></span><br><span class="line">loudness = meter.integrated_loudness(data) <span class="comment"># measure loudness</span></span><br><span class="line"><span class="built_in">print</span>(loudness)</span><br></pre></td></tr></table></figure><br>- [ ] place video on loudest points, abrupt changes detected by talib or just take direvative and gaussian average<br>- [ ] video too repetitive (small corpus?)<br>- [x] do not remove subtitle and crop active region (reviewer’s resource not used? but i rather advise you to do it directly since it requires less computational power)<br>- [ ] do not have minimum motion threshold (reviewer’s fault? also recommend you to do this in producer)</h2><ul>
 <li><input checked="" disabled="" type="checkbox"> remove all watermarks, subtitles and crop video boundaries accordingly</li>
 <li><input disabled="" type="checkbox"> source video and audio (infinite, basic test is to find 500 sources at once without duplicate, second test is to find 500 second is to find 500 without duplicate twice), improve highlight algorithm</li>
 <li><input disabled="" type="checkbox"> find 500 songs without duplicate at once</li>
@@ -232,13 +218,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2022/08/18/0eba6e9a-5283-4413-a07d-a1f792c4d2e2/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2022/08/18/0eba6e9a-5283-4413-a07d-a1f792c4d2e2/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2022/08/17/af744580-ee9a-42b5-887b-fc97e1e342e3/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2022/08/17/af744580-ee9a-42b5-887b-fc97e1e342e3/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -300,7 +286,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Video-and-Audio-Processing/">Video and Audio Processing<span>1</span></a></li>
+    <li><a href="/blog/categories/Video-and-Audio-Processing/">Video and Audio Processing<span>1</span></a></li>
   </li>
 
     </ul>
@@ -313,7 +299,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/schedule/">schedule<span>7</span></a></li> <li><a href="/tags/pyjom/">pyjom<span>42</span></a></li>
+  <li><a href="/blog/tags/schedule/">schedule<span>7</span></a></li> <li><a href="/blog/tags/pyjom/">pyjom<span>42</span></a></li>
 
     </ul>
 	</div>
@@ -353,15 +339,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -375,7 +361,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

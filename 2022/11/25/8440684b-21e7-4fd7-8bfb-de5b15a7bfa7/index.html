@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -127,18 +127,9 @@
 
 	  <h1 id="hy-lisp-embedded-in-python-resumeable-exception"><a href="#hy-lisp-embedded-in-python-resumeable-exception" class="headerlink" title="hy lisp embedded in python, resumeable exception"></a>hy lisp embedded in python, resumeable exception</h1><p>jython only supports upto python2.7. these libraries may need substantial changes to be compatible with jython:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hy</span><br><span class="line">parse</span><br><span class="line">hyrule</span><br><span class="line">reloading</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://docs.hylang.org/en/stable/api.html#lfor">hy docs</a></p>
-<p><a target="_blank" rel="noopener" href="https://hyrule.readthedocs.io/en/master/index.html#hyrule.control.block">hyrule docs</a></p>
-<p>hy缺乏基本的补全 vscode目前没法用 我把hy改造成了可以自动reload 自动抓Uncaught exception的模式 如果要取消这些行为 需要加上flag 可以用于hy2py</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-R</span><br><span class="line">    disable automatic insertion of reloading decorator</span><br><span class="line">-T</span><br><span class="line">    disable toplevel try-except</span><br><span class="line">-K</span><br><span class="line">    disable toplevel show stacktrace</span><br><span class="line">-L</span><br><span class="line">    disable line-by-line try-except</span><br></pre></td></tr></table></figure>
-
-<p>一些未知的expression可能不允许被wrap到我们的macro里面 需要被加入到黑名单 已知的系列包括<code>unpack-iterable</code>之类的</p>
-<p>hy的插件目前分为vim版本和EMACS版本 对spacevim spacemacs不怎么友好</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/hylang/vim-hy">vim syntax highlight</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/hylang/hy-mode">emacs hy-mode</a> and <a target="_blank" rel="noopener" href="https://github.com/ekaschalk/jedhy">jedhy</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/sakuraiyuta/hyuga">hyuga</a> for neovim, with <a target="_blank" rel="noopener" href="https://www.github.com/sakuraiyuta/vim-lsp-settings/tree/add-lang/hyuga">custom vim-lsp</a></p>
-<p>hy的code autoindentation功能我做了 <a target="_blank" rel="noopener" href="https://github.com/Jamea4Ever0/nelean">nelean</a> 目前最新版本有待更新 主要是对字符串的正则进行了优化</p>
+<p><a target="_blank" rel="noopener" href="https://docs.hylang.org/en/stable/api.html#lfor">hy docs</a><br><a target="_blank" rel="noopener" href="https://hyrule.readthedocs.io/en/master/index.html#hyrule.control.block">hyrule docs</a><br>hy缺乏基本的补全 vscode目前没法用 我把hy改造成了可以自动reload 自动抓Uncaught exception的模式 如果要取消这些行为 需要加上flag 可以用于hy2py</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-R</span><br><span class="line">disable automatic insertion of reloading decorator</span><br><span class="line">-T</span><br><span class="line">disable toplevel try-except</span><br><span class="line">-K</span><br><span class="line">disable toplevel show stacktrace</span><br><span class="line">-L</span><br><span class="line">disable line-by-line try-except</span><br></pre></td></tr></table></figure>
+<p>一些未知的expression可能不允许被wrap到我们的macro里面 需要被加入到黑名单 已知的系列包括<code>unpack-iterable</code>之类的<br>hy的插件目前分为vim版本和EMACS版本 对spacevim spacemacs不怎么友好<br><a target="_blank" rel="noopener" href="https://github.com/hylang/vim-hy">vim syntax highlight</a><br><a target="_blank" rel="noopener" href="https://github.com/hylang/hy-mode">emacs hy-mode</a> and <a target="_blank" rel="noopener" href="https://github.com/ekaschalk/jedhy">jedhy</a><br><a target="_blank" rel="noopener" href="https://github.com/sakuraiyuta/hyuga">hyuga</a> for neovim, with <a target="_blank" rel="noopener" href="https://www.github.com/sakuraiyuta/vim-lsp-settings/tree/add-lang/hyuga">custom vim-lsp</a><br>hy的code autoindentation功能我做了 <a target="_blank" rel="noopener" href="https://github.com/Jamea4Ever0/nelean">nelean</a> 目前最新版本有待更新 主要是对字符串的正则进行了优化</p>
 	  
 	</div>
 
@@ -151,13 +142,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2022/11/27/e57e176f-0d28-4f9d-9391-5da1dd3cb20a/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2022/11/27/e57e176f-0d28-4f9d-9391-5da1dd3cb20a/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2022/11/22/27a2e60a-2d69-46c3-9f3b-6ad0f573de54/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2022/11/22/27a2e60a-2d69-46c3-9f3b-6ad0f573de54/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -219,7 +210,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Programming-Languages/">Programming Languages<span>4</span></a></li>
+    <li><a href="/blog/categories/Programming-Languages/">Programming Languages<span>4</span></a></li>
   </li>
 
     </ul>
@@ -232,7 +223,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/hy-programming-language/">hy programming language<span>1</span></a></li> <li><a href="/tags/automatic-reloading/">automatic reloading<span>1</span></a></li> <li><a href="/tags/exception-handling/">exception handling<span>1</span></a></li> <li><a href="/tags/automation-tool/">automation tool<span>1</span></a></li> <li><a href="/tags/expression-wrapping/">expression wrapping<span>1</span></a></li> <li><a href="/tags/IDE-support/">IDE support<span>1</span></a></li> <li><a href="/tags/Vim-Emacs-Neovim-s-Nelean-plugin/">Vim, Emacs, Neovim's Nelean plugin<span>1</span></a></li>
+  <li><a href="/blog/tags/hy-programming-language/">hy programming language<span>1</span></a></li> <li><a href="/blog/tags/automatic-reloading/">automatic reloading<span>1</span></a></li> <li><a href="/blog/tags/exception-handling/">exception handling<span>1</span></a></li> <li><a href="/blog/tags/automation-tool/">automation tool<span>1</span></a></li> <li><a href="/blog/tags/expression-wrapping/">expression wrapping<span>1</span></a></li> <li><a href="/blog/tags/IDE-support/">IDE support<span>1</span></a></li> <li><a href="/blog/tags/Vim-Emacs-Neovim-s-Nelean-plugin/">Vim, Emacs, Neovim's Nelean plugin<span>1</span></a></li>
 
     </ul>
 	</div>
@@ -272,15 +263,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -294,7 +285,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

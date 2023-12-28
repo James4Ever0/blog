@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,41 +125,18 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="android-remote-control-app-automation"><a href="#android-remote-control-app-automation" class="headerlink" title="android remote control, app automation"></a>android remote control, app automation</h1><p>run android in docker, run adb in docker</p>
-<p>device discovery, termux daemon, remote unlock</p>
-<p>unlock requires screenshot and input events.</p>
-<p><a target="_blank" rel="noopener" href="https://technastic.com/unlock-android-phone-pin-pattern-adb/">https://technastic.com/unlock-android-phone-pin-pattern-adb/</a></p>
-<p>click ok after input password:</p>
-<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/29072501/how-to-unlock-android-phone-through-adb">https://stackoverflow.com/questions/29072501/how-to-unlock-android-phone-through-adb</a></p>
-<p>scrcpy client</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/leng-yue/py-scrcpy-client">https://github.com/leng-yue/py-scrcpy-client</a><br><a target="_blank" rel="noopener" href="https://leng-yue.github.io/py-scrcpy-client/guide.html#bind-events">https://leng-yue.github.io/py-scrcpy-client/guide.html#bind-events</a></p>
-<p>you want to use android emulator on macos m1?</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/google/android-emulator-m1-preview/releases/tag/0.3">https://github.com/google/android-emulator-m1-preview/releases/tag/0.3</a></p>
-<p>check android screen lock&#x2F;unlock state</p>
-<p><a target="_blank" rel="noopener" href="https://android.stackexchange.com/questions/191086/adb-commands-to-get-screen-state-and-locked-state">https://android.stackexchange.com/questions/191086/adb-commands-to-get-screen-state-and-locked-state</a></p>
-<p>Bonjour&#x2F;Avahi&#x2F;Zeroconf</p>
-<p>logic: if the kill switch is off, when no physical input events happens, or not focused on scrcpy window with keyboard&#x2F;mouse input events on pc for some time, allow to interact with the phone.</p>
-<p>get physical events:</p>
-<p>warning: this command could be offline for a short period of time after using the scrcpy. must automatically reconnect if the device is not offline.</p>
+	  <p>run android in docker, run adb in docker<br>device discovery, termux daemon, remote unlock<br>unlock requires screenshot and input events.<br><a target="_blank" rel="noopener" href="https://technastic.com/unlock-android-phone-pin-pattern-adb/">https://technastic.com/unlock-android-phone-pin-pattern-adb/</a><br>click ok after input password:<br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/29072501/how-to-unlock-android-phone-through-adb">https://stackoverflow.com/questions/29072501/how-to-unlock-android-phone-through-adb</a><br>scrcpy client<br><a target="_blank" rel="noopener" href="https://github.com/leng-yue/py-scrcpy-client">https://github.com/leng-yue/py-scrcpy-client</a><br><a target="_blank" rel="noopener" href="https://leng-yue.github.io/py-scrcpy-client/guide.html#bind-events">https://leng-yue.github.io/py-scrcpy-client/guide.html#bind-events</a><br>you want to use android emulator on macos m1?<br><a target="_blank" rel="noopener" href="https://github.com/google/android-emulator-m1-preview/releases/tag/0.3">https://github.com/google/android-emulator-m1-preview/releases/tag/0.3</a><br>check android screen lock&#x2F;unlock state<br><a target="_blank" rel="noopener" href="https://android.stackexchange.com/questions/191086/adb-commands-to-get-screen-state-and-locked-state">https://android.stackexchange.com/questions/191086/adb-commands-to-get-screen-state-and-locked-state</a><br>Bonjour&#x2F;Avahi&#x2F;Zeroconf<br>logic: if the kill switch is off, when no physical input events happens, or not focused on scrcpy window with keyboard&#x2F;mouse input events on pc for some time, allow to interact with the phone.<br>get physical events:<br>warning: this command could be offline for a short period of time after using the scrcpy. must automatically reconnect if the device is not offline.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb -s 192.168.10.3:5555 shell getevent</span><br></pre></td></tr></table></figure>
-
-<p>to get focused window title:<br>hint: for headless ssh sessions, must set apropriate xorg environment variables, eg: <code>env XAUTHORITY=&quot;/run/user/0/gdm/Xauthority&quot; DISPLAY=:1 python3</code></p>
-<p>general method:</p>
+<p>to get focused window title:<br>hint: for headless ssh sessions, must set apropriate xorg environment variables, eg: <code>env XAUTHORITY=&quot;/run/user/0/gdm/Xauthority&quot; DISPLAY=:1 python3</code><br>general method:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pywinctl</span><br><span class="line">pywinctl.getActiveWindowTitle()</span><br></pre></td></tr></table></figure>
-
 <p>for linux:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">watch -n 2 xdotool getactivewindow getwindowname</span><br></pre></td></tr></table></figure>
-
 <p>for macos: (allow permission first, deprecated since it will not get the window title instead of the program name)<br><a target="_blank" rel="noopener" href="https://alvinalexander.com/mac-os-x/applescript-unix-mac-osx-foreground-application-result/">https://alvinalexander.com/mac-os-x/applescript-unix-mac-osx-foreground-application-result/</a><br>(where is the window name?)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sleep</span> 3 &amp;&amp; osascript -e <span class="string">&#x27;tell application &quot;System Events&quot;&#x27;</span> -e <span class="string">&#x27;set frontApp to name of first application process whose frontmost is true&#x27;</span> -e <span class="string">&#x27;end tell&#x27;</span></span><br></pre></td></tr></table></figure>
-
-
 <p>to get input events on macos:<br>download keylogger here:<br><a target="_blank" rel="noopener" href="https://hackernoon.com/writing-an-keylogger-for-macos-in-python-24adfa22722">https://hackernoon.com/writing-an-keylogger-for-macos-in-python-24adfa22722</a><br><a target="_blank" rel="noopener" href="https://github.com/beatsbears/pkl?ref=hackernoon.com">https://github.com/beatsbears/pkl?ref=hackernoon.com</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python pkl_nowriting.py</span><br></pre></td></tr></table></figure>
-
 <p>input events on linux:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xinput test-xi2 --root</span><br></pre></td></tr></table></figure>
-	  
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xinput test-xi2 --root</span><br></pre></td></tr></table></figure>	  
 	</div>
 
 	<!-- recommended posts -->
@@ -171,13 +148,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2022/10/16/29d14ee7-b14b-466f-8454-a24a77cdf39b/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2022/10/16/29d14ee7-b14b-466f-8454-a24a77cdf39b/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2022/10/14/e5fe3b41-0dcc-4832-9c27-48d99a580d1e/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2022/10/14/e5fe3b41-0dcc-4832-9c27-48d99a580d1e/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -239,7 +216,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Android-automation/">Android automation<span>1</span></a></li>
+    <li><a href="/blog/categories/Android-automation/">Android automation<span>1</span></a></li>
   </li>
 
     </ul>
@@ -252,7 +229,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/Docker/">Docker<span>4</span></a></li> <li><a href="/tags/pkl/">pkl<span>1</span></a></li> <li><a href="/tags/Android-automation/">Android automation<span>1</span></a></li> <li><a href="/tags/device-discovery/">device discovery<span>1</span></a></li> <li><a href="/tags/py-scrcpy-client/">py-scrcpy-client<span>1</span></a></li> <li><a href="/tags/emulator-support-on-MacOS-M1/">emulator support on MacOS M1<span>1</span></a></li> <li><a href="/tags/monitoring-lock-unlock-states-on-Linux/">monitoring lock/unlock states on Linux<span>1</span></a></li>
+  <li><a href="/blog/tags/Docker/">Docker<span>4</span></a></li> <li><a href="/blog/tags/pkl/">pkl<span>1</span></a></li> <li><a href="/blog/tags/Android-automation/">Android automation<span>1</span></a></li> <li><a href="/blog/tags/device-discovery/">device discovery<span>1</span></a></li> <li><a href="/blog/tags/py-scrcpy-client/">py-scrcpy-client<span>1</span></a></li> <li><a href="/blog/tags/emulator-support-on-MacOS-M1/">emulator support on MacOS M1<span>1</span></a></li> <li><a href="/blog/tags/monitoring-lock-unlock-states-on-Linux/">monitoring lock/unlock states on Linux<span>1</span></a></li>
 
     </ul>
 	</div>
@@ -292,15 +269,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -314,7 +291,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

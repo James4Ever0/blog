@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,11 +125,8 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="x11vnc-test-on-kali"><a href="#x11vnc-test-on-kali" class="headerlink" title="x11vnc test on kali"></a>x11vnc test on kali</h1><p>better use nomachine instead, which is based on nx</p>
-<p>password: 472831</p>
-<p>commands:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># necessary env for gui target, though may not suitable for xvfb</span></span><br><span class="line"><span class="built_in">export</span> XAUTHORITY=/root/.Xauthority</span><br><span class="line"><span class="built_in">export</span> DISPLAY=:1</span><br><span class="line"><span class="comment"># kill previous running x11vnc, if exists</span></span><br><span class="line">joker list | grep x11vnc | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span> | xargs -iabc <span class="built_in">kill</span> -s KILL abc</span><br><span class="line"><span class="comment"># launch new vnc</span></span><br><span class="line">joker x11vnc -threads -forever -rfbauth /root/.vnc/passwd</span><br></pre></td></tr></table></figure>
-	  
+	  <p>better use nomachine instead, which is based on nx<br>password: 472831<br>commands:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># necessary env for gui target, though may not suitable for xvfb</span></span><br><span class="line"><span class="built_in">export</span> XAUTHORITY=/root/.Xauthority</span><br><span class="line"><span class="built_in">export</span> DISPLAY=:1</span><br><span class="line"><span class="comment"># kill previous running x11vnc, if exists</span></span><br><span class="line">joker list | grep x11vnc | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span> | xargs -iabc <span class="built_in">kill</span> -s KILL abc</span><br><span class="line"><span class="comment"># launch new vnc</span></span><br><span class="line">joker x11vnc -threads -forever -rfbauth /root/.vnc/passwd</span><br></pre></td></tr></table></figure>	  
 	</div>
 
 	<!-- recommended posts -->
@@ -141,13 +138,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2022/08/10/780c5692-84c6-44f2-b4e2-327db6bc1adf/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2022/08/10/780c5692-84c6-44f2-b4e2-327db6bc1adf/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2022/08/09/7b4c3b5b-427d-45d2-9daf-caf2dea62597/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2022/08/09/7b4c3b5b-427d-45d2-9daf-caf2dea62597/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -209,7 +206,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Kali-Linux/">Kali Linux<span>2</span></a></li>
+    <li><a href="/blog/categories/Kali-Linux/">Kali Linux<span>2</span></a></li>
   </li>
 
     </ul>
@@ -222,7 +219,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/stub/">stub<span>63</span></a></li> <li><a href="/tags/remote-control/">remote control<span>6</span></a></li> <li><a href="/tags/credential/">credential<span>2</span></a></li> <li><a href="/tags/test/">test<span>1</span></a></li> <li><a href="/tags/VNC/">VNC<span>1</span></a></li>
+  <li><a href="/blog/tags/stub/">stub<span>63</span></a></li> <li><a href="/blog/tags/remote-control/">remote control<span>6</span></a></li> <li><a href="/blog/tags/credential/">credential<span>2</span></a></li> <li><a href="/blog/tags/test/">test<span>1</span></a></li> <li><a href="/blog/tags/VNC/">VNC<span>1</span></a></li>
 
     </ul>
 	</div>
@@ -262,15 +259,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -284,7 +281,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

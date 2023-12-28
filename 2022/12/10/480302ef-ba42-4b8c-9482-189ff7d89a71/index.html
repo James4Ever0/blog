@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,9 +125,8 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="pwntools-usage-example"><a href="#pwntools-usage-example" class="headerlink" title="pwntools usage example"></a>pwntools usage example</h1><p>I created a script for solving a simple problem on RCTF.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">ip = <span class="string">&quot;190.92.234.114&quot;</span></span><br><span class="line">port = <span class="number">23334</span></span><br><span class="line"></span><br><span class="line">mclean =<span class="keyword">lambda</span> l0: l0.decode().split(<span class="string">&quot;=&quot;</span>)[<span class="number">1</span>].strip()</span><br><span class="line">mlist = <span class="keyword">lambda</span> T: [<span class="built_in">int</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> T.replace(<span class="string">&quot;[&quot;</span>,<span class="string">&quot;&quot;</span>).replace(<span class="string">&quot;]&quot;</span>, <span class="string">&quot;&quot;</span>).replace(<span class="string">&quot; &quot;</span>,<span class="string">&quot;&quot;</span>).strip().split(<span class="string">&quot;,&quot;</span>)]</span><br><span class="line">r = remote(ip, port)</span><br><span class="line">l0 = r.recvline()</span><br><span class="line"><span class="comment"># print(&#x27;first line?&#x27;, l0) # great man!</span></span><br><span class="line">q = mclean(l0)</span><br><span class="line">q = <span class="built_in">int</span>(q)</span><br><span class="line"><span class="comment"># but notice you will not like to be fucked up. use safe eval? ast?</span></span><br><span class="line">l1 = r.recvline()</span><br><span class="line"><span class="comment"># print(&#x27;second line?&#x27;, l1)</span></span><br><span class="line">T = mclean(l1)</span><br><span class="line">T = mlist(T)</span><br><span class="line">l2 = r.recvline()</span><br><span class="line">U = mlist(mclean(l2))</span><br><span class="line"><span class="comment"># print(&quot;third line?&quot;, l2)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Q?&quot;</span>, q)</span><br><span class="line"><span class="built_in">print</span>()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;T?&quot;</span>, <span class="built_in">len</span>(T))</span><br><span class="line"><span class="built_in">print</span>()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;U?&quot;</span>, <span class="built_in">len</span>(U))</span><br><span class="line"></span><br><span class="line"><span class="comment"># now crack the x. please observe the original code?</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># the shift does not matter so much?</span></span><br><span class="line"></span><br><span class="line">mpos_x = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">90</span>):</span><br><span class="line">    t = T[i]</span><br><span class="line">    u = U[i]</span><br><span class="line">    pos_x = u//t+<span class="number">1</span></span><br><span class="line">    mpos_x.update(&#123;pos_x:mpos_x.get(pos_x,<span class="number">0</span>)+<span class="number">1</span>&#125;)</span><br><span class="line"></span><br><span class="line">mfinalPos = [(key, elem) <span class="keyword">for</span> key, elem <span class="keyword">in</span> mpos_x.items()]</span><br><span class="line">mfinalPos.sort(key=<span class="keyword">lambda</span> x: -x[<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;NUM?&quot;</span>,mfinalPos[<span class="number">0</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;COUNT?&quot;</span>,mfinalPos[<span class="number">0</span>][<span class="number">1</span>])</span><br><span class="line"><span class="comment"># import pyperclip</span></span><br><span class="line">data =<span class="built_in">str</span>(mfinalPos[<span class="number">0</span>][<span class="number">0</span>])</span><br><span class="line"><span class="comment"># pyperclip.copy(data)</span></span><br><span class="line"><span class="comment"># r.interactive()</span></span><br><span class="line">r.sendline(data.encode())</span><br><span class="line">flag=r.recvline() <span class="comment">#EOFERROR?</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;FLAG?&quot;</span>,flag)</span><br><span class="line"><span class="comment"># now answer the shit?</span></span><br></pre></td></tr></table></figure>
-	  
+	  <p>I created a script for solving a simple problem on RCTF.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">ip = <span class="string">&quot;190.92.234.114&quot;</span></span><br><span class="line">port = <span class="number">23334</span></span><br><span class="line">mclean =<span class="keyword">lambda</span> l0: l0.decode().split(<span class="string">&quot;=&quot;</span>)[<span class="number">1</span>].strip()</span><br><span class="line">mlist = <span class="keyword">lambda</span> T: [<span class="built_in">int</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> T.replace(<span class="string">&quot;[&quot;</span>,<span class="string">&quot;&quot;</span>).replace(<span class="string">&quot;]&quot;</span>, <span class="string">&quot;&quot;</span>).replace(<span class="string">&quot; &quot;</span>,<span class="string">&quot;&quot;</span>).strip().split(<span class="string">&quot;,&quot;</span>)]</span><br><span class="line">r = remote(ip, port)</span><br><span class="line">l0 = r.recvline()</span><br><span class="line"><span class="comment"># print(&#x27;first line?&#x27;, l0) # great man!</span></span><br><span class="line">q = mclean(l0)</span><br><span class="line">q = <span class="built_in">int</span>(q)</span><br><span class="line"><span class="comment"># but notice you will not like to be fucked up. use safe eval? ast?</span></span><br><span class="line">l1 = r.recvline()</span><br><span class="line"><span class="comment"># print(&#x27;second line?&#x27;, l1)</span></span><br><span class="line">T = mclean(l1)</span><br><span class="line">T = mlist(T)</span><br><span class="line">l2 = r.recvline()</span><br><span class="line">U = mlist(mclean(l2))</span><br><span class="line"><span class="comment"># print(&quot;third line?&quot;, l2)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Q?&quot;</span>, q)</span><br><span class="line"><span class="built_in">print</span>()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;T?&quot;</span>, <span class="built_in">len</span>(T))</span><br><span class="line"><span class="built_in">print</span>()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;U?&quot;</span>, <span class="built_in">len</span>(U))</span><br><span class="line"><span class="comment"># now crack the x. please observe the original code?</span></span><br><span class="line"><span class="comment"># the shift does not matter so much?</span></span><br><span class="line">mpos_x = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">90</span>):</span><br><span class="line">t = T[i]</span><br><span class="line">u = U[i]</span><br><span class="line">pos_x = u//t+<span class="number">1</span></span><br><span class="line">mpos_x.update(&#123;pos_x:mpos_x.get(pos_x,<span class="number">0</span>)+<span class="number">1</span>&#125;)</span><br><span class="line">mfinalPos = [(key, elem) <span class="keyword">for</span> key, elem <span class="keyword">in</span> mpos_x.items()]</span><br><span class="line">mfinalPos.sort(key=<span class="keyword">lambda</span> x: -x[<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;NUM?&quot;</span>,mfinalPos[<span class="number">0</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;COUNT?&quot;</span>,mfinalPos[<span class="number">0</span>][<span class="number">1</span>])</span><br><span class="line"><span class="comment"># import pyperclip</span></span><br><span class="line">data =<span class="built_in">str</span>(mfinalPos[<span class="number">0</span>][<span class="number">0</span>])</span><br><span class="line"><span class="comment"># pyperclip.copy(data)</span></span><br><span class="line"><span class="comment"># r.interactive()</span></span><br><span class="line">r.sendline(data.encode())</span><br><span class="line">flag=r.recvline() <span class="comment">#EOFERROR?</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;FLAG?&quot;</span>,flag)</span><br><span class="line"><span class="comment"># now answer the shit?</span></span><br></pre></td></tr></table></figure>	  
 	</div>
 
 	<!-- recommended posts -->
@@ -139,13 +138,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2022/12/10/9d48d68f-ceac-4c1b-b28f-f81cd14daf17/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2022/12/10/9d48d68f-ceac-4c1b-b28f-f81cd14daf17/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2022/12/10/89442ae2-54d9-49fa-94ce-e443dc9db1dd/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2022/12/10/89442ae2-54d9-49fa-94ce-e443dc9db1dd/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -207,7 +206,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/pwntools/">pwntools<span>1</span></a></li>
+    <li><a href="/blog/categories/pwntools/">pwntools<span>1</span></a></li>
   </li>
 
     </ul>
@@ -220,7 +219,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/python/">python<span>7</span></a></li> <li><a href="/tags/rctf/">rctf<span>1</span></a></li> <li><a href="/tags/pwntools/">pwntools<span>1</span></a></li> <li><a href="/tags/solving/">solving<span>1</span></a></li> <li><a href="/tags/remote-server/">remote server<span>1</span></a></li> <li><a href="/tags/data-processing/">data processing<span>1</span></a></li> <li><a href="/tags/x-value/">x value<span>1</span></a></li>
+  <li><a href="/blog/tags/python/">python<span>7</span></a></li> <li><a href="/blog/tags/rctf/">rctf<span>1</span></a></li> <li><a href="/blog/tags/pwntools/">pwntools<span>1</span></a></li> <li><a href="/blog/tags/solving/">solving<span>1</span></a></li> <li><a href="/blog/tags/remote-server/">remote server<span>1</span></a></li> <li><a href="/blog/tags/data-processing/">data processing<span>1</span></a></li> <li><a href="/blog/tags/x-value/">x value<span>1</span></a></li>
 
     </ul>
 	</div>
@@ -260,15 +259,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -282,7 +281,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

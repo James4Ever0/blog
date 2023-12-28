@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -126,24 +126,11 @@
 	  		
 
 	  <h1 id="Advanced-ASS-Subtitle-Karaoke-Effects"><a href="#Advanced-ASS-Subtitle-Karaoke-Effects" class="headerlink" title="Advanced ASS Subtitle Karaoke Effects"></a>Advanced ASS Subtitle Karaoke Effects</h1><p><a target="_blank" rel="noopener" href="https://github.com/arch1t3cht/Aegisub-Scripts/blob/c3cb38ccdea000c708c3abbd2912da2134e61e23/doc/templaters.md">library collection and guide on how to create karakoe effects programmatically</a></p>
-<h2 id="lrc-files"><a href="#lrc-files" class="headerlink" title="lrc files"></a>lrc files</h2><p>crop music that does not sing too early? maybe no need.</p>
-<p>we need to sort them out by time! prevent serious issues.</p>
-<p>skip empty lines?</p>
-<p>lrc files only have start time but no end time.<br>we group parallel lyrics by time, if they are close enough we make it into a group.</p>
-<p>groups act as time separators. no two group share the same time. <strong>also group have maximum span time, minimum span time calculated by content</strong>, and group should always in bound.</p>
-<p><strong>should apply the same min-max rule when selecting my video clips</strong></p>
-<p><a target="_blank" rel="noopener" href="https://web.archive.org/web/20200722050630/http://docs.aegisub.org/3.2/ASS_Tags/">all ass file tags, for custom karaoke effects creation</a></p>
-<p>my karaoke effect:</p>
+<h2 id="lrc-files"><a href="#lrc-files" class="headerlink" title="lrc files"></a>lrc files</h2><p>crop music that does not sing too early? maybe no need.<br>we need to sort them out by time! prevent serious issues.<br>skip empty lines?<br>lrc files only have start time but no end time.<br>we group parallel lyrics by time, if they are close enough we make it into a group.<br>groups act as time separators. no two group share the same time. <strong>also group have maximum span time, minimum span time calculated by content</strong>, and group should always in bound.<br><strong>should apply the same min-max rule when selecting my video clips</strong><br><a target="_blank" rel="noopener" href="https://web.archive.org/web/20200722050630/http://docs.aegisub.org/3.2/ASS_Tags/">all ass file tags, for custom karaoke effects creation</a><br>my karaoke effect:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;\k-50\K400&#125;</span><br><span class="line">&#123;\k-&lt;initial offset&gt;\K&lt;total duration&gt;&#125;</span><br></pre></td></tr></table></figure>
-
 <p>play ass file with mpv on demo video, full screen, no audio:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rootpath=/Users/jamesbrown/desktop/works/pyjom_remote/</span><br><span class="line">mpv --fs --no-audio --sub-file=<span class="string">&quot;<span class="variable">$rootpath</span>/tests/karaoke_effects/pyonfx_test/examples/2 - Beginner/Output.ass&quot;</span> <span class="string">&quot;<span class="variable">$rootpath</span>/samples/video/karaoke_effects_source.mp4&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>create karaoke effects<br><a target="_blank" rel="noopener" href="https://github.com/Kagu-chan/FXSpindle">https://github.com/Kagu-chan/FXSpindle</a></p>
-<p>karaoke effects<br><a target="_blank" rel="noopener" href="https://github.com/Youka/NyuFX">https://github.com/Youka/NyuFX</a><br><a target="_blank" rel="noopener" href="https://github.com/CoffeeStraw/PyonFX">pyonfx code</a><br>recommend to use effect <code>2 beginners -&gt; 3 variants</code> in examples, while <code>3 advanced -&gt; 2 testing pixels</code> as reference (more advanced but incomplete, and might be very intensive)<br><a target="_blank" rel="noopener" href="https://pyonfx.readthedocs.io/en/latest/quick%20start.html#starting-out">pyonfx documentation</a><br><a target="_blank" rel="noopener" href="https://github.com/logarrhythmic/karaOK">https://github.com/logarrhythmic/karaOK</a></p>
-<p>aegisub and its plugins<br><a target="_blank" rel="noopener" href="https://github.com/Myaamori/aegisub-cli">https://github.com/Myaamori/aegisub-cli</a><br><a target="_blank" rel="noopener" href="https://github.com/qwe7989199/Lyric-Importer-for-Aegisub">https://github.com/qwe7989199/Lyric-Importer-for-Aegisub</a><br><a target="_blank" rel="noopener" href="https://github.com/qwe7989199/aegisub_scripts">https://github.com/qwe7989199/aegisub_scripts</a><br><a target="_blank" rel="noopener" href="https://github.com/lyger/Aegisub_automation_scripts">https://github.com/lyger/Aegisub_automation_scripts</a><br><a target="_blank" rel="noopener" href="http://www.aegisub.org/">http://www.aegisub.org/</a></p>
-<p>eyecandy create karaoke ass files:<br><a target="_blank" rel="noopener" href="https://github.com/Alquimista/Eyecandy-py">https://github.com/Alquimista/Eyecandy-py</a></p>
-<p>create karaoke effects subtitle with lrc file, support chinese<br><a target="_blank" rel="noopener" href="https://github.com/DYY-Studio/lrc2ass_py3">https://github.com/DYY-Studio/lrc2ass_py3</a></p>
+<p>create karaoke effects<br><a target="_blank" rel="noopener" href="https://github.com/Kagu-chan/FXSpindle">https://github.com/Kagu-chan/FXSpindle</a><br>karaoke effects<br><a target="_blank" rel="noopener" href="https://github.com/Youka/NyuFX">https://github.com/Youka/NyuFX</a><br><a target="_blank" rel="noopener" href="https://github.com/CoffeeStraw/PyonFX">pyonfx code</a><br>recommend to use effect <code>2 beginners -&gt; 3 variants</code> in examples, while <code>3 advanced -&gt; 2 testing pixels</code> as reference (more advanced but incomplete, and might be very intensive)<br><a target="_blank" rel="noopener" href="https://pyonfx.readthedocs.io/en/latest/quick%20start.html#starting-out">pyonfx documentation</a><br><a target="_blank" rel="noopener" href="https://github.com/logarrhythmic/karaOK">https://github.com/logarrhythmic/karaOK</a><br>aegisub and its plugins<br><a target="_blank" rel="noopener" href="https://github.com/Myaamori/aegisub-cli">https://github.com/Myaamori/aegisub-cli</a><br><a target="_blank" rel="noopener" href="https://github.com/qwe7989199/Lyric-Importer-for-Aegisub">https://github.com/qwe7989199/Lyric-Importer-for-Aegisub</a><br><a target="_blank" rel="noopener" href="https://github.com/qwe7989199/aegisub_scripts">https://github.com/qwe7989199/aegisub_scripts</a><br><a target="_blank" rel="noopener" href="https://github.com/lyger/Aegisub_automation_scripts">https://github.com/lyger/Aegisub_automation_scripts</a><br><a target="_blank" rel="noopener" href="http://www.aegisub.org/">http://www.aegisub.org/</a><br>eyecandy create karaoke ass files:<br><a target="_blank" rel="noopener" href="https://github.com/Alquimista/Eyecandy-py">https://github.com/Alquimista/Eyecandy-py</a><br>create karaoke effects subtitle with lrc file, support chinese<br><a target="_blank" rel="noopener" href="https://github.com/DYY-Studio/lrc2ass_py3">https://github.com/DYY-Studio/lrc2ass_py3</a></p>
 	  
 	</div>
 
@@ -156,13 +143,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2022/07/10/8c6377e8-8e0c-4049-9a7c-fa214745dc92/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2022/07/10/8c6377e8-8e0c-4049-9a7c-fa214745dc92/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2022/07/10/2d90d87d-dc5b-4a8e-b34d-151d9cae438e/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2022/07/10/2d90d87d-dc5b-4a8e-b34d-151d9cae438e/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -224,7 +211,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Karaoke/">Karaoke<span>1</span></a></li>
+    <li><a href="/blog/categories/Karaoke/">Karaoke<span>1</span></a></li>
   </li>
 
     </ul>
@@ -237,7 +224,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/project/">project<span>6</span></a></li> <li><a href="/tags/pyjom/">pyjom<span>42</span></a></li> <li><a href="/tags/video-generator/">video generator<span>26</span></a></li> <li><a href="/tags/dog-video/">dog video<span>2</span></a></li> <li><a href="/tags/karaoke/">karaoke<span>1</span></a></li> <li><a href="/tags/lyric-effects/">lyric effects<span>1</span></a></li> <li><a href="/tags/music-video/">music video<span>1</span></a></li> <li><a href="/tags/pets-video/">pets video<span>1</span></a></li> <li><a href="/tags/subtitle/">subtitle<span>1</span></a></li> <li><a href="/tags/video-effects/">video effects<span>3</span></a></li> <li><a href="/tags/video-with-bgm/">video with bgm<span>1</span></a></li>
+  <li><a href="/blog/tags/project/">project<span>6</span></a></li> <li><a href="/blog/tags/pyjom/">pyjom<span>42</span></a></li> <li><a href="/blog/tags/video-generator/">video generator<span>26</span></a></li> <li><a href="/blog/tags/dog-video/">dog video<span>2</span></a></li> <li><a href="/blog/tags/karaoke/">karaoke<span>1</span></a></li> <li><a href="/blog/tags/lyric-effects/">lyric effects<span>1</span></a></li> <li><a href="/blog/tags/music-video/">music video<span>1</span></a></li> <li><a href="/blog/tags/pets-video/">pets video<span>1</span></a></li> <li><a href="/blog/tags/subtitle/">subtitle<span>1</span></a></li> <li><a href="/blog/tags/video-effects/">video effects<span>3</span></a></li> <li><a href="/blog/tags/video-with-bgm/">video with bgm<span>1</span></a></li>
 
     </ul>
 	</div>
@@ -277,15 +264,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -299,7 +286,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

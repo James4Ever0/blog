@@ -17,28 +17,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -57,30 +57,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -117,7 +117,7 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2022-12-23 </div>
-			<div class="article-title"><a href="/2022/12/23/f59b2942-ee86-44da-a3f5-a133251fb83e/" title="This article discusses the development of a Kotlin Spring Boot application with properties files and annotations, utilizing microservices, Spring Cloud integrations for service discovery and circuit breaking, and RabbitMQ communication through amqp-client library. The article also compares frameworks based on performance and maintenance ease, recommending Gradle as a package builder for Kotlin applications.">spring cloud, spring boot, rabbitmq in kotlin</a></div>
+			<div class="article-title"><a href="/blog/2022/12/23/f59b2942-ee86-44da-a3f5-a133251fb83e/" title="This article discusses the development of a Kotlin Spring Boot application with properties files and annotations, utilizing microservices, Spring Cloud integrations for service discovery and circuit breaking, and RabbitMQ communication through amqp-client library. The article also compares frameworks based on performance and maintenance ease, recommending Gradle as a package builder for Kotlin applications.">spring cloud, spring boot, rabbitmq in kotlin</a></div>
 		</h3>
 	
 
@@ -128,95 +128,47 @@
   <div class="row">
 	
 	
-		<h1 id="spring-cloud-spring-boot-rabbitmq-in-kotlin"><a href="#spring-cloud-spring-boot-rabbitmq-in-kotlin" class="headerlink" title="spring cloud, spring boot, rabbitmq in kotlin"></a>spring cloud, spring boot, rabbitmq in kotlin</h1><h2 id="what-is-spring-cloud"><a href="#what-is-spring-cloud" class="headerlink" title="what is spring cloud"></a>what is spring cloud</h2><p>Spring Cloud is a set of tools for building microservices-based applications that use Spring Framework, a popular Java-based application development framework. It provides a number of features that can help you build distributed systems that are resilient, reliable, and scalable.</p>
-<p>Spring Cloud provides a number of tools for building microservices, including:</p>
-<p>Service discovery: Spring Cloud provides a service registry and a load balancer for discovering and routing to service instances.</p>
-<p>Circuit breaker: Spring Cloud provides a circuit breaker pattern implementation that can help prevent cascading failures in distributed systems.</p>
-<p>Configuration management: Spring Cloud provides a centralized configuration server for storing and managing application configuration data.</p>
-<p>API gateway: Spring Cloud provides an API gateway that can route requests to the appropriate service, perform authentication and authorization, and provide other security features.</p>
-<p>Distributed tracing: Spring Cloud provides support for distributed tracing, which can help you understand the flow of requests through your system and identify performance issues.</p>
-<p>Spring Cloud is built on top of Spring Boot, which makes it easy to get started with microservices development using the Spring Framework. It is also fully integrated with the rest of the Spring ecosystem, including Spring Data, Spring Security, and Spring Cloud Stream.</p>
-<h2 id="use-spring-cloud-in-kotlin"><a href="#use-spring-cloud-in-kotlin" class="headerlink" title="use spring cloud in kotlin"></a>use spring cloud in kotlin</h2><p>Spring Cloud can be used with Kotlin, a statically-typed programming language that is fully interoperable with Java and runs on the Java Virtual Machine (JVM). To use Spring Cloud with Kotlin, you can follow these steps:</p>
-<p>Set up a Kotlin project: You can use a build tool like Gradle or Maven to set up a Kotlin project. Make sure to include the necessary dependencies for Spring Cloud, such as the spring-cloud-starter-netflix-eureka-client for service discovery or the spring-cloud-starter-netflix-ribbon for load balancing.</p>
-<p>Configure your application: You can use the @SpringBootApplication annotation to enable auto-configuration and component scanning in your Kotlin application. You can also use the application.properties file or the application.yml file to configure your application’s properties.</p>
-<p>Create a Spring Boot application class: You can create a Kotlin class with the @SpringBootApplication annotation and the main function to bootstrap your application. This class will serve as the entry point to your application.</p>
-<p>Define your microservices: You can define your microservices as Kotlin classes annotated with @RestController and @RequestMapping. These classes will handle incoming HTTP requests and return responses to the client.</p>
-<p>Use Spring Cloud features: You can use the various features of Spring Cloud, such as service discovery, circuit breaking, configuration management, and distributed tracing, in your Kotlin application by using the appropriate annotations and components provided by Spring Cloud.</p>
-<p>Here is an example of a simple Kotlin application using Spring Cloud:</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication</span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.client.discovery.EnableDiscoveryClient</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableDiscoveryClient</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyApplication</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</span><br><span class="line">    SpringApplication.run(MyApplication::<span class="keyword">class</span>.java, *args)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+		<h2 id="what-is-spring-cloud"><a href="#what-is-spring-cloud" class="headerlink" title="what is spring cloud"></a>what is spring cloud</h2><p>Spring Cloud is a set of tools for building microservices-based applications that use Spring Framework, a popular Java-based application development framework. It provides a number of features that can help you build distributed systems that are resilient, reliable, and scalable.<br>Spring Cloud provides a number of tools for building microservices, including:<br>Service discovery: Spring Cloud provides a service registry and a load balancer for discovering and routing to service instances.<br>Circuit breaker: Spring Cloud provides a circuit breaker pattern implementation that can help prevent cascading failures in distributed systems.<br>Configuration management: Spring Cloud provides a centralized configuration server for storing and managing application configuration data.<br>API gateway: Spring Cloud provides an API gateway that can route requests to the appropriate service, perform authentication and authorization, and provide other security features.<br>Distributed tracing: Spring Cloud provides support for distributed tracing, which can help you understand the flow of requests through your system and identify performance issues.<br>Spring Cloud is built on top of Spring Boot, which makes it easy to get started with microservices development using the Spring Framework. It is also fully integrated with the rest of the Spring ecosystem, including Spring Data, Spring Security, and Spring Cloud Stream.</p>
+<h2 id="use-spring-cloud-in-kotlin"><a href="#use-spring-cloud-in-kotlin" class="headerlink" title="use spring cloud in kotlin"></a>use spring cloud in kotlin</h2><p>Spring Cloud can be used with Kotlin, a statically-typed programming language that is fully interoperable with Java and runs on the Java Virtual Machine (JVM). To use Spring Cloud with Kotlin, you can follow these steps:<br>Set up a Kotlin project: You can use a build tool like Gradle or Maven to set up a Kotlin project. Make sure to include the necessary dependencies for Spring Cloud, such as the spring-cloud-starter-netflix-eureka-client for service discovery or the spring-cloud-starter-netflix-ribbon for load balancing.<br>Configure your application: You can use the @SpringBootApplication annotation to enable auto-configuration and component scanning in your Kotlin application. You can also use the application.properties file or the application.yml file to configure your application’s properties.<br>Create a Spring Boot application class: You can create a Kotlin class with the @SpringBootApplication annotation and the main function to bootstrap your application. This class will serve as the entry point to your application.<br>Define your microservices: You can define your microservices as Kotlin classes annotated with @RestController and @RequestMapping. These classes will handle incoming HTTP requests and return responses to the client.<br>Use Spring Cloud features: You can use the various features of Spring Cloud, such as service discovery, circuit breaking, configuration management, and distributed tracing, in your Kotlin application by using the appropriate annotations and components provided by Spring Cloud.<br>Here is an example of a simple Kotlin application using Spring Cloud:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication</span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.client.discovery.EnableDiscoveryClient</span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableDiscoveryClient</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyApplication</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</span><br><span class="line">SpringApplication.run(MyApplication::<span class="keyword">class</span>.java, *args)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>This application uses the @EnableDiscoveryClient annotation to enable service discovery using Spring Cloud Netflix Eureka. You can then use other Spring Cloud features, such as circuit breaking or configuration management, by including the necessary dependencies and using the appropriate annotations and components.</p>
 <h2 id="write-spring-eureka-client-in-kotlin-to-connect-to-eureka-server"><a href="#write-spring-eureka-client-in-kotlin-to-connect-to-eureka-server" class="headerlink" title="write spring eureka client in kotlin to connect to eureka server"></a>write spring eureka client in kotlin to connect to eureka server</h2><p>Here is an example of how you can write a Spring Cloud Eureka client in Kotlin to connect to a Eureka server:</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication</span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.client.discovery.EnableDiscoveryClient</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableDiscoveryClient</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">EurekaClientApplication</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</span><br><span class="line">    SpringApplication.run(EurekaClientApplication::<span class="keyword">class</span>.java, *args)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>This application uses the @EnableDiscoveryClient annotation to enable service discovery using Spring Cloud Netflix Eureka. The @SpringBootApplication annotation enables auto-configuration and component scanning in the application.</p>
-<p>To connect to the Eureka server, you will need to provide the URL of the Eureka server in the application.properties or application.yml file. For example:</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">eureka:</span></span><br><span class="line">  <span class="attr">client:</span></span><br><span class="line">    <span class="attr">serviceUrl:</span></span><br><span class="line">      <span class="attr">defaultZone:</span> <span class="string">http://localhost:8761/eureka/</span></span><br></pre></td></tr></table></figure>
-
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication</span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.client.discovery.EnableDiscoveryClient</span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableDiscoveryClient</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">EurekaClientApplication</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</span><br><span class="line">SpringApplication.run(EurekaClientApplication::<span class="keyword">class</span>.java, *args)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This application uses the @EnableDiscoveryClient annotation to enable service discovery using Spring Cloud Netflix Eureka. The @SpringBootApplication annotation enables auto-configuration and component scanning in the application.<br>To connect to the Eureka server, you will need to provide the URL of the Eureka server in the application.properties or application.yml file. For example:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">eureka:</span></span><br><span class="line"><span class="attr">client:</span></span><br><span class="line"><span class="attr">serviceUrl:</span></span><br><span class="line"><span class="attr">defaultZone:</span> <span class="string">http://localhost:8761/eureka/</span></span><br></pre></td></tr></table></figure>
 <p>You can then use the @Value annotation to inject the Eureka server URL into your Kotlin code:</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.<span class="keyword">annotation</span>.Value</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.<span class="keyword">annotation</span>.GetMapping</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.<span class="keyword">annotation</span>.RestController</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">EurekaClientController</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(<span class="string">&quot;\$&#123;eureka.client.serviceUrl.defaultZone&#125;&quot;</span>)</span></span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> eurekaServerUrl: String</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(<span class="string">&quot;/eureka-server-url&quot;</span>)</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">getEurekaServerUrl</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">        <span class="keyword">return</span> eurekaServerUrl</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>This controller has a getEurekaServerUrl method that returns the URL of the Eureka server. You can then make a GET request to &#x2F;eureka-server-url to get the Eureka server URL.</p>
-<p>You can also use the DiscoveryClient interface provided by Spring Cloud to interact with the Eureka server and perform operations such as registering a service or discovering service instances.</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.<span class="keyword">annotation</span>.Autowired</span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.client.discovery.DiscoveryClient</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.<span class="keyword">annotation</span>.GetMapping</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.<span class="keyword">annotation</span>.RestController</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">EurekaClientController</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> discoveryClient: DiscoveryClient</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(<span class="string">&quot;/service-instances&quot;</span>)</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">getServiceInstances</span><span class="params">()</span></span>: List&lt;String&gt; &#123;</span><br><span class="line">        <span class="keyword">return</span> discoveryClient.services</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.<span class="keyword">annotation</span>.Value</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.<span class="keyword">annotation</span>.GetMapping</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.<span class="keyword">annotation</span>.RestController</span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">EurekaClientController</span> &#123;</span><br><span class="line"><span class="meta">@Value(<span class="string">&quot;\$&#123;eureka.client.serviceUrl.defaultZone&#125;&quot;</span>)</span></span><br><span class="line"><span class="keyword">lateinit</span> <span class="keyword">var</span> eurekaServerUrl: String</span><br><span class="line"><span class="meta">@GetMapping(<span class="string">&quot;/eureka-server-url&quot;</span>)</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">getEurekaServerUrl</span><span class="params">()</span></span>: String &#123;</span><br><span class="line"><span class="keyword">return</span> eurekaServerUrl</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This controller has a getEurekaServerUrl method that returns the URL of the Eureka server. You can then make a GET request to &#x2F;eureka-server-url to get the Eureka server URL.<br>You can also use the DiscoveryClient interface provided by Spring Cloud to interact with the Eureka server and perform operations such as registering a service or discovering service instances.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.<span class="keyword">annotation</span>.Autowired</span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.client.discovery.DiscoveryClient</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.<span class="keyword">annotation</span>.GetMapping</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.<span class="keyword">annotation</span>.RestController</span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">EurekaClientController</span> &#123;</span><br><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">lateinit</span> <span class="keyword">var</span> discoveryClient: DiscoveryClient</span><br><span class="line"><span class="meta">@GetMapping(<span class="string">&quot;/service-instances&quot;</span>)</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">getServiceInstances</span><span class="params">()</span></span>: List&lt;String&gt; &#123;</span><br><span class="line"><span class="keyword">return</span> discoveryClient.services</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>This controller has a getServiceInstances method that returns a list of all the service instances registered with the Eureka server. You can then make a GET request to &#x2F;service-instances to get the list of service instances.</p>
-<h2 id="run-eureka-server-kotlin"><a href="#run-eureka-server-kotlin" class="headerlink" title="run eureka server kotlin"></a>run eureka server kotlin</h2><p>To run a Eureka server in Kotlin, you can follow these steps:</p>
-<p>Set up a Kotlin project: You can use a build tool like Gradle or Maven to set up a Kotlin project. Make sure to include the necessary dependencies for Spring Cloud Eureka Server, such as the spring-cloud-starter-netflix-eureka-server dependency.</p>
-<p>Configure your application: You can use the application.properties file or the application.yml file to configure your Eureka server. For example, you can set the server.port property to specify the port on which the Eureka server will run, and the eureka.client.register-with-eureka and eureka.client.fetch-registry properties to enable or disable the registration and fetching of registry information for the Eureka server.</p>
-<p>Create a Spring Boot application class: You can create a Kotlin class with the @SpringBootApplication annotation and the main function to bootstrap your application. This class will serve as the entry point to your Eureka server.</p>
-<p>Enable Eureka server: You can use the @EnableEurekaServer annotation to enable the Eureka server in your application.</p>
-<p>Here is an example of a simple Kotlin application that runs a Eureka server:</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication</span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.netflix.eureka.server.EnableEurekaServer</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableEurekaServer</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">EurekaServerApplication</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</span><br><span class="line">    SpringApplication.run(EurekaServerApplication::<span class="keyword">class</span>.java, *args)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>This application uses the @EnableEurekaServer annotation to enable the Eureka server and the @SpringBootApplication annotation to enable auto-configuration and component scanning.</p>
-<p>To start the Eureka server, you can run the main function of the EurekaServerApplication class. The Eureka server will start up on the port specified in the application.properties or application.yml file (by default, it will run on port 8761). You can then access the Eureka server dashboard at <a target="_blank" rel="noopener" href="http://localhost:8761/">http://localhost:8761</a>.</p>
-<h2 id="spring-cloud-alternative-in-kotlin"><a href="#spring-cloud-alternative-in-kotlin" class="headerlink" title="spring cloud alternative in kotlin"></a>spring cloud alternative in kotlin</h2><p>There are a number of alternatives to Spring Cloud that you can use in Kotlin to build distributed systems and microservices-based applications. Some options include:</p>
-<p>Micronaut: Micronaut is a modern, lightweight, and fast microservices framework for the JVM. It provides features such as service discovery, configuration management, and distributed tracing, and is fully compatible with Kotlin.</p>
-<p>Quarkus: Quarkus is a Kubernetes-native Java framework that is optimized for low memory footprint and fast startup time. It provides a number of features for building microservices, including service discovery, configuration management, and security. Quarkus is fully compatible with Kotlin and can be used to build cloud-native applications.</p>
-<p>Vert.x: Vert.x is a reactive, non-blocking, event-driven Java framework that is designed for building distributed systems and microservices. It provides features such as service discovery, load balancing, and distributed tracing, and is fully compatible with Kotlin.</p>
-<p>Helidon: Helidon is a lightweight, cloud-native Java framework that is designed for building microservices and reactive applications. It provides features such as service discovery, configuration management, and security, and is fully compatible with Kotlin.</p>
-<p>Eclipse MicroProfile: Eclipse MicroProfile is an open-source specification for building microservices-based applications. It provides a number of features for building distributed systems, including service discovery, configuration management, and security, and is fully compatible with Kotlin.</p>
-<p>You can choose the appropriate microservices framework based on your requirements and preferences. All of these frameworks provide support for building microservices in Kotlin and offer a number of features that can help you build distributed systems that are resilient, reliable, and scalable.</p>
-<h2 id="which-one-requires-least-code"><a href="#which-one-requires-least-code" class="headerlink" title="which one requires least code"></a>which one requires least code</h2><p>It is difficult to say which microservices framework requires the least amount of code, as it depends on the specific requirements of your application and the features you need to implement. Some frameworks, such as Micronaut and Quarkus, are designed to be lightweight and fast, and may require less code to implement certain features compared to other frameworks. However, this may come at the cost of flexibility or a larger learning curve.</p>
-<p>It is important to evaluate the different microservices frameworks based on your specific requirements and choose the one that best fits your needs. You should consider factors such as the performance and scalability requirements of your application, the features and capabilities of the framework, and the level of support and documentation available.</p>
-<p>It is also worth noting that writing less code does not necessarily mean that your application will be easier to maintain or more efficient. In some cases, using a more feature-rich framework that requires more code may result in a more maintainable and scalable application in the long run.</p>
-<h2 id="recommend-compatible-package-builder-manager-for-kotlin-but-simpler-than-maven"><a href="#recommend-compatible-package-builder-manager-for-kotlin-but-simpler-than-maven" class="headerlink" title="recommend compatible package builder&#x2F;manager for kotlin but simpler than maven"></a>recommend compatible package builder&#x2F;manager for kotlin but simpler than maven</h2><p>If you are looking for a package builder and manager for Kotlin that is simpler than Maven, you may want to consider Gradle. Gradle is an open-source build automation tool that is designed to be flexible, efficient, and easy to use. It is fully compatible with Kotlin and can be used to build, test, and publish Kotlin applications.</p>
-<p>Some of the benefits of using Gradle for Kotlin projects include:</p>
-<p>Concise and expressive build scripts: Gradle build scripts are written in a domain-specific language (DSL) that is designed to be concise and expressive. This makes it easier to understand and maintain build scripts, compared to Maven’s XML-based syntax.</p>
-<p>Support for multiple languages: Gradle supports building projects in multiple languages, including Kotlin, Java, and C&#x2F;C++. This makes it a good choice for multi-language projects.</p>
-<p>Rich plugin ecosystem: Gradle has a rich plugin ecosystem that provides a wide range of functionality, including support for testing, code analysis, and publishing. This makes it easy to extend and customize your build process.</p>
-<p>Fast and incremental builds: Gradle uses a caching mechanism and an incremental build approach to make builds faster and more efficient. This can be especially useful for larger projects.</p>
-<p>To get started with Gradle for Kotlin, you can create a new Kotlin project using the kotlin-gradle-plugin, and define your dependencies in the build.gradle file. You can then use the gradle command-line tool or the Gradle wrapper to build, test, and publish your Kotlin application.</p>
-<p>Here is an example of a simple build.gradle file for a Kotlin project using Gradle:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">plugins &#123;</span><br><span class="line">    id &#x27;org.jetbrains.kotlin.jvm&#x27; version &#x27;1.4.21&#x27;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">group = &#x27;com.example&#x27;</span><br><span class="line">version = &#x27;1.0&#x27;</span><br><span class="line"></span><br><span class="line">repositories &#123;</span><br><span class="line">    mavenCentral()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">    implementation &#x27;org.jetbrains.kotlin:kotlin-stdlib-jdk8&#x27;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">tasks.withType&lt;Test&gt; &#123;</span><br><span class="line">    useJUnitPlatform()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="run-eureka-server-kotlin"><a href="#run-eureka-server-kotlin" class="headerlink" title="run eureka server kotlin"></a>run eureka server kotlin</h2><p>To run a Eureka server in Kotlin, you can follow these steps:<br>Set up a Kotlin project: You can use a build tool like Gradle or Maven to set up a Kotlin project. Make sure to include the necessary dependencies for Spring Cloud Eureka Server, such as the spring-cloud-starter-netflix-eureka-server dependency.<br>Configure your application: You can use the application.properties file or the application.yml file to configure your Eureka server. For example, you can set the server.port property to specify the port on which the Eureka server will run, and the eureka.client.register-with-eureka and eureka.client.fetch-registry properties to enable or disable the registration and fetching of registry information for the Eureka server.<br>Create a Spring Boot application class: You can create a Kotlin class with the @SpringBootApplication annotation and the main function to bootstrap your application. This class will serve as the entry point to your Eureka server.<br>Enable Eureka server: You can use the @EnableEurekaServer annotation to enable the Eureka server in your application.<br>Here is an example of a simple Kotlin application that runs a Eureka server:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication</span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.netflix.eureka.server.EnableEurekaServer</span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableEurekaServer</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">EurekaServerApplication</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</span><br><span class="line">SpringApplication.run(EurekaServerApplication::<span class="keyword">class</span>.java, *args)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This application uses the @EnableEurekaServer annotation to enable the Eureka server and the @SpringBootApplication annotation to enable auto-configuration and component scanning.<br>To start the Eureka server, you can run the main function of the EurekaServerApplication class. The Eureka server will start up on the port specified in the application.properties or application.yml file (by default, it will run on port 8761). You can then access the Eureka server dashboard at <a target="_blank" rel="noopener" href="http://localhost:8761/">http://localhost:8761</a>.</p>
+<h2 id="spring-cloud-alternative-in-kotlin"><a href="#spring-cloud-alternative-in-kotlin" class="headerlink" title="spring cloud alternative in kotlin"></a>spring cloud alternative in kotlin</h2><p>There are a number of alternatives to Spring Cloud that you can use in Kotlin to build distributed systems and microservices-based applications. Some options include:<br>Micronaut: Micronaut is a modern, lightweight, and fast microservices framework for the JVM. It provides features such as service discovery, configuration management, and distributed tracing, and is fully compatible with Kotlin.<br>Quarkus: Quarkus is a Kubernetes-native Java framework that is optimized for low memory footprint and fast startup time. It provides a number of features for building microservices, including service discovery, configuration management, and security. Quarkus is fully compatible with Kotlin and can be used to build cloud-native applications.<br>Vert.x: Vert.x is a reactive, non-blocking, event-driven Java framework that is designed for building distributed systems and microservices. It provides features such as service discovery, load balancing, and distributed tracing, and is fully compatible with Kotlin.<br>Helidon: Helidon is a lightweight, cloud-native Java framework that is designed for building microservices and reactive applications. It provides features such as service discovery, configuration management, and security, and is fully compatible with Kotlin.<br>Eclipse MicroProfile: Eclipse MicroProfile is an open-source specification for building microservices-based applications. It provides a number of features for building distributed systems, including service discovery, configuration management, and security, and is fully compatible with Kotlin.<br>You can choose the appropriate microservices framework based on your requirements and preferences. All of these frameworks provide support for building microservices in Kotlin and offer a number of features that can help you build distributed systems that are resilient, reliable, and scalable.</p>
+<h2 id="which-one-requires-least-code"><a href="#which-one-requires-least-code" class="headerlink" title="which one requires least code"></a>which one requires least code</h2><p>It is difficult to say which microservices framework requires the least amount of code, as it depends on the specific requirements of your application and the features you need to implement. Some frameworks, such as Micronaut and Quarkus, are designed to be lightweight and fast, and may require less code to implement certain features compared to other frameworks. However, this may come at the cost of flexibility or a larger learning curve.<br>It is important to evaluate the different microservices frameworks based on your specific requirements and choose the one that best fits your needs. You should consider factors such as the performance and scalability requirements of your application, the features and capabilities of the framework, and the level of support and documentation available.<br>It is also worth noting that writing less code does not necessarily mean that your application will be easier to maintain or more efficient. In some cases, using a more feature-rich framework that requires more code may result in a more maintainable and scalable application in the long run.</p>
+<h2 id="recommend-compatible-package-builder-manager-for-kotlin-but-simpler-than-maven"><a href="#recommend-compatible-package-builder-manager-for-kotlin-but-simpler-than-maven" class="headerlink" title="recommend compatible package builder&#x2F;manager for kotlin but simpler than maven"></a>recommend compatible package builder&#x2F;manager for kotlin but simpler than maven</h2><p>If you are looking for a package builder and manager for Kotlin that is simpler than Maven, you may want to consider Gradle. Gradle is an open-source build automation tool that is designed to be flexible, efficient, and easy to use. It is fully compatible with Kotlin and can be used to build, test, and publish Kotlin applications.<br>Some of the benefits of using Gradle for Kotlin projects include:<br>Concise and expressive build scripts: Gradle build scripts are written in a domain-specific language (DSL) that is designed to be concise and expressive. This makes it easier to understand and maintain build scripts, compared to Maven’s XML-based syntax.<br>Support for multiple languages: Gradle supports building projects in multiple languages, including Kotlin, Java, and C&#x2F;C++. This makes it a good choice for multi-language projects.<br>Rich plugin ecosystem: Gradle has a rich plugin ecosystem that provides a wide range of functionality, including support for testing, code analysis, and publishing. This makes it easy to extend and customize your build process.<br>Fast and incremental builds: Gradle uses a caching mechanism and an incremental build approach to make builds faster and more efficient. This can be especially useful for larger projects.<br>To get started with Gradle for Kotlin, you can create a new Kotlin project using the kotlin-gradle-plugin, and define your dependencies in the build.gradle file. You can then use the gradle command-line tool or the Gradle wrapper to build, test, and publish your Kotlin application.<br>Here is an example of a simple build.gradle file for a Kotlin project using Gradle:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">plugins &#123;</span><br><span class="line">id &#x27;org.jetbrains.kotlin.jvm&#x27; version &#x27;1.4.21&#x27;</span><br><span class="line">&#125;</span><br><span class="line">group = &#x27;com.example&#x27;</span><br><span class="line">version = &#x27;1.0&#x27;</span><br><span class="line">repositories &#123;</span><br><span class="line">mavenCentral()</span><br><span class="line">&#125;</span><br><span class="line">dependencies &#123;</span><br><span class="line">implementation &#x27;org.jetbrains.kotlin:kotlin-stdlib-jdk8&#x27;</span><br><span class="line">&#125;</span><br><span class="line">tasks.withType&lt;Test&gt; &#123;</span><br><span class="line">useJUnitPlatform()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>This build.gradle file defines the kotlin-jvm plugin, the group and version of the project, the dependencies of the project, and the test task. You can then use the gradle command-line tool or the Gradle wrapper to build, test, and publish your Kotlin application.</p>
-<h2 id="use-rabbitmq-client-in-kotlin"><a href="#use-rabbitmq-client-in-kotlin" class="headerlink" title="use rabbitmq client in kotlin"></a>use rabbitmq client in kotlin</h2><p>To use RabbitMQ, a message broker that supports a number of messaging protocols, in Kotlin, you can use the amqp-client library, which is a Java client library for RabbitMQ.</p>
-<p>To get started with the amqp-client library in Kotlin, you can include the amqp-client dependency in your project. For example, if you are using Maven, you can add the following dependency to your pom.xml file:</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.rabbitmq<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>amqp-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.11.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="use-rabbitmq-client-in-kotlin"><a href="#use-rabbitmq-client-in-kotlin" class="headerlink" title="use rabbitmq client in kotlin"></a>use rabbitmq client in kotlin</h2><p>To use RabbitMQ, a message broker that supports a number of messaging protocols, in Kotlin, you can use the amqp-client library, which is a Java client library for RabbitMQ.<br>To get started with the amqp-client library in Kotlin, you can include the amqp-client dependency in your project. For example, if you are using Maven, you can add the following dependency to your pom.xml file:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.rabbitmq<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>amqp-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>5.11.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>If you are using Gradle, you can add the following dependency to your build.gradle file:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">  implementation &#x27;com.rabbitmq:amqp-client:5.11.0&#x27;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Once you have included the amqp-client dependency in your project, you can use the classes and interfaces provided by the library to connect to a RabbitMQ server and perform operations such as sending and receiving messages.</p>
-<p>Here is an example of how you can use the amqp-client library in Kotlin to send a message to a RabbitMQ server:</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.rabbitmq.client.ConnectionFactory</span><br><span class="line"><span class="keyword">import</span> com.rabbitmq.client.Connection</span><br><span class="line"><span class="keyword">import</span> com.rabbitmq.client.Channel</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> factory = ConnectionFactory()</span><br><span class="line">    factory.host = <span class="string">&quot;localhost&quot;</span></span><br><span class="line">    <span class="keyword">val</span> connection: Connection = factory.newConnection()</span><br><span class="line">    <span class="keyword">val</span> channel: Channel = connection.createChannel()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> exchangeName = <span class="string">&quot;my_exchange&quot;</span></span><br><span class="line">    <span class="keyword">val</span> routingKey = <span class="string">&quot;my_routing_key&quot;</span></span><br><span class="line">    <span class="keyword">val</span> message = <span class="string">&quot;Hello, RabbitMQ!&quot;</span></span><br><span class="line"></span><br><span class="line">    channel.basicPublish(exchangeName, routingKey, <span class="literal">null</span>, message.toByteArray())</span><br><span class="line">    println(<span class="string">&quot; [x] Sent &#x27;<span class="variable">$message</span>&#x27;&quot;</span>)</span><br><span class="line"></span><br><span class="line">    channel.close()</span><br><span class="line">    connection.close()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>This example connects to a RabbitMQ server running on localhost, creates a channel, and uses the basicPublish method to send a message to the server with a specified exchange name and routing key.</p>
-<p>You can also use the amqp-client library in Kotlin to receive messages from a RabbitMQ server. Here is an example of how you can use the amqp-client library in Kotlin to receive messages from a RabbitMQ server:</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.rabbitmq.client.ConnectionFactory</span><br><span class="line"><span class="keyword">import</span> com.rabbitmq.client.Connection</span><br><span class="line"><span class="keyword">import</span> com.rabbitmq.client.Channel</span><br><span class="line"><span class="keyword">import</span> com.rabbitmq.client.DeliverCallback</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> factory = ConnectionFactory()</span><br><span class="line">    factory.host = <span class="string">&quot;localhost&quot;</span></span><br><span class="line">    <span class="keyword">val</span> connection: Connection = factory.newConnection()</span><br><span class="line">    <span class="keyword">val</span> channel: Channel = connection.createChannel()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> queueName = <span class="string">&quot;my_queue&quot;</span></span><br><span class="line">    channel.queueDeclare(queueName, <span class="literal">false</span>, <span class="literal">false</span>, <span class="literal">false</span>, <span class="literal">null</span>)</span><br><span class="line">    <span class="keyword">val</span> deliverCallback = DeliverCallback &#123; _, delivery -&gt;</span><br><span class="line">        <span class="keyword">val</span> message = String(delivery.body, Charsets.UTF_8)</span><br><span class="line">        println(<span class="string">&quot; [x] Received &#x27;<span class="variable">$message</span>&#x27;&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    channel.basicConsume(queueName, <span class="literal">true</span>, deliverCallback, _ -&gt; &#123;&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>This code creates a queue and sets up a DeliverCallback to handle incoming messages. The basicConsume method is used to start consuming messages from the queue. When a message is received, the DeliverCallback is invoked and the message is printed to the console.</p>
-<p>You can find more information about using the amqp-client library in Kotlin to interact with a RabbitMQ server in the RabbitMQ documentation and the amqp-client library documentation.</p>
-<p>set the delivery mode to persistent<br>To set the delivery mode of a message to persistent when using the amqp-client library in Kotlin, you can use the basicPublish method and set the deliveryMode property of the BasicProperties object that you pass as the third argument.</p>
-<p>Here is an example of how you can set the delivery mode of a message to persistent when using the amqp-client library in Kotlin:</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.rabbitmq.client.ConnectionFactory</span><br><span class="line"><span class="keyword">import</span> com.rabbitmq.client.Connection</span><br><span class="line"><span class="keyword">import</span> com.rabbitmq.client.Channel</span><br><span class="line"><span class="keyword">import</span> com.rabbitmq.client.BasicProperties</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> factory = ConnectionFactory()</span><br><span class="line">    factory.host = <span class="string">&quot;localhost&quot;</span></span><br><span class="line">    <span class="keyword">val</span> connection: Connection = factory.newConnection()</span><br><span class="line">    <span class="keyword">val</span> channel: Channel = connection.createChannel()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> exchangeName = <span class="string">&quot;my_exchange&quot;</span></span><br><span class="line">    <span class="keyword">val</span> routingKey = <span class="string">&quot;my_routing_key&quot;</span></span><br><span class="line">    <span class="keyword">val</span> message = <span class="string">&quot;Hello, RabbitMQ!&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> properties = BasicProperties.builder()</span><br><span class="line">        .deliveryMode(<span class="number">2</span>)</span><br><span class="line">        .build()</span><br><span class="line"></span><br><span class="line">    channel.basicPublish(exchangeName, routingKey, properties, message.toByteArray())</span><br><span class="line">    println(<span class="string">&quot; [x] Sent &#x27;<span class="variable">$message</span>&#x27;&quot;</span>)</span><br><span class="line"></span><br><span class="line">    channel.close()</span><br><span class="line">    connection.close()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>In this example, the BasicProperties.builder method is used to create a BasicProperties object with the deliveryMode property set to 2 (indicating persistent delivery). This object is then passed as the third argument to the basicPublish method.</p>
-<p>You can find more information about the BasicProperties class and the different delivery modes in the amqp-client library documentation.</p>
-<h2 id="write-spring-boot-hello-world-with-kotlin"><a href="#write-spring-boot-hello-world-with-kotlin" class="headerlink" title="write spring boot hello world with kotlin"></a>write spring boot hello world with kotlin</h2><p>To write a “Hello, World!” program in Spring Boot using Kotlin, you can follow these steps:</p>
-<p>Create a new Spring Boot project using the Spring Initializr. You can do this by visiting <a target="_blank" rel="noopener" href="https://start.spring.io/">https://start.spring.io/</a> and selecting “Kotlin” as the programming language. Select the “Web” dependency, and then click on “Generate” to download the project as a ZIP file.</p>
-<p>Extract the ZIP file and open the project in your preferred development environment.</p>
-<p>In the src&#x2F;main&#x2F;kotlin directory, create a new Kotlin file called HelloController.kt. This file will contain a simple controller that will handle HTTP requests to the root path of the application.</p>
-<p>In HelloController.kt, define a controller class and annotate it with @RestController. This will enable the class to handle HTTP requests and return responses to the client.</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.web.bind.<span class="keyword">annotation</span>.RestController</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">HelloController</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">implementation &#x27;com.rabbitmq:amqp-client:5.11.0&#x27;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Once you have included the amqp-client dependency in your project, you can use the classes and interfaces provided by the library to connect to a RabbitMQ server and perform operations such as sending and receiving messages.<br>Here is an example of how you can use the amqp-client library in Kotlin to send a message to a RabbitMQ server:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.rabbitmq.client.ConnectionFactory</span><br><span class="line"><span class="keyword">import</span> com.rabbitmq.client.Connection</span><br><span class="line"><span class="keyword">import</span> com.rabbitmq.client.Channel</span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"><span class="keyword">val</span> factory = ConnectionFactory()</span><br><span class="line">factory.host = <span class="string">&quot;localhost&quot;</span></span><br><span class="line"><span class="keyword">val</span> connection: Connection = factory.newConnection()</span><br><span class="line"><span class="keyword">val</span> channel: Channel = connection.createChannel()</span><br><span class="line"><span class="keyword">val</span> exchangeName = <span class="string">&quot;my_exchange&quot;</span></span><br><span class="line"><span class="keyword">val</span> routingKey = <span class="string">&quot;my_routing_key&quot;</span></span><br><span class="line"><span class="keyword">val</span> message = <span class="string">&quot;Hello, RabbitMQ!&quot;</span></span><br><span class="line">channel.basicPublish(exchangeName, routingKey, <span class="literal">null</span>, message.toByteArray())</span><br><span class="line">println(<span class="string">&quot; [x] Sent &#x27;<span class="variable">$message</span>&#x27;&quot;</span>)</span><br><span class="line">channel.close()</span><br><span class="line">connection.close()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This example connects to a RabbitMQ server running on localhost, creates a channel, and uses the basicPublish method to send a message to the server with a specified exchange name and routing key.<br>You can also use the amqp-client library in Kotlin to receive messages from a RabbitMQ server. Here is an example of how you can use the amqp-client library in Kotlin to receive messages from a RabbitMQ server:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.rabbitmq.client.ConnectionFactory</span><br><span class="line"><span class="keyword">import</span> com.rabbitmq.client.Connection</span><br><span class="line"><span class="keyword">import</span> com.rabbitmq.client.Channel</span><br><span class="line"><span class="keyword">import</span> com.rabbitmq.client.DeliverCallback</span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"><span class="keyword">val</span> factory = ConnectionFactory()</span><br><span class="line">factory.host = <span class="string">&quot;localhost&quot;</span></span><br><span class="line"><span class="keyword">val</span> connection: Connection = factory.newConnection()</span><br><span class="line"><span class="keyword">val</span> channel: Channel = connection.createChannel()</span><br><span class="line"><span class="keyword">val</span> queueName = <span class="string">&quot;my_queue&quot;</span></span><br><span class="line">channel.queueDeclare(queueName, <span class="literal">false</span>, <span class="literal">false</span>, <span class="literal">false</span>, <span class="literal">null</span>)</span><br><span class="line"><span class="keyword">val</span> deliverCallback = DeliverCallback &#123; _, delivery -&gt;</span><br><span class="line"><span class="keyword">val</span> message = String(delivery.body, Charsets.UTF_8)</span><br><span class="line">println(<span class="string">&quot; [x] Received &#x27;<span class="variable">$message</span>&#x27;&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line">channel.basicConsume(queueName, <span class="literal">true</span>, deliverCallback, _ -&gt; &#123;&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This code creates a queue and sets up a DeliverCallback to handle incoming messages. The basicConsume method is used to start consuming messages from the queue. When a message is received, the DeliverCallback is invoked and the message is printed to the console.<br>You can find more information about using the amqp-client library in Kotlin to interact with a RabbitMQ server in the RabbitMQ documentation and the amqp-client library documentation.<br>set the delivery mode to persistent<br>To set the delivery mode of a message to persistent when using the amqp-client library in Kotlin, you can use the basicPublish method and set the deliveryMode property of the BasicProperties object that you pass as the third argument.<br>Here is an example of how you can set the delivery mode of a message to persistent when using the amqp-client library in Kotlin:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.rabbitmq.client.ConnectionFactory</span><br><span class="line"><span class="keyword">import</span> com.rabbitmq.client.Connection</span><br><span class="line"><span class="keyword">import</span> com.rabbitmq.client.Channel</span><br><span class="line"><span class="keyword">import</span> com.rabbitmq.client.BasicProperties</span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"><span class="keyword">val</span> factory = ConnectionFactory()</span><br><span class="line">factory.host = <span class="string">&quot;localhost&quot;</span></span><br><span class="line"><span class="keyword">val</span> connection: Connection = factory.newConnection()</span><br><span class="line"><span class="keyword">val</span> channel: Channel = connection.createChannel()</span><br><span class="line"><span class="keyword">val</span> exchangeName = <span class="string">&quot;my_exchange&quot;</span></span><br><span class="line"><span class="keyword">val</span> routingKey = <span class="string">&quot;my_routing_key&quot;</span></span><br><span class="line"><span class="keyword">val</span> message = <span class="string">&quot;Hello, RabbitMQ!&quot;</span></span><br><span class="line"><span class="keyword">val</span> properties = BasicProperties.builder()</span><br><span class="line">.deliveryMode(<span class="number">2</span>)</span><br><span class="line">.build()</span><br><span class="line">channel.basicPublish(exchangeName, routingKey, properties, message.toByteArray())</span><br><span class="line">println(<span class="string">&quot; [x] Sent &#x27;<span class="variable">$message</span>&#x27;&quot;</span>)</span><br><span class="line">channel.close()</span><br><span class="line">connection.close()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>In this example, the BasicProperties.builder method is used to create a BasicProperties object with the deliveryMode property set to 2 (indicating persistent delivery). This object is then passed as the third argument to the basicPublish method.<br>You can find more information about the BasicProperties class and the different delivery modes in the amqp-client library documentation.</p>
+<h2 id="write-spring-boot-hello-world-with-kotlin"><a href="#write-spring-boot-hello-world-with-kotlin" class="headerlink" title="write spring boot hello world with kotlin"></a>write spring boot hello world with kotlin</h2><p>To write a “Hello, World!” program in Spring Boot using Kotlin, you can follow these steps:<br>Create a new Spring Boot project using the Spring Initializr. You can do this by visiting <a target="_blank" rel="noopener" href="https://start.spring.io/">https://start.spring.io/</a> and selecting “Kotlin” as the programming language. Select the “Web” dependency, and then click on “Generate” to download the project as a ZIP file.<br>Extract the ZIP file and open the project in your preferred development environment.<br>In the src&#x2F;main&#x2F;kotlin directory, create a new Kotlin file called HelloController.kt. This file will contain a simple controller that will handle HTTP requests to the root path of the application.<br>In HelloController.kt, define a controller class and annotate it with @RestController. This will enable the class to handle HTTP requests and return responses to the client.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.web.bind.<span class="keyword">annotation</span>.RestController</span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">HelloController</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Inside the HelloController class, define a method that will handle HTTP GET requests to the root path of the application. Annotate this method with @GetMapping(“&#x2F;“).</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.web.bind.<span class="keyword">annotation</span>.GetMapping</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">HelloController</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(<span class="string">&quot;/&quot;</span>)</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">sayHello</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.web.bind.<span class="keyword">annotation</span>.GetMapping</span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">HelloController</span> &#123;</span><br><span class="line"><span class="meta">@GetMapping(<span class="string">&quot;/&quot;</span>)</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">sayHello</span><span class="params">()</span></span>: String &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Run the Spring Boot application by running the main method in the Application class. You should now be able to visit <a target="_blank" rel="noopener" href="http://localhost:8080/">http://localhost:8080/</a> in your web browser and see the message “Hello, World!” displayed.<br>That’s it! You have now written a simple “Hello, World!” program in Spring Boot using Kotlin.</p>
 
 	
 	</div>
-  <a type="button" href="/2022/12/23/f59b2942-ee86-44da-a3f5-a133251fb83e/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/12/23/f59b2942-ee86-44da-a3f5-a133251fb83e/#more" class="btn btn-default more">Read More</a>
 </div>
 
 	       
@@ -254,761 +206,761 @@
 		<h4>Categories</h4>
 		<ul class="tag_box inline list-unstyled">
 		
-			<li><a href="/categories/2D-Animation/">2D Animation<span>1</span></a></li>
+			<li><a href="/blog/categories/2D-Animation/">2D Animation<span>1</span></a></li>
 		
-			<li><a href="/categories/3D-Avatar-Creation/">3D Avatar Creation<span>1</span></a></li>
+			<li><a href="/blog/categories/3D-Avatar-Creation/">3D Avatar Creation<span>1</span></a></li>
 		
-			<li><a href="/categories/3D-Modeling/">3D Modeling<span>2</span></a></li>
+			<li><a href="/blog/categories/3D-Modeling/">3D Modeling<span>2</span></a></li>
 		
-			<li><a href="/categories/3D-Rendering/">3D Rendering<span>1</span></a></li>
+			<li><a href="/blog/categories/3D-Rendering/">3D Rendering<span>1</span></a></li>
 		
-			<li><a href="/categories/AI/">AI<span>7</span></a></li>
+			<li><a href="/blog/categories/AI/">AI<span>7</span></a></li>
 		
-			<li><a href="/categories/AI-Accelerators/">AI Accelerators<span>1</span></a></li>
+			<li><a href="/blog/categories/AI-Accelerators/">AI Accelerators<span>1</span></a></li>
 		
-			<li><a href="/categories/AI-Competitions/">AI Competitions<span>1</span></a></li>
+			<li><a href="/blog/categories/AI-Competitions/">AI Competitions<span>1</span></a></li>
 		
-			<li><a href="/categories/AI-Libraries/">AI Libraries<span>1</span></a></li>
+			<li><a href="/blog/categories/AI-Libraries/">AI Libraries<span>1</span></a></li>
 		
-			<li><a href="/categories/AI-Optimization/">AI Optimization<span>1</span></a></li>
+			<li><a href="/blog/categories/AI-Optimization/">AI Optimization<span>1</span></a></li>
 		
-			<li><a href="/categories/AI-System-Design-Guidelines/">AI System Design Guidelines<span>1</span></a></li>
+			<li><a href="/blog/categories/AI-System-Design-Guidelines/">AI System Design Guidelines<span>1</span></a></li>
 		
-			<li><a href="/categories/AI-Techniques-for-Text-Generation-and-Paraphrasing/">AI Techniques for Text Generation and Paraphrasing<span>1</span></a></li>
+			<li><a href="/blog/categories/AI-Techniques-for-Text-Generation-and-Paraphrasing/">AI Techniques for Text Generation and Paraphrasing<span>1</span></a></li>
 		
-			<li><a href="/categories/AI-Video-Generation/">AI Video Generation<span>1</span></a></li>
+			<li><a href="/blog/categories/AI-Video-Generation/">AI Video Generation<span>1</span></a></li>
 		
-			<li><a href="/categories/AI-development/">AI development<span>2</span></a></li>
+			<li><a href="/blog/categories/AI-development/">AI development<span>2</span></a></li>
 		
-			<li><a href="/categories/AI-tools-collections/">AI tools collections<span>1</span></a></li>
+			<li><a href="/blog/categories/AI-tools-collections/">AI tools collections<span>1</span></a></li>
 		
-			<li><a href="/categories/AI-Generated-Singing-Voices/">AI-Generated Singing Voices<span>1</span></a></li>
+			<li><a href="/blog/categories/AI-Generated-Singing-Voices/">AI-Generated Singing Voices<span>1</span></a></li>
 		
-			<li><a href="/categories/AI-generated-Art/">AI-generated Art<span>1</span></a></li>
+			<li><a href="/blog/categories/AI-generated-Art/">AI-generated Art<span>1</span></a></li>
 		
-			<li><a href="/categories/API/">API<span>5</span></a></li>
+			<li><a href="/blog/categories/API/">API<span>5</span></a></li>
 		
-			<li><a href="/categories/API-Development/">API Development<span>1</span></a></li>
+			<li><a href="/blog/categories/API-Development/">API Development<span>1</span></a></li>
 		
-			<li><a href="/categories/API-Scraping/">API Scraping<span>1</span></a></li>
+			<li><a href="/blog/categories/API-Scraping/">API Scraping<span>1</span></a></li>
 		
-			<li><a href="/categories/APIs/">APIs<span>2</span></a></li>
+			<li><a href="/blog/categories/APIs/">APIs<span>2</span></a></li>
 		
-			<li><a href="/categories/Academic-Articles/">Academic Articles<span>1</span></a></li>
+			<li><a href="/blog/categories/Academic-Articles/">Academic Articles<span>1</span></a></li>
 		
-			<li><a href="/categories/Accessibility-tools/">Accessibility tools<span>1</span></a></li>
+			<li><a href="/blog/categories/Accessibility-tools/">Accessibility tools<span>1</span></a></li>
 		
-			<li><a href="/categories/Account-Management/">Account Management<span>1</span></a></li>
+			<li><a href="/blog/categories/Account-Management/">Account Management<span>1</span></a></li>
 		
-			<li><a href="/categories/Account-Registration/">Account Registration<span>1</span></a></li>
+			<li><a href="/blog/categories/Account-Registration/">Account Registration<span>1</span></a></li>
 		
-			<li><a href="/categories/Advanced-AI-powered-video-editors/">Advanced AI-powered video editors<span>1</span></a></li>
+			<li><a href="/blog/categories/Advanced-AI-powered-video-editors/">Advanced AI-powered video editors<span>1</span></a></li>
 		
-			<li><a href="/categories/Android/">Android<span>1</span></a></li>
+			<li><a href="/blog/categories/Android/">Android<span>1</span></a></li>
 		
-			<li><a href="/categories/Android-Development/">Android Development<span>2</span></a></li>
+			<li><a href="/blog/categories/Android-Development/">Android Development<span>2</span></a></li>
 		
-			<li><a href="/categories/Android-Reverse-Engineering/">Android Reverse Engineering<span>1</span></a></li>
+			<li><a href="/blog/categories/Android-Reverse-Engineering/">Android Reverse Engineering<span>1</span></a></li>
 		
-			<li><a href="/categories/Android-Security/">Android Security<span>1</span></a></li>
+			<li><a href="/blog/categories/Android-Security/">Android Security<span>1</span></a></li>
 		
-			<li><a href="/categories/Android-automation/">Android automation<span>1</span></a></li>
+			<li><a href="/blog/categories/Android-automation/">Android automation<span>1</span></a></li>
 		
-			<li><a href="/categories/Android-emulators/">Android emulators<span>1</span></a></li>
+			<li><a href="/blog/categories/Android-emulators/">Android emulators<span>1</span></a></li>
 		
-			<li><a href="/categories/Animation-Tools/">Animation Tools<span>2</span></a></li>
+			<li><a href="/blog/categories/Animation-Tools/">Animation Tools<span>2</span></a></li>
 		
-			<li><a href="/categories/Anime/">Anime<span>2</span></a></li>
+			<li><a href="/blog/categories/Anime/">Anime<span>2</span></a></li>
 		
-			<li><a href="/categories/Anime-Video-Downloads/">Anime Video Downloads<span>1</span></a></li>
+			<li><a href="/blog/categories/Anime-Video-Downloads/">Anime Video Downloads<span>1</span></a></li>
 		
-			<li><a href="/categories/App-Compatibility/">App Compatibility<span>1</span></a></li>
+			<li><a href="/blog/categories/App-Compatibility/">App Compatibility<span>1</span></a></li>
 		
-			<li><a href="/categories/Artificial-General-Intelligence/">Artificial General Intelligence<span>1</span></a></li>
+			<li><a href="/blog/categories/Artificial-General-Intelligence/">Artificial General Intelligence<span>1</span></a></li>
 		
-			<li><a href="/categories/Artificial-Intelligence/">Artificial Intelligence<span>16</span></a></li>
+			<li><a href="/blog/categories/Artificial-Intelligence/">Artificial Intelligence<span>16</span></a></li>
 		
-			<li><a href="/categories/Asynchronous-Requests/">Asynchronous Requests<span>1</span></a></li>
+			<li><a href="/blog/categories/Asynchronous-Requests/">Asynchronous Requests<span>1</span></a></li>
 		
-			<li><a href="/categories/Audio-Processing/">Audio Processing<span>4</span></a></li>
+			<li><a href="/blog/categories/Audio-Processing/">Audio Processing<span>4</span></a></li>
 		
-			<li><a href="/categories/Audio-Production/">Audio Production<span>1</span></a></li>
+			<li><a href="/blog/categories/Audio-Production/">Audio Production<span>1</span></a></li>
 		
-			<li><a href="/categories/Audio-Recognition/">Audio Recognition<span>1</span></a></li>
+			<li><a href="/blog/categories/Audio-Recognition/">Audio Recognition<span>1</span></a></li>
 		
-			<li><a href="/categories/Augmented-Reality/">Augmented Reality<span>1</span></a></li>
+			<li><a href="/blog/categories/Augmented-Reality/">Augmented Reality<span>1</span></a></li>
 		
-			<li><a href="/categories/Automated-Essay-Scoring/">Automated Essay Scoring<span>1</span></a></li>
+			<li><a href="/blog/categories/Automated-Essay-Scoring/">Automated Essay Scoring<span>1</span></a></li>
 		
-			<li><a href="/categories/Automation/">Automation<span>1</span></a></li>
+			<li><a href="/blog/categories/Automation/">Automation<span>1</span></a></li>
 		
-			<li><a href="/categories/Automotive-Computer-Research/">Automotive Computer Research<span>1</span></a></li>
+			<li><a href="/blog/categories/Automotive-Computer-Research/">Automotive Computer Research<span>1</span></a></li>
 		
-			<li><a href="/categories/Backup-software/">Backup software<span>1</span></a></li>
+			<li><a href="/blog/categories/Backup-software/">Backup software<span>1</span></a></li>
 		
-			<li><a href="/categories/Battery-Damage-Prevention/">Battery Damage Prevention<span>1</span></a></li>
+			<li><a href="/blog/categories/Battery-Damage-Prevention/">Battery Damage Prevention<span>1</span></a></li>
 		
-			<li><a href="/categories/Behavior-Driven-Development/">Behavior Driven Development<span>1</span></a></li>
+			<li><a href="/blog/categories/Behavior-Driven-Development/">Behavior Driven Development<span>1</span></a></li>
 		
-			<li><a href="/categories/Best-Earphones/">Best Earphones<span>1</span></a></li>
+			<li><a href="/blog/categories/Best-Earphones/">Best Earphones<span>1</span></a></li>
 		
-			<li><a href="/categories/Bilibili/">Bilibili<span>2</span></a></li>
+			<li><a href="/blog/categories/Bilibili/">Bilibili<span>2</span></a></li>
 		
-			<li><a href="/categories/Biology/">Biology<span>1</span></a></li>
+			<li><a href="/blog/categories/Biology/">Biology<span>1</span></a></li>
 		
-			<li><a href="/categories/Bot-Development/">Bot Development<span>1</span></a></li>
+			<li><a href="/blog/categories/Bot-Development/">Bot Development<span>1</span></a></li>
 		
-			<li><a href="/categories/Browser-Extensions/">Browser Extensions<span>2</span></a></li>
+			<li><a href="/blog/categories/Browser-Extensions/">Browser Extensions<span>2</span></a></li>
 		
-			<li><a href="/categories/CACANi-Software/">CACANi Software<span>1</span></a></li>
+			<li><a href="/blog/categories/CACANi-Software/">CACANi Software<span>1</span></a></li>
 		
-			<li><a href="/categories/Captcha-recognition/">Captcha recognition<span>1</span></a></li>
+			<li><a href="/blog/categories/Captcha-recognition/">Captcha recognition<span>1</span></a></li>
 		
-			<li><a href="/categories/Cheminformatics/">Cheminformatics<span>1</span></a></li>
+			<li><a href="/blog/categories/Cheminformatics/">Cheminformatics<span>1</span></a></li>
 		
-			<li><a href="/categories/Chinese-Input-Methods/">Chinese Input Methods<span>1</span></a></li>
+			<li><a href="/blog/categories/Chinese-Input-Methods/">Chinese Input Methods<span>1</span></a></li>
 		
-			<li><a href="/categories/Chocolatey/">Chocolatey<span>1</span></a></li>
+			<li><a href="/blog/categories/Chocolatey/">Chocolatey<span>1</span></a></li>
 		
-			<li><a href="/categories/Chromium-Policies/">Chromium Policies<span>1</span></a></li>
+			<li><a href="/blog/categories/Chromium-Policies/">Chromium Policies<span>1</span></a></li>
 		
-			<li><a href="/categories/Clash-GitHub-Fastgithub-DNS-settings-macOS-Linux-monit-shell-scripts/">Clash, GitHub, Fastgithub, DNS settings, macOS, Linux, monit, shell scripts<span>1</span></a></li>
+			<li><a href="/blog/categories/Clash-GitHub-Fastgithub-DNS-settings-macOS-Linux-monit-shell-scripts/">Clash, GitHub, Fastgithub, DNS settings, macOS, Linux, monit, shell scripts<span>1</span></a></li>
 		
-			<li><a href="/categories/Clipboard-issue-in-Android-10/">Clipboard issue in Android 10<span>1</span></a></li>
+			<li><a href="/blog/categories/Clipboard-issue-in-Android-10/">Clipboard issue in Android 10<span>1</span></a></li>
 		
-			<li><a href="/categories/Code-Auditing/">Code Auditing<span>1</span></a></li>
+			<li><a href="/blog/categories/Code-Auditing/">Code Auditing<span>1</span></a></li>
 		
-			<li><a href="/categories/Code-Refactoring/">Code Refactoring<span>1</span></a></li>
+			<li><a href="/blog/categories/Code-Refactoring/">Code Refactoring<span>1</span></a></li>
 		
-			<li><a href="/categories/Collaborative-Programming/">Collaborative Programming<span>1</span></a></li>
+			<li><a href="/blog/categories/Collaborative-Programming/">Collaborative Programming<span>1</span></a></li>
 		
-			<li><a href="/categories/Color-Palette-Extraction/">Color Palette Extraction<span>1</span></a></li>
+			<li><a href="/blog/categories/Color-Palette-Extraction/">Color Palette Extraction<span>1</span></a></li>
 		
-			<li><a href="/categories/Command-line-Tools/">Command-line Tools<span>1</span></a></li>
+			<li><a href="/blog/categories/Command-line-Tools/">Command-line Tools<span>1</span></a></li>
 		
-			<li><a href="/categories/Community-Detection/">Community Detection<span>1</span></a></li>
+			<li><a href="/blog/categories/Community-Detection/">Community Detection<span>1</span></a></li>
 		
-			<li><a href="/categories/Computer-Vision/">Computer Vision<span>3</span></a></li>
+			<li><a href="/blog/categories/Computer-Vision/">Computer Vision<span>3</span></a></li>
 		
-			<li><a href="/categories/Content-Creation/">Content Creation<span>4</span></a></li>
+			<li><a href="/blog/categories/Content-Creation/">Content Creation<span>4</span></a></li>
 		
-			<li><a href="/categories/Content-Promotion/">Content Promotion<span>1</span></a></li>
+			<li><a href="/blog/categories/Content-Promotion/">Content Promotion<span>1</span></a></li>
 		
-			<li><a href="/categories/Copying-and-Moving-Files/">Copying and Moving Files<span>1</span></a></li>
+			<li><a href="/blog/categories/Copying-and-Moving-Files/">Copying and Moving Files<span>1</span></a></li>
 		
-			<li><a href="/categories/Cross-Platform-Apps/">Cross-Platform Apps<span>1</span></a></li>
+			<li><a href="/blog/categories/Cross-Platform-Apps/">Cross-Platform Apps<span>1</span></a></li>
 		
-			<li><a href="/categories/Cross-Platform-Publishing/">Cross-Platform Publishing<span>1</span></a></li>
+			<li><a href="/blog/categories/Cross-Platform-Publishing/">Cross-Platform Publishing<span>1</span></a></li>
 		
-			<li><a href="/categories/Cybergod-Projects/">Cybergod Projects<span>1</span></a></li>
+			<li><a href="/blog/categories/Cybergod-Projects/">Cybergod Projects<span>1</span></a></li>
 		
-			<li><a href="/categories/Cybersecurity/">Cybersecurity<span>5</span></a></li>
+			<li><a href="/blog/categories/Cybersecurity/">Cybersecurity<span>5</span></a></li>
 		
-			<li><a href="/categories/DNS-proxies/">DNS proxies<span>1</span></a></li>
+			<li><a href="/blog/categories/DNS-proxies/">DNS proxies<span>1</span></a></li>
 		
-			<li><a href="/categories/DWG-to-DXF-conversion/">DWG to DXF conversion<span>1</span></a></li>
+			<li><a href="/blog/categories/DWG-to-DXF-conversion/">DWG to DXF conversion<span>1</span></a></li>
 		
-			<li><a href="/categories/Dark-Web/">Dark Web<span>1</span></a></li>
+			<li><a href="/blog/categories/Dark-Web/">Dark Web<span>1</span></a></li>
 		
-			<li><a href="/categories/Data-Annotation-Tools/">Data Annotation Tools<span>2</span></a></li>
+			<li><a href="/blog/categories/Data-Annotation-Tools/">Data Annotation Tools<span>2</span></a></li>
 		
-			<li><a href="/categories/Data-Backup/">Data Backup<span>2</span></a></li>
+			<li><a href="/blog/categories/Data-Backup/">Data Backup<span>2</span></a></li>
 		
-			<li><a href="/categories/Data-Capture/">Data Capture<span>2</span></a></li>
+			<li><a href="/blog/categories/Data-Capture/">Data Capture<span>2</span></a></li>
 		
-			<li><a href="/categories/Data-Scraping/">Data Scraping<span>1</span></a></li>
+			<li><a href="/blog/categories/Data-Scraping/">Data Scraping<span>1</span></a></li>
 		
-			<li><a href="/categories/Data-Security/">Data Security<span>1</span></a></li>
+			<li><a href="/blog/categories/Data-Security/">Data Security<span>1</span></a></li>
 		
-			<li><a href="/categories/Database/">Database<span>1</span></a></li>
+			<li><a href="/blog/categories/Database/">Database<span>1</span></a></li>
 		
-			<li><a href="/categories/Database-Management/">Database Management<span>2</span></a></li>
+			<li><a href="/blog/categories/Database-Management/">Database Management<span>2</span></a></li>
 		
-			<li><a href="/categories/Deep-Learning/">Deep Learning<span>2</span></a></li>
+			<li><a href="/blog/categories/Deep-Learning/">Deep Learning<span>2</span></a></li>
 		
-			<li><a href="/categories/Digital-Identity/">Digital Identity<span>1</span></a></li>
+			<li><a href="/blog/categories/Digital-Identity/">Digital Identity<span>1</span></a></li>
 		
-			<li><a href="/categories/Digital-Marketing/">Digital Marketing<span>1</span></a></li>
+			<li><a href="/blog/categories/Digital-Marketing/">Digital Marketing<span>1</span></a></li>
 		
-			<li><a href="/categories/Discord-Channels/">Discord Channels<span>1</span></a></li>
+			<li><a href="/blog/categories/Discord-Channels/">Discord Channels<span>1</span></a></li>
 		
-			<li><a href="/categories/Disk-Management/">Disk Management<span>2</span></a></li>
+			<li><a href="/blog/categories/Disk-Management/">Disk Management<span>2</span></a></li>
 		
-			<li><a href="/categories/Docker/">Docker<span>3</span></a></li>
+			<li><a href="/blog/categories/Docker/">Docker<span>3</span></a></li>
 		
-			<li><a href="/categories/Domain-specific-languages-DSL/">Domain-specific languages (DSL)<span>1</span></a></li>
+			<li><a href="/blog/categories/Domain-specific-languages-DSL/">Domain-specific languages (DSL)<span>1</span></a></li>
 		
-			<li><a href="/categories/Drivers-updates/">Drivers updates<span>1</span></a></li>
+			<li><a href="/blog/categories/Drivers-updates/">Drivers updates<span>1</span></a></li>
 		
-			<li><a href="/categories/Dynamic-Classification-Systems/">Dynamic Classification Systems<span>1</span></a></li>
+			<li><a href="/blog/categories/Dynamic-Classification-Systems/">Dynamic Classification Systems<span>1</span></a></li>
 		
-			<li><a href="/categories/E-book-conversion/">E-book conversion<span>1</span></a></li>
+			<li><a href="/blog/categories/E-book-conversion/">E-book conversion<span>1</span></a></li>
 		
-			<li><a href="/categories/Education/">Education<span>3</span></a></li>
+			<li><a href="/blog/categories/Education/">Education<span>3</span></a></li>
 		
-			<li><a href="/categories/Emotion-Manipulation/">Emotion Manipulation<span>1</span></a></li>
+			<li><a href="/blog/categories/Emotion-Manipulation/">Emotion Manipulation<span>1</span></a></li>
 		
-			<li><a href="/categories/Energy-System-Simulation/">Energy System Simulation<span>1</span></a></li>
+			<li><a href="/blog/categories/Energy-System-Simulation/">Energy System Simulation<span>1</span></a></li>
 		
-			<li><a href="/categories/Ergonomics/">Ergonomics<span>1</span></a></li>
+			<li><a href="/blog/categories/Ergonomics/">Ergonomics<span>1</span></a></li>
 		
-			<li><a href="/categories/Error-Resolution/">Error Resolution<span>1</span></a></li>
+			<li><a href="/blog/categories/Error-Resolution/">Error Resolution<span>1</span></a></li>
 		
-			<li><a href="/categories/Evolution/">Evolution<span>1</span></a></li>
+			<li><a href="/blog/categories/Evolution/">Evolution<span>1</span></a></li>
 		
-			<li><a href="/categories/Exception-Handling/">Exception Handling<span>1</span></a></li>
+			<li><a href="/blog/categories/Exception-Handling/">Exception Handling<span>1</span></a></li>
 		
-			<li><a href="/categories/Expect-Send/">Expect Send<span>1</span></a></li>
+			<li><a href="/blog/categories/Expect-Send/">Expect Send<span>1</span></a></li>
 		
-			<li><a href="/categories/Extensions/">Extensions<span>1</span></a></li>
+			<li><a href="/blog/categories/Extensions/">Extensions<span>1</span></a></li>
 		
-			<li><a href="/categories/Facial-Expression-Detection/">Facial Expression Detection<span>1</span></a></li>
+			<li><a href="/blog/categories/Facial-Expression-Detection/">Facial Expression Detection<span>1</span></a></li>
 		
-			<li><a href="/categories/Fake-Content-Detection/">Fake Content Detection<span>1</span></a></li>
+			<li><a href="/blog/categories/Fake-Content-Detection/">Fake Content Detection<span>1</span></a></li>
 		
-			<li><a href="/categories/FastAPI/">FastAPI<span>1</span></a></li>
+			<li><a href="/blog/categories/FastAPI/">FastAPI<span>1</span></a></li>
 		
-			<li><a href="/categories/File-Hosting-Services/">File Hosting Services<span>1</span></a></li>
+			<li><a href="/blog/categories/File-Hosting-Services/">File Hosting Services<span>1</span></a></li>
 		
-			<li><a href="/categories/File-Transfer/">File Transfer<span>1</span></a></li>
+			<li><a href="/blog/categories/File-Transfer/">File Transfer<span>1</span></a></li>
 		
-			<li><a href="/categories/Filesystem-Cache/">Filesystem Cache<span>1</span></a></li>
+			<li><a href="/blog/categories/Filesystem-Cache/">Filesystem Cache<span>1</span></a></li>
 		
-			<li><a href="/categories/GUI-Programming/">GUI Programming<span>1</span></a></li>
+			<li><a href="/blog/categories/GUI-Programming/">GUI Programming<span>1</span></a></li>
 		
-			<li><a href="/categories/Generative-Adversarial-Networks-GAN/">Generative Adversarial Networks (GAN)<span>1</span></a></li>
+			<li><a href="/blog/categories/Generative-Adversarial-Networks-GAN/">Generative Adversarial Networks (GAN)<span>1</span></a></li>
 		
-			<li><a href="/categories/Generative-Adversarial-Networks-GANs/">Generative Adversarial Networks (GANs)<span>1</span></a></li>
+			<li><a href="/blog/categories/Generative-Adversarial-Networks-GANs/">Generative Adversarial Networks (GANs)<span>1</span></a></li>
 		
-			<li><a href="/categories/Geometry/">Geometry<span>1</span></a></li>
+			<li><a href="/blog/categories/Geometry/">Geometry<span>1</span></a></li>
 		
-			<li><a href="/categories/GitFS/">GitFS<span>1</span></a></li>
+			<li><a href="/blog/categories/GitFS/">GitFS<span>1</span></a></li>
 		
-			<li><a href="/categories/GitHub/">GitHub<span>3</span></a></li>
+			<li><a href="/blog/categories/GitHub/">GitHub<span>3</span></a></li>
 		
-			<li><a href="/categories/Hacking/">Hacking<span>3</span></a></li>
+			<li><a href="/blog/categories/Hacking/">Hacking<span>3</span></a></li>
 		
-			<li><a href="/categories/Hacking-Tutorials/">Hacking Tutorials<span>1</span></a></li>
+			<li><a href="/blog/categories/Hacking-Tutorials/">Hacking Tutorials<span>1</span></a></li>
 		
-			<li><a href="/categories/Hacking-techniques/">Hacking techniques<span>1</span></a></li>
+			<li><a href="/blog/categories/Hacking-techniques/">Hacking techniques<span>1</span></a></li>
 		
-			<li><a href="/categories/Health/">Health<span>2</span></a></li>
+			<li><a href="/blog/categories/Health/">Health<span>2</span></a></li>
 		
-			<li><a href="/categories/Home-Appliances/">Home Appliances<span>1</span></a></li>
+			<li><a href="/blog/categories/Home-Appliances/">Home Appliances<span>1</span></a></li>
 		
-			<li><a href="/categories/Hot-Reloading/">Hot Reloading<span>1</span></a></li>
+			<li><a href="/blog/categories/Hot-Reloading/">Hot Reloading<span>1</span></a></li>
 		
-			<li><a href="/categories/Huggingface/">Huggingface<span>1</span></a></li>
+			<li><a href="/blog/categories/Huggingface/">Huggingface<span>1</span></a></li>
 		
-			<li><a href="/categories/Human-in-the-Loop-AI/">Human-in-the-Loop AI<span>1</span></a></li>
+			<li><a href="/blog/categories/Human-in-the-Loop-AI/">Human-in-the-Loop AI<span>1</span></a></li>
 		
-			<li><a href="/categories/Image-Classification/">Image Classification<span>1</span></a></li>
+			<li><a href="/blog/categories/Image-Classification/">Image Classification<span>1</span></a></li>
 		
-			<li><a href="/categories/Image-Generation/">Image Generation<span>1</span></a></li>
+			<li><a href="/blog/categories/Image-Generation/">Image Generation<span>1</span></a></li>
 		
-			<li><a href="/categories/Image-Processing/">Image Processing<span>5</span></a></li>
+			<li><a href="/blog/categories/Image-Processing/">Image Processing<span>5</span></a></li>
 		
-			<li><a href="/categories/Image-Search-Tools/">Image Search Tools<span>1</span></a></li>
+			<li><a href="/blog/categories/Image-Search-Tools/">Image Search Tools<span>1</span></a></li>
 		
-			<li><a href="/categories/Image-restoration/">Image restoration<span>1</span></a></li>
+			<li><a href="/blog/categories/Image-restoration/">Image restoration<span>1</span></a></li>
 		
-			<li><a href="/categories/Information-Management/">Information Management<span>1</span></a></li>
+			<li><a href="/blog/categories/Information-Management/">Information Management<span>1</span></a></li>
 		
-			<li><a href="/categories/Installation/">Installation<span>2</span></a></li>
+			<li><a href="/blog/categories/Installation/">Installation<span>2</span></a></li>
 		
-			<li><a href="/categories/Installation-Instructions/">Installation Instructions<span>1</span></a></li>
+			<li><a href="/blog/categories/Installation-Instructions/">Installation Instructions<span>1</span></a></li>
 		
-			<li><a href="/categories/Interactive-Interfaces/">Interactive Interfaces<span>1</span></a></li>
+			<li><a href="/blog/categories/Interactive-Interfaces/">Interactive Interfaces<span>1</span></a></li>
 		
-			<li><a href="/categories/Interpolation-Techniques/">Interpolation Techniques<span>1</span></a></li>
+			<li><a href="/blog/categories/Interpolation-Techniques/">Interpolation Techniques<span>1</span></a></li>
 		
-			<li><a href="/categories/Interval-set-manipulation/">Interval set manipulation<span>1</span></a></li>
+			<li><a href="/blog/categories/Interval-set-manipulation/">Interval set manipulation<span>1</span></a></li>
 		
-			<li><a href="/categories/IoT/">IoT<span>1</span></a></li>
+			<li><a href="/blog/categories/IoT/">IoT<span>1</span></a></li>
 		
-			<li><a href="/categories/JavaScript/">JavaScript<span>2</span></a></li>
+			<li><a href="/blog/categories/JavaScript/">JavaScript<span>2</span></a></li>
 		
-			<li><a href="/categories/Kafka-System-Design/">Kafka System Design<span>1</span></a></li>
+			<li><a href="/blog/categories/Kafka-System-Design/">Kafka System Design<span>1</span></a></li>
 		
-			<li><a href="/categories/Kali-Linux/">Kali Linux<span>2</span></a></li>
+			<li><a href="/blog/categories/Kali-Linux/">Kali Linux<span>2</span></a></li>
 		
-			<li><a href="/categories/Karaoke/">Karaoke<span>1</span></a></li>
+			<li><a href="/blog/categories/Karaoke/">Karaoke<span>1</span></a></li>
 		
-			<li><a href="/categories/Keyboard-Shortcuts/">Keyboard Shortcuts<span>1</span></a></li>
+			<li><a href="/blog/categories/Keyboard-Shortcuts/">Keyboard Shortcuts<span>1</span></a></li>
 		
-			<li><a href="/categories/Kotlin-ORM-libraries/">Kotlin ORM libraries<span>1</span></a></li>
+			<li><a href="/blog/categories/Kotlin-ORM-libraries/">Kotlin ORM libraries<span>1</span></a></li>
 		
-			<li><a href="/categories/Kotlin-Spring-Boot/">Kotlin Spring Boot<span>1</span></a></li>
+			<li><a href="/blog/categories/Kotlin-Spring-Boot/">Kotlin Spring Boot<span>1</span></a></li>
 		
-			<li><a href="/categories/Library-Management/">Library Management<span>1</span></a></li>
+			<li><a href="/blog/categories/Library-Management/">Library Management<span>1</span></a></li>
 		
-			<li><a href="/categories/Linux/">Linux<span>6</span></a></li>
+			<li><a href="/blog/categories/Linux/">Linux<span>6</span></a></li>
 		
-			<li><a href="/categories/Live-Streaming/">Live Streaming<span>2</span></a></li>
+			<li><a href="/blog/categories/Live-Streaming/">Live Streaming<span>2</span></a></li>
 		
-			<li><a href="/categories/Live-broadcasting/">Live broadcasting<span>1</span></a></li>
+			<li><a href="/blog/categories/Live-broadcasting/">Live broadcasting<span>1</span></a></li>
 		
-			<li><a href="/categories/Logo-Finders/">Logo Finders<span>1</span></a></li>
+			<li><a href="/blog/categories/Logo-Finders/">Logo Finders<span>1</span></a></li>
 		
-			<li><a href="/categories/Lua-Python-Bridge/">Lua Python Bridge<span>1</span></a></li>
+			<li><a href="/blog/categories/Lua-Python-Bridge/">Lua Python Bridge<span>1</span></a></li>
 		
-			<li><a href="/categories/MIDI-Conversion-Tools/">MIDI Conversion Tools<span>1</span></a></li>
+			<li><a href="/blog/categories/MIDI-Conversion-Tools/">MIDI Conversion Tools<span>1</span></a></li>
 		
-			<li><a href="/categories/Machine-Learning/">Machine Learning<span>8</span></a></li>
+			<li><a href="/blog/categories/Machine-Learning/">Machine Learning<span>8</span></a></li>
 		
-			<li><a href="/categories/Man-in-the-middle-proxy/">Man-in-the-middle proxy<span>1</span></a></li>
+			<li><a href="/blog/categories/Man-in-the-middle-proxy/">Man-in-the-middle proxy<span>1</span></a></li>
 		
-			<li><a href="/categories/Manga/">Manga<span>2</span></a></li>
+			<li><a href="/blog/categories/Manga/">Manga<span>2</span></a></li>
 		
-			<li><a href="/categories/Markdown-to-PDF-Conversion/">Markdown to PDF Conversion<span>1</span></a></li>
+			<li><a href="/blog/categories/Markdown-to-PDF-Conversion/">Markdown to PDF Conversion<span>1</span></a></li>
 		
-			<li><a href="/categories/Mass-Email-SMS-Tools/">Mass Email/SMS Tools<span>1</span></a></li>
+			<li><a href="/blog/categories/Mass-Email-SMS-Tools/">Mass Email/SMS Tools<span>1</span></a></li>
 		
-			<li><a href="/categories/Mathematica/">Mathematica<span>1</span></a></li>
+			<li><a href="/blog/categories/Mathematica/">Mathematica<span>1</span></a></li>
 		
-			<li><a href="/categories/Mathematica-software/">Mathematica software<span>1</span></a></li>
+			<li><a href="/blog/categories/Mathematica-software/">Mathematica software<span>1</span></a></li>
 		
-			<li><a href="/categories/Mathematics/">Mathematics<span>2</span></a></li>
+			<li><a href="/blog/categories/Mathematics/">Mathematics<span>2</span></a></li>
 		
-			<li><a href="/categories/Media-Filtering/">Media Filtering<span>1</span></a></li>
+			<li><a href="/blog/categories/Media-Filtering/">Media Filtering<span>1</span></a></li>
 		
-			<li><a href="/categories/Media-repurposing-tools/">Media repurposing tools<span>1</span></a></li>
+			<li><a href="/blog/categories/Media-repurposing-tools/">Media repurposing tools<span>1</span></a></li>
 		
-			<li><a href="/categories/Meta-Search-Engines/">Meta Search Engines<span>1</span></a></li>
+			<li><a href="/blog/categories/Meta-Search-Engines/">Meta Search Engines<span>1</span></a></li>
 		
-			<li><a href="/categories/Metasploit-Python-scripting/">Metasploit Python scripting<span>1</span></a></li>
+			<li><a href="/blog/categories/Metasploit-Python-scripting/">Metasploit Python scripting<span>1</span></a></li>
 		
-			<li><a href="/categories/Mini-ITX-Computers/">Mini-ITX Computers<span>1</span></a></li>
+			<li><a href="/blog/categories/Mini-ITX-Computers/">Mini-ITX Computers<span>1</span></a></li>
 		
-			<li><a href="/categories/Mitmproxy-tool/">Mitmproxy tool<span>1</span></a></li>
+			<li><a href="/blog/categories/Mitmproxy-tool/">Mitmproxy tool<span>1</span></a></li>
 		
-			<li><a href="/categories/Mobile-App-Development/">Mobile App Development<span>1</span></a></li>
+			<li><a href="/blog/categories/Mobile-App-Development/">Mobile App Development<span>1</span></a></li>
 		
-			<li><a href="/categories/Mobile-Phones/">Mobile Phones<span>1</span></a></li>
+			<li><a href="/blog/categories/Mobile-Phones/">Mobile Phones<span>1</span></a></li>
 		
-			<li><a href="/categories/Model-Optimization/">Model Optimization<span>1</span></a></li>
+			<li><a href="/blog/categories/Model-Optimization/">Model Optimization<span>1</span></a></li>
 		
-			<li><a href="/categories/Model-Uploading/">Model Uploading<span>1</span></a></li>
+			<li><a href="/blog/categories/Model-Uploading/">Model Uploading<span>1</span></a></li>
 		
-			<li><a href="/categories/Model-zoos/">Model zoos<span>1</span></a></li>
+			<li><a href="/blog/categories/Model-zoos/">Model zoos<span>1</span></a></li>
 		
-			<li><a href="/categories/Molecular-dynamics-simulations/">Molecular dynamics simulations<span>1</span></a></li>
+			<li><a href="/blog/categories/Molecular-dynamics-simulations/">Molecular dynamics simulations<span>1</span></a></li>
 		
-			<li><a href="/categories/Movies/">Movies<span>1</span></a></li>
+			<li><a href="/blog/categories/Movies/">Movies<span>1</span></a></li>
 		
-			<li><a href="/categories/Music/">Music<span>1</span></a></li>
+			<li><a href="/blog/categories/Music/">Music<span>1</span></a></li>
 		
-			<li><a href="/categories/Music-Discovery/">Music Discovery<span>1</span></a></li>
+			<li><a href="/blog/categories/Music-Discovery/">Music Discovery<span>1</span></a></li>
 		
-			<li><a href="/categories/Music-Generation/">Music Generation<span>1</span></a></li>
+			<li><a href="/blog/categories/Music-Generation/">Music Generation<span>1</span></a></li>
 		
-			<li><a href="/categories/Music-Platforms/">Music Platforms<span>1</span></a></li>
+			<li><a href="/blog/categories/Music-Platforms/">Music Platforms<span>1</span></a></li>
 		
-			<li><a href="/categories/Music-Production/">Music Production<span>1</span></a></li>
+			<li><a href="/blog/categories/Music-Production/">Music Production<span>1</span></a></li>
 		
-			<li><a href="/categories/NAS/">NAS<span>1</span></a></li>
+			<li><a href="/blog/categories/NAS/">NAS<span>1</span></a></li>
 		
-			<li><a href="/categories/NLP-Frameworks/">NLP Frameworks<span>1</span></a></li>
+			<li><a href="/blog/categories/NLP-Frameworks/">NLP Frameworks<span>1</span></a></li>
 		
-			<li><a href="/categories/NLP-Tools/">NLP Tools<span>1</span></a></li>
+			<li><a href="/blog/categories/NLP-Tools/">NLP Tools<span>1</span></a></li>
 		
-			<li><a href="/categories/NTFS-Recovery-Tools/">NTFS Recovery Tools<span>1</span></a></li>
+			<li><a href="/blog/categories/NTFS-Recovery-Tools/">NTFS Recovery Tools<span>1</span></a></li>
 		
-			<li><a href="/categories/NVIDIA-drivers/">NVIDIA drivers<span>1</span></a></li>
+			<li><a href="/blog/categories/NVIDIA-drivers/">NVIDIA drivers<span>1</span></a></li>
 		
-			<li><a href="/categories/Natural-Language-Generation/">Natural Language Generation<span>1</span></a></li>
+			<li><a href="/blog/categories/Natural-Language-Generation/">Natural Language Generation<span>1</span></a></li>
 		
-			<li><a href="/categories/Natural-Language-Processing/">Natural Language Processing<span>6</span></a></li>
+			<li><a href="/blog/categories/Natural-Language-Processing/">Natural Language Processing<span>6</span></a></li>
 		
-			<li><a href="/categories/Neo4j/">Neo4j<span>1</span></a></li>
+			<li><a href="/blog/categories/Neo4j/">Neo4j<span>1</span></a></li>
 		
-			<li><a href="/categories/Neo4j-Cypher-Cheatsheet/">Neo4j Cypher Cheatsheet<span>1</span></a></li>
+			<li><a href="/blog/categories/Neo4j-Cypher-Cheatsheet/">Neo4j Cypher Cheatsheet<span>1</span></a></li>
 		
-			<li><a href="/categories/Neo4j-Graph-Data-Science/">Neo4j Graph Data Science<span>1</span></a></li>
+			<li><a href="/blog/categories/Neo4j-Graph-Data-Science/">Neo4j Graph Data Science<span>1</span></a></li>
 		
-			<li><a href="/categories/Network-Switching/">Network Switching<span>1</span></a></li>
+			<li><a href="/blog/categories/Network-Switching/">Network Switching<span>1</span></a></li>
 		
-			<li><a href="/categories/Network-communication/">Network communication<span>1</span></a></li>
+			<li><a href="/blog/categories/Network-communication/">Network communication<span>1</span></a></li>
 		
-			<li><a href="/categories/Networking/">Networking<span>4</span></a></li>
+			<li><a href="/blog/categories/Networking/">Networking<span>4</span></a></li>
 		
-			<li><a href="/categories/Neural-Search-Engines/">Neural Search Engines<span>1</span></a></li>
+			<li><a href="/blog/categories/Neural-Search-Engines/">Neural Search Engines<span>1</span></a></li>
 		
-			<li><a href="/categories/NeuralDiff/">NeuralDiff<span>1</span></a></li>
+			<li><a href="/blog/categories/NeuralDiff/">NeuralDiff<span>1</span></a></li>
 		
-			<li><a href="/categories/Note-Syncing/">Note Syncing<span>1</span></a></li>
+			<li><a href="/blog/categories/Note-Syncing/">Note Syncing<span>1</span></a></li>
 		
-			<li><a href="/categories/Notes-and-Scripts-Backup/">Notes and Scripts Backup<span>1</span></a></li>
+			<li><a href="/blog/categories/Notes-and-Scripts-Backup/">Notes and Scripts Backup<span>1</span></a></li>
 		
-			<li><a href="/categories/Numpy/">Numpy<span>1</span></a></li>
+			<li><a href="/blog/categories/Numpy/">Numpy<span>1</span></a></li>
 		
-			<li><a href="/categories/OCR-Techniques/">OCR Techniques<span>1</span></a></li>
+			<li><a href="/blog/categories/OCR-Techniques/">OCR Techniques<span>1</span></a></li>
 		
-			<li><a href="/categories/OCR-Tools/">OCR Tools<span>1</span></a></li>
+			<li><a href="/blog/categories/OCR-Tools/">OCR Tools<span>1</span></a></li>
 		
-			<li><a href="/categories/Online-Movies/">Online Movies<span>1</span></a></li>
+			<li><a href="/blog/categories/Online-Movies/">Online Movies<span>1</span></a></li>
 		
-			<li><a href="/categories/Online-Security-and-Privacy/">Online Security and Privacy<span>1</span></a></li>
+			<li><a href="/blog/categories/Online-Security-and-Privacy/">Online Security and Privacy<span>1</span></a></li>
 		
-			<li><a href="/categories/Online-Tools/">Online Tools<span>1</span></a></li>
+			<li><a href="/blog/categories/Online-Tools/">Online Tools<span>1</span></a></li>
 		
-			<li><a href="/categories/Online-security-and-privacy/">Online security and privacy<span>1</span></a></li>
+			<li><a href="/blog/categories/Online-security-and-privacy/">Online security and privacy<span>1</span></a></li>
 		
-			<li><a href="/categories/Open-source-Android-Automation/">Open-source Android Automation<span>1</span></a></li>
+			<li><a href="/blog/categories/Open-source-Android-Automation/">Open-source Android Automation<span>1</span></a></li>
 		
-			<li><a href="/categories/Open-source-Chinese-Fonts/">Open-source Chinese Fonts<span>1</span></a></li>
+			<li><a href="/blog/categories/Open-source-Chinese-Fonts/">Open-source Chinese Fonts<span>1</span></a></li>
 		
-			<li><a href="/categories/Open-source-Software/">Open-source Software<span>1</span></a></li>
+			<li><a href="/blog/categories/Open-source-Software/">Open-source Software<span>1</span></a></li>
 		
-			<li><a href="/categories/OpenCV/">OpenCV<span>1</span></a></li>
+			<li><a href="/blog/categories/OpenCV/">OpenCV<span>1</span></a></li>
 		
-			<li><a href="/categories/Opqbot/">Opqbot<span>1</span></a></li>
+			<li><a href="/blog/categories/Opqbot/">Opqbot<span>1</span></a></li>
 		
-			<li><a href="/categories/Optical-Flow-Techniques/">Optical Flow Techniques<span>1</span></a></li>
+			<li><a href="/blog/categories/Optical-Flow-Techniques/">Optical Flow Techniques<span>1</span></a></li>
 		
-			<li><a href="/categories/Optimization-Techniques/">Optimization Techniques<span>1</span></a></li>
+			<li><a href="/blog/categories/Optimization-Techniques/">Optimization Techniques<span>1</span></a></li>
 		
-			<li><a href="/categories/Package-Management/">Package Management<span>2</span></a></li>
+			<li><a href="/blog/categories/Package-Management/">Package Management<span>2</span></a></li>
 		
-			<li><a href="/categories/Package-Managers/">Package Managers<span>1</span></a></li>
+			<li><a href="/blog/categories/Package-Managers/">Package Managers<span>1</span></a></li>
 		
-			<li><a href="/categories/Paraphrasing/">Paraphrasing<span>1</span></a></li>
+			<li><a href="/blog/categories/Paraphrasing/">Paraphrasing<span>1</span></a></li>
 		
-			<li><a href="/categories/Password-Reset/">Password Reset<span>1</span></a></li>
+			<li><a href="/blog/categories/Password-Reset/">Password Reset<span>1</span></a></li>
 		
-			<li><a href="/categories/Payment-Systems/">Payment Systems<span>1</span></a></li>
+			<li><a href="/blog/categories/Payment-Systems/">Payment Systems<span>1</span></a></li>
 		
-			<li><a href="/categories/Platform-Tutorials/">Platform Tutorials<span>1</span></a></li>
+			<li><a href="/blog/categories/Platform-Tutorials/">Platform Tutorials<span>1</span></a></li>
 		
-			<li><a href="/categories/Playwright/">Playwright<span>1</span></a></li>
+			<li><a href="/blog/categories/Playwright/">Playwright<span>1</span></a></li>
 		
-			<li><a href="/categories/Politics-and-Capitalism/">Politics and Capitalism<span>1</span></a></li>
+			<li><a href="/blog/categories/Politics-and-Capitalism/">Politics and Capitalism<span>1</span></a></li>
 		
-			<li><a href="/categories/Probabilistic-Programming/">Probabilistic Programming<span>2</span></a></li>
+			<li><a href="/blog/categories/Probabilistic-Programming/">Probabilistic Programming<span>2</span></a></li>
 		
-			<li><a href="/categories/Process-Management/">Process Management<span>1</span></a></li>
+			<li><a href="/blog/categories/Process-Management/">Process Management<span>1</span></a></li>
 		
-			<li><a href="/categories/Process-Monitoring/">Process Monitoring<span>1</span></a></li>
+			<li><a href="/blog/categories/Process-Monitoring/">Process Monitoring<span>1</span></a></li>
 		
-			<li><a href="/categories/Producer-flags/">Producer flags<span>1</span></a></li>
+			<li><a href="/blog/categories/Producer-flags/">Producer flags<span>1</span></a></li>
 		
-			<li><a href="/categories/Product-Issues/">Product Issues<span>1</span></a></li>
+			<li><a href="/blog/categories/Product-Issues/">Product Issues<span>1</span></a></li>
 		
-			<li><a href="/categories/Programming/">Programming<span>2</span></a></li>
+			<li><a href="/blog/categories/Programming/">Programming<span>2</span></a></li>
 		
-			<li><a href="/categories/Programming-Humor/">Programming Humor<span>1</span></a></li>
+			<li><a href="/blog/categories/Programming-Humor/">Programming Humor<span>1</span></a></li>
 		
-			<li><a href="/categories/Programming-Languages/">Programming Languages<span>4</span></a></li>
+			<li><a href="/blog/categories/Programming-Languages/">Programming Languages<span>4</span></a></li>
 		
-			<li><a href="/categories/Project-Planning/">Project Planning<span>1</span></a></li>
+			<li><a href="/blog/categories/Project-Planning/">Project Planning<span>1</span></a></li>
 		
-			<li><a href="/categories/Propagation-Science/">Propagation Science<span>1</span></a></li>
+			<li><a href="/blog/categories/Propagation-Science/">Propagation Science<span>1</span></a></li>
 		
-			<li><a href="/categories/Proxies/">Proxies<span>1</span></a></li>
+			<li><a href="/blog/categories/Proxies/">Proxies<span>1</span></a></li>
 		
-			<li><a href="/categories/PyTorch/">PyTorch<span>1</span></a></li>
+			<li><a href="/blog/categories/PyTorch/">PyTorch<span>1</span></a></li>
 		
-			<li><a href="/categories/Python/">Python<span>4</span></a></li>
+			<li><a href="/blog/categories/Python/">Python<span>4</span></a></li>
 		
-			<li><a href="/categories/Python-Libraries/">Python Libraries<span>2</span></a></li>
+			<li><a href="/blog/categories/Python-Libraries/">Python Libraries<span>2</span></a></li>
 		
-			<li><a href="/categories/Python-Performance/">Python Performance<span>1</span></a></li>
+			<li><a href="/blog/categories/Python-Performance/">Python Performance<span>1</span></a></li>
 		
-			<li><a href="/categories/Python-Programming/">Python Programming<span>3</span></a></li>
+			<li><a href="/blog/categories/Python-Programming/">Python Programming<span>3</span></a></li>
 		
-			<li><a href="/categories/Python-Testing/">Python Testing<span>1</span></a></li>
+			<li><a href="/blog/categories/Python-Testing/">Python Testing<span>1</span></a></li>
 		
-			<li><a href="/categories/Python-Tools/">Python Tools<span>1</span></a></li>
+			<li><a href="/blog/categories/Python-Tools/">Python Tools<span>1</span></a></li>
 		
-			<li><a href="/categories/Python-programming/">Python programming<span>7</span></a></li>
+			<li><a href="/blog/categories/Python-programming/">Python programming<span>7</span></a></li>
 		
-			<li><a href="/categories/Quantitative-Trading-Platforms/">Quantitative Trading Platforms<span>1</span></a></li>
+			<li><a href="/blog/categories/Quantitative-Trading-Platforms/">Quantitative Trading Platforms<span>1</span></a></li>
 		
-			<li><a href="/categories/Quantum-Computing/">Quantum Computing<span>1</span></a></li>
+			<li><a href="/blog/categories/Quantum-Computing/">Quantum Computing<span>1</span></a></li>
 		
-			<li><a href="/categories/RAM-Disk/">RAM Disk<span>1</span></a></li>
+			<li><a href="/blog/categories/RAM-Disk/">RAM Disk<span>1</span></a></li>
 		
-			<li><a href="/categories/RSS-Feeds-and-Aggregators/">RSS Feeds and Aggregators<span>1</span></a></li>
+			<li><a href="/blog/categories/RSS-Feeds-and-Aggregators/">RSS Feeds and Aggregators<span>1</span></a></li>
 		
-			<li><a href="/categories/RWKV-Language-Models/">RWKV Language Models<span>1</span></a></li>
+			<li><a href="/blog/categories/RWKV-Language-Models/">RWKV Language Models<span>1</span></a></li>
 		
-			<li><a href="/categories/Radar-systems/">Radar systems<span>1</span></a></li>
+			<li><a href="/blog/categories/Radar-systems/">Radar systems<span>1</span></a></li>
 		
-			<li><a href="/categories/Random-Number-Generation/">Random Number Generation<span>1</span></a></li>
+			<li><a href="/blog/categories/Random-Number-Generation/">Random Number Generation<span>1</span></a></li>
 		
-			<li><a href="/categories/Recaptcha-Solving-Solutions/">Recaptcha Solving Solutions<span>1</span></a></li>
+			<li><a href="/blog/categories/Recaptcha-Solving-Solutions/">Recaptcha Solving Solutions<span>1</span></a></li>
 		
-			<li><a href="/categories/Recommendation-Algorithms/">Recommendation Algorithms<span>1</span></a></li>
+			<li><a href="/blog/categories/Recommendation-Algorithms/">Recommendation Algorithms<span>1</span></a></li>
 		
-			<li><a href="/categories/Recovery-USB/">Recovery USB<span>1</span></a></li>
+			<li><a href="/blog/categories/Recovery-USB/">Recovery USB<span>1</span></a></li>
 		
-			<li><a href="/categories/Rectangularization-Methods/">Rectangularization Methods<span>1</span></a></li>
+			<li><a href="/blog/categories/Rectangularization-Methods/">Rectangularization Methods<span>1</span></a></li>
 		
-			<li><a href="/categories/Redis/">Redis<span>1</span></a></li>
+			<li><a href="/blog/categories/Redis/">Redis<span>1</span></a></li>
 		
-			<li><a href="/categories/Redis-py-library/">Redis-py library<span>1</span></a></li>
+			<li><a href="/blog/categories/Redis-py-library/">Redis-py library<span>1</span></a></li>
 		
-			<li><a href="/categories/Reinforcement-Learning/">Reinforcement Learning<span>2</span></a></li>
+			<li><a href="/blog/categories/Reinforcement-Learning/">Reinforcement Learning<span>2</span></a></li>
 		
-			<li><a href="/categories/Remote-Connection/">Remote Connection<span>1</span></a></li>
+			<li><a href="/blog/categories/Remote-Connection/">Remote Connection<span>1</span></a></li>
 		
-			<li><a href="/categories/Remote-Jobs/">Remote Jobs<span>1</span></a></li>
+			<li><a href="/blog/categories/Remote-Jobs/">Remote Jobs<span>1</span></a></li>
 		
-			<li><a href="/categories/Remote-Procedure-Call-Technologies/">Remote Procedure Call Technologies<span>1</span></a></li>
+			<li><a href="/blog/categories/Remote-Procedure-Call-Technologies/">Remote Procedure Call Technologies<span>1</span></a></li>
 		
-			<li><a href="/categories/Retry-Libraries/">Retry Libraries<span>1</span></a></li>
+			<li><a href="/blog/categories/Retry-Libraries/">Retry Libraries<span>1</span></a></li>
 		
-			<li><a href="/categories/Reverse-Engineering/">Reverse Engineering<span>2</span></a></li>
+			<li><a href="/blog/categories/Reverse-Engineering/">Reverse Engineering<span>2</span></a></li>
 		
-			<li><a href="/categories/Robotics/">Robotics<span>1</span></a></li>
+			<li><a href="/blog/categories/Robotics/">Robotics<span>1</span></a></li>
 		
-			<li><a href="/categories/Royalty-free-video-sources/">Royalty-free video sources<span>1</span></a></li>
+			<li><a href="/blog/categories/Royalty-free-video-sources/">Royalty-free video sources<span>1</span></a></li>
 		
-			<li><a href="/categories/SEO/">SEO<span>1</span></a></li>
+			<li><a href="/blog/categories/SEO/">SEO<span>1</span></a></li>
 		
-			<li><a href="/categories/SQL-Injection-Attacks/">SQL Injection Attacks<span>1</span></a></li>
+			<li><a href="/blog/categories/SQL-Injection-Attacks/">SQL Injection Attacks<span>1</span></a></li>
 		
-			<li><a href="/categories/SQLite-ORM/">SQLite ORM<span>1</span></a></li>
+			<li><a href="/blog/categories/SQLite-ORM/">SQLite ORM<span>1</span></a></li>
 		
-			<li><a href="/categories/SSH-keys/">SSH keys<span>1</span></a></li>
+			<li><a href="/blog/categories/SSH-keys/">SSH keys<span>1</span></a></li>
 		
-			<li><a href="/categories/Scraping/">Scraping<span>1</span></a></li>
+			<li><a href="/blog/categories/Scraping/">Scraping<span>1</span></a></li>
 		
-			<li><a href="/categories/Search-Engine-Optimization/">Search Engine Optimization<span>1</span></a></li>
+			<li><a href="/blog/categories/Search-Engine-Optimization/">Search Engine Optimization<span>1</span></a></li>
 		
-			<li><a href="/categories/Search-Engines/">Search Engines<span>3</span></a></li>
+			<li><a href="/blog/categories/Search-Engines/">Search Engines<span>3</span></a></li>
 		
-			<li><a href="/categories/Search-Methods/">Search Methods<span>1</span></a></li>
+			<li><a href="/blog/categories/Search-Methods/">Search Methods<span>1</span></a></li>
 		
-			<li><a href="/categories/Security/">Security<span>8</span></a></li>
+			<li><a href="/blog/categories/Security/">Security<span>8</span></a></li>
 		
-			<li><a href="/categories/Security-Tools/">Security Tools<span>1</span></a></li>
+			<li><a href="/blog/categories/Security-Tools/">Security Tools<span>1</span></a></li>
 		
-			<li><a href="/categories/Semantic-Search/">Semantic Search<span>1</span></a></li>
+			<li><a href="/blog/categories/Semantic-Search/">Semantic Search<span>1</span></a></li>
 		
-			<li><a href="/categories/Session-Management/">Session Management<span>1</span></a></li>
+			<li><a href="/blog/categories/Session-Management/">Session Management<span>1</span></a></li>
 		
-			<li><a href="/categories/Short-URL-generators/">Short URL generators<span>1</span></a></li>
+			<li><a href="/blog/categories/Short-URL-generators/">Short URL generators<span>1</span></a></li>
 		
-			<li><a href="/categories/Sketch-based-Applications/">Sketch-based Applications<span>1</span></a></li>
+			<li><a href="/blog/categories/Sketch-based-Applications/">Sketch-based Applications<span>1</span></a></li>
 		
-			<li><a href="/categories/Skin-Products-and-Diet/">Skin Products and Diet<span>1</span></a></li>
+			<li><a href="/blog/categories/Skin-Products-and-Diet/">Skin Products and Diet<span>1</span></a></li>
 		
-			<li><a href="/categories/Sleep/">Sleep<span>1</span></a></li>
+			<li><a href="/blog/categories/Sleep/">Sleep<span>1</span></a></li>
 		
-			<li><a href="/categories/Smartwatches/">Smartwatches<span>2</span></a></li>
+			<li><a href="/blog/categories/Smartwatches/">Smartwatches<span>2</span></a></li>
 		
-			<li><a href="/categories/Social-Media/">Social Media<span>1</span></a></li>
+			<li><a href="/blog/categories/Social-Media/">Social Media<span>1</span></a></li>
 		
-			<li><a href="/categories/Social-Media-Transformation/">Social Media Transformation<span>1</span></a></li>
+			<li><a href="/blog/categories/Social-Media-Transformation/">Social Media Transformation<span>1</span></a></li>
 		
-			<li><a href="/categories/Software/">Software<span>2</span></a></li>
+			<li><a href="/blog/categories/Software/">Software<span>2</span></a></li>
 		
-			<li><a href="/categories/Software-Security/">Software Security<span>1</span></a></li>
+			<li><a href="/blog/categories/Software-Security/">Software Security<span>1</span></a></li>
 		
-			<li><a href="/categories/Software-Testing-Efficiency-Metrics/">Software Testing Efficiency Metrics<span>1</span></a></li>
+			<li><a href="/blog/categories/Software-Testing-Efficiency-Metrics/">Software Testing Efficiency Metrics<span>1</span></a></li>
 		
-			<li><a href="/categories/Software-Tools/">Software Tools<span>1</span></a></li>
+			<li><a href="/blog/categories/Software-Tools/">Software Tools<span>1</span></a></li>
 		
-			<li><a href="/categories/Software-Troubleshooting/">Software Troubleshooting<span>3</span></a></li>
+			<li><a href="/blog/categories/Software-Troubleshooting/">Software Troubleshooting<span>3</span></a></li>
 		
-			<li><a href="/categories/Software-activation/">Software activation<span>1</span></a></li>
+			<li><a href="/blog/categories/Software-activation/">Software activation<span>1</span></a></li>
 		
-			<li><a href="/categories/Software-as-a-Service-SaaS/">Software as a Service (SaaS)<span>1</span></a></li>
+			<li><a href="/blog/categories/Software-as-a-Service-SaaS/">Software as a Service (SaaS)<span>1</span></a></li>
 		
-			<li><a href="/categories/Software-troubleshooting/">Software troubleshooting<span>1</span></a></li>
+			<li><a href="/blog/categories/Software-troubleshooting/">Software troubleshooting<span>1</span></a></li>
 		
-			<li><a href="/categories/Sound-Effects/">Sound Effects<span>1</span></a></li>
+			<li><a href="/blog/categories/Sound-Effects/">Sound Effects<span>1</span></a></li>
 		
-			<li><a href="/categories/Speaker-Detection/">Speaker Detection<span>1</span></a></li>
+			<li><a href="/blog/categories/Speaker-Detection/">Speaker Detection<span>1</span></a></li>
 		
-			<li><a href="/categories/Speech-to-Text-Conversion/">Speech-to-Text Conversion<span>1</span></a></li>
+			<li><a href="/blog/categories/Speech-to-Text-Conversion/">Speech-to-Text Conversion<span>1</span></a></li>
 		
-			<li><a href="/categories/Stock-Data/">Stock Data<span>1</span></a></li>
+			<li><a href="/blog/categories/Stock-Data/">Stock Data<span>1</span></a></li>
 		
-			<li><a href="/categories/Stock-Market-Analysis/">Stock Market Analysis<span>1</span></a></li>
+			<li><a href="/blog/categories/Stock-Market-Analysis/">Stock Market Analysis<span>1</span></a></li>
 		
-			<li><a href="/categories/Stock-Selection/">Stock Selection<span>1</span></a></li>
+			<li><a href="/blog/categories/Stock-Selection/">Stock Selection<span>1</span></a></li>
 		
-			<li><a href="/categories/Story-Dalle/">Story-Dalle<span>1</span></a></li>
+			<li><a href="/blog/categories/Story-Dalle/">Story-Dalle<span>1</span></a></li>
 		
-			<li><a href="/categories/Synchronization/">Synchronization<span>1</span></a></li>
+			<li><a href="/blog/categories/Synchronization/">Synchronization<span>1</span></a></li>
 		
-			<li><a href="/categories/System-Administration/">System Administration<span>1</span></a></li>
+			<li><a href="/blog/categories/System-Administration/">System Administration<span>1</span></a></li>
 		
-			<li><a href="/categories/System-Monitoring/">System Monitoring<span>1</span></a></li>
+			<li><a href="/blog/categories/System-Monitoring/">System Monitoring<span>1</span></a></li>
 		
-			<li><a href="/categories/Tab-Management/">Tab Management<span>1</span></a></li>
+			<li><a href="/blog/categories/Tab-Management/">Tab Management<span>1</span></a></li>
 		
-			<li><a href="/categories/Technology/">Technology<span>2</span></a></li>
+			<li><a href="/blog/categories/Technology/">Technology<span>2</span></a></li>
 		
-			<li><a href="/categories/Technology-and-Innovation/">Technology and Innovation<span>1</span></a></li>
+			<li><a href="/blog/categories/Technology-and-Innovation/">Technology and Innovation<span>1</span></a></li>
 		
-			<li><a href="/categories/Temperature-Management/">Temperature Management<span>1</span></a></li>
+			<li><a href="/blog/categories/Temperature-Management/">Temperature Management<span>1</span></a></li>
 		
-			<li><a href="/categories/TensorFlow-js/">TensorFlow.js<span>1</span></a></li>
+			<li><a href="/blog/categories/TensorFlow-js/">TensorFlow.js<span>1</span></a></li>
 		
-			<li><a href="/categories/Tensorly-and-Torch-based-Liquid-State-Machine-for-Efficient-Data-Processing-of-Complex-Datasets-like-Brain-Neurons/">Tensorly and Torch-based Liquid State Machine for Efficient Data Processing of Complex Datasets like Brain Neurons<span>1</span></a></li>
+			<li><a href="/blog/categories/Tensorly-and-Torch-based-Liquid-State-Machine-for-Efficient-Data-Processing-of-Complex-Datasets-like-Brain-Neurons/">Tensorly and Torch-based Liquid State Machine for Efficient Data Processing of Complex Datasets like Brain Neurons<span>1</span></a></li>
 		
-			<li><a href="/categories/Terminal-autocomplete/">Terminal autocomplete<span>1</span></a></li>
+			<li><a href="/blog/categories/Terminal-autocomplete/">Terminal autocomplete<span>1</span></a></li>
 		
-			<li><a href="/categories/Termux/">Termux<span>3</span></a></li>
+			<li><a href="/blog/categories/Termux/">Termux<span>3</span></a></li>
 		
-			<li><a href="/categories/Text-Editors/">Text Editors<span>1</span></a></li>
+			<li><a href="/blog/categories/Text-Editors/">Text Editors<span>1</span></a></li>
 		
-			<li><a href="/categories/Text-to-Speech/">Text to Speech<span>1</span></a></li>
+			<li><a href="/blog/categories/Text-to-Speech/">Text to Speech<span>1</span></a></li>
 		
-			<li><a href="/categories/Text-to-Video-Projects/">Text-to-Video Projects<span>1</span></a></li>
+			<li><a href="/blog/categories/Text-to-Video-Projects/">Text-to-Video Projects<span>1</span></a></li>
 		
-			<li><a href="/categories/Throat-Care/">Throat Care<span>1</span></a></li>
+			<li><a href="/blog/categories/Throat-Care/">Throat Care<span>1</span></a></li>
 		
-			<li><a href="/categories/Time-Series-Analysis/">Time Series Analysis<span>1</span></a></li>
+			<li><a href="/blog/categories/Time-Series-Analysis/">Time Series Analysis<span>1</span></a></li>
 		
-			<li><a href="/categories/Torrent-Search-Engines/">Torrent Search Engines<span>1</span></a></li>
+			<li><a href="/blog/categories/Torrent-Search-Engines/">Torrent Search Engines<span>1</span></a></li>
 		
-			<li><a href="/categories/Training-Large-Language-Models/">Training Large Language Models<span>1</span></a></li>
+			<li><a href="/blog/categories/Training-Large-Language-Models/">Training Large Language Models<span>1</span></a></li>
 		
-			<li><a href="/categories/Trash-Management/">Trash Management<span>1</span></a></li>
+			<li><a href="/blog/categories/Trash-Management/">Trash Management<span>1</span></a></li>
 		
-			<li><a href="/categories/Troubleshooting/">Troubleshooting<span>8</span></a></li>
+			<li><a href="/blog/categories/Troubleshooting/">Troubleshooting<span>8</span></a></li>
 		
-			<li><a href="/categories/Tutorial/">Tutorial<span>1</span></a></li>
+			<li><a href="/blog/categories/Tutorial/">Tutorial<span>1</span></a></li>
 		
-			<li><a href="/categories/Unblocked-content/">Unblocked content<span>1</span></a></li>
+			<li><a href="/blog/categories/Unblocked-content/">Unblocked content<span>1</span></a></li>
 		
-			<li><a href="/categories/Unlocking-Bootloader/">Unlocking Bootloader<span>1</span></a></li>
+			<li><a href="/blog/categories/Unlocking-Bootloader/">Unlocking Bootloader<span>1</span></a></li>
 		
-			<li><a href="/categories/Video-Analysis/">Video Analysis<span>1</span></a></li>
+			<li><a href="/blog/categories/Video-Analysis/">Video Analysis<span>1</span></a></li>
 		
-			<li><a href="/categories/Video-Compression/">Video Compression<span>1</span></a></li>
+			<li><a href="/blog/categories/Video-Compression/">Video Compression<span>1</span></a></li>
 		
-			<li><a href="/categories/Video-Creation-Methods/">Video Creation Methods<span>1</span></a></li>
+			<li><a href="/blog/categories/Video-Creation-Methods/">Video Creation Methods<span>1</span></a></li>
 		
-			<li><a href="/categories/Video-Downloaders/">Video Downloaders<span>2</span></a></li>
+			<li><a href="/blog/categories/Video-Downloaders/">Video Downloaders<span>2</span></a></li>
 		
-			<li><a href="/categories/Video-Downloading-Tools/">Video Downloading Tools<span>2</span></a></li>
+			<li><a href="/blog/categories/Video-Downloading-Tools/">Video Downloading Tools<span>2</span></a></li>
 		
-			<li><a href="/categories/Video-Editing/">Video Editing<span>5</span></a></li>
+			<li><a href="/blog/categories/Video-Editing/">Video Editing<span>5</span></a></li>
 		
-			<li><a href="/categories/Video-Editing-Software/">Video Editing Software<span>2</span></a></li>
+			<li><a href="/blog/categories/Video-Editing-Software/">Video Editing Software<span>2</span></a></li>
 		
-			<li><a href="/categories/Video-Editing-Tools/">Video Editing Tools<span>1</span></a></li>
+			<li><a href="/blog/categories/Video-Editing-Tools/">Video Editing Tools<span>1</span></a></li>
 		
-			<li><a href="/categories/Video-Enhancement/">Video Enhancement<span>1</span></a></li>
+			<li><a href="/blog/categories/Video-Enhancement/">Video Enhancement<span>1</span></a></li>
 		
-			<li><a href="/categories/Video-Manipulation/">Video Manipulation<span>1</span></a></li>
+			<li><a href="/blog/categories/Video-Manipulation/">Video Manipulation<span>1</span></a></li>
 		
-			<li><a href="/categories/Video-Object-Tracking/">Video Object Tracking<span>1</span></a></li>
+			<li><a href="/blog/categories/Video-Object-Tracking/">Video Object Tracking<span>1</span></a></li>
 		
-			<li><a href="/categories/Video-Processing/">Video Processing<span>4</span></a></li>
+			<li><a href="/blog/categories/Video-Processing/">Video Processing<span>4</span></a></li>
 		
-			<li><a href="/categories/Video-Production/">Video Production<span>1</span></a></li>
+			<li><a href="/blog/categories/Video-Production/">Video Production<span>1</span></a></li>
 		
-			<li><a href="/categories/Video-Quality-Assessment/">Video Quality Assessment<span>1</span></a></li>
+			<li><a href="/blog/categories/Video-Quality-Assessment/">Video Quality Assessment<span>1</span></a></li>
 		
-			<li><a href="/categories/Video-Search/">Video Search<span>1</span></a></li>
+			<li><a href="/blog/categories/Video-Search/">Video Search<span>1</span></a></li>
 		
-			<li><a href="/categories/Video-Sharing-Platforms/">Video Sharing Platforms<span>1</span></a></li>
+			<li><a href="/blog/categories/Video-Sharing-Platforms/">Video Sharing Platforms<span>1</span></a></li>
 		
-			<li><a href="/categories/Video-and-Audio-Processing/">Video and Audio Processing<span>1</span></a></li>
+			<li><a href="/blog/categories/Video-and-Audio-Processing/">Video and Audio Processing<span>1</span></a></li>
 		
-			<li><a href="/categories/Virtual-Environments/">Virtual Environments<span>1</span></a></li>
+			<li><a href="/blog/categories/Virtual-Environments/">Virtual Environments<span>1</span></a></li>
 		
-			<li><a href="/categories/Virtualization/">Virtualization<span>1</span></a></li>
+			<li><a href="/blog/categories/Virtualization/">Virtualization<span>1</span></a></li>
 		
-			<li><a href="/categories/Visual-Studio-Code/">Visual Studio Code<span>1</span></a></li>
+			<li><a href="/blog/categories/Visual-Studio-Code/">Visual Studio Code<span>1</span></a></li>
 		
-			<li><a href="/categories/Volume-Management/">Volume Management<span>1</span></a></li>
+			<li><a href="/blog/categories/Volume-Management/">Volume Management<span>1</span></a></li>
 		
-			<li><a href="/categories/Water-Cooling-Systems/">Water Cooling Systems<span>1</span></a></li>
+			<li><a href="/blog/categories/Water-Cooling-Systems/">Water Cooling Systems<span>1</span></a></li>
 		
-			<li><a href="/categories/Wearable-Devices/">Wearable Devices<span>1</span></a></li>
+			<li><a href="/blog/categories/Wearable-Devices/">Wearable Devices<span>1</span></a></li>
 		
-			<li><a href="/categories/Web-Application-Security/">Web Application Security<span>3</span></a></li>
+			<li><a href="/blog/categories/Web-Application-Security/">Web Application Security<span>3</span></a></li>
 		
-			<li><a href="/categories/Web-Applications/">Web Applications<span>2</span></a></li>
+			<li><a href="/blog/categories/Web-Applications/">Web Applications<span>2</span></a></li>
 		
-			<li><a href="/categories/Web-Customization/">Web Customization<span>1</span></a></li>
+			<li><a href="/blog/categories/Web-Customization/">Web Customization<span>1</span></a></li>
 		
-			<li><a href="/categories/Web-Development/">Web Development<span>2</span></a></li>
+			<li><a href="/blog/categories/Web-Development/">Web Development<span>2</span></a></li>
 		
-			<li><a href="/categories/Web-Scraping/">Web Scraping<span>7</span></a></li>
+			<li><a href="/blog/categories/Web-Scraping/">Web Scraping<span>7</span></a></li>
 		
-			<li><a href="/categories/Webhooks/">Webhooks<span>1</span></a></li>
+			<li><a href="/blog/categories/Webhooks/">Webhooks<span>1</span></a></li>
 		
-			<li><a href="/categories/Webpage-Rendering/">Webpage Rendering<span>1</span></a></li>
+			<li><a href="/blog/categories/Webpage-Rendering/">Webpage Rendering<span>1</span></a></li>
 		
-			<li><a href="/categories/Website-Resources/">Website Resources<span>1</span></a></li>
+			<li><a href="/blog/categories/Website-Resources/">Website Resources<span>1</span></a></li>
 		
-			<li><a href="/categories/Wi-Fi-Troubleshooting/">Wi-Fi Troubleshooting<span>1</span></a></li>
+			<li><a href="/blog/categories/Wi-Fi-Troubleshooting/">Wi-Fi Troubleshooting<span>1</span></a></li>
 		
-			<li><a href="/categories/Window-Management/">Window Management<span>2</span></a></li>
+			<li><a href="/blog/categories/Window-Management/">Window Management<span>2</span></a></li>
 		
-			<li><a href="/categories/Windows/">Windows<span>1</span></a></li>
+			<li><a href="/blog/categories/Windows/">Windows<span>1</span></a></li>
 		
-			<li><a href="/categories/Windows-10-Performance/">Windows 10 Performance<span>1</span></a></li>
+			<li><a href="/blog/categories/Windows-10-Performance/">Windows 10 Performance<span>1</span></a></li>
 		
-			<li><a href="/categories/Yoga/">Yoga<span>1</span></a></li>
+			<li><a href="/blog/categories/Yoga/">Yoga<span>1</span></a></li>
 		
-			<li><a href="/categories/YouTube-Monetization/">YouTube Monetization<span>1</span></a></li>
+			<li><a href="/blog/categories/YouTube-Monetization/">YouTube Monetization<span>1</span></a></li>
 		
-			<li><a href="/categories/Zhihu/">Zhihu<span>1</span></a></li>
+			<li><a href="/blog/categories/Zhihu/">Zhihu<span>1</span></a></li>
 		
-			<li><a href="/categories/anti-censorship/">anti-censorship<span>1</span></a></li>
+			<li><a href="/blog/categories/anti-censorship/">anti-censorship<span>1</span></a></li>
 		
-			<li><a href="/categories/bilibili/">bilibili<span>1</span></a></li>
+			<li><a href="/blog/categories/bilibili/">bilibili<span>1</span></a></li>
 		
-			<li><a href="/categories/book-scanning/">book scanning<span>1</span></a></li>
+			<li><a href="/blog/categories/book-scanning/">book scanning<span>1</span></a></li>
 		
-			<li><a href="/categories/brainwave-translation/">brainwave translation<span>1</span></a></li>
+			<li><a href="/blog/categories/brainwave-translation/">brainwave translation<span>1</span></a></li>
 		
-			<li><a href="/categories/copyright/">copyright<span>1</span></a></li>
+			<li><a href="/blog/categories/copyright/">copyright<span>1</span></a></li>
 		
-			<li><a href="/categories/ctf-competitions/">ctf competitions<span>1</span></a></li>
+			<li><a href="/blog/categories/ctf-competitions/">ctf competitions<span>1</span></a></li>
 		
-			<li><a href="/categories/data-security/">data security<span>1</span></a></li>
+			<li><a href="/blog/categories/data-security/">data security<span>1</span></a></li>
 		
-			<li><a href="/categories/deobfustication/">deobfustication<span>1</span></a></li>
+			<li><a href="/blog/categories/deobfustication/">deobfustication<span>1</span></a></li>
 		
-			<li><a href="/categories/filename-issues/">filename issues<span>1</span></a></li>
+			<li><a href="/blog/categories/filename-issues/">filename issues<span>1</span></a></li>
 		
-			<li><a href="/categories/fire-prevention/">fire_prevention<span>1</span></a></li>
+			<li><a href="/blog/categories/fire-prevention/">fire_prevention<span>1</span></a></li>
 		
-			<li><a href="/categories/gaming/">gaming<span>1</span></a></li>
+			<li><a href="/blog/categories/gaming/">gaming<span>1</span></a></li>
 		
-			<li><a href="/categories/hacking/">hacking<span>1</span></a></li>
+			<li><a href="/blog/categories/hacking/">hacking<span>1</span></a></li>
 		
-			<li><a href="/categories/hardware-simulator/">hardware_simulator<span>1</span></a></li>
+			<li><a href="/blog/categories/hardware-simulator/">hardware_simulator<span>1</span></a></li>
 		
-			<li><a href="/categories/iOS-device-control/">iOS device control<span>1</span></a></li>
+			<li><a href="/blog/categories/iOS-device-control/">iOS device control<span>1</span></a></li>
 		
-			<li><a href="/categories/javascript/">javascript<span>1</span></a></li>
+			<li><a href="/blog/categories/javascript/">javascript<span>1</span></a></li>
 		
-			<li><a href="/categories/macOS/">macOS<span>1</span></a></li>
+			<li><a href="/blog/categories/macOS/">macOS<span>1</span></a></li>
 		
-			<li><a href="/categories/noise-generation/">noise_generation<span>1</span></a></li>
+			<li><a href="/blog/categories/noise-generation/">noise_generation<span>1</span></a></li>
 		
-			<li><a href="/categories/npm/">npm<span>1</span></a></li>
+			<li><a href="/blog/categories/npm/">npm<span>1</span></a></li>
 		
-			<li><a href="/categories/package-managers/">package_managers<span>1</span></a></li>
+			<li><a href="/blog/categories/package-managers/">package_managers<span>1</span></a></li>
 		
-			<li><a href="/categories/podcasts/">podcasts<span>1</span></a></li>
+			<li><a href="/blog/categories/podcasts/">podcasts<span>1</span></a></li>
 		
-			<li><a href="/categories/pwntools/">pwntools<span>1</span></a></li>
+			<li><a href="/blog/categories/pwntools/">pwntools<span>1</span></a></li>
 		
-			<li><a href="/categories/search-engines/">search_engines<span>1</span></a></li>
+			<li><a href="/blog/categories/search-engines/">search_engines<span>1</span></a></li>
 		
-			<li><a href="/categories/seo-tools/">seo_tools<span>1</span></a></li>
+			<li><a href="/blog/categories/seo-tools/">seo_tools<span>1</span></a></li>
 		
-			<li><a href="/categories/strategies-for-defeating-deduplicate-algorithms/">strategies for defeating deduplicate algorithms<span>1</span></a></li>
+			<li><a href="/blog/categories/strategies-for-defeating-deduplicate-algorithms/">strategies for defeating deduplicate algorithms<span>1</span></a></li>
 		
-			<li><a href="/categories/systemd/">systemd<span>1</span></a></li>
+			<li><a href="/blog/categories/systemd/">systemd<span>1</span></a></li>
 		
-			<li><a href="/categories/text-mining/">text-mining<span>1</span></a></li>
+			<li><a href="/blog/categories/text-mining/">text-mining<span>1</span></a></li>
 		
-			<li><a href="/categories/video-sites/">video_sites<span>1</span></a></li>
+			<li><a href="/blog/categories/video-sites/">video_sites<span>1</span></a></li>
 		
-			<li><a href="/categories/viral-strategies/">viral_strategies<span>1</span></a></li>
+			<li><a href="/blog/categories/viral-strategies/">viral_strategies<span>1</span></a></li>
 		
 		</ul>
 	</div>
@@ -1019,45 +971,45 @@
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/Alipay/">Alipay<span>1</span></a></li>
+			<li><a href="/blog/tags/finding-an-unused-port/">finding an unused port<span>1</span></a></li>
 		
-			<li><a href="/tags/Supervisor-settings-updates/">Supervisor settings updates<span>1</span></a></li>
+			<li><a href="/blog/tags/Continuous-Integration-services/">Continuous Integration services<span>1</span></a></li>
 		
-			<li><a href="/tags/waterproof/">waterproof<span>1</span></a></li>
+			<li><a href="/blog/tags/Metadata-Tagging/">Metadata Tagging<span>1</span></a></li>
 		
-			<li><a href="/tags/Leaderboard/">Leaderboard<span>1</span></a></li>
+			<li><a href="/blog/tags/RNN-LSTM/">RNN/LSTM<span>1</span></a></li>
 		
-			<li><a href="/tags/gpu-alternative/">gpu alternative<span>1</span></a></li>
+			<li><a href="/blog/tags/motion-driven-video/">motion driven video<span>4</span></a></li>
 		
-			<li><a href="/tags/Serial-number/">Serial number<span>1</span></a></li>
+			<li><a href="/blog/tags/Microsoft-Office-activation/">Microsoft Office activation<span>1</span></a></li>
 		
-			<li><a href="/tags/scripts/">scripts<span>1</span></a></li>
+			<li><a href="/blog/tags/computer-protection/">computer protection<span>1</span></a></li>
 		
-			<li><a href="/tags/IDE-support/">IDE support<span>1</span></a></li>
+			<li><a href="/blog/tags/trial-and-error/">trial and error<span>1</span></a></li>
 		
-			<li><a href="/tags/ad-posting/">ad posting<span>1</span></a></li>
+			<li><a href="/blog/tags/Web-sockets/">Web sockets<span>1</span></a></li>
 		
-			<li><a href="/tags/latex2sympy/">latex2sympy<span>1</span></a></li>
+			<li><a href="/blog/tags/Strangers-communication/">Strangers communication<span>1</span></a></li>
 		
-			<li><a href="/tags/AI-technology/">AI technology<span>1</span></a></li>
+			<li><a href="/blog/tags/alternative-method/">alternative method<span>1</span></a></li>
 		
-			<li><a href="/tags/intel/">intel<span>1</span></a></li>
+			<li><a href="/blog/tags/Two-player-games/">Two-player games<span>1</span></a></li>
 		
-			<li><a href="/tags/Python-programming-language/">Python programming language<span>1</span></a></li>
+			<li><a href="/blog/tags/aiohttp-requests/">aiohttp-requests<span>1</span></a></li>
 		
-			<li><a href="/tags/emergency/">emergency<span>1</span></a></li>
+			<li><a href="/blog/tags/image-blur-detection/">image blur detection<span>1</span></a></li>
 		
-			<li><a href="/tags/DongmanhuaYuan-%E5%8A%A8%E6%BC%AB%E8%8A%B1%E5%9B%AD/">DongmanhuaYuan (动漫花园)<span>1</span></a></li>
+			<li><a href="/blog/tags/automation-tool/">automation tool<span>1</span></a></li>
 		
-			<li><a href="/tags/media-sources/">media sources<span>1</span></a></li>
+			<li><a href="/blog/tags/visuals/">visuals<span>1</span></a></li>
 		
-			<li><a href="/tags/media-search-engine/">media search engine<span>1</span></a></li>
+			<li><a href="/blog/tags/frame-extraction/">frame extraction<span>3</span></a></li>
 		
-			<li><a href="/tags/Python-Library/">Python Library<span>1</span></a></li>
+			<li><a href="/blog/tags/Ningyov/">Ningyov<span>1</span></a></li>
 		
-			<li><a href="/tags/sending-money/">sending money<span>1</span></a></li>
+			<li><a href="/blog/tags/AI-optimization/">AI optimization<span>1</span></a></li>
 		
-			<li><a href="/tags/Comprehensive-Research-series/">Comprehensive Research series<span>1</span></a></li>
+			<li><a href="/blog/tags/differential-equations/">differential equations<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>2344</span></a></li>
@@ -1073,23 +1025,23 @@
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2023/12/25/94043d9a-08e0-43ba-8c58-876d65a7f546/"  title="A compilation of various projects related to Cybergod, which are clones from different GitHub repositories such as Q-Star, QStarLearning, open_qstar, Video-Pre-Training, SingularGPT, GPT-4V-Act, gpt-eyes, self-operating-computer, gpt4v-browsing, CogVLM, and AppAgent. These projects aim to develop various tools and models for diverse purposes within the Cybergod framework." ><i class="fa fa-file-o"></i>cybergod related projects</a>
+        <a href="/blog/2023/12/25/94043d9a-08e0-43ba-8c58-876d65a7f546/"  title="A compilation of various projects related to Cybergod, which are clones from different GitHub repositories such as Q-Star, QStarLearning, open_qstar, Video-Pre-Training, SingularGPT, GPT-4V-Act, gpt-eyes, self-operating-computer, gpt4v-browsing, CogVLM, and AppAgent. These projects aim to develop various tools and models for diverse purposes within the Cybergod framework." ><i class="fa fa-file-o"></i>cybergod related projects</a>
       </li>
     
       <li>
-        <a href="/2023/12/21/2cbfa8d5-63ac-4696-bb14-58f5385ceb27/"  title="This article provides step-by-step instructions for installing Waydroid on Ubuntu and offers troubleshooting tips for network issues. It explains how to enable firewalld or ufw to resolve connectivity problems, while also clarifying the difference between the wifi switch and its effect on connectivity." ><i class="fa fa-file-o"></i>Waydroid installation steps</a>
+        <a href="/blog/2023/12/21/2cbfa8d5-63ac-4696-bb14-58f5385ceb27/"  title="This article provides step-by-step instructions for installing Waydroid on Ubuntu and offers troubleshooting tips for network issues. It explains how to enable firewalld or ufw to resolve connectivity problems, while also clarifying the difference between the wifi switch and its effect on connectivity." ><i class="fa fa-file-o"></i>Waydroid installation steps</a>
       </li>
     
       <li>
-        <a href="/2023/12/20/ca75dd0f-260b-4115-a85b-eb3c9c4bdd39/"  title="This article explores the application of Large Language Models (LLMs) in generating various elements such as images, tags, categories, and embeddings for content. It also delves into the capabilities of these models to perform full-text and vector searches, generate query words and media, update relevance based on user preferences, and even generate new queries for content." ><i class="fa fa-file-o"></i>RAG in my mind</a>
+        <a href="/blog/2023/12/20/ca75dd0f-260b-4115-a85b-eb3c9c4bdd39/"  title="This article explores the application of Large Language Models (LLMs) in generating various elements such as images, tags, categories, and embeddings for content. It also delves into the capabilities of these models to perform full-text and vector searches, generate query words and media, update relevance based on user preferences, and even generate new queries for content." ><i class="fa fa-file-o"></i>RAG in my mind</a>
       </li>
     
       <li>
-        <a href="/2023/12/18/8a6267a2-bda4-4d09-a577-49dbf47fb6d3/"  title="This text provides guidance on utilizing the Python utility &#39;pylint&#39; to identify unspecified exceptions in a Python file and proposes constructing microservices and tracking failures for enhanced error management." ><i class="fa fa-file-o"></i>Exception Phobia in Python</a>
+        <a href="/blog/2023/12/18/8a6267a2-bda4-4d09-a577-49dbf47fb6d3/"  title="This text provides guidance on utilizing the Python utility &#39;pylint&#39; to identify unspecified exceptions in a Python file and proposes constructing microservices and tracking failures for enhanced error management." ><i class="fa fa-file-o"></i>Exception Phobia in Python</a>
       </li>
     
       <li>
-        <a href="/2023/12/09/5a1f6160-e47a-453d-8bd5-eb06e9d5e62d/"  title="This article discusses the process of using an RX580 16g graphics card with the codename `gfx803` as an AI accelerator. The user is provided with a GitHub link to build it themselves." ><i class="fa fa-file-o"></i>RX580 16g used as AI accele...</a>
+        <a href="/blog/2023/12/09/5a1f6160-e47a-453d-8bd5-eb06e9d5e62d/"  title="This article discusses the process of using an RX580 16g graphics card with the codename `gfx803` as an AI accelerator. The user is provided with a GitHub link to build it themselves." ><i class="fa fa-file-o"></i>RX580 16g used as AI accele...</a>
       </li>
     
   </ul>
@@ -1112,6 +1064,12 @@
 		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/my_blog_source/" title="Source code of my blog"" target="_blank"]);">Blog Source Code</a></li>
 	
 		<li><i class="fa fa-github"></i><a href="http://www.github.com/james4ever0" title="My Github account" target="_blank"]);">My Github</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="https://samoyedsun.github.io/" title="Samoyedsun's Blog" target="_blank"]);">Samoyedsun&#39;s Blog</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="http://atlant1c.cn/" title="Atlant1c's Blog" target="_blank"]);">Atlant1c&#39;s Blog</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="https://www.gregoryuan.com/" title="Gregoryuan's Blog" target="_blank"]);">Gregoryuan&#39;s Blog</a></li>
 	
 	</ul>
 </div>
@@ -1141,15 +1099,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -1163,7 +1121,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,17 +125,9 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="Create-sparse-matrix-based-liquid-state-machine"><a href="#Create-sparse-matrix-based-liquid-state-machine" class="headerlink" title="Create sparse matrix based liquid state machine"></a>Create sparse matrix based liquid state machine</h1><p>use <code>tensorly</code> to create random sparse tensor and eye sparse tensor with ease, which could be numpy only, and requires the <code>sparse</code> package.</p>
-<p><code>scipy</code>, <code>pytorch</code>, <code>tensorflow</code>, <code>jax</code> all support sparse tensor construction but advanced apis are not.</p>
-<p>use <code>eye</code> to create bias and input matrix, extract node values. use random sparse tensor to initialize weight matrix. use self matrix multiplication to perform propagation.</p>
-<hr>
-<p>the human brain has roughly 87 billion neurons, and every one of them has thousands of synapses.</p>
-<hr>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">large_number = <span class="number">1_000_000</span></span><br><span class="line">torch.arange(large_number).unsqueeze(<span class="number">0</span>).repeat(<span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">index_arr = torch.arange(large_number).unsqueeze(<span class="number">0</span>).repeat(<span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">val_arr = torch.ones(large_number)</span><br><span class="line">sparse_eye = torch.sparse_coo_tensor(index_arr, val_arr, (large_number, large_number))</span><br><span class="line"><span class="comment"># sparse_eye.to(&#x27;cuda&#x27;)</span></span><br></pre></td></tr></table></figure>
-
+	  <h2 id="use-tensorly-to-create-random-sparse-tensor-and-eye-sparse-tensor-with-ease-which-could-be-numpy-only-and-requires-the-sparse-package-scipy-pytorch-tensorflow-jax-all-support-sparse-tensor-construction-but-advanced-apis-are-not-use-eye-to-create-bias-and-input-matrix-extract-node-values-use-random-sparse-tensor-to-initialize-weight-matrix-use-self-matrix-multiplication-to-perform-propagation"><a href="#use-tensorly-to-create-random-sparse-tensor-and-eye-sparse-tensor-with-ease-which-could-be-numpy-only-and-requires-the-sparse-package-scipy-pytorch-tensorflow-jax-all-support-sparse-tensor-construction-but-advanced-apis-are-not-use-eye-to-create-bias-and-input-matrix-extract-node-values-use-random-sparse-tensor-to-initialize-weight-matrix-use-self-matrix-multiplication-to-perform-propagation" class="headerlink" title="use tensorly to create random sparse tensor and eye sparse tensor with ease, which could be numpy only, and requires the sparse package.scipy, pytorch, tensorflow, jax all support sparse tensor construction but advanced apis are not.use eye to create bias and input matrix, extract node values. use random sparse tensor to initialize weight matrix. use self matrix multiplication to perform propagation."></a>use <code>tensorly</code> to create random sparse tensor and eye sparse tensor with ease, which could be numpy only, and requires the <code>sparse</code> package.<br><code>scipy</code>, <code>pytorch</code>, <code>tensorflow</code>, <code>jax</code> all support sparse tensor construction but advanced apis are not.<br>use <code>eye</code> to create bias and input matrix, extract node values. use random sparse tensor to initialize weight matrix. use self matrix multiplication to perform propagation.</h2><h2 id="the-human-brain-has-roughly-87-billion-neurons-and-every-one-of-them-has-thousands-of-synapses"><a href="#the-human-brain-has-roughly-87-billion-neurons-and-every-one-of-them-has-thousands-of-synapses" class="headerlink" title="the human brain has roughly 87 billion neurons, and every one of them has thousands of synapses."></a>the human brain has roughly 87 billion neurons, and every one of them has thousands of synapses.</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">large_number = <span class="number">1_000_000</span></span><br><span class="line">torch.arange(large_number).unsqueeze(<span class="number">0</span>).repeat(<span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">index_arr = torch.arange(large_number).unsqueeze(<span class="number">0</span>).repeat(<span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">val_arr = torch.ones(large_number)</span><br><span class="line">sparse_eye = torch.sparse_coo_tensor(index_arr, val_arr, (large_number, large_number))</span><br><span class="line"><span class="comment"># sparse_eye.to(&#x27;cuda&#x27;)</span></span><br></pre></td></tr></table></figure>
 <p>alternatively:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> tensorly.contrib.sparse <span class="keyword">as</span> tsl_sp</span><br><span class="line">large_number = <span class="number">1_000_000</span></span><br><span class="line">numpy_eye = tsl_sp.eye(large_number)</span><br><span class="line">torch_eye = torch.sparse_coo_tensor(numpy_eye.coords, numpy_eye.data, numpy_eye.shape)</span><br></pre></td></tr></table></figure>
-	  
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> tensorly.contrib.sparse <span class="keyword">as</span> tsl_sp</span><br><span class="line">large_number = <span class="number">1_000_000</span></span><br><span class="line">numpy_eye = tsl_sp.eye(large_number)</span><br><span class="line">torch_eye = torch.sparse_coo_tensor(numpy_eye.coords, numpy_eye.data, numpy_eye.shape)</span><br></pre></td></tr></table></figure>	  
 	</div>
 
 	<!-- recommended posts -->
@@ -147,13 +139,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2023/11/27/5732c2c3-ab92-48dd-a453-520ec0ce9495/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2023/11/27/5732c2c3-ab92-48dd-a453-520ec0ce9495/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2023/11/06/c8579cd8-805b-43db-bd7d-9b6e9a642bf5/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2023/11/06/c8579cd8-805b-43db-bd7d-9b6e9a642bf5/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -215,7 +207,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Tensorly-and-Torch-based-Liquid-State-Machine-for-Efficient-Data-Processing-of-Complex-Datasets-like-Brain-Neurons/">Tensorly and Torch-based Liquid State Machine for Efficient Data Processing of Complex Datasets like Brain Neurons<span>1</span></a></li>
+    <li><a href="/blog/categories/Tensorly-and-Torch-based-Liquid-State-Machine-for-Efficient-Data-Processing-of-Complex-Datasets-like-Brain-Neurons/">Tensorly and Torch-based Liquid State Machine for Efficient Data Processing of Complex Datasets like Brain Neurons<span>1</span></a></li>
   </li>
 
     </ul>
@@ -228,7 +220,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/sparse-matrix/">sparse matrix<span>1</span></a></li> <li><a href="/tags/liquid-state-machine/">liquid state machine<span>1</span></a></li> <li><a href="/tags/tensorly/">tensorly<span>1</span></a></li> <li><a href="/tags/torch/">torch<span>1</span></a></li> <li><a href="/tags/efficient-data-processing/">efficient data processing<span>1</span></a></li> <li><a href="/tags/complex-datasets/">complex datasets<span>1</span></a></li> <li><a href="/tags/brain-neurons/">brain neurons<span>1</span></a></li>
+  <li><a href="/blog/tags/sparse-matrix/">sparse matrix<span>1</span></a></li> <li><a href="/blog/tags/liquid-state-machine/">liquid state machine<span>1</span></a></li> <li><a href="/blog/tags/tensorly/">tensorly<span>1</span></a></li> <li><a href="/blog/tags/torch/">torch<span>1</span></a></li> <li><a href="/blog/tags/efficient-data-processing/">efficient data processing<span>1</span></a></li> <li><a href="/blog/tags/complex-datasets/">complex datasets<span>1</span></a></li> <li><a href="/blog/tags/brain-neurons/">brain neurons<span>1</span></a></li>
 
     </ul>
 	</div>
@@ -268,15 +260,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -290,7 +282,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

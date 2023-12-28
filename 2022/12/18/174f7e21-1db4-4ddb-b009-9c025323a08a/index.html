@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,12 +125,9 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="elo-rating-system"><a href="#elo-rating-system" class="headerlink" title="elo rating system"></a>elo rating system</h1><p><a target="_blank" rel="noopener" href="https://github.com/theubermanishere/elo-rating-system">Elo rating system</a> is a method for calculating the relative skill levels of players in two-player games such as chess. It is named after its creator Arpad Elo, a Hungarian-American physics professor.</p>
-<p>The basic idea behind the Elo rating system is that each player is assigned a rating, and the difference between the ratings of two players determines the expected outcome of a match between them. If a higher-rated player wins, their rating will increase, while the rating of the lower-rated player will decrease. If the lower-rated player wins, the opposite will happen. The amount of change in the ratings depends on the difference between the ratings and the result of the match.</p>
-<p>Here is an example of how the Elo rating system can be implemented in Python:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">elo_rating</span>(<span class="params">rating1, rating2, k, result</span>):</span><br><span class="line">    <span class="comment"># Calculate the expected score for each player</span></span><br><span class="line">    expect1 = <span class="number">1</span> / (<span class="number">1</span> + <span class="number">10</span> ** ((rating2 - rating1) / <span class="number">400</span>))</span><br><span class="line">    expect2 = <span class="number">1</span> / (<span class="number">1</span> + <span class="number">10</span> ** ((rating1 - rating2) / <span class="number">400</span>))</span><br><span class="line"> </span><br><span class="line">    <span class="comment"># Calculate the new ratings for each player</span></span><br><span class="line">    <span class="keyword">if</span> result == <span class="number">1</span>:</span><br><span class="line">        <span class="comment"># Player 1 wins</span></span><br><span class="line">        rating1 = rating1 + k * (<span class="number">1</span> - expect1)</span><br><span class="line">        rating2 = rating2 + k * (<span class="number">0</span> - expect2)</span><br><span class="line">    <span class="keyword">elif</span> result == <span class="number">0</span>:</span><br><span class="line">        <span class="comment"># Player 2 wins</span></span><br><span class="line">        rating1 = rating1 + k * (<span class="number">0</span> - expect1)</span><br><span class="line">        rating2 = rating2 + k * (<span class="number">1</span> - expect2)</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> rating1, rating2</span><br></pre></td></tr></table></figure>
-<p>This function takes four arguments:</p>
-<p>rating1: The current rating of player 1.<br>rating2: The current rating of player 2.<br>k: The “k-factor”, which determines the amount of change in the ratings. A higher k-factor means more change.<br>result: The result of the match, where 1 indicates a win for player 1 and 0 indicates a win for player 2.<br>The function returns a tuple containing the updated ratings for both players.</p>
+	  <p><a target="_blank" rel="noopener" href="https://github.com/theubermanishere/elo-rating-system">Elo rating system</a> is a method for calculating the relative skill levels of players in two-player games such as chess. It is named after its creator Arpad Elo, a Hungarian-American physics professor.<br>The basic idea behind the Elo rating system is that each player is assigned a rating, and the difference between the ratings of two players determines the expected outcome of a match between them. If a higher-rated player wins, their rating will increase, while the rating of the lower-rated player will decrease. If the lower-rated player wins, the opposite will happen. The amount of change in the ratings depends on the difference between the ratings and the result of the match.<br>Here is an example of how the Elo rating system can be implemented in Python:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">elo_rating</span>(<span class="params">rating1, rating2, k, result</span>):</span><br><span class="line"><span class="comment"># Calculate the expected score for each player</span></span><br><span class="line">expect1 = <span class="number">1</span> / (<span class="number">1</span> + <span class="number">10</span> ** ((rating2 - rating1) / <span class="number">400</span>))</span><br><span class="line">expect2 = <span class="number">1</span> / (<span class="number">1</span> + <span class="number">10</span> ** ((rating1 - rating2) / <span class="number">400</span>))</span><br><span class="line"><span class="comment"># Calculate the new ratings for each player</span></span><br><span class="line"><span class="keyword">if</span> result == <span class="number">1</span>:</span><br><span class="line"><span class="comment"># Player 1 wins</span></span><br><span class="line">rating1 = rating1 + k * (<span class="number">1</span> - expect1)</span><br><span class="line">rating2 = rating2 + k * (<span class="number">0</span> - expect2)</span><br><span class="line"><span class="keyword">elif</span> result == <span class="number">0</span>:</span><br><span class="line"><span class="comment"># Player 2 wins</span></span><br><span class="line">rating1 = rating1 + k * (<span class="number">0</span> - expect1)</span><br><span class="line">rating2 = rating2 + k * (<span class="number">1</span> - expect2)</span><br><span class="line"><span class="keyword">return</span> rating1, rating2</span><br></pre></td></tr></table></figure>
+<p>This function takes four arguments:<br>rating1: The current rating of player 1.<br>rating2: The current rating of player 2.<br>k: The “k-factor”, which determines the amount of change in the ratings. A higher k-factor means more change.<br>result: The result of the match, where 1 indicates a win for player 1 and 0 indicates a win for player 2.<br>The function returns a tuple containing the updated ratings for both players.</p>
 	  
 	</div>
 
@@ -143,13 +140,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2022/12/18/ca3e1b76-cbfa-4656-b026-6e684d808de4/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2022/12/18/ca3e1b76-cbfa-4656-b026-6e684d808de4/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2022/12/18/62cd69ba-827f-4252-a15e-01fcc93a3fe7/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2022/12/18/62cd69ba-827f-4252-a15e-01fcc93a3fe7/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -211,7 +208,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Python-Programming/">Python Programming<span>3</span></a></li>
+    <li><a href="/blog/categories/Python-Programming/">Python Programming<span>3</span></a></li>
   </li>
 
     </ul>
@@ -224,7 +221,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/Elo-rating-system/">Elo rating system<span>1</span></a></li> <li><a href="/tags/Player-skills-evaluation/">Player skills evaluation<span>1</span></a></li> <li><a href="/tags/Two-player-games/">Two-player games<span>1</span></a></li> <li><a href="/tags/Chess/">Chess<span>1</span></a></li> <li><a href="/tags/Python-code/">Python code<span>2</span></a></li> <li><a href="/tags/Rating-updates/">Rating updates<span>1</span></a></li> <li><a href="/tags/k-factor/">k-factor<span>1</span></a></li>
+  <li><a href="/blog/tags/Elo-rating-system/">Elo rating system<span>1</span></a></li> <li><a href="/blog/tags/Player-skills-evaluation/">Player skills evaluation<span>1</span></a></li> <li><a href="/blog/tags/Two-player-games/">Two-player games<span>1</span></a></li> <li><a href="/blog/tags/Chess/">Chess<span>1</span></a></li> <li><a href="/blog/tags/Python-code/">Python code<span>2</span></a></li> <li><a href="/blog/tags/Rating-updates/">Rating updates<span>1</span></a></li> <li><a href="/blog/tags/k-factor/">k-factor<span>1</span></a></li>
 
     </ul>
 	</div>
@@ -264,15 +261,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -286,7 +283,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 

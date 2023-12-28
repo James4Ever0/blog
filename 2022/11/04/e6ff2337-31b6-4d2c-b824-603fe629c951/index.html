@@ -19,28 +19,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -59,30 +59,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -125,17 +125,11 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="android-packet-capture"><a href="#android-packet-capture" class="headerlink" title="android packet capture"></a>android packet capture</h1><h2 id="disable-ssl-pinning"><a href="#disable-ssl-pinning" class="headerlink" title="disable ssl pinning"></a>disable ssl pinning</h2><p>use frida scripts specific to applications</p>
-<p>justtrustme xposed</p>
-<p>sslunpinning xposed</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/shroudedcode/apk-mitm">apk-mitm</a> by repacking apk and resigning</p>
-<h2 id="capture-packet-routing"><a href="#capture-packet-routing" class="headerlink" title="capture, packet routing"></a>capture, packet routing</h2><p>recommend to use: <a target="_blank" rel="noopener" href="https://github.com/James4Ever0/PCAPdroid-API">PCAPdroid-API</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/emanuele-f/PCAPdroid/blob/master/docs/app_api.md">PCAPdroid API reference</a></p>
+	  <h2 id="disable-ssl-pinning"><a href="#disable-ssl-pinning" class="headerlink" title="disable ssl pinning"></a>disable ssl pinning</h2><p>use frida scripts specific to applications<br>justtrustme xposed<br>sslunpinning xposed<br><a target="_blank" rel="noopener" href="https://github.com/shroudedcode/apk-mitm">apk-mitm</a> by repacking apk and resigning</p>
+<h2 id="capture-packet-routing"><a href="#capture-packet-routing" class="headerlink" title="capture, packet routing"></a>capture, packet routing</h2><p>recommend to use: <a target="_blank" rel="noopener" href="https://github.com/James4Ever0/PCAPdroid-API">PCAPdroid-API</a><br><a target="_blank" rel="noopener" href="https://github.com/emanuele-f/PCAPdroid/blob/master/docs/app_api.md">PCAPdroid API reference</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell am start -e action start -e pcap_dump_mode udp_exporter -e collector_ip_address 127.0.0.1 -e collector_port 5123 -e app_filter com.tencent.mobileqq -n com.emanuelef.remote_capture.debug/com.emanuelef.remote_capture.activities.CaptureCtrl</span><br></pre></td></tr></table></figure>
-
 <p>setting up http proxy via adb:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># this does not ensure that the target app is captured.</span></span><br><span class="line">adb shell settings put global http_proxy &lt;address&gt;:&lt;port&gt;</span><br></pre></td></tr></table></figure>
-	  
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># this does not ensure that the target app is captured.</span></span><br><span class="line">adb shell settings put global http_proxy &lt;address&gt;:&lt;port&gt;</span><br></pre></td></tr></table></figure>	  
 	</div>
 
 	<!-- recommended posts -->
@@ -147,13 +141,13 @@
 <ul class="pagination">
 	 
 				
-		<li class="prev"><a href="/2022/11/04/4b51c92e-f89b-408b-bbc4-1c1e700628f8/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a href="/blog/2022/11/04/4b51c92e-f89b-408b-bbc4-1c1e700628f8/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
-        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-          <li class="next"><a href="/2022/11/04/f02ee145-827e-4084-9fae-4dbf1fb057cc/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+          <li class="next"><a href="/blog/2022/11/04/f02ee145-827e-4084-9fae-4dbf1fb057cc/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -215,7 +209,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Android-Security/">Android Security<span>1</span></a></li>
+    <li><a href="/blog/categories/Android-Security/">Android Security<span>1</span></a></li>
   </li>
 
     </ul>
@@ -228,7 +222,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/Android/">Android<span>4</span></a></li> <li><a href="/tags/SSL-pinning/">SSL pinning<span>2</span></a></li> <li><a href="/tags/packet-capture/">packet capture<span>1</span></a></li> <li><a href="/tags/Frida-scripts/">Frida scripts<span>1</span></a></li> <li><a href="/tags/JustTrustMe-Xposed/">JustTrustMe Xposed<span>1</span></a></li> <li><a href="/tags/SSLUnpinning-Xposed/">SSLUnpinning Xposed<span>1</span></a></li> <li><a href="/tags/apk-mitm/">apk-mitm<span>1</span></a></li> <li><a href="/tags/PCAPdroid-API/">PCAPdroid-API<span>1</span></a></li> <li><a href="/tags/HTTP-proxy/">HTTP proxy<span>1</span></a></li> <li><a href="/tags/ADB/">ADB<span>2</span></a></li>
+  <li><a href="/blog/tags/Android/">Android<span>4</span></a></li> <li><a href="/blog/tags/SSL-pinning/">SSL pinning<span>2</span></a></li> <li><a href="/blog/tags/packet-capture/">packet capture<span>1</span></a></li> <li><a href="/blog/tags/Frida-scripts/">Frida scripts<span>1</span></a></li> <li><a href="/blog/tags/JustTrustMe-Xposed/">JustTrustMe Xposed<span>1</span></a></li> <li><a href="/blog/tags/SSLUnpinning-Xposed/">SSLUnpinning Xposed<span>1</span></a></li> <li><a href="/blog/tags/apk-mitm/">apk-mitm<span>1</span></a></li> <li><a href="/blog/tags/PCAPdroid-API/">PCAPdroid-API<span>1</span></a></li> <li><a href="/blog/tags/HTTP-proxy/">HTTP proxy<span>1</span></a></li> <li><a href="/blog/tags/ADB/">ADB<span>2</span></a></li>
 
     </ul>
 	</div>
@@ -268,15 +262,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -290,7 +284,7 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 
