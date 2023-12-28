@@ -1,0 +1,321 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>视频分析处理 剧本生成 | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="This article focuses on video analysis using popular frameworks PyTorch and Keras. It offers a range of resources to perform tasks such as classification and summarization, along with access to a pretrained model zoo for further customization. Additionally, it provides a link to a helpful video feature extractor tool.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="视频分析处理 剧本生成"/>
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> 视频分析处理 剧本生成</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>This article focuses on video analysis using popular frameworks PyTorch and Keras. It offers a range of resources to perform tasks such as classification and summarization, along with access to a pretrained model zoo for further customization. Additionally, it provides a link to a helpful video feature extractor tool.</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <h1 id="视频分析处理-视频摘要-剧本生成"><a href="#视频分析处理-视频摘要-剧本生成" class="headerlink" title="视频分析处理 视频摘要 剧本生成"></a>视频分析处理 视频摘要 剧本生成</h1><p>自动抠像 最新 2022 较小的性能消耗：<br><a target="_blank" rel="noopener" href="https://github.com/hkchengrex/XMem">https://github.com/hkchengrex/XMem</a><br>我fork的项目：<a target="_blank" rel="noopener" href="https://github.com/ProphetHJK/XMem">https://github.com/ProphetHJK/XMem</a><br>我fork后添加了一些小工具，包括绿幕生成，蒙版视频生成，中文教程等</p>
+<p>simple video captioning:<br><a target="_blank" rel="noopener" href="https://pythonawesome.com/a-simple-implementation-of-video-captioning/">https://pythonawesome.com/a-simple-implementation-of-video-captioning/</a><br><a target="_blank" rel="noopener" href="https://github.com/232525/videocaptioning.pytorch?ref=pythonawesome.com">https://github.com/232525/videocaptioning.pytorch?ref=pythonawesome.com</a><br><a target="_blank" rel="noopener" href="https://github.com/xiadingZ/video-caption.pytorch">https://github.com/xiadingZ/video-caption.pytorch</a></p>
+<p>3d cnn for video classification:<br><a target="_blank" rel="noopener" href="https://github.com/kcct-fujimotolab/3DCNN">https://github.com/kcct-fujimotolab/3DCNN</a></p>
+<p>end-to-end video image classification by facebook:<br><a target="_blank" rel="noopener" href="https://github.com/facebookresearch/ClassyVision">https://github.com/facebookresearch/ClassyVision</a></p>
+<p>video understanding models and datasets:<br><a target="_blank" rel="noopener" href="https://github.com/sujiongming/awesome-video-understanding">https://github.com/sujiongming/awesome-video-understanding</a></p>
+<p>video classification dataset:<br>​video_type_dict​ ​&#x3D;​ {​’360VR’​: ​’VR’​, ​’4k’​: ​’4K’​, ​’Technology’​: ​’科技’​, ​’Sport’​: ​’运动’​, ​’Timelapse’​: ​’延时’​,<br>                   ​’Aerial’​: ​’航拍’​, ​’Animals’​: ​’动物’​, ​’Sea’​: ​’大海’​, ​’Beach’​: ​’海滩’​, ​’space’​: ​’太空’​,<br>                   ​’stars’​: ​’星空’​, ​’City’​: ​’城市’​, ​’Business’​: ​’商业’​, ​’Underwater’​: ​’水下摄影’​,<br>                   ​’Wedding’​: ​’婚礼’​, ​’Archival’​: ​’档案’​, ​’Backgrounds’​: ​’背景’​, ​’Alpha Channel’​: ​’透明通道’​,<br>                   ​’Intro’​: ​’开场’​, ​’Celebration’​: ​’庆典’​, ​’Clouds’​: ​’云彩’​, ​’Corporate’​: ​’企业’​,<br>                   ​’Explosion’​: ​’爆炸’​, ​’Film’​: ​’电影镜头’​, ​’Green Screen’​: ​’绿幕’​, ​’Military’​: ​’军事’​,<br>                   ​’Nature’​: ​’自然’​, ​’News’​: ​’新闻’​, ​’R3d’​: ​’R3d’​, ​’Romantic’​: ​’浪漫’​, ​’Abstract’​: ​’抽象’​}<br><a target="_blank" rel="noopener" href="https://github.com/yuanxiaosc/Multimodal-short-video-dataset-and-baseline-classification-model">https://github.com/yuanxiaosc/Multimodal-short-video-dataset-and-baseline-classification-model</a></p>
+<p>rnn for human action recognization:<br><a target="_blank" rel="noopener" href="https://github.com/stuarteiffert/RNN-for-Human-Activity-Recognition-using-2D-Pose-Input">https://github.com/stuarteiffert/RNN-for-Human-Activity-Recognition-using-2D-Pose-Input</a></p>
+<p>video script introduction and generation:<br><a target="_blank" rel="noopener" href="https://sharetxt.live/blog/how-to-generate-a-youtube-video-script-with-ai#:~:text=%20How%20to%20use%20Chibi.ai%20to%20create%20a,scan%20through%20your%20text%20and%20generate...%20More%20">https://sharetxt.live/blog/how-to-generate-a-youtube-video-script-with-ai#:~:text=%20How%20to%20use%20Chibi.ai%20to%20create%20a,scan%20through%20your%20text%20and%20generate...%20More%20</a></p>
+<p>fight detection using pose estimation and rnn:<br><a target="_blank" rel="noopener" href="https://github.com/imsoo/fight_detection">https://github.com/imsoo/fight_detection</a></p>
+<p>video summarizer to summarized video based on video feature:<br><a target="_blank" rel="noopener" href="https://github.com/Lalit-ai/Video-Summary-Generator">https://github.com/Lalit-ai/Video-Summary-Generator</a></p>
+<p>awesome action recognition:<br><a target="_blank" rel="noopener" href="https://github.com/jinwchoi/awesome-action-recognition">https://github.com/jinwchoi/awesome-action-recognition</a></p>
+<p>temporal model for video understanding:<br><a target="_blank" rel="noopener" href="https://github.com/mit-han-lab/temporal-shift-module">https://github.com/mit-han-lab/temporal-shift-module</a><br><a target="_blank" rel="noopener" href="https://github.com/mit-han-lab/temporal-shift-module">https://github.com/mit-han-lab/temporal-shift-module</a><br> <a target="_blank" rel="noopener" href="https://github.com/yjxiong/tsn-pytorch">https://github.com/yjxiong/tsn-pytorch</a></p>
+<p>time space attention for video understanding(timesformer):<br><a target="_blank" rel="noopener" href="https://github.com/facebookresearch/TimeSformer">https://github.com/facebookresearch/TimeSformer</a></p>
+<p>video understanding by alibaba:<br><a target="_blank" rel="noopener" href="https://github.com/alibaba-mmai-research/pytorch-video-understanding">https://github.com/alibaba-mmai-research/pytorch-video-understanding</a></p>
+<p>video object segmentation:<br><a target="_blank" rel="noopener" href="https://github.com/yoxu515/aot-benchmark?ref=pythonawesome.com">https://github.com/yoxu515/aot-benchmark?ref=pythonawesome.com</a></p>
+<p>video scene segmentation:<br><a target="_blank" rel="noopener" href="https://github.com/kakaobrain/bassl?ref=pythonawesome.com">https://github.com/kakaobrain/bassl?ref=pythonawesome.com</a></p>
+<p>mmaction detect actions in video:<br><a target="_blank" rel="noopener" href="https://pythonawesome.com/an-open-source-toolbox-for-video-understanding-based-on-pytorch/">https://pythonawesome.com/an-open-source-toolbox-for-video-understanding-based-on-pytorch/</a><br><a target="_blank" rel="noopener" href="https://github.com/open-mmlab/mmaction2">https://github.com/open-mmlab/mmaction2</a></p>
+<p>dense video captioning:<br><a target="_blank" rel="noopener" href="https://www.opensourceagenda.com/projects/dense-video-captioning-pytorch">https://www.opensourceagenda.com/projects/dense-video-captioning-pytorch</a><br><a target="_blank" rel="noopener" href="https://www.opensourceagenda.com/projects/dense-video-captioning-pytorch">https://www.opensourceagenda.com/projects/dense-video-captioning-pytorch</a></p>
+<p>seq2seq video captioning:<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013010889/article/details/80087601">https://blog.csdn.net/u013010889/article/details/80087601</a></p>
+<p>2d cnn with LSTM video classification:<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43493208/article/details/104387182">https://blog.csdn.net/qq_43493208/article/details/104387182</a></p>
+<p>spp-net for image shape unification:<br><a target="_blank" rel="noopener" href="https://github.com/peace195/sppnet">https://github.com/peace195/sppnet</a><br><a target="_blank" rel="noopener" href="https://github.com/yueruchen/sppnet-pytorch">https://github.com/yueruchen/sppnet-pytorch</a></p>
+<p>running pretrained pytorchvideo video classification model from zoo:<br><a target="_blank" rel="noopener" href="https://pytorchvideo.org/docs/tutorial_torchhub_inference">https://pytorchvideo.org/docs/tutorial_torchhub_inference</a></p>
+<p>pytorchvideo model zoo:<br><a target="_blank" rel="noopener" href="https://pytorchvideo.readthedocs.io/en/latest/model_zoo.html">https://pytorchvideo.readthedocs.io/en/latest/model_zoo.html</a></p>
+<p>(arxiv) end to end generative pretraining multimodal video captioning mv-gpt:<br><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2201.08264v1">https://arxiv.org/abs/2201.08264v1</a></p>
+<p>video captioning using encoder-decoder:<br><a target="_blank" rel="noopener" href="https://github.com/Shreyz-max/Video-Captioning">https://github.com/Shreyz-max/Video-Captioning</a></p>
+<p>video captioning video2text keras implementation:<br><a target="_blank" rel="noopener" href="https://github.com/alvinbhou/Video2Text">https://github.com/alvinbhou/Video2Text</a></p>
+<p>video summarization:<br><a target="_blank" rel="noopener" href="https://github.com/shruti-jadon/Video-Summarization-using-Keyframe-Extraction-and-Video-Skimming">https://github.com/shruti-jadon/Video-Summarization-using-Keyframe-Extraction-and-Video-Skimming</a></p>
+<p>pytorch_video video classification:<br><a target="_blank" rel="noopener" href="https://pytorchvideo.org/docs/tutorial_classification">https://pytorchvideo.org/docs/tutorial_classification</a></p>
+<p>video feature extractor:<br><a target="_blank" rel="noopener" href="https://github.com/hobincar/pytorch-video-feature-extractor">https://github.com/hobincar/pytorch-video-feature-extractor</a></p>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/2022/05/27/32bab4e2-46bb-47a4-86a3-e7bc41b1025e/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/2022/05/24/677b72f2-f2b0-44f1-a181-724286a16fc1/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2022-05-24 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Video-Analysis/">Video Analysis<span>1</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/video-processing/">video processing<span>7</span></a></li> <li><a href="/tags/video-understanding/">video understanding<span>4</span></a></li> <li><a href="/tags/video-summarization/">video summarization<span>2</span></a></li>
+
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+
+</body>
+</html>

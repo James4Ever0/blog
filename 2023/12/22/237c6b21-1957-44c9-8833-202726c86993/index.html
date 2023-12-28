@@ -1,0 +1,335 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>image resize, image padding, image scanning | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="This Python code uses OpenCV to resize and crop images according to specified conditions, ultimately processing them into smaller versions.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="image resize, image padding, image scanning"/>
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+    <script src="/js/marked.js"></script>
+    <script src="/js/comment.js"></script>
+    <script src="/js/timeago.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+	<script src="/js/spin.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> image resize, image padding, image scanning</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>This Python code uses OpenCV to resize and crop images according to specified conditions, ultimately processing them into smaller versions.</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <h1 id="image-resize-image-padding-image-scanning"><a href="#image-resize-image-padding-image-scanning" class="headerlink" title="image resize, image padding, image scanning"></a>image resize, image padding, image scanning</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">scanImageWithWindowSizeAutoResize</span>(<span class="params"></span></span><br><span class="line"><span class="params">    image,</span></span><br><span class="line"><span class="params">    width,</span></span><br><span class="line"><span class="params">    height,</span></span><br><span class="line"><span class="params">    return_direction=<span class="literal">False</span>,</span></span><br><span class="line"><span class="params">    threshold=<span class="number">0.1</span>,  <span class="comment"># minimum &#x27;fresh&#x27; area left for scanning</span></span></span><br><span class="line"><span class="params"></span>):  <span class="comment"># shall you use torch? no?</span></span><br><span class="line">    shape = image.shape</span><br><span class="line">    <span class="keyword">assert</span> <span class="built_in">len</span>(shape) == <span class="number">3</span></span><br><span class="line">    ih, iw, channels = shape</span><br><span class="line">    targetWidth = <span class="built_in">max</span>(width, math.floor(iw * height / ih))</span><br><span class="line">    targetHeight = <span class="built_in">max</span>(height, math.floor(ih * width / iw))</span><br><span class="line">    resized = cv2.resize(</span><br><span class="line">        image, (targetWidth, targetHeight), interpolation=cv2.INTER_CUBIC</span><br><span class="line">    )</span><br><span class="line">    <span class="comment"># determine scan direction here.</span></span><br><span class="line">    imageSeries = []</span><br><span class="line">    <span class="keyword">if</span> targetWidth / targetHeight == width / height:</span><br><span class="line">        imageSeries = [resized]  <span class="comment"># as image series.</span></span><br><span class="line">        direction = <span class="literal">None</span></span><br><span class="line">    <span class="keyword">elif</span> targetWidth / targetHeight &lt; width / height:</span><br><span class="line">        direction = <span class="string">&quot;vertical&quot;</span></span><br><span class="line">        <span class="comment"># the scanning is along the vertical axis, which is the height.</span></span><br><span class="line">        index = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            start, end = height * index, height * (index + <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">if</span> start &lt; targetHeight:</span><br><span class="line">                <span class="keyword">if</span> end &gt; targetHeight:</span><br><span class="line">                    <span class="keyword">if</span> <span class="number">1</span> - (end - targetHeight) / targetHeight &gt;= threshold:</span><br><span class="line">                        end = targetHeight</span><br><span class="line">                        start = targetHeight - height</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        <span class="keyword">break</span></span><br><span class="line">                <span class="comment"># other conditions, just fine</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">break</span>  <span class="comment"># must exit since nothing to scan.</span></span><br><span class="line">            cropped = resized[start:end, :, :]  <span class="comment"># height, width, channels</span></span><br><span class="line">            imageSeries.append(cropped)</span><br><span class="line">            index += <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        direction = <span class="string">&quot;horizontal&quot;</span></span><br><span class="line">        index = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            start, end = width * index, width * (index + <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">if</span> start &lt; targetWidth:</span><br><span class="line">                <span class="keyword">if</span> end &gt; targetWidth:</span><br><span class="line">                    <span class="keyword">if</span> <span class="number">1</span> - (end - targetWidth) / targetWidth &gt;= threshold:</span><br><span class="line">                        end = targetWidth</span><br><span class="line">                        start = targetWidth - width</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        <span class="keyword">break</span></span><br><span class="line">                <span class="comment"># other conditions, just fine</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">break</span>  <span class="comment"># must exit since nothing to scan.</span></span><br><span class="line">            cropped = resized[:, start:end, :]  <span class="comment"># height, width, channels</span></span><br><span class="line">            imageSeries.append(cropped)</span><br><span class="line">            index += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> return_direction:</span><br><span class="line">        <span class="keyword">return</span> imageSeries, direction</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> imageSeries</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">resizeImageWithPadding</span>(<span class="params"></span></span><br><span class="line"><span class="params">    image,</span></span><br><span class="line"><span class="params">    width,</span></span><br><span class="line"><span class="params">    height,</span></span><br><span class="line"><span class="params">    border_type: <span class="type">Literal</span>[<span class="string">&quot;constant_black&quot;</span>, <span class="string">&quot;replicate&quot;</span>] = <span class="string">&quot;constant_black&quot;</span>,</span></span><br><span class="line"><span class="params"></span>):</span><br><span class="line">    shape = image.shape</span><br><span class="line">    <span class="keyword">assert</span> <span class="built_in">len</span>(shape) == <span class="number">3</span></span><br><span class="line">    ih, iw, channels = shape</span><br><span class="line">    targetWidth = <span class="built_in">min</span>(width, math.floor(iw * height / ih))</span><br><span class="line">    targetHeight = <span class="built_in">min</span>(height, math.floor(ih * width / iw))</span><br><span class="line">    resized = cv2.resize(</span><br><span class="line">        image, (targetWidth, targetHeight), interpolation=cv2.INTER_CUBIC</span><br><span class="line">    )</span><br><span class="line">    BLACK = [<span class="number">0</span>] * channels</span><br><span class="line">    top = <span class="built_in">max</span>(<span class="number">0</span>, math.floor((height - targetHeight) / <span class="number">2</span>))</span><br><span class="line">    bottom = <span class="built_in">max</span>(<span class="number">0</span>, height - targetHeight - top)</span><br><span class="line">    left = <span class="built_in">max</span>(<span class="number">0</span>, math.floor((width - targetWidth) / <span class="number">2</span>))</span><br><span class="line">    right = <span class="built_in">max</span>(<span class="number">0</span>, width - targetWidth - left)</span><br><span class="line">    <span class="keyword">if</span> border_type == <span class="string">&quot;constant_black&quot;</span>:</span><br><span class="line">        padded = cv2.copyMakeBorder(</span><br><span class="line">            resized, top, bottom, left, right, cv2.BORDER_CONSTANT, value=BLACK</span><br><span class="line">        )</span><br><span class="line">    <span class="keyword">elif</span> border_type == <span class="string">&quot;replicate&quot;</span>:</span><br><span class="line">        padded = cv2.copyMakeBorder(</span><br><span class="line">            resized, top, bottom, left, right, cv2.BORDER_REPLICATE, value=BLACK</span><br><span class="line">        )</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">raise</span> Exception(<span class="string">&quot;unknown border_type: %s&quot;</span> % border_type)</span><br><span class="line">    <span class="keyword">return</span> padded</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/2023/12/22/23668aee-c422-42fb-9bab-688bd0580123/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/2023/12/22/23b6737e-2c90-4408-a1fb-a00c67b84704/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+    	 
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+           type: "github" ? "github" : "github",       
+	       user: "james4ever0",
+	       repo: "my_blog",
+		   client_id: "",
+           client_secret: "",
+		   no_comment: "No comments yet. Press the button and go to comment now!",
+		   go_to_comment: "Go to comment",
+		   no_issue: "no_issue",
+		   issue_title: "image resize, image padding, image scanning",
+		   issue_id: "",
+		   btn_class: "btn btn-primary",
+		   comments_target: "#comment-thread",
+		   loading_target: "#loading_spin"
+		   });
+	 </script>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2023-12-22 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Image-Processing/">Image Processing<span>10</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/Python/">Python<span>41</span></a></li> <li><a href="/tags/OpenCV/">OpenCV<span>6</span></a></li> <li><a href="/tags/Image-Resizing/">Image Resizing<span>2</span></a></li> <li><a href="/tags/Image-Cropping/">Image Cropping<span>2</span></a></li> <li><a href="/tags/Target-Size/">Target Size<span>2</span></a></li> <li><a href="/tags/Conditions/">Conditions<span>2</span></a></li> <li><a href="/tags/Processing/">Processing<span>2</span></a></li>
+
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+</body>
+</html>

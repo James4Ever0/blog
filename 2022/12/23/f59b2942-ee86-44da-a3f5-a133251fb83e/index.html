@@ -1,0 +1,377 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>spring cloud, spring boot, rabbitmq in kotlin | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="This article discusses the development of a Kotlin Spring Boot application with properties files and annotations, utilizing microservices, Spring Cloud integrations for service discovery and circuit breaking, and RabbitMQ communication through amqp-client library. The article also compares frameworks based on performance and maintenance ease, recommending Gradle as a package builder for Kotlin applications.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="spring cloud, spring boot, rabbitmq in kotlin"/>
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> spring cloud, spring boot, rabbitmq in kotlin</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>This article discusses the development of a Kotlin Spring Boot application with properties files and annotations, utilizing microservices, Spring Cloud integrations for service discovery and circuit breaking, and RabbitMQ communication through amqp-client library. The article also compares frameworks based on performance and maintenance ease, recommending Gradle as a package builder for Kotlin applications.</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <h1 id="spring-cloud-spring-boot-rabbitmq-in-kotlin"><a href="#spring-cloud-spring-boot-rabbitmq-in-kotlin" class="headerlink" title="spring cloud, spring boot, rabbitmq in kotlin"></a>spring cloud, spring boot, rabbitmq in kotlin</h1><h2 id="what-is-spring-cloud"><a href="#what-is-spring-cloud" class="headerlink" title="what is spring cloud"></a>what is spring cloud</h2><p>Spring Cloud is a set of tools for building microservices-based applications that use Spring Framework, a popular Java-based application development framework. It provides a number of features that can help you build distributed systems that are resilient, reliable, and scalable.</p>
+<p>Spring Cloud provides a number of tools for building microservices, including:</p>
+<p>Service discovery: Spring Cloud provides a service registry and a load balancer for discovering and routing to service instances.</p>
+<p>Circuit breaker: Spring Cloud provides a circuit breaker pattern implementation that can help prevent cascading failures in distributed systems.</p>
+<p>Configuration management: Spring Cloud provides a centralized configuration server for storing and managing application configuration data.</p>
+<p>API gateway: Spring Cloud provides an API gateway that can route requests to the appropriate service, perform authentication and authorization, and provide other security features.</p>
+<p>Distributed tracing: Spring Cloud provides support for distributed tracing, which can help you understand the flow of requests through your system and identify performance issues.</p>
+<p>Spring Cloud is built on top of Spring Boot, which makes it easy to get started with microservices development using the Spring Framework. It is also fully integrated with the rest of the Spring ecosystem, including Spring Data, Spring Security, and Spring Cloud Stream.</p>
+<h2 id="use-spring-cloud-in-kotlin"><a href="#use-spring-cloud-in-kotlin" class="headerlink" title="use spring cloud in kotlin"></a>use spring cloud in kotlin</h2><p>Spring Cloud can be used with Kotlin, a statically-typed programming language that is fully interoperable with Java and runs on the Java Virtual Machine (JVM). To use Spring Cloud with Kotlin, you can follow these steps:</p>
+<p>Set up a Kotlin project: You can use a build tool like Gradle or Maven to set up a Kotlin project. Make sure to include the necessary dependencies for Spring Cloud, such as the spring-cloud-starter-netflix-eureka-client for service discovery or the spring-cloud-starter-netflix-ribbon for load balancing.</p>
+<p>Configure your application: You can use the @SpringBootApplication annotation to enable auto-configuration and component scanning in your Kotlin application. You can also use the application.properties file or the application.yml file to configure your application’s properties.</p>
+<p>Create a Spring Boot application class: You can create a Kotlin class with the @SpringBootApplication annotation and the main function to bootstrap your application. This class will serve as the entry point to your application.</p>
+<p>Define your microservices: You can define your microservices as Kotlin classes annotated with @RestController and @RequestMapping. These classes will handle incoming HTTP requests and return responses to the client.</p>
+<p>Use Spring Cloud features: You can use the various features of Spring Cloud, such as service discovery, circuit breaking, configuration management, and distributed tracing, in your Kotlin application by using the appropriate annotations and components provided by Spring Cloud.</p>
+<p>Here is an example of a simple Kotlin application using Spring Cloud:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication</span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.client.discovery.EnableDiscoveryClient</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableDiscoveryClient</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyApplication</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</span><br><span class="line">    SpringApplication.run(MyApplication::<span class="keyword">class</span>.java, *args)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This application uses the @EnableDiscoveryClient annotation to enable service discovery using Spring Cloud Netflix Eureka. You can then use other Spring Cloud features, such as circuit breaking or configuration management, by including the necessary dependencies and using the appropriate annotations and components.</p>
+<h2 id="write-spring-eureka-client-in-kotlin-to-connect-to-eureka-server"><a href="#write-spring-eureka-client-in-kotlin-to-connect-to-eureka-server" class="headerlink" title="write spring eureka client in kotlin to connect to eureka server"></a>write spring eureka client in kotlin to connect to eureka server</h2><p>Here is an example of how you can write a Spring Cloud Eureka client in Kotlin to connect to a Eureka server:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication</span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.client.discovery.EnableDiscoveryClient</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableDiscoveryClient</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">EurekaClientApplication</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</span><br><span class="line">    SpringApplication.run(EurekaClientApplication::<span class="keyword">class</span>.java, *args)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This application uses the @EnableDiscoveryClient annotation to enable service discovery using Spring Cloud Netflix Eureka. The @SpringBootApplication annotation enables auto-configuration and component scanning in the application.</p>
+<p>To connect to the Eureka server, you will need to provide the URL of the Eureka server in the application.properties or application.yml file. For example:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">eureka:</span></span><br><span class="line">  <span class="attr">client:</span></span><br><span class="line">    <span class="attr">serviceUrl:</span></span><br><span class="line">      <span class="attr">defaultZone:</span> <span class="string">http://localhost:8761/eureka/</span></span><br></pre></td></tr></table></figure>
+
+<p>You can then use the @Value annotation to inject the Eureka server URL into your Kotlin code:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.<span class="keyword">annotation</span>.Value</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.<span class="keyword">annotation</span>.GetMapping</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.<span class="keyword">annotation</span>.RestController</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">EurekaClientController</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(<span class="string">&quot;\$&#123;eureka.client.serviceUrl.defaultZone&#125;&quot;</span>)</span></span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> eurekaServerUrl: String</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(<span class="string">&quot;/eureka-server-url&quot;</span>)</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">getEurekaServerUrl</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">        <span class="keyword">return</span> eurekaServerUrl</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This controller has a getEurekaServerUrl method that returns the URL of the Eureka server. You can then make a GET request to &#x2F;eureka-server-url to get the Eureka server URL.</p>
+<p>You can also use the DiscoveryClient interface provided by Spring Cloud to interact with the Eureka server and perform operations such as registering a service or discovering service instances.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.<span class="keyword">annotation</span>.Autowired</span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.client.discovery.DiscoveryClient</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.<span class="keyword">annotation</span>.GetMapping</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.<span class="keyword">annotation</span>.RestController</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">EurekaClientController</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> discoveryClient: DiscoveryClient</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(<span class="string">&quot;/service-instances&quot;</span>)</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">getServiceInstances</span><span class="params">()</span></span>: List&lt;String&gt; &#123;</span><br><span class="line">        <span class="keyword">return</span> discoveryClient.services</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This controller has a getServiceInstances method that returns a list of all the service instances registered with the Eureka server. You can then make a GET request to &#x2F;service-instances to get the list of service instances.</p>
+<h2 id="run-eureka-server-kotlin"><a href="#run-eureka-server-kotlin" class="headerlink" title="run eureka server kotlin"></a>run eureka server kotlin</h2><p>To run a Eureka server in Kotlin, you can follow these steps:</p>
+<p>Set up a Kotlin project: You can use a build tool like Gradle or Maven to set up a Kotlin project. Make sure to include the necessary dependencies for Spring Cloud Eureka Server, such as the spring-cloud-starter-netflix-eureka-server dependency.</p>
+<p>Configure your application: You can use the application.properties file or the application.yml file to configure your Eureka server. For example, you can set the server.port property to specify the port on which the Eureka server will run, and the eureka.client.register-with-eureka and eureka.client.fetch-registry properties to enable or disable the registration and fetching of registry information for the Eureka server.</p>
+<p>Create a Spring Boot application class: You can create a Kotlin class with the @SpringBootApplication annotation and the main function to bootstrap your application. This class will serve as the entry point to your Eureka server.</p>
+<p>Enable Eureka server: You can use the @EnableEurekaServer annotation to enable the Eureka server in your application.</p>
+<p>Here is an example of a simple Kotlin application that runs a Eureka server:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication</span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.netflix.eureka.server.EnableEurekaServer</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableEurekaServer</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">EurekaServerApplication</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</span><br><span class="line">    SpringApplication.run(EurekaServerApplication::<span class="keyword">class</span>.java, *args)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This application uses the @EnableEurekaServer annotation to enable the Eureka server and the @SpringBootApplication annotation to enable auto-configuration and component scanning.</p>
+<p>To start the Eureka server, you can run the main function of the EurekaServerApplication class. The Eureka server will start up on the port specified in the application.properties or application.yml file (by default, it will run on port 8761). You can then access the Eureka server dashboard at <a target="_blank" rel="noopener" href="http://localhost:8761/">http://localhost:8761</a>.</p>
+<h2 id="spring-cloud-alternative-in-kotlin"><a href="#spring-cloud-alternative-in-kotlin" class="headerlink" title="spring cloud alternative in kotlin"></a>spring cloud alternative in kotlin</h2><p>There are a number of alternatives to Spring Cloud that you can use in Kotlin to build distributed systems and microservices-based applications. Some options include:</p>
+<p>Micronaut: Micronaut is a modern, lightweight, and fast microservices framework for the JVM. It provides features such as service discovery, configuration management, and distributed tracing, and is fully compatible with Kotlin.</p>
+<p>Quarkus: Quarkus is a Kubernetes-native Java framework that is optimized for low memory footprint and fast startup time. It provides a number of features for building microservices, including service discovery, configuration management, and security. Quarkus is fully compatible with Kotlin and can be used to build cloud-native applications.</p>
+<p>Vert.x: Vert.x is a reactive, non-blocking, event-driven Java framework that is designed for building distributed systems and microservices. It provides features such as service discovery, load balancing, and distributed tracing, and is fully compatible with Kotlin.</p>
+<p>Helidon: Helidon is a lightweight, cloud-native Java framework that is designed for building microservices and reactive applications. It provides features such as service discovery, configuration management, and security, and is fully compatible with Kotlin.</p>
+<p>Eclipse MicroProfile: Eclipse MicroProfile is an open-source specification for building microservices-based applications. It provides a number of features for building distributed systems, including service discovery, configuration management, and security, and is fully compatible with Kotlin.</p>
+<p>You can choose the appropriate microservices framework based on your requirements and preferences. All of these frameworks provide support for building microservices in Kotlin and offer a number of features that can help you build distributed systems that are resilient, reliable, and scalable.</p>
+<h2 id="which-one-requires-least-code"><a href="#which-one-requires-least-code" class="headerlink" title="which one requires least code"></a>which one requires least code</h2><p>It is difficult to say which microservices framework requires the least amount of code, as it depends on the specific requirements of your application and the features you need to implement. Some frameworks, such as Micronaut and Quarkus, are designed to be lightweight and fast, and may require less code to implement certain features compared to other frameworks. However, this may come at the cost of flexibility or a larger learning curve.</p>
+<p>It is important to evaluate the different microservices frameworks based on your specific requirements and choose the one that best fits your needs. You should consider factors such as the performance and scalability requirements of your application, the features and capabilities of the framework, and the level of support and documentation available.</p>
+<p>It is also worth noting that writing less code does not necessarily mean that your application will be easier to maintain or more efficient. In some cases, using a more feature-rich framework that requires more code may result in a more maintainable and scalable application in the long run.</p>
+<h2 id="recommend-compatible-package-builder-manager-for-kotlin-but-simpler-than-maven"><a href="#recommend-compatible-package-builder-manager-for-kotlin-but-simpler-than-maven" class="headerlink" title="recommend compatible package builder&#x2F;manager for kotlin but simpler than maven"></a>recommend compatible package builder&#x2F;manager for kotlin but simpler than maven</h2><p>If you are looking for a package builder and manager for Kotlin that is simpler than Maven, you may want to consider Gradle. Gradle is an open-source build automation tool that is designed to be flexible, efficient, and easy to use. It is fully compatible with Kotlin and can be used to build, test, and publish Kotlin applications.</p>
+<p>Some of the benefits of using Gradle for Kotlin projects include:</p>
+<p>Concise and expressive build scripts: Gradle build scripts are written in a domain-specific language (DSL) that is designed to be concise and expressive. This makes it easier to understand and maintain build scripts, compared to Maven’s XML-based syntax.</p>
+<p>Support for multiple languages: Gradle supports building projects in multiple languages, including Kotlin, Java, and C&#x2F;C++. This makes it a good choice for multi-language projects.</p>
+<p>Rich plugin ecosystem: Gradle has a rich plugin ecosystem that provides a wide range of functionality, including support for testing, code analysis, and publishing. This makes it easy to extend and customize your build process.</p>
+<p>Fast and incremental builds: Gradle uses a caching mechanism and an incremental build approach to make builds faster and more efficient. This can be especially useful for larger projects.</p>
+<p>To get started with Gradle for Kotlin, you can create a new Kotlin project using the kotlin-gradle-plugin, and define your dependencies in the build.gradle file. You can then use the gradle command-line tool or the Gradle wrapper to build, test, and publish your Kotlin application.</p>
+<p>Here is an example of a simple build.gradle file for a Kotlin project using Gradle:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">plugins &#123;</span><br><span class="line">    id &#x27;org.jetbrains.kotlin.jvm&#x27; version &#x27;1.4.21&#x27;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">group = &#x27;com.example&#x27;</span><br><span class="line">version = &#x27;1.0&#x27;</span><br><span class="line"></span><br><span class="line">repositories &#123;</span><br><span class="line">    mavenCentral()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">    implementation &#x27;org.jetbrains.kotlin:kotlin-stdlib-jdk8&#x27;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">tasks.withType&lt;Test&gt; &#123;</span><br><span class="line">    useJUnitPlatform()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This build.gradle file defines the kotlin-jvm plugin, the group and version of the project, the dependencies of the project, and the test task. You can then use the gradle command-line tool or the Gradle wrapper to build, test, and publish your Kotlin application.</p>
+<h2 id="use-rabbitmq-client-in-kotlin"><a href="#use-rabbitmq-client-in-kotlin" class="headerlink" title="use rabbitmq client in kotlin"></a>use rabbitmq client in kotlin</h2><p>To use RabbitMQ, a message broker that supports a number of messaging protocols, in Kotlin, you can use the amqp-client library, which is a Java client library for RabbitMQ.</p>
+<p>To get started with the amqp-client library in Kotlin, you can include the amqp-client dependency in your project. For example, if you are using Maven, you can add the following dependency to your pom.xml file:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.rabbitmq<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>amqp-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.11.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>If you are using Gradle, you can add the following dependency to your build.gradle file:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">  implementation &#x27;com.rabbitmq:amqp-client:5.11.0&#x27;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Once you have included the amqp-client dependency in your project, you can use the classes and interfaces provided by the library to connect to a RabbitMQ server and perform operations such as sending and receiving messages.</p>
+<p>Here is an example of how you can use the amqp-client library in Kotlin to send a message to a RabbitMQ server:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.rabbitmq.client.ConnectionFactory</span><br><span class="line"><span class="keyword">import</span> com.rabbitmq.client.Connection</span><br><span class="line"><span class="keyword">import</span> com.rabbitmq.client.Channel</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> factory = ConnectionFactory()</span><br><span class="line">    factory.host = <span class="string">&quot;localhost&quot;</span></span><br><span class="line">    <span class="keyword">val</span> connection: Connection = factory.newConnection()</span><br><span class="line">    <span class="keyword">val</span> channel: Channel = connection.createChannel()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> exchangeName = <span class="string">&quot;my_exchange&quot;</span></span><br><span class="line">    <span class="keyword">val</span> routingKey = <span class="string">&quot;my_routing_key&quot;</span></span><br><span class="line">    <span class="keyword">val</span> message = <span class="string">&quot;Hello, RabbitMQ!&quot;</span></span><br><span class="line"></span><br><span class="line">    channel.basicPublish(exchangeName, routingKey, <span class="literal">null</span>, message.toByteArray())</span><br><span class="line">    println(<span class="string">&quot; [x] Sent &#x27;<span class="variable">$message</span>&#x27;&quot;</span>)</span><br><span class="line"></span><br><span class="line">    channel.close()</span><br><span class="line">    connection.close()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This example connects to a RabbitMQ server running on localhost, creates a channel, and uses the basicPublish method to send a message to the server with a specified exchange name and routing key.</p>
+<p>You can also use the amqp-client library in Kotlin to receive messages from a RabbitMQ server. Here is an example of how you can use the amqp-client library in Kotlin to receive messages from a RabbitMQ server:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.rabbitmq.client.ConnectionFactory</span><br><span class="line"><span class="keyword">import</span> com.rabbitmq.client.Connection</span><br><span class="line"><span class="keyword">import</span> com.rabbitmq.client.Channel</span><br><span class="line"><span class="keyword">import</span> com.rabbitmq.client.DeliverCallback</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> factory = ConnectionFactory()</span><br><span class="line">    factory.host = <span class="string">&quot;localhost&quot;</span></span><br><span class="line">    <span class="keyword">val</span> connection: Connection = factory.newConnection()</span><br><span class="line">    <span class="keyword">val</span> channel: Channel = connection.createChannel()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> queueName = <span class="string">&quot;my_queue&quot;</span></span><br><span class="line">    channel.queueDeclare(queueName, <span class="literal">false</span>, <span class="literal">false</span>, <span class="literal">false</span>, <span class="literal">null</span>)</span><br><span class="line">    <span class="keyword">val</span> deliverCallback = DeliverCallback &#123; _, delivery -&gt;</span><br><span class="line">        <span class="keyword">val</span> message = String(delivery.body, Charsets.UTF_8)</span><br><span class="line">        println(<span class="string">&quot; [x] Received &#x27;<span class="variable">$message</span>&#x27;&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    channel.basicConsume(queueName, <span class="literal">true</span>, deliverCallback, _ -&gt; &#123;&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This code creates a queue and sets up a DeliverCallback to handle incoming messages. The basicConsume method is used to start consuming messages from the queue. When a message is received, the DeliverCallback is invoked and the message is printed to the console.</p>
+<p>You can find more information about using the amqp-client library in Kotlin to interact with a RabbitMQ server in the RabbitMQ documentation and the amqp-client library documentation.</p>
+<p>set the delivery mode to persistent<br>To set the delivery mode of a message to persistent when using the amqp-client library in Kotlin, you can use the basicPublish method and set the deliveryMode property of the BasicProperties object that you pass as the third argument.</p>
+<p>Here is an example of how you can set the delivery mode of a message to persistent when using the amqp-client library in Kotlin:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.rabbitmq.client.ConnectionFactory</span><br><span class="line"><span class="keyword">import</span> com.rabbitmq.client.Connection</span><br><span class="line"><span class="keyword">import</span> com.rabbitmq.client.Channel</span><br><span class="line"><span class="keyword">import</span> com.rabbitmq.client.BasicProperties</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> factory = ConnectionFactory()</span><br><span class="line">    factory.host = <span class="string">&quot;localhost&quot;</span></span><br><span class="line">    <span class="keyword">val</span> connection: Connection = factory.newConnection()</span><br><span class="line">    <span class="keyword">val</span> channel: Channel = connection.createChannel()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> exchangeName = <span class="string">&quot;my_exchange&quot;</span></span><br><span class="line">    <span class="keyword">val</span> routingKey = <span class="string">&quot;my_routing_key&quot;</span></span><br><span class="line">    <span class="keyword">val</span> message = <span class="string">&quot;Hello, RabbitMQ!&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> properties = BasicProperties.builder()</span><br><span class="line">        .deliveryMode(<span class="number">2</span>)</span><br><span class="line">        .build()</span><br><span class="line"></span><br><span class="line">    channel.basicPublish(exchangeName, routingKey, properties, message.toByteArray())</span><br><span class="line">    println(<span class="string">&quot; [x] Sent &#x27;<span class="variable">$message</span>&#x27;&quot;</span>)</span><br><span class="line"></span><br><span class="line">    channel.close()</span><br><span class="line">    connection.close()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>In this example, the BasicProperties.builder method is used to create a BasicProperties object with the deliveryMode property set to 2 (indicating persistent delivery). This object is then passed as the third argument to the basicPublish method.</p>
+<p>You can find more information about the BasicProperties class and the different delivery modes in the amqp-client library documentation.</p>
+<h2 id="write-spring-boot-hello-world-with-kotlin"><a href="#write-spring-boot-hello-world-with-kotlin" class="headerlink" title="write spring boot hello world with kotlin"></a>write spring boot hello world with kotlin</h2><p>To write a “Hello, World!” program in Spring Boot using Kotlin, you can follow these steps:</p>
+<p>Create a new Spring Boot project using the Spring Initializr. You can do this by visiting <a target="_blank" rel="noopener" href="https://start.spring.io/">https://start.spring.io/</a> and selecting “Kotlin” as the programming language. Select the “Web” dependency, and then click on “Generate” to download the project as a ZIP file.</p>
+<p>Extract the ZIP file and open the project in your preferred development environment.</p>
+<p>In the src&#x2F;main&#x2F;kotlin directory, create a new Kotlin file called HelloController.kt. This file will contain a simple controller that will handle HTTP requests to the root path of the application.</p>
+<p>In HelloController.kt, define a controller class and annotate it with @RestController. This will enable the class to handle HTTP requests and return responses to the client.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.web.bind.<span class="keyword">annotation</span>.RestController</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">HelloController</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Inside the HelloController class, define a method that will handle HTTP GET requests to the root path of the application. Annotate this method with @GetMapping(“&#x2F;“).</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.web.bind.<span class="keyword">annotation</span>.GetMapping</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">HelloController</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(<span class="string">&quot;/&quot;</span>)</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">sayHello</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Run the Spring Boot application by running the main method in the Application class. You should now be able to visit <a target="_blank" rel="noopener" href="http://localhost:8080/">http://localhost:8080/</a> in your web browser and see the message “Hello, World!” displayed.<br>That’s it! You have now written a simple “Hello, World!” program in Spring Boot using Kotlin.</p>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/2022/12/25/e82fa063-872b-4101-af10-56c87188b58f/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/2022/12/22/4f8d70bb-ecc9-4f39-87b1-4b9f6e457452/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2022-12-23 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Kotlin-Spring-Boot/">Kotlin Spring Boot<span>1</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/Kotlin/">Kotlin<span>3</span></a></li> <li><a href="/tags/Spring-Boot/">Spring Boot<span>1</span></a></li> <li><a href="/tags/Microservices/">Microservices<span>1</span></a></li> <li><a href="/tags/Service-Discovery/">Service Discovery<span>1</span></a></li> <li><a href="/tags/Circuit-Breaking/">Circuit Breaking<span>1</span></a></li> <li><a href="/tags/RabbitMQ/">RabbitMQ<span>1</span></a></li> <li><a href="/tags/Gradle/">Gradle<span>1</span></a></li>
+
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+
+</body>
+</html>

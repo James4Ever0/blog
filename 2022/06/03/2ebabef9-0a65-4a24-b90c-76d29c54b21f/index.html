@@ -1,0 +1,319 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Neo4j learning notes | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="This article explains the use of Neo4j for indexing, querying relationships, and creating recommendation systems using customer ratings and cosine similarity calculations. The comments provide code examples, update node properties, and cover static/dynamic value access in maps and lists for sorting and filtering items by topics or properties.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Neo4j learning notes"/>
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> Neo4j learning notes</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>This article explains the use of Neo4j for indexing, querying relationships, and creating recommendation systems using customer ratings and cosine similarity calculations. The comments provide code examples, update node properties, and cover static&#x2F;dynamic value access in maps and lists for sorting and filtering items by topics or properties.</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <h1 id="Neo4j-learning-notes"><a href="#Neo4j-learning-notes" class="headerlink" title="Neo4j learning notes"></a>Neo4j learning notes</h1><p><a target="_blank" rel="noopener" href="https://neo4j.com/download">neo4j desktop</a> provide free multi graph databases support, enable you to create and use multiple graph datases at once</p>
+<p>to query undirected relationships:<br>match () – (p) return p</p>
+<p>create fulltext index<br>create fulltext index lucene for (n:Person) on each [n.title, n.description]<br>call db.index.fulltext.queryNodes(“titlesAndDescriptions”, “Full Metal Jacket”) yield node, score return node, score</p>
+<p>calculate customer rating cosine similarity for recommendation:<br><a target="_blank" rel="noopener" href="https://neo4j.com/graphgists/northwind-recommendation-engine">https://neo4j.com/graphgists/northwind-recommendation-engine</a><br>match (c1:customer)-[r1:rated]-(:product)-[r2:rated]-(c2:customer)<br>with sum(r1.score<em>r2.score) as dot_product,<br>sqrt(reduce(x&#x3D;0, a in r1.score | x+a^2)) as r1_length,<br>sqrt(reduce(y&#x3D;0, b in r2.score | y+b^2)) as r2_length<br>merge (c1)-[s:similarity}]-(c2)<br>set s +&#x3D;  {score:dot_product&#x2F;(r1_length</em>r2_length)</p>
+<p>use collect to turn maps into lists:<br>match (p) return collect(p.names)</p>
+<p>exist subquery:<br>match (n:Person) where exists {<br>match (n) –(t:Tech)<br>where size((t)-[:likes]-(:Person)) &gt;2<br>}<br>return n.name</p>
+<p>list comprehension:<br>return [x in range(0,10) where x%3 &#x3D; 0| x&#x2F;2] as list<br>return [x in range(0,10) where not x in range(4,10) |x ] as list</p>
+<p>to use conditional matches or regular expressions:<br>match () – (p) where p.name in [“helen”] or p.name &#x3D;~ “.<em>chinese.</em>“ return p</p>
+<p>create index on properties:<br>create index for (n:Category) on (n.categoryName)</p>
+<p>asterisks:</p>
+<p>load csv:<br>load csv with headers from “<a target="_blank" rel="noopener" href="http://localhost/person.csv">http://localhost/person.csv</a>“ as line<br>call {with line<br>merge (n:person {id: toInteger(line.id)})<br>set n.name &#x3D; line.name<br>} in transactions of 2 rows</p>
+<p>count nodes:<br>match (n) return count(n)</p>
+<p>match relationship patterns:<br>match (n) -[:friend|hater*3]-&gt;(p) return p limit 20</p>
+<p>node can have multiple labels, while relationship can only have one type, both specified after the colon.</p>
+<p>simple case expression:<br>match(n)<br>return<br>case n.eyes<br>when “blue” then 1<br>when “brown” then 2<br>else 3<br>end as result</p>
+<p>generic case expression<br>match (n)<br>return<br>case<br>when n.eyes &#x3D; “blue” then 1<br>when n.age &gt; 40 then 2<br>else 3 &#x2F;&#x2F; if without else then return null<br>end as result</p>
+<p>inequality symbol: &lt;&gt;</p>
+<p>mutating updating node properties:<br>match(n)<br>set n+&#x3D;{name:”helen”} &#x2F;&#x2F; if using &#x3D; the properties will be totally replaced instead of update.<br>return n.name</p>
+<p>merge can only ensure the existance of one node or pattern at a time, no comma</p>
+<p>plus can concatenate strings</p>
+<p>tenporal dataformat can be used as numbers to compute.</p>
+<p>Map operators<br>. for static value access by key, [] for dynamic value access by key</p>
+<p>List operators</p>
+<ul>
+<li>for concatenation, IN to check existence of an element in a list, [] for accessing element(s) dynamically</li>
+</ul>
+<p>recommendation steps:<br>first find targets by meta relatonships<br>next sort recommendation by frequency, ratings or occurance<br>third filter items by topics or properties</p>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/2022/06/03/71e31f75-b989-4ac8-b4e8-ee024d5ac047/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/2022/06/02/87b67abb-5976-4e4b-8dce-8279a62107ad/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2022-06-03 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Neo4j/">Neo4j<span>1</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/graph-database/">graph database<span>4</span></a></li> <li><a href="/tags/pyjom/">pyjom<span>42</span></a></li> <li><a href="/tags/self-learning/">self-learning<span>2</span></a></li> <li><a href="/tags/syntax/">syntax<span>1</span></a></li>
+
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+
+</body>
+</html>

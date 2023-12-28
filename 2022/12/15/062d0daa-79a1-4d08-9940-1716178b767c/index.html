@@ -1,0 +1,323 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>useful java patterns | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="This guide offers tutorials in Java and Kotlin, covering patterns like Java Stream, list comprehension, switch expressions, and iterating through lists with indices. Additionally, it discusses eclipse and JetBrains plugin support for BeanShell syntax highlighting. The guide also teaches various methods to count array element occurrences in both languages.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="useful java patterns"/>
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> useful java patterns</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>This guide offers tutorials in Java and Kotlin, covering patterns like Java Stream, list comprehension, switch expressions, and iterating through lists with indices. Additionally, it discusses eclipse and JetBrains plugin support for BeanShell syntax highlighting. The guide also teaches various methods to count array element occurrences in both languages.</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <h1 id="useful-java-patterns"><a href="#useful-java-patterns" class="headerlink" title="useful java patterns"></a>useful java patterns</h1><p><a target="_blank" rel="noopener" href="https://stackify.com/streams-guide-java-8/">java stream guide</a></p>
+<p>learn java and kotlin the same time?</p>
+<p>beanshell syntax highlight seems to be rare. beanshell workspace has the highlight.</p>
+<p>use v2.1.1 and above for varargs support.</p>
+<p>there are eclipse and <a target="_blank" rel="noopener" href="https://github.com/perNyfelt/beanshell-intellij-plugin">jetbrains</a> plugin support for beanshell.</p>
+<h2 id="creating-lists"><a href="#creating-lists" class="headerlink" title="creating lists"></a>creating lists</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">var</span> <span class="variable">a</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(Arrays.asList(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>));</span><br><span class="line"><span class="type">var</span> <span class="variable">mset</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;();</span><br><span class="line">mset.addAll(a);</span><br><span class="line"><span class="type">var</span> <span class="variable">mset2</span> <span class="operator">=</span> a.stream().collect(Collectors.toSet());</span><br><span class="line"><span class="type">var</span> <span class="variable">mymin</span> <span class="operator">=</span> Collections.min(a);</span><br><span class="line"><span class="type">var</span> <span class="variable">mymax</span> <span class="operator">=</span> Collections.max(a);</span><br><span class="line">Collections.reverse(a);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = arrayOf(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>);</span><br><span class="line">print(a.contentToString())</span><br><span class="line">print(a.max())</span><br><span class="line">print(a.min())</span><br><span class="line">a.reverse()</span><br></pre></td></tr></table></figure>
+
+<h2 id="creating-hashmap"><a href="#creating-hashmap" class="headerlink" title="creating hashmap"></a>creating hashmap</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ah= <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">ah.put(<span class="number">1</span>,<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ah = hashMapOf(<span class="number">1</span> to <span class="number">2</span>, <span class="number">2</span> to <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="iterate-lists-with-indices"><a href="#iterate-lists-with-indices" class="headerlink" title="iterate lists with indices"></a>iterate lists with indices</h2><p>java double colon <code>::</code> operator acts as anonymous function</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">var</span> <span class="variable">l</span> <span class="operator">=</span> a.listIterator();</span><br><span class="line"><span class="keyword">while</span> (l.hasNext())&#123;</span><br><span class="line">  <span class="type">var</span> <span class="variable">index</span> <span class="operator">=</span> l.nextIndex();</span><br><span class="line">  <span class="type">var</span> <span class="variable">val</span> <span class="operator">=</span> l.next();</span><br><span class="line">  System.out.println(<span class="string">&quot;INDEX: &quot;</span>+index+<span class="string">&quot; ELEM: &quot;</span>+val);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">IntStream.range(<span class="number">0</span>,a.size()).forEach(index -&gt; a.get(index));</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> index=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i: a)&#123;</span><br><span class="line">  index++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">a.forEachIndexed&#123;ind, elem -&gt; println(<span class="string">&quot;index? <span class="variable">$ind</span>&quot;</span>); println(<span class="string">&quot;elem? <span class="variable">$elem</span>&quot;</span>)&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> a.indices)&#123;</span><br><span class="line">  <span class="keyword">var</span> elem = a[i]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">a.indices.forEach &#123;</span><br><span class="line">  <span class="keyword">var</span> elem = a[it]</span><br><span class="line">  elem</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="list-comprehension"><a href="#list-comprehension" class="headerlink" title="list comprehension"></a>list comprehension</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">var</span> <span class="variable">mlist</span> <span class="operator">=</span> a.stream().map(x-&gt; x*<span class="number">2</span>).collect(Collectors.toList());</span><br><span class="line"><span class="type">var</span> <span class="variable">evenNums</span> <span class="operator">=</span> a.stream().filter(x-&gt; x%<span class="number">2</span> == <span class="number">0</span>).collect(Collectors.toList());</span><br><span class="line"><span class="type">var</span> <span class="variable">mmap</span> <span class="operator">=</span> a.stream().collect(Collectors.toMap(x-&gt;x.getId(),x-&gt;x.getName()));</span><br></pre></td></tr></table></figure>
+
+<h2 id="switch-expressions"><a href="#switch-expressions" class="headerlink" title="switch expressions"></a>switch expressions</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">var</span> <span class="variable">val</span> <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line"><span class="type">var</span> <span class="variable">mswitch</span> <span class="operator">=</span> <span class="keyword">switch</span> (val)&#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span> -&gt; &#123;</span><br><span class="line">    <span class="keyword">yield</span> <span class="string">&quot;good&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">case</span> <span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span> -&gt; &#123;</span><br><span class="line">    <span class="keyword">yield</span> <span class="string">&quot;bad&quot;</span>;</span><br><span class="line">  &#125; <span class="comment">// either throw or yield.</span></span><br><span class="line">  <span class="keyword">default</span> -&gt; &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;out of expectation&quot;</span>);</span><br><span class="line">    <span class="keyword">yield</span> <span class="string">&quot;really bad&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">System.out.println(mswitch);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> grade = <span class="number">30</span></span><br><span class="line"><span class="keyword">var</span> res =  <span class="keyword">when</span>(grade) &#123;</span><br><span class="line">        <span class="keyword">in</span> <span class="number">0.</span><span class="number">.40</span> -&gt; <span class="string">&quot;Fail&quot;</span></span><br><span class="line">        <span class="keyword">in</span> <span class="number">41.</span><span class="number">.70</span> -&gt; <span class="string">&quot;Pass&quot;</span></span><br><span class="line">        <span class="keyword">in</span> <span class="number">71.</span><span class="number">.100</span> -&gt; <span class="string">&quot;Distinction&quot;</span></span><br><span class="line">        <span class="keyword">else</span> -&gt; <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">print(res)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> mcase = <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> res = <span class="keyword">when</span>(mcase)&#123;</span><br><span class="line">  <span class="number">1</span> -&gt; <span class="string">&quot;good&quot;</span></span><br><span class="line">  <span class="number">2</span> -&gt; <span class="string">&quot;bad&quot;</span></span><br><span class="line">  <span class="keyword">else</span> -&gt; <span class="string">&quot;really bad&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">print(res)</span><br></pre></td></tr></table></figure>
+
+<h3 id="count-occurance-of-elements-in-array"><a href="#count-occurance-of-elements-in-array" class="headerlink" title="count occurance of elements in array"></a>count occurance of elements in array</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">String[] array = &#123;<span class="string">&quot;name1&quot;</span>,<span class="string">&quot;name2&quot;</span>,<span class="string">&quot;name3&quot;</span>,<span class="string">&quot;name4&quot;</span>, <span class="string">&quot;name5&quot;</span>, <span class="string">&quot;name2&quot;</span>&#125;;</span><br><span class="line">Arrays.stream(array)</span><br><span class="line">      .collect(Collectors.groupingBy(s -&gt; s))</span><br><span class="line">      .forEach((k, v) -&gt; System.out.println(k+<span class="string">&quot; &quot;</span>+v.size()));</span><br><span class="line"></span><br><span class="line"><span class="type">List</span> <span class="variable">asList</span> <span class="operator">=</span> Arrays.asList(array);</span><br><span class="line">Set&lt;String&gt; mySet = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;String&gt;(asList);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(String s: mySet)&#123;</span><br><span class="line"> System.out.println(s + <span class="string">&quot; &quot;</span> + Collections.frequency(asList,s));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Map&lt;String, Long&gt; map = Arrays.stream(array)</span><br><span class="line">    .collect(Collectors.groupingBy(s -&gt; s, Collectors.counting()));</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = arrayOf(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">a.toSet().forEach&#123;it -&gt; println(<span class="string">&quot;elem? <span class="variable">$it</span>&quot;</span>); println(<span class="string">&quot;count? &quot;</span>+a.count&#123;it2-&gt;it2 == it&#125;)&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="lambdas"><a href="#lambdas" class="headerlink" title="lambdas"></a>lambdas</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Consumer</span> <span class="variable">mcons</span> <span class="operator">=</span> (n) -&gt; &#123;System.out.println(n);&#125;</span><br><span class="line">mcons.andThen(mcons).accept(<span class="string">&quot;mval&quot;</span>);</span><br><span class="line">Function &lt;Integer,Integer&gt; mfunc = n-&gt; n+<span class="number">1</span>;</span><br><span class="line"><span class="type">Supplier</span> <span class="variable">msup</span> <span class="operator">=</span> () -&gt; <span class="number">1</span>;</span><br><span class="line"><span class="type">var</span> <span class="variable">mval</span> <span class="operator">=</span> msup.get();</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mfunc = &#123;n :<span class="built_in">Int</span> -&gt; n+<span class="number">1</span>&#125;</span><br><span class="line"><span class="keyword">var</span> mprint = &#123;n:Any -&gt; print(n)&#125;</span><br></pre></td></tr></table></figure>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/2022/12/15/a40af93d-6ad7-4f21-b874-5391fc45fa2e/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/2022/12/13/8d61fc58-e855-4fe0-ade9-be7fdcb60af0/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2022-12-15 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Programming-Languages/">Programming Languages<span>4</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/Java/">Java<span>2</span></a></li> <li><a href="/tags/Kotlin/">Kotlin<span>3</span></a></li> <li><a href="/tags/Tutorials/">Tutorials<span>1</span></a></li> <li><a href="/tags/Stream-API/">Stream API<span>1</span></a></li> <li><a href="/tags/List-Comprehension/">List Comprehension<span>1</span></a></li> <li><a href="/tags/Switch-Expressions/">Switch Expressions<span>1</span></a></li> <li><a href="/tags/Eclipse/">Eclipse<span>1</span></a></li> <li><a href="/tags/JetBrains-Plugin/">JetBrains Plugin<span>1</span></a></li> <li><a href="/tags/Beanshell-Syntax-Highlighting/">Beanshell Syntax Highlighting<span>1</span></a></li> <li><a href="/tags/Array-Element-Occurrences/">Array Element Occurrences<span>1</span></a></li>
+
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+
+</body>
+</html>

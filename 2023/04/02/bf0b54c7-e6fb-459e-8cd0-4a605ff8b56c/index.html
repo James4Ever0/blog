@@ -1,0 +1,311 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ChatGPT Local Version | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="This article highlights the use of GGML, LoRA, and LangChain to improve LLM inference on standard hardware by overcoming storage and computation limitations. Quantization techniques are employed, and an API is implemented to retrieve tokens from a server for matching behavior. The provided reference projects focus on conversational LLMs.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="ChatGPT Local Version"/>
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> ChatGPT Local Version</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>This article highlights the use of GGML, LoRA, and LangChain to improve LLM inference on standard hardware by overcoming storage and computation limitations. Quantization techniques are employed, and an API is implemented to retrieve tokens from a server for matching behavior. The provided reference projects focus on conversational LLMs.</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <h1 id="ChatGPT-Local-Version"><a href="#ChatGPT-Local-Version" class="headerlink" title="ChatGPT Local Version"></a>ChatGPT Local Version</h1><p>Run some community contributed ChatGPT-like models on commondity PCs.</p>
+<h2 id="Model-Selection"><a href="#Model-Selection" class="headerlink" title="Model Selection"></a>Model Selection</h2><p>Below are some models we are about to use:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/BlinkDL/ChatRWKV">ChatRWKV</a>, or <a target="_blank" rel="noopener" href="https://github.com/BlinkDL/RWKV-LM">RWKV</a>-based models, some are <a target="_blank" rel="noopener" href="https://huggingface.co/spaces/Hazzzardous/RWKV-Instruct">fine-tuned on alpaca dataset</a>.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/THUDM/ChatGLM-6B">ChatGLM-6B</a>, open-sourced by Tsinghua KEG, with <a target="_blank" rel="noopener" href="https://huggingface.co/silver/chatglm-6b-int4-slim">INT4 quantized version</a>.</li>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/OpenAssistant">OpenAssistant</a> by LAION-AI, trained on their own <a target="_blank" rel="noopener" href="https://huggingface.co/datasets/laion/OIG">OIG dataset</a>. There are also <a target="_blank" rel="noopener" href="https://huggingface.co/Rallio67">few models</a> contributed by their <a target="_blank" rel="noopener" href="https://ykilcher.com/open-assistant-discord">discord community</a>.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/tatsu-lab/standford_alpaca">Alpaca</a>, trained on alpaca dataset (synthetic, generated by ChatGPT) by Standford University. Model weights are <a target="_blank" rel="noopener" href="https://github.com/antimatter15/alpaca.cpp">community provided</a>.</li>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/ClueAI/ChatYuan-large-v1">ChatYuan</a> by ClueAI.</li>
+</ul>
+<p>There are quite a few more models to be listed. You can check <a target="_blank" rel="noopener" href="https://github.com/nichtdax/awesome-totally-open-chatgpt">this curated open-sourced ChatGPT-like model list</a> for updates. But for now, these models shall be sufficient.</p>
+<h2 id="Quantization-and-Optimization"><a href="#Quantization-and-Optimization" class="headerlink" title="Quantization and Optimization"></a>Quantization and Optimization</h2><p>Floating-point values in model weights are stored as 32bit. Quantization can reduce storage space and computation by switching to 16bit, 8bit or 4bit values. However, most quantized models cannot be trained or fine-tuned, some 16bit models can only be trained on certain architecture of GPUs, such as Ada and Turing.</p>
+<p>To make LLM (Large Language Model) inference feasible on common hardware, GPU is usually mandatory. However, most commondity GPUs have smaller VRAM compared to RAM, limiting the size of LLM to be run, thus the capability of the LLM. Most computer have 12GB of VRAM, 32GB of RAM. <a target="_blank" rel="noopener" href="https://github.com/ggerganov/ggml">GGML</a> is a project aiming to make LLM inference on CPU as fast as GPU, utilizing larger RAM compared to VRAM to run larger LLMs. Currently some popular LLMs have been ported to GGML, like <a target="_blank" rel="noopener" href="https://github.com/ggerganov/llama.cpp">LLaMA</a> and <a target="_blank" rel="noopener" href="https://github.com/antimatter15/alpaca.cpp">Alpaca</a>.</p>
+<h2 id="Training-and-Fine-tuning"><a href="#Training-and-Fine-tuning" class="headerlink" title="Training and Fine-tuning"></a>Training and Fine-tuning</h2><p>In deeplearning, people tend to tune all parameters during training, requiring much VRAM and time. To train GPT3.5 aka ChatGPT, OpenAI spends millions to rent interconnected A100 GPUs. This is impossible for an individual to afford such.</p>
+<p>With technologies like <a target="_blank" rel="noopener" href="https://github.com/microsoft/LoRA">LoRA</a>, by freezing most part of the model and introducing a small fraction of tunable parameters, training requirements can be greatly reduced. One can easily tune <a target="_blank" rel="noopener" href="https://github.com/tolen/alpaca-lora">7B LLaMA</a> or <a target="_blank" rel="noopener" href="https://github.com/Blealtan/RWKV-LM-LoRA">14B RWKV</a> using LoRA on a PC (usually rented on the cloud, such as <a href="www.autodl.com/home">AutoDL</a>) with a single 80GB A100 card and 200GB of RAM.</p>
+<h2 id="Prompting-and-Chaining"><a href="#Prompting-and-Chaining" class="headerlink" title="Prompting and Chaining"></a>Prompting and Chaining</h2><p>LLMs are general problem solvers given enough external storage and access to search engines. Text is the only way to language models (not for multimodal LLMs, like <a target="_blank" rel="noopener" href="https://openai.com/research/gpt-4">GPT4</a>, <a target="_blank" rel="noopener" href="https://github.com/OFA-Sys/OFA">OFA</a> or <a target="_blank" rel="noopener" href="https://github.com/microsoft/unilm">UniLM</a>).</p>
+<p>To enhance the capability of LLMs, you have to <a target="_blank" rel="noopener" href="https://langchain.readthedocs.io/en/latest/modules/memory/getting_started.html">maintain its memory</a>, <a target="_blank" rel="noopener" href="https://langchain.readthedocs.io/en/latest/modules/agents.html">define action keywords and trigger external actions</a> during the conversation, connect it to <a target="_blank" rel="noopener" href="https://github.com/deepset-ai/haystack">semantic search engines</a> powered by other AI models like <a target="_blank" rel="noopener" href="https://www.sbert.net/">sentence transformers</a>.</p>
+<p>One such library is <a target="_blank" rel="noopener" href="https://langchain.readthedocs.io/en/latest/index.html">LangChain</a>.</p>
+<h2 id="Serving-as-API"><a href="#Serving-as-API" class="headerlink" title="Serving as API"></a>Serving as API</h2><p>The process of generation for LLMs is sequential. Server needs to maintain a streaming API to match this behavior. Tokens are fetched one by one from the server with a constant speed, revealed in the frontend.</p>
+<p>One can check third-party frontend-only or self-hosted projects for conversational LLMs for reference.</p>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/2023/04/03/d958ceeb-2999-48ce-bf78-f246465c97fb/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/2023/04/02/a2943ff1-11b5-4747-a3c3-e60289b58111/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2023-04-02 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Artificial-Intelligence/">Artificial Intelligence<span>16</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/LangChain/">LangChain<span>2</span></a></li> <li><a href="/tags/GGML/">GGML<span>1</span></a></li> <li><a href="/tags/LoRA/">LoRA<span>1</span></a></li> <li><a href="/tags/LLM-inference/">LLM inference<span>1</span></a></li> <li><a href="/tags/Quantization/">Quantization<span>1</span></a></li> <li><a href="/tags/Regular-hardware/">Regular hardware<span>1</span></a></li> <li><a href="/tags/Conversational-LLMs/">Conversational LLMs<span>1</span></a></li>
+
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+
+</body>
+</html>

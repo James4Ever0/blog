@@ -1,0 +1,481 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Redis Cheatsheet | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="This article provides a comprehensive Redis Cheatsheet that covers fundamental Redis commands, essential operations, advanced features like batch operations, hashes, counters, and list manipulation. It also includes settings for performance and memory optimization, database management tools, replication setup, performance testing, monitoring slow queries, and managing multiple databases using Twemproxy or Codis.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Redis Cheatsheet"/>
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+    <script src="/js/marked.js"></script>
+    <script src="/js/comment.js"></script>
+    <script src="/js/timeago.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+	<script src="/js/spin.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> Redis Cheatsheet</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>This article provides a comprehensive Redis Cheatsheet that covers fundamental Redis commands, essential operations, advanced features like batch operations, hashes, counters, and list manipulation. It also includes settings for performance and memory optimization, database management tools, replication setup, performance testing, monitoring slow queries, and managing multiple databases using Twemproxy or Codis.</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <h1 id="Redis-Cheatsheet"><a href="#Redis-Cheatsheet" class="headerlink" title="Redis Cheatsheet"></a>Redis Cheatsheet</h1><p>Redis Cheat Sheet</p>
+<p>When you encounter a Redis instance and you quickly want to learn about the setup you just need a few simple commands to peak into the setup. Of course it doesn’t hurt to look at the official full command documentation, but below is a listing just for sysadmins.<br>Accessing Redis<br>CLI</p>
+<p>First thing to know is that you can use “telnet” (usually on Redis default port 6379)</p>
+<p>telnet localhost 6379</p>
+<p>or the Redis CLI client</p>
+<p>redis-cli</p>
+<p>to connect to Redis. The advantage of redis-cli is that you have a help interface and command line history.<br>CLI Queries</p>
+<p>Here is a short list of some basic data extraction commands:<br>Type	Syntax and Explanation<br>Tracing	monitor Watch current live commands. Use with care when on production. Cancel with Ctrl-C.<br>Slow Queries	slowlog get 25 Print top 25 slow queries<br>     slowlog len<br>     slowlog reset<br>Search &#x2F; List All Keys	keys &lt;pattern Use with care when on production!<br>     keys myprefix*<br>     keys *pattern*<br>     keys *mysuffix<br>     keys [a-c]* Use grep like expressions<br>Generic Key Handling	del <key> Delete key<br>     dump <key> Serialize key<br>     exists <key> Check for key<br>     expire <key> <seconds> Set key TTL<br>Working with scalar types	get <key><br>     set <key> <value><br>     setnx <key> <value> Set key value only if key does not exist<br>     Batch commands:<br>     mget <key> <key> …<br>     mset <key> <value> <key> <value><br>Working with counters	incr <key><br>     decr <key><br>Redis Lists	lrange <key> <start> <stop> Accessing lists<br>     lrange mylist 0 -1 Output all elements<br>     lindex mylist 5 Get 5th element<br>     llen mylist Get list length</p>
+<pre><code> lpush mylist &quot;value&quot; Push “value” to list
+ lpush mylist 5 Push number 5 to list
+ rpush mylist &quot;value&quot; Push “value” to beginning (unshift)
+  
+ lpushx mylist 6 Only push if mylist exists
+ rpushx mylist 7
+  
+ lpop mylist Remove+return value from list
+ rpop mylist Remove+return value from start (shift)
+  
+ lrem mylist 1 &quot;value&quot; Remove ‘value’ count times
+ lset mylist 2 6 Set 3rd element to value 6
+ ltrim &lt;key&gt; &lt;start&gt; &lt;stop&gt;
+</code></pre>
+<p>Working with Redis Hashes	hexists myhash field1 Check if hash key exists</p>
+<pre><code> hget myhash field1 Get key value
+ hdel myhash field2 Delete key
+ hset myhash field1 &quot;value&quot; Set key with “value”
+ hsetnx myhash field1 &quot;value&quot;
+  
+ hgetall myhash Get all hash content
+ hkeys myhash List all keys
+ hlen myhash List number of keys
+  
+ Batch commands:
+ hmget &lt;key&gt; &lt;key&gt; ... Get multiple keys
+ hmset &lt;key&gt; &lt;value&gt; &lt;key&gt; &lt;value&gt; ... Set multiple keys
+  
+ Counter commands
+ hincrby myhash field1 1
+ hincrby myhash field1 5
+ hincrby myhash field1 -1
+  
+ hincrbrfloat myhash field2 1.123445
+</code></pre>
+<p>CLI Scripting</p>
+<p>For scripting just pass commands to “redis-cli”. For example:</p>
+<p>$ redis-cli INFO | grep connected<br>connected_clients:2<br>connected_slaves:0<br>$</p>
+<p>Server Statistics</p>
+<p>The statistics command is “INFO” and will give you an output as following.</p>
+<p>$ redis-cli INFO<br>redis_version:2.2.12<br>redis_git_sha1:00000000<br>redis_git_dirty:0<br>arch_bits:64<br>multiplexing_api:epoll<br>process_id:8353<br>uptime_in_seconds:2592232<br>uptime_in_days:30<br>lru_clock:809325<br>used_cpu_sys:199.20<br>used_cpu_user:309.26<br>used_cpu_sys_children:12.04<br>used_cpu_user_children:1.47<br>connected_clients:2         # &lt;—- connection count<br>connected_slaves:0<br>client_longest_output_list:0<br>client_biggest_input_buf:0<br>blocked_clients:0<br>used_memory:6596112<br>used_memory_human:6.29M         # &lt;—- memory usage<br>used_memory_rss:17571840<br>mem_fragmentation_ratio:2.66<br>use_tcmalloc:0<br>loading:0<br>aof_enabled:0<br>changes_since_last_save:0<br>bgsave_in_progress:0<br>last_save_time:1371241671<br>bgrewriteaof_in_progress:0<br>total_connections_received:118<br>total_commands_processed:1091<br>expired_keys:441<br>evicted_keys:0<br>keyspace_hits:6<br>keyspace_misses:1070<br>hash_max_zipmap_entries:512<br>hash_max_zipmap_value:64<br>pubsub_channels:0<br>pubsub_patterns:0<br>vm_enabled:0<br>role:master             # &lt;—- master&#x2F;slave in replication setup<br>db0:keys&#x3D;91,expires&#x3D;88</p>
+<p>Changing Runtime Configuration</p>
+<p>The command</p>
+<p>CONFIG GET *</p>
+<p>gives you a list of all active configuration variables you can change. The output might look like this:</p>
+<p>redis 127.0.0.1:6379&gt; CONFIG GET *</p>
+<ol>
+<li>“dir”</li>
+<li>“&#x2F;var&#x2F;lib&#x2F;redis”</li>
+<li>“dbfilename”</li>
+<li>“dump.rdb”</li>
+<li>“requirepass”</li>
+<li>(nil)</li>
+<li>“masterauth”</li>
+<li>(nil)</li>
+<li>“maxmemory”</li>
+<li>“0”</li>
+<li>“maxmemory-policy”</li>
+<li>“volatile-lru”</li>
+<li>“maxmemory-samples”</li>
+<li>“3”</li>
+<li>“timeout”</li>
+<li>“300”</li>
+<li>“appendonly”</li>
+<li>“no”</li>
+<li>“no-appendfsync-on-rewrite”</li>
+<li>“no”</li>
+<li>“appendfsync”</li>
+<li>“everysec”              # &lt;—- how often fsync() is called</li>
+<li>“save”</li>
+<li>“900 1 300 10 60 10000”     # &lt;—- how often Redis dumps in background</li>
+<li>“slave-serve-stale-data”</li>
+<li>“yes”</li>
+<li>“hash-max-zipmap-entries”</li>
+<li>“512”</li>
+<li>“hash-max-zipmap-value”</li>
+<li>“64”</li>
+<li>“list-max-ziplist-entries”</li>
+<li>“512”</li>
+<li>“list-max-ziplist-value”</li>
+<li>“64”</li>
+<li>“set-max-intset-entries”</li>
+<li>“512”</li>
+<li>“slowlog-log-slower-than”</li>
+<li>“10000”</li>
+<li>“slowlog-max-len”</li>
+<li>“64”</li>
+</ol>
+<p>Note that keys and values are alternating and you can change each key by issuing a “CONFIG SET” command like:</p>
+<p>CONFIG SET timeout 900</p>
+<p>Such a change will be effective instantly. When changing values consider also updating the redis configuration file.<br>Databases<br>Multiple Databases</p>
+<p>Redis has a concept of separated namespaces called “databases”. You can select the database number you want to use with “SELECT”. By default the database with index 0 is used. So issuing</p>
+<p>redis 127.0.0.1:6379&gt; SELECT 1<br>OK<br>redis 127.0.0.1:6379[1]&gt;</p>
+<p>switches to the second database. Note how the prompt changed and now has a “[1]” to indicate the database selection. To find out how many databases there are you might want to run redis-cli from the shell:</p>
+<p>$ redis-cli INFO | grep ^db<br>db0:keys&#x3D;91,expires&#x3D;88<br>db1:keys&#x3D;1,expires&#x3D;0</p>
+<p>Dropping Databases</p>
+<p>To drop the currently selected database run</p>
+<p>FLUSHDB</p>
+<p>to drop all databases at once run</p>
+<p>FLUSHALL</p>
+<p>Replication<br>Checking for Replication</p>
+<p>To see if the instance is a replication slave or master issue</p>
+<p>redis 127.0.0.1:6379&gt; INFO<br>[…]<br>role:master</p>
+<p>and watch for the “role” line which shows either “master” or “slave”. Starting with version 2.8 the “INFO” command also gives you per slave replication status looking like this</p>
+<p>slave0:ip&#x3D;127.0.0.1,port&#x3D;6380,state&#x3D;online,offset&#x3D;281,lag&#x3D;0</p>
+<p>Setting up Replication</p>
+<p>If you quickly need to set up replication just issue</p>
+<p>SLAVEOF <IP> <port></p>
+<p>on a machine that you want to become slave of the given IP. It will immediately get values from the master. Note that this instance will still be writable. If you want it to be read-only change the redis config file (only available in most recent version, e.g. not on Debian). To revert the slave setting run</p>
+<p>SLAVEOF NO ONE</p>
+<p>Performance Testing<br>Benchmark</p>
+<p>Install the Redis tools and run the provided benchmarking tool</p>
+<p>redis-benchmark -h <host> [-p <port>]</p>
+<p>If you are migrating from&#x2F;to memcached protocol check out how to run the same benchmark for any key value store with memcached protocol.<br>Debugging Latency</p>
+<p>First measure system latency on your Redis server with</p>
+<p>redis-cli –intrinsic-latency 100</p>
+<p>and then sample from your Redis clients with</p>
+<p>redis-cli –latency -h <host> -p <port></p>
+<p>If you have problems with high latency check if transparent huge pages are disabled. Disable it with</p>
+<p>echo never &gt; &#x2F;sys&#x2F;kernel&#x2F;mm&#x2F;transparent_hugepage&#x2F;enabled</p>
+<p>Dump Database Backup</p>
+<p>As Redis allows RDB database dumps in background, you can issue a dump at any time. Just run:</p>
+<p>BGSAVE</p>
+<p>When running this command Redis will fork and the new process will dump into the “dbfilename” configured in the Redis configuration without the original process being blocked. Of course the fork itself might cause an interruption. Use “LASTSAVE” to check when the dump file was last updated. For a simple backup solution just backup the dump file. If you need a synchronous save run “SAVE” instead of “BGSAVE”.<br>Listing Connections</p>
+<p>Starting with version 2.4 you can list connections with</p>
+<p>CLIENT LIST</p>
+<p>and you can terminate connections with</p>
+<p>CLIENT KILL <IP>:<port></p>
+<p>Monitoring Traffic</p>
+<p>The propably most useful command compared to memcached where you need to trace network traffic is the “MONITOR” command which will dump incoming commands in real time.</p>
+<p>redis 127.0.0.1:6379&gt; MONITOR<br>OK<br>1371241093.375324 “monitor”<br>1371241109.735725 “keys” “*”<br>1371241152.344504 “set” “testkey” “1”<br>1371241165.169184 “get” “testkey”</p>
+<p>additionally use “SLOWLOG” to track the slowest queries in an interval. For example</p>
+<p>SLOWLOG RESET</p>
+<h1 id="wait-for-some-time"><a href="#wait-for-some-time" class="headerlink" title="wait for some time"></a>wait for some time</h1><p>SLOWLOG GET 25</p>
+<p>and get the 25 slowest command during this time.<br>Sharding with proxies</p>
+<p>There are two major proxy solutions</p>
+<pre><code>Twemproxy (aka nutcracker, by Twitter)
+Codis
+</code></pre>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/2023/12/22/4ff019f3-07df-49ec-9b40-2127c57d9048/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/2023/12/22/5009bab9-c4bd-497b-9a11-635b5abe0b3f/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+    	 
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+           type: "github" ? "github" : "github",       
+	       user: "james4ever0",
+	       repo: "my_blog",
+		   client_id: "",
+           client_secret: "",
+		   no_comment: "No comments yet. Press the button and go to comment now!",
+		   go_to_comment: "Go to comment",
+		   no_issue: "no_issue",
+		   issue_title: "Redis Cheatsheet",
+		   issue_id: "",
+		   btn_class: "btn btn-primary",
+		   comments_target: "#comment-thread",
+		   loading_target: "#loading_spin"
+		   });
+	 </script>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2023-12-22 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Redis/">Redis<span>2</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/reference/">reference<span>10</span></a></li> <li><a href="/tags/cheatsheet/">cheatsheet<span>4</span></a></li> <li><a href="/tags/database/">database<span>6</span></a></li> <li><a href="/tags/redis/">redis<span>2</span></a></li>
+
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+</body>
+</html>

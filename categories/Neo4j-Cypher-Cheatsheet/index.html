@@ -1,0 +1,1777 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Neo4j Cypher Cheatsheet | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+<!-- title -->
+<div class="page-header page-header-inverse ">
+  <h1 class="archive-title-category title title-inverse ">Neo4j Cypher Cheatsheet</h1>
+</div>
+
+<div class="row page">
+  <!-- cols -->
+  
+  <div class="col-md-9">
+	
+
+	  <div id="top_search"></div>
+
+      
+         <!-- display as entry -->
+	     <div class="mypage">
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2022-06-03 </div>
+			<div class="article-title"><a href="/2022/06/03/71e31f75-b989-4ac8-b4e8-ee024d5ac047/" title="This Neo4j Cypher Cheatsheet provides a comprehensive overview of essential graph query operations and advanced features, focusing on user management, transaction handling, and large dataset queries. It is specifically designed for Enterprise Edition users with role-based privilege management.">Neo4j Refcard</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="Neo4j-Refcard-Cheatsheet-Reference-Card"><a href="#Neo4j-Refcard-Cheatsheet-Reference-Card" class="headerlink" title="Neo4j Refcard Cheatsheet Reference Card"></a>Neo4j Refcard Cheatsheet Reference Card</h1><p><a target="_blank" rel="noopener" href="https://gist.github.com/DaniSancas/1d5265fc159a95ff457b940fc5046887">gist</a></p>
+<p>Neo4j Cypher Refcard 4.4<br>Legend</p>
+<p>Read</p>
+<p>Write</p>
+<p>General</p>
+<p>Functions</p>
+<p>Schema</p>
+<p>Performance</p>
+<p>Multidatabase</p>
+<p>Security<br>Syntax<br>Read query structure</p>
+<p>[USE]<br>[MATCH WHERE]<br>[OPTIONAL MATCH WHERE]<br>[WITH [ORDER BY] [SKIP] [LIMIT]]<br>RETURN [ORDER BY] [SKIP] [LIMIT]</p>
+<p>MATCH</p>
+<p>MATCH (n:Person)-[:KNOWS]-&gt;(m:Person)<br>WHERE n.name &#x3D; ‘Alice’</p>
+<p>Node patterns can contain labels and properties.</p>
+<p>MATCH (n)–&gt;(m)</p>
+<p>Any pattern can be used in MATCH.</p>
+<p>MATCH (n {name: ‘Alice’})–&gt;(m)</p>
+<p>Patterns with node properties.</p>
+<p>MATCH p &#x3D; (n)–&gt;(m)</p>
+<p>Assign a path to p.</p>
+<p>OPTIONAL MATCH (n)-[r]-&gt;(m)</p>
+<p>Optional pattern: nulls will be used for missing parts.<br>WHERE</p>
+<p>WHERE n.property &lt;&gt; $value</p>
+<p>Use a predicate to filter. Note that WHERE is always part of a MATCH, OPTIONAL MATCH or WITH clause. Putting it after a different clause in a query will alter what it does.</p>
+<p>WHERE EXISTS {<br>  MATCH (n)–&gt;(m) WHERE n.age &#x3D; m.age<br>}</p>
+<p>Use an existential subquery to filter.<br>Write-only query structure</p>
+<p>[USE]<br>(CREATE | MERGE)*<br>[SET|DELETE|REMOVE|FOREACH]*<br>[RETURN [ORDER BY] [SKIP] [LIMIT]]</p>
+<p>Read-write query structure</p>
+<p>[USE]<br>[MATCH WHERE]<br>[OPTIONAL MATCH WHERE]<br>[WITH [ORDER BY] [SKIP] [LIMIT]]<br>(CREATE | MERGE)*<br>[SET|DELETE|REMOVE|FOREACH]*<br>[RETURN [ORDER BY] [SKIP] [LIMIT]]</p>
+<p>CREATE</p>
+<p>CREATE (n {name: $value})</p>
+<p>Create a node with the given properties.</p>
+<p>CREATE (n $map)</p>
+<p>Create a node with the given properties.</p>
+<p>UNWIND $listOfMaps AS properties<br>CREATE (n) SET n &#x3D; properties</p>
+<p>Create nodes with the given properties.</p>
+<p>CREATE (n)-[r:KNOWS]-&gt;(m)</p>
+<p>Create a relationship with the given type and direction; bind a variable to it.</p>
+<p>CREATE (n)-[:LOVES {since: $value}]-&gt;(m)</p>
+<p>Create a relationship with the given type, direction, and properties.<br>SET</p>
+<p>SET n.property1 &#x3D; $value1,<br>    n.property2 &#x3D; $value2</p>
+<p>Update or create a property.</p>
+<p>SET n &#x3D; $map</p>
+<p>Set all properties. This will remove any existing properties.</p>
+<p>SET n +&#x3D; $map</p>
+<p>Add and update properties, while keeping existing ones.</p>
+<p>SET n:Person</p>
+<p>Adds a label Person to a node.<br>Import</p>
+<p>LOAD CSV FROM<br>‘<a target="_blank" rel="noopener" href="https://neo4j.com/docs/cypher-refcard/4.4/csv/artists.csv">https://neo4j.com/docs/cypher-refcard/4.4/csv/artists.csv</a>‘ AS line<br>CREATE (:Artist {name: line[1], year: toInteger(line[2])})</p>
+<p>Load data from a CSV file and create nodes.</p>
+<p>LOAD CSV WITH HEADERS FROM<br>‘<a target="_blank" rel="noopener" href="https://neo4j.com/docs/cypher-refcard/4.4/csv/artists-with-headers.csv">https://neo4j.com/docs/cypher-refcard/4.4/csv/artists-with-headers.csv</a>‘ AS line<br>CREATE (:Artist {name: line.Name, year: toInteger(line.Year)})</p>
+<p>Load CSV data which has headers.</p>
+<p>USING PERIODIC COMMIT 500<br>LOAD CSV WITH HEADERS FROM<br>‘<a target="_blank" rel="noopener" href="https://neo4j.com/docs/cypher-refcard/4.4/csv/artists-with-headers.csv">https://neo4j.com/docs/cypher-refcard/4.4/csv/artists-with-headers.csv</a>‘ AS line<br>CREATE (:Artist {name: line.Name, year: toInteger(line.Year)})</p>
+<p>Commit the current transaction after every 500 rows when importing large amounts of data.</p>
+<p>LOAD CSV FROM<br>‘<a target="_blank" rel="noopener" href="https://neo4j.com/docs/cypher-refcard/4.4/csv/artists-fieldterminator.csv">https://neo4j.com/docs/cypher-refcard/4.4/csv/artists-fieldterminator.csv</a>‘<br>AS line FIELDTERMINATOR ‘;’<br>CREATE (:Artist {name: line[1], year: toInteger(line[2])})</p>
+<p>Use a different field terminator, not the default which is a comma (with no whitespace around it).</p>
+<p>LOAD CSV FROM<br>‘<a target="_blank" rel="noopener" href="https://neo4j.com/docs/cypher-refcard/4.4/csv/artists.csv">https://neo4j.com/docs/cypher-refcard/4.4/csv/artists.csv</a>‘ AS line<br>RETURN DISTINCT file()</p>
+<p>Returns the absolute path of the file that LOAD CSV is processing, returns null if called outside of LOAD CSV context.</p>
+<p>LOAD CSV FROM<br>‘<a target="_blank" rel="noopener" href="https://neo4j.com/docs/cypher-refcard/4.4/csv/artists.csv">https://neo4j.com/docs/cypher-refcard/4.4/csv/artists.csv</a>‘ AS line<br>RETURN linenumber()</p>
+<p>Returns the line number that LOAD CSV is currently processing, returns null if called outside of LOAD CSV context.<br>Operators</p>
+<p>General</p>
+<p>DISTINCT, ., []</p>
+<p>Mathematical</p>
+<p>+, -, *, &#x2F;, %, ^</p>
+<p>Comparison</p>
+<p>&#x3D;, &lt;&gt;, &lt;, &gt;, &lt;&#x3D;, &gt;&#x3D;, IS NULL, IS NOT NULL</p>
+<p>Boolean</p>
+<p>AND, OR, XOR, NOT</p>
+<p>String</p>
+<ul>
+<li></li>
+</ul>
+<p>List</p>
+<p>+, IN, [x], [x .. y]</p>
+<p>Regular Expression</p>
+<p>&#x3D;~</p>
+<p>String matching</p>
+<p>STARTS WITH, ENDS WITH, CONTAINS<br>null</p>
+<pre><code>null is used to represent missing/undefined values.
+
+null is not equal to null. Not knowing two values does not imply that they are the same value. So the expression null = null yields null and not true. To check if an expression is null, use IS NULL.
+
+Arithmetic expressions, comparisons and function calls (except coalesce) will return null if any argument is null.
+
+An attempt to access a missing element in a list or a property that doesn’t exist yields null.
+
+In OPTIONAL MATCH clauses, nulls will be used for missing parts of the pattern.
+</code></pre>
+<p>Patterns</p>
+<p>(n:Person)</p>
+<p>Node with Person label.</p>
+<p>(n:Person:Swedish)</p>
+<p>Node with both Person and Swedish labels.</p>
+<p>(n:Person {name: $value})</p>
+<p>Node with the declared properties.</p>
+<p>()-[r {name: $value}]-()</p>
+<p>Matches relationships with the declared properties.</p>
+<p>(n)–&gt;(m)</p>
+<p>Relationship from n to m.</p>
+<p>(n)–(m)</p>
+<p>Relationship in any direction between n and m.</p>
+<p>(n:Person)–&gt;(m)</p>
+<p>Node n labeled Person with relationship to m.</p>
+<p>(m)&lt;-[:KNOWS]-(n)</p>
+<p>Relationship of type KNOWS from n to m.</p>
+<p>(n)-[:KNOWS|LOVES]-&gt;(m)</p>
+<p>Relationship of type KNOWS or of type LOVES from n to m.</p>
+<p>(n)-[r]-&gt;(m)</p>
+<p>Bind the relationship to variable r.</p>
+<p>(n)-[*1..5]-&gt;(m)</p>
+<p>Variable length path of between 1 and 5 relationships from n to m.</p>
+<p>(n)-[*]-&gt;(m)</p>
+<p>Variable length path of any number of relationships from n to m. (See Performance section.)</p>
+<p>(n)-[:KNOWS]-&gt;(m {property: $value})</p>
+<p>A relationship of type KNOWS from a node n to a node m with the declared property.</p>
+<p>shortestPath((n1:Person)-[*..6]-(n2:Person))</p>
+<p>Find a single shortest path.</p>
+<p>allShortestPaths((n1:Person)-[*..6]-&gt;(n2:Person))</p>
+<p>Find all shortest paths.</p>
+<p>size((n)–&gt;()–&gt;())</p>
+<p>Count the paths matching the pattern.<br>USE</p>
+<p>USE myDatabase</p>
+<p>Select myDatabase to execute query, or query part, against.</p>
+<p>USE neo4j<br>MATCH (n:Person)-[:KNOWS]-&gt;(m:Person)<br>WHERE n.name &#x3D; ‘Alice’</p>
+<p>MATCH query executed against neo4j database.<br>SHOW FUNCTIONS and PROCEDURES</p>
+<p>SHOW FUNCTIONS</p>
+<p>Listing all available functions.</p>
+<p>SHOW PROCEDURES EXECUTABLE YIELD name</p>
+<p>List all procedures that can be executed by the current user and return only the name of the procedures.<br>SHOW and TERMINATE TRANSACTIONS</p>
+<p>SHOW TRANSACTIONS</p>
+<p>Listing all available transactions.</p>
+<p>TERMINATE TRANSACTIONS ‘neo4j-transaction-42’</p>
+<p>Terminate the transaction with ID neo4j-transaction-42.<br>Labels</p>
+<p>CREATE (n:Person {name: $value})</p>
+<p>Create a node with label and property.</p>
+<p>MERGE (n:Person {name: $value})</p>
+<p>Matches or creates unique node(s) with the label and property.</p>
+<p>SET n:Spouse:Parent:Employee</p>
+<p>Add label(s) to a node.</p>
+<p>MATCH (n:Person)</p>
+<p>Matches nodes labeled Person.</p>
+<p>MATCH (n:Person)<br>WHERE n.name &#x3D; $value</p>
+<p>Matches nodes labeled Person with the given name.</p>
+<p>WHERE (n:Person)</p>
+<p>Checks the existence of the label on the node.</p>
+<p>labels(n)</p>
+<p>Labels of the node.</p>
+<p>REMOVE n:Person</p>
+<p>Remove the label from the node.<br>Maps</p>
+<p>{name: ‘Alice’, age: 38,<br> address: {city: ‘London’, residential: true}}</p>
+<p>Literal maps are declared in curly braces much like property maps. Lists are supported.</p>
+<p>WITH {person: {name: ‘Anne’, age: 25}} AS p<br>RETURN p.person.name</p>
+<p>Access the property of a nested map.</p>
+<p>MERGE (p:Person {name: $map.name})<br>  ON CREATE SET p &#x3D; $map</p>
+<p>Maps can be passed in as parameters and used either as a map or by accessing keys.</p>
+<p>MATCH (matchedNode:Person)<br>RETURN matchedNode</p>
+<p>Nodes and relationships are returned as maps of their data.</p>
+<p>map.name, map.age, map.children[0]</p>
+<p>Map entries can be accessed by their keys. Invalid keys result in an error.<br>Functions</p>
+<p>coalesce(n.property, $defaultValue)</p>
+<p>The first non-null expression.</p>
+<p>timestamp()</p>
+<p>Milliseconds since midnight, January 1, 1970 UTC.</p>
+<p>id(nodeOrRelationship)</p>
+<p>The internal id of the relationship or node.</p>
+<p>toInteger($expr)</p>
+<p>Converts the given input into an integer if possible; otherwise it returns null.</p>
+<p>toFloat($expr)</p>
+<p>Converts the given input into a floating point number if possible; otherwise it returns null.</p>
+<p>toBoolean($expr)</p>
+<p>Converts the given input into a boolean if possible; otherwise it returns null.</p>
+<p>keys($expr)</p>
+<p>Returns a list of string representations for the property names of a node, relationship, or map.</p>
+<p>properties($expr)</p>
+<p>Returns a map containing all the properties of a node or relationship.<br>Spatial functions</p>
+<p>point({x: $x, y: $y})</p>
+<p>Returns a point in a 2D cartesian coordinate system.</p>
+<p>point({latitude: $y, longitude: $x})</p>
+<p>Returns a point in a 2D geographic coordinate system, with coordinates specified in decimal degrees.</p>
+<p>point({x: $x, y: $y, z: $z})</p>
+<p>Returns a point in a 3D cartesian coordinate system.</p>
+<p>point({latitude: $y, longitude: $x, height: $z})</p>
+<p>Returns a point in a 3D geographic coordinate system, with latitude and longitude in decimal degrees, and height in meters.</p>
+<p>point.distance(point({x: $x1, y: $y1}), point({x: $x2, y: $y2}))</p>
+<p>Returns a floating point number representing the linear distance between two points. The returned units will be the same as those of the point coordinates, and it will work for both 2D and 3D cartesian points.</p>
+<p>point.distance(point({latitude: $y1, longitude: $x1}), point({latitude: $y2, longitude: $x2}))</p>
+<p>Returns the geodesic distance between two points in meters. It can be used for 3D geographic points as well.<br>Temporal functions</p>
+<p>date(“2018-04-05”)</p>
+<p>Returns a date parsed from a string.</p>
+<p>localtime(“12:45:30.25”)</p>
+<p>Returns a time with no time zone.</p>
+<p>time(“12:45:30.25+01:00”)</p>
+<p>Returns a time in a specified time zone.</p>
+<p>localdatetime(“2018-04-05T12:34:00”)</p>
+<p>Returns a datetime with no time zone.</p>
+<p>datetime(“2018-04-05T12:34:00[Europe&#x2F;Berlin]”)</p>
+<p>Returns a datetime in the specified time zone.</p>
+<p>datetime({epochMillis: 3360000})</p>
+<p>Transforms 3360000 as a UNIX Epoch time into a normal datetime.</p>
+<p>date({year: $year, month: $month, day: $day})</p>
+<p>All of the temporal functions can also be called with a map of named components. This example returns a date from year, month and day components. Each function supports a different set of possible components.</p>
+<p>datetime({date: $date, time: $time})</p>
+<p>Temporal types can be created by combining other types. This example creates a datetime from a date and a time.</p>
+<p>date({date: $datetime, day: 5})</p>
+<p>Temporal types can be created by selecting from more complex types, as well as overriding individual components. This example creates a date by selecting from a datetime, as well as overriding the day component.</p>
+<p>WITH date(“2018-04-05”) AS d<br>RETURN d.year, d.month, d.day, d.week, d.dayOfWeek</p>
+<p>Accessors allow extracting components of temporal types.<br>Duration functions</p>
+<p>duration(“P1Y2M10DT12H45M30.25S”)</p>
+<p>Returns a duration of 1 year, 2 months, 10 days, 12 hours, 45 minutes and 30.25 seconds.</p>
+<p>duration.between($date1,$date2)</p>
+<p>Returns a duration between two temporal instances.</p>
+<p>WITH duration(“P1Y2M10DT12H45M”) AS d<br>RETURN d.years, d.months, d.days, d.hours, d.minutes</p>
+<p>Returns 1 year, 14 months, 10 days, 12 hours and 765 minutes.</p>
+<p>WITH duration(“P1Y2M10DT12H45M”) AS d<br>RETURN d.years, d.monthsOfYear, d.days, d.hours, d.minutesOfHour</p>
+<p>Returns 1 year, 2 months, 10 days, 12 hours and 45 minutes.</p>
+<p>date(“2015-01-01”) + duration(“P1Y1M1D”)</p>
+<p>Returns a date of 2016-02-02. It is also possible to subtract durations from temporal instances.</p>
+<p>duration(“PT30S”) * 10</p>
+<p>Returns a duration of 5 minutes. It is also possible to divide a duration by a number.<br>CONSTRAINT</p>
+<p>CREATE CONSTRAINT FOR (p:Person)<br>       REQUIRE p.name IS UNIQUE</p>
+<p>Create a unique property constraint on the label Person and property name. If any other node with that label is updated or created with a name that already exists, the write operation will fail. This constraint will create an accompanying index.</p>
+<p>CREATE CONSTRAINT uniqueness FOR (p:Person)<br>       REQUIRE (p.firstname, p.age) IS UNIQUE</p>
+<p>Create a unique property constraint with the name uniqueness on the label Person and properties firstname and age. If any other node with that label is updated or created with a firstname and age combination that already exists, the write operation fails. This constraint creates an accompanying index.</p>
+<p>CREATE CONSTRAINT FOR (p:Person)<br>       REQUIRE p.surname IS UNIQUE<br>       OPTIONS {indexProvider: ‘native-btree-1.0’}</p>
+<p>Create a unique property constraint on the label Person and property surname with the index provider native-btree-1.0 for the accompanying index.</p>
+<p>CREATE CONSTRAINT FOR (p:Person)<br>       REQUIRE p.name IS NOT NULL</p>
+<p>(★) Create a node property existence constraint on the label Person and property name, throws an error if the constraint already exists. If a node with that label is created without a name, or if the name property is removed from an existing node with the Person label, the write operation will fail.</p>
+<p>CREATE CONSTRAINT node_exists IF NOT EXISTS FOR (p:Person)<br>       REQUIRE p.name IS NOT NULL</p>
+<p>(★) If a node property existence constraint on the label Person and property name or any constraint with the name node_exists already exist then nothing happens. If no such constraint exists, then it will be created.</p>
+<p>CREATE CONSTRAINT FOR ()-[l:LIKED]-()<br>       REQUIRE l.when IS NOT NULL</p>
+<p>(★) Create a relationship property existence constraint on the type LIKED and property when. If a relationship with that type is created without a when, or if the when property is removed from an existing relationship with the LIKED type, the write operation will fail.</p>
+<p>CREATE CONSTRAINT relationship_exists FOR ()-[l:LIKED]-()<br>       REQUIRE l.since IS NOT NULL</p>
+<p>(★) Create a relationship property existence constraint with the name relationship_exists on the type LIKED and property since. If a relationship with that type is created without a since, or if the since property is removed from an existing relationship with the LIKED type, the write operation will fail.</p>
+<p>SHOW UNIQUE CONSTRAINTS YIELD *</p>
+<p>List all unique constraints.</p>
+<p>CREATE CONSTRAINT FOR (p:Person)<br>      REQUIRE (p.firstname, p.surname) IS NODE KEY</p>
+<p>(★) Create a node key constraint on the label Person and properties firstname and surname. If a node with that label is created without both firstname and surname or if the combination of the two is not unique, or if the firstname and&#x2F;or surname properties on an existing node with the Person label is modified to violate these constraints, the write operation fails. This constraint creates an accompanying index.</p>
+<p>CREATE CONSTRAINT node_key FOR (p:Person)<br>      REQUIRE p.firstname IS NODE KEY</p>
+<p>(★) Create a node key constraint with the name node_key on the label Person and property firstname. If a node with that label is created without the firstname property or if the value is not unique, or if the firstname property on an existing node with the Person label is modified to violate these constraints, the write operation fails. This constraint creates an accompanying index.</p>
+<p>CREATE CONSTRAINT node_key_with_config FOR (p:Person)<br>      REQUIRE (p.name, p.age) IS NODE KEY<br>      OPTIONS {indexConfig: {<code>spatial.wgs-84.min</code>: [-100.0, -100.0], <code>spatial.wgs-84.max</code>: [100.0, 100.0]}}</p>
+<p>(★) Create a node key constraint with the name node_key_with_config on the label Person, properties name and age, and given spatial.wgs-84 settings for the accompanying b-tree index. The other index settings will have their default values.</p>
+<p>DROP CONSTRAINT uniqueness</p>
+<p>Dropping the constraint with the name uniqueness, throws an error if the constraint does not exist. If the constraint has an accompanying index, that is also dropped.</p>
+<p>DROP CONSTRAINT uniqueness IF EXISTS</p>
+<p>Dropping the constraint with the name uniqueness if it exists, does nothing if it does not exist. If the constraint has an accompanying index, that is also dropped.<br>Database management</p>
+<p>CREATE OR REPLACE DATABASE myDatabase</p>
+<p>(★) Create a database named myDatabase. If a database with that name exists, then the existing database is deleted and a new one created.</p>
+<p>ALTER DATABASE myDatabase SET ACCESS READ ONLY</p>
+<p>(★) Modify a database named myDatabase to be read-only.</p>
+<p>STOP DATABASE myDatabase</p>
+<p>(★) Stop the database myDatabase.</p>
+<p>START DATABASE myDatabase</p>
+<p>(★) Start the database myDatabase.</p>
+<p>CREATE ALIAS myAlias FOR DATABASE myDatabase</p>
+<p>(★) Create an alias myAlias for the database with name myDatabase.</p>
+<p>ALTER ALIAS myAlias SET DATABASE TARGET myDatabase</p>
+<p>(★) Alter the alias myAlias to target the database with name myDatabase.</p>
+<p>DROP ALIAS myAlias FOR DATABASE</p>
+<p>(★) Drop the database alias myAlias.</p>
+<p>SHOW DATABASES</p>
+<p>List all databases in the system and information about them.</p>
+<p>SHOW DATABASES<br>YIELD name, currentStatus<br>WHERE name CONTAINS ‘my’ AND currentStatus &#x3D; ‘online’</p>
+<p>List information about databases, filtered by name and online status and further refined by conditions on these.</p>
+<p>SHOW DATABASE myDatabase</p>
+<p>List information about the database myDatabase.</p>
+<p>SHOW DEFAULT DATABASE</p>
+<p>List information about the default database.</p>
+<p>SHOW HOME DATABASE</p>
+<p>List information about the current users home database.</p>
+<p>DROP DATABASE myDatabase IF EXISTS</p>
+<p>(★) Delete the database myDatabase, if it exists.<br>User management</p>
+<p>CREATE USER alice SET PASSWORD $password</p>
+<p>Create a new user and a password. This password must be changed on the first login.</p>
+<p>ALTER USER alice SET PASSWORD $password CHANGE NOT REQUIRED</p>
+<p>Set a new password for a user. This user will not be required to change this password on the next login.</p>
+<p>ALTER USER alice IF EXISTS SET PASSWORD CHANGE REQUIRED</p>
+<p>If the specified user exists, force this user to change their password on the next login.</p>
+<p>ALTER USER alice SET STATUS SUSPENDED</p>
+<p>(★) Change the user status to suspended. Use SET STATUS ACTIVE to reactivate the user.</p>
+<p>ALTER USER alice SET HOME DATABASE otherDb</p>
+<p>(★) Change the home database of user to otherDb. Use REMOVE HOME DATABASE to unset the home database for the user and fallback to the default database.</p>
+<p>ALTER CURRENT USER SET PASSWORD FROM $old TO $new</p>
+<p>Change the password of the logged-in user. The user will not be required to change this password on the next login.</p>
+<p>SHOW CURRENT USER</p>
+<p>List the currently logged-in user, their status, roles and whether they need to change their password.<br>(★) Status and roles are Enterprise Edition only.</p>
+<p>SHOW USERS</p>
+<p>List all users in the system, their status, roles and if they need to change their password.<br>(★) Status and roles are Enterprise Edition only.</p>
+<p>SHOW USERS<br>YIELD user, suspended<br>WHERE suspended &#x3D; true</p>
+<p>List users in the system, filtered by their name and status and further refined by whether they are suspended.<br>(★) Status is Enterprise Edition only.</p>
+<p>RENAME USER alice TO alice_delete</p>
+<p>Rename the user alice to alice_delete.</p>
+<p>DROP USER alice_delete</p>
+<p>Delete the user.<br>(★) Role management</p>
+<p>CREATE ROLE my_role</p>
+<p>Create a role.</p>
+<p>CREATE ROLE my_second_role IF NOT EXISTS AS COPY OF my_role</p>
+<p>Create a role named my_second_role, unless it already exists, as a copy of the existing my_role.</p>
+<p>RENAME ROLE my_second_role TO my_other_role</p>
+<p>Rename a role named my_second_role to my_other_role.</p>
+<p>GRANT ROLE my_role, my_other_role TO alice</p>
+<p>Assign roles to a user.</p>
+<p>REVOKE ROLE my_other_role FROM alice</p>
+<p>Remove a specified role from a user.</p>
+<p>SHOW ROLES</p>
+<p>List all roles in the system.</p>
+<p>SHOW ROLES<br>YIELD role<br>WHERE role CONTAINS ‘my’</p>
+<p>List roles, filtered by the name of the role and further refined by whether the name contains ‘my’.</p>
+<p>SHOW POPULATED ROLES WITH USERS</p>
+<p>List all roles that are assigned to at least one user in the system, and the users assigned to those roles.</p>
+<p>DROP ROLE my_role</p>
+<p>Delete a role.<br>(★) Graph read privileges</p>
+<p>GRANT TRAVERSE ON GRAPH * NODES * TO my_role</p>
+<p>Grant traverse privilege on all nodes and all graphs to a role.</p>
+<p>DENY READ {prop} ON GRAPH foo RELATIONSHIP Type TO my_role</p>
+<p>Deny read privilege on a specified property, on all relationships with a specified type in a specified graph, to a role.</p>
+<p>GRANT MATCH {*} ON HOME GRAPH ELEMENTS Label TO my_role</p>
+<p>Grant read privilege on all properties and traverse privilege in the home graph, to a role. Here, both privileges apply to all nodes and relationships with a specified label&#x2F;type in the graph.<br>(★) Graph write privileges</p>
+<p>GRANT CREATE ON GRAPH * NODES Label TO my_role</p>
+<p>Grant create privilege on all nodes with a specified label in all graphs to a role.</p>
+<p>DENY DELETE ON GRAPH neo4j TO my_role</p>
+<p>Deny delete privilege on all nodes and relationships in a specified graph to a role.</p>
+<p>REVOKE SET LABEL Label ON GRAPH * FROM my_role</p>
+<p>Revoke set label privilege for the specified label on all graphs to a role.</p>
+<p>GRANT REMOVE LABEL * ON GRAPH foo TO my_role</p>
+<p>Grant remove label privilege for all labels on a specified graph to a role.</p>
+<p>DENY SET PROPERTY {prop} ON GRAPH foo RELATIONSHIPS Type TO my_role</p>
+<p>Deny set property privilege on a specified property, on all relationships with a specified type in a specified graph, to a role.</p>
+<p>GRANT MERGE {*} ON GRAPH * NODES Label TO my_role</p>
+<p>Grant merge privilege on all properties, on all nodes with a specified label in all graphs, to a role.</p>
+<p>REVOKE WRITE ON GRAPH * FROM my_role</p>
+<p>Revoke write privilege on all graphs from a role.</p>
+<p>DENY ALL GRAPH PRIVILEGES ON GRAPH foo TO my_role</p>
+<p>Deny all graph privileges privilege on a specified graph to a role.<br>(★) SHOW PRIVILEGES</p>
+<p>SHOW PRIVILEGES AS COMMANDS</p>
+<p>List all privileges in the system as Cypher commands.</p>
+<p>SHOW PRIVILEGES</p>
+<p>List all privileges in the system, and the roles that they are assigned to.</p>
+<p>SHOW PRIVILEGES<br>YIELD role, action, access<br>WHERE role &#x3D; ‘my_role’</p>
+<p>List information about privileges, filtered by role, action and access and further refined by the name of the role.</p>
+<p>SHOW ROLE my_role PRIVILEGES AS COMMANDS</p>
+<p>List all privileges assigned to a role as Cypher commands.</p>
+<p>SHOW ROLE my_role, my_second_role PRIVILEGES AS COMMANDS</p>
+<p>List all privileges assigned to each of the multiple roles as Cypher commands.</p>
+<p>SHOW USER alice PRIVILEGES AS COMMANDS</p>
+<p>List all privileges of a user, and the role that they are assigned to as Cypher commands.</p>
+<p>SHOW USER PRIVILEGES AS COMMANDS</p>
+<p>List all privileges of the currently logged in user, and the role that they are assigned to as Cypher commands.<br>RETURN</p>
+<p>RETURN *</p>
+<p>Return the value of all variables.</p>
+<p>RETURN n AS columnName</p>
+<p>Use alias for result column name.</p>
+<p>RETURN DISTINCT n</p>
+<p>Return unique rows.</p>
+<p>ORDER BY n.property</p>
+<p>Sort the result.</p>
+<p>ORDER BY n.property DESC</p>
+<p>Sort the result in descending order.</p>
+<p>SKIP $skipNumber</p>
+<p>Skip a number of results.</p>
+<p>LIMIT $limitNumber</p>
+<p>Limit the number of results.</p>
+<p>SKIP $skipNumber LIMIT $limitNumber</p>
+<p>Skip results at the top and limit the number of results.</p>
+<p>RETURN count(*)</p>
+<p>The number of matching rows. See Aggregating functions for more.<br>WITH</p>
+<p>MATCH (user)-[:FRIEND]-(friend)<br>WHERE user.name &#x3D; $name<br>WITH user, count(friend) AS friends<br>WHERE friends &gt; 10<br>RETURN user</p>
+<p>The WITH syntax is similar to RETURN. It separates query parts explicitly, allowing you to declare which variables to carry over to the next part.</p>
+<p>MATCH (user)-[:FRIEND]-(friend)<br>WITH user, count(friend) AS friends<br>ORDER BY friends DESC<br>  SKIP 1<br>  LIMIT 3<br>RETURN user</p>
+<p>ORDER BY, SKIP, and LIMIT can also be used with WITH.<br>UNION</p>
+<p>MATCH (a)-[:KNOWS]-&gt;(b)<br>RETURN b.name<br>UNION<br>MATCH (a)-[:LOVES]-&gt;(b)<br>RETURN b.name</p>
+<p>Returns the distinct union of all query results. Result column types and names have to match.</p>
+<p>MATCH (a)-[:KNOWS]-&gt;(b)<br>RETURN b.name<br>UNION ALL<br>MATCH (a)-[:LOVES]-&gt;(b)<br>RETURN b.name</p>
+<p>Returns the union of all query results, including duplicated rows.<br>MERGE</p>
+<p>MERGE (n:Person {name: $value})<br>  ON CREATE SET n.created &#x3D; timestamp()<br>  ON MATCH SET<br>    n.counter &#x3D; coalesce(n.counter, 0) + 1,<br>    n.accessTime &#x3D; timestamp()</p>
+<p>Match a pattern or create it if it does not exist. Use ON CREATE and ON MATCH for conditional updates.</p>
+<p>MATCH (a:Person {name: $value1}),<br>      (b:Person {name: $value2})<br>MERGE (a)-[r:LOVES]-&gt;(b)</p>
+<p>MERGE finds or creates a relationship between the nodes.</p>
+<p>MATCH (a:Person {name: $value1})<br>MERGE<br>  (a)-[r:KNOWS]-&gt;(b:Person {name: $value3})</p>
+<p>MERGE finds or creates paths attached to the node.<br>DELETE</p>
+<p>DELETE n, r</p>
+<p>Delete a node and a relationship.</p>
+<p>DETACH DELETE n</p>
+<p>Delete a node and all relationships connected to it.</p>
+<p>MATCH (n)<br>DETACH DELETE n</p>
+<p>Delete all nodes and relationships from the database.<br>REMOVE</p>
+<p>REMOVE n:Person</p>
+<p>Remove a label from n.</p>
+<p>REMOVE n.property</p>
+<p>Remove a property.<br>FOREACH</p>
+<p>FOREACH (r IN relationships(path) |<br>  SET r.marked &#x3D; true)</p>
+<p>Execute a mutating operation for each relationship in a path.</p>
+<p>FOREACH (value IN coll |<br> CREATE (:Person {name: value}))</p>
+<p>Execute a mutating operation for each element in a list.<br>CALL subquery</p>
+<p>CALL {<br>  MATCH (p:Person)-[:FRIEND_OF]-&gt;(other:Person) RETURN p, other<br>  UNION<br>  MATCH (p:Child)-[:CHILD_OF]-&gt;(other:Parent) RETURN p, other<br>}</p>
+<p>This calls a subquery with two union parts. The result of the subquery can afterwards be post-processed.<br>CALL procedure</p>
+<p>CALL db.labels() YIELD label</p>
+<p>This shows a standalone call to the built-in procedure db.labels to list all labels used in the database. Note that required procedure arguments are given explicitly in brackets after the procedure name.</p>
+<p>CALL db.labels() YIELD *</p>
+<p>Standalone calls may use YIELD * to return all columns.</p>
+<p>CALL java.stored.procedureWithArgs</p>
+<p>Standalone calls may omit YIELD and also provide arguments implicitly via statement parameters, e.g. a standalone call requiring one argument input may be run by passing the parameter map {input: ‘foo’}.</p>
+<p>CALL db.labels() YIELD label<br>RETURN count(label) AS count</p>
+<p>Calls the built-in procedure db.labels inside a larger query to count all labels used in the database. Calls inside a larger query always requires passing arguments and naming results explicitly with YIELD.<br>Lists</p>
+<p>[‘a’, ‘b’, ‘c’] AS list</p>
+<p>Literal lists are declared in square brackets.</p>
+<p>size($list) AS len, $list[0] AS value</p>
+<p>Lists can be passed in as parameters.</p>
+<p>range($firstNum, $lastNum, $step) AS list</p>
+<p>range() creates a list of numbers (step is optional), other functions returning lists are: labels(), nodes(), relationships().</p>
+<p>MATCH p &#x3D; (a)-[:KNOWS*]-&gt;()<br>RETURN relationships(p) AS r</p>
+<p>The list of relationships comprising a variable length path can be returned using named paths and relationships().</p>
+<p>RETURN matchedNode.list[0] AS value,<br>       size(matchedNode.list) AS len</p>
+<p>Properties can be lists of strings, numbers or booleans.</p>
+<p>list[$idx] AS value,<br>list[$startIdx..$endIdx] AS slice</p>
+<p>List elements can be accessed with idx subscripts in square brackets. Invalid indexes return null. Slices can be retrieved with intervals from start_idx to end_idx, each of which can be omitted or negative. Out of range elements are ignored.</p>
+<p>UNWIND $names AS name<br>MATCH (n {name: name})<br>RETURN avg(n.age)</p>
+<p>With UNWIND, any list can be transformed back into individual rows. The example matches all names from a list of names.</p>
+<p>MATCH (a)<br>RETURN [(a)–&gt;(b) WHERE b.name &#x3D; ‘Bob’ | b.age]</p>
+<p>Pattern comprehensions may be used to do a custom projection from a match directly into a list.</p>
+<p>MATCH (person)<br>RETURN person { .name, .age}</p>
+<p>Map projections may be easily constructed from nodes, relationships and other map values.<br>Predicates</p>
+<p>n.property &lt;&gt; $value</p>
+<p>Use comparison operators.</p>
+<p>toString(n.property) &#x3D; $value</p>
+<p>Use functions.</p>
+<p>n.number &gt;&#x3D; 1 AND n.number &lt;&#x3D; 10</p>
+<p>Use boolean operators to combine predicates.</p>
+<p>1 &lt;&#x3D; n.number &lt;&#x3D; 10</p>
+<p>Use chained operators to combine predicates.</p>
+<p>n:Person</p>
+<p>Check for node labels.</p>
+<p>variable IS NOT NULL</p>
+<p>Check if something is not null, e.g. that a property exists.</p>
+<p>n.property IS NULL OR n.property &#x3D; $value</p>
+<p>Either the property does not exist or the predicate is true.</p>
+<p>n.property &#x3D; $value</p>
+<p>Non-existing property returns null, which is not equal to anything.</p>
+<p>n[“property”] &#x3D; $value</p>
+<p>Properties may also be accessed using a dynamically computed property name.</p>
+<p>n.property STARTS WITH ‘Tim’ OR<br>n.property ENDS WITH ‘n’ OR<br>n.property CONTAINS ‘goodie’</p>
+<p>String matching.</p>
+<p>n.property &#x3D;~ ‘Tim.*’</p>
+<p>String regular expression matching.</p>
+<p>(n)-[:KNOWS]-&gt;(m)</p>
+<p>Ensure the pattern has at least one match.</p>
+<p>NOT (n)-[:KNOWS]-&gt;(m)</p>
+<p>Exclude matches to (n)-[:KNOWS]-&gt;(m) from the result.</p>
+<p>n.property IN [$value1, $value2]</p>
+<p>Check if an element exists in a list.<br>List predicates</p>
+<p>all(x IN coll WHERE x.property IS NOT NULL)</p>
+<p>Returns true if the predicate is true for all elements in the list.</p>
+<p>any(x IN coll WHERE x.property IS NOT NULL)</p>
+<p>Returns true if the predicate is true for at least one element in the list.</p>
+<p>none(x IN coll WHERE x.property IS NOT NULL)</p>
+<p>Returns true if the predicate is false for all elements in the list.</p>
+<p>single(x IN coll WHERE x.property IS NOT NULL)</p>
+<p>Returns true if the predicate is true for exactly one element in the list.<br>CASE</p>
+<p>CASE n.eyes<br> WHEN ‘blue’ THEN 1<br> WHEN ‘brown’ THEN 2<br> ELSE 3<br>END</p>
+<p>Return THEN value from the matching WHEN value. The ELSE value is optional, and substituted for null if missing.</p>
+<p>CASE<br> WHEN n.eyes &#x3D; ‘blue’ THEN 1<br> WHEN n.age &lt; 40 THEN 2<br> ELSE 3<br>END</p>
+<p>Return THEN value from the first WHEN predicate evaluating to true. Predicates are evaluated in order.<br>List expressions</p>
+<p>size($list)</p>
+<p>Number of elements in the list.</p>
+<p>reverse($list)</p>
+<p>Reverse the order of the elements in the list.</p>
+<p>head($list)</p>
+<p>Get the first element of the list. Return null for an empty list. Eqivalent to the list indexing $list[0].</p>
+<p>last($list)</p>
+<p>Get the last element of the list. Return null for an empty list. Eqivalent to the list indexing $list[-1].</p>
+<p>tail($list)</p>
+<p>Get all elements except for the first element. Return [] for an empty list. Eqivalent to the list slice $list[1..]. Out-of-bound slices are truncated to an empty list [].</p>
+<p>[x IN list | x.prop]</p>
+<p>A list of the value of the expression for each element in the original list.</p>
+<p>[x IN list WHERE x.prop &lt;&gt; $value]</p>
+<p>A filtered list of the elements where the predicate is true.</p>
+<p>[x IN list WHERE x.prop &lt;&gt; $value | x.prop]</p>
+<p>A list comprehension that filters a list and extracts the value of the expression for each element in that list.</p>
+<p>reduce(s &#x3D; “”, x IN list | s + x.prop)</p>
+<p>Evaluate expression for each element in the list, accumulate the results.<br>Path functions</p>
+<p>length(path)</p>
+<p>The number of relationships in the path.</p>
+<p>nodes(path)</p>
+<p>The nodes in the path as a list.</p>
+<p>relationships(path)</p>
+<p>The relationships in the path as a list.</p>
+<p>[x IN nodes(path) | x.prop]</p>
+<p>Extract properties from the nodes in a path.<br>Mathematical functions</p>
+<p>abs($expr)</p>
+<p>The absolute value.</p>
+<p>rand()</p>
+<p>Returns a random number in the range from 0 (inclusive) to 1 (exclusive), [0,1). Returns a new value for each call. Also useful for selecting a subset or random ordering.</p>
+<p>round($expr)</p>
+<p>Round to the nearest integer; ceil() and floor() find the next integer up or down.</p>
+<p>sqrt($expr)</p>
+<p>The square root.</p>
+<p>sign($expr)</p>
+<p>0 if zero, -1 if negative, 1 if positive.</p>
+<p>sin($expr)</p>
+<p>Trigonometric functions also include cos(), tan(), cot(), asin(), acos(), atan(), atan2(), and haversin(). All arguments for the trigonometric functions should be in radians, if not otherwise specified.</p>
+<p>degrees($expr), radians($expr), pi()</p>
+<p>Converts radians into degrees; use radians() for the reverse, and pi() for π.</p>
+<p>log10($expr), log($expr), exp($expr), e()</p>
+<p>Logarithm base 10, natural logarithm, e to the power of the parameter, and the value of e.<br>String functions</p>
+<p>toString($expression)</p>
+<p>String representation of the expression.</p>
+<p>replace($original, $search, $replacement)</p>
+<p>Replace all occurrences of search with replacement. All arguments must be expressions.</p>
+<p>substring($original, $begin, $subLength)</p>
+<p>Get part of a string. The subLength argument is optional.</p>
+<p>left($original, $subLength),<br>  right($original, $subLength)</p>
+<p>The first part of a string. The last part of the string.</p>
+<p>trim($original), lTrim($original),<br>  rTrim($original)</p>
+<p>Trim all whitespace, or on the left or right side.</p>
+<p>toUpper($original), toLower($original)</p>
+<p>UPPERCASE and lowercase.</p>
+<p>split($original, $delimiter)</p>
+<p>Split a string into a list of strings.</p>
+<p>reverse($original)</p>
+<p>Reverse a string.</p>
+<p>size($string)</p>
+<p>Calculate the number of characters in the string.<br>Relationship functions</p>
+<p>type(a_relationship)</p>
+<p>String representation of the relationship type.</p>
+<p>startNode(a_relationship)</p>
+<p>Start node of the relationship.</p>
+<p>endNode(a_relationship)</p>
+<p>End node of the relationship.</p>
+<p>id(a_relationship)</p>
+<p>The internal id of the relationship.<br>Aggregating functions</p>
+<p>count(*)</p>
+<p>The number of matching rows.</p>
+<p>count(variable)</p>
+<p>The number of non-null values.</p>
+<p>count(DISTINCT variable)</p>
+<p>All aggregating functions also take the DISTINCT operator, which removes duplicates from the values.</p>
+<p>collect(n.property)</p>
+<p>List from the values, ignores null.</p>
+<p>sum(n.property)</p>
+<p>Sum numerical values. Similar functions are avg(), min(), max().</p>
+<p>percentileDisc(n.property, $percentile)</p>
+<p>Discrete percentile. Continuous percentile is percentileCont(). The percentile argument is from 0.0 to 1.0.</p>
+<p>stDev(n.property)</p>
+<p>Standard deviation for a sample of a population. For an entire population use stDevP().<br>INDEX</p>
+<p>CREATE INDEX FOR (p:Person) ON (p.name)</p>
+<p>Create a b-tree index on nodes with label Person and property name.</p>
+<p>CREATE INDEX index_name FOR ()-[k:KNOWS]-() ON (k.since)</p>
+<p>Create a b-tree index with the name index_name on relationships with type KNOWS and property since.</p>
+<p>CREATE INDEX FOR (p:Person) ON (p.surname)<br>OPTIONS {indexProvider: ‘native-btree-1.0’, indexConfig: {<code>spatial.cartesian.min</code>: [-100.0, -100.0], <code>spatial.cartesian.max</code>: [100.0, 100.0]}}</p>
+<p>Create a b-tree index on nodes with label Person and property surname with the index provider native-btree-1.0 and given spatial.cartesian settings. The other index settings will have their default values.</p>
+<p>CREATE INDEX FOR (p:Person) ON (p.name, p.age)</p>
+<p>Create a composite b-tree index on nodes with label Person and the properties name and age, throws an error if the index already exist.</p>
+<p>CREATE INDEX IF NOT EXISTS FOR (p:Person) ON (p.name, p.age)</p>
+<p>Create a composite b-tree index on nodes with label Person and the properties name and age if it does not already exist, does nothing if it did exist.</p>
+<p>CREATE LOOKUP INDEX lookup_index_name FOR (n) ON EACH labels(n)</p>
+<p>Create a token lookup index with the name lookup_index_name on nodes with any label.</p>
+<p>CREATE LOOKUP INDEX FOR ()-[r]-() ON EACH type(r)</p>
+<p>Create a token lookup index on relationships with any relationship type.</p>
+<p>CREATE FULLTEXT INDEX node_fulltext_index_name FOR (n:Friend) ON EACH [n.name]<br>OPTIONS {indexConfig: {<code>fulltext.analyzer</code>: ‘swedish’}}</p>
+<p>Create a fulltext index on nodes with the name node_fulltext_index_name and analyzer swedish. Fulltext indexes on nodes can only be used by from the procedure db.index.fulltext.queryNodes. The other index settings will have their default values.</p>
+<p>CREATE FULLTEXT INDEX rel_fulltext_index_name FOR ()-[r:HAS_PET|BROUGHT_PET]-() ON EACH [r.since, r.price]</p>
+<p>Create a fulltext index on relationships with the name rel_fulltext_index_name. Fulltext indexes on relationships can only be used by from the procedure db.index.fulltext.queryRelationships.</p>
+<p>CREATE TEXT INDEX FOR (f:Friend) ON (f.email)</p>
+<p>Create a text index on nodes with label Friend and property email.</p>
+<p>CREATE TEXT INDEX text_index_name FOR ()-[h:HAS_PET]-() ON (h.favoriteToy)</p>
+<p>Create a text index with the name text_index_name on relationships with type HAS_PET and property favoriteToy.</p>
+<p>SHOW INDEXES</p>
+<p>List all indexes.</p>
+<p>MATCH (n:Person) WHERE n.name &#x3D; $value</p>
+<p>An BTREE index can be automatically used for the equality comparison. Note that for example toLower(n.name) &#x3D; $value will not use an index.</p>
+<p>MATCH (n:Person) WHERE n.name &#x3D; “Alice”</p>
+<p>An TEXT index can be automatically used for the equality comparison when comparing to a string. Note that for example toLower(n.name) &#x3D; “string” does not use an index.</p>
+<p>MATCH (n:Person)<br>WHERE n.name &lt; “Bob”</p>
+<p>An index can automatically be used for range predicates. Note that a TEXT index is only used if the predicate compares the property with a string.</p>
+<p>MATCH (n:Person)<br>WHERE n.name IN [$value]</p>
+<p>An index can automatically be used for the IN list checks.</p>
+<p>MATCH (n:Person)<br>WHERE n.name IN [‘Bob’, ‘Alice’]</p>
+<p>An TEXT index can automatically be used for the IN list checks when all elements in the list are strings.</p>
+<p>MATCH (n:Person)<br>WHERE n.name &#x3D; $value and n.age &#x3D; $value2</p>
+<p>A composite index can be automatically used for equality comparison of both properties. Note that there needs to be predicates on all properties of the composite index for it to be used.</p>
+<p>MATCH (n:Person)<br>USING INDEX n:Person(name)<br>WHERE n.name &#x3D; $value</p>
+<p>Index usage can be enforced when Cypher uses a suboptimal index, or more than one index should be used.</p>
+<p>DROP INDEX index_name</p>
+<p>Drop the index named index_name, throws an error if the index does not exist.</p>
+<p>DROP INDEX index_name IF EXISTS</p>
+<p>Drop the index named index_name if it exists, does nothing if it does not exist.<br>Performance</p>
+<pre><code>Use parameters instead of literals when possible. This allows Cypher to re-use your queries instead of having to parse and build new execution plans.
+
+Always set an upper limit for your variable length patterns. It’s possible to have a query go wild and touch all nodes in a graph by mistake.
+
+Return only the data you need. Avoid returning whole nodes and relationships — instead, pick the data you need and return only that.
+
+Use PROFILE / EXPLAIN to analyze the performance of your queries. See Query Tuning for more information on these and other topics, such as planner hints.
+</code></pre>
+<p>(★) Database privileges</p>
+<p>GRANT ACCESS ON DATABASE * TO my_role</p>
+<p>Grant privilege to access and run queries against all databases to a role.</p>
+<p>GRANT START ON DATABASE * TO my_role</p>
+<p>Grant privilege to start all databases to a role.</p>
+<p>GRANT STOP ON DATABASE * TO my_role</p>
+<p>Grant privilege to stop all databases to a role.</p>
+<p>GRANT CREATE INDEX ON DATABASE foo TO my_role</p>
+<p>Grant privilege to create indexes on a specified database to a role.</p>
+<p>GRANT DROP INDEX ON DATABASE foo TO my_role</p>
+<p>Grant privilege to drop indexes on a specified database to a role.</p>
+<p>GRANT SHOW INDEX ON DATABASE * TO my_role</p>
+<p>Grant privilege to show indexes on all databases to a role.</p>
+<p>DENY INDEX MANAGEMENT ON DATABASE bar TO my_role</p>
+<p>Deny privilege to create and drop indexes on a specified database to a role.</p>
+<p>GRANT CREATE CONSTRAINT ON DATABASE * TO my_role</p>
+<p>Grant privilege to create constraints on all databases to a role.</p>
+<p>DENY DROP CONSTRAINT ON DATABASE * TO my_role</p>
+<p>Deny privilege to drop constraints on all databases to a role.</p>
+<p>DENY SHOW CONSTRAINT ON DATABASE foo TO my_role</p>
+<p>Deny privilege to show constraints on a specified database to a role.</p>
+<p>REVOKE CONSTRAINT ON DATABASE * FROM my_role</p>
+<p>Revoke granted and denied privileges to create and drop constraints on all databases from a role.</p>
+<p>GRANT CREATE NEW LABELS ON DATABASE * TO my_role</p>
+<p>Grant privilege to create new labels on all databases to a role.</p>
+<p>DENY CREATE NEW TYPES ON DATABASE foo TO my_role</p>
+<p>Deny privilege to create new relationship types on a specified database to a role.</p>
+<p>REVOKE GRANT CREATE NEW PROPERTY NAMES ON DATABASE bar FROM my_role</p>
+<p>Revoke the grant privilege to create new property names on a specified database from a role.</p>
+<p>GRANT NAME MANAGEMENT ON HOME DATABASE TO my_role</p>
+<p>Grant privilege to create labels, relationship types, and property names on the home database to a role.</p>
+<p>GRANT ALL ON DATABASE baz TO my_role</p>
+<p>Grant privilege to access, create and drop indexes and constraints, create new labels, types and property names on a specified database to a role.</p>
+<p>GRANT SHOW TRANSACTION (*) ON DATABASE foo TO my_role</p>
+<p>Grant privilege to list transactions and queries from all users on a specified database to a role.</p>
+<p>DENY TERMINATE TRANSACTION (user1, user2) ON DATABASES * TO my_role</p>
+<p>Deny privilege to kill transactions and queries from user1 and user2 on all databases to a role.</p>
+<p>REVOKE GRANT TRANSACTION MANAGEMENT ON HOME DATABASE FROM my_role</p>
+<p>Revoke the granted privilege to list and kill transactions and queries from all users on the home database from a role.<br>(★) Role management privileges</p>
+<p>GRANT CREATE ROLE ON DBMS TO my_role</p>
+<p>Grant the privilege to create roles to a role.</p>
+<p>GRANT RENAME ROLE ON DBMS TO my_role</p>
+<p>Grant the privilege to rename roles to a role.</p>
+<p>GRANT DROP ROLE ON DBMS TO my_role</p>
+<p>Grant the privilege to delete roles to a role.</p>
+<p>DENY ASSIGN ROLE ON DBMS TO my_role</p>
+<p>Deny the privilege to assign roles to users to a role.</p>
+<p>DENY REMOVE ROLE ON DBMS TO my_role</p>
+<p>Deny the privilege to remove roles from users to a role.</p>
+<p>REVOKE DENY SHOW ROLE ON DBMS FROM my_role</p>
+<p>Revoke the denied privilege to show roles from a role.</p>
+<p>GRANT ROLE MANAGEMENT ON DBMS TO my_role</p>
+<p>Grant all privileges to manage roles to a role.<br>(★) User management privileges</p>
+<p>GRANT CREATE USER ON DBMS TO my_role</p>
+<p>Grant the privilege to create users to a role.</p>
+<p>GRANT RENAME USER ON DBMS TO my_role</p>
+<p>Grant the privilege to rename users to a role.</p>
+<p>DENY ALTER USER ON DBMS TO my_role</p>
+<p>Deny the privilege to alter users to a role.</p>
+<p>REVOKE SET PASSWORDS ON DBMS FROM my_role</p>
+<p>Revoke the granted and denied privileges to alter users’ passwords from a role.</p>
+<p>REVOKE GRANT SET USER STATUS ON DBMS FROM my_role</p>
+<p>Revoke the granted privilege to alter the account status of users from a role.</p>
+<p>GRANT SET USER HOME DATABASE ON DBMS TO my_role</p>
+<p>Grant the privilege alter the home database of users to a role.</p>
+<p>GRANT DROP USER ON DBMS TO my_role</p>
+<p>Grant the privilege to delete users to a role.</p>
+<p>REVOKE DENY SHOW USER ON DBMS FROM my_role</p>
+<p>Revoke the denied privilege to show users from a role.</p>
+<p>GRANT USER MANAGEMENT ON DBMS TO my_role</p>
+<p>Grant all privileges to manage users to a role.<br>(★) Database management privileges</p>
+<p>GRANT CREATE DATABASE ON DBMS TO my_role</p>
+<p>Grant the privilege to create databases and aliases to a role.</p>
+<p>REVOKE DENY DROP DATABASE ON DBMS FROM my_role</p>
+<p>Revoke the denied privilege to delete databases and aliases from a role.</p>
+<p>REVOKE GRANT ALTER DATABASE ON DBMS FROM my_role</p>
+<p>Revoke the granted privilege to alter databases and aliases from a role.</p>
+<p>GRANT SET DATABASE ACCESS ON DBMS TO my_role</p>
+<p>Granted privilege to set database access mode to a role.</p>
+<p>DENY DATABASE MANAGEMENT ON DBMS TO my_role</p>
+<p>Deny all privileges to manage databases and aliases to a role.<br>(★) Privilege management privileges</p>
+<p>GRANT SHOW PRIVILEGE ON DBMS TO my_role</p>
+<p>Grant the privilege to show privileges to a role.</p>
+<p>DENY ASSIGN PRIVILEGE ON DBMS TO my_role</p>
+<p>Deny the privilege to assign privileges to roles to a role.</p>
+<p>REVOKE GRANT REMOVE PRIVILEGE ON DBMS FROM my_role</p>
+<p>Revoke the granted privilege to remove privileges from roles from a role.</p>
+<p>REVOKE PRIVILEGE MANAGEMENT ON DBMS FROM my_role</p>
+<p>Revoke all granted and denied privileges for manage privileges from a role.<br>(★) DBMS privileges</p>
+<p>GRANT ALL ON DBMS TO my_role</p>
+<p>Grant privilege to perform all role, user, database, alias, privilege, procedure, function, and impersonation management to a role.</p>
+<p>DENY IMPERSONATE (alice) ON DBMS TO my_role</p>
+<p>Deny privilege to impersonate the specified user to a role.</p>
+<p>(★) Functionality available in Neo4j Enterprise Edition.</p>
+
+	
+	</div>
+  <a type="button" href="/2022/06/03/71e31f75-b989-4ac8-b4e8-ee024d5ac047/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+	     </div>
+	     <div>
+	       <center>
+	         <div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+	       </center>
+	     </div>	
+      
+
+</div> <!-- col-md-9/col-md-12 -->
+
+
+<div class="col-md-3">
+	<div id="sidebar">
+	
+			
+  <div id="site_search">
+   <div class="form-group">
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="Search" class="st-search-input st-default-search-input form-control"/>
+   </div>  
+  <div id="local-search-result"></div>
+  </div>
+
+
+		
+			
+	<div class="widget">
+		<h4>Categories</h4>
+		<ul class="tag_box inline list-unstyled">
+		
+			<li><a href="/categories/2D-Animation/">2D Animation<span>1</span></a></li>
+		
+			<li><a href="/categories/3D-Avatar-Creation/">3D Avatar Creation<span>1</span></a></li>
+		
+			<li><a href="/categories/3D-Modeling/">3D Modeling<span>2</span></a></li>
+		
+			<li><a href="/categories/3D-Rendering/">3D Rendering<span>1</span></a></li>
+		
+			<li><a href="/categories/AI/">AI<span>7</span></a></li>
+		
+			<li><a href="/categories/AI-Accelerators/">AI Accelerators<span>1</span></a></li>
+		
+			<li><a href="/categories/AI-Competitions/">AI Competitions<span>1</span></a></li>
+		
+			<li><a href="/categories/AI-Libraries/">AI Libraries<span>1</span></a></li>
+		
+			<li><a href="/categories/AI-Optimization/">AI Optimization<span>1</span></a></li>
+		
+			<li><a href="/categories/AI-System-Design-Guidelines/">AI System Design Guidelines<span>1</span></a></li>
+		
+			<li><a href="/categories/AI-Techniques-for-Text-Generation-and-Paraphrasing/">AI Techniques for Text Generation and Paraphrasing<span>1</span></a></li>
+		
+			<li><a href="/categories/AI-Video-Generation/">AI Video Generation<span>1</span></a></li>
+		
+			<li><a href="/categories/AI-development/">AI development<span>2</span></a></li>
+		
+			<li><a href="/categories/AI-tools-collections/">AI tools collections<span>1</span></a></li>
+		
+			<li><a href="/categories/AI-Generated-Singing-Voices/">AI-Generated Singing Voices<span>1</span></a></li>
+		
+			<li><a href="/categories/AI-generated-Art/">AI-generated Art<span>1</span></a></li>
+		
+			<li><a href="/categories/API/">API<span>5</span></a></li>
+		
+			<li><a href="/categories/API-Development/">API Development<span>1</span></a></li>
+		
+			<li><a href="/categories/API-Scraping/">API Scraping<span>1</span></a></li>
+		
+			<li><a href="/categories/APIs/">APIs<span>2</span></a></li>
+		
+			<li><a href="/categories/Academic-Articles/">Academic Articles<span>1</span></a></li>
+		
+			<li><a href="/categories/Accessibility-tools/">Accessibility tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Account-Management/">Account Management<span>1</span></a></li>
+		
+			<li><a href="/categories/Account-Registration/">Account Registration<span>1</span></a></li>
+		
+			<li><a href="/categories/Advanced-AI-powered-video-editors/">Advanced AI-powered video editors<span>1</span></a></li>
+		
+			<li><a href="/categories/Android/">Android<span>1</span></a></li>
+		
+			<li><a href="/categories/Android-Development/">Android Development<span>2</span></a></li>
+		
+			<li><a href="/categories/Android-Reverse-Engineering/">Android Reverse Engineering<span>1</span></a></li>
+		
+			<li><a href="/categories/Android-Security/">Android Security<span>1</span></a></li>
+		
+			<li><a href="/categories/Android-automation/">Android automation<span>1</span></a></li>
+		
+			<li><a href="/categories/Android-emulators/">Android emulators<span>1</span></a></li>
+		
+			<li><a href="/categories/Animation-Tools/">Animation Tools<span>2</span></a></li>
+		
+			<li><a href="/categories/Anime/">Anime<span>2</span></a></li>
+		
+			<li><a href="/categories/Anime-Video-Downloads/">Anime Video Downloads<span>1</span></a></li>
+		
+			<li><a href="/categories/App-Compatibility/">App Compatibility<span>1</span></a></li>
+		
+			<li><a href="/categories/Artificial-General-Intelligence/">Artificial General Intelligence<span>1</span></a></li>
+		
+			<li><a href="/categories/Artificial-Intelligence/">Artificial Intelligence<span>16</span></a></li>
+		
+			<li><a href="/categories/Asynchronous-Requests/">Asynchronous Requests<span>1</span></a></li>
+		
+			<li><a href="/categories/Audio-Processing/">Audio Processing<span>4</span></a></li>
+		
+			<li><a href="/categories/Audio-Production/">Audio Production<span>1</span></a></li>
+		
+			<li><a href="/categories/Audio-Recognition/">Audio Recognition<span>1</span></a></li>
+		
+			<li><a href="/categories/Augmented-Reality/">Augmented Reality<span>1</span></a></li>
+		
+			<li><a href="/categories/Automated-Essay-Scoring/">Automated Essay Scoring<span>1</span></a></li>
+		
+			<li><a href="/categories/Automation/">Automation<span>1</span></a></li>
+		
+			<li><a href="/categories/Automotive-Computer-Research/">Automotive Computer Research<span>1</span></a></li>
+		
+			<li><a href="/categories/Backup-software/">Backup software<span>1</span></a></li>
+		
+			<li><a href="/categories/Battery-Damage-Prevention/">Battery Damage Prevention<span>1</span></a></li>
+		
+			<li><a href="/categories/Behavior-Driven-Development/">Behavior Driven Development<span>1</span></a></li>
+		
+			<li><a href="/categories/Best-Earphones/">Best Earphones<span>1</span></a></li>
+		
+			<li><a href="/categories/Bilibili/">Bilibili<span>2</span></a></li>
+		
+			<li><a href="/categories/Biology/">Biology<span>1</span></a></li>
+		
+			<li><a href="/categories/Bot-Development/">Bot Development<span>1</span></a></li>
+		
+			<li><a href="/categories/Browser-Extensions/">Browser Extensions<span>2</span></a></li>
+		
+			<li><a href="/categories/CACANi-Software/">CACANi Software<span>1</span></a></li>
+		
+			<li><a href="/categories/Captcha-recognition/">Captcha recognition<span>1</span></a></li>
+		
+			<li><a href="/categories/Cheminformatics/">Cheminformatics<span>1</span></a></li>
+		
+			<li><a href="/categories/Chinese-Input-Methods/">Chinese Input Methods<span>1</span></a></li>
+		
+			<li><a href="/categories/Chocolatey/">Chocolatey<span>1</span></a></li>
+		
+			<li><a href="/categories/Chromium-Policies/">Chromium Policies<span>1</span></a></li>
+		
+			<li><a href="/categories/Clash-GitHub-Fastgithub-DNS-settings-macOS-Linux-monit-shell-scripts/">Clash, GitHub, Fastgithub, DNS settings, macOS, Linux, monit, shell scripts<span>1</span></a></li>
+		
+			<li><a href="/categories/Clipboard-issue-in-Android-10/">Clipboard issue in Android 10<span>1</span></a></li>
+		
+			<li><a href="/categories/Code-Auditing/">Code Auditing<span>1</span></a></li>
+		
+			<li><a href="/categories/Code-Refactoring/">Code Refactoring<span>1</span></a></li>
+		
+			<li><a href="/categories/Collaborative-Programming/">Collaborative Programming<span>1</span></a></li>
+		
+			<li><a href="/categories/Color-Palette-Extraction/">Color Palette Extraction<span>1</span></a></li>
+		
+			<li><a href="/categories/Command-line-Tools/">Command-line Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Community-Detection/">Community Detection<span>1</span></a></li>
+		
+			<li><a href="/categories/Computer-Vision/">Computer Vision<span>3</span></a></li>
+		
+			<li><a href="/categories/Content-Creation/">Content Creation<span>4</span></a></li>
+		
+			<li><a href="/categories/Content-Promotion/">Content Promotion<span>1</span></a></li>
+		
+			<li><a href="/categories/Copying-and-Moving-Files/">Copying and Moving Files<span>1</span></a></li>
+		
+			<li><a href="/categories/Cross-Platform-Apps/">Cross-Platform Apps<span>1</span></a></li>
+		
+			<li><a href="/categories/Cross-Platform-Publishing/">Cross-Platform Publishing<span>1</span></a></li>
+		
+			<li><a href="/categories/Cybergod-Projects/">Cybergod Projects<span>1</span></a></li>
+		
+			<li><a href="/categories/Cybersecurity/">Cybersecurity<span>5</span></a></li>
+		
+			<li><a href="/categories/DNS-proxies/">DNS proxies<span>1</span></a></li>
+		
+			<li><a href="/categories/DWG-to-DXF-conversion/">DWG to DXF conversion<span>1</span></a></li>
+		
+			<li><a href="/categories/Dark-Web/">Dark Web<span>1</span></a></li>
+		
+			<li><a href="/categories/Data-Annotation-Tools/">Data Annotation Tools<span>2</span></a></li>
+		
+			<li><a href="/categories/Data-Backup/">Data Backup<span>2</span></a></li>
+		
+			<li><a href="/categories/Data-Capture/">Data Capture<span>2</span></a></li>
+		
+			<li><a href="/categories/Data-Scraping/">Data Scraping<span>1</span></a></li>
+		
+			<li><a href="/categories/Data-Security/">Data Security<span>1</span></a></li>
+		
+			<li><a href="/categories/Database/">Database<span>1</span></a></li>
+		
+			<li><a href="/categories/Database-Management/">Database Management<span>2</span></a></li>
+		
+			<li><a href="/categories/Deep-Learning/">Deep Learning<span>2</span></a></li>
+		
+			<li><a href="/categories/Digital-Identity/">Digital Identity<span>1</span></a></li>
+		
+			<li><a href="/categories/Digital-Marketing/">Digital Marketing<span>1</span></a></li>
+		
+			<li><a href="/categories/Discord-Channels/">Discord Channels<span>1</span></a></li>
+		
+			<li><a href="/categories/Disk-Management/">Disk Management<span>2</span></a></li>
+		
+			<li><a href="/categories/Docker/">Docker<span>3</span></a></li>
+		
+			<li><a href="/categories/Domain-specific-languages-DSL/">Domain-specific languages (DSL)<span>1</span></a></li>
+		
+			<li><a href="/categories/Drivers-updates/">Drivers updates<span>1</span></a></li>
+		
+			<li><a href="/categories/Dynamic-Classification-Systems/">Dynamic Classification Systems<span>1</span></a></li>
+		
+			<li><a href="/categories/E-book-conversion/">E-book conversion<span>1</span></a></li>
+		
+			<li><a href="/categories/Education/">Education<span>3</span></a></li>
+		
+			<li><a href="/categories/Emotion-Manipulation/">Emotion Manipulation<span>1</span></a></li>
+		
+			<li><a href="/categories/Energy-System-Simulation/">Energy System Simulation<span>1</span></a></li>
+		
+			<li><a href="/categories/Ergonomics/">Ergonomics<span>1</span></a></li>
+		
+			<li><a href="/categories/Error-Resolution/">Error Resolution<span>1</span></a></li>
+		
+			<li><a href="/categories/Evolution/">Evolution<span>1</span></a></li>
+		
+			<li><a href="/categories/Exception-Handling/">Exception Handling<span>1</span></a></li>
+		
+			<li><a href="/categories/Expect-Send/">Expect Send<span>1</span></a></li>
+		
+			<li><a href="/categories/Extensions/">Extensions<span>1</span></a></li>
+		
+			<li><a href="/categories/Facial-Expression-Detection/">Facial Expression Detection<span>1</span></a></li>
+		
+			<li><a href="/categories/Fake-Content-Detection/">Fake Content Detection<span>1</span></a></li>
+		
+			<li><a href="/categories/FastAPI/">FastAPI<span>1</span></a></li>
+		
+			<li><a href="/categories/File-Hosting-Services/">File Hosting Services<span>1</span></a></li>
+		
+			<li><a href="/categories/File-Transfer/">File Transfer<span>1</span></a></li>
+		
+			<li><a href="/categories/Filesystem-Cache/">Filesystem Cache<span>1</span></a></li>
+		
+			<li><a href="/categories/GUI-Programming/">GUI Programming<span>1</span></a></li>
+		
+			<li><a href="/categories/Generative-Adversarial-Networks-GAN/">Generative Adversarial Networks (GAN)<span>1</span></a></li>
+		
+			<li><a href="/categories/Generative-Adversarial-Networks-GANs/">Generative Adversarial Networks (GANs)<span>1</span></a></li>
+		
+			<li><a href="/categories/Geometry/">Geometry<span>1</span></a></li>
+		
+			<li><a href="/categories/GitFS/">GitFS<span>1</span></a></li>
+		
+			<li><a href="/categories/GitHub/">GitHub<span>3</span></a></li>
+		
+			<li><a href="/categories/Hacking/">Hacking<span>3</span></a></li>
+		
+			<li><a href="/categories/Hacking-Tutorials/">Hacking Tutorials<span>1</span></a></li>
+		
+			<li><a href="/categories/Hacking-techniques/">Hacking techniques<span>1</span></a></li>
+		
+			<li><a href="/categories/Health/">Health<span>2</span></a></li>
+		
+			<li><a href="/categories/Home-Appliances/">Home Appliances<span>1</span></a></li>
+		
+			<li><a href="/categories/Hot-Reloading/">Hot Reloading<span>1</span></a></li>
+		
+			<li><a href="/categories/Huggingface/">Huggingface<span>1</span></a></li>
+		
+			<li><a href="/categories/Human-in-the-Loop-AI/">Human-in-the-Loop AI<span>1</span></a></li>
+		
+			<li><a href="/categories/Image-Classification/">Image Classification<span>1</span></a></li>
+		
+			<li><a href="/categories/Image-Generation/">Image Generation<span>1</span></a></li>
+		
+			<li><a href="/categories/Image-Processing/">Image Processing<span>5</span></a></li>
+		
+			<li><a href="/categories/Image-Search-Tools/">Image Search Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Image-restoration/">Image restoration<span>1</span></a></li>
+		
+			<li><a href="/categories/Information-Management/">Information Management<span>1</span></a></li>
+		
+			<li><a href="/categories/Installation/">Installation<span>2</span></a></li>
+		
+			<li><a href="/categories/Installation-Instructions/">Installation Instructions<span>1</span></a></li>
+		
+			<li><a href="/categories/Interactive-Interfaces/">Interactive Interfaces<span>1</span></a></li>
+		
+			<li><a href="/categories/Interpolation-Techniques/">Interpolation Techniques<span>1</span></a></li>
+		
+			<li><a href="/categories/Interval-set-manipulation/">Interval set manipulation<span>1</span></a></li>
+		
+			<li><a href="/categories/IoT/">IoT<span>1</span></a></li>
+		
+			<li><a href="/categories/JavaScript/">JavaScript<span>2</span></a></li>
+		
+			<li><a href="/categories/Kafka-System-Design/">Kafka System Design<span>1</span></a></li>
+		
+			<li><a href="/categories/Kali-Linux/">Kali Linux<span>2</span></a></li>
+		
+			<li><a href="/categories/Karaoke/">Karaoke<span>1</span></a></li>
+		
+			<li><a href="/categories/Keyboard-Shortcuts/">Keyboard Shortcuts<span>1</span></a></li>
+		
+			<li><a href="/categories/Kotlin-ORM-libraries/">Kotlin ORM libraries<span>1</span></a></li>
+		
+			<li><a href="/categories/Kotlin-Spring-Boot/">Kotlin Spring Boot<span>1</span></a></li>
+		
+			<li><a href="/categories/Library-Management/">Library Management<span>1</span></a></li>
+		
+			<li><a href="/categories/Linux/">Linux<span>6</span></a></li>
+		
+			<li><a href="/categories/Live-Streaming/">Live Streaming<span>2</span></a></li>
+		
+			<li><a href="/categories/Live-broadcasting/">Live broadcasting<span>1</span></a></li>
+		
+			<li><a href="/categories/Logo-Finders/">Logo Finders<span>1</span></a></li>
+		
+			<li><a href="/categories/Lua-Python-Bridge/">Lua Python Bridge<span>1</span></a></li>
+		
+			<li><a href="/categories/MIDI-Conversion-Tools/">MIDI Conversion Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Machine-Learning/">Machine Learning<span>8</span></a></li>
+		
+			<li><a href="/categories/Man-in-the-middle-proxy/">Man-in-the-middle proxy<span>1</span></a></li>
+		
+			<li><a href="/categories/Manga/">Manga<span>2</span></a></li>
+		
+			<li><a href="/categories/Markdown-to-PDF-Conversion/">Markdown to PDF Conversion<span>1</span></a></li>
+		
+			<li><a href="/categories/Mass-Email-SMS-Tools/">Mass Email/SMS Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Mathematica/">Mathematica<span>1</span></a></li>
+		
+			<li><a href="/categories/Mathematica-software/">Mathematica software<span>1</span></a></li>
+		
+			<li><a href="/categories/Mathematics/">Mathematics<span>2</span></a></li>
+		
+			<li><a href="/categories/Media-Filtering/">Media Filtering<span>1</span></a></li>
+		
+			<li><a href="/categories/Media-repurposing-tools/">Media repurposing tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Meta-Search-Engines/">Meta Search Engines<span>1</span></a></li>
+		
+			<li><a href="/categories/Metasploit-Python-scripting/">Metasploit Python scripting<span>1</span></a></li>
+		
+			<li><a href="/categories/Mini-ITX-Computers/">Mini-ITX Computers<span>1</span></a></li>
+		
+			<li><a href="/categories/Mitmproxy-tool/">Mitmproxy tool<span>1</span></a></li>
+		
+			<li><a href="/categories/Mobile-App-Development/">Mobile App Development<span>1</span></a></li>
+		
+			<li><a href="/categories/Mobile-Phones/">Mobile Phones<span>1</span></a></li>
+		
+			<li><a href="/categories/Model-Optimization/">Model Optimization<span>1</span></a></li>
+		
+			<li><a href="/categories/Model-Uploading/">Model Uploading<span>1</span></a></li>
+		
+			<li><a href="/categories/Model-zoos/">Model zoos<span>1</span></a></li>
+		
+			<li><a href="/categories/Molecular-dynamics-simulations/">Molecular dynamics simulations<span>1</span></a></li>
+		
+			<li><a href="/categories/Movies/">Movies<span>1</span></a></li>
+		
+			<li><a href="/categories/Music/">Music<span>1</span></a></li>
+		
+			<li><a href="/categories/Music-Discovery/">Music Discovery<span>1</span></a></li>
+		
+			<li><a href="/categories/Music-Generation/">Music Generation<span>1</span></a></li>
+		
+			<li><a href="/categories/Music-Platforms/">Music Platforms<span>1</span></a></li>
+		
+			<li><a href="/categories/Music-Production/">Music Production<span>1</span></a></li>
+		
+			<li><a href="/categories/NAS/">NAS<span>1</span></a></li>
+		
+			<li><a href="/categories/NLP-Frameworks/">NLP Frameworks<span>1</span></a></li>
+		
+			<li><a href="/categories/NLP-Tools/">NLP Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/NTFS-Recovery-Tools/">NTFS Recovery Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/NVIDIA-drivers/">NVIDIA drivers<span>1</span></a></li>
+		
+			<li><a href="/categories/Natural-Language-Generation/">Natural Language Generation<span>1</span></a></li>
+		
+			<li><a href="/categories/Natural-Language-Processing/">Natural Language Processing<span>6</span></a></li>
+		
+			<li><a href="/categories/Neo4j/">Neo4j<span>1</span></a></li>
+		
+			<li><a href="/categories/Neo4j-Cypher-Cheatsheet/">Neo4j Cypher Cheatsheet<span>1</span></a></li>
+		
+			<li><a href="/categories/Neo4j-Graph-Data-Science/">Neo4j Graph Data Science<span>1</span></a></li>
+		
+			<li><a href="/categories/Network-Switching/">Network Switching<span>1</span></a></li>
+		
+			<li><a href="/categories/Network-communication/">Network communication<span>1</span></a></li>
+		
+			<li><a href="/categories/Networking/">Networking<span>4</span></a></li>
+		
+			<li><a href="/categories/Neural-Search-Engines/">Neural Search Engines<span>1</span></a></li>
+		
+			<li><a href="/categories/NeuralDiff/">NeuralDiff<span>1</span></a></li>
+		
+			<li><a href="/categories/Note-Syncing/">Note Syncing<span>1</span></a></li>
+		
+			<li><a href="/categories/Notes-and-Scripts-Backup/">Notes and Scripts Backup<span>1</span></a></li>
+		
+			<li><a href="/categories/Numpy/">Numpy<span>1</span></a></li>
+		
+			<li><a href="/categories/OCR-Techniques/">OCR Techniques<span>1</span></a></li>
+		
+			<li><a href="/categories/OCR-Tools/">OCR Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Online-Movies/">Online Movies<span>1</span></a></li>
+		
+			<li><a href="/categories/Online-Security-and-Privacy/">Online Security and Privacy<span>1</span></a></li>
+		
+			<li><a href="/categories/Online-Tools/">Online Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Online-security-and-privacy/">Online security and privacy<span>1</span></a></li>
+		
+			<li><a href="/categories/Open-source-Android-Automation/">Open-source Android Automation<span>1</span></a></li>
+		
+			<li><a href="/categories/Open-source-Chinese-Fonts/">Open-source Chinese Fonts<span>1</span></a></li>
+		
+			<li><a href="/categories/Open-source-Software/">Open-source Software<span>1</span></a></li>
+		
+			<li><a href="/categories/OpenCV/">OpenCV<span>1</span></a></li>
+		
+			<li><a href="/categories/Opqbot/">Opqbot<span>1</span></a></li>
+		
+			<li><a href="/categories/Optical-Flow-Techniques/">Optical Flow Techniques<span>1</span></a></li>
+		
+			<li><a href="/categories/Optimization-Techniques/">Optimization Techniques<span>1</span></a></li>
+		
+			<li><a href="/categories/Package-Management/">Package Management<span>2</span></a></li>
+		
+			<li><a href="/categories/Package-Managers/">Package Managers<span>1</span></a></li>
+		
+			<li><a href="/categories/Paraphrasing/">Paraphrasing<span>1</span></a></li>
+		
+			<li><a href="/categories/Password-Reset/">Password Reset<span>1</span></a></li>
+		
+			<li><a href="/categories/Payment-Systems/">Payment Systems<span>1</span></a></li>
+		
+			<li><a href="/categories/Platform-Tutorials/">Platform Tutorials<span>1</span></a></li>
+		
+			<li><a href="/categories/Playwright/">Playwright<span>1</span></a></li>
+		
+			<li><a href="/categories/Politics-and-Capitalism/">Politics and Capitalism<span>1</span></a></li>
+		
+			<li><a href="/categories/Probabilistic-Programming/">Probabilistic Programming<span>2</span></a></li>
+		
+			<li><a href="/categories/Process-Management/">Process Management<span>1</span></a></li>
+		
+			<li><a href="/categories/Process-Monitoring/">Process Monitoring<span>1</span></a></li>
+		
+			<li><a href="/categories/Producer-flags/">Producer flags<span>1</span></a></li>
+		
+			<li><a href="/categories/Product-Issues/">Product Issues<span>1</span></a></li>
+		
+			<li><a href="/categories/Programming/">Programming<span>2</span></a></li>
+		
+			<li><a href="/categories/Programming-Humor/">Programming Humor<span>1</span></a></li>
+		
+			<li><a href="/categories/Programming-Languages/">Programming Languages<span>4</span></a></li>
+		
+			<li><a href="/categories/Project-Planning/">Project Planning<span>1</span></a></li>
+		
+			<li><a href="/categories/Propagation-Science/">Propagation Science<span>1</span></a></li>
+		
+			<li><a href="/categories/Proxies/">Proxies<span>1</span></a></li>
+		
+			<li><a href="/categories/PyTorch/">PyTorch<span>1</span></a></li>
+		
+			<li><a href="/categories/Python/">Python<span>4</span></a></li>
+		
+			<li><a href="/categories/Python-Libraries/">Python Libraries<span>2</span></a></li>
+		
+			<li><a href="/categories/Python-Performance/">Python Performance<span>1</span></a></li>
+		
+			<li><a href="/categories/Python-Programming/">Python Programming<span>3</span></a></li>
+		
+			<li><a href="/categories/Python-Testing/">Python Testing<span>1</span></a></li>
+		
+			<li><a href="/categories/Python-Tools/">Python Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Python-programming/">Python programming<span>7</span></a></li>
+		
+			<li><a href="/categories/Quantitative-Trading-Platforms/">Quantitative Trading Platforms<span>1</span></a></li>
+		
+			<li><a href="/categories/Quantum-Computing/">Quantum Computing<span>1</span></a></li>
+		
+			<li><a href="/categories/RAM-Disk/">RAM Disk<span>1</span></a></li>
+		
+			<li><a href="/categories/RSS-Feeds-and-Aggregators/">RSS Feeds and Aggregators<span>1</span></a></li>
+		
+			<li><a href="/categories/RWKV-Language-Models/">RWKV Language Models<span>1</span></a></li>
+		
+			<li><a href="/categories/Radar-systems/">Radar systems<span>1</span></a></li>
+		
+			<li><a href="/categories/Random-Number-Generation/">Random Number Generation<span>1</span></a></li>
+		
+			<li><a href="/categories/Recaptcha-Solving-Solutions/">Recaptcha Solving Solutions<span>1</span></a></li>
+		
+			<li><a href="/categories/Recommendation-Algorithms/">Recommendation Algorithms<span>1</span></a></li>
+		
+			<li><a href="/categories/Recovery-USB/">Recovery USB<span>1</span></a></li>
+		
+			<li><a href="/categories/Rectangularization-Methods/">Rectangularization Methods<span>1</span></a></li>
+		
+			<li><a href="/categories/Redis/">Redis<span>1</span></a></li>
+		
+			<li><a href="/categories/Redis-py-library/">Redis-py library<span>1</span></a></li>
+		
+			<li><a href="/categories/Reinforcement-Learning/">Reinforcement Learning<span>2</span></a></li>
+		
+			<li><a href="/categories/Remote-Connection/">Remote Connection<span>1</span></a></li>
+		
+			<li><a href="/categories/Remote-Jobs/">Remote Jobs<span>1</span></a></li>
+		
+			<li><a href="/categories/Remote-Procedure-Call-Technologies/">Remote Procedure Call Technologies<span>1</span></a></li>
+		
+			<li><a href="/categories/Retry-Libraries/">Retry Libraries<span>1</span></a></li>
+		
+			<li><a href="/categories/Reverse-Engineering/">Reverse Engineering<span>2</span></a></li>
+		
+			<li><a href="/categories/Robotics/">Robotics<span>1</span></a></li>
+		
+			<li><a href="/categories/Royalty-free-video-sources/">Royalty-free video sources<span>1</span></a></li>
+		
+			<li><a href="/categories/SEO/">SEO<span>1</span></a></li>
+		
+			<li><a href="/categories/SQL-Injection-Attacks/">SQL Injection Attacks<span>1</span></a></li>
+		
+			<li><a href="/categories/SQLite-ORM/">SQLite ORM<span>1</span></a></li>
+		
+			<li><a href="/categories/SSH-keys/">SSH keys<span>1</span></a></li>
+		
+			<li><a href="/categories/Scraping/">Scraping<span>1</span></a></li>
+		
+			<li><a href="/categories/Search-Engine-Optimization/">Search Engine Optimization<span>1</span></a></li>
+		
+			<li><a href="/categories/Search-Engines/">Search Engines<span>3</span></a></li>
+		
+			<li><a href="/categories/Search-Methods/">Search Methods<span>1</span></a></li>
+		
+			<li><a href="/categories/Security/">Security<span>8</span></a></li>
+		
+			<li><a href="/categories/Security-Tools/">Security Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Semantic-Search/">Semantic Search<span>1</span></a></li>
+		
+			<li><a href="/categories/Session-Management/">Session Management<span>1</span></a></li>
+		
+			<li><a href="/categories/Short-URL-generators/">Short URL generators<span>1</span></a></li>
+		
+			<li><a href="/categories/Sketch-based-Applications/">Sketch-based Applications<span>1</span></a></li>
+		
+			<li><a href="/categories/Skin-Products-and-Diet/">Skin Products and Diet<span>1</span></a></li>
+		
+			<li><a href="/categories/Sleep/">Sleep<span>1</span></a></li>
+		
+			<li><a href="/categories/Smartwatches/">Smartwatches<span>2</span></a></li>
+		
+			<li><a href="/categories/Social-Media/">Social Media<span>1</span></a></li>
+		
+			<li><a href="/categories/Social-Media-Transformation/">Social Media Transformation<span>1</span></a></li>
+		
+			<li><a href="/categories/Software/">Software<span>2</span></a></li>
+		
+			<li><a href="/categories/Software-Security/">Software Security<span>1</span></a></li>
+		
+			<li><a href="/categories/Software-Testing-Efficiency-Metrics/">Software Testing Efficiency Metrics<span>1</span></a></li>
+		
+			<li><a href="/categories/Software-Tools/">Software Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Software-Troubleshooting/">Software Troubleshooting<span>3</span></a></li>
+		
+			<li><a href="/categories/Software-activation/">Software activation<span>1</span></a></li>
+		
+			<li><a href="/categories/Software-as-a-Service-SaaS/">Software as a Service (SaaS)<span>1</span></a></li>
+		
+			<li><a href="/categories/Software-troubleshooting/">Software troubleshooting<span>1</span></a></li>
+		
+			<li><a href="/categories/Sound-Effects/">Sound Effects<span>1</span></a></li>
+		
+			<li><a href="/categories/Speaker-Detection/">Speaker Detection<span>1</span></a></li>
+		
+			<li><a href="/categories/Speech-to-Text-Conversion/">Speech-to-Text Conversion<span>1</span></a></li>
+		
+			<li><a href="/categories/Stock-Data/">Stock Data<span>1</span></a></li>
+		
+			<li><a href="/categories/Stock-Market-Analysis/">Stock Market Analysis<span>1</span></a></li>
+		
+			<li><a href="/categories/Stock-Selection/">Stock Selection<span>1</span></a></li>
+		
+			<li><a href="/categories/Story-Dalle/">Story-Dalle<span>1</span></a></li>
+		
+			<li><a href="/categories/Synchronization/">Synchronization<span>1</span></a></li>
+		
+			<li><a href="/categories/System-Administration/">System Administration<span>1</span></a></li>
+		
+			<li><a href="/categories/System-Monitoring/">System Monitoring<span>1</span></a></li>
+		
+			<li><a href="/categories/Tab-Management/">Tab Management<span>1</span></a></li>
+		
+			<li><a href="/categories/Technology/">Technology<span>2</span></a></li>
+		
+			<li><a href="/categories/Technology-and-Innovation/">Technology and Innovation<span>1</span></a></li>
+		
+			<li><a href="/categories/Temperature-Management/">Temperature Management<span>1</span></a></li>
+		
+			<li><a href="/categories/TensorFlow-js/">TensorFlow.js<span>1</span></a></li>
+		
+			<li><a href="/categories/Tensorly-and-Torch-based-Liquid-State-Machine-for-Efficient-Data-Processing-of-Complex-Datasets-like-Brain-Neurons/">Tensorly and Torch-based Liquid State Machine for Efficient Data Processing of Complex Datasets like Brain Neurons<span>1</span></a></li>
+		
+			<li><a href="/categories/Terminal-autocomplete/">Terminal autocomplete<span>1</span></a></li>
+		
+			<li><a href="/categories/Termux/">Termux<span>3</span></a></li>
+		
+			<li><a href="/categories/Text-Editors/">Text Editors<span>1</span></a></li>
+		
+			<li><a href="/categories/Text-to-Speech/">Text to Speech<span>1</span></a></li>
+		
+			<li><a href="/categories/Text-to-Video-Projects/">Text-to-Video Projects<span>1</span></a></li>
+		
+			<li><a href="/categories/Throat-Care/">Throat Care<span>1</span></a></li>
+		
+			<li><a href="/categories/Time-Series-Analysis/">Time Series Analysis<span>1</span></a></li>
+		
+			<li><a href="/categories/Torrent-Search-Engines/">Torrent Search Engines<span>1</span></a></li>
+		
+			<li><a href="/categories/Training-Large-Language-Models/">Training Large Language Models<span>1</span></a></li>
+		
+			<li><a href="/categories/Trash-Management/">Trash Management<span>1</span></a></li>
+		
+			<li><a href="/categories/Troubleshooting/">Troubleshooting<span>8</span></a></li>
+		
+			<li><a href="/categories/Tutorial/">Tutorial<span>1</span></a></li>
+		
+			<li><a href="/categories/Unblocked-content/">Unblocked content<span>1</span></a></li>
+		
+			<li><a href="/categories/Unlocking-Bootloader/">Unlocking Bootloader<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Analysis/">Video Analysis<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Compression/">Video Compression<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Creation-Methods/">Video Creation Methods<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Downloaders/">Video Downloaders<span>2</span></a></li>
+		
+			<li><a href="/categories/Video-Downloading-Tools/">Video Downloading Tools<span>2</span></a></li>
+		
+			<li><a href="/categories/Video-Editing/">Video Editing<span>5</span></a></li>
+		
+			<li><a href="/categories/Video-Editing-Software/">Video Editing Software<span>2</span></a></li>
+		
+			<li><a href="/categories/Video-Editing-Tools/">Video Editing Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Enhancement/">Video Enhancement<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Manipulation/">Video Manipulation<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Object-Tracking/">Video Object Tracking<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Processing/">Video Processing<span>4</span></a></li>
+		
+			<li><a href="/categories/Video-Production/">Video Production<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Quality-Assessment/">Video Quality Assessment<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Search/">Video Search<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Sharing-Platforms/">Video Sharing Platforms<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-and-Audio-Processing/">Video and Audio Processing<span>1</span></a></li>
+		
+			<li><a href="/categories/Virtual-Environments/">Virtual Environments<span>1</span></a></li>
+		
+			<li><a href="/categories/Virtualization/">Virtualization<span>1</span></a></li>
+		
+			<li><a href="/categories/Visual-Studio-Code/">Visual Studio Code<span>1</span></a></li>
+		
+			<li><a href="/categories/Volume-Management/">Volume Management<span>1</span></a></li>
+		
+			<li><a href="/categories/Water-Cooling-Systems/">Water Cooling Systems<span>1</span></a></li>
+		
+			<li><a href="/categories/Wearable-Devices/">Wearable Devices<span>1</span></a></li>
+		
+			<li><a href="/categories/Web-Application-Security/">Web Application Security<span>3</span></a></li>
+		
+			<li><a href="/categories/Web-Applications/">Web Applications<span>2</span></a></li>
+		
+			<li><a href="/categories/Web-Customization/">Web Customization<span>1</span></a></li>
+		
+			<li><a href="/categories/Web-Development/">Web Development<span>2</span></a></li>
+		
+			<li><a href="/categories/Web-Scraping/">Web Scraping<span>7</span></a></li>
+		
+			<li><a href="/categories/Webhooks/">Webhooks<span>1</span></a></li>
+		
+			<li><a href="/categories/Webpage-Rendering/">Webpage Rendering<span>1</span></a></li>
+		
+			<li><a href="/categories/Website-Resources/">Website Resources<span>1</span></a></li>
+		
+			<li><a href="/categories/Wi-Fi-Troubleshooting/">Wi-Fi Troubleshooting<span>1</span></a></li>
+		
+			<li><a href="/categories/Window-Management/">Window Management<span>2</span></a></li>
+		
+			<li><a href="/categories/Windows/">Windows<span>1</span></a></li>
+		
+			<li><a href="/categories/Windows-10-Performance/">Windows 10 Performance<span>1</span></a></li>
+		
+			<li><a href="/categories/Yoga/">Yoga<span>1</span></a></li>
+		
+			<li><a href="/categories/YouTube-Monetization/">YouTube Monetization<span>1</span></a></li>
+		
+			<li><a href="/categories/Zhihu/">Zhihu<span>1</span></a></li>
+		
+			<li><a href="/categories/anti-censorship/">anti-censorship<span>1</span></a></li>
+		
+			<li><a href="/categories/bilibili/">bilibili<span>1</span></a></li>
+		
+			<li><a href="/categories/book-scanning/">book scanning<span>1</span></a></li>
+		
+			<li><a href="/categories/brainwave-translation/">brainwave translation<span>1</span></a></li>
+		
+			<li><a href="/categories/copyright/">copyright<span>1</span></a></li>
+		
+			<li><a href="/categories/ctf-competitions/">ctf competitions<span>1</span></a></li>
+		
+			<li><a href="/categories/data-security/">data security<span>1</span></a></li>
+		
+			<li><a href="/categories/deobfustication/">deobfustication<span>1</span></a></li>
+		
+			<li><a href="/categories/filename-issues/">filename issues<span>1</span></a></li>
+		
+			<li><a href="/categories/fire-prevention/">fire_prevention<span>1</span></a></li>
+		
+			<li><a href="/categories/gaming/">gaming<span>1</span></a></li>
+		
+			<li><a href="/categories/hacking/">hacking<span>1</span></a></li>
+		
+			<li><a href="/categories/hardware-simulator/">hardware_simulator<span>1</span></a></li>
+		
+			<li><a href="/categories/iOS-device-control/">iOS device control<span>1</span></a></li>
+		
+			<li><a href="/categories/javascript/">javascript<span>1</span></a></li>
+		
+			<li><a href="/categories/macOS/">macOS<span>1</span></a></li>
+		
+			<li><a href="/categories/noise-generation/">noise_generation<span>1</span></a></li>
+		
+			<li><a href="/categories/npm/">npm<span>1</span></a></li>
+		
+			<li><a href="/categories/package-managers/">package_managers<span>1</span></a></li>
+		
+			<li><a href="/categories/podcasts/">podcasts<span>1</span></a></li>
+		
+			<li><a href="/categories/pwntools/">pwntools<span>1</span></a></li>
+		
+			<li><a href="/categories/search-engines/">search_engines<span>1</span></a></li>
+		
+			<li><a href="/categories/seo-tools/">seo_tools<span>1</span></a></li>
+		
+			<li><a href="/categories/strategies-for-defeating-deduplicate-algorithms/">strategies for defeating deduplicate algorithms<span>1</span></a></li>
+		
+			<li><a href="/categories/systemd/">systemd<span>1</span></a></li>
+		
+			<li><a href="/categories/text-mining/">text-mining<span>1</span></a></li>
+		
+			<li><a href="/categories/video-sites/">video_sites<span>1</span></a></li>
+		
+			<li><a href="/categories/viral-strategies/">viral_strategies<span>1</span></a></li>
+		
+		</ul>
+	</div>
+
+		
+			
+	<div class="widget">
+		<h4>Tag Cloud</h4>
+		<ul class="tag_box inline list-unstyled">		
+		
+			<li><a href="/tags/TensorFlow-js/">TensorFlow.js<span>1</span></a></li>
+		
+			<li><a href="/tags/Mariusmcl-s-instructGPT-PyTorch/">Mariusmcl&#39;s instructGPT-PyTorch<span>1</span></a></li>
+		
+			<li><a href="/tags/self-learning/">self-learning<span>2</span></a></li>
+		
+			<li><a href="/tags/noise-images/">noise images<span>1</span></a></li>
+		
+			<li><a href="/tags/manufacturing-optimization/">manufacturing optimization<span>1</span></a></li>
+		
+			<li><a href="/tags/Nyaa/">Nyaa<span>1</span></a></li>
+		
+			<li><a href="/tags/Chemical-Properties/">Chemical Properties<span>1</span></a></li>
+		
+			<li><a href="/tags/freelancer/">freelancer<span>18</span></a></li>
+		
+			<li><a href="/tags/SPL/">SPL+<span>1</span></a></li>
+		
+			<li><a href="/tags/NFS/">NFS<span>1</span></a></li>
+		
+			<li><a href="/tags/file-lists/">file lists<span>1</span></a></li>
+		
+			<li><a href="/tags/website-customization/">website customization<span>1</span></a></li>
+		
+			<li><a href="/tags/anti-scraping-measures/">anti-scraping measures<span>1</span></a></li>
+		
+			<li><a href="/tags/Python/">Python<span>20</span></a></li>
+		
+			<li><a href="/tags/PhantomJS/">PhantomJS<span>1</span></a></li>
+		
+			<li><a href="/tags/reinforcement-learning-language-models/">reinforcement_learning_language_models<span>1</span></a></li>
+		
+			<li><a href="/tags/pyjnius/">pyjnius<span>1</span></a></li>
+		
+			<li><a href="/tags/facial-recognization/">facial recognization<span>1</span></a></li>
+		
+			<li><a href="/tags/Interacting-with-user-and-bot-accounts/">Interacting with user and bot accounts<span>1</span></a></li>
+		
+			<li><a href="/tags/p2p/">p2p<span>1</span></a></li>
+		
+		
+		   <li><a href="/tags">...<span>2344</span></a></li>
+		 
+		</ul>
+	</div>
+
+
+		
+			
+<div class="widget">
+  <h4>Recent Posts</h4>
+  <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2023/12/25/94043d9a-08e0-43ba-8c58-876d65a7f546/"  title="A compilation of various projects related to Cybergod, which are clones from different GitHub repositories such as Q-Star, QStarLearning, open_qstar, Video-Pre-Training, SingularGPT, GPT-4V-Act, gpt-eyes, self-operating-computer, gpt4v-browsing, CogVLM, and AppAgent. These projects aim to develop various tools and models for diverse purposes within the Cybergod framework." ><i class="fa fa-file-o"></i>cybergod related projects</a>
+      </li>
+    
+      <li>
+        <a href="/2023/12/21/2cbfa8d5-63ac-4696-bb14-58f5385ceb27/"  title="This article provides step-by-step instructions for installing Waydroid on Ubuntu and offers troubleshooting tips for network issues. It explains how to enable firewalld or ufw to resolve connectivity problems, while also clarifying the difference between the wifi switch and its effect on connectivity." ><i class="fa fa-file-o"></i>Waydroid installation steps</a>
+      </li>
+    
+      <li>
+        <a href="/2023/12/20/ca75dd0f-260b-4115-a85b-eb3c9c4bdd39/"  title="This article explores the application of Large Language Models (LLMs) in generating various elements such as images, tags, categories, and embeddings for content. It also delves into the capabilities of these models to perform full-text and vector searches, generate query words and media, update relevance based on user preferences, and even generate new queries for content." ><i class="fa fa-file-o"></i>RAG in my mind</a>
+      </li>
+    
+      <li>
+        <a href="/2023/12/18/8a6267a2-bda4-4d09-a577-49dbf47fb6d3/"  title="This text provides guidance on utilizing the Python utility &#39;pylint&#39; to identify unspecified exceptions in a Python file and proposes constructing microservices and tracking failures for enhanced error management." ><i class="fa fa-file-o"></i>Exception Phobia in Python</a>
+      </li>
+    
+      <li>
+        <a href="/2023/12/09/5a1f6160-e47a-453d-8bd5-eb06e9d5e62d/"  title="This article discusses the process of using an RX580 16g graphics card with the codename `gfx803` as an AI accelerator. The user is provided with a GitHub link to build it themselves." ><i class="fa fa-file-o"></i>RX580 16g used as AI accele...</a>
+      </li>
+    
+  </ul>
+</div>
+
+		
+			
+<div class="widget">
+	<h4>Links</h4>
+	<ul class="blogroll list-unstyled">
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/agi_computer_control/" title="Autonomous computer agent" target="_blank"]);">Project Cybergod</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/pyjom/" title="Media content automation" target="_blank"]);">Project Pyjom</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/prometheous/" title="Automated documentation, AI+IR(RAG)" target="_blank"]);">Project Prometheus</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/pyjom/" title="Media Content Automation" target="_blank"]);">Project Pyjom</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/my_blog_source/" title="Source code of my blog"" target="_blank"]);">Blog Source Code</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="http://www.github.com/james4ever0" title="My Github account" target="_blank"]);">My Github</a></li>
+	
+	</ul>
+</div>
+
+
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+
+</body>
+</html>

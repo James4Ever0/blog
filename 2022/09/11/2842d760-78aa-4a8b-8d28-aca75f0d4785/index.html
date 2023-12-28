@@ -1,0 +1,338 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>motion vector estimation, motion vector export, ffmpeg advanced usage | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="This article delves into motion vector extraction, scene change detection, subtitle removal, and frame interpolation using PyAV with FFmpeg. Additionally, it covers FFmpeg&#39;s image resizing algorithms such as &#39;sinc&#39;, &#39;lanczos&#39;, and &#39;spline&#39;. The article also explores logging options, rounding methods, chroma interpolation, luma/chroma component handling, and the &#39;bitexact&#39; option for exact pixel handling.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="motion vector estimation, motion vector export, ffmpeg advanced usage"/>
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> motion vector estimation, motion vector export, ffmpeg advanced usage</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>This article delves into motion vector extraction, scene change detection, subtitle removal, and frame interpolation using PyAV with FFmpeg. Additionally, it covers FFmpeg’s image resizing algorithms such as ‘sinc’, ‘lanczos’, and ‘spline’. The article also explores logging options, rounding methods, chroma interpolation, luma&#x2F;chroma component handling, and the ‘bitexact’ option for exact pixel handling.</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <h1 id="motion-verctor-estimation-motion-vector-export-ffmpeg-advanced-usage"><a href="#motion-verctor-estimation-motion-vector-export-ffmpeg-advanced-usage" class="headerlink" title="motion verctor estimation, motion vector export, ffmpeg advanced usage"></a>motion verctor estimation, motion vector export, ffmpeg advanced usage</h1><h2 id="use-cases"><a href="#use-cases" class="headerlink" title="use cases"></a>use cases</h2><p>to detect hard-coded subtitles, crop the region and detect sudden changes</p>
+<p>can also use pyscenedetect to do the job</p>
+<h2 id="pyav"><a href="#pyav" class="headerlink" title="pyav"></a>pyav</h2><p><a target="_blank" rel="noopener" href="https://pyav.org/docs/stable/">docs</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install av</span><br></pre></td></tr></table></figure>
+
+<h2 id="remove-detect-silence"><a href="#remove-detect-silence" class="headerlink" title="remove&#x2F;detect silence"></a>remove&#x2F;detect silence</h2><p> … silencedetect     A-&gt;A       Detect silence.<br> … silenceremove     A-&gt;A       Remove silence.</p>
+<h2 id="frame-interpolate"><a href="#frame-interpolate" class="headerlink" title="frame interpolate"></a>frame interpolate</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -y -i <span class="string">&quot;/root/Desktop/works/pyjom/tests/random_giphy_gifs/samoyed.gif&quot;</span> \</span><br><span class="line"> -vf <span class="string">&quot;minterpolate,scale=w=iw*2:h=ih*2:flags=lanczos,hqdn3d&quot;</span> \</span><br><span class="line"> -r 60 ffmpeg_samoyed.mp4</span><br></pre></td></tr></table></figure>
+
+<h2 id="motion-estimation"><a href="#motion-estimation" class="headerlink" title="motion estimation"></a>motion estimation</h2><p>to get mosaic motion vectors and visualize:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i <span class="string">&quot;/root/Desktop/works/pyjom/tests/random_giphy_gifs/samoyed.gif&quot;</span> \</span><br><span class="line"> -vf <span class="string">&quot;mestimate=epzs:mb_size=16:search_param=7, codecview=mv=pf+bf+bb&quot;</span>  \</span><br><span class="line"> mestimate_output.mp4 -y</span><br></pre></td></tr></table></figure>
+
+<h2 id="get-help"><a href="#get-help" class="headerlink" title="get help"></a>get help</h2><h3 id="on-specific-filter"><a href="#on-specific-filter" class="headerlink" title="on specific filter:"></a>on specific filter:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -h filter=showspectrumpic</span><br></pre></td></tr></table></figure>
+<h3 id="on-all-filters"><a href="#on-all-filters" class="headerlink" title="on all filters:"></a>on all filters:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -filters</span><br></pre></td></tr></table></figure>
+
+<h2 id="crop-detection-picture-in-picture-PIP-detection"><a href="#crop-detection-picture-in-picture-PIP-detection" class="headerlink" title="crop detection, picture in picture (PIP) detection"></a>crop detection, picture in picture (PIP) detection</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i <span class="string">&quot;/root/Desktop/works/pyjom/samples/video/LiEIfnsvn.mp4&quot;</span> \</span><br><span class="line">-vf <span class="string">&quot;mestimate,cropdetect=mode=mvedges,metadata=mode=print&quot;</span> \</span><br><span class="line">-f null -</span><br></pre></td></tr></table></figure>
+
+<h2 id="scene-change-detection"><a href="#scene-change-detection" class="headerlink" title="scene change detection"></a><a target="_blank" rel="noopener" href="https://brontosaurusrex.github.io/2019/03/11/ffmpeg-scene-detection/">scene change detection</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -hide_banner -i <span class="string">&quot;<span class="variable">$file</span>&quot;</span> -an \</span><br><span class="line">-filter:v \</span><br><span class="line"><span class="string">&quot;select=&#x27;gt(scene,0.2)&#x27;,showinfo&quot;</span> \</span><br><span class="line">-f null \</span><br><span class="line">- 2&gt;&amp;1</span><br></pre></td></tr></table></figure>
+
+<h2 id="extract-motion-vectors"><a href="#extract-motion-vectors" class="headerlink" title="extract motion vectors"></a>extract motion vectors</h2><p>ffmpeg can produce motion vector estimation but it is not exportable, only for internal use.</p>
+<p>mp4 format provides motion vector information thus maybe we need not to use GPU to get those ‘optical flow’ data.</p>
+<h3 id="extract-by-using-ffmpeg-apis"><a href="#extract-by-using-ffmpeg-apis" class="headerlink" title="extract by using ffmpeg apis"></a>extract by using ffmpeg apis</h3><p><a target="_blank" rel="noopener" href="https://github.com/LukasBommes/mv-extractor">mv-extractor</a> Extract frames and motion vectors from H.264 and MPEG-4 encoded video.</p>
+<h3 id="extract-from-mp4-file"><a href="#extract-from-mp4-file" class="headerlink" title="extract from mp4 file"></a>extract from mp4 file</h3><p><a target="_blank" rel="noopener" href="https://github.com/vadimkantorov/mpegflow">mpegflow</a> for easy extraction of motion vectors stored in video files</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jishnujayakumar/MV-Tractus">mv-tractus</a>: A simple tool to extract motion vectors from h264 encoded videos.</p>
+<h2 id="take-screenshot-at-time"><a href="#take-screenshot-at-time" class="headerlink" title="take screenshot at time:"></a><a target="_blank" rel="noopener" href="https://write.corbpie.com/taking-screenshot-with-ffmpeg/#:~:text=To%20take%20a%20screenshot%20or%20save%20a%20frame,means%20the%20frame%20number%20at%20the%20time%20specified.">take screenshot at time:</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -ss 01:10:35 -i invideo.mp4 -vframes 1 -q:v 3 screenshot.jpg</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="video-denoise-filters"><a href="#video-denoise-filters" class="headerlink" title="video denoise filters:"></a>video denoise filters:</h2><p>dctdnoiz fftdnoiz hqdn3d nlmeans owdenoise removegrain vaguedenoiser nlmeans_opencl yaepblur</p>
+<h2 id="super-resolution-resampling"><a href="#super-resolution-resampling" class="headerlink" title="super-resolution, resampling:"></a>super-resolution, resampling:</h2><h3 id="deeplearning-model-tensorflow"><a href="#deeplearning-model-tensorflow" class="headerlink" title="deeplearning model, tensorflow"></a>deeplearning model, tensorflow</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">env</span> LD_LIBRARY_PATH=/root/anaconda3/pkgs/cudatoolkit-10.0.130-0/lib/:/root/anaconda3/pkgs/cudnn-7.6.5-cuda10.0_0/lib/:<span class="variable">$LD_LIBRARY_PATH</span> \</span><br><span class="line">ffmpeg -i <span class="string">&quot;/root/Desktop/works/pyjom/samples/video/LiEIfnsvn.mp4&quot;</span> \</span><br><span class="line">-y -vf \</span><br><span class="line"><span class="string">&quot;sr=dnn_backend=tensorflow:model=./sr/espcn.pb,yaepblur&quot;</span> \</span><br><span class="line"> supertest.mp4</span><br></pre></td></tr></table></figure>
+
+<h3 id="use-standard-scale-method"><a href="#use-standard-scale-method" class="headerlink" title="use standard scale method:"></a>use standard scale method:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -y -i <span class="string">&quot;/root/Desktop/works/pyjom/tests/random_giphy_gifs/samoyed.gif&quot;</span>\</span><br><span class="line"> -vf <span class="string">&quot;minterpolate,scale=w=iw*2:h=ih*2:flags=lanczos,hqdn3d&quot;</span> \</span><br><span class="line"> -r 60 ffmpeg_samoyed.mp4</span><br></pre></td></tr></table></figure>
+
+<h3 id="options"><a href="#options" class="headerlink" title="options:"></a>options:</h3><p>‘fast_bilinear’<br>Select fast bilinear scaling algorithm.</p>
+<p>‘bilinear’<br>Select bilinear scaling algorithm.</p>
+<p>‘bicubic’<br>Select bicubic scaling algorithm.</p>
+<p>‘experimental’<br>Select experimental scaling algorithm.</p>
+<p>‘neighbor’<br>Select nearest neighbor rescaling algorithm.</p>
+<p>‘area’<br>Select averaging area rescaling algorithm.</p>
+<p>‘bicublin’<br>Select bicubic scaling algorithm for the luma component, bilinear for chroma components.</p>
+<p>‘gauss’<br>Select Gaussian rescaling algorithm.</p>
+<p>‘sinc’<br>Select sinc rescaling algorithm.</p>
+<p>‘lanczos’<br>Select Lanczos rescaling algorithm. The default width (alpha) is 3 and can be changed by setting param0.</p>
+<p>‘spline’<br>Select natural bicubic spline rescaling algorithm.</p>
+<p>‘print_info’<br>Enable printing&#x2F;debug logging.</p>
+<p>‘accurate_rnd’<br>Enable accurate rounding.</p>
+<p>‘full_chroma_int’<br>Enable full chroma interpolation.</p>
+<p>‘full_chroma_inp’<br>Select full chroma input.</p>
+<p>‘bitexact’<br>Enable bitexact output.</p>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/2022/09/12/d299ccd2-0d77-4c1c-837d-43186ec641a7/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/2022/09/11/40045752-3d9f-448c-81f9-83bf56fa84ec/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2022-09-11 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Video-Processing/">Video Processing<span>4</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/video-processing/">video processing<span>7</span></a></li> <li><a href="/tags/frame-interpolation/">frame interpolation<span>3</span></a></li> <li><a href="/tags/video-interpolation/">video interpolation<span>2</span></a></li> <li><a href="/tags/FFmpeg/">FFmpeg<span>5</span></a></li> <li><a href="/tags/PyAV/">PyAV<span>1</span></a></li> <li><a href="/tags/frame-extraction/">frame extraction<span>3</span></a></li> <li><a href="/tags/video-extractor/">video extractor<span>2</span></a></li> <li><a href="/tags/video-transition/">video transition<span>2</span></a></li> <li><a href="/tags/motion-vector-extraction/">motion vector extraction<span>1</span></a></li> <li><a href="/tags/scene-change-detection/">scene change detection<span>1</span></a></li> <li><a href="/tags/subtitle-removal/">subtitle removal<span>1</span></a></li> <li><a href="/tags/FFmpeg-image-resizing-algorithms/">FFmpeg image resizing algorithms<span>1</span></a></li>
+
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+
+</body>
+</html>

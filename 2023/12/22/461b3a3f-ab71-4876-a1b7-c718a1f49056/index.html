@@ -1,0 +1,398 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Reverse Proxy Free Frp Providers, Remote Code Editing, Remote Development | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="The article delves into using reverse proxy for remote code editing and highlights the importance of security measures like implementing p2p server nodes and user authentication. It also provides step-by-step guides on installing and configuring VPNs, remote filesystem servers, frpc, SSHFS, Rclone, htpasswd, inotify across different operating systems. Additionally, it suggests alternative tools such as Code-Server or Code-Server-Insider for accessing remote code servers, while also offering valuable tips to remember while utilizing these applications.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Reverse Proxy Free Frp Providers, Remote Code Editing, Remote Development"/>
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+    <script src="/js/marked.js"></script>
+    <script src="/js/comment.js"></script>
+    <script src="/js/timeago.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+	<script src="/js/spin.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> Reverse Proxy Free Frp Providers, Remote Code Editing, Remote Development</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>The article delves into using reverse proxy for remote code editing and highlights the importance of security measures like implementing p2p server nodes and user authentication. It also provides step-by-step guides on installing and configuring VPNs, remote filesystem servers, frpc, SSHFS, Rclone, htpasswd, inotify across different operating systems. Additionally, it suggests alternative tools such as Code-Server or Code-Server-Insider for accessing remote code servers, while also offering valuable tips to remember while utilizing these applications.</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <h1 id="Reverse-Proxy-Free-Frp-Providers-Remote-Code-Editing-Remote-Development"><a href="#Reverse-Proxy-Free-Frp-Providers-Remote-Code-Editing-Remote-Development" class="headerlink" title="Reverse Proxy Free Frp Providers, Remote Code Editing, Remote Development"></a>Reverse Proxy Free Frp Providers, Remote Code Editing, Remote Development</h1><p>if you install p2p server nodes on primary server (with hard-to-crack password and proper configs (no brute-forcing)?) you might want to add that (n2n) server node at home.</p>
+<h2 id="p2p-network"><a href="#p2p-network" class="headerlink" title="p2p network"></a>p2p network</h2><p><a target="_blank" rel="noopener" href="https://github.com/ehang-io/nps/">nps</a> also supports p2p</p>
+<p>(deprecated! does not pass the connectivity test) <a target="_blank" rel="noopener" href="https://github.com/gnbdev/opengnb">opengnb</a> p2p network, faster than n2n v3, can run without public ip</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ginuerzh/gost">gost</a> as an frp alternative</p>
+<p>turned out n2n is necessary, since the speed comparasion strongly disencourage the usage of frp directly.</p>
+<p>n2n test commands, using compatible v3 protocol to communicate:</p>
+<p>supernode v3: n2n.laiyx.win:10090</p>
+<p>warning: it is useless to add multiple supernodes.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-l nton.eu.org:10090 -l n2n.lu8.win:10090 -l n2n.haoren.eu.org:10090 -l 	</span><br><span class="line">supernode.ntop.org:7777 -l 47.102.102.77:10090 -l n2n.myan.cc:10090 -l n2n.sfcs.eu.org:10090 -l n2n.eriol.cn:10090 -l n2n.x0x.cn:10090 -l n2n.vvcd.win:10090</span><br></pre></td></tr></table></figure>
+
+<p>kali:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo edge -c &lt;name&gt; -k &lt;password&gt; -a 192.168.100.1 -f -l n2n.laiyx.win:10090 -Er -A3 -e auto</span><br></pre></td></tr></table></figure>
+
+<p>macos, since we use sudo you might consider doing it with system service:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo edge -c &lt;name&gt; -k &lt;password&gt; -a 192.168.100.2 -f -l n2n.laiyx.win:10090 -Er -A3 -e auto</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="http://www.supernode.ml/">public shared n2n supernodes</a></p>
+<p>you could test the speed and decide to use it or not.</p>
+<p>in kali discovery service, when local connection is not avaliable, usually the p2p network is preferred than direct frp tunneling.</p>
+<p>brew has <a target="_blank" rel="noopener" href="https://www.xmodulo.com/how-to-install-and-configure-tinc-vpn.html">tinc</a> as a package!</p>
+<p><a target="_blank" rel="noopener" href="https://tinc-vpn.org/documentation/tinc.conf.5">tinc conf</a></p>
+<p><a target="_blank" rel="noopener" href="https://chanix.github.io/TincCookbook/examples/1-HowToInstallTincOnUbuntu1604.html">tinc setup with core server</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/419173153">remote access with vps using tinc</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.xmodulo.com/how-to-install-and-configure-tinc-vpn.html">install and config tinc on linux</a></p>
+<p>tinc is somehow complex and it may requires some tinkering on <code>tinc-up</code> or using docker.</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/559c1e582724">install n2n without macports</a></p>
+<p>use <a target="_blank" rel="noopener" href="https://github.com/ntop/n2n">n2n</a> to send udp packages among clients, try to create direct link between devices which will speed up ssh connection speed. supernode creation could be used along with frpc</p>
+<p>somehow brew does not have n2n as a package. macports has it, which requires xcode (huge!) to be installed.</p>
+<p><a target="_blank" rel="noopener" href="https://peervpn.net/">peervpn tutorial</a></p>
+<h2 id="daemonize-launch-at-startup"><a href="#daemonize-launch-at-startup" class="headerlink" title="daemonize (launch at startup)"></a>daemonize (launch at startup)</h2><p>on macos, when crontab is created, cron will be automatically launched by launchd.</p>
+<p>cronjobs may need to launch with the <code>$(which env)</code> prefix.</p>
+<p>the problem of internet disconnetion will most not likely to interfere with the server since frpc has auto reconnection and the update hook is the filesystem watchdog, which will not run when no changes made (including the offline period)</p>
+<p>the watchdog may be replaced by some mirror fuse system, which will report every access request to our dedicated server.</p>
+<p>we have seen this behavior (filesystem mirroring) in our gitfuse code. but does that support symlink? should we really take care of that? or should we forget that and just use inotify instead?</p>
+<p>maybe it will affect the client when mounting the remote filesystem using sshfs or rclone, but that has to be verified.</p>
+<h2 id="serve-and-mount-remote-filesystem"><a href="#serve-and-mount-remote-filesystem" class="headerlink" title="serve and mount remote filesystem"></a>serve and mount remote filesystem</h2><p>before serving, make sure the path <code>/media/root/help/pyjom</code> exists by running our mount script</p>
+<p>create htpasswd file:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">htpasswd -bc webdav_htpasswd &lt;username&gt; &lt;password&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>use rclone:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rclone serve webdav /media/root/help/pyjom --addr 0.0.0.0:8468 --key /root/.local/share/code-server/localhost.key --cert /root/.local/share/code-server/localhost.crt --htpasswd /root/Desktop/works/sync_git_repos/remote_deploys/webdav_htpasswd -L</span><br></pre></td></tr></table></figure>
+
+<p>before mounting, use <code>rclone config</code> to setup remote associated with a name. make sure the hostname is <code>localhost</code> instead of ip address to avoid certificate issues. do not install rclone from brew since it does not support fuse. instead, install from <a target="_blank" rel="noopener" href="https://rclone.org/downloads/">here</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rclone mount webdav_local_nginx:/ /Volume/CaseSensitive/pyjom_remote_mountpoint --ca-cert /Users/jamesbrown/Desktop/works/host_discovery_ssh_local_connect/certificates/localhost.crt</span><br></pre></td></tr></table></figure>
+<p>after mounting, seems zsh on macos is not working very well with macfuse. bash works. does bash&#x2F;fish works with sshfs as well? maybe that will save efforts.</p>
+<h2 id="encryption-and-invalid-HTTPS-certificates"><a href="#encryption-and-invalid-HTTPS-certificates" class="headerlink" title="encryption and invalid HTTPS certificates"></a>encryption and invalid HTTPS certificates</h2><p>use <code>nginx</code> to redirect remote server as localhost, since the host name on the certificate is localhost we cannot let chrome to trust anything other than that</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">worker_processes <span class="keyword">auto</span>;</span><br><span class="line">error_log error.<span class="built_in">log</span>;</span><br><span class="line">events &#123; &#125;</span><br><span class="line">stream &#123;</span><br><span class="line">  server &#123;</span><br><span class="line">    listen <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">7576</span>;</span><br><span class="line">    proxy_pass REMOTE_HOST:<span class="number">7576</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="code-server-browser-color-fixes"><a href="#code-server-browser-color-fixes" class="headerlink" title="code-server(browser) color fixes"></a>code-server(browser) color fixes</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.cursor</span>&#123;</span><br><span class="line">  <span class="attribute">background</span>: white;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span><span class="selector-class">.web</span>&#123;</span><br><span class="line">  <span class="attribute">caret-color</span>: white;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.monaco-editor</span> <span class="selector-class">.view-line</span> <span class="selector-tag">span</span><span class="selector-class">.inline-selected-text</span>&#123;</span><br><span class="line">  <span class="attribute">background</span>: blue;</span><br><span class="line">  <span class="attribute">color</span>: white;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="connectors-other-than-frp"><a href="#connectors-other-than-frp" class="headerlink" title="connectors other than frp"></a>connectors other than frp</h2><p>code-server recommends <a target="_blank" rel="noopener" href="https://coder.com/docs/code-server/latest/guide#external-authentication">some other methods</a> like <a target="_blank" rel="noopener" href="https://github.com/cloudflare/cloudflared#installing-cloudflared">cloudflared</a> and <a target="_blank" rel="noopener" href="https://dashboard.ngrok.com/login">ngrok</a>. 花生壳可能也有用 但是可能不好用</p>
+<h2 id="methods"><a href="#methods" class="headerlink" title="methods"></a>methods</h2><p>try out <a target="_blank" rel="noopener" href="https://github.com/coder/code-server">code-server</a> by <a target="_blank" rel="noopener" href="https://coder.com/">coder</a>, might work?</p>
+<p>also we use builtin vscode connectors, using ssh.</p>
+<p>currently we only have <a target="_blank" rel="noopener" href="https://www.idonglei.com/free-frp">one</a>, which uses direct ip address instead of a hijacked domain. maybe it is time to consider some faster server providers.</p>
+<p>use a universal ssh as workspace extension called <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=Kelvin.vscode-sshfs">SSH FS</a></p>
+<h2 id="drawbacks-of-SSH-FS-extension"><a href="#drawbacks-of-SSH-FS-extension" class="headerlink" title="drawbacks of SSH FS extension"></a>drawbacks of SSH FS extension</h2><p>some drawbacks of this SSH FS plugin is that it cannot use the plugins from remote machine, also having issue whe jumping to remote files from terminal output. to run code-insider instead of code-oss, maybe we could spin up the official ssh connector, which can only be automated by publickey authentication.</p>
+<h2 id="syncing-updating-and-viewing-using-watchdog-and-sshfs-deprecated-since-it-shares-connection-with-vscode-remote-and-maybe-slower-than-rclone-serve-webdav"><a href="#syncing-updating-and-viewing-using-watchdog-and-sshfs-deprecated-since-it-shares-connection-with-vscode-remote-and-maybe-slower-than-rclone-serve-webdav" class="headerlink" title="syncing, updating and viewing using watchdog and sshfs(deprecated since it shares connection with vscode remote and maybe slower than rclone serve webdav?)"></a>syncing, updating and viewing using watchdog and sshfs(deprecated since it shares connection with vscode remote and maybe slower than rclone serve webdav?)</h2><p>to mount the filesystem via sshfs:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sshfs root@192.168.10.4:/media/root/help/pyjom /Volumes/CaseSensitive/pyjom_remote_mountpoint -o follow_symlinks</span><br></pre></td></tr></table></figure>
+
+<p>to make sure the changes are updated regularly, we need a filesystem watchdog on kali, which will trigger the action of syncing, utilizing inotify. shall that be adopted on macos? maybe. but my extra editors can be vim or nvim, so it is not so hard to predict. but if it can monitor the file read events, we don’t need those legacy editor program hooks.</p>
+<p>at least we need to see the output, so we need to mount the remote filesystem as sshfs, then use ffplay to view it.</p>
+<h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><p>for now, two viable ways:</p>
+<p>one using code-server, the other using code-server-insider provided by code-insider. when using builtin code-server-insider, remember it will not share the plugins installed by code-insider. the remote executable location is at <code>/root/.vscode-server-insiders/bin/12b08be500f8a307f30e92cbc3ee39ba115eab69/bin/code-server-insider</code> or something. must set the local setting <code>remote.SSH.useLocalServer</code> to false.</p>
+<p>when using code-server, one can connect to the workspace using browser, instead of vscode builtin remote connector.</p>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/2023/12/22/4530403c-8332-4e1f-846e-999f1e6a5a8f/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/2023/12/22/46204146-fb76-4f10-992e-59be735a95a0/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+    	 
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+           type: "github" ? "github" : "github",       
+	       user: "james4ever0",
+	       repo: "my_blog",
+		   client_id: "",
+           client_secret: "",
+		   no_comment: "No comments yet. Press the button and go to comment now!",
+		   go_to_comment: "Go to comment",
+		   no_issue: "no_issue",
+		   issue_title: "Reverse Proxy Free Frp Providers, Remote Code Editing, Remote Development",
+		   issue_id: "",
+		   btn_class: "btn btn-primary",
+		   comments_target: "#comment-thread",
+		   loading_target: "#loading_spin"
+		   });
+	 </script>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2023-12-22 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Security/">Security<span>16</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/p2p/">p2p<span>2</span></a></li> <li><a href="/tags/remote-control/">remote control<span>12</span></a></li> <li><a href="/tags/sync/">sync<span>18</span></a></li>
+
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+</body>
+</html>

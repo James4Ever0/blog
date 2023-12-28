@@ -1,0 +1,330 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="ffmpeg one linersFor all snippets, check documentation for details and settings.speed up ffmpeg encodingffmpeg speedup cli flags
+ffmpeg -threads 4 -cr">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+    <script src="/js/marked.js"></script>
+    <script src="/js/comment.js"></script>
+    <script src="/js/timeago.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+	<script src="/js/spin.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> </h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h1 id="ffmpeg-one-liners"><a href="#ffmpeg-one-liners" class="headerlink" title="ffmpeg one liners"></a>ffmpeg one liners</h1><h1 id="For-all-snippets-check-documentation-for-details-and-settings"><a href="#For-all-snippets-check-documentation-for-details-and-settings" class="headerlink" title="For all snippets, check documentation for details and settings."></a>For all snippets, check documentation for details and settings.</h1><h2 id="speed-up-ffmpeg-encoding"><a href="#speed-up-ffmpeg-encoding" class="headerlink" title="speed up ffmpeg encoding"></a>speed up ffmpeg encoding</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39981360/article/details/111807188">ffmpeg speedup cli flags</a></p>
+<p><code>ffmpeg -threads 4 -crf 28 -preset ultrafast</code></p>
+<h1 id="encode-video-from-a-V4L2-device-using-specified-settings"><a href="#encode-video-from-a-V4L2-device-using-specified-settings" class="headerlink" title="encode video from a V4L2 device, using specified settings."></a>encode video from a V4L2 device, using specified settings.</h1><h1 id="x265-worked-somewhat-better-here-and-produced-less-skips-although-uses-10x-CPU-compared-to-x264"><a href="#x265-worked-somewhat-better-here-and-produced-less-skips-although-uses-10x-CPU-compared-to-x264" class="headerlink" title="x265 worked somewhat better here and produced less skips (although uses 10x CPU compared to x264)"></a>x265 worked somewhat better here and produced less skips (although uses 10x CPU compared to x264)</h1><p>ffmpeg -f video4linux2 -framerate 30 -input_format mjpeg -video_size 1920x1080 -i &#x2F;dev&#x2F;video6 -c:v libx265 -preset ultrafast -c:a none -crf 20 out.mp4</p>
+<h1 id="Convert-a-raw-YUYV422-frame-from-my-USB-“microscope”-to-PNG"><a href="#Convert-a-raw-YUYV422-frame-from-my-USB-“microscope”-to-PNG" class="headerlink" title="Convert a raw YUYV422 frame from my USB “microscope” to PNG:"></a>Convert a raw YUYV422 frame from my USB “microscope” to PNG:</h1><h1 id="other-valid-pixel-formats-are-e-g-rgb24-or-yuv420p"><a href="#other-valid-pixel-formats-are-e-g-rgb24-or-yuv420p" class="headerlink" title="other valid pixel formats are e.g. rgb24 or yuv420p"></a>other valid pixel formats are e.g. rgb24 or yuv420p</h1><p>ffmpeg -f rawvideo -video_size 2592x1944 -pixel_format yuyv422 -i input_yuyv422_2592x1944.dat -f image2 output.png</p>
+<h1 id="copy-a-portion-of-a-video-copying-and-not-recoding-Might-need-to-use-the-same-container-as-the-input"><a href="#copy-a-portion-of-a-video-copying-and-not-recoding-Might-need-to-use-the-same-container-as-the-input" class="headerlink" title="copy a portion of a video, copying and not recoding. Might need to use the same container as the input"></a>copy a portion of a video, copying and not recoding. Might need to use the same container as the input</h1><p>ffmpeg -i $input -ss $seek_to_seconds -t $output_length -c:v copy -c:a copy $output</p>
+<h1 id="Export-and-show-h-264-MVs"><a href="#Export-and-show-h-264-MVs" class="headerlink" title="Export and show h.264 MVs"></a>Export and show h.264 MVs</h1><p>ffplay -flags2 +export_mvs input.mkv -vf codecview&#x3D;mv&#x3D;pf+bf+bb</p>
+<h1 id="Show-motion-vector-estimate-on-any-input"><a href="#Show-motion-vector-estimate-on-any-input" class="headerlink" title="Show motion vector estimate on any input:"></a>Show motion vector estimate on any input:</h1><p>ffplay $input -vf mestimate&#x3D;epzs:mb_size&#x3D;16:search_param&#x3D;32,codecview&#x3D;mv&#x3D;pf+bf+bb</p>
+<h1 id="Select-one-frame-every-10-set-presentation-time-stamp-to-10x-0-1-PTS-deshake-do-not-copy-audio"><a href="#Select-one-frame-every-10-set-presentation-time-stamp-to-10x-0-1-PTS-deshake-do-not-copy-audio" class="headerlink" title="Select one frame every 10, set presentation time stamp to 10x (0.1*PTS), deshake, do not copy audio"></a>Select one frame every 10, set presentation time stamp to 10x (0.1*PTS), deshake, do not copy audio</h1><p>ffmpeg -i MOV_3147.mp4 -vf ‘select&#x3D;not(mod(n,10))’,setpts&#x3D;0.1*PTS,deshake&#x3D;edge&#x3D;blank:rx&#x3D;64:ry&#x3D;64:blocksize&#x3D;4:contrast&#x3D;31 -tune grain -crf 17 -an wolken-2-deshake.mkv</p>
+<h1 id="Extreme-high-quality-deshake"><a href="#Extreme-high-quality-deshake" class="headerlink" title="Extreme high quality deshake:"></a>Extreme high quality deshake:</h1><p>ffmpeg -i input.mkv -vf ‘select&#x3D;not(mod(n,20))’,setpts&#x3D;0.05<em>PTS,mestimate&#x3D;hexbs,vidstabdetect&#x3D;shakiness&#x3D;10:result&#x3D;transforms.trf<br>ffmpeg -i input.mkv -vf ‘select&#x3D;not(mod(n,20))’,setpts&#x3D;0.05</em>PTS,mestimate&#x3D;hexbs,vidstabtransform&#x3D;crop&#x3D;black:smoothing&#x3D;0:optzoom&#x3D;0</p>
+<h1 id="or-for-pass-2"><a href="#or-for-pass-2" class="headerlink" title="or for pass 2"></a>or for pass 2</h1><p>ffmpeg -i MOV_3147.mp4 -vf ‘select&#x3D;not(mod(n,20))’,setpts&#x3D;0.05*PTS,vidstabtransform&#x3D;crop&#x3D;black:smoothing&#x3D;180:optzoom&#x3D;0:interpol&#x3D;bicubic -an -vcodec libx265 -crf 16 -tune grain wolken-2-deshake.mkv</p>
+<h1 id="Tonemap-a-ITU-2020-HDR-high-gamut-ususally-4K-video-to-ITU-709-1080p"><a href="#Tonemap-a-ITU-2020-HDR-high-gamut-ususally-4K-video-to-ITU-709-1080p" class="headerlink" title="Tonemap a ITU.2020 (HDR, high gamut, ususally 4K) video to ITU.709 (1080p)"></a>Tonemap a ITU.2020 (HDR, high gamut, ususally 4K) video to ITU.709 (1080p)</h1><h1 id="Also-see-https-stevens-li-guides-video-converting-hdr-to-sdr-with-ffmpeg"><a href="#Also-see-https-stevens-li-guides-video-converting-hdr-to-sdr-with-ffmpeg" class="headerlink" title="Also see: https://stevens.li/guides/video/converting-hdr-to-sdr-with-ffmpeg/"></a>Also see: <a target="_blank" rel="noopener" href="https://stevens.li/guides/video/converting-hdr-to-sdr-with-ffmpeg/">https://stevens.li/guides/video/converting-hdr-to-sdr-with-ffmpeg/</a></h1><p>ffmpeg -i file.mkv -vf zscale&#x3D;t&#x3D;linear:npl&#x3D;100,format&#x3D;gbrpf32le,zscale&#x3D;p&#x3D;bt709,tonemap&#x3D;tonemap&#x3D;hable,zscale&#x3D;t&#x3D;bt709:m&#x3D;bt709:r&#x3D;tv,format&#x3D;yuv420p -crf 20 -acodec copy output.mkv</p>
+<h1 id="Extract-all-frames-as-jpg"><a href="#Extract-all-frames-as-jpg" class="headerlink" title="Extract all frames as .jpg"></a>Extract all frames as <pattern>.jpg</h1><p>ffmpeg -r 1 -i file.mp4 -r 1 frames_%05d.jpg</p>
+<h1 id="Create-video-from-all-the-frames-missing-any-codec-spec"><a href="#Create-video-from-all-the-frames-missing-any-codec-spec" class="headerlink" title="Create video from all the frames (missing any codec spec):"></a>Create video from all the frames (missing any codec spec):</h1><p>ffmpeg -r 30 -i frames_%05d.jpg output.mp4</p>
+<h3 id="XXX-the-following-where-copied-from"><a href="#XXX-the-following-where-copied-from" class="headerlink" title="XXX the following where copied from"></a>XXX the following where copied from</h3><h3 id="https-hbish-com-ffmpeg-one-liners"><a href="#https-hbish-com-ffmpeg-one-liners" class="headerlink" title="https://hbish.com/ffmpeg-one-liners/"></a><a target="_blank" rel="noopener" href="https://hbish.com/ffmpeg-one-liners/">https://hbish.com/ffmpeg-one-liners/</a></h3><h1 id="Get-infomation-for-a-audio-video"><a href="#Get-infomation-for-a-audio-video" class="headerlink" title="Get infomation for a audio&#x2F;video"></a>Get infomation for a audio&#x2F;video</h1><p>ffmpeg -i file.mp3</p>
+<h1 id="Convert-video-into-images"><a href="#Convert-video-into-images" class="headerlink" title="Convert video into images"></a>Convert video into images</h1><p>ffmpeg -i video.avi image_output%d.jpg</p>
+<h1 id="Split-audio-files"><a href="#Split-audio-files" class="headerlink" title="Split audio files"></a>Split audio files</h1><h1 id="Generate-a-section-of-the-audio-from-the-30-second-mark-start-for-15-seconds-duration"><a href="#Generate-a-section-of-the-audio-from-the-30-second-mark-start-for-15-seconds-duration" class="headerlink" title="Generate a section of the audio from the 30 second mark (start) for 15 seconds (duration)"></a>Generate a section of the audio from the 30 second mark (start) for 15 seconds (duration)</h1><p>ffmpeg -f mp3 -i input.mp3 -t 00:00:30 -ss 00:00:15 output.mp3</p>
+<h1 id="Covert-avi-to-animated-gif"><a href="#Covert-avi-to-animated-gif" class="headerlink" title="Covert avi to animated gif"></a>Covert avi to animated gif</h1><p>ffmpeg -i video.avi output.gif</p>
+<h1 id="Add-audio-to-a-video-file"><a href="#Add-audio-to-a-video-file" class="headerlink" title="Add audio to a video file"></a>Add audio to a video file</h1><p>ffmpeg -i music.mp3 -i video.avi output.mpg</p>
+<h1 id="Extract-audio-from-video-file”-Useful-for-extracting-music-from-youtube-videos"><a href="#Extract-audio-from-video-file”-Useful-for-extracting-music-from-youtube-videos" class="headerlink" title="Extract audio from video file”&gt;## Useful for extracting music from youtube videos"></a>Extract audio from video file”&gt;## Useful for extracting music from youtube videos</h1><h1 id="avi-to-mp3"><a href="#avi-to-mp3" class="headerlink" title="avi to mp3"></a>avi to mp3</h1><p>ffmpeg -i video.avi -vn -ar 44100 -ac 2 -ab 192k -f mp3 output.mp3</p>
+<h1 id="flv-to-mp3"><a href="#flv-to-mp3" class="headerlink" title="flv to mp3"></a>flv to mp3</h1><p>ffmpeg -i video.flv -ar 44100 -ac 2 -ab 192k -f mp3 output.mp3</p>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/2023/12/20/faster%20python/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/2023/12/20/RL,%20trajectory%20prediction,%20model%20predictive%20control/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+    	 
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+           type: "github" ? "github" : "github",       
+	       user: "james4ever0",
+	       repo: "my_blog",
+		   client_id: "",
+           client_secret: "",
+		   no_comment: "No comments yet. Press the button and go to comment now!",
+		   go_to_comment: "Go to comment",
+		   no_issue: "no_issue",
+		   issue_title: "",
+		   issue_id: "",
+		   btn_class: "btn btn-primary",
+		   comments_target: "#comment-thread",
+		   loading_target: "#loading_spin"
+		   });
+	 </script>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2023-12-20 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+</body>
+</html>

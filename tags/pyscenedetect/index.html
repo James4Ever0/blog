@@ -1,0 +1,1096 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>pyscenedetect | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+<!-- title -->
+<div class="page-header page-header-inverse ">
+  <h1 class="archive-title-tag title title-inverse ">pyscenedetect</h1>
+</div>
+
+<div class="row page">
+  <!-- cols -->
+  
+  <div class="col-md-9">
+	
+
+	  <div id="top_search"></div>
+
+      
+         <!-- display as entry -->
+	     <div class="mypage">
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2022-09-12 </div>
+			<div class="article-title"><a href="/2022/09/12/2e4b90b1-68e4-4f5c-97f6-c9edf7664594/" title="The pydantic schema can be used to describe a class in Python. In this case, the `Description` class is defined as a base model. The summary provided describes the purpose and functionality of the `pyscenedetect` library, which assists with dynamically detecting scenes in videos while accounting for possible issues like splicing and video gradients. A code snippet demonstrating how to use this library and FFmpeg to identify and segment a video into scenes is also provided.">use pyscenedetect dynamically in program</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="use-pyscenedetect-dynamically-in-program"><a href="#use-pyscenedetect-dynamically-in-program" class="headerlink" title="use pyscenedetect dynamically in program"></a>use pyscenedetect dynamically in program</h1><p>对于单纯拼接起来的视频 这个算法就如同手术刀一样精准</p>
+<p>首尾有可能有一两帧看起来不太对 但是可以通过调节start和end来修正</p>
+<p>警惕频繁转场的视频 它们可能是属于同一个小片段的 但是如果不打乱顺序有可能会触发版权识别问题</p>
+<p>即使选出来了可以使用的片段 对于同一个视频的制作过程 依旧要隔一段时间采样 <strong>比如两个片段间隔至少5秒</strong> 不要单纯的把所有片段一次性提取出来 避免内容重复和版权问题</p>
+<p>当然对于有渐变 转场的视频 可能需要用其他的检测方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scenedetect <span class="keyword">import</span> open_video, SceneManager, split_video_ffmpeg</span><br><span class="line"><span class="keyword">from</span> scenedetect.detectors <span class="keyword">import</span> ContentDetector</span><br><span class="line"><span class="keyword">from</span> scenedetect.video_splitter <span class="keyword">import</span> split_video_ffmpeg</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">split_video_into_scenes</span>(<span class="params">video_path, threshold=<span class="number">27.0</span></span>):</span><br><span class="line">    <span class="comment"># Open our video, create a scene manager, and add a detector.</span></span><br><span class="line">    video = open_video(video_path)</span><br><span class="line">    scene_manager = SceneManager()</span><br><span class="line">    scene_manager.add_detector(</span><br><span class="line">        ContentDetector(threshold=threshold))</span><br><span class="line">    scene_manager.detect_scenes(video, show_progress=<span class="literal">True</span>)</span><br><span class="line">    scene_list = scene_manager.get_scene_list()</span><br><span class="line">    split_video_ffmpeg(video_path, scene_list, show_progress=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2022/09/12/2e4b90b1-68e4-4f5c-97f6-c9edf7664594/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+	     </div>
+	     <div>
+	       <center>
+	         <div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+	       </center>
+	     </div>	
+      
+
+</div> <!-- col-md-9/col-md-12 -->
+
+
+<div class="col-md-3">
+	<div id="sidebar">
+	
+			
+  <div id="site_search">
+   <div class="form-group">
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="Search" class="st-search-input st-default-search-input form-control"/>
+   </div>  
+  <div id="local-search-result"></div>
+  </div>
+
+
+		
+			
+	<div class="widget">
+		<h4>Categories</h4>
+		<ul class="tag_box inline list-unstyled">
+		
+			<li><a href="/categories/2D-Animation/">2D Animation<span>1</span></a></li>
+		
+			<li><a href="/categories/3D-Avatar-Creation/">3D Avatar Creation<span>1</span></a></li>
+		
+			<li><a href="/categories/3D-Modeling/">3D Modeling<span>2</span></a></li>
+		
+			<li><a href="/categories/3D-Rendering/">3D Rendering<span>1</span></a></li>
+		
+			<li><a href="/categories/AI/">AI<span>7</span></a></li>
+		
+			<li><a href="/categories/AI-Accelerators/">AI Accelerators<span>1</span></a></li>
+		
+			<li><a href="/categories/AI-Competitions/">AI Competitions<span>1</span></a></li>
+		
+			<li><a href="/categories/AI-Libraries/">AI Libraries<span>1</span></a></li>
+		
+			<li><a href="/categories/AI-Optimization/">AI Optimization<span>1</span></a></li>
+		
+			<li><a href="/categories/AI-System-Design-Guidelines/">AI System Design Guidelines<span>1</span></a></li>
+		
+			<li><a href="/categories/AI-Techniques-for-Text-Generation-and-Paraphrasing/">AI Techniques for Text Generation and Paraphrasing<span>1</span></a></li>
+		
+			<li><a href="/categories/AI-Video-Generation/">AI Video Generation<span>1</span></a></li>
+		
+			<li><a href="/categories/AI-development/">AI development<span>2</span></a></li>
+		
+			<li><a href="/categories/AI-tools-collections/">AI tools collections<span>1</span></a></li>
+		
+			<li><a href="/categories/AI-Generated-Singing-Voices/">AI-Generated Singing Voices<span>1</span></a></li>
+		
+			<li><a href="/categories/AI-generated-Art/">AI-generated Art<span>1</span></a></li>
+		
+			<li><a href="/categories/API/">API<span>5</span></a></li>
+		
+			<li><a href="/categories/API-Development/">API Development<span>1</span></a></li>
+		
+			<li><a href="/categories/API-Scraping/">API Scraping<span>1</span></a></li>
+		
+			<li><a href="/categories/APIs/">APIs<span>2</span></a></li>
+		
+			<li><a href="/categories/Academic-Articles/">Academic Articles<span>1</span></a></li>
+		
+			<li><a href="/categories/Accessibility-tools/">Accessibility tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Account-Management/">Account Management<span>1</span></a></li>
+		
+			<li><a href="/categories/Account-Registration/">Account Registration<span>1</span></a></li>
+		
+			<li><a href="/categories/Advanced-AI-powered-video-editors/">Advanced AI-powered video editors<span>1</span></a></li>
+		
+			<li><a href="/categories/Android/">Android<span>1</span></a></li>
+		
+			<li><a href="/categories/Android-Development/">Android Development<span>2</span></a></li>
+		
+			<li><a href="/categories/Android-Reverse-Engineering/">Android Reverse Engineering<span>1</span></a></li>
+		
+			<li><a href="/categories/Android-Security/">Android Security<span>1</span></a></li>
+		
+			<li><a href="/categories/Android-automation/">Android automation<span>1</span></a></li>
+		
+			<li><a href="/categories/Android-emulators/">Android emulators<span>1</span></a></li>
+		
+			<li><a href="/categories/Animation-Tools/">Animation Tools<span>2</span></a></li>
+		
+			<li><a href="/categories/Anime/">Anime<span>2</span></a></li>
+		
+			<li><a href="/categories/Anime-Video-Downloads/">Anime Video Downloads<span>1</span></a></li>
+		
+			<li><a href="/categories/App-Compatibility/">App Compatibility<span>1</span></a></li>
+		
+			<li><a href="/categories/Artificial-General-Intelligence/">Artificial General Intelligence<span>1</span></a></li>
+		
+			<li><a href="/categories/Artificial-Intelligence/">Artificial Intelligence<span>16</span></a></li>
+		
+			<li><a href="/categories/Asynchronous-Requests/">Asynchronous Requests<span>1</span></a></li>
+		
+			<li><a href="/categories/Audio-Processing/">Audio Processing<span>4</span></a></li>
+		
+			<li><a href="/categories/Audio-Production/">Audio Production<span>1</span></a></li>
+		
+			<li><a href="/categories/Audio-Recognition/">Audio Recognition<span>1</span></a></li>
+		
+			<li><a href="/categories/Augmented-Reality/">Augmented Reality<span>1</span></a></li>
+		
+			<li><a href="/categories/Automated-Essay-Scoring/">Automated Essay Scoring<span>1</span></a></li>
+		
+			<li><a href="/categories/Automation/">Automation<span>1</span></a></li>
+		
+			<li><a href="/categories/Automotive-Computer-Research/">Automotive Computer Research<span>1</span></a></li>
+		
+			<li><a href="/categories/Backup-software/">Backup software<span>1</span></a></li>
+		
+			<li><a href="/categories/Battery-Damage-Prevention/">Battery Damage Prevention<span>1</span></a></li>
+		
+			<li><a href="/categories/Behavior-Driven-Development/">Behavior Driven Development<span>1</span></a></li>
+		
+			<li><a href="/categories/Best-Earphones/">Best Earphones<span>1</span></a></li>
+		
+			<li><a href="/categories/Bilibili/">Bilibili<span>2</span></a></li>
+		
+			<li><a href="/categories/Biology/">Biology<span>1</span></a></li>
+		
+			<li><a href="/categories/Bot-Development/">Bot Development<span>1</span></a></li>
+		
+			<li><a href="/categories/Browser-Extensions/">Browser Extensions<span>2</span></a></li>
+		
+			<li><a href="/categories/CACANi-Software/">CACANi Software<span>1</span></a></li>
+		
+			<li><a href="/categories/Captcha-recognition/">Captcha recognition<span>1</span></a></li>
+		
+			<li><a href="/categories/Cheminformatics/">Cheminformatics<span>1</span></a></li>
+		
+			<li><a href="/categories/Chinese-Input-Methods/">Chinese Input Methods<span>1</span></a></li>
+		
+			<li><a href="/categories/Chocolatey/">Chocolatey<span>1</span></a></li>
+		
+			<li><a href="/categories/Chromium-Policies/">Chromium Policies<span>1</span></a></li>
+		
+			<li><a href="/categories/Clash-GitHub-Fastgithub-DNS-settings-macOS-Linux-monit-shell-scripts/">Clash, GitHub, Fastgithub, DNS settings, macOS, Linux, monit, shell scripts<span>1</span></a></li>
+		
+			<li><a href="/categories/Clipboard-issue-in-Android-10/">Clipboard issue in Android 10<span>1</span></a></li>
+		
+			<li><a href="/categories/Code-Auditing/">Code Auditing<span>1</span></a></li>
+		
+			<li><a href="/categories/Code-Refactoring/">Code Refactoring<span>1</span></a></li>
+		
+			<li><a href="/categories/Collaborative-Programming/">Collaborative Programming<span>1</span></a></li>
+		
+			<li><a href="/categories/Color-Palette-Extraction/">Color Palette Extraction<span>1</span></a></li>
+		
+			<li><a href="/categories/Command-line-Tools/">Command-line Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Community-Detection/">Community Detection<span>1</span></a></li>
+		
+			<li><a href="/categories/Computer-Vision/">Computer Vision<span>3</span></a></li>
+		
+			<li><a href="/categories/Content-Creation/">Content Creation<span>4</span></a></li>
+		
+			<li><a href="/categories/Content-Promotion/">Content Promotion<span>1</span></a></li>
+		
+			<li><a href="/categories/Copying-and-Moving-Files/">Copying and Moving Files<span>1</span></a></li>
+		
+			<li><a href="/categories/Cross-Platform-Apps/">Cross-Platform Apps<span>1</span></a></li>
+		
+			<li><a href="/categories/Cross-Platform-Publishing/">Cross-Platform Publishing<span>1</span></a></li>
+		
+			<li><a href="/categories/Cybergod-Projects/">Cybergod Projects<span>1</span></a></li>
+		
+			<li><a href="/categories/Cybersecurity/">Cybersecurity<span>5</span></a></li>
+		
+			<li><a href="/categories/DNS-proxies/">DNS proxies<span>1</span></a></li>
+		
+			<li><a href="/categories/DWG-to-DXF-conversion/">DWG to DXF conversion<span>1</span></a></li>
+		
+			<li><a href="/categories/Dark-Web/">Dark Web<span>1</span></a></li>
+		
+			<li><a href="/categories/Data-Annotation-Tools/">Data Annotation Tools<span>2</span></a></li>
+		
+			<li><a href="/categories/Data-Backup/">Data Backup<span>2</span></a></li>
+		
+			<li><a href="/categories/Data-Capture/">Data Capture<span>2</span></a></li>
+		
+			<li><a href="/categories/Data-Scraping/">Data Scraping<span>1</span></a></li>
+		
+			<li><a href="/categories/Data-Security/">Data Security<span>1</span></a></li>
+		
+			<li><a href="/categories/Database/">Database<span>1</span></a></li>
+		
+			<li><a href="/categories/Database-Management/">Database Management<span>2</span></a></li>
+		
+			<li><a href="/categories/Deep-Learning/">Deep Learning<span>2</span></a></li>
+		
+			<li><a href="/categories/Digital-Identity/">Digital Identity<span>1</span></a></li>
+		
+			<li><a href="/categories/Digital-Marketing/">Digital Marketing<span>1</span></a></li>
+		
+			<li><a href="/categories/Discord-Channels/">Discord Channels<span>1</span></a></li>
+		
+			<li><a href="/categories/Disk-Management/">Disk Management<span>2</span></a></li>
+		
+			<li><a href="/categories/Docker/">Docker<span>3</span></a></li>
+		
+			<li><a href="/categories/Domain-specific-languages-DSL/">Domain-specific languages (DSL)<span>1</span></a></li>
+		
+			<li><a href="/categories/Drivers-updates/">Drivers updates<span>1</span></a></li>
+		
+			<li><a href="/categories/Dynamic-Classification-Systems/">Dynamic Classification Systems<span>1</span></a></li>
+		
+			<li><a href="/categories/E-book-conversion/">E-book conversion<span>1</span></a></li>
+		
+			<li><a href="/categories/Education/">Education<span>3</span></a></li>
+		
+			<li><a href="/categories/Emotion-Manipulation/">Emotion Manipulation<span>1</span></a></li>
+		
+			<li><a href="/categories/Energy-System-Simulation/">Energy System Simulation<span>1</span></a></li>
+		
+			<li><a href="/categories/Ergonomics/">Ergonomics<span>1</span></a></li>
+		
+			<li><a href="/categories/Error-Resolution/">Error Resolution<span>1</span></a></li>
+		
+			<li><a href="/categories/Evolution/">Evolution<span>1</span></a></li>
+		
+			<li><a href="/categories/Exception-Handling/">Exception Handling<span>1</span></a></li>
+		
+			<li><a href="/categories/Expect-Send/">Expect Send<span>1</span></a></li>
+		
+			<li><a href="/categories/Extensions/">Extensions<span>1</span></a></li>
+		
+			<li><a href="/categories/Facial-Expression-Detection/">Facial Expression Detection<span>1</span></a></li>
+		
+			<li><a href="/categories/Fake-Content-Detection/">Fake Content Detection<span>1</span></a></li>
+		
+			<li><a href="/categories/FastAPI/">FastAPI<span>1</span></a></li>
+		
+			<li><a href="/categories/File-Hosting-Services/">File Hosting Services<span>1</span></a></li>
+		
+			<li><a href="/categories/File-Transfer/">File Transfer<span>1</span></a></li>
+		
+			<li><a href="/categories/Filesystem-Cache/">Filesystem Cache<span>1</span></a></li>
+		
+			<li><a href="/categories/GUI-Programming/">GUI Programming<span>1</span></a></li>
+		
+			<li><a href="/categories/Generative-Adversarial-Networks-GAN/">Generative Adversarial Networks (GAN)<span>1</span></a></li>
+		
+			<li><a href="/categories/Generative-Adversarial-Networks-GANs/">Generative Adversarial Networks (GANs)<span>1</span></a></li>
+		
+			<li><a href="/categories/Geometry/">Geometry<span>1</span></a></li>
+		
+			<li><a href="/categories/GitFS/">GitFS<span>1</span></a></li>
+		
+			<li><a href="/categories/GitHub/">GitHub<span>3</span></a></li>
+		
+			<li><a href="/categories/Hacking/">Hacking<span>3</span></a></li>
+		
+			<li><a href="/categories/Hacking-Tutorials/">Hacking Tutorials<span>1</span></a></li>
+		
+			<li><a href="/categories/Hacking-techniques/">Hacking techniques<span>1</span></a></li>
+		
+			<li><a href="/categories/Health/">Health<span>2</span></a></li>
+		
+			<li><a href="/categories/Home-Appliances/">Home Appliances<span>1</span></a></li>
+		
+			<li><a href="/categories/Hot-Reloading/">Hot Reloading<span>1</span></a></li>
+		
+			<li><a href="/categories/Huggingface/">Huggingface<span>1</span></a></li>
+		
+			<li><a href="/categories/Human-in-the-Loop-AI/">Human-in-the-Loop AI<span>1</span></a></li>
+		
+			<li><a href="/categories/Image-Classification/">Image Classification<span>1</span></a></li>
+		
+			<li><a href="/categories/Image-Generation/">Image Generation<span>1</span></a></li>
+		
+			<li><a href="/categories/Image-Processing/">Image Processing<span>5</span></a></li>
+		
+			<li><a href="/categories/Image-Search-Tools/">Image Search Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Image-restoration/">Image restoration<span>1</span></a></li>
+		
+			<li><a href="/categories/Information-Management/">Information Management<span>1</span></a></li>
+		
+			<li><a href="/categories/Installation/">Installation<span>2</span></a></li>
+		
+			<li><a href="/categories/Installation-Instructions/">Installation Instructions<span>1</span></a></li>
+		
+			<li><a href="/categories/Interactive-Interfaces/">Interactive Interfaces<span>1</span></a></li>
+		
+			<li><a href="/categories/Interpolation-Techniques/">Interpolation Techniques<span>1</span></a></li>
+		
+			<li><a href="/categories/Interval-set-manipulation/">Interval set manipulation<span>1</span></a></li>
+		
+			<li><a href="/categories/IoT/">IoT<span>1</span></a></li>
+		
+			<li><a href="/categories/JavaScript/">JavaScript<span>2</span></a></li>
+		
+			<li><a href="/categories/Kafka-System-Design/">Kafka System Design<span>1</span></a></li>
+		
+			<li><a href="/categories/Kali-Linux/">Kali Linux<span>2</span></a></li>
+		
+			<li><a href="/categories/Karaoke/">Karaoke<span>1</span></a></li>
+		
+			<li><a href="/categories/Keyboard-Shortcuts/">Keyboard Shortcuts<span>1</span></a></li>
+		
+			<li><a href="/categories/Kotlin-ORM-libraries/">Kotlin ORM libraries<span>1</span></a></li>
+		
+			<li><a href="/categories/Kotlin-Spring-Boot/">Kotlin Spring Boot<span>1</span></a></li>
+		
+			<li><a href="/categories/Library-Management/">Library Management<span>1</span></a></li>
+		
+			<li><a href="/categories/Linux/">Linux<span>6</span></a></li>
+		
+			<li><a href="/categories/Live-Streaming/">Live Streaming<span>2</span></a></li>
+		
+			<li><a href="/categories/Live-broadcasting/">Live broadcasting<span>1</span></a></li>
+		
+			<li><a href="/categories/Logo-Finders/">Logo Finders<span>1</span></a></li>
+		
+			<li><a href="/categories/Lua-Python-Bridge/">Lua Python Bridge<span>1</span></a></li>
+		
+			<li><a href="/categories/MIDI-Conversion-Tools/">MIDI Conversion Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Machine-Learning/">Machine Learning<span>8</span></a></li>
+		
+			<li><a href="/categories/Man-in-the-middle-proxy/">Man-in-the-middle proxy<span>1</span></a></li>
+		
+			<li><a href="/categories/Manga/">Manga<span>2</span></a></li>
+		
+			<li><a href="/categories/Markdown-to-PDF-Conversion/">Markdown to PDF Conversion<span>1</span></a></li>
+		
+			<li><a href="/categories/Mass-Email-SMS-Tools/">Mass Email/SMS Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Mathematica/">Mathematica<span>1</span></a></li>
+		
+			<li><a href="/categories/Mathematica-software/">Mathematica software<span>1</span></a></li>
+		
+			<li><a href="/categories/Mathematics/">Mathematics<span>2</span></a></li>
+		
+			<li><a href="/categories/Media-Filtering/">Media Filtering<span>1</span></a></li>
+		
+			<li><a href="/categories/Media-repurposing-tools/">Media repurposing tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Meta-Search-Engines/">Meta Search Engines<span>1</span></a></li>
+		
+			<li><a href="/categories/Metasploit-Python-scripting/">Metasploit Python scripting<span>1</span></a></li>
+		
+			<li><a href="/categories/Mini-ITX-Computers/">Mini-ITX Computers<span>1</span></a></li>
+		
+			<li><a href="/categories/Mitmproxy-tool/">Mitmproxy tool<span>1</span></a></li>
+		
+			<li><a href="/categories/Mobile-App-Development/">Mobile App Development<span>1</span></a></li>
+		
+			<li><a href="/categories/Mobile-Phones/">Mobile Phones<span>1</span></a></li>
+		
+			<li><a href="/categories/Model-Optimization/">Model Optimization<span>1</span></a></li>
+		
+			<li><a href="/categories/Model-Uploading/">Model Uploading<span>1</span></a></li>
+		
+			<li><a href="/categories/Model-zoos/">Model zoos<span>1</span></a></li>
+		
+			<li><a href="/categories/Molecular-dynamics-simulations/">Molecular dynamics simulations<span>1</span></a></li>
+		
+			<li><a href="/categories/Movies/">Movies<span>1</span></a></li>
+		
+			<li><a href="/categories/Music/">Music<span>1</span></a></li>
+		
+			<li><a href="/categories/Music-Discovery/">Music Discovery<span>1</span></a></li>
+		
+			<li><a href="/categories/Music-Generation/">Music Generation<span>1</span></a></li>
+		
+			<li><a href="/categories/Music-Platforms/">Music Platforms<span>1</span></a></li>
+		
+			<li><a href="/categories/Music-Production/">Music Production<span>1</span></a></li>
+		
+			<li><a href="/categories/NAS/">NAS<span>1</span></a></li>
+		
+			<li><a href="/categories/NLP-Frameworks/">NLP Frameworks<span>1</span></a></li>
+		
+			<li><a href="/categories/NLP-Tools/">NLP Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/NTFS-Recovery-Tools/">NTFS Recovery Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/NVIDIA-drivers/">NVIDIA drivers<span>1</span></a></li>
+		
+			<li><a href="/categories/Natural-Language-Generation/">Natural Language Generation<span>1</span></a></li>
+		
+			<li><a href="/categories/Natural-Language-Processing/">Natural Language Processing<span>6</span></a></li>
+		
+			<li><a href="/categories/Neo4j/">Neo4j<span>1</span></a></li>
+		
+			<li><a href="/categories/Neo4j-Cypher-Cheatsheet/">Neo4j Cypher Cheatsheet<span>1</span></a></li>
+		
+			<li><a href="/categories/Neo4j-Graph-Data-Science/">Neo4j Graph Data Science<span>1</span></a></li>
+		
+			<li><a href="/categories/Network-Switching/">Network Switching<span>1</span></a></li>
+		
+			<li><a href="/categories/Network-communication/">Network communication<span>1</span></a></li>
+		
+			<li><a href="/categories/Networking/">Networking<span>4</span></a></li>
+		
+			<li><a href="/categories/Neural-Search-Engines/">Neural Search Engines<span>1</span></a></li>
+		
+			<li><a href="/categories/NeuralDiff/">NeuralDiff<span>1</span></a></li>
+		
+			<li><a href="/categories/Note-Syncing/">Note Syncing<span>1</span></a></li>
+		
+			<li><a href="/categories/Notes-and-Scripts-Backup/">Notes and Scripts Backup<span>1</span></a></li>
+		
+			<li><a href="/categories/Numpy/">Numpy<span>1</span></a></li>
+		
+			<li><a href="/categories/OCR-Techniques/">OCR Techniques<span>1</span></a></li>
+		
+			<li><a href="/categories/OCR-Tools/">OCR Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Online-Movies/">Online Movies<span>1</span></a></li>
+		
+			<li><a href="/categories/Online-Security-and-Privacy/">Online Security and Privacy<span>1</span></a></li>
+		
+			<li><a href="/categories/Online-Tools/">Online Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Online-security-and-privacy/">Online security and privacy<span>1</span></a></li>
+		
+			<li><a href="/categories/Open-source-Android-Automation/">Open-source Android Automation<span>1</span></a></li>
+		
+			<li><a href="/categories/Open-source-Chinese-Fonts/">Open-source Chinese Fonts<span>1</span></a></li>
+		
+			<li><a href="/categories/Open-source-Software/">Open-source Software<span>1</span></a></li>
+		
+			<li><a href="/categories/OpenCV/">OpenCV<span>1</span></a></li>
+		
+			<li><a href="/categories/Opqbot/">Opqbot<span>1</span></a></li>
+		
+			<li><a href="/categories/Optical-Flow-Techniques/">Optical Flow Techniques<span>1</span></a></li>
+		
+			<li><a href="/categories/Optimization-Techniques/">Optimization Techniques<span>1</span></a></li>
+		
+			<li><a href="/categories/Package-Management/">Package Management<span>2</span></a></li>
+		
+			<li><a href="/categories/Package-Managers/">Package Managers<span>1</span></a></li>
+		
+			<li><a href="/categories/Paraphrasing/">Paraphrasing<span>1</span></a></li>
+		
+			<li><a href="/categories/Password-Reset/">Password Reset<span>1</span></a></li>
+		
+			<li><a href="/categories/Payment-Systems/">Payment Systems<span>1</span></a></li>
+		
+			<li><a href="/categories/Platform-Tutorials/">Platform Tutorials<span>1</span></a></li>
+		
+			<li><a href="/categories/Playwright/">Playwright<span>1</span></a></li>
+		
+			<li><a href="/categories/Politics-and-Capitalism/">Politics and Capitalism<span>1</span></a></li>
+		
+			<li><a href="/categories/Probabilistic-Programming/">Probabilistic Programming<span>2</span></a></li>
+		
+			<li><a href="/categories/Process-Management/">Process Management<span>1</span></a></li>
+		
+			<li><a href="/categories/Process-Monitoring/">Process Monitoring<span>1</span></a></li>
+		
+			<li><a href="/categories/Producer-flags/">Producer flags<span>1</span></a></li>
+		
+			<li><a href="/categories/Product-Issues/">Product Issues<span>1</span></a></li>
+		
+			<li><a href="/categories/Programming/">Programming<span>2</span></a></li>
+		
+			<li><a href="/categories/Programming-Humor/">Programming Humor<span>1</span></a></li>
+		
+			<li><a href="/categories/Programming-Languages/">Programming Languages<span>4</span></a></li>
+		
+			<li><a href="/categories/Project-Planning/">Project Planning<span>1</span></a></li>
+		
+			<li><a href="/categories/Propagation-Science/">Propagation Science<span>1</span></a></li>
+		
+			<li><a href="/categories/Proxies/">Proxies<span>1</span></a></li>
+		
+			<li><a href="/categories/PyTorch/">PyTorch<span>1</span></a></li>
+		
+			<li><a href="/categories/Python/">Python<span>4</span></a></li>
+		
+			<li><a href="/categories/Python-Libraries/">Python Libraries<span>2</span></a></li>
+		
+			<li><a href="/categories/Python-Performance/">Python Performance<span>1</span></a></li>
+		
+			<li><a href="/categories/Python-Programming/">Python Programming<span>3</span></a></li>
+		
+			<li><a href="/categories/Python-Testing/">Python Testing<span>1</span></a></li>
+		
+			<li><a href="/categories/Python-Tools/">Python Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Python-programming/">Python programming<span>7</span></a></li>
+		
+			<li><a href="/categories/Quantitative-Trading-Platforms/">Quantitative Trading Platforms<span>1</span></a></li>
+		
+			<li><a href="/categories/Quantum-Computing/">Quantum Computing<span>1</span></a></li>
+		
+			<li><a href="/categories/RAM-Disk/">RAM Disk<span>1</span></a></li>
+		
+			<li><a href="/categories/RSS-Feeds-and-Aggregators/">RSS Feeds and Aggregators<span>1</span></a></li>
+		
+			<li><a href="/categories/RWKV-Language-Models/">RWKV Language Models<span>1</span></a></li>
+		
+			<li><a href="/categories/Radar-systems/">Radar systems<span>1</span></a></li>
+		
+			<li><a href="/categories/Random-Number-Generation/">Random Number Generation<span>1</span></a></li>
+		
+			<li><a href="/categories/Recaptcha-Solving-Solutions/">Recaptcha Solving Solutions<span>1</span></a></li>
+		
+			<li><a href="/categories/Recommendation-Algorithms/">Recommendation Algorithms<span>1</span></a></li>
+		
+			<li><a href="/categories/Recovery-USB/">Recovery USB<span>1</span></a></li>
+		
+			<li><a href="/categories/Rectangularization-Methods/">Rectangularization Methods<span>1</span></a></li>
+		
+			<li><a href="/categories/Redis/">Redis<span>1</span></a></li>
+		
+			<li><a href="/categories/Redis-py-library/">Redis-py library<span>1</span></a></li>
+		
+			<li><a href="/categories/Reinforcement-Learning/">Reinforcement Learning<span>2</span></a></li>
+		
+			<li><a href="/categories/Remote-Connection/">Remote Connection<span>1</span></a></li>
+		
+			<li><a href="/categories/Remote-Jobs/">Remote Jobs<span>1</span></a></li>
+		
+			<li><a href="/categories/Remote-Procedure-Call-Technologies/">Remote Procedure Call Technologies<span>1</span></a></li>
+		
+			<li><a href="/categories/Retry-Libraries/">Retry Libraries<span>1</span></a></li>
+		
+			<li><a href="/categories/Reverse-Engineering/">Reverse Engineering<span>2</span></a></li>
+		
+			<li><a href="/categories/Robotics/">Robotics<span>1</span></a></li>
+		
+			<li><a href="/categories/Royalty-free-video-sources/">Royalty-free video sources<span>1</span></a></li>
+		
+			<li><a href="/categories/SEO/">SEO<span>1</span></a></li>
+		
+			<li><a href="/categories/SQL-Injection-Attacks/">SQL Injection Attacks<span>1</span></a></li>
+		
+			<li><a href="/categories/SQLite-ORM/">SQLite ORM<span>1</span></a></li>
+		
+			<li><a href="/categories/SSH-keys/">SSH keys<span>1</span></a></li>
+		
+			<li><a href="/categories/Scraping/">Scraping<span>1</span></a></li>
+		
+			<li><a href="/categories/Search-Engine-Optimization/">Search Engine Optimization<span>1</span></a></li>
+		
+			<li><a href="/categories/Search-Engines/">Search Engines<span>3</span></a></li>
+		
+			<li><a href="/categories/Search-Methods/">Search Methods<span>1</span></a></li>
+		
+			<li><a href="/categories/Security/">Security<span>8</span></a></li>
+		
+			<li><a href="/categories/Security-Tools/">Security Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Semantic-Search/">Semantic Search<span>1</span></a></li>
+		
+			<li><a href="/categories/Session-Management/">Session Management<span>1</span></a></li>
+		
+			<li><a href="/categories/Short-URL-generators/">Short URL generators<span>1</span></a></li>
+		
+			<li><a href="/categories/Sketch-based-Applications/">Sketch-based Applications<span>1</span></a></li>
+		
+			<li><a href="/categories/Skin-Products-and-Diet/">Skin Products and Diet<span>1</span></a></li>
+		
+			<li><a href="/categories/Sleep/">Sleep<span>1</span></a></li>
+		
+			<li><a href="/categories/Smartwatches/">Smartwatches<span>2</span></a></li>
+		
+			<li><a href="/categories/Social-Media/">Social Media<span>1</span></a></li>
+		
+			<li><a href="/categories/Social-Media-Transformation/">Social Media Transformation<span>1</span></a></li>
+		
+			<li><a href="/categories/Software/">Software<span>2</span></a></li>
+		
+			<li><a href="/categories/Software-Security/">Software Security<span>1</span></a></li>
+		
+			<li><a href="/categories/Software-Testing-Efficiency-Metrics/">Software Testing Efficiency Metrics<span>1</span></a></li>
+		
+			<li><a href="/categories/Software-Tools/">Software Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Software-Troubleshooting/">Software Troubleshooting<span>3</span></a></li>
+		
+			<li><a href="/categories/Software-activation/">Software activation<span>1</span></a></li>
+		
+			<li><a href="/categories/Software-as-a-Service-SaaS/">Software as a Service (SaaS)<span>1</span></a></li>
+		
+			<li><a href="/categories/Software-troubleshooting/">Software troubleshooting<span>1</span></a></li>
+		
+			<li><a href="/categories/Sound-Effects/">Sound Effects<span>1</span></a></li>
+		
+			<li><a href="/categories/Speaker-Detection/">Speaker Detection<span>1</span></a></li>
+		
+			<li><a href="/categories/Speech-to-Text-Conversion/">Speech-to-Text Conversion<span>1</span></a></li>
+		
+			<li><a href="/categories/Stock-Data/">Stock Data<span>1</span></a></li>
+		
+			<li><a href="/categories/Stock-Market-Analysis/">Stock Market Analysis<span>1</span></a></li>
+		
+			<li><a href="/categories/Stock-Selection/">Stock Selection<span>1</span></a></li>
+		
+			<li><a href="/categories/Story-Dalle/">Story-Dalle<span>1</span></a></li>
+		
+			<li><a href="/categories/Synchronization/">Synchronization<span>1</span></a></li>
+		
+			<li><a href="/categories/System-Administration/">System Administration<span>1</span></a></li>
+		
+			<li><a href="/categories/System-Monitoring/">System Monitoring<span>1</span></a></li>
+		
+			<li><a href="/categories/Tab-Management/">Tab Management<span>1</span></a></li>
+		
+			<li><a href="/categories/Technology/">Technology<span>2</span></a></li>
+		
+			<li><a href="/categories/Technology-and-Innovation/">Technology and Innovation<span>1</span></a></li>
+		
+			<li><a href="/categories/Temperature-Management/">Temperature Management<span>1</span></a></li>
+		
+			<li><a href="/categories/TensorFlow-js/">TensorFlow.js<span>1</span></a></li>
+		
+			<li><a href="/categories/Tensorly-and-Torch-based-Liquid-State-Machine-for-Efficient-Data-Processing-of-Complex-Datasets-like-Brain-Neurons/">Tensorly and Torch-based Liquid State Machine for Efficient Data Processing of Complex Datasets like Brain Neurons<span>1</span></a></li>
+		
+			<li><a href="/categories/Terminal-autocomplete/">Terminal autocomplete<span>1</span></a></li>
+		
+			<li><a href="/categories/Termux/">Termux<span>3</span></a></li>
+		
+			<li><a href="/categories/Text-Editors/">Text Editors<span>1</span></a></li>
+		
+			<li><a href="/categories/Text-to-Speech/">Text to Speech<span>1</span></a></li>
+		
+			<li><a href="/categories/Text-to-Video-Projects/">Text-to-Video Projects<span>1</span></a></li>
+		
+			<li><a href="/categories/Throat-Care/">Throat Care<span>1</span></a></li>
+		
+			<li><a href="/categories/Time-Series-Analysis/">Time Series Analysis<span>1</span></a></li>
+		
+			<li><a href="/categories/Torrent-Search-Engines/">Torrent Search Engines<span>1</span></a></li>
+		
+			<li><a href="/categories/Training-Large-Language-Models/">Training Large Language Models<span>1</span></a></li>
+		
+			<li><a href="/categories/Trash-Management/">Trash Management<span>1</span></a></li>
+		
+			<li><a href="/categories/Troubleshooting/">Troubleshooting<span>8</span></a></li>
+		
+			<li><a href="/categories/Tutorial/">Tutorial<span>1</span></a></li>
+		
+			<li><a href="/categories/Unblocked-content/">Unblocked content<span>1</span></a></li>
+		
+			<li><a href="/categories/Unlocking-Bootloader/">Unlocking Bootloader<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Analysis/">Video Analysis<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Compression/">Video Compression<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Creation-Methods/">Video Creation Methods<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Downloaders/">Video Downloaders<span>2</span></a></li>
+		
+			<li><a href="/categories/Video-Downloading-Tools/">Video Downloading Tools<span>2</span></a></li>
+		
+			<li><a href="/categories/Video-Editing/">Video Editing<span>5</span></a></li>
+		
+			<li><a href="/categories/Video-Editing-Software/">Video Editing Software<span>2</span></a></li>
+		
+			<li><a href="/categories/Video-Editing-Tools/">Video Editing Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Enhancement/">Video Enhancement<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Manipulation/">Video Manipulation<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Object-Tracking/">Video Object Tracking<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Processing/">Video Processing<span>4</span></a></li>
+		
+			<li><a href="/categories/Video-Production/">Video Production<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Quality-Assessment/">Video Quality Assessment<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Search/">Video Search<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Sharing-Platforms/">Video Sharing Platforms<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-and-Audio-Processing/">Video and Audio Processing<span>1</span></a></li>
+		
+			<li><a href="/categories/Virtual-Environments/">Virtual Environments<span>1</span></a></li>
+		
+			<li><a href="/categories/Virtualization/">Virtualization<span>1</span></a></li>
+		
+			<li><a href="/categories/Visual-Studio-Code/">Visual Studio Code<span>1</span></a></li>
+		
+			<li><a href="/categories/Volume-Management/">Volume Management<span>1</span></a></li>
+		
+			<li><a href="/categories/Water-Cooling-Systems/">Water Cooling Systems<span>1</span></a></li>
+		
+			<li><a href="/categories/Wearable-Devices/">Wearable Devices<span>1</span></a></li>
+		
+			<li><a href="/categories/Web-Application-Security/">Web Application Security<span>3</span></a></li>
+		
+			<li><a href="/categories/Web-Applications/">Web Applications<span>2</span></a></li>
+		
+			<li><a href="/categories/Web-Customization/">Web Customization<span>1</span></a></li>
+		
+			<li><a href="/categories/Web-Development/">Web Development<span>2</span></a></li>
+		
+			<li><a href="/categories/Web-Scraping/">Web Scraping<span>7</span></a></li>
+		
+			<li><a href="/categories/Webhooks/">Webhooks<span>1</span></a></li>
+		
+			<li><a href="/categories/Webpage-Rendering/">Webpage Rendering<span>1</span></a></li>
+		
+			<li><a href="/categories/Website-Resources/">Website Resources<span>1</span></a></li>
+		
+			<li><a href="/categories/Wi-Fi-Troubleshooting/">Wi-Fi Troubleshooting<span>1</span></a></li>
+		
+			<li><a href="/categories/Window-Management/">Window Management<span>2</span></a></li>
+		
+			<li><a href="/categories/Windows/">Windows<span>1</span></a></li>
+		
+			<li><a href="/categories/Windows-10-Performance/">Windows 10 Performance<span>1</span></a></li>
+		
+			<li><a href="/categories/Yoga/">Yoga<span>1</span></a></li>
+		
+			<li><a href="/categories/YouTube-Monetization/">YouTube Monetization<span>1</span></a></li>
+		
+			<li><a href="/categories/Zhihu/">Zhihu<span>1</span></a></li>
+		
+			<li><a href="/categories/anti-censorship/">anti-censorship<span>1</span></a></li>
+		
+			<li><a href="/categories/bilibili/">bilibili<span>1</span></a></li>
+		
+			<li><a href="/categories/book-scanning/">book scanning<span>1</span></a></li>
+		
+			<li><a href="/categories/brainwave-translation/">brainwave translation<span>1</span></a></li>
+		
+			<li><a href="/categories/copyright/">copyright<span>1</span></a></li>
+		
+			<li><a href="/categories/ctf-competitions/">ctf competitions<span>1</span></a></li>
+		
+			<li><a href="/categories/data-security/">data security<span>1</span></a></li>
+		
+			<li><a href="/categories/deobfustication/">deobfustication<span>1</span></a></li>
+		
+			<li><a href="/categories/filename-issues/">filename issues<span>1</span></a></li>
+		
+			<li><a href="/categories/fire-prevention/">fire_prevention<span>1</span></a></li>
+		
+			<li><a href="/categories/gaming/">gaming<span>1</span></a></li>
+		
+			<li><a href="/categories/hacking/">hacking<span>1</span></a></li>
+		
+			<li><a href="/categories/hardware-simulator/">hardware_simulator<span>1</span></a></li>
+		
+			<li><a href="/categories/iOS-device-control/">iOS device control<span>1</span></a></li>
+		
+			<li><a href="/categories/javascript/">javascript<span>1</span></a></li>
+		
+			<li><a href="/categories/macOS/">macOS<span>1</span></a></li>
+		
+			<li><a href="/categories/noise-generation/">noise_generation<span>1</span></a></li>
+		
+			<li><a href="/categories/npm/">npm<span>1</span></a></li>
+		
+			<li><a href="/categories/package-managers/">package_managers<span>1</span></a></li>
+		
+			<li><a href="/categories/podcasts/">podcasts<span>1</span></a></li>
+		
+			<li><a href="/categories/pwntools/">pwntools<span>1</span></a></li>
+		
+			<li><a href="/categories/search-engines/">search_engines<span>1</span></a></li>
+		
+			<li><a href="/categories/seo-tools/">seo_tools<span>1</span></a></li>
+		
+			<li><a href="/categories/strategies-for-defeating-deduplicate-algorithms/">strategies for defeating deduplicate algorithms<span>1</span></a></li>
+		
+			<li><a href="/categories/systemd/">systemd<span>1</span></a></li>
+		
+			<li><a href="/categories/text-mining/">text-mining<span>1</span></a></li>
+		
+			<li><a href="/categories/video-sites/">video_sites<span>1</span></a></li>
+		
+			<li><a href="/categories/viral-strategies/">viral_strategies<span>1</span></a></li>
+		
+		</ul>
+	</div>
+
+		
+			
+	<div class="widget">
+		<h4>Tag Cloud</h4>
+		<ul class="tag_box inline list-unstyled">		
+		
+			<li><a href="/tags/Last-fm-API/">Last.fm API<span>1</span></a></li>
+		
+			<li><a href="/tags/feature-request/">feature request<span>1</span></a></li>
+		
+			<li><a href="/tags/GitHub-API/">GitHub API<span>1</span></a></li>
+		
+			<li><a href="/tags/browsing-history/">browsing history<span>2</span></a></li>
+		
+			<li><a href="/tags/bluecms/">bluecms<span>1</span></a></li>
+		
+			<li><a href="/tags/video-transition/">video transition<span>2</span></a></li>
+		
+			<li><a href="/tags/crontab/">crontab<span>1</span></a></li>
+		
+			<li><a href="/tags/analyzing-videos/">analyzing videos<span>1</span></a></li>
+		
+			<li><a href="/tags/manual-unpacking/">manual unpacking<span>1</span></a></li>
+		
+			<li><a href="/tags/Special-Token/">Special Token<span>1</span></a></li>
+		
+			<li><a href="/tags/ctfhub-com/">ctfhub.com<span>1</span></a></li>
+		
+			<li><a href="/tags/dashboard/">dashboard<span>1</span></a></li>
+		
+			<li><a href="/tags/installation/">installation<span>2</span></a></li>
+		
+			<li><a href="/tags/editor/">editor<span>1</span></a></li>
+		
+			<li><a href="/tags/liquid-cooling/">liquid cooling<span>1</span></a></li>
+		
+			<li><a href="/tags/keyboard/">keyboard<span>2</span></a></li>
+		
+			<li><a href="/tags/human-feedback/">human feedback<span>1</span></a></li>
+		
+			<li><a href="/tags/hackintosh/">hackintosh<span>1</span></a></li>
+		
+			<li><a href="/tags/extension/">extension<span>3</span></a></li>
+		
+			<li><a href="/tags/Blender/">Blender<span>1</span></a></li>
+		
+		
+		   <li><a href="/tags">...<span>2344</span></a></li>
+		 
+		</ul>
+	</div>
+
+
+		
+			
+<div class="widget">
+  <h4>Recent Posts</h4>
+  <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2023/12/25/94043d9a-08e0-43ba-8c58-876d65a7f546/"  title="A compilation of various projects related to Cybergod, which are clones from different GitHub repositories such as Q-Star, QStarLearning, open_qstar, Video-Pre-Training, SingularGPT, GPT-4V-Act, gpt-eyes, self-operating-computer, gpt4v-browsing, CogVLM, and AppAgent. These projects aim to develop various tools and models for diverse purposes within the Cybergod framework." ><i class="fa fa-file-o"></i>cybergod related projects</a>
+      </li>
+    
+      <li>
+        <a href="/2023/12/21/2cbfa8d5-63ac-4696-bb14-58f5385ceb27/"  title="This article provides step-by-step instructions for installing Waydroid on Ubuntu and offers troubleshooting tips for network issues. It explains how to enable firewalld or ufw to resolve connectivity problems, while also clarifying the difference between the wifi switch and its effect on connectivity." ><i class="fa fa-file-o"></i>Waydroid installation steps</a>
+      </li>
+    
+      <li>
+        <a href="/2023/12/20/ca75dd0f-260b-4115-a85b-eb3c9c4bdd39/"  title="This article explores the application of Large Language Models (LLMs) in generating various elements such as images, tags, categories, and embeddings for content. It also delves into the capabilities of these models to perform full-text and vector searches, generate query words and media, update relevance based on user preferences, and even generate new queries for content." ><i class="fa fa-file-o"></i>RAG in my mind</a>
+      </li>
+    
+      <li>
+        <a href="/2023/12/18/8a6267a2-bda4-4d09-a577-49dbf47fb6d3/"  title="This text provides guidance on utilizing the Python utility &#39;pylint&#39; to identify unspecified exceptions in a Python file and proposes constructing microservices and tracking failures for enhanced error management." ><i class="fa fa-file-o"></i>Exception Phobia in Python</a>
+      </li>
+    
+      <li>
+        <a href="/2023/12/09/5a1f6160-e47a-453d-8bd5-eb06e9d5e62d/"  title="This article discusses the process of using an RX580 16g graphics card with the codename `gfx803` as an AI accelerator. The user is provided with a GitHub link to build it themselves." ><i class="fa fa-file-o"></i>RX580 16g used as AI accele...</a>
+      </li>
+    
+  </ul>
+</div>
+
+		
+			
+<div class="widget">
+	<h4>Links</h4>
+	<ul class="blogroll list-unstyled">
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/agi_computer_control/" title="Autonomous computer agent" target="_blank"]);">Project Cybergod</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/pyjom/" title="Media content automation" target="_blank"]);">Project Pyjom</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/prometheous/" title="Automated documentation, AI+IR(RAG)" target="_blank"]);">Project Prometheus</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/pyjom/" title="Media Content Automation" target="_blank"]);">Project Pyjom</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/my_blog_source/" title="Source code of my blog"" target="_blank"]);">Blog Source Code</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="http://www.github.com/james4ever0" title="My Github account" target="_blank"]);">My Github</a></li>
+	
+	</ul>
+</div>
+
+
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Python Bytecode, Time Travel Debugging, Resurrection, Ante-Mortem Debugging, Interactive Debugging, Resume after Exception, Python ignore all exceptions and continue execute next line in given section of code, edit and continue | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="Python Bytecode, Time Travel Debugging, Resurrection, Ante-Mortem Debugging, Interactive Debugging, Resume after Exception, Python ignore all exceptio">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Python Bytecode, Time Travel Debugging, Resurrection, Ante-Mortem Debugging, Interactive Debugging, Resume after Exception, Python ignore all exceptions and continue execute next line in given section of code, edit and continue"/>
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+    <script src="/js/marked.js"></script>
+    <script src="/js/comment.js"></script>
+    <script src="/js/timeago.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+	<script src="/js/spin.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> Python Bytecode, Time Travel Debugging, Resurrection, Ante-Mortem Debugging, Interactive Debugging, Resume after Exception, Python ignore all exceptions and continue execute next line in given section of code, edit and continue</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h1 id="Python-Bytecode-Time-Travel-Debugging-Resurrection-Ante-Mortem-Debugging-Interactive-Debugging-Resume-after-Exception-Python-ignore-all-exceptions-and-continue-execute-next-line-in-given-section-of-code"><a href="#Python-Bytecode-Time-Travel-Debugging-Resurrection-Ante-Mortem-Debugging-Interactive-Debugging-Resume-after-Exception-Python-ignore-all-exceptions-and-continue-execute-next-line-in-given-section-of-code" class="headerlink" title="Python Bytecode, Time Travel Debugging, Resurrection, Ante-Mortem Debugging, Interactive Debugging, Resume after Exception, Python ignore all exceptions and continue execute next line in given section of code"></a>Python Bytecode, Time Travel Debugging, Resurrection, Ante-Mortem Debugging, Interactive Debugging, Resume after Exception, Python ignore all exceptions and continue execute next line in given section of code</h1><p><a target="_blank" rel="noopener" href="http://xahlee.info/comp/why_i_hate_exceptions.html">why i hate exceptions</a></p>
+<h2 id="lisp-style-resumption-error-handling-semantics"><a href="#lisp-style-resumption-error-handling-semantics" class="headerlink" title="lisp-style resumption error-handling semantics"></a>lisp-style resumption error-handling semantics</h2><p><a target="_blank" rel="noopener" href="https://norvig.com/python-lisp.html">python for lisp programmers</a></p>
+<p><a target="_blank" rel="noopener" href="https://gigamonkeys.com/book/">practical common lisp</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/lisp/code/syntax/infix/infix.cl">arithmatic infix</a></p>
+<p><a target="_blank" rel="noopener" href="https://lisp-journey.gitlab.io/blog/debugging-in-common-lisp/#inspect-and-describe">common lisp debugging</a></p>
+<p><a target="_blank" rel="noopener" href="https://awesome-cl.com/#apl">common lisp related libraries</a></p>
+<p><a target="_blank" rel="noopener" href="https://slime.common-lisp.dev/">slime</a></p>
+<p><a target="_blank" rel="noopener" href="https://portacle.github.io/">portacle</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.reddit.com/r/lisp/comments/d0vv00/is_the_common_lisp_style_of_interactive_debugging/">talk on reddit</a></p>
+<h2 id="ruby"><a href="#ruby" class="headerlink" title="ruby"></a>ruby</h2><p><a target="_blank" rel="noopener" href="https://github.com/conradirwin/pry-rescue">pry-rescue</a> may not resume execution?</p>
+<h2 id="java"><a href="#java" class="headerlink" title="java"></a>java</h2><p><a target="_blank" rel="noopener" href="https://www.appsloveworld.com/eclipse/100/12/eclipse-edit-the-source-and-continue-debugging">eclipse hot code swap fix</a></p>
+<p><a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/java/java-debugging">hot code replace in vscode for java</a></p>
+<h2 id="python"><a href="#python" class="headerlink" title="python"></a>python</h2><p><a target="_blank" rel="noopener" href="https://github.com/albertz/PythonHotswap/blob/master/FuncModify.py">bytecode hack, pyhotswap</a></p>
+<p><a target="_blank" rel="noopener" href="https://python-cl-conditions.readthedocs.io/en/latest/">python lisp-style exception as condition handling</a></p>
+<p>dump different level of reloading call history</p>
+<p>reload code blocks which are syntatically different, if black formatter fails after dedent then there shall be error</p>
+<p>decide to reload extra parts of functions in the next run if selected</p>
+<p>load newly added functions, remove old functions, execute added lines, reload entire module and update namespace depending on condition</p>
+<p>check other programming language whether it jas similar capabilities</p>
+<p><a target="_blank" rel="noopener" href="https://newbedev.org/guide/ruby-continue-in-same-loop-iteration-after-an-exception">visit this thread of ruby in archive.org</a></p>
+<p><a target="_blank" rel="noopener" href="https://wallabyjs.com/purchase/#select-wallaby">wallabyjs</a></p>
+<p>either bytecode or modify the source code</p>
+<h2 id="bookmarks"><a href="#bookmarks" class="headerlink" title="bookmarks"></a>bookmarks</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">https://docs.python.org/3/library/code.html</span><br><span class="line">https://docs.python.org/3/library/cmd.html</span><br><span class="line">https://docs.python.org/3/library/threading.html#threading.settrace</span><br><span class="line">https://mail.python.org/archives/list/python-dev@python.org/thread/OGPO6KWHQGO47KOJKNEWNZS3LLMVXBEV/</span><br><span class="line">https://github.com/TomOnTime/timetravelpdb</span><br><span class="line">https://github.com/nfd/on_error_resume_next/blob/master/basic.py</span><br><span class="line">https://github.com/search?p=5&amp;q=BEFORE_ASYNC_WITH&amp;type=Code</span><br><span class="line">https://github.com/Martmists-GH/pyasm/blob/a306f23cbed13505687eb0ca86f010e5fe3101b5/asm/ops/py35.py</span><br><span class="line">https://github.com/Martmists-GH/pyasm</span><br><span class="line">https://github.com/kr1surb4n/copypaster_filedecks/blob/3f2ca44c4f984652585a1e7f1e589966e8867da6/filedecks_archive/python/library/dis/Python%20Bytecode%20Instructions/opcodeBEFOREASYNCWIT</span><br><span class="line">https://github.com/kholia/dedrop/blob/60da43889be89950cadbbb6b54489eb1841c70da/src/dedrop-ng/opcode_mapper.py</span><br><span class="line">https://github.com/brettlangdon/gython</span><br><span class="line">https://github.com/Exitialium/Github-Drive/blob/5284358a163c4ea25c63f4157d41af5f638950a2/deap/include/python3.9/opcode.h</span><br><span class="line">https://github.com/ajalt/fuckitpy</span><br><span class="line">https://code.lardcave.net/2020/12/29/1/</span><br><span class="line">https://github.com/asrp/python_terp/blob/master/test/buggy_ex.py</span><br><span class="line">https://github.com/HugoDelval/reversibleInterpreter</span><br><span class="line">https://github.com/topics/reversible-programming-language</span><br><span class="line">https://github.com/jndean/railway/wiki/Variables,-Data-and-Scope</span><br><span class="line">https://cn.bing.com/search?q=python+run+bytecode&amp;qs=UT&amp;pq=python+run+byteco&amp;sc=1-17&amp;cvid=79F89EEA4A564540BF79A8DBB63284CE&amp;FORM=QBRE&amp;sp=1</span><br><span class="line">https://opensource.com/article/18/4/introduction-python-bytecode</span><br><span class="line">http://www.aosabook.org/en/500L/a-python-interpreter-written-in-python.html</span><br><span class="line">https://github.com/nedbat/byterun</span><br><span class="line">https://unpyc.sourceforge.net/Opcodes.html</span><br><span class="line">https://docs.python.org/3/library/codeop.html</span><br><span class="line">https://docs.python.org/3/library/dis.html</span><br><span class="line">https://docs.python.org/3/library/dis.html</span><br><span class="line">https://docs.python.org/3/library/codeop.html</span><br><span class="line">https://blog.quarkslab.com/building-an-obfuscated-python-interpreter-we-need-more-opcodes.html</span><br><span class="line">https://github.com/fietensen/PyOpcodeAsm</span><br><span class="line">https://pypi.org/project/BytecodeAssembler/</span><br><span class="line">http://probablyprogramming.com/2008/04/18/ppya-python-assembler</span><br><span class="line">https://pypi.org/project/BytecodeAssembler/#description</span><br><span class="line">http://peak.telecommunity.com/DevCenter/BytecodeAssembler</span><br><span class="line">https://github.com/pib/papaya</span><br><span class="line">https://www.programcreek.com/python/?CodeExample=get+opcode</span><br><span class="line">https://unpyc.sourceforge.net/Opcodes.html</span><br><span class="line">https://www.synopsys.com/blogs/software-security/understanding-python-bytecode/</span><br><span class="line">https://github.com/neuroo/equip</span><br><span class="line">https://tenthousandmeters.com/blog/python-behind-the-scenes-4-how-python-bytecode-is-executed/</span><br><span class="line">https://tenthousandmeters.com/blog/python-behind-the-scenes-5-how-variables-are-implemented-in-cpython/</span><br><span class="line">https://discuss.python.org/t/exec-with-return-keyword/19916/25</span><br><span class="line">https://cn.bing.com/search?q=interactive%20debugging%20python&amp;qs=n&amp;form=QBRE&amp;=%25eManage%20Your%20Search%20History%25E&amp;sp=-1&amp;pq=interactive%20debugging%20&amp;sc=3-22&amp;sk=&amp;cvid=30D653A233984DD685DE7CE79AD46318&amp;ghsh=0&amp;ghacc=0&amp;ghpl=</span><br><span class="line">https://www.digitalocean.com/community/tutorials/how-to-debug-python-with-an-interactive-console</span><br><span class="line">https://nedbatchelder.com/blog/200509/interactive_debugging_in_python.html</span><br><span class="line">https://derpops.bike/python/computers/kubernetes/2017/10/26/interactive-debugging-python-kubernetes.html</span><br><span class="line">https://bytes.com/topic/python/answers/46053-resume-after-exception</span><br><span class="line">https://pytrace.com/</span><br><span class="line">https://github.com/gleb-sevruk/pycrunch-trace/issues</span><br></pre></td></tr></table></figure>
+
+<p>contextlib usage detail, to make customized “with” statements:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> contextlib <span class="keyword">import</span> AbstractContextManager</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">suppress2</span>(<span class="title class_ inherited__">AbstractContextManager</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Context manager to suppress specified exceptions</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    After the exception is suppressed, execution proceeds with the next</span></span><br><span class="line"><span class="string">    statement following the with statement.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">         with suppress(FileNotFoundError):</span></span><br><span class="line"><span class="string">             os.remove(somefile)</span></span><br><span class="line"><span class="string">         # Execution still resumes here if the file was already removed</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, *exceptions</span>):</span><br><span class="line">        self._exceptions = exceptions</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__enter__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="built_in">dir</span>(self))</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__exit__</span>(<span class="params">self, exctype, excinst, exctb</span>):</span><br><span class="line">        <span class="comment"># Unlike isinstance and issubclass, CPython exception handling</span></span><br><span class="line">        <span class="comment"># currently only looks at the concrete type hierarchy (ignoring</span></span><br><span class="line">        <span class="comment"># the instance and subclass checking hooks). While Guido considers</span></span><br><span class="line">        <span class="comment"># that a bug rather than a feature, it&#x27;s a fairly hard one to fix</span></span><br><span class="line">        <span class="comment"># due to various internal implementation details. suppress provides</span></span><br><span class="line">        <span class="comment"># the simpler issubclass based semantics, rather than trying to</span></span><br><span class="line">        <span class="comment"># exactly reproduce the limitations of the CPython interpreter.</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        <span class="comment"># See http://bugs.python.org/issue12029 for more details</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;EXCTYPE&quot;</span>, exctype)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;EXCINST&quot;</span>, excinst)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;EXCTB&quot;</span>,exctb) <span class="comment"># exception</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="built_in">dir</span>(exctb))</span><br><span class="line">        <span class="built_in">breakpoint</span>()</span><br><span class="line">        <span class="keyword">return</span> exctype <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">and</span> <span class="built_in">issubclass</span>(exctype, self._exceptions)</span><br></pre></td></tr></table></figure>
+
+<p>python grammar sugar: brackets<br><a target="_blank" rel="noopener" href="https://pypi.org/project/brackets/">https://pypi.org/project/brackets/</a><br>does that work in eval()?</p>
+<p>use contextlib.suppress to replace try…except: pass<br>might investigate source code of the suppress object.</p>
+<p><a target="_blank" rel="noopener" href="https://opensource.com/article/18/5/how-retrieve-source-code-python-functions">https://opensource.com/article/18/5/how-retrieve-source-code-python-functions</a></p>
+<p>to execute code grouped by lowest level of indentation, we can def those lines of code and pass the code by dill.source.getsource(functionName) and eval within given global&#x2F;local variables.</p>
+<p>my solution is down here, with concrete examples.</p>
+<p>hereby we recommend to insert a conditional return statement to ensure we will exit this buggy code at the best time. maybe we could put it into a dictionary somehow, tuples within string or something.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> dill</span><br><span class="line"><span class="keyword">from</span> contextlib <span class="keyword">import</span> suppress</span><br><span class="line"><span class="keyword">import</span> traceback</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">skipException</span>(<span class="params">func, debug_flag=<span class="literal">False</span>, breakpoint_flag=<span class="literal">False</span></span>):</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">space_counter</span>(<span class="params">line</span>):</span><br><span class="line">        counter = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> line:</span><br><span class="line">            <span class="keyword">if</span> x == <span class="string">&quot; &quot;</span>: counter+=<span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>: <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">return</span> counter</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">remove_extra_return</span>(<span class="params">code</span>):</span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            <span class="keyword">if</span> <span class="string">&quot;\n\n&quot;</span> <span class="keyword">in</span> code:</span><br><span class="line">                code = code.replace(<span class="string">&quot;\n\n&quot;</span>,<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">            <span class="keyword">else</span>: <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">return</span> code</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">isEmptyLine</span>(<span class="params">line</span>):</span><br><span class="line">        emptyChars = [<span class="string">&quot;\n&quot;</span>,<span class="string">&quot;\t&quot;</span>,<span class="string">&quot;\r&quot;</span>,<span class="string">&quot; &quot;</span>]</span><br><span class="line">        length = <span class="built_in">len</span>(line)</span><br><span class="line">        emptyCounts=<span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> char <span class="keyword">in</span> line:</span><br><span class="line">            <span class="keyword">if</span> char <span class="keyword">in</span> emptyChars: emptyCounts += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> emptyCounts == length</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getCodeBlocks</span>(<span class="params">lines</span>):</span><br><span class="line">        mBlocks=[]</span><br><span class="line">        current_block = lines[<span class="number">0</span>]</span><br><span class="line">        lines = lines+[<span class="string">&quot;&quot;</span>]</span><br><span class="line">        keywords = [<span class="string">&quot; &quot;</span>, <span class="string">&quot;def&quot;</span>, <span class="string">&quot;async def&quot;</span>, <span class="string">&quot;with&quot;</span>, <span class="string">&quot;class&quot;</span>, <span class="string">&quot;@&quot;</span>]</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> lines[<span class="number">1</span>:]:</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">sum</span>([line.startswith(keyword) <span class="keyword">for</span> keyword <span class="keyword">in</span> keywords]):</span><br><span class="line">                current_block+=<span class="string">&quot;\n&quot;</span></span><br><span class="line">                current_block+=line</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                mBlocks.append(current_block)</span><br><span class="line">                current_block = line</span><br><span class="line">        <span class="keyword">return</span> mBlocks</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getExtendedLines</span>(<span class="params">splited_code</span>):</span><br><span class="line">        splited_code = [x.rstrip() <span class="keyword">for</span> x <span class="keyword">in</span> splited_code]</span><br><span class="line">        splited_code = <span class="string">&quot;\n&quot;</span>.join(splited_code).replace(<span class="string">&quot;\\\n&quot;</span>,<span class="string">&quot;&quot;</span>)</span><br><span class="line">        splited_code = remove_extra_return(splited_code)</span><br><span class="line">        splited_code = splited_code.split(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> splited_code</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">new_func</span>(<span class="params">*args, **kwargs</span>):</span><br><span class="line">        func_name = func.__name__</span><br><span class="line">        func_code = dill.source.getsource(func)</span><br><span class="line">        <span class="keyword">if</span> debug_flag:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;########## FUNCTION CODE #########&quot;</span>)</span><br><span class="line">            <span class="built_in">print</span>(func_code) <span class="comment"># do not use chained decorator since doing so will definitely fail everything?</span></span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;########## FUNCTION CODE #########&quot;</span>)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;########## FUNCTION #########&quot;</span>)</span><br><span class="line">        <span class="comment"># print(func_code)</span></span><br><span class="line">        func_code = remove_extra_return(func_code)</span><br><span class="line">        splited_code = func_code.split(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">        splited_code = getExtendedLines(splited_code)</span><br><span class="line">        <span class="comment"># index 0: decorator</span></span><br><span class="line">        <span class="comment"># index 1: function name</span></span><br><span class="line">        <span class="comment"># no recursion support. may work inside another undecorated function.</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">assert</span> splited_code[<span class="number">0</span>].strip().startswith(<span class="string">&quot;@skipException&quot;</span>)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">raise</span> Exception(<span class="string">&quot;Do not nesting the use of @skipException decorator&quot;</span>)</span><br><span class="line">        function_definition = splited_code[<span class="number">1</span>]</span><br><span class="line">        function_args=function_definition[:-<span class="number">1</span>].replace(<span class="string">&quot;def &#123;&#125;&quot;</span>.<span class="built_in">format</span>(func_name),<span class="string">&quot;&quot;</span>)</span><br><span class="line">        <span class="keyword">if</span> debug_flag:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;FUNCTION ARGS:&quot;</span>, function_args)</span><br><span class="line">        kwdefaults = func.__defaults__</span><br><span class="line">        pass_kwargs = &#123;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="string">&quot;=&quot;</span> <span class="keyword">in</span> function_args:</span><br><span class="line">            <span class="keyword">assert</span> kwdefaults!=<span class="literal">None</span></span><br><span class="line">            arg_remains = function_args.split(<span class="string">&quot;=&quot;</span>)[<span class="number">0</span>]</span><br><span class="line">            kwarg_remains = function_args.replace(arg_remains,<span class="string">&quot;&quot;</span>)</span><br><span class="line">            kwarg_extra_names =[content.split(<span class="string">&quot;,&quot;</span>)[-<span class="number">1</span>].strip() <span class="keyword">for</span> index, content <span class="keyword">in</span> <span class="built_in">enumerate</span>(kwarg_remains.split(<span class="string">&quot;=&quot;</span>)) <span class="keyword">if</span> index%<span class="number">2</span> ==<span class="number">1</span>]</span><br><span class="line">            mfunctionArgsPrimitive = arg_remains.replace(<span class="string">&quot;(&quot;</span>,<span class="string">&quot;&quot;</span>).split(<span class="string">&quot;,&quot;</span>)</span><br><span class="line">            kwarg_names = [mfunctionArgsPrimitive[-<span class="number">1</span>].strip()]+kwarg_extra_names</span><br><span class="line">            mfunctionArgs = mfunctionArgsPrimitive[:-<span class="number">1</span>]</span><br><span class="line">            <span class="keyword">if</span> debug_flag:</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;PASSED KEYWORD ARGS:&quot;</span>, kwargs)</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;KWARG NAMES:&quot;</span>, kwarg_names)</span><br><span class="line">            <span class="keyword">for</span> key, value <span class="keyword">in</span> <span class="built_in">zip</span>(kwarg_names, kwdefaults):</span><br><span class="line">                pass_kwargs.update(&#123;key: value&#125;)</span><br><span class="line">            <span class="keyword">for</span> key <span class="keyword">in</span> kwargs.keys():</span><br><span class="line">                <span class="keyword">assert</span> key <span class="keyword">in</span> kwarg_names</span><br><span class="line">                pass_kwargs[key] = kwargs[key]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">assert</span> kwdefaults == <span class="literal">None</span></span><br><span class="line">            mfunctionArgs = function_args.replace(<span class="string">&quot;(&quot;</span>,<span class="string">&quot;&quot;</span>).replace(<span class="string">&quot;)&quot;</span>,<span class="string">&quot;&quot;</span>).split(<span class="string">&quot;,&quot;</span>)</span><br><span class="line">        mfunctionArgs = [x.strip() <span class="keyword">for</span> x <span class="keyword">in</span> mfunctionArgs]</span><br><span class="line">        mfunctionArgs = [x <span class="keyword">for</span> x <span class="keyword">in</span> mfunctionArgs <span class="keyword">if</span> <span class="keyword">not</span> isEmptyLine(x)]</span><br><span class="line">        <span class="keyword">if</span> debug_flag:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;POSITIONAL ARGS:&quot;</span>,mfunctionArgs)</span><br><span class="line">        <span class="keyword">assert</span> <span class="built_in">len</span>(args) == <span class="built_in">len</span>(mfunctionArgs)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> key, value <span class="keyword">in</span> <span class="built_in">zip</span>(mfunctionArgs, args):</span><br><span class="line">            <span class="built_in">exec</span>(<span class="string">&quot;&#123;&#125; = &#123;&#125;&quot;</span>.<span class="built_in">format</span>(key, value))</span><br><span class="line">        <span class="keyword">if</span> kwdefaults <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">for</span> key, value <span class="keyword">in</span> pass_kwargs.items():</span><br><span class="line">                <span class="built_in">exec</span>(<span class="string">&quot;&#123;&#125; = &#123;&#125;&quot;</span>.<span class="built_in">format</span>(key, value))</span><br><span class="line">        actualCode = splited_code[<span class="number">2</span>:]</span><br><span class="line">        actualCode = [x <span class="keyword">for</span> x <span class="keyword">in</span> actualCode <span class="keyword">if</span> <span class="keyword">not</span> isEmptyLine(x)]</span><br><span class="line">        minIndent = <span class="built_in">min</span>([space_counter(line) <span class="keyword">for</span> line <span class="keyword">in</span> actualCode])</span><br><span class="line">        <span class="comment"># split the code into different sections.</span></span><br><span class="line">        <span class="keyword">if</span> debug_flag:</span><br><span class="line">            <span class="built_in">print</span>(minIndent)</span><br><span class="line">        newLines = [line[minIndent:] <span class="keyword">for</span> line <span class="keyword">in</span> actualCode]</span><br><span class="line">        codeBlocks = getCodeBlocks(newLines)</span><br><span class="line">        <span class="keyword">for</span> block <span class="keyword">in</span> codeBlocks:</span><br><span class="line">            <span class="keyword">if</span> debug_flag:</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;##########CODEBLOCK##########&quot;</span>)</span><br><span class="line">                <span class="built_in">print</span>(block)</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;##########CODEBLOCK##########&quot;</span>)</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> debug_flag:</span><br><span class="line">                <span class="keyword">with</span> suppress(Exception):</span><br><span class="line">                    <span class="built_in">exec</span>(block)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">try</span>:</span><br><span class="line">                    <span class="built_in">exec</span>(block)</span><br><span class="line">                <span class="keyword">except</span>:</span><br><span class="line">                    traceback.print_exc()</span><br><span class="line">                    <span class="keyword">if</span> breakpoint_flag: <span class="built_in">breakpoint</span>()</span><br><span class="line">        <span class="keyword">if</span> debug_flag:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;########## FUNCTION #########&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> new_func</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">skipExceptionVerbose</span>(<span class="params">func</span>): <span class="keyword">return</span> skipException(func, debug_flag=<span class="literal">True</span>)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">skipExceptionBreakpoint</span>(<span class="params">func</span>): <span class="keyword">return</span> skipException(func, breakpoint_flag=<span class="literal">True</span>)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">skipExceptionDebug</span>(<span class="params">func</span>): <span class="keyword">return</span> skipException(func, breakpoint_flag=<span class="literal">True</span>, debug_flag=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@skipException</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">someOtherShit</span>():</span><br><span class="line">    amd=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">    amd[<span class="number">4</span>]</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;shit happens&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">anotherShit</span>():</span><br><span class="line"><span class="meta">    @skipException</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">mySuperFunction</span>(<span class="params">d,e,f</span>):</span><br><span class="line">        someOtherShit()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;YOU WIN&quot;</span>)</span><br><span class="line">        a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">        a[<span class="number">3</span>] <span class="comment"># will not continue execute the code down there</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;YOU WIN&quot;</span>)</span><br><span class="line">        a[<span class="number">4</span>]</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;INSIDE FUNCTION&quot;</span>,d,e,f)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;YOU WIN&quot;</span>)</span><br><span class="line">    mySuperFunction(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">    <span class="comment"># print(dir(mySuperFunction))</span></span><br><span class="line"></span><br><span class="line">anotherShit()</span><br><span class="line"></span><br><span class="line"><span class="comment"># breakpoint()</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/2023/12/20/Python%20DSL/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/2023/12/20/Python%20Media%20Automation/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+    	 
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+           type: "github" ? "github" : "github",       
+	       user: "james4ever0",
+	       repo: "my_blog",
+		   client_id: "",
+           client_secret: "",
+		   no_comment: "No comments yet. Press the button and go to comment now!",
+		   go_to_comment: "Go to comment",
+		   no_issue: "no_issue",
+		   issue_title: "Python Bytecode, Time Travel Debugging, Resurrection, Ante-Mortem Debugging, Interactive Debugging, Resume after Exception, Python ignore all exceptions and continue execute next line in given section of code, edit and continue",
+		   issue_id: "",
+		   btn_class: "btn btn-primary",
+		   comments_target: "#comment-thread",
+		   loading_target: "#loading_spin"
+		   });
+	 </script>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2023-12-20 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/hack/">hack<span>3</span></a></li> <li><a href="/tags/fault-tolerance/">fault tolerance<span>1</span></a></li> <li><a href="/tags/ignore-error/">ignore error<span>1</span></a></li> <li><a href="/tags/ignore-exception/">ignore exception<span>1</span></a></li> <li><a href="/tags/python/">python<span>2</span></a></li>
+
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+</body>
+</html>

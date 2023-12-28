@@ -1,0 +1,357 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>how to extend vmdk in oracle virtualbox | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="how to extend&amp;#x2F;resize vmdk in oracle virtualboxwin 7 扩容:开始菜单 计算机 右键 管理 存储 磁盘管理
+original article:https://www.patricia-anong.com/blog/2017/11/1/exte">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="how to extend vmdk in oracle virtualbox"/>
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+    <script src="/js/marked.js"></script>
+    <script src="/js/comment.js"></script>
+    <script src="/js/timeago.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+	<script src="/js/spin.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> how to extend vmdk in oracle virtualbox</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h1 id="how-to-extend-resize-vmdk-in-oracle-virtualbox"><a href="#how-to-extend-resize-vmdk-in-oracle-virtualbox" class="headerlink" title="how to extend&#x2F;resize vmdk in oracle virtualbox"></a>how to extend&#x2F;resize vmdk in oracle virtualbox</h1><p>win 7 扩容:<br>开始菜单 计算机 右键 管理 存储 磁盘管理</p>
+<p>original article:<br><a target="_blank" rel="noopener" href="https://www.patricia-anong.com/blog/2017/11/1/extend-vmdk-on-virtualbox">https://www.patricia-anong.com/blog/2017/11/1/extend-vmdk-on-virtualbox</a></p>
+<p>When I first started using Oracle VirtualBox, I would mostly stick with the default options when creating a virtual machine. I soon realized, that wouldn’t work for RDBMS installations, and although I would just add new virtual disk drives, I started to have unused or 100% full disks on some VMs. Rather than delete the VM, I decided to learn how to extend the existing disks, the steps are listed below:</p>
+<p>Note: The Oracle Virtualbox Hypervisor is installed on a Windows OS</p>
+<p>Open a command prompt:</p>
+<p>Change directories to the VirtualBox Installation</p>
+<p>cd C:\Program Files\oracle\VirtualBox</p>
+<p>List the info on the disk you want to resize</p>
+<p>VBoxManage showhdinfo “C:\Users\panong\VirtualBox VMs\CENTOS-6.7\D0.vmdk”</p>
+<p>Run the command to resize:</p>
+<p>VBoxManage modifyhd “C:\Users\panong\VirtualBox VMs\CENTOS-6.7\D0.vmdk” –resize 50000</p>
+<p>6.png<br>If you receive the error below, then you will have to create a new disk, clone the data on the existing disk to the new disk and then delete the original disk:</p>
+<p>7.png<br>Create a new VMDK “dynamic” disk</p>
+<p>VBoxManage createhd –filename “C:\Users\panong\VirtualBox VMs\CENTOS-6.7\D11.vmdk” –size 50000</p>
+<p>Clone old disk to the newly created disk<br>VBoxManage clonehd “C:\Users\panong\VirtualBox VMs\CENTOS-6.7\D0.vmdk” –existing “C:\Users\panong\VirtualBox VMs\CENTOS-6.7\D11.vmdk”</p>
+<p>Release the old disk</p>
+<p>Go to Virtualbox Media Manager —&gt; Select D0.vmdk —&gt; Click the “Release” option.</p>
+<p>Note: DO NOT DELETE IT YET</p>
+<p>Add the new disk to the Virtual Machine</p>
+<p>Open the Machine folder and check the permission of the created hard disk. If it doesn’t have the proper permission then it gives error while attaching to the machine</p>
+<p>Open the Settings of the Virtual Machine —-&gt; Storage —&gt; Add Hardisk —–&gt; Select the hard disk that was just created.</p>
+<p>Make sure to remove all disks, then add the new one first to be &#x2F;dev&#x2F;sda.</p>
+<p>You’re not done yet! If you start the VM now, the disk space will not be present since it has not yet been presented and allocated to your Linux Server.</p>
+<p>To allocate the new disk, you will need to use GParted - a GUI for editing disk partitions.</p>
+<p>To download GParted, go to <a target="_blank" rel="noopener" href="http://gparted.sourceforge.net/livecd.php">http://gparted.sourceforge.net/livecd.php</a> to download the ISO file named GParted Live CD (Be sure to get the current version based on the architecture of your OS e.g. 32-bit vs 64-bit). </p>
+<p>Create a new virtual machine for the GParted ISO on a Linux OS. Select Do not add a Hard Drive and ignore the warning.</p>
+<p>Select the GParted VM, go to Settings —–&gt; Storage —–&gt; Controller: IDE Controller —–&gt; Add a new CD&#x2F;DVD. Add the GParted ISO file as the first item under Controller: IDE section and delete any additional empty disk slots. Add the disk that you wish to resize( C:\Users\panong\VirtualBox VMs\CENTOS-6.7\D11.vmdk) under the Controller: SATA Controller section —–&gt; OK.</p>
+<p>Start the GParted VM —-&gt; GParted Live. Do not change any of the default settings. Press the power button on the GParted VM to start it.</p>
+<p>Now, you should have made a backup of your vdi at this point. If you haven’t go back and do that – so many things can go wrong here and you are on your own!</p>
+<p>If it is any partition other than &#x2F;dev&#x2F;sda1 you can right-click the partition you wish to resize and choose Resize&#x2F;Move. </p>
+<p>IF YOU PREFER TO CREATE A NEW PARTITION WITH THE ADDITIONAL DISK SPACE YOU NEED TO CREATE A PARTITION:<br>Device —-&gt; Create Partition Table</p>
+<p>It should be back to main screen, click on New —-&gt; Add (it should have selected all the free space - 20000MiB) —-&gt; Add</p>
+<p>You should see it now listed as New partition #1 not unallocated anymore.</p>
+<p>Click on Apply at the top of the GUI, then confirm again by clicking Apply. Click Close. You should now see the disk listed as &#x2F;dev&#x2F;sda# with 20Gb.</p>
+<p>Exit the GParted VM. </p>
+<p>Log on to the VM for the disk you just resized and everything should be functional and the &#x2F;dev&#x2F;sda drive should show the new size of 50Gb.</p>
+<p>Delete the Original Disk Drive</p>
+<p>Click the Remove option - this allows you to keep the HDD without deleting it from the system if you choose.</p>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/2023/12/19/Kafka%20Data%20Query/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/2023/12/19/how%20to%20use%20ai%20to%20generate%20video,%20distribute%20them%20and%20advertise/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+    	 
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+           type: "github" ? "github" : "github",       
+	       user: "james4ever0",
+	       repo: "my_blog",
+		   client_id: "",
+           client_secret: "",
+		   no_comment: "No comments yet. Press the button and go to comment now!",
+		   go_to_comment: "Go to comment",
+		   no_issue: "no_issue",
+		   issue_title: "how to extend vmdk in oracle virtualbox",
+		   issue_id: "",
+		   btn_class: "btn btn-primary",
+		   comments_target: "#comment-thread",
+		   loading_target: "#loading_spin"
+		   });
+	 </script>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2023-12-19 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/system-manage/">system manage<span>17</span></a></li> <li><a href="/tags/disk-expansion/">disk expansion<span>1</span></a></li> <li><a href="/tags/virtualbox/">virtualbox<span>1</span></a></li> <li><a href="/tags/virtualization/">virtualization<span>1</span></a></li>
+
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+</body>
+</html>

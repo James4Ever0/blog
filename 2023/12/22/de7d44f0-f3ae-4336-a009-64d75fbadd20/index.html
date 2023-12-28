@@ -1,0 +1,367 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>踩点 音乐识别 | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="This article discusses various audio and music recognition tools like audioFlux, inaSpeechSegmenter, Mousai, Music Emotion Recognition, Picard, AcoustID, MixingBear, madmom, pyaudioanalysis, MUSIC21, urbanSound8k dataset, MeowDetector, and more. It also mentions using QQ Music&#39;s recognition engine for domestic audio identification and Premier plugins for categorizing humorous videos based on music structure.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="踩点 音乐识别"/>
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+    <script src="/js/marked.js"></script>
+    <script src="/js/comment.js"></script>
+    <script src="/js/timeago.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+	<script src="/js/spin.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> 踩点 音乐识别</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>This article discusses various audio and music recognition tools like audioFlux, inaSpeechSegmenter, Mousai, Music Emotion Recognition, Picard, AcoustID, MixingBear, madmom, pyaudioanalysis, MUSIC21, urbanSound8k dataset, MeowDetector, and more. It also mentions using QQ Music’s recognition engine for domestic audio identification and Premier plugins for categorizing humorous videos based on music structure.</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <h1 id="踩点-音乐识别-搞笑视频收集"><a href="#踩点-音乐识别-搞笑视频收集" class="headerlink" title="踩点 音乐识别 搞笑视频收集"></a>踩点 音乐识别 搞笑视频收集</h1><p>now we have <a target="_blank" rel="noopener" href="https://github.com/libAudioFlux/audioFlux">audioFlux</a>, alternative to librosa, but faster</p>
+<hr>
+<p>audioowl for tempo, beat and notes identification:<br><a target="_blank" rel="noopener" href="https://github.com/dodiku/AudioOwl">https://github.com/dodiku/AudioOwl</a></p>
+<p>cnn based audio segmentation toolkit allow to detect speech, music and speaker gender:<br><a target="_blank" rel="noopener" href="https://github.com/ina-foss/inaSpeechSegmenter">https://github.com/ina-foss/inaSpeechSegmenter</a></p>
+<p>speech music detection using keras:<br><a target="_blank" rel="noopener" href="https://github.com/qlemaire22/speech-music-detection">https://github.com/qlemaire22/speech-music-detection</a></p>
+<p>awesome deep learning music:<br><a target="_blank" rel="noopener" href="https://github.com/ybayle/awesome-deep-learning-music">https://github.com/ybayle/awesome-deep-learning-music</a></p>
+<p>music genre classification&#x2F; Music Classification&#x2F; Music Recommendation&#x2F; Music search<br><a target="_blank" rel="noopener" href="https://github.com/mlachmish/MusicGenreClassification">https://github.com/mlachmish/MusicGenreClassification</a><br><a target="_blank" rel="noopener" href="https://github.com/kristijanbartol/Deep-Music-Tagger">https://github.com/kristijanbartol/Deep-Music-Tagger</a><br> <a target="_blank" rel="noopener" href="https://github.com/tae-jun/resemul">https://github.com/tae-jun/resemul</a><br><a target="_blank" rel="noopener" href="https://github.com/Insiyaa/Music-Genre-Classification">https://github.com/Insiyaa/Music-Genre-Classification</a></p>
+<p>music recognization service:<br>audioid soundhound</p>
+<p>maybe you should consider some chinese tools? none there.</p>
+<p>music radar recognize music:<br><a target="_blank" rel="noopener" href="https://github.com/keshavbhatt/music-radar">https://github.com/keshavbhatt/music-radar</a></p>
+<p>mousai using free audd api to recognize music:<br><a target="_blank" rel="noopener" href="https://github.com/SeaDve/Mousai">https://github.com/SeaDve/Mousai</a></p>
+<p>music emotion recognization:<br><a target="_blank" rel="noopener" href="https://github.com/SeungHeonDoh/Music_Emotion_Recognition">https://github.com/SeungHeonDoh/Music_Emotion_Recognition</a></p>
+<p>music tagging and recognization, using acoustic ids and community based music database:<br><a target="_blank" rel="noopener" href="https://github.com/metabrainz/picard">https://github.com/metabrainz/picard</a><br><a target="_blank" rel="noopener" href="https://musicbrainz.org/doc/AcoustID">https://musicbrainz.org/doc/AcoustID</a></p>
+<p> mixingbear(alike neuralmix):<br><a target="_blank" rel="noopener" href="https://github.com/dodiku/MixingBear">https://github.com/dodiku/MixingBear</a></p>
+<p>madmom<br><a target="_blank" rel="noopener" href="https://github.com/CPJKU/madmom">https://github.com/CPJKU/madmom</a><br><a target="_blank" rel="noopener" href="http://madmom.readthedocs.org/">http://madmom.readthedocs.org</a></p>
+<p>音乐分类 综合音频分析包<br>pyaudioanalysis </p>
+<p>mathematica audio slience removal segmentation:<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/43165678">https://zhuanlan.zhihu.com/p/43165678</a></p>
+<p>music21 for music recognition:<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/35140033">https://zhuanlan.zhihu.com/p/35140033</a></p>
+<p>music21 for midi analysis:<br><a target="_blank" rel="noopener" href="https://pypi.org/project/music21/">https://pypi.org/project/music21/</a><br><a target="_blank" rel="noopener" href="https://music21.readthedocs.io/en/latest">https://music21.readthedocs.io/en/latest</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/73564852">https://zhuanlan.zhihu.com/p/73564852</a></p>
+<p>sound recognition and localization:<br><a target="_blank" rel="noopener" href="https://reality.ai/automotive-sound-recognition-localization/">https://reality.ai/automotive-sound-recognition-localization/</a></p>
+<p> urbansound8k dataset ( 6gb ):<br><a target="_blank" rel="noopener" href="https://www.kaggle.com/datasets/chrisfilo/urbansound8k">https://www.kaggle.com/datasets/chrisfilo/urbansound8k</a></p>
+<p> fourier transform cat meow detection:<br><a target="_blank" rel="noopener" href="https://github.com/EricDavidWells/MeowDetector">https://github.com/EricDavidWells/MeowDetector</a></p>
+<p>building sound event classifier:<br><a target="_blank" rel="noopener" href="https://ignitarium.com/building-an-ai-based-sound-event-classifier/">https://ignitarium.com/building-an-ai-based-sound-event-classifier/</a></p>
+<p>real time continuous sound event classification(usually via silence detection):<br><a target="_blank" rel="noopener" href="https://medium.com/@chathuranga.15/real-time-sound-event-classification-83e892cf187e">https://medium.com/@chathuranga.15/real-time-sound-event-classification-83e892cf187e</a><br><a target="_blank" rel="noopener" href="https://medium.com/@chathuranga.15/real-time-sound-event-classification-83e892cf187e">https://medium.com/@chathuranga.15/real-time-sound-event-classification-83e892cf187e</a><br><a target="_blank" rel="noopener" href="https://medium.com/@chathuranga.15/sound-event-classification-using-machine-learning-8768092beafc">https://medium.com/@chathuranga.15/sound-event-classification-using-machine-learning-8768092beafc</a></p>
+<p>cry detection:<br><a target="_blank" rel="noopener" href="https://www.amberou.com/cry-detection">https://www.amberou.com/cry-detection</a><br><a target="_blank" rel="noopener" href="https://github.com/umangkk5/Infant-Cry-Detection-System/blob/master/site-packages/soundfile.py">https://github.com/umangkk5/Infant-Cry-Detection-System/blob/master/site-packages/soundfile.py</a></p>
+<p>urbansound classifier:<br><a target="_blank" rel="noopener" href="https://github.com/awln/urban8k-audio-classifier">https://github.com/awln/urban8k-audio-classifier</a></p>
+<p>laugh detection:<br>  <a target="_blank" rel="noopener" href="https://github.com/ideo/LaughDetection">https://github.com/ideo/LaughDetection</a></p>
+<p>gun shot detection:<br><a target="_blank" rel="noopener" href="https://github.com/hasnainnaeem/Gunshot-Detection-in-Audio">https://github.com/hasnainnaeem/Gunshot-Detection-in-Audio</a></p>
+<p>dog bark detector:<br><a target="_blank" rel="noopener" href="https://github.com/t04glovern/dog-bark-detection">https://github.com/t04glovern/dog-bark-detection</a><br><a target="_blank" rel="noopener" href="https://devopstar.com/2020/04/13/dog-bark-detector-machine-learning-model">https://devopstar.com/2020/04/13/dog-bark-detector-machine-learning-model</a><br><a target="_blank" rel="noopener" href="https://dsp.stackexchange.com/questions/23466/detect-dog-barks">https://dsp.stackexchange.com/questions/23466/detect-dog-barks</a></p>
+<p>获得音乐识别api 最好是qq音乐识别 国内识别引擎<br>不能识别就分析简介 有没有BGM</p>
+<p>踩点 bpm以前的autoup项目里有 看看其他的分析软件有没有 premiere一键踩点插件可能有开源库支持</p>
+<p>已有的踩点视频 可以切出无文字的片段 根据音乐结构区分高潮 开始 中间等部分 根据音乐类型标签归类视频</p>
+<p>搞笑视频的话 有纯笑声比较好 动作幅度大的 不要有对话 反向截图 收集类似视频</p>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/2023/12/22/dda8d689-7017-4fdf-ba01-6b42b0aca3a5/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/2023/12/22/de8976f9-67d5-40cb-a445-e277a0238c47/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+    	 
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+           type: "github" ? "github" : "github",       
+	       user: "james4ever0",
+	       repo: "my_blog",
+		   client_id: "",
+           client_secret: "",
+		   no_comment: "No comments yet. Press the button and go to comment now!",
+		   go_to_comment: "Go to comment",
+		   no_issue: "no_issue",
+		   issue_title: "踩点 音乐识别",
+		   issue_id: "",
+		   btn_class: "btn btn-primary",
+		   comments_target: "#comment-thread",
+		   loading_target: "#loading_spin"
+		   });
+	 </script>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2023-12-22 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Audio-Recognition/">Audio Recognition<span>1</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/audio-analysis/">audio analysis<span>4</span></a></li> <li><a href="/tags/music-analysis/">music analysis<span>2</span></a></li> <li><a href="/tags/beat-detection/">beat detection<span>1</span></a></li>
+
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+</body>
+</html>

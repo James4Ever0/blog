@@ -1,0 +1,368 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>gitter developer tokens and qq opqbot, reverse engineering qq protocols and more | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="Opqbot, a tool for logging into Gitter.im using a device JSON file, has been discussed in terms of compatibility and login issues. Additionally, alternative QQ protocol analysis tools have been mentioned as options.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="gitter developer tokens and qq opqbot, reverse engineering qq protocols and more"/>
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+    <script src="/js/marked.js"></script>
+    <script src="/js/comment.js"></script>
+    <script src="/js/timeago.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+	<script src="/js/spin.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> gitter developer tokens and qq opqbot, reverse engineering qq protocols and more</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>Opqbot, a tool for logging into Gitter.im using a device JSON file, has been discussed in terms of compatibility and login issues. Additionally, alternative QQ protocol analysis tools have been mentioned as options.</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <h1 id="gitter-developer-tokens-and-qq-opqbot-reverse-engineering-qq-protocols-and-more"><a href="#gitter-developer-tokens-and-qq-opqbot-reverse-engineering-qq-protocols-and-more" class="headerlink" title="gitter developer tokens and qq opqbot, reverse engineering qq protocols and more"></a>gitter developer tokens and qq opqbot, reverse engineering qq protocols and more</h1><p>qq seems to release mac qq with electron, lot more easier for reverse engineering</p>
+<p><a target="_blank" rel="noopener" href="https://zu1k.com/posts/security/reverse/golang-reverse/">how to reverse go binary, golang reverse</a></p>
+<p>opqbot官方已经说了 登陆过程中会用到远程的服务器 这个服务器究竟在干什么不得而知 可能和登陆有关也可能没有关系 但是服务器维护期间是没法扫码登录的 如果有可以正常使用的secdata是可以直接启动服务的 不需要服务器 所以估计这个服务器很可能就是拿来解析cookie的</p>
+<p>login error:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">2022/08/14 00:01:24.808 [I]  Scan Status 48 Uin 0 </span><br><span class="line">2022/08/14 00:01:25.880 [I]  Scan Status 48 Uin 0 </span><br><span class="line">2022/08/14 00:01:26.937 [I]  Scan Status 53 Uin 0</span><br><span class="line">2022/08/14 00:01:27.998 [I]  Scan Status 53 Uin 0 </span><br><span class="line">2022/08/14 00:01:29.054 [N]  User &lt;userId&gt; 登录中..请勿连续操作,登录成功后或释放连接后在继续操作 登陆成功后请勿频繁扫码再次登陆(除非冻结导致的掉线) 发不出去群消息请挂机几天 TX日常风控</span><br><span class="line">=========本框架 🎈 免费 🎈 使用 谨防 ⚠️ 诈骗 ⚠️ 收费 切勿用于 🈲️ 非 🈲️ 法用途</span><br><span class="line">=========交流群:757360354 TG群组:https://t.me/IOTQQ      </span><br><span class="line">=========开源社区 👍 https://github.com/opq-osc 👍       </span><br><span class="line">=========项目主页 😄 https://github.com/OPQBOT/OPQ/wiki 😄</span><br><span class="line">=========项目Wiki 📒 https://github.com/OPQBOT/OPQ/wiki 📒</span><br><span class="line">2022/08/14 00:02:30.234 [W]  recvPump session 0D48F5949075DA13D3A9F83838903920</span><br><span class="line">2022/08/14 00:02:30.234 [A]  Default Closed:0D48F5949075DA13D3A9F83838903920</span><br><span class="line">2022/08/14 00:02:30.235 [D]  Unregister In Conn -&gt; 0D48F5949075DA13D3A9F83838903920</span><br></pre></td></tr></table></figure>
+
+<p>关于自动加群 可以考虑使用安卓手机自启动功能（需要下载<a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=imoblife.startupmanager">startup manager</a> 或者<a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=de.defim.apk.bootmanager&showAllReviews=true">boot manager</a>（有root权限和xposed框架）） 用<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/termux-appium">termux-appium</a> 自动操作手机在联网的情况下自启动加群</p>
+<p>现在有两个标准<a target="_blank" rel="noopener" href="https://onebot.dev/">onebot</a> <a target="_blank" rel="noopener" href="https://nb2.baka.icu/">nonebot</a></p>
+<p>这两个协议都不支持主动加好友 加群 还有收红包方法 至少mac qq协议支持这些方法 但是其他的协议比如手表 ipad协议支不支持就不清楚了</p>
+<p>onebot有大量的<a target="_blank" rel="noopener" href="https://onebot.dev/ecosystem.html#onebot-12">qq适配器</a> 而nonebot有<a target="_blank" rel="noopener" href="https://nb2.baka.icu/store">大量的插件和除了qq以外的连接器</a></p>
+<p>nonebot可以<a target="_blank" rel="noopener" href="https://onebot.adapters.nonebot.dev/docs/guide/installation">连接onebot</a></p>
+<p>在onebot的qq适配器中 oicq可以查看qq历史聊天记录（有待验证） 可能对qq的数据爬取有帮助 视频爬取 <a target="_blank" rel="noopener" href="https://github.com/takayama-lily/oicq">oicq</a>这个适配器有在群里面加好友的方法<code>addFriend(gid, uid)</code>可以参考,提供了一些用于逆向qq协议的程序：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/fuqiuluo/TXHook">txhook</a> 该软件适合在安卓8.0以上系统运行，理论支持安卓7.0以上，但是很多问题。群号：901422091 702991373</p>
+<ul>
+<li>获取ShareKey\PublicKey\D2\A2…</li>
+<li>主动拦截固定Ecdh密钥及版本</li>
+<li>对Jce\Protobuf的自动分析</li>
+<li>过滤抓包，支持高级过滤（长按抓包页面的搜索栏展示&#x2F;隐藏图标）</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://protobuf-decoder.netlify.app/">protobuf online decode</a><br><a target="_blank" rel="noopener" href="https://github.com/takayama-lily/unpack-tools">protobuf unpack-tools</a></p>
+<p>也有一些可以进行二次开发的<a target="_blank" rel="noopener" href="https://github.com/takayama-lily/oicq/blob/main/web-api.md">qq web api</a> 搜索QQ号和群号 且有个性签名等更多信息 或许可以搜索关键词？</p>
+<p>这些适配器中有的提供了qq频道的支持：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/takayama-lily/oicq-guild">oicq-guild</a></p>
+<p>也可以考虑用<a target="_blank" rel="noopener" href="https://frida.re/">frida</a> <a target="_blank" rel="noopener" href="https://github.com/NationalSecurityAgency/ghidra">ghidra</a> <a target="_blank" rel="noopener" href="https://rada.re/n/radare2.html">radare2</a> <a target="_blank" rel="noopener" href="https://cutter.re/">cutter</a>来<a target="_blank" rel="noopener" href="https://cn.bing.com/search?q=reverse+go+binary&form=CHRDEF&sp=-1&pq=reverse+go+binary&sc=0-17&qs=n&sk=&cvid=3A1FCCCF9C2F495DB516CB656D281DCA&ghsh=0&ghacc=0&ghpl=">逆向opqbot的go编译好了的程序</a> 或者逆向分析opqbot的网络请求数据 甚至直接动态调用opqbot里面的方法 直接用其他机器人登陆之后获得的cookie进行操作</p>
+<p>to get the token, login first, then visit <a target="_blank" rel="noopener" href="https://developer.gitter.im/apps">here</a> or click “sign in” <a target="_blank" rel="noopener" href="https://developer.gitter.im/">here</a></p>
+<p>据说扫码登录只支持同一个ip下面的登陆 不知道为什么这个opqbot登陆失败 但是其他机器人都提供了账号密码登陆的渠道 将opqbot的协议逆向出来 或许可以提高登陆成功率 实现相同的功能</p>
+<p>默认(可修改)在 .&#x2F;data&#x2F;your-account&#x2F; 下会自动生成device.json设备文件，登录完成后此设备文件长期有效<br>设备文件的生成并非随机，而是使用固定算法，一个账号会永远生成同一份设备文件<br>如果需要在异地服务器上登录，建议先在常用地通过设备验证并登录挂机一段时间<br>由于会生成相同设备文件，只要不手动修改，只需验证一次，在任何地区都可直接登录</p>
+<p>it seems the login issue of opqbot is related to the account itself, not gitter token, software version or proxy</p>
+<p>by the way we could always use go-cqhttp, without the ability to collect red packet and add group&#x2F;friends.</p>
+<p>qq add group&#x2F;friends may be enabled by our windows virtual machines. without opq, it is very memory intensive.</p>
+<p>tokens:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">74eb7eb14aa36d1b9c2c663bc49335e8becd5318</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2d391bd7639362032d09abfc5a9cc6368b7664d5</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bdf52599d992665509ee5b0b533d5eed08452def</span><br></pre></td></tr></table></figure>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/2023/12/22/7b4c3b5b-427d-45d2-9daf-caf2dea62597/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/2023/12/22/7c991e15-4177-4afb-a3df-726e3a58317e/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+    	 
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+           type: "github" ? "github" : "github",       
+	       user: "james4ever0",
+	       repo: "my_blog",
+		   client_id: "",
+           client_secret: "",
+		   no_comment: "No comments yet. Press the button and go to comment now!",
+		   go_to_comment: "Go to comment",
+		   no_issue: "no_issue",
+		   issue_title: "gitter developer tokens and qq opqbot, reverse engineering qq protocols and more",
+		   issue_id: "",
+		   btn_class: "btn btn-primary",
+		   comments_target: "#comment-thread",
+		   loading_target: "#loading_spin"
+		   });
+	 </script>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2023-12-22 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Opqbot/">Opqbot<span>1</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/stub/">stub<span>63</span></a></li> <li><a href="/tags/reverse-engineering/">reverse engineering<span>5</span></a></li> <li><a href="/tags/chatbot/">chatbot<span>8</span></a></li> <li><a href="/tags/pyjom/">pyjom<span>42</span></a></li> <li><a href="/tags/chatbot-framework/">chatbot framework<span>1</span></a></li> <li><a href="/tags/opqbot/">opqbot<span>1</span></a></li> <li><a href="/tags/qq/">qq<span>1</span></a></li>
+
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+</body>
+</html>

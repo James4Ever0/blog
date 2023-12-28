@@ -1,0 +1,375 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>MySQL Cheatsheet | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="The MySQL cheatsheet is a handy resource for quickly referencing various usage scenarios and essential tasks in database management, including creating tables, modifying table structure, deleting/retrieving data, working with constraints, and utilizing SQL functions.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="MySQL Cheatsheet"/>
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+    <script src="/js/marked.js"></script>
+    <script src="/js/comment.js"></script>
+    <script src="/js/timeago.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+	<script src="/js/spin.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> MySQL Cheatsheet</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>The MySQL cheatsheet is a handy resource for quickly referencing various usage scenarios and essential tasks in database management, including creating tables, modifying table structure, deleting&#x2F;retrieving data, working with constraints, and utilizing SQL functions.</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <h1 id="MySQL-Cheatsheet"><a href="#MySQL-Cheatsheet" class="headerlink" title="MySQL Cheatsheet"></a>MySQL Cheatsheet</h1><p>MySQL Reference Card<br>Version: 0.1<br>Author: ProgM4c</p>
+<p>Attribute Types</p>
+<p>Numbers<br>Name<br>Coded on<br>Name<br>Coded on<br>TINYINT<br>1 byte<br>FLOAT(W, D)<br>4 bytes<br>SMALLINT<br>2 bytes<br>DOUBLE(W, D)<br>8 bytes<br>MEDIUMINT<br>3 bytes<br>W: width(number of digits with the ‘.’)<br>D: number of decimals<br>INT<br>4 bytes</p>
+<p>BIGINT<br>8 bytes</p>
+<p>Parameters:<br>    • UNSIGNED<br>    • ZEROFILL</p>
+<p>Coded on:<br>    • SIGNED :<br>    • UNSIGNED: </p>
+<p>Strings (between ‘ ‘)<br>Name<br>Size<br>CHAR(M)<br>String with fixed size, 1 &lt;&#x3D; M &lt;&#x3D; 255<br>VARCHAR(M)<br>String with variable size, 1 &lt;&#x3D; M &lt;&#x3D; 255<br>TINYTEXT<br>Max length &#x3D; 255<br>TEXT<br>Max length &#x3D; 65535<br>MEDIUMTEXT<br>Max length &#x3D; 16777215<br>LONGTEXT<br>Max length &#x3D; 4294967295<br>DECIMAL(M, D)<br>Simulate a floating point number in a string format</p>
+<p>Date and Time<br>Name<br>Format<br>DATE<br>AAAA-MM-JJ<br>DATETIME<br>AAAA-MM-JJ HH:MM:SS<br>TIMESTAMP<br>AAAAMMJJHHMMSS<br>TIMESTAMP(M)<br>First M characters of a TIMESTAMP<br>TIME<br>HH:MM:SS<br>YEAR<br>AAAA</p>
+<p>ENUM: take one value in the defined list (can be NULL)<br>syntax:<br>attr_name ENUM(‘value1’, ‘value2’, …) {NULL | NOT NULL}</p>
+<p>Database queries</p>
+<p>create a database<br>CREATE DATABASE [IF NOT EXISTS] <db_name>;</p>
+<p>delete  a database<br>DROP DATABSE [IF EXISTS] <db_name>;</p>
+<p>rename a database<br>ALTER DATABASE <db_name> RENAME <db_new_name>;</p>
+<p>list databases<br>SHOW DATABASES;</p>
+<p>select a database<br>USE <db_name>;</p>
+<p>Table queries</p>
+<p>show a table<br>SHOW TABLES;</p>
+<p>rename a table<br>ALTER TABLE <table_name> RENAME <new_name>;</p>
+<p>describe a table<br>DESCRIBE <table>;</p>
+<p>delete a table<br>DROP TABLE <table_name>;</p>
+<p>type of constraints<br>    • NOT NULL<br>    • UNIQUE<br>    • PRIMARY KEY &#x3D; NOT NULL + UNIQUE<br>    • FOREIGN KEY<br>    • CHECK<br>    • DEFAULT<br>    • AUTO_INCREMENT</p>
+<p>create a table<br>CREATE TABLE <table_name> (<br>    <attr1> <datatype1>(size) <constraints>,<br>    <attr1> <datatype1>(size) <constraints>,<br>    …<br>    PRIMARY KEY(<pk>)<br>);</p>
+<p>add &#x2F; delete a constraints<br>ALTER TABLE <table_name> ADD CONSTRAINT <const_name> TYPEOFCONSTRAINT (<attr1>, …)<br>ALTER TABLE <table_name> DROP [CONSTRAINT <const_name> | TYPEOFCONSTRAINT <const_name>];</p>
+<p>Modify table structure</p>
+<p>add &#x2F; delete attribute<br>ALTER TABLE <table_name> ADD <attr> <type> [FIRST|AFTER <other_attr>];<br>ALTER TABLE <table_name> DROP <attr> ;</p>
+<p>add &#x2F; delete default value to an column<br>ALTER TABLE <table_name> ALTER <attr> {SET DEFAULT <default_value>|DROP DEFAULT};</p>
+<p>change definition of an attribute without&#x2F;with renaming it<br>ALTER TABLE <table_name> MODIFY <attr_name> <new_type>;<br>ALTER TABLE <table_name> CHANGE <attr_name> <attr_new_name> <new_type>;<br>Inserting data<br>INSERT INTO <table_name>(<col1>, <col2>, …) VALUES (<val1>, <val2>, …);</p>
+<p>Modifying data<br>UPDATE <table_name><br>SET <field1> &#x3D; <val1>, <field2> &#x3D; <val2>, …<br>WHERE <condition>;</p>
+<p>Deleting data<br>DELETE FROM <table_name> WHERE <condition>;</p>
+<p>Retrieving data<br>Select statement<br>SELECT [ DISTINCT ] attributs<br>[ INTO OUTFILE fichier ]<br>[ FROM relation ]<br>[ WHERE condition ]<br>[ GROUP BY attributs [ ASC | DESC ] ]<br>[ HAVING condition ]<br>[ ORDER BY attributs ]<br>[ LIMIT [a,] b ]</p>
+<h1 id="operators-in-a-where-clause"><a href="#operators-in-a-where-clause" class="headerlink" title="operators in a where clause"></a>operators in a where clause</h1><p>Equal<br>&lt;&gt;<br>Not equal. Note: In some versions of SQL this operator may be written as !&#x3D;</p>
+<blockquote>
+</blockquote>
+<p>Greater than<br>&lt;<br>Less than</p>
+<blockquote>
+<p>&#x3D;<br>Greater than or equal<br>&lt;&#x3D;<br>Less than or equal<br>BETWEEN<br>Between an inclusive range<br>LIKE<br>Search for a pattern (‘%’ any sequence of characters ‘_’ any character)<br>[NOT] IN<br>To specify multiple possible values for a column<br>IS [NOT] NULL<br>To check if the value of a column is NULL or not<br>AND OR NOT<br>Filter records based on more than once condition</p>
+</blockquote>
+<p>Sub-requests<br>SELECT * FROM <table> WHERE prix &gt; (SELECT MIN(prix) FROM tab2)<br>SELECT * FROM <table> WHERE nom NOT IN (SELECT nom FROM tab2)<br>SELECT * FROM <table> WHERE prix &gt; ALL (SELECT prix FROM tab2) (sup. à ttes les valeurs)<br>SELECT * FROM <table> WHERE prix &gt; ANY (SELECT prix FROM tab2) (sup. à au moins 1)</p>
+<p>SQL aliases on column &#x2F; table<br>SELECT <column> AS <col_alias> FROM <table>		(alias a result)<br>SELECT <column> FROM <table> AS <new_name>		(alias a table name)</p>
+<p>SQL functions<br>AVG()		- (moyenne)<br>COUNT()	- (nombre d’élément)<br>MAX()		- (maximum)<br>MIN()		- (minimum)<br>SUM()		- (somme)</p>
+<p>UCASE()<br>LCASE()<br>LEN()<br>NOW()<br>FORMAT()</p>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/2023/12/22/42cd5988-041e-41e4-b6d5-bb24363362da/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/2023/12/22/4318df33-8a8f-42e6-a17c-de965ad7ae4e/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+    	 
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+           type: "github" ? "github" : "github",       
+	       user: "james4ever0",
+	       repo: "my_blog",
+		   client_id: "",
+           client_secret: "",
+		   no_comment: "No comments yet. Press the button and go to comment now!",
+		   go_to_comment: "Go to comment",
+		   no_issue: "no_issue",
+		   issue_title: "MySQL Cheatsheet",
+		   issue_id: "",
+		   btn_class: "btn btn-primary",
+		   comments_target: "#comment-thread",
+		   loading_target: "#loading_spin"
+		   });
+	 </script>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2023-12-22 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Database-Management/">Database Management<span>4</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/reference/">reference<span>10</span></a></li> <li><a href="/tags/database/">database<span>6</span></a></li> <li><a href="/tags/mysql/">mysql<span>2</span></a></li>
+
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+</body>
+</html>

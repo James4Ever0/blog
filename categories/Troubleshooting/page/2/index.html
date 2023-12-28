@@ -1,0 +1,1355 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Page 2 | Troubleshooting | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+    <script src="/js/marked.js"></script>
+    <script src="/js/comment.js"></script>
+    <script src="/js/timeago.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+	<script src="/js/spin.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+<!-- title -->
+<div class="page-header page-header-inverse ">
+  <h1 class="archive-title-category title title-inverse ">Troubleshooting</h1>
+</div>
+
+<div class="row page">
+  <!-- cols -->
+  
+  <div class="col-md-9">
+	
+
+	  <div id="top_search"></div>
+
+      
+         <!-- display as entry -->
+	     <div class="mypage">
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2023-12-22 </div>
+			<div class="article-title"><a href="/2023/12/22/b4aa7c90-7a78-4648-a687-ea9f3f21e207/" title="This article provides a step-by-step guide on how to troubleshoot and fix issues related to pyjom&#39;s location on macOS. It covers the process of disabling sync-related services, installing pyjom watchdog and syncdog services locally, and offers solutions for common problems encountered during this process.">Copy Symlink itself to change pyjom&#39;s location, install easyd services for macos local pyjom watchdog</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="Copy-Symlink-itself-to-change-pyjom’s-location-install-easyd-services-for-macos-local-pyjom-watchdog"><a href="#Copy-Symlink-itself-to-change-pyjom’s-location-install-easyd-services-for-macos-local-pyjom-watchdog" class="headerlink" title="Copy Symlink itself to change pyjom’s location, install easyd services for macos local pyjom watchdog"></a>Copy Symlink itself to change pyjom’s location, install easyd services for macos local pyjom watchdog</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /media/root/parrot</span><br><span class="line"><span class="built_in">cp</span> -R -P /media/root/help1/pyjom .</span><br></pre></td></tr></table></figure>
+
+<p>because of the qqChatBot task, pyjom on kali may be syncing too often. need to check the watchdog logs.</p>
+<p>turned out it is the <code>__pycache__</code> dirs to be blamed</p>
+<p>disable all sync related services on macos for debug:</p>
+<p>main issue happens after local vscode launched.</p>
+<p>the issue is such that the proxy setting not right.</p>
+<p>to debug the service:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl debug gui/501/pyjom_local_syncdog --stdout --stderr</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># to be succint:</span></span><br><span class="line">launchctl list | grep syncdog | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span> | xargs -I abc <span class="built_in">kill</span> -s TERM abc</span><br><span class="line"></span><br><span class="line"><span class="comment"># instead of:</span></span><br><span class="line"><span class="comment">#launchctl list | grep pyjom_local_syncdog # to get process pid</span></span><br><span class="line"><span class="comment">#kill -s TERM &lt;service_pid&gt;</span></span><br></pre></td></tr></table></figure>
+<p>we need to add some code for it. consider adding something alike to that to kali?</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">os.environ[<span class="string">&quot;http_proxy&quot;</span>]=<span class="string">&quot;http://localhost:7930&quot;</span></span><br><span class="line">os.environ[<span class="string">&quot;https_proxy&quot;</span>]=<span class="string">&quot;http://localhost:7930&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">launchctl stop gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl <span class="built_in">kill</span> TERM gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl unload gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl <span class="built_in">disable</span> gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl remove gui/501/pyjom_local_watchdog;</span><br><span class="line"></span><br><span class="line">launchctl stop gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl <span class="built_in">kill</span> TERM gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl unload gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl <span class="built_in">disable</span> gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl remove gui/501/pyjom_local_syncdog</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>install macos pyjom watchdog (local):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">easyd -l pyjom_local_watchdog -w /Users/jamesbrown/Desktop/works/sync_git_repos -- /usr/bin/python3 /Users/jamesbrown/Desktop/works/sync_git_repos/watchdog_macos.py</span><br></pre></td></tr></table></figure>
+
+<p>install macos pyjom syncdog (local):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">easyd -l pyjom_local_syncdog -w /Users/jamesbrown/Desktop/works/sync_git_repos -- /usr/bin/python3 /Users/jamesbrown/Desktop/works/sync_git_repos/syncdog_macos.py</span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2023/12/22/b4aa7c90-7a78-4648-a687-ea9f3f21e207/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2023-12-22 </div>
+			<div class="article-title"><a href="/2023/12/22/b85e653b-c51b-45bf-9140-da318cc25361/" title="The article delves into a Mac freezing issue that occurs when Kali is offline. Suspecting modified scripts, the user pinpoints ZeroTier One as the primary culprit, specifically mentioning `load_tuntap_launch_n2n_kali_root.sh`, `nginx_with_kali_finder.sh`, and `launch.sh` as potential problem areas.">what is causing my mac to freeze when kali is offline</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="what-is-causing-my-mac-to-freeze-when-kali-is-offline"><a href="#what-is-causing-my-mac-to-freeze-when-kali-is-offline" class="headerlink" title="what is causing my mac to freeze when kali is offline"></a>what is causing my mac to freeze when kali is offline</h1><p>modified scripts:</p>
+<p><code>/Users/jamesbrown/Desktop/works/host_discovery_ssh_local_connect/load_tuntap_launch_n2n_kali_root.sh</code></p>
+<p><code>/Users/jamesbrown/Desktop/works/host_discovery_ssh_local_connect/nginx_with_kali_finder.sh</code></p>
+<p><code>/Library/Application Support/ZeroTier/One/launch.sh</code></p>
+<p>seems zerotier one is the main cause!</p>
+
+	
+	</div>
+  <a type="button" href="/2023/12/22/b85e653b-c51b-45bf-9140-da318cc25361/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2023-12-22 </div>
+			<div class="article-title"><a href="/2023/12/22/c0a2ff3b-8a78-4642-bd6d-bd6ad5040bc4/" title="In this article, the author provides a step-by-step guide on how to reinstall Termux and troubleshoot common issues like granting required permissions, fixing the brightness bug by uninstalling a settings app, and removing the Termux banner for a customized experience.">After Termux Reinstallation</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="After-Termux-Reinstallation"><a href="#After-Termux-Reinstallation" class="headerlink" title="After Termux Reinstallation"></a>After Termux Reinstallation</h1><p>grant permission for termux:api</p>
+<p>android.permission.WRITE_SETTINGS can only be granted in settings tab.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/TilesOrganization/support/wiki/How-to-use-ADB-to-grant-permissions">https://github.com/TilesOrganization/support/wiki/How-to-use-ADB-to-grant-permissions</a></p>
+<p>adb shell pm grant com.rascarlo.quick.settings.tiles android.permission.WRITE_SECURE_SETTINGS</p>
+<p>pm grant com.termux.api android.permission.WRITE_SECURE_SETTINGS</p>
+<p>pm list packages</p>
+<p>the brightness bug is solved by uninstalling the unintended settings app. i don’t know if this will cause more problems.</p>
+<p>to remove termux banner&#x2F; termux welcome message:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> .. &amp;&amp; <span class="built_in">cd</span> usr/etc &amp;&amp; <span class="built_in">rm</span> -rf motd</span><br></pre></td></tr></table></figure>
+
+
+	
+	</div>
+  <a type="button" href="/2023/12/22/c0a2ff3b-8a78-4642-bd6d-bd6ad5040bc4/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2023-12-22 </div>
+			<div class="article-title"><a href="/2023/12/22/d89502c0-47fb-45dd-afef-9a75d12ad754/" title="This article provides a solution to troubleshoot input issues with the libwacom library on Arch Linux ARM and Kali Linux. The article suggests modifying the xorg.conf file as referenced in a troubleshooting guide for resolution.">Letsketch libwacom</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="Letsketch-libwacom"><a href="#Letsketch-libwacom" class="headerlink" title="Letsketch libwacom"></a>Letsketch libwacom</h1><p>working on archlinux arm:<br>libwacom 2.1.0-1</p>
+<p>not working on kali linux:<br>libwacom-bin 2.2.0-1</p>
+<p>full reference:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/DIGImend/digimend-kernel-drivers/issues/514">https://github.com/DIGImend/digimend-kernel-drivers/issues/514</a></p>
+<p>sudo nano &#x2F;etc&#x2F;X11&#x2F;xorg.conf</p>
+<p>Section “InputClass”<br>Identifier “Tablet”<br>Driver “wacom”<br>MatchDevicePath “&#x2F;dev&#x2F;input&#x2F;event*”<br>MatchUSBID “6161:4d15”<br>EndSection</p>
+<p>to debug input problems:</p>
+<p><a target="_blank" rel="noopener" href="https://wiki.ubuntu.com/DebuggingMouseDetection#:~:text=In%20case%20your%20mouse%20stops%20working%20after%20a,your%20mouse%20stops%20working.%20...%20More%20items...%20">https://wiki.ubuntu.com/DebuggingMouseDetection#:~:text=In%20case%20your%20mouse%20stops%20working%20after%20a,your%20mouse%20stops%20working.%20...%20More%20items...%20</a></p>
+<p>check &#x2F;etc&#x2F;logs&#x2F;Xorg.0.logs</p>
+
+	
+	</div>
+  <a type="button" href="/2023/12/22/d89502c0-47fb-45dd-afef-9a75d12ad754/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2023-12-22 </div>
+			<div class="article-title"><a href="/2023/12/22/e9f08502-b4a4-4e19-bb63-5159e4e08c14/" title="This article provides a comprehensive guide on troubleshooting Kali Linux on MacOS, covering various topics such as offline debugging, utilizing Peer-to-Peer (P2P) networks to improve connection speed, using dynamic connectors, storing Redis values, and setting the Redis working directory to optimize disk space utilization.">the kali command on macos</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="the-kali-command-on-macos"><a href="#the-kali-command-on-macos" class="headerlink" title="the kali command on macos"></a>the kali command on macos</h1><h2 id="debugging"><a href="#debugging" class="headerlink" title="debugging"></a>debugging</h2><p>when kali is off, this mac will go crazy and hang everything.</p>
+<p>need to scan for kali existance on demand, not all the time.</p>
+<h2 id="developing"><a href="#developing" class="headerlink" title="developing"></a>developing</h2><p>should we use p2p networks to speed up remote connections like <code>n2n</code> or <code>tinc</code>?</p>
+<p>would it be interesting to run all our kali connectors ranged from vscode-ssh-connect, rclone mount and direct ssh connection via <code>kali</code> command dynamically by our kali discovery service, if we can reload the nginx daemon on demand.</p>
+<p>using redis to store some daemon reported values.</p>
+<p>how about we set the workding directory of <code>redis-server</code> to <code>/tmp</code> so that the <code>dump.rdb</code> file will never take space after reboot?</p>
+<p>we need to know if this will successifully launch after reboot since <code>/tmp</code> may not exist by that time</p>
+<p>default redis server port: 6379</p>
+<p>install redis-server service:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">easyd -w /tmp -l redis_server -- /opt/homebrew/bin/redis-server</span><br></pre></td></tr></table></figure>
+
+<p>first value is <code>online</code>.</p>
+<p>next value is <code>kali_ip</code>.</p>
+<p>using both value to determine whether to connect to kali or not, and the exact address.</p>
+
+	
+	</div>
+  <a type="button" href="/2023/12/22/e9f08502-b4a4-4e19-bb63-5159e4e08c14/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2023-12-22 </div>
+			<div class="article-title"><a href="/2023/12/22/f91950ee-e2fb-4954-a7b1-8816f1ce0d13/" title="This article provides a comprehensive guide on troubleshooting Kali Linux on MacOS, covering various topics such as offline debugging, utilizing Peer-to-Peer (P2P) networks to improve connection speed, using dynamic connectors, storing Redis values, and setting the Redis working directory to optimize disk space utilization.">the kali command on macos</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="the-kali-command-on-macos"><a href="#the-kali-command-on-macos" class="headerlink" title="the kali command on macos"></a>the kali command on macos</h1><h2 id="debugging"><a href="#debugging" class="headerlink" title="debugging"></a>debugging</h2><p>when kali is off, this mac will go crazy and hang everything.</p>
+<p>need to scan for kali existance on demand, not all the time.</p>
+<h2 id="developing"><a href="#developing" class="headerlink" title="developing"></a>developing</h2><p>should we use p2p networks to speed up remote connections like <code>n2n</code> or <code>tinc</code>?</p>
+<p>would it be interesting to run all our kali connectors ranged from vscode-ssh-connect, rclone mount and direct ssh connection via <code>kali</code> command dynamically by our kali discovery service, if we can reload the nginx daemon on demand.</p>
+<p>using redis to store some daemon reported values.</p>
+<p>how about we set the workding directory of <code>redis-server</code> to <code>/tmp</code> so that the <code>dump.rdb</code> file will never take space after reboot?</p>
+<p>we need to know if this will successifully launch after reboot since <code>/tmp</code> may not exist by that time</p>
+<p>default redis server port: 6379</p>
+<p>install redis-server service:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">easyd -w /tmp -l redis_server -- /opt/homebrew/bin/redis-server</span><br></pre></td></tr></table></figure>
+
+<p>first value is <code>online</code>.</p>
+<p>next value is <code>kali_ip</code>.</p>
+<p>using both value to determine whether to connect to kali or not, and the exact address.</p>
+
+	
+	</div>
+  <a type="button" href="/2023/12/22/f91950ee-e2fb-4954-a7b1-8816f1ce0d13/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+	     </div>
+	     <div>
+	       <center>
+	         <div class="pagination">
+<ul class="pagination">
+	 
+		
+		<li class="prev"><a href="/categories/Troubleshooting/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i> Prev</a></li>
+  		
+
+        <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+
+		
+          <li class="next disabled"><a>Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+	       </center>
+	     </div>	
+      
+
+</div> <!-- col-md-9/col-md-12 -->
+
+
+<div class="col-md-3">
+	<div id="sidebar">
+	
+			
+  <div id="site_search">
+   <div class="form-group">
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="Search" class="st-search-input st-default-search-input form-control"/>
+   </div>  
+  <div id="local-search-result"></div>
+  </div>
+
+
+		
+			<div class="widget">
+    
+	    <h4 class="dsq-widget-title">Recent Comments</h4>
+		<div id="recent-comments"></div>
+		<script type="text/javascript">
+		    getRecentCommentsList({
+			   type: "github" ? "github" : "github",
+			   user: "james4ever0",
+               repo: "my_blog",
+               client_id: "",
+               client_secret: "",
+			   count: "5" ? "5" : 5,
+			   recent_comments_target: "#recent-comments"
+			});
+		</script>
+	
+</div>
+
+		
+			
+	<div class="widget">
+		<h4>Categories</h4>
+		<ul class="tag_box inline list-unstyled">
+		
+			<li><a href="/categories/2D-Animation/">2D Animation<span>2</span></a></li>
+		
+			<li><a href="/categories/3D-Avatar-Creation/">3D Avatar Creation<span>2</span></a></li>
+		
+			<li><a href="/categories/3D-Modeling/">3D Modeling<span>4</span></a></li>
+		
+			<li><a href="/categories/3D-Rendering/">3D Rendering<span>2</span></a></li>
+		
+			<li><a href="/categories/AI/">AI<span>14</span></a></li>
+		
+			<li><a href="/categories/AI-Accelerators/">AI Accelerators<span>2</span></a></li>
+		
+			<li><a href="/categories/AI-Competitions/">AI Competitions<span>2</span></a></li>
+		
+			<li><a href="/categories/AI-Libraries/">AI Libraries<span>2</span></a></li>
+		
+			<li><a href="/categories/AI-Optimization/">AI Optimization<span>2</span></a></li>
+		
+			<li><a href="/categories/AI-System-Design-Guidelines/">AI System Design Guidelines<span>2</span></a></li>
+		
+			<li><a href="/categories/AI-Techniques-for-Text-Generation-and-Paraphrasing/">AI Techniques for Text Generation and Paraphrasing<span>2</span></a></li>
+		
+			<li><a href="/categories/AI-Video-Generation/">AI Video Generation<span>2</span></a></li>
+		
+			<li><a href="/categories/AI-development/">AI development<span>4</span></a></li>
+		
+			<li><a href="/categories/AI-tools-collections/">AI tools collections<span>2</span></a></li>
+		
+			<li><a href="/categories/AI-Generated-Singing-Voices/">AI-Generated Singing Voices<span>2</span></a></li>
+		
+			<li><a href="/categories/AI-generated-Art/">AI-generated Art<span>2</span></a></li>
+		
+			<li><a href="/categories/API/">API<span>10</span></a></li>
+		
+			<li><a href="/categories/API-Development/">API Development<span>2</span></a></li>
+		
+			<li><a href="/categories/API-Scraping/">API Scraping<span>2</span></a></li>
+		
+			<li><a href="/categories/APIs/">APIs<span>4</span></a></li>
+		
+			<li><a href="/categories/Academic-Articles/">Academic Articles<span>2</span></a></li>
+		
+			<li><a href="/categories/Accessibility-tools/">Accessibility tools<span>2</span></a></li>
+		
+			<li><a href="/categories/Account-Disabling/">Account Disabling<span>1</span></a></li>
+		
+			<li><a href="/categories/Account-Management/">Account Management<span>2</span></a></li>
+		
+			<li><a href="/categories/Account-Registration/">Account Registration<span>2</span></a></li>
+		
+			<li><a href="/categories/Advanced-AI-powered-video-editors/">Advanced AI-powered video editors<span>2</span></a></li>
+		
+			<li><a href="/categories/Android/">Android<span>2</span></a></li>
+		
+			<li><a href="/categories/Android-Development/">Android Development<span>4</span></a></li>
+		
+			<li><a href="/categories/Android-Reverse-Engineering/">Android Reverse Engineering<span>2</span></a></li>
+		
+			<li><a href="/categories/Android-Security/">Android Security<span>2</span></a></li>
+		
+			<li><a href="/categories/Android-automation/">Android automation<span>2</span></a></li>
+		
+			<li><a href="/categories/Android-emulators/">Android emulators<span>2</span></a></li>
+		
+			<li><a href="/categories/Animation-Tools/">Animation Tools<span>4</span></a></li>
+		
+			<li><a href="/categories/Anime/">Anime<span>4</span></a></li>
+		
+			<li><a href="/categories/Anime-Video-Downloads/">Anime Video Downloads<span>2</span></a></li>
+		
+			<li><a href="/categories/Annotation-Tools/">Annotation Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/App-Compatibility/">App Compatibility<span>2</span></a></li>
+		
+			<li><a href="/categories/Artificial-General-Intelligence/">Artificial General Intelligence<span>2</span></a></li>
+		
+			<li><a href="/categories/Artificial-Intelligence/">Artificial Intelligence<span>32</span></a></li>
+		
+			<li><a href="/categories/Asynchronous-Requests/">Asynchronous Requests<span>2</span></a></li>
+		
+			<li><a href="/categories/Audio-Processing/">Audio Processing<span>8</span></a></li>
+		
+			<li><a href="/categories/Audio-Production/">Audio Production<span>2</span></a></li>
+		
+			<li><a href="/categories/Audio-Recognition/">Audio Recognition<span>2</span></a></li>
+		
+			<li><a href="/categories/Augmented-Reality/">Augmented Reality<span>2</span></a></li>
+		
+			<li><a href="/categories/Automated-Essay-Scoring/">Automated Essay Scoring<span>2</span></a></li>
+		
+			<li><a href="/categories/Automation/">Automation<span>2</span></a></li>
+		
+			<li><a href="/categories/Automotive-Computer-Research/">Automotive Computer Research<span>2</span></a></li>
+		
+			<li><a href="/categories/Backup-software/">Backup software<span>2</span></a></li>
+		
+			<li><a href="/categories/Battery-Damage-Prevention/">Battery Damage Prevention<span>2</span></a></li>
+		
+			<li><a href="/categories/Behavior-Driven-Development/">Behavior Driven Development<span>2</span></a></li>
+		
+			<li><a href="/categories/Best-Earphones/">Best Earphones<span>2</span></a></li>
+		
+			<li><a href="/categories/Bilibili/">Bilibili<span>4</span></a></li>
+		
+			<li><a href="/categories/Biology/">Biology<span>2</span></a></li>
+		
+			<li><a href="/categories/Bot-Development/">Bot Development<span>2</span></a></li>
+		
+			<li><a href="/categories/Browser-Extensions/">Browser Extensions<span>4</span></a></li>
+		
+			<li><a href="/categories/CACANi-Software/">CACANi Software<span>2</span></a></li>
+		
+			<li><a href="/categories/CITIC-Security-Account/">CITIC Security Account<span>1</span></a></li>
+		
+			<li><a href="/categories/Captcha-recognition/">Captcha recognition<span>2</span></a></li>
+		
+			<li><a href="/categories/Cheminformatics/">Cheminformatics<span>2</span></a></li>
+		
+			<li><a href="/categories/Chinese-Input-Methods/">Chinese Input Methods<span>2</span></a></li>
+		
+			<li><a href="/categories/Chocolatey/">Chocolatey<span>2</span></a></li>
+		
+			<li><a href="/categories/Chromium-Policies/">Chromium Policies<span>2</span></a></li>
+		
+			<li><a href="/categories/Clash-GitHub-Fastgithub-DNS-settings-macOS-Linux-monit-shell-scripts/">Clash, GitHub, Fastgithub, DNS settings, macOS, Linux, monit, shell scripts<span>2</span></a></li>
+		
+			<li><a href="/categories/Clipboard-issue-in-Android-10/">Clipboard issue in Android 10<span>2</span></a></li>
+		
+			<li><a href="/categories/Code-Auditing/">Code Auditing<span>2</span></a></li>
+		
+			<li><a href="/categories/Code-Refactoring/">Code Refactoring<span>2</span></a></li>
+		
+			<li><a href="/categories/Collaborative-Programming/">Collaborative Programming<span>2</span></a></li>
+		
+			<li><a href="/categories/Color-Palette-Extraction/">Color Palette Extraction<span>2</span></a></li>
+		
+			<li><a href="/categories/Colorization/">Colorization<span>1</span></a></li>
+		
+			<li><a href="/categories/Command-line-Tools/">Command-line Tools<span>2</span></a></li>
+		
+			<li><a href="/categories/Community-Detection/">Community Detection<span>2</span></a></li>
+		
+			<li><a href="/categories/Computer-Vision/">Computer Vision<span>6</span></a></li>
+		
+			<li><a href="/categories/Content-Creation/">Content Creation<span>8</span></a></li>
+		
+			<li><a href="/categories/Content-Promotion/">Content Promotion<span>2</span></a></li>
+		
+			<li><a href="/categories/Copying-and-Moving-Files/">Copying and Moving Files<span>2</span></a></li>
+		
+			<li><a href="/categories/Cross-Platform-Apps/">Cross-Platform Apps<span>2</span></a></li>
+		
+			<li><a href="/categories/Cross-Platform-Publishing/">Cross-Platform Publishing<span>2</span></a></li>
+		
+			<li><a href="/categories/Cybergod-Projects/">Cybergod Projects<span>2</span></a></li>
+		
+			<li><a href="/categories/Cybersecurity/">Cybersecurity<span>10</span></a></li>
+		
+			<li><a href="/categories/DNS-proxies/">DNS proxies<span>2</span></a></li>
+		
+			<li><a href="/categories/DWG-to-DXF-conversion/">DWG to DXF conversion<span>2</span></a></li>
+		
+			<li><a href="/categories/Dark-Web/">Dark Web<span>2</span></a></li>
+		
+			<li><a href="/categories/Data-Annotation-Tools/">Data Annotation Tools<span>4</span></a></li>
+		
+			<li><a href="/categories/Data-Backup/">Data Backup<span>4</span></a></li>
+		
+			<li><a href="/categories/Data-Capture/">Data Capture<span>4</span></a></li>
+		
+			<li><a href="/categories/Data-Scraping/">Data Scraping<span>2</span></a></li>
+		
+			<li><a href="/categories/Data-Security/">Data Security<span>2</span></a></li>
+		
+			<li><a href="/categories/Database/">Database<span>2</span></a></li>
+		
+			<li><a href="/categories/Database-Management/">Database Management<span>4</span></a></li>
+		
+			<li><a href="/categories/Deep-Learning/">Deep Learning<span>4</span></a></li>
+		
+			<li><a href="/categories/Digital-Identity/">Digital Identity<span>2</span></a></li>
+		
+			<li><a href="/categories/Digital-Marketing/">Digital Marketing<span>2</span></a></li>
+		
+			<li><a href="/categories/Discord-Channels/">Discord Channels<span>2</span></a></li>
+		
+			<li><a href="/categories/Disk-Management/">Disk Management<span>4</span></a></li>
+		
+			<li><a href="/categories/Docker/">Docker<span>6</span></a></li>
+		
+			<li><a href="/categories/Domain-specific-languages-DSL/">Domain-specific languages (DSL)<span>2</span></a></li>
+		
+			<li><a href="/categories/Drivers-updates/">Drivers updates<span>2</span></a></li>
+		
+			<li><a href="/categories/Dynamic-Classification-Systems/">Dynamic Classification Systems<span>2</span></a></li>
+		
+			<li><a href="/categories/E-book-conversion/">E-book conversion<span>2</span></a></li>
+		
+			<li><a href="/categories/Education/">Education<span>7</span></a></li>
+		
+			<li><a href="/categories/Emotion-Manipulation/">Emotion Manipulation<span>2</span></a></li>
+		
+			<li><a href="/categories/Energy-System-Simulation/">Energy System Simulation<span>2</span></a></li>
+		
+			<li><a href="/categories/Ergonomics/">Ergonomics<span>2</span></a></li>
+		
+			<li><a href="/categories/Error-Resolution/">Error Resolution<span>2</span></a></li>
+		
+			<li><a href="/categories/Evolution/">Evolution<span>2</span></a></li>
+		
+			<li><a href="/categories/Exception-Handling/">Exception Handling<span>2</span></a></li>
+		
+			<li><a href="/categories/Expect-Send/">Expect Send<span>2</span></a></li>
+		
+			<li><a href="/categories/Extensions/">Extensions<span>2</span></a></li>
+		
+			<li><a href="/categories/Facial-Expression-Detection/">Facial Expression Detection<span>2</span></a></li>
+		
+			<li><a href="/categories/Fake-Content-Detection/">Fake Content Detection<span>2</span></a></li>
+		
+			<li><a href="/categories/FastAPI/">FastAPI<span>2</span></a></li>
+		
+			<li><a href="/categories/File-Hosting-Services/">File Hosting Services<span>2</span></a></li>
+		
+			<li><a href="/categories/File-Transfer/">File Transfer<span>3</span></a></li>
+		
+			<li><a href="/categories/Filesystem-Cache/">Filesystem Cache<span>2</span></a></li>
+		
+			<li><a href="/categories/GUI-Programming/">GUI Programming<span>2</span></a></li>
+		
+			<li><a href="/categories/Generative-Adversarial-Networks-GAN/">Generative Adversarial Networks (GAN)<span>2</span></a></li>
+		
+			<li><a href="/categories/Generative-Adversarial-Networks-GANs/">Generative Adversarial Networks (GANs)<span>2</span></a></li>
+		
+			<li><a href="/categories/Geometry/">Geometry<span>2</span></a></li>
+		
+			<li><a href="/categories/GitFS/">GitFS<span>2</span></a></li>
+		
+			<li><a href="/categories/GitHub/">GitHub<span>6</span></a></li>
+		
+			<li><a href="/categories/Graph-Databases/">Graph Databases<span>1</span></a></li>
+		
+			<li><a href="/categories/Hacking/">Hacking<span>6</span></a></li>
+		
+			<li><a href="/categories/Hacking-Tutorials/">Hacking Tutorials<span>2</span></a></li>
+		
+			<li><a href="/categories/Hacking-techniques/">Hacking techniques<span>2</span></a></li>
+		
+			<li><a href="/categories/Health/">Health<span>4</span></a></li>
+		
+			<li><a href="/categories/Home-Appliances/">Home Appliances<span>2</span></a></li>
+		
+			<li><a href="/categories/Hot-Reloading/">Hot Reloading<span>2</span></a></li>
+		
+			<li><a href="/categories/Huggingface/">Huggingface<span>2</span></a></li>
+		
+			<li><a href="/categories/Human-in-the-Loop-AI/">Human-in-the-Loop AI<span>2</span></a></li>
+		
+			<li><a href="/categories/Image-Classification/">Image Classification<span>2</span></a></li>
+		
+			<li><a href="/categories/Image-Generation/">Image Generation<span>2</span></a></li>
+		
+			<li><a href="/categories/Image-Processing/">Image Processing<span>10</span></a></li>
+		
+			<li><a href="/categories/Image-Search-Tools/">Image Search Tools<span>2</span></a></li>
+		
+			<li><a href="/categories/Image-restoration/">Image restoration<span>2</span></a></li>
+		
+			<li><a href="/categories/Information-Management/">Information Management<span>2</span></a></li>
+		
+			<li><a href="/categories/Installation/">Installation<span>4</span></a></li>
+		
+			<li><a href="/categories/Installation-Instructions/">Installation Instructions<span>2</span></a></li>
+		
+			<li><a href="/categories/Interactive-Interfaces/">Interactive Interfaces<span>2</span></a></li>
+		
+			<li><a href="/categories/Interpolation-Techniques/">Interpolation Techniques<span>2</span></a></li>
+		
+			<li><a href="/categories/Interval-set-manipulation/">Interval set manipulation<span>2</span></a></li>
+		
+			<li><a href="/categories/IoT/">IoT<span>2</span></a></li>
+		
+			<li><a href="/categories/JavaScript/">JavaScript<span>4</span></a></li>
+		
+			<li><a href="/categories/Kafka-System-Design/">Kafka System Design<span>2</span></a></li>
+		
+			<li><a href="/categories/Kali-Linux/">Kali Linux<span>4</span></a></li>
+		
+			<li><a href="/categories/Karaoke/">Karaoke<span>2</span></a></li>
+		
+			<li><a href="/categories/Keyboard-Shortcuts/">Keyboard Shortcuts<span>2</span></a></li>
+		
+			<li><a href="/categories/Kotlin-ORM-libraries/">Kotlin ORM libraries<span>2</span></a></li>
+		
+			<li><a href="/categories/Kotlin-Spring-Boot/">Kotlin Spring Boot<span>2</span></a></li>
+		
+			<li><a href="/categories/Library-Management/">Library Management<span>2</span></a></li>
+		
+			<li><a href="/categories/Linux/">Linux<span>12</span></a></li>
+		
+			<li><a href="/categories/Live-Streaming/">Live Streaming<span>4</span></a></li>
+		
+			<li><a href="/categories/Live-broadcasting/">Live broadcasting<span>2</span></a></li>
+		
+			<li><a href="/categories/Logo-Finders/">Logo Finders<span>2</span></a></li>
+		
+			<li><a href="/categories/Lua-Python-Bridge/">Lua Python Bridge<span>2</span></a></li>
+		
+			<li><a href="/categories/MIDI-Conversion-Tools/">MIDI Conversion Tools<span>2</span></a></li>
+		
+			<li><a href="/categories/Machine-Learning/">Machine Learning<span>16</span></a></li>
+		
+			<li><a href="/categories/Man-in-the-middle-proxy/">Man-in-the-middle proxy<span>2</span></a></li>
+		
+			<li><a href="/categories/Manga/">Manga<span>4</span></a></li>
+		
+			<li><a href="/categories/Markdown-to-PDF-Conversion/">Markdown to PDF Conversion<span>2</span></a></li>
+		
+			<li><a href="/categories/Mass-Email-SMS-Tools/">Mass Email/SMS Tools<span>2</span></a></li>
+		
+			<li><a href="/categories/Mathematica/">Mathematica<span>2</span></a></li>
+		
+			<li><a href="/categories/Mathematica-software/">Mathematica software<span>2</span></a></li>
+		
+			<li><a href="/categories/Mathematics/">Mathematics<span>4</span></a></li>
+		
+			<li><a href="/categories/Media-Filtering/">Media Filtering<span>2</span></a></li>
+		
+			<li><a href="/categories/Media-repurposing-tools/">Media repurposing tools<span>2</span></a></li>
+		
+			<li><a href="/categories/Memory-Errors/">Memory Errors<span>1</span></a></li>
+		
+			<li><a href="/categories/Meta-Search-Engines/">Meta Search Engines<span>2</span></a></li>
+		
+			<li><a href="/categories/Metasploit-Python-scripting/">Metasploit Python scripting<span>2</span></a></li>
+		
+			<li><a href="/categories/Mini-ITX-Computers/">Mini-ITX Computers<span>2</span></a></li>
+		
+			<li><a href="/categories/Mitmproxy-tool/">Mitmproxy tool<span>2</span></a></li>
+		
+			<li><a href="/categories/Mobile/">Mobile<span>1</span></a></li>
+		
+			<li><a href="/categories/Mobile-App-Development/">Mobile App Development<span>2</span></a></li>
+		
+			<li><a href="/categories/Mobile-Phones/">Mobile Phones<span>2</span></a></li>
+		
+			<li><a href="/categories/Model-Optimization/">Model Optimization<span>2</span></a></li>
+		
+			<li><a href="/categories/Model-Uploading/">Model Uploading<span>2</span></a></li>
+		
+			<li><a href="/categories/Model-zoos/">Model zoos<span>2</span></a></li>
+		
+			<li><a href="/categories/Molecular-dynamics-simulations/">Molecular dynamics simulations<span>2</span></a></li>
+		
+			<li><a href="/categories/Movies/">Movies<span>2</span></a></li>
+		
+			<li><a href="/categories/Music/">Music<span>2</span></a></li>
+		
+			<li><a href="/categories/Music-Discovery/">Music Discovery<span>2</span></a></li>
+		
+			<li><a href="/categories/Music-Generation/">Music Generation<span>2</span></a></li>
+		
+			<li><a href="/categories/Music-Platforms/">Music Platforms<span>2</span></a></li>
+		
+			<li><a href="/categories/Music-Production/">Music Production<span>2</span></a></li>
+		
+			<li><a href="/categories/NAS/">NAS<span>2</span></a></li>
+		
+			<li><a href="/categories/NLP-Frameworks/">NLP Frameworks<span>2</span></a></li>
+		
+			<li><a href="/categories/NLP-Tools/">NLP Tools<span>2</span></a></li>
+		
+			<li><a href="/categories/NTFS-Recovery-Tools/">NTFS Recovery Tools<span>2</span></a></li>
+		
+			<li><a href="/categories/NVIDIA-drivers/">NVIDIA drivers<span>2</span></a></li>
+		
+			<li><a href="/categories/Natural-Language-Generation/">Natural Language Generation<span>2</span></a></li>
+		
+			<li><a href="/categories/Natural-Language-Processing/">Natural Language Processing<span>12</span></a></li>
+		
+			<li><a href="/categories/Neo4j/">Neo4j<span>2</span></a></li>
+		
+			<li><a href="/categories/Neo4j-Cypher-Cheatsheet/">Neo4j Cypher Cheatsheet<span>2</span></a></li>
+		
+			<li><a href="/categories/Neo4j-Graph-Data-Science/">Neo4j Graph Data Science<span>2</span></a></li>
+		
+			<li><a href="/categories/Network-Switching/">Network Switching<span>2</span></a></li>
+		
+			<li><a href="/categories/Network-communication/">Network communication<span>2</span></a></li>
+		
+			<li><a href="/categories/Networking/">Networking<span>8</span></a></li>
+		
+			<li><a href="/categories/Neural-Search-Engines/">Neural Search Engines<span>2</span></a></li>
+		
+			<li><a href="/categories/NeuralDiff/">NeuralDiff<span>2</span></a></li>
+		
+			<li><a href="/categories/Note-Syncing/">Note Syncing<span>2</span></a></li>
+		
+			<li><a href="/categories/Notes-and-Scripts-Backup/">Notes and Scripts Backup<span>2</span></a></li>
+		
+			<li><a href="/categories/Numpy/">Numpy<span>2</span></a></li>
+		
+			<li><a href="/categories/OCR-Techniques/">OCR Techniques<span>2</span></a></li>
+		
+			<li><a href="/categories/OCR-Tools/">OCR Tools<span>2</span></a></li>
+		
+			<li><a href="/categories/Online-Movies/">Online Movies<span>2</span></a></li>
+		
+			<li><a href="/categories/Online-Security-and-Privacy/">Online Security and Privacy<span>2</span></a></li>
+		
+			<li><a href="/categories/Online-Shopping/">Online Shopping<span>1</span></a></li>
+		
+			<li><a href="/categories/Online-Tools/">Online Tools<span>2</span></a></li>
+		
+			<li><a href="/categories/Online-security-and-privacy/">Online security and privacy<span>2</span></a></li>
+		
+			<li><a href="/categories/Open-source-Android-Automation/">Open-source Android Automation<span>2</span></a></li>
+		
+			<li><a href="/categories/Open-source-Chinese-Fonts/">Open-source Chinese Fonts<span>2</span></a></li>
+		
+			<li><a href="/categories/Open-source-Software/">Open-source Software<span>2</span></a></li>
+		
+			<li><a href="/categories/OpenCV/">OpenCV<span>2</span></a></li>
+		
+			<li><a href="/categories/Opqbot/">Opqbot<span>2</span></a></li>
+		
+			<li><a href="/categories/Optical-Flow-Techniques/">Optical Flow Techniques<span>2</span></a></li>
+		
+			<li><a href="/categories/Optimization-Techniques/">Optimization Techniques<span>2</span></a></li>
+		
+			<li><a href="/categories/Package-Management/">Package Management<span>4</span></a></li>
+		
+			<li><a href="/categories/Package-Managers/">Package Managers<span>2</span></a></li>
+		
+			<li><a href="/categories/Paraphrasing/">Paraphrasing<span>2</span></a></li>
+		
+			<li><a href="/categories/Password-Reset/">Password Reset<span>2</span></a></li>
+		
+			<li><a href="/categories/Payment-Systems/">Payment Systems<span>2</span></a></li>
+		
+			<li><a href="/categories/Platform-Tutorials/">Platform Tutorials<span>2</span></a></li>
+		
+			<li><a href="/categories/Playwright/">Playwright<span>2</span></a></li>
+		
+			<li><a href="/categories/Politics-and-Capitalism/">Politics and Capitalism<span>2</span></a></li>
+		
+			<li><a href="/categories/Probabilistic-Programming/">Probabilistic Programming<span>4</span></a></li>
+		
+			<li><a href="/categories/Process-Management/">Process Management<span>2</span></a></li>
+		
+			<li><a href="/categories/Process-Monitoring/">Process Monitoring<span>2</span></a></li>
+		
+			<li><a href="/categories/Producer-flags/">Producer flags<span>2</span></a></li>
+		
+			<li><a href="/categories/Product-Issues/">Product Issues<span>2</span></a></li>
+		
+			<li><a href="/categories/Programming/">Programming<span>4</span></a></li>
+		
+			<li><a href="/categories/Programming-Humor/">Programming Humor<span>2</span></a></li>
+		
+			<li><a href="/categories/Programming-Languages/">Programming Languages<span>8</span></a></li>
+		
+			<li><a href="/categories/Project-Planning/">Project Planning<span>2</span></a></li>
+		
+			<li><a href="/categories/Propagation-Science/">Propagation Science<span>2</span></a></li>
+		
+			<li><a href="/categories/Proxies/">Proxies<span>2</span></a></li>
+		
+			<li><a href="/categories/PyTorch/">PyTorch<span>3</span></a></li>
+		
+			<li><a href="/categories/Python/">Python<span>8</span></a></li>
+		
+			<li><a href="/categories/Python-Libraries/">Python Libraries<span>4</span></a></li>
+		
+			<li><a href="/categories/Python-Performance/">Python Performance<span>2</span></a></li>
+		
+			<li><a href="/categories/Python-Programming/">Python Programming<span>6</span></a></li>
+		
+			<li><a href="/categories/Python-Testing/">Python Testing<span>2</span></a></li>
+		
+			<li><a href="/categories/Python-Tools/">Python Tools<span>2</span></a></li>
+		
+			<li><a href="/categories/Python-programming/">Python programming<span>14</span></a></li>
+		
+			<li><a href="/categories/QQ-password/">QQ password<span>1</span></a></li>
+		
+			<li><a href="/categories/Quantitative-Trading-Platforms/">Quantitative Trading Platforms<span>2</span></a></li>
+		
+			<li><a href="/categories/Quantum-Computing/">Quantum Computing<span>2</span></a></li>
+		
+			<li><a href="/categories/RAM-Disk/">RAM Disk<span>2</span></a></li>
+		
+			<li><a href="/categories/RSS-Feeds-and-Aggregators/">RSS Feeds and Aggregators<span>2</span></a></li>
+		
+			<li><a href="/categories/RWKV-Language-Models/">RWKV Language Models<span>2</span></a></li>
+		
+			<li><a href="/categories/Radar-systems/">Radar systems<span>2</span></a></li>
+		
+			<li><a href="/categories/Random-Number-Generation/">Random Number Generation<span>2</span></a></li>
+		
+			<li><a href="/categories/Recaptcha-Solving-Solutions/">Recaptcha Solving Solutions<span>2</span></a></li>
+		
+			<li><a href="/categories/Recommendation-Algorithms/">Recommendation Algorithms<span>2</span></a></li>
+		
+			<li><a href="/categories/Recovery-USB/">Recovery USB<span>2</span></a></li>
+		
+			<li><a href="/categories/Rectangularization-Methods/">Rectangularization Methods<span>2</span></a></li>
+		
+			<li><a href="/categories/Redis/">Redis<span>2</span></a></li>
+		
+			<li><a href="/categories/Redis-py-library/">Redis-py library<span>2</span></a></li>
+		
+			<li><a href="/categories/Reinforcement-Learning/">Reinforcement Learning<span>4</span></a></li>
+		
+			<li><a href="/categories/Remote-Connection/">Remote Connection<span>2</span></a></li>
+		
+			<li><a href="/categories/Remote-Jobs/">Remote Jobs<span>2</span></a></li>
+		
+			<li><a href="/categories/Remote-Procedure-Call-Technologies/">Remote Procedure Call Technologies<span>2</span></a></li>
+		
+			<li><a href="/categories/Retry-Libraries/">Retry Libraries<span>2</span></a></li>
+		
+			<li><a href="/categories/Reverse-Engineering/">Reverse Engineering<span>4</span></a></li>
+		
+			<li><a href="/categories/Robotics/">Robotics<span>2</span></a></li>
+		
+			<li><a href="/categories/Royalty-free-video-sources/">Royalty-free video sources<span>2</span></a></li>
+		
+			<li><a href="/categories/SEO/">SEO<span>2</span></a></li>
+		
+			<li><a href="/categories/SQL-Injection-Attacks/">SQL Injection Attacks<span>2</span></a></li>
+		
+			<li><a href="/categories/SQLite-ORM/">SQLite ORM<span>2</span></a></li>
+		
+			<li><a href="/categories/SSH-keys/">SSH keys<span>2</span></a></li>
+		
+			<li><a href="/categories/Scraping/">Scraping<span>2</span></a></li>
+		
+			<li><a href="/categories/Search-Engine-Optimization/">Search Engine Optimization<span>2</span></a></li>
+		
+			<li><a href="/categories/Search-Engines/">Search Engines<span>6</span></a></li>
+		
+			<li><a href="/categories/Search-Methods/">Search Methods<span>2</span></a></li>
+		
+			<li><a href="/categories/Security/">Security<span>16</span></a></li>
+		
+			<li><a href="/categories/Security-Tools/">Security Tools<span>2</span></a></li>
+		
+			<li><a href="/categories/Semantic-Search/">Semantic Search<span>2</span></a></li>
+		
+			<li><a href="/categories/Session-Management/">Session Management<span>2</span></a></li>
+		
+			<li><a href="/categories/Short-URL-generators/">Short URL generators<span>2</span></a></li>
+		
+			<li><a href="/categories/Sketch-based-Applications/">Sketch-based Applications<span>2</span></a></li>
+		
+			<li><a href="/categories/Skin-Products-and-Diet/">Skin Products and Diet<span>2</span></a></li>
+		
+			<li><a href="/categories/Sleep/">Sleep<span>2</span></a></li>
+		
+			<li><a href="/categories/Smartwatches/">Smartwatches<span>4</span></a></li>
+		
+			<li><a href="/categories/Social-Media/">Social Media<span>2</span></a></li>
+		
+			<li><a href="/categories/Social-Media-Transformation/">Social Media Transformation<span>2</span></a></li>
+		
+			<li><a href="/categories/Software/">Software<span>4</span></a></li>
+		
+			<li><a href="/categories/Software-Security/">Software Security<span>2</span></a></li>
+		
+			<li><a href="/categories/Software-Testing-Efficiency-Metrics/">Software Testing Efficiency Metrics<span>2</span></a></li>
+		
+			<li><a href="/categories/Software-Tools/">Software Tools<span>2</span></a></li>
+		
+			<li><a href="/categories/Software-Troubleshooting/">Software Troubleshooting<span>6</span></a></li>
+		
+			<li><a href="/categories/Software-activation/">Software activation<span>2</span></a></li>
+		
+			<li><a href="/categories/Software-as-a-Service-SaaS/">Software as a Service (SaaS)<span>2</span></a></li>
+		
+			<li><a href="/categories/Software-troubleshooting/">Software troubleshooting<span>2</span></a></li>
+		
+			<li><a href="/categories/Sound-Effects/">Sound Effects<span>2</span></a></li>
+		
+			<li><a href="/categories/Speaker-Detection/">Speaker Detection<span>2</span></a></li>
+		
+			<li><a href="/categories/Speech-to-Text-Conversion/">Speech-to-Text Conversion<span>2</span></a></li>
+		
+			<li><a href="/categories/Stock-Data/">Stock Data<span>2</span></a></li>
+		
+			<li><a href="/categories/Stock-Market-Analysis/">Stock Market Analysis<span>2</span></a></li>
+		
+			<li><a href="/categories/Stock-Selection/">Stock Selection<span>2</span></a></li>
+		
+			<li><a href="/categories/Story-Dalle/">Story-Dalle<span>2</span></a></li>
+		
+			<li><a href="/categories/Synchronization/">Synchronization<span>2</span></a></li>
+		
+			<li><a href="/categories/System-Administration/">System Administration<span>2</span></a></li>
+		
+			<li><a href="/categories/System-Monitoring/">System Monitoring<span>2</span></a></li>
+		
+			<li><a href="/categories/Tab-Management/">Tab Management<span>2</span></a></li>
+		
+			<li><a href="/categories/Technology/">Technology<span>4</span></a></li>
+		
+			<li><a href="/categories/Technology-and-Innovation/">Technology and Innovation<span>2</span></a></li>
+		
+			<li><a href="/categories/Telegram-Bots/">Telegram Bots<span>1</span></a></li>
+		
+			<li><a href="/categories/Temperature-Management/">Temperature Management<span>2</span></a></li>
+		
+			<li><a href="/categories/TensorFlow-js/">TensorFlow.js<span>2</span></a></li>
+		
+			<li><a href="/categories/Tensorly-and-Torch-based-Liquid-State-Machine-for-Efficient-Data-Processing-of-Complex-Datasets-like-Brain-Neurons/">Tensorly and Torch-based Liquid State Machine for Efficient Data Processing of Complex Datasets like Brain Neurons<span>2</span></a></li>
+		
+			<li><a href="/categories/Terminal-autocomplete/">Terminal autocomplete<span>2</span></a></li>
+		
+			<li><a href="/categories/Termux/">Termux<span>6</span></a></li>
+		
+			<li><a href="/categories/Text-Editors/">Text Editors<span>2</span></a></li>
+		
+			<li><a href="/categories/Text-to-Speech/">Text to Speech<span>2</span></a></li>
+		
+			<li><a href="/categories/Text-to-Video-Projects/">Text-to-Video Projects<span>2</span></a></li>
+		
+			<li><a href="/categories/Throat-Care/">Throat Care<span>2</span></a></li>
+		
+			<li><a href="/categories/Time-Series-Analysis/">Time Series Analysis<span>2</span></a></li>
+		
+			<li><a href="/categories/Torrent-Search-Engines/">Torrent Search Engines<span>2</span></a></li>
+		
+			<li><a href="/categories/Training-Large-Language-Models/">Training Large Language Models<span>2</span></a></li>
+		
+			<li><a href="/categories/Trash-Management/">Trash Management<span>2</span></a></li>
+		
+			<li><a href="/categories/Troubleshooting/">Troubleshooting<span>16</span></a></li>
+		
+			<li><a href="/categories/Tutorial/">Tutorial<span>2</span></a></li>
+		
+			<li><a href="/categories/Unblocked-content/">Unblocked content<span>2</span></a></li>
+		
+			<li><a href="/categories/Unlocking-Bootloader/">Unlocking Bootloader<span>2</span></a></li>
+		
+			<li><a href="/categories/Video-Analysis/">Video Analysis<span>2</span></a></li>
+		
+			<li><a href="/categories/Video-Compression/">Video Compression<span>2</span></a></li>
+		
+			<li><a href="/categories/Video-Creation-Methods/">Video Creation Methods<span>2</span></a></li>
+		
+			<li><a href="/categories/Video-Downloaders/">Video Downloaders<span>4</span></a></li>
+		
+			<li><a href="/categories/Video-Downloading-Tools/">Video Downloading Tools<span>4</span></a></li>
+		
+			<li><a href="/categories/Video-Editing/">Video Editing<span>10</span></a></li>
+		
+			<li><a href="/categories/Video-Editing-Software/">Video Editing Software<span>4</span></a></li>
+		
+			<li><a href="/categories/Video-Editing-Tools/">Video Editing Tools<span>2</span></a></li>
+		
+			<li><a href="/categories/Video-Enhancement/">Video Enhancement<span>2</span></a></li>
+		
+			<li><a href="/categories/Video-Manipulation/">Video Manipulation<span>2</span></a></li>
+		
+			<li><a href="/categories/Video-Object-Tracking/">Video Object Tracking<span>2</span></a></li>
+		
+			<li><a href="/categories/Video-Processing/">Video Processing<span>8</span></a></li>
+		
+			<li><a href="/categories/Video-Production/">Video Production<span>2</span></a></li>
+		
+			<li><a href="/categories/Video-Quality-Assessment/">Video Quality Assessment<span>2</span></a></li>
+		
+			<li><a href="/categories/Video-Search/">Video Search<span>2</span></a></li>
+		
+			<li><a href="/categories/Video-Sharing-Platforms/">Video Sharing Platforms<span>2</span></a></li>
+		
+			<li><a href="/categories/Video-and-Audio-Processing/">Video and Audio Processing<span>2</span></a></li>
+		
+			<li><a href="/categories/Virtual-Environments/">Virtual Environments<span>2</span></a></li>
+		
+			<li><a href="/categories/Virtual-Reality/">Virtual Reality<span>1</span></a></li>
+		
+			<li><a href="/categories/Virtualization/">Virtualization<span>2</span></a></li>
+		
+			<li><a href="/categories/Visual-Studio-Code/">Visual Studio Code<span>2</span></a></li>
+		
+			<li><a href="/categories/Volume-Management/">Volume Management<span>2</span></a></li>
+		
+			<li><a href="/categories/Water-Cooling-Systems/">Water Cooling Systems<span>2</span></a></li>
+		
+			<li><a href="/categories/Wearable-Devices/">Wearable Devices<span>2</span></a></li>
+		
+			<li><a href="/categories/Web-Application-Security/">Web Application Security<span>6</span></a></li>
+		
+			<li><a href="/categories/Web-Applications/">Web Applications<span>4</span></a></li>
+		
+			<li><a href="/categories/Web-Customization/">Web Customization<span>2</span></a></li>
+		
+			<li><a href="/categories/Web-Development/">Web Development<span>4</span></a></li>
+		
+			<li><a href="/categories/Web-Scraping/">Web Scraping<span>14</span></a></li>
+		
+			<li><a href="/categories/Webhooks/">Webhooks<span>2</span></a></li>
+		
+			<li><a href="/categories/Webpage-Rendering/">Webpage Rendering<span>2</span></a></li>
+		
+			<li><a href="/categories/Website-Resources/">Website Resources<span>2</span></a></li>
+		
+			<li><a href="/categories/Wi-Fi-Troubleshooting/">Wi-Fi Troubleshooting<span>2</span></a></li>
+		
+			<li><a href="/categories/WiFi/">WiFi<span>1</span></a></li>
+		
+			<li><a href="/categories/Window-Management/">Window Management<span>4</span></a></li>
+		
+			<li><a href="/categories/Windows/">Windows<span>2</span></a></li>
+		
+			<li><a href="/categories/Windows-10-Performance/">Windows 10 Performance<span>2</span></a></li>
+		
+			<li><a href="/categories/Yoga/">Yoga<span>2</span></a></li>
+		
+			<li><a href="/categories/YouTube-Monetization/">YouTube Monetization<span>2</span></a></li>
+		
+			<li><a href="/categories/Zhihu/">Zhihu<span>2</span></a></li>
+		
+			<li><a href="/categories/anti-censorship/">anti-censorship<span>2</span></a></li>
+		
+			<li><a href="/categories/bilibili/">bilibili<span>2</span></a></li>
+		
+			<li><a href="/categories/book-scanning/">book scanning<span>2</span></a></li>
+		
+			<li><a href="/categories/brainwave-translation/">brainwave translation<span>2</span></a></li>
+		
+			<li><a href="/categories/copyright/">copyright<span>2</span></a></li>
+		
+			<li><a href="/categories/ctf-competitions/">ctf competitions<span>2</span></a></li>
+		
+			<li><a href="/categories/data-security/">data security<span>2</span></a></li>
+		
+			<li><a href="/categories/deobfustication/">deobfustication<span>2</span></a></li>
+		
+			<li><a href="/categories/filename-issues/">filename issues<span>2</span></a></li>
+		
+			<li><a href="/categories/fire-prevention/">fire_prevention<span>2</span></a></li>
+		
+			<li><a href="/categories/gaming/">gaming<span>2</span></a></li>
+		
+			<li><a href="/categories/hacking/">hacking<span>2</span></a></li>
+		
+			<li><a href="/categories/hardware-simulator/">hardware_simulator<span>2</span></a></li>
+		
+			<li><a href="/categories/iOS-device-control/">iOS device control<span>2</span></a></li>
+		
+			<li><a href="/categories/javascript/">javascript<span>2</span></a></li>
+		
+			<li><a href="/categories/macOS/">macOS<span>2</span></a></li>
+		
+			<li><a href="/categories/noise-generation/">noise_generation<span>2</span></a></li>
+		
+			<li><a href="/categories/npm/">npm<span>2</span></a></li>
+		
+			<li><a href="/categories/package-managers/">package_managers<span>2</span></a></li>
+		
+			<li><a href="/categories/podcasts/">podcasts<span>2</span></a></li>
+		
+			<li><a href="/categories/pwntools/">pwntools<span>2</span></a></li>
+		
+			<li><a href="/categories/search-engines/">search_engines<span>2</span></a></li>
+		
+			<li><a href="/categories/seo-tools/">seo_tools<span>2</span></a></li>
+		
+			<li><a href="/categories/strategies-for-defeating-deduplicate-algorithms/">strategies for defeating deduplicate algorithms<span>2</span></a></li>
+		
+			<li><a href="/categories/systemd/">systemd<span>2</span></a></li>
+		
+			<li><a href="/categories/text-mining/">text-mining<span>2</span></a></li>
+		
+			<li><a href="/categories/video-sites/">video_sites<span>2</span></a></li>
+		
+			<li><a href="/categories/viral-strategies/">viral_strategies<span>2</span></a></li>
+		
+			<li><a href="/categories/vulnerability-discovery/">vulnerability_discovery<span>1</span></a></li>
+		
+		</ul>
+	</div>
+
+		
+			
+	<div class="widget">
+		<h4>Tag Cloud</h4>
+		<ul class="tag_box inline list-unstyled">		
+		
+			<li><a href="/tags/Redditube/">Redditube<span>2</span></a></li>
+		
+			<li><a href="/tags/conversation/">conversation<span>8</span></a></li>
+		
+			<li><a href="/tags/sentence-transformers/">sentence_transformers<span>2</span></a></li>
+		
+			<li><a href="/tags/image-recognization/">image recognization<span>2</span></a></li>
+		
+			<li><a href="/tags/Software-Tools/">Software Tools<span>2</span></a></li>
+		
+			<li><a href="/tags/tiktok/">tiktok<span>4</span></a></li>
+		
+			<li><a href="/tags/vst/">vst<span>2</span></a></li>
+		
+			<li><a href="/tags/Protobuf/">Protobuf<span>2</span></a></li>
+		
+			<li><a href="/tags/avoiding-duplicate-processes/">avoiding duplicate processes<span>2</span></a></li>
+		
+			<li><a href="/tags/trend-analysis/">trend analysis<span>2</span></a></li>
+		
+			<li><a href="/tags/Beta-Binomial-likelihoods/">Beta-Binomial likelihoods<span>2</span></a></li>
+		
+			<li><a href="/tags/OpenCV/">OpenCV<span>6</span></a></li>
+		
+			<li><a href="/tags/Multimedia/">Multimedia<span>2</span></a></li>
+		
+			<li><a href="/tags/RL/">RL<span>4</span></a></li>
+		
+			<li><a href="/tags/differential-equations/">differential equations<span>2</span></a></li>
+		
+			<li><a href="/tags/VST/">VST<span>2</span></a></li>
+		
+			<li><a href="/tags/waterproof/">waterproof<span>2</span></a></li>
+		
+			<li><a href="/tags/useful-resources/">useful resources<span>2</span></a></li>
+		
+			<li><a href="/tags/IdA-Pro/">IdA Pro<span>2</span></a></li>
+		
+			<li><a href="/tags/Rclone/">Rclone<span>2</span></a></li>
+		
+		
+		   <li><a href="/tags">...<span>2367</span></a></li>
+		 
+		</ul>
+	</div>
+
+
+		
+			
+<div class="widget">
+  <h4>Recent Posts</h4>
+  <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2023/12/26/32219f38-dc6e-4219-8626-6f68d7f08772/"  title="A compilation of various projects related to Cybergod, which are clones from different GitHub repositories such as Q-Star, QStarLearning, open_qstar, Video-Pre-Training, SingularGPT, GPT-4V-Act, gpt-eyes, self-operating-computer, gpt4v-browsing, CogVLM, and AppAgent. These projects aim to develop various tools and models for diverse purposes within the Cybergod framework." ><i class="fa fa-file-o"></i>cybergod related projects</a>
+      </li>
+    
+      <li>
+        <a href="/2023/12/26/94043d9a-08e0-43ba-8c58-876d65a7f546/"  title="A compilation of various projects related to Cybergod, which are clones from different GitHub repositories such as Q-Star, QStarLearning, open_qstar, Video-Pre-Training, SingularGPT, GPT-4V-Act, gpt-eyes, self-operating-computer, gpt4v-browsing, CogVLM, and AppAgent. These projects aim to develop various tools and models for diverse purposes within the Cybergod framework." ><i class="fa fa-file-o"></i>cybergod related projects</a>
+      </li>
+    
+      <li>
+        <a href="/2023/12/22/001f5273-9edf-4108-8139-8035186da6ba/"  title="This text delves into the process of (de)obfustication, which encompasses techniques such as adding or removing redundant code and employing packers like Themida, Code Virtualizer, VMProtect, and ExeCryptor. The article furnishes details on a PDF and GitHub topics addressing protectors and junk code generators, along with a guide on utilizing IdA Pro for removing unnecessary code." ><i class="fa fa-file-o"></i>(de)obfustication, junk cod...</a>
+      </li>
+    
+      <li>
+        <a href="/2023/12/22/002a30c9-b48c-4035-8369-cf5265f8344a/"  title="RSIBreak is a smartwatch app designed to prevent RSI injuries. It is compatible with WearOS and Apple alternatives, offering customization options such as 3D printed cases from Shapeways or DIY solutions on macOS. Additionally, alternatives like BreakTimer are available for various platforms." ><i class="fa fa-file-o"></i>RSIBreak, Break Reminder</a>
+      </li>
+    
+      <li>
+        <a href="/2023/12/22/002dd458-e9b8-4128-abe7-7b11ec870fc7/"  title="The article discusses an open API for generating cat-themed content through the website &#39;cataas.com&#39;. This platform offers a range of options to create and personalize images featuring cats, making it an entertaining and engaging service." ><i class="fa fa-file-o"></i>开放api 信息来源</a>
+      </li>
+    
+  </ul>
+</div>
+
+		
+			
+<div class="widget">
+	<h4>Links</h4>
+	<ul class="blogroll list-unstyled">
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/agi_computer_control/" title="Autonomous computer agent" target="_blank"]);">Project Cybergod</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/pyjom/" title="Media content automation" target="_blank"]);">Project Pyjom</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/prometheous/" title="Automated documentation, AI+IR(RAG)" target="_blank"]);">Project Prometheus</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/pyjom/" title="Media Content Automation" target="_blank"]);">Project Pyjom</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/my_blog_source/" title="Source code of my blog"" target="_blank"]);">Blog Source Code</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="http://www.github.com/james4ever0" title="My Github account" target="_blank"]);">My Github</a></li>
+	
+	</ul>
+</div>
+
+
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+</body>
+</html>

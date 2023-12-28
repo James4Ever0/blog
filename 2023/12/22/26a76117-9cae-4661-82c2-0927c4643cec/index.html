@@ -1,0 +1,363 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Waydroid installation steps | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="This article provides step-by-step instructions for installing Waydroid on Ubuntu and offers troubleshooting tips for network issues. It explains how to enable firewalld or ufw to resolve connectivity problems, while also clarifying the difference between the wifi switch and its effect on connectivity.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Waydroid installation steps"/>
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+    <script src="/js/marked.js"></script>
+    <script src="/js/comment.js"></script>
+    <script src="/js/timeago.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+	<script src="/js/spin.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> Waydroid installation steps</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>This article provides step-by-step instructions for installing Waydroid on Ubuntu and offers troubleshooting tips for network issues. It explains how to enable firewalld or ufw to resolve connectivity problems, while also clarifying the difference between the wifi switch and its effect on connectivity.</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <h1 id="Waydroid-installation-steps"><a href="#Waydroid-installation-steps" class="headerlink" title="Waydroid installation steps"></a>Waydroid installation steps</h1><p>cursed by the wall.</p>
+<h2 id="install-waydroid-package-for-ubuntu"><a href="#install-waydroid-package-for-ubuntu" class="headerlink" title="install waydroid package (for ubuntu)"></a>install waydroid package (for ubuntu)</h2><p>visit and save <code>https://repo.waydro.id/</code> as <code>waydroid_init_repo.sh</code>, <code>https://repo.waydro.id/waydroid.gpg</code> as <code>waydroid.gpg</code> (using proxy)</p>
+<p>comment out the download part in <code>waydroid_init_repo.sh</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># curl --progress-bar --proto &#x27;=https&#x27; --tlsv1.2 -Sf https://repo.waydro.id/waydroid.gpg --output /usr/share/keyrings/waydroid.gpg</span></span><br></pre></td></tr></table></figure>
+
+<p>move <code>waydroid.gpg</code> to <code>/usr/share/keyrings/waydroid.gpg</code></p>
+<p>execute <code>sudo bash waydroid_init_repo.sh</code> to setup waydroid repository</p>
+<p>on ubuntu you need to use proxy during apt mirror syncing.</p>
+<p>to setup proxy (relay local proxy to host):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">proxy --port &lt;port&gt; --host &lt;host&gt; \</span><br><span class="line">      --plugins proxy.plugin.ProxyPoolPlugin \</span><br><span class="line">      --proxy-pool localhost:&lt;local_proxy_port&gt;</span><br></pre></td></tr></table></figure>
+
+<p>to use proxy:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">env</span> https_proxy=http://&lt;host&gt;:&lt;port&gt; http_proxy=http://&lt;host&gt;:&lt;port&gt; all_proxy=http://&lt;host&gt;:&lt;port&gt; apt update</span><br><span class="line"></span><br><span class="line">sudo <span class="built_in">env</span> https_proxy=http://&lt;host&gt;:&lt;port&gt; http_proxy=http://&lt;host&gt;:&lt;port&gt; all_proxy=http://&lt;host&gt;:&lt;port&gt; apt install waydroid -y</span><br></pre></td></tr></table></figure>
+
+<p>after installation you should comment out the mirror at: <code>/etc/apt/sources.list.d/waydroid.list</code></p>
+<h2 id="initialize-waydroid"><a href="#initialize-waydroid" class="headerlink" title="initialize waydroid"></a>initialize waydroid</h2><p>start waydroid service: <code>sudo systemctl enable --now waydroid-container</code></p>
+<p>the download speed of sourceforge is very slow, unless you use mirror like <code>liquidtelecom</code></p>
+<p>modify the file <code>/usr/lib/waydroid/tools/helpers/http.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="comment">## added part</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">is_sourceforge_download_url</span>(<span class="params">url: <span class="built_in">str</span></span>):</span><br><span class="line">    keywords = [<span class="string">&quot;sourceforge.net&quot;</span>, <span class="string">&quot;download&quot;</span>]</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">all</span>([kw <span class="keyword">in</span> url <span class="keyword">for</span> kw <span class="keyword">in</span> keywords])</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">use_liquidtelecom_mirror</span>(<span class="params">url: <span class="built_in">str</span></span>):</span><br><span class="line">    <span class="comment"># example: https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_x86_64/lineage-18.1-20231216-VANILLA-waydroid_x86_64-system.zip/download</span></span><br><span class="line">    <span class="comment">#      -&gt;  https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_x86_64/lineage-18.1-20231216-VANILLA-waydroid_x86_64-system.zip/download?use_mirror=liquidtelecom</span></span><br><span class="line">    keyword = <span class="string">&quot;use_mirror=liquidtelecom&quot;</span></span><br><span class="line">    <span class="keyword">if</span> is_sourceforge_download_url(url):</span><br><span class="line">        <span class="keyword">if</span> keyword <span class="keyword">not</span> <span class="keyword">in</span> url:</span><br><span class="line">            conn_symbol = <span class="string">&quot;?&quot;</span> <span class="keyword">if</span> <span class="string">&quot;?&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> url <span class="keyword">else</span> <span class="string">&quot;&amp;&quot;</span></span><br><span class="line">            url += conn_symbol + keyword</span><br><span class="line">    <span class="keyword">return</span> url</span><br><span class="line"></span><br><span class="line"><span class="comment">## modified part</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">download</span>(<span class="params">args, url, prefix, cache=<span class="literal">True</span>, loglevel=logging.INFO, allow_404=<span class="literal">False</span></span>):</span><br><span class="line">    ...</span><br><span class="line">    url = use_liquidtelecom_mirror(url)</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>restart service: <code>sudo systemctl restart waydroid-container</code></p>
+<p>run command <code>sudo waydroid init</code></p>
+<h2 id="run-waydroid-in-xorg"><a href="#run-waydroid-in-xorg" class="headerlink" title="run waydroid in xorg"></a>run waydroid in xorg</h2><p>install weston: <code>apt install weston</code></p>
+<p>configure weston at <code>~/.config/weston.ini</code></p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[core]</span></span><br><span class="line"><span class="attr">xwayland</span>=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>run <code>weston</code>, launch terminal at top left corner, run <code>waydroid</code></p>
+<h2 id="network-issue"><a href="#network-issue" class="headerlink" title="network issue"></a>network issue</h2><p>in addition to the <a target="_blank" rel="noopener" href="https://docs.waydro.id/debugging/networking-issues">official guide</a>, you also need to <a target="_blank" rel="noopener" href="https://github.com/waydroid/waydroid/issues/656#issuecomment-1422650240">enable</a> <code>firewalld</code> or <code>ufw</code> to make it work.</p>
+<p>the wifi switch is irrelevant to network. it won’t be turned on.</p>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/2023/12/22/26a15cb5-2efd-447d-b331-8f24dff1a849/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/2023/12/22/26cb109f-bc27-4499-b54f-a74f3ea429fb/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+    	 
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+           type: "github" ? "github" : "github",       
+	       user: "james4ever0",
+	       repo: "my_blog",
+		   client_id: "",
+           client_secret: "",
+		   no_comment: "No comments yet. Press the button and go to comment now!",
+		   go_to_comment: "Go to comment",
+		   no_issue: "no_issue",
+		   issue_title: "Waydroid installation steps",
+		   issue_id: "",
+		   btn_class: "btn btn-primary",
+		   comments_target: "#comment-thread",
+		   loading_target: "#loading_spin"
+		   });
+	 </script>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2023-12-22 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Troubleshooting/">Troubleshooting<span>16</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/Waydroid/">Waydroid<span>2</span></a></li> <li><a href="/tags/Ubuntu/">Ubuntu<span>4</span></a></li> <li><a href="/tags/Installation/">Installation<span>4</span></a></li> <li><a href="/tags/Network-issues/">Network issues<span>2</span></a></li> <li><a href="/tags/Firewalld/">Firewalld<span>2</span></a></li> <li><a href="/tags/Ufw/">Ufw<span>2</span></a></li> <li><a href="/tags/Wifi-switch/">Wifi switch<span>4</span></a></li>
+
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Polymer Chemistry Mixture | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="This article delves into the utilization of molecular dynamics simulations with tools such as pymatgen, lammps, and openFF. It discusses interatomic potentials and force field generation processes in organic chemistry. Additionally, it covers accessing density data from multiple sources.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Polymer Chemistry Mixture"/>
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+    <script src="/js/marked.js"></script>
+    <script src="/js/comment.js"></script>
+    <script src="/js/timeago.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+	<script src="/js/spin.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> Polymer Chemistry Mixture</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>This article delves into the utilization of molecular dynamics simulations with tools such as pymatgen, lammps, and openFF. It discusses interatomic potentials and force field generation processes in organic chemistry. Additionally, it covers accessing density data from multiple sources.</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <h1 id="Polymer-Chemistry-Mixture"><a href="#Polymer-Chemistry-Mixture" class="headerlink" title="Polymer Chemistry Mixture"></a>Polymer Chemistry Mixture</h1><p><a target="_blank" rel="noopener" href="http://www.cheminfo.org/">http://www.cheminfo.org/</a></p>
+<p>interatomic potentials:<br><a target="_blank" rel="noopener" href="https://www.ctcms.nist.gov/potentials/">https://www.ctcms.nist.gov/potentials/</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/351829537">https://zhuanlan.zhihu.com/p/351829537</a><br><a target="_blank" rel="noopener" href="https://www.ctcms.nist.gov/potentials/system/C-H-O/">https://www.ctcms.nist.gov/potentials/system/C-H-O/</a><br><a target="_blank" rel="noopener" href="https://atb.uq.edu.au/index.py?tab=structure_search">https://atb.uq.edu.au/index.py?tab=structure_search</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/dwsideriusNIST/LAMMPS_Examples">https://github.com/dwsideriusNIST/LAMMPS_Examples</a></p>
+<p>opensmog smog2.provides force field generation tool</p>
+<p>run simulation under given temperature, pressure and get density</p>
+<p>openmm<br>generate force field on the fly:<br>from openff.toolkit.topology import Molecule<br>molecule &#x3D; Molecule.from_smiles(‘c1ccccc1’)</p>
+<p><a target="_blank" rel="noopener" href="https://www.catalysis-hub.org/">https://www.catalysis-hub.org</a></p>
+<p>pymatgen contains polymer generator to lammps:<br>pymatgen.io.lammps.utils </p>
+<p>simulating reaction in molecular dynamics:<br><a target="_blank" rel="noopener" href="https://www.reacter.org/">https://www.reacter.org</a><br>implemented in lammps fix bond&#x2F;react method</p>
+<p><a href="mailto:&#x72;&#97;&#x6e;&#x64;&#x6f;&#x6d;&#46;&#114;&#97;&#110;&#x64;&#x6f;&#109;&#118;&#111;&#x69;&#x64;&#109;&#97;&#105;&#x6c;&#x40;&#x65;&#114;&#105;&#x6e;&#101;&#x2e;&#101;&#109;&#x61;&#x69;&#x6c;">&#x72;&#97;&#x6e;&#x64;&#x6f;&#x6d;&#46;&#114;&#97;&#110;&#x64;&#x6f;&#109;&#118;&#111;&#x69;&#x64;&#109;&#97;&#105;&#x6c;&#x40;&#x65;&#114;&#105;&#x6e;&#101;&#x2e;&#101;&#109;&#x61;&#x69;&#x6c;</a> (pending approval)</p>
+<p>seen polymer names on lammps demo website:<br><a target="_blank" rel="noopener" href="https://lammps.org/pictures.html#reactphoto">https://lammps.org/pictures.html#reactphoto</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.lammps.org/Intro_features.html">https://docs.lammps.org/Intro_features.html</a></p>
+<p>If you are a new computational chemist I would advise you to use ASE, it is not only useful for nanoparticles, I’m using it nearly every day.</p>
+<p>patent:<br><a target="_blank" rel="noopener" href="https://bulkdata.uspto.gov/">https://bulkdata.uspto.gov/</a><br><a target="_blank" rel="noopener" href="http://chemdataextractor.org/results/26088052-3833-41ea-98f1-0a8a3fb2c341">http://chemdataextractor.org/results/26088052-3833-41ea-98f1-0a8a3fb2c341</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/50559712">https://www.zhihu.com/question/50559712</a></p>
+<p>moltemplate, packmol</p>
+<p>vmd: lammps data file visualization</p>
+<p>build input file for lammps:<br><a target="_blank" rel="noopener" href="https://atomsk.univ-lille.fr/">https://atomsk.univ-lille.fr/</a></p>
+<p>get retrosynthesis training data on picture search engines</p>
+<p>octa: predict polymer properties<br><a target="_blank" rel="noopener" href="https://octa.jp/references/examples/">https://octa.jp/references/examples/</a></p>
+<p>Link: [5]<a target="_blank" rel="noopener" href="http://oexchange.org/spec/0.8/rel/related-target">http://oexchange.org/spec/0.8/rel/related-target</a><br>   You can try [33]<a target="_blank" rel="noopener" href="https://spaya.ai/">https://spaya.ai/</a> it is a retro-synthetic analysis<br>   [37]Http:&#x2F;&#x2F;<a target="_blank" rel="noopener" href="http://www.orgsyn.org/">www.orgsyn.org/</a><br>   [41]Http:&#x2F;&#x2F;<a target="_blank" rel="noopener" href="http://www.orgsyn.org/">www.orgsyn.org/</a><br>   [45]Http:&#x2F;&#x2F;<a target="_blank" rel="noopener" href="http://www.organic-chemistry.org/">www.organic-chemistry.org/</a><br>   Try this interesting blog: [49]<a target="_blank" rel="noopener" href="http://totallysynthetic.com/blog/">http://totallysynthetic.com/blog/</a><br>   And also this website: [50]<a target="_blank" rel="noopener" href="http://chemistrybydesign.oia.arizona.edu/">http://chemistrybydesign.oia.arizona.edu/</a><br>   [54]<a target="_blank" rel="noopener" href="http://www.chemspider.com/">http://www.chemspider.com/</a> <br>   [58]<a target="_blank" rel="noopener" href="https://pubchem.ncbi.nlm.nih.gov/search">https://pubchem.ncbi.nlm.nih.gov/search</a><br>   Organic Syntheses Website: &lt;[62]<a target="_blank" rel="noopener" href="http://www.orgsyn.org/">http://www.orgsyn.org</a><br>   Organic Chemistry Portal: &lt;[63]<a target="_blank" rel="noopener" href="http://www.organic-chemistry.org/abstracts">http://www.organic-chemistry.org/abstracts</a><br>   Chemsynthesis: [64]<a target="_blank" rel="noopener" href="http://www.chemsynthesis.com/">http://www.chemsynthesis.com</a><br>   ChemExper: [65]<a target="_blank" rel="noopener" href="https://www.chemexper.com/">https://www.chemexper.com</a><br>   Pub Chem compound: [67]<a target="_blank" rel="noopener" href="http://pubchem.ncbi.nlm.nih.gov/">http://pubchem.ncbi.nlm.nih.gov</a><br>   E-molecules: [68]<a target="_blank" rel="noopener" href="http://www.emolecules.com/">http://www.emolecules.com</a><br>   Chemspider: [69]<a target="_blank" rel="noopener" href="http://www.chemspider.com/">http://www.chemspider.com</a><br>   Reaxys: [70]<a target="_blank" rel="noopener" href="https://www.reaxys.com/">https://www.reaxys.com/</a><br>   SciFinder: [71]<a target="_blank" rel="noopener" href="http://www.cas.org/">http://www.cas.org</a>,<br>   STN: [72]<a target="_blank" rel="noopener" href="https://stnweb.cas.org/">https://stnweb.cas.org/</a><br>   [76]<a target="_blank" rel="noopener" href="http://www.chemspider.com/">http://www.chemspider.com</a><br>   [80]<a target="_blank" rel="noopener" href="https://www.vulcanchem.com/">https://www.vulcanchem.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://moltemplate.org/">https://moltemplate.org</a></p>
+<p><a target="_blank" rel="noopener" href="https://chemdataextractor.org/">https://chemdataextractor.org</a></p>
+<p>gromacs: creating polymer structure<br><a target="_blank" rel="noopener" href="http://www.gromacs.org/Documentation_of_outdated_versions/How-tos/Polymers">http://www.gromacs.org/Documentation_of_outdated_versions/How-tos/Polymers</a></p>
+<p>latest gromacs documentation:<br><a target="_blank" rel="noopener" href="https://manual.gromacs.org/documentation/">https://manual.gromacs.org/documentation/</a></p>
+<p>online organic chemistry textbook:<br><a target="_blank" rel="noopener" href="https://www2.chemistry.msu.edu/faculty/reusch/virttxtjml/intro1.htm">https://www2.chemistry.msu.edu/faculty/reusch/virttxtjml/intro1.htm</a></p>
+<p>openbabel can only run normally on x86 platforms. so do other cheminfo packages.</p>
+<p>sources of organic synthesis<br><a target="_blank" rel="noopener" href="https://www.organic-chemistry.org/">https://www.organic-chemistry.org</a><br><a target="_blank" rel="noopener" href="http://www.orgsyn.org/">http://www.orgsyn.org</a></p>
+<p>What is matsci.org?</p>
+<p>matsci.org is a community forum for the discussion of anything materials science, with a focus on computational materials science research. Its members are typically from academic research institutions and universities.</p>
+<p>People that currently help run matsci.org include maintainers of the following codes and collaborations:</p>
+<pre><code>OVITO
+GULP
+DL_POLY
+OPTIMADE
+pyiron
+hiphive
+ASE
+MPDS
+iFermi
+LAMMPS
+MaRDA
+exciting
+JARVIS
+</code></pre>
+<p>and members of the following research groups:</p>
+<pre><code>Hacking Materials Group
+Persson Group
+Materials Virtual Lab
+Materials Intelligence
+</code></pre>
+<p>translate bigsmiles into smiles</p>
+<p>polymer database:<br>PolyInfo and NIST Synthetic Polymer MALDI Recipes database<br>USPEX<br>chemdraw chemoffice indraw spaya.ai<br>reaxys scifinder-n<br>marvin sketch pka<br><a target="_blank" rel="noopener" href="https://github.com/PKUMDL-AI/AutoSynRoute">https://github.com/PKUMDL-AI/AutoSynRoute</a></p>
+<p>polymer simulation:<br>material studio<br>amsterdam modeling suite</p>
+<p>cp2k orca<br><a target="_blank" rel="noopener" href="https://orcaforum.kofo.mpg.de/app.php/portal">https://orcaforum.kofo.mpg.de/app.php/portal</a></p>
+<p>chemistry in stack exchange:<br><a target="_blank" rel="noopener" href="https://chemistry.stackexchange.com/">https://chemistry.stackexchange.com/</a></p>
+<p>polymer retrosynthesis using retro*:<br>seq2seq-retro mlp-retro polyretro-uspto</p>
+<p>deepchem, chempy(inorganic)</p>
+<p>avogadro: import openbabel files</p>
+<p>odachi: decompose target molecular into source molecular, highlight the potential bond</p>
+<p>rdkit: python chemistry informatic<br>polymer informatic</p>
+<p>ab initio chemistry:<br>lammps, quantum espresso, nwchem, gamess, uspex</p>
+<p>from <a target="_blank" rel="noopener" href="https://www.webmol.net/">https://www.webmol.net</a>:<br>Gamess, Gaussian, MolPro, Mopac, NWChem, Orca, PQS, PSI, Q-Chem, TeraChem, Tinker, Quantum Expresso, and VASP</p>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/2023/12/22/437a4dba-188a-4aa2-894d-b6016227678f/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/2023/12/22/442fcb15-95cb-4100-a792-e53eb4ea6498/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+    	 
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+           type: "github" ? "github" : "github",       
+	       user: "james4ever0",
+	       repo: "my_blog",
+		   client_id: "",
+           client_secret: "",
+		   no_comment: "No comments yet. Press the button and go to comment now!",
+		   go_to_comment: "Go to comment",
+		   no_issue: "no_issue",
+		   issue_title: "Polymer Chemistry Mixture",
+		   issue_id: "",
+		   btn_class: "btn btn-primary",
+		   comments_target: "#comment-thread",
+		   loading_target: "#loading_spin"
+		   });
+	 </script>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2023-12-22 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Molecular-dynamics-simulations/">Molecular dynamics simulations<span>2</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/cheminformatics/">cheminformatics<span>2</span></a></li> <li><a href="/tags/chemistry/">chemistry<span>2</span></a></li> <li><a href="/tags/polymer/">polymer<span>2</span></a></li>
+
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+</body>
+</html>

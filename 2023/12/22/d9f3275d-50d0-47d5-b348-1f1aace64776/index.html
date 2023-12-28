@@ -1,0 +1,362 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>识别视频语言 | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="This article delves into the process of identifying languages in videos through the utilization of various tools, such as SpeechRecognition, paddlespeech, Google Cloud ML, EasyOCR, langid, textcat, and more. These tools facilitate language detection in both audio and textual content within videos.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="识别视频语言"/>
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+    <script src="/js/marked.js"></script>
+    <script src="/js/comment.js"></script>
+    <script src="/js/timeago.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+	<script src="/js/spin.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> 识别视频语言</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>This article delves into the process of identifying languages in videos through the utilization of various tools, such as SpeechRecognition, paddlespeech, Google Cloud ML, EasyOCR, langid, textcat, and more. These tools facilitate language detection in both audio and textual content within videos.</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <h1 id="识别视频语言"><a href="#识别视频语言" class="headerlink" title="识别视频语言"></a>识别视频语言</h1><p><a target="_blank" rel="noopener" href="https://speechbrain.github.io/">speechbrain</a> has features of Speech Recognition, Speaker Recognition, Speech Enhancement, Speech Processing, Multi Microphone Processing, Text-to-Speech, and also supports Spoken Language Understanding, Language Modeling, Diarization, Speech Translation, Language Identification, Voice Activity Detection, Sound classification, Grapheme-to-Phoneme, and many others.</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>视频里面的语言分为图片上面打出来的字幕以及人说的话</p>
+<p>涉及到的问题分别为： 图片文字的语言分类 以及音频语言分类</p>
+<h2 id="音频识别"><a href="#音频识别" class="headerlink" title="音频识别"></a>音频识别</h2><p>online speech recognition<br>pip install SpeechRecognition</p>
+<p>offline, need to provide language id:<br><a target="_blank" rel="noopener" href="https://pypi.org/project/automatic-speech-recognition/">https://pypi.org/project/automatic-speech-recognition/</a></p>
+<p>use paddlespeech if possible, for chinese and english</p>
+<h2 id="图片语言识别"><a href="#图片语言识别" class="headerlink" title="图片语言识别"></a>图片语言识别</h2><p>use google cloud to detect language type in image:<br><a target="_blank" rel="noopener" href="https://github.com/deduced/ml-ocr-lang-detection">https://github.com/deduced/ml-ocr-lang-detection</a></p>
+<p>Detects and Recognizes text and font language in an image<br><a target="_blank" rel="noopener" href="https://github.com/JAIJANYANI/Language-Detection-in-Image">https://github.com/JAIJANYANI/Language-Detection-in-Image</a></p>
+<p>图片语言文字分类 可以用easyocr实现 加载多个模型 比如 中文加英文加日语 b站其他语言的可能也不怎么受欢迎 最多再加韩语</p>
+<p>可以从视频简介 标题 链接里面提取出句子 每个句子进行语言分类 确定要使用的OCR模型 也有可能出现描述语言和视频图片文字语言不一致的情况</p>
+<p>wolfram language提供了一个图片分类器 分类出来的结果可能很有意思 可以结合苹果的图片关注区域生成器来结合使用</p>
+<p>ImageIdentify[pictureObj]</p>
+<p>这个方法还支持subcategory分类 支持多输出 具体看文档</p>
+<p><a target="_blank" rel="noopener" href="https://www.imageidentify.com/about/how-it-works">https://www.imageidentify.com/about/how-it-works</a></p>
+<p>wolfram支持cloud deploy 到wolfram cloud不过那样可能不行</p>
+<h2 id="文本语言识别分类"><a href="#文本语言识别分类" class="headerlink" title="文本语言识别分类"></a>文本语言识别分类</h2><p><a target="_blank" rel="noopener" href="https://github.com/pemistahl/lingua">lingua</a> performs good in short text, can be used in java or kotlin</p>
+<p>supporting detecting different languages:<br><a target="_blank" rel="noopener" href="https://github.com/ropensci/cld2">cld2</a> containing useful vectors containing text spans <a target="_blank" rel="noopener" href="https://pypi.org/project/pycld2/">python binding</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pycld2 <span class="keyword">as</span> cld2</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>text_content = <span class="string">&quot;&quot;&quot; A accès aux chiens et aux frontaux qui lui ont été il peut consulter et modifier ses collections et exporter Cet article concerne le pays européen aujourd’hui appelé République française. </span></span><br><span class="line"><span class="string">Pour d’autres usages du nom France, Pour une aide rapide et effective, veuiller trouver votre aide dans le menu ci-dessus. </span></span><br><span class="line"><span class="string">Welcome, to this world of Data Scientist. Today is a lovely day.&quot;&quot;&quot;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_, _, _, detected_language = cld2.detect(text_content,  returnVectors=<span class="literal">True</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(detected_language)</span><br><span class="line">((<span class="number">0</span>, <span class="number">323</span>, <span class="string">&#x27;FRENCH&#x27;</span>, <span class="string">&#x27;fr&#x27;</span>), (<span class="number">323</span>, <span class="number">64</span>, <span class="string">&#x27;ENGLISH&#x27;</span>, <span class="string">&#x27;en&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/google/cld3">original cld3</a> is designed for chromium and it relies on chromium code to run<br><a target="_blank" rel="noopener" href="https://pypi.org/project/gcld3/">official cld3 python bindings</a></p>
+<p>additional Python language related library from geeksforgeeks:<br><a target="_blank" rel="noopener" href="https://textblob.readthedocs.io/en/dev/">textblob</a> is a natural language processing toolkit</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> textblob <span class="keyword">import</span> TextBlob</span><br><span class="line">text = <span class="string">&quot;это компьютерный портал для гиков. It was a beautiful day .&quot;</span></span><br><span class="line">lang = TextBlob(text)</span><br><span class="line"><span class="built_in">print</span>(lang.detect_language())</span><br><span class="line"><span class="comment"># ru</span></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://github.com/saffsd/langid.py">langid</a> performs good in short text</p>
+<p><a target="_blank" rel="noopener" href="https://cran.r-project.org/package=textcat">textcat (r package)</a></p>
+<p>google language detection library in python: langdetect</p>
+<p>javascript:<br><a target="_blank" rel="noopener" href="https://github.com/wooorm/franc">https://github.com/wooorm/franc</a></p>
+<p>python version of franc:<br>pyfranc</p>
+<p>wlatlang.org provides whatlang-rs as rust package, also whatlang-py as python bindings</p>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/2023/12/22/d9c1869c-ab8b-4796-ba3d-7b5ab0a586ce/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/2023/12/22/da45b5f4-5a68-4da7-83f4-e202d599034d/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+    	 
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+           type: "github" ? "github" : "github",       
+	       user: "james4ever0",
+	       repo: "my_blog",
+		   client_id: "",
+           client_secret: "",
+		   no_comment: "No comments yet. Press the button and go to comment now!",
+		   go_to_comment: "Go to comment",
+		   no_issue: "no_issue",
+		   issue_title: "识别视频语言",
+		   issue_id: "",
+		   btn_class: "btn btn-primary",
+		   comments_target: "#comment-thread",
+		   loading_target: "#loading_spin"
+		   });
+	 </script>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2023-12-22 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Natural-Language-Processing/">Natural Language Processing<span>12</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/pyjom/">pyjom<span>86</span></a></li> <li><a href="/tags/audio-analysis/">audio analysis<span>8</span></a></li> <li><a href="/tags/language-classification/">language classification<span>4</span></a></li> <li><a href="/tags/language-recognization/">language recognization<span>2</span></a></li> <li><a href="/tags/localization/">localization<span>2</span></a></li> <li><a href="/tags/OCR/">OCR<span>2</span></a></li> <li><a href="/tags/speech-recognization/">speech recognization<span>4</span></a></li>
+
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+</body>
+</html>

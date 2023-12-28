@@ -1,0 +1,367 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>MMDetection and MMD dancing | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="This article discusses the use of MMDetection for creating 3D avatars with accurate human pose detection. It provides detailed explanations and GitHub resources to help readers implement this technique effectively.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="MMDetection and MMD dancing"/>
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+    <script src="/js/marked.js"></script>
+    <script src="/js/comment.js"></script>
+    <script src="/js/timeago.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+	<script src="/js/spin.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> MMDetection and MMD dancing</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>This article discusses the use of MMDetection for creating 3D avatars with accurate human pose detection. It provides detailed explanations and GitHub resources to help readers implement this technique effectively.</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <h1 id="MMDetection-and-MMD-dancing"><a href="#MMDetection-and-MMD-dancing" class="headerlink" title="MMDetection and MMD dancing"></a>MMDetection and MMD dancing</h1><p>3d 虚拟形象动作生成 视频生成 虚拟偶像 Vtuber:<br><a target="_blank" rel="noopener" href="https://github.com/xianfei/SysMocap">https://github.com/xianfei/SysMocap</a></p>
+<p>human pose detection:<br><a target="_blank" rel="noopener" href="https://github.com/facebookresearch/VideoPose3D">https://github.com/facebookresearch/VideoPose3D</a></p>
+<p>opengl recording:</p>
+<p><a target="_blank" rel="noopener" href="https://lencerf.github.io/post/2019-09-21-save-the-opengl-rendering-to-image-file/">https://lencerf.github.io/post/2019-09-21-save-the-opengl-rendering-to-image-file/</a><br><a target="_blank" rel="noopener" href="http://www.songho.ca/opengl/gl_pbo.html#pack">http://www.songho.ca/opengl/gl_pbo.html#pack</a><br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/7634966/save-opengl-rendering-to-video">https://stackoverflow.com/questions/7634966/save-opengl-rendering-to-video</a><br><a target="_blank" rel="noopener" href="https://www.codeproject.com/articles/15941/recording-directx-and-opengl-rendered-animations">https://www.codeproject.com/articles/15941/recording-directx-and-opengl-rendered-animations</a><br><a target="_blank" rel="noopener" href="https://www.glfw.org/documentation.html">https://www.glfw.org/documentation.html</a></p>
+<p>download expose models:<br><a target="_blank" rel="noopener" href="https://expose.is.tue.mpg.de/downloads">https://expose.is.tue.mpg.de/downloads</a></p>
+<p>smpl-x model download:<br><a target="_blank" rel="noopener" href="https://smpl-x.is.tue.mpg.de/download.php">https://smpl-x.is.tue.mpg.de/download.php</a></p>
+<p>model zoo:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Zhongdao/Towards-Realtime-MOT/blob/master/DATASET_ZOO.md">https://github.com/Zhongdao/Towards-Realtime-MOT/blob/master/DATASET_ZOO.md</a></p>
+<p>mmd auto tracking:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/errno-mmd/mmdmatic/blob/master/setup.bat">https://github.com/errno-mmd/mmdmatic/blob/master/setup.bat</a><br><a target="_blank" rel="noopener" href="https://github.com/miu200521358/expose_mmd">https://github.com/miu200521358/expose_mmd</a><br><a target="_blank" rel="noopener" href="https://github.com/miu200521358/AlphaPose-MMD">https://github.com/miu200521358/AlphaPose-MMD</a></p>
+<p>smplx expose alternative body tracker:<br><a target="_blank" rel="noopener" href="https://github.com/vchoutas/smplx">https://github.com/vchoutas/smplx</a></p>
+<p>face tracking:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Aditya-Khadilkar/Face-tracking-with-Anime-characters">https://github.com/Aditya-Khadilkar/Face-tracking-with-Anime-characters</a></p>
+<p>anime face detector:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/nagadomi/lbpcascade_animeface">https://github.com/nagadomi/lbpcascade_animeface</a><br><a target="_blank" rel="noopener" href="https://github.com/qhgz2013/anime-face-detector">https://github.com/qhgz2013/anime-face-detector</a></p>
+<p>anime facial features:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/pranau97/anime-detection">https://github.com/pranau97/anime-detection</a></p>
+<p>repair anime images:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/youyuge34/Anime-InPainting">https://github.com/youyuge34/Anime-InPainting</a></p>
+<p>paint manga from sketch (with color blocks):</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/youyuge34/PI-REC">https://github.com/youyuge34/PI-REC</a></p>
+<p>if we can re-trace the action&#x2F;expression done by vtubers, we can monetize those “highlight cuts”.</p>
+<p>you can firstly find points in datasets and then generate mmd videos, and then create trainset. you can also generate pose from raw video and then create dataset.</p>
+<p>found occasionally when browsing MMD, but found this with so many stars, which is an instance detection&#x2F;segmentation library.<br><a target="_blank" rel="noopener" href="https://github.com/open-mmlab/mmdetection">https://github.com/open-mmlab/mmdetection</a></p>
+<p>while rendering mmd can be done with mmd viewer like <a target="_blank" rel="noopener" href="https://github.com/benikabocha/saba">https://github.com/benikabocha/saba</a> or could use renderer like blender or unity. we must bake physics before dancing.</p>
+<p>found other dedicated renderer for mmd, with bullet physics:<br><a target="_blank" rel="noopener" href="https://github.com/jinfagang/mmc">https://github.com/jinfagang/mmc</a></p>
+<p>found interesting repo of poetry composing:<br><a target="_blank" rel="noopener" href="https://github.com/jinfagang/tensorflow_poems">https://github.com/jinfagang/tensorflow_poems</a></p>
+<p>mediapipe&#x2F;paddlevideo alike:<br><a target="_blank" rel="noopener" href="https://pypi.org/project/alfred-py/">https://pypi.org/project/alfred-py/</a></p>
+<p>three.js has multiple loaders:<br><a target="_blank" rel="noopener" href="https://github.com/mrdoob/three.js/tree/dev/examples/js/loaders">https://github.com/mrdoob/three.js/tree/dev/examples/js/loaders</a><br><a target="_blank" rel="noopener" href="https://github.com/hanakla/three-mmd-loader">https://github.com/hanakla/three-mmd-loader</a></p>
+<p>render MMD using saba lib:<br><a target="_blank" rel="noopener" href="https://github.com/WLiangJun/MMD-Desktop-mascot">https://github.com/WLiangJun/MMD-Desktop-mascot</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/miu200521358/expose_mmd/fork">https://github.com/miu200521358/expose_mmd/fork</a></p>
+<p>music based dance:<br><a target="_blank" rel="noopener" href="https://github.com/DeepVTuber/DanceNet3D">https://github.com/DeepVTuber/DanceNet3D</a><br><a target="_blank" rel="noopener" href="https://github.com/ColbyZhuang/music2dance_DanceNet">https://github.com/ColbyZhuang/music2dance_DanceNet</a><br><a target="_blank" rel="noopener" href="https://github.com/caijianfei/Music2Dance">https://github.com/caijianfei/Music2Dance</a></p>
+<p>characters:<br><a target="_blank" rel="noopener" href="https://www.mixamo.com/#/?page=1&type=Character">https://www.mixamo.com/#/?page=1&amp;type=Character</a></p>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/2023/12/22/0a7027b1-d18b-4ca9-881f-009d1dc7a408/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/2023/12/22/0b032f52-a3e2-44b4-b90f-a9aaf8fbeba2/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+    	 
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+           type: "github" ? "github" : "github",       
+	       user: "james4ever0",
+	       repo: "my_blog",
+		   client_id: "",
+           client_secret: "",
+		   no_comment: "No comments yet. Press the button and go to comment now!",
+		   go_to_comment: "Go to comment",
+		   no_issue: "no_issue",
+		   issue_title: "MMDetection and MMD dancing",
+		   issue_id: "",
+		   btn_class: "btn btn-primary",
+		   comments_target: "#comment-thread",
+		   loading_target: "#loading_spin"
+		   });
+	 </script>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2023-12-22 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/3D-Avatar-Creation/">3D Avatar Creation<span>2</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/pyjom/">pyjom<span>86</span></a></li> <li><a href="/tags/video-generator/">video generator<span>52</span></a></li> <li><a href="/tags/video-analysis/">video analysis<span>16</span></a></li> <li><a href="/tags/3D-model/">3D model<span>2</span></a></li> <li><a href="/tags/action-detection/">action detection<span>2</span></a></li> <li><a href="/tags/dancing/">dancing<span>4</span></a></li> <li><a href="/tags/MMD/">MMD<span>2</span></a></li> <li><a href="/tags/OpenMM/">OpenMM<span>2</span></a></li>
+
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Soul API | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="This article provides instructions on how to set up a man-in-the-middle (MITM) proxy on an Android device using mitmproxy and access various API endpoints for Soul app data, such as user profiles, recent moments, hot instant moments, and audio playlists.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Soul API"/>
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+    <script src="/js/marked.js"></script>
+    <script src="/js/comment.js"></script>
+    <script src="/js/timeago.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+	<script src="/js/spin.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> Soul API</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>This article provides instructions on how to set up a man-in-the-middle (MITM) proxy on an Android device using mitmproxy and access various API endpoints for Soul app data, such as user profiles, recent moments, hot instant moments, and audio playlists.</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <h1 id="Soul-APIs"><a href="#Soul-APIs" class="headerlink" title="Soul APIs"></a>Soul APIs</h1><p><a target="_blank" rel="noopener" href="https://www.freesion.com/article/9811692393/">soul绕过ssl双向验证</a> justTRUSTME(xposed)加上反编译SDK获取证书密码 <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38316655/article/details/104176882">backup blog</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.trickster.dev/post/setting-up-mitmproxy-with-android/">use adb to setup mitmproxy on android</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/Library/Android/sdk/platform-tools/</span><br><span class="line"></span><br><span class="line"><span class="comment"># Get the hash of the mitmproxy-ca certificate.</span></span><br><span class="line">openssl x509 -inform PEM -subject_hash_old -<span class="keyword">in</span> ~/.mitmproxy/mitmproxy-ca.pem | <span class="built_in">head</span> -1</span><br><span class="line"></span><br><span class="line"><span class="comment"># We will use this hash value, append &#x27;.0&#x27; (dot zero) and use this as the filename for the resulting Android certificate</span></span><br><span class="line"><span class="built_in">cat</span> ~/.mitmproxy/mitmproxy-ca.pem &gt; c8750f0d.0</span><br><span class="line">openssl x509 -inform PEM -text -<span class="keyword">in</span> ~/.mitmproxy/mitmproxy-ca.pem -out /dev/null &gt;&gt; c8750f0d.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># In an other terminal, we will start the emulator with writable /system volume</span></span><br><span class="line"><span class="built_in">cd</span> ~/Library/Android/sdk/emulator/</span><br><span class="line"></span><br><span class="line"><span class="comment"># In order to launch an available avd, we list them first.</span></span><br><span class="line">./emulator -list-avds</span><br><span class="line">./emulator -writable-system @Pixel_3a_XL_API_28</span><br><span class="line"></span><br><span class="line"><span class="comment"># We go back to the first terminal and we use adb tool to transfert the certificate</span></span><br><span class="line">adb root</span><br><span class="line">adb push c8750f0d.0 /storage/emulated/0/Download</span><br><span class="line"></span><br><span class="line"><span class="comment"># Then, we will mount the volume and get access to the shell</span></span><br><span class="line">adb shell mount -o rw,remount /;</span><br><span class="line">adb shell</span><br><span class="line"></span><br><span class="line"><span class="comment"># In the device Android shell, we will move the certificate inside the system partition in the folder &#x27;/system/etc/security/&#x27;</span></span><br><span class="line"><span class="built_in">cp</span> /storage/emulated/0/Download/c8750f0d.0 /system/etc/security/cacerts/</span><br><span class="line"><span class="built_in">chmod</span> 644 /system/etc/security/cacerts/c8750f0d.0</span><br></pre></td></tr></table></figure>
+
+<p>可能的系统设置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">su -c settings list global | grep proxy</span><br><span class="line">global_http_proxy_exclusion_list=</span><br><span class="line">                                global_http_proxy_host=</span><br><span class="line">                      global_http_proxy_port=0</span><br><span class="line">             global_proxy_pac_url=</span><br><span class="line"> http_proxy=:0</span><br></pre></td></tr></table></figure>
+
+<p>灵魂测试卡片信息，获取签名*<br><a target="_blank" rel="noopener" href="https://api.soulapp.cn/html/measureResult/info/v2?userIdEcpt=%E5%8A%A0%E5%AF%86%E7%94%A8%E6%88%B7ID">https://api.soulapp.cn/html/measureResult/info/v2?userIdEcpt=加密用户ID</a></p>
+<p>用户头像和签名等信息*<br><a target="_blank" rel="noopener" href="https://api-h5.soulapp.cn/html/v2/user/info?userIdEcpt=%E5%8A%A0%E5%AF%86%E7%94%A8%E6%88%B7ID">https://api-h5.soulapp.cn/html/v2/user/info?userIdEcpt=加密用户ID</a></p>
+<p>单条瞬间展开信息*<br><a target="_blank" rel="noopener" href="https://api-h5.soulapp.cn/html/v3/post/detail?postIdEcpt=%E5%8A%A0%E5%AF%86%E7%9E%AC%E9%97%B4ID">https://api-h5.soulapp.cn/html/v3/post/detail?postIdEcpt=加密瞬间ID</a></p>
+<p>单条瞬间展开页面*<br><a target="_blank" rel="noopener" href="https://w3.soulapp-inc.cn/activity/#/web/topic/detail?postIdEcpt=%E5%8A%A0%E5%AF%86%E7%9E%AC%E9%97%B4ID">https://w3.soulapp-inc.cn/activity/#/web/topic/detail?postIdEcpt=加密瞬间ID</a></p>
+<p>用户发布瞬间信息，只有最新的10条*<br><a target="_blank" rel="noopener" href="https://api-h5.soulapp.cn/html/v2/post/homepage?userIdEcpt=%E5%8A%A0%E5%AF%86%E7%94%A8%E6%88%B7ID">https://api-h5.soulapp.cn/html/v2/post/homepage?userIdEcpt=加密用户ID</a></p>
+<p>用户发布瞬间页面，只有最新的10条*<br><a target="_blank" rel="noopener" href="https://w3.soulapp-inc.cn/activity/#/web/user?userIdEcpt=%E5%8A%A0%E5%AF%86%E7%94%A8%E6%88%B7ID">https://w3.soulapp-inc.cn/activity/#/web/user?userIdEcpt=加密用户ID</a></p>
+<p>获取热门瞬间，只有最新的30条*<br><a target="_blank" rel="noopener" href="https://api-h5.soulapp.cn/html/v2/post/hot?pageIndex=1%EF%BC%88%E5%89%8D3%E9%A1%B5%EF%BC%89">https://api-h5.soulapp.cn/html/v2/post/hot?pageIndex=1（前3页）</a></p>
+<p>获取标签的瞬间信息，只有最新的30条*<br><a target="_blank" rel="noopener" href="https://api-h5.soulapp.cn/html/v2/tag/post?tagIdEcpt=%E5%8A%A0%E5%AF%86%E6%A0%87%E7%AD%BEID">https://api-h5.soulapp.cn/html/v2/tag/post?tagIdEcpt=加密标签ID</a></p>
+<p>获取标签的瞬间页面，只有最新的30条*<br><a target="_blank" rel="noopener" href="https://w3.soulapp-inc.cn/activity/#/web/tag?tagIdEcpt=%E5%8A%A0%E5%AF%86%E6%A0%87%E7%AD%BEID">https://w3.soulapp-inc.cn/activity/#/web/tag?tagIdEcpt=加密标签ID</a></p>
+<p>随机播放音频信息，随机几首*<br><a target="_blank" rel="noopener" href="https://api-h5.soulapp.cn/html/v2/post/orimusicList/recommend">https://api-h5.soulapp.cn/html/v2/post/orimusicList/recommend</a></p>
+<p>设置超萌捏脸页面*<br><a target="_blank" rel="noopener" href="https://app.soulapp.cn/avator/#/avatar/create?sex=1&version=3.10.0">https://app.soulapp.cn/avator/#/avatar/create?sex=1&amp;version=3.10.0</a></p>
+<p>注销账号页面*<br><a target="_blank" rel="noopener" href="https://app.soulapp.cn/app/#/account">https://app.soulapp.cn/app/#/account</a><br><a target="_blank" rel="noopener" href="https://app.soulapp.cn/app/#/destroy">https://app.soulapp.cn/app/#/destroy</a></p>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/2023/12/22/b2e4e778-9f36-4ea8-815e-324e3fc41364/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/2023/12/22/b3b8af2d-68fb-4666-90e4-91a867a137b2/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+    	 
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+           type: "github" ? "github" : "github",       
+	       user: "james4ever0",
+	       repo: "my_blog",
+		   client_id: "",
+           client_secret: "",
+		   no_comment: "No comments yet. Press the button and go to comment now!",
+		   go_to_comment: "Go to comment",
+		   no_issue: "no_issue",
+		   issue_title: "Soul API",
+		   issue_id: "",
+		   btn_class: "btn btn-primary",
+		   comments_target: "#comment-thread",
+		   loading_target: "#loading_spin"
+		   });
+	 </script>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2023-12-22 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Man-in-the-middle-proxy/">Man-in-the-middle proxy<span>2</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/API/">API<span>20</span></a></li> <li><a href="/tags/information-gathering/">information gathering<span>54</span></a></li> <li><a href="/tags/scraping/">scraping<span>36</span></a></li> <li><a href="/tags/video-source/">video source<span>10</span></a></li> <li><a href="/tags/audio-source/">audio source<span>6</span></a></li> <li><a href="/tags/soul/">soul<span>4</span></a></li> <li><a href="/tags/text-source/">text source<span>4</span></a></li>
+
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+</body>
+</html>

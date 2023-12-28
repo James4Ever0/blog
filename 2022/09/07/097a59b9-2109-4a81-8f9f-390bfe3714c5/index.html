@@ -1,0 +1,326 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>vapoursynth 光流算法 补帧 画面优化 denoising | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="VapourSynth is a powerful video processing tool that utilizes optical flow algorithms, frame interpolation, and denoising. It seamlessly integrates with other tools like nazobase, DBmbk, and ffmpeg to enhance video quality. With support for Python scripting, users can customize the tool according to their specific requirements. VapourSynth also leverages techniques such as nazorip Bezier curve, gamma curve, convolution, and flowpy for advanced image processing capabilities.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="vapoursynth 光流算法 补帧 画面优化 denoising"/>
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> vapoursynth 光流算法 补帧 画面优化 denoising</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>VapourSynth is a powerful video processing tool that utilizes optical flow algorithms, frame interpolation, and denoising. It seamlessly integrates with other tools like nazobase, DBmbk, and ffmpeg to enhance video quality. With support for Python scripting, users can customize the tool according to their specific requirements. VapourSynth also leverages techniques such as nazorip Bezier curve, gamma curve, convolution, and flowpy for advanced image processing capabilities.</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <h1 id="vapoursynth-光流算法-补帧-画面优化-denoising"><a href="#vapoursynth-光流算法-补帧-画面优化-denoising" class="headerlink" title="vapoursynth 光流算法 补帧 画面优化 denoising"></a>vapoursynth 光流算法 补帧 画面优化 denoising</h1><p><a target="_blank" rel="noopener" href="https://github.com/GoodManWEN/nazobase">nazobase</a> NAZOrip basement, with cython dll <a target="_blank" rel="noopener" href="https://www.nazorip.site/archives/37/">docs</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/kewenyu/DBmbk">DBmbk</a> a debanding toolkit, for easier bezier curve generation</p>
+<p><a target="_blank" rel="noopener" href="https://ffmpeg.org/ffmpeg-filters.html#sr">ffmpeg super resolution filter</a> could get faster if run on gpu with <a target="_blank" rel="noopener" href="https://www.tensorflow.org/install/lang_c">libtensorflow</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/HighVoltageRocknRoll/sr">VESPCN: real-time super resolution</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/stax76/mpv.net">mpv</a> is a media player with VapourSynth built-in, and that’s probably how vapoursynth gets in my mac via brew dependency manager</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/UniversalAl/view">view.py</a> is Python module for vapoursynth scripts that previews clips</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/WolframRhodium/muvsfunc/wiki/OpenCV-Python-for-VapourSynth">to use opencv functions with vapoursynth</a></p>
+<p>svp is <a target="_blank" rel="noopener" href="https://www.svp-team.com/zh/get/#">free on linux</a>, offering <a target="_blank" rel="noopener" href="https://www.svp-team.com/wiki/SVP:VLC#Using_SVP_in_VLC">plugin for vlc</a> while vlc cannot be run as root</p>
+<p>you might harvest some prebuilt binaries of vapoursynth plugins for linux</p>
+<p>补帧算法可适用于我们的动态水印追踪系统 但是可能需要优化 才能做到比较快速的补帧 因为水印所在位置的区间实际上只是白色的 不需要过于复杂的网络 同时这种补出来的水印需要逐帧处理 或者两帧一处理 生成的区间数量会非常的多</p>
+<p>it is much easier to do this on windows since we need quick evaluation. might run this on virtualbox?</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Bl4Cc4t/homebrew-vsplugins/tree/master/Formula">build scripts</a> on how to build plugins for macos, including how to configure the installation prefix.</p>
+<p>brew compatible, macos compatible vapoursynth plugin build script provider: <a target="_blank" rel="noopener" href="https://github.com/Bl4Cc4t/homebrew-vsplugins">homebrew-vsplugins</a> does not provide build scripts for all plugins avaliable for windows, and it requires <a target="_blank" rel="noopener" href="https://github.com/Bl4Cc4t/homebrew-vsplugins/blob/master/linkvsp.sh">additional linking</a></p>
+<p><a target="_blank" rel="noopener" href="https://forum.doom9.org/showthread.php?t=175522">tutorial</a> on how to configure it: (is it intel only?)</p>
+<p>Alternative VapourSynth Install Method (Brew):<br>IMPORTANT: Brew users will need to create and set the autoload folder prior to installing VapourSynth! Simply run the following commands:<br>Code:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /usr/local/lib/vapoursynth</span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$HOME</span>/Library/Application Support/VapourSynth&quot;</span></span><br><span class="line"><span class="built_in">touch</span> <span class="string">&quot;<span class="variable">$HOME</span>/Library/Application Support/VapourSynth/vapoursynth.conf&quot;</span></span><br><span class="line"><span class="built_in">echo</span> UserPluginDir=/usr/local/lib/vapoursynth &gt;&gt; <span class="string">&quot;<span class="variable">$HOME</span>/Library/Application Support/VapourSynth/vapoursynth.conf&quot;</span></span><br><span class="line"><span class="built_in">echo</span> SystemPluginDir=/usr/local/lib/vapoursynth &gt;&gt; <span class="string">&quot;<span class="variable">$HOME</span>/Library/Application Support/VapourSynth/vapoursynth.conf&quot;</span></span><br></pre></td></tr></table></figure>
+<p>(Optional) Create desktop shortcuts for the plugins and scripts folders. Run the following commands in terminal:<br>Code:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> <span class="variable">$HOME</span>/Desktop/VapourSynth</span><br><span class="line"><span class="built_in">ln</span> -s /usr/local/lib/vapoursynth <span class="variable">$HOME</span>/Desktop/VapourSynth/Plugins</span><br><span class="line"><span class="built_in">ln</span> -s /usr/local/lib/python3.9/site-packages <span class="variable">$HOME</span>/Desktop/VapourSynth/Scripts</span><br></pre></td></tr></table></figure>
+<p>Use brew command:<br>Code:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install vapoursynth</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/WolframRhodium/VapourSynth-BM3DCUDA">bm3d denoising using cuda</a></p>
+<p><a target="_blank" rel="noopener" href="https://vsdb.top/plugins/fft3dfilter">fft3d denoising</a></p>
+<p><a target="_blank" rel="noopener" href="https://learnopencv.com/optical-flow-in-opencv/">python opencv 光流算法详解</a> 分为sparse和dense两种 某种程度上都可以计算场景的变换激烈程度</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/vineeths96/Video-Interpolation-using-Deep-Optical-Flow">frame interpolation using deep optical flow</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/open-mmlab/mmflow">openmmlab mmflow</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/google-research/frame-interpolation">google research: FILM (frame interpolation for large motion)</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.vapoursynth.com/doc/gettingstarted.html">vapoursynth get started (official doc)</a></p>
+<p><a target="_blank" rel="noopener" href="http://vsdb.top/">vapoursynth plugin database</a> only provide prebuilt binaries for windows while the plugin source code might work with linux and macos (if it has the source code)</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/vapoursynth/vsrepo">VSRepo plugin manager</a> installing vapoursynth plugin via commandline tool and vsrepo is only supported on windows, for other platforms we need to compile plugins manually. </p>
+<p><a target="_blank" rel="noopener" href="https://www.nazorip.site/category/Tutorials/">nazorip vapoursynth blogs</a></p>
+<p><a target="_blank" rel="noopener" href="https://nazorip.site/archives/32/">nazorip bezier curve</a></p>
+<p><a target="_blank" rel="noopener" href="https://nazorip.site/archives/56/">nazorip gamma curve and convolution</a></p>
+<p><a target="_blank" rel="noopener" href="https://nazorip.site/archives/56/">flowpy: tool for visualizing and processing image with optical flow</a></p>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/2022/09/07/c8439b3e-7642-4f70-89db-33a18544be1a/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/2022/09/06/ac4e3e75-c9bc-483e-9396-bf1408629e63/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2022-09-07 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Video-Processing/">Video Processing<span>4</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/VapourSynth/">VapourSynth<span>2</span></a></li> <li><a href="/tags/video-processing/">video processing<span>7</span></a></li> <li><a href="/tags/optical-flow-algorithms/">optical flow algorithms<span>1</span></a></li> <li><a href="/tags/frame-interpolation/">frame interpolation<span>3</span></a></li> <li><a href="/tags/denoising/">denoising<span>1</span></a></li> <li><a href="/tags/Python-scripting/">Python scripting<span>2</span></a></li> <li><a href="/tags/nazobase/">nazobase<span>1</span></a></li> <li><a href="/tags/DBmbk/">DBmbk<span>1</span></a></li> <li><a href="/tags/ffmpeg/">ffmpeg<span>4</span></a></li>
+
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+
+</body>
+</html>

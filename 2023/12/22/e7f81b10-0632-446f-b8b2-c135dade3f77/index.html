@@ -1,0 +1,372 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>The Hack (Get password and tests) | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="The article discusses hacking attempts on lixin.edu.cn and the use of tools such as dirbuster and Kali Linux to find vulnerabilities. It also includes a HTTP request command for changing passwords on the server.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="The Hack (Get password and tests)"/>
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+    <script src="/js/marked.js"></script>
+    <script src="/js/comment.js"></script>
+    <script src="/js/timeago.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+	<script src="/js/spin.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> The Hack (Get password and tests)</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>The article discusses hacking attempts on lixin.edu.cn and the use of tools such as dirbuster and Kali Linux to find vulnerabilities. It also includes a HTTP request command for changing passwords on the server.</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <h1 id="The-Hack-Get-password-and-tests"><a href="#The-Hack-Get-password-and-tests" class="headerlink" title="The Hack (Get password and tests)"></a>The Hack (Get password and tests)</h1><p>dirbuster has found something over  “<a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn//test/">http://oa.lixin.edu.cn//test/</a>“</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn//admin">http://oa.lixin.edu.cn//admin</a> (CODE:301|SIZE:237)                            </li>
+<li><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn//css">http://oa.lixin.edu.cn//css</a> (CODE:301|SIZE:235)                              </li>
+<li><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn//help">http://oa.lixin.edu.cn//help</a> (CODE:301|SIZE:236)                             </li>
+<li><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn//images">http://oa.lixin.edu.cn//images</a> (CODE:301|SIZE:238)                           </li>
+<li><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn//js">http://oa.lixin.edu.cn//js</a> (CODE:301|SIZE:234)                               </li>
+<li><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn//setup">http://oa.lixin.edu.cn//setup</a> (CODE:301|SIZE:237)                            </li>
+<li><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn//template">http://oa.lixin.edu.cn//template</a> (CODE:301|SIZE:240)                         </li>
+<li><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn//test">http://oa.lixin.edu.cn//test</a> (CODE:301|SIZE:236)                             </li>
+<li><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn///admin">http://oa.lixin.edu.cn///admin</a> (CODE:301|SIZE:237)                           </li>
+<li><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn///help">http://oa.lixin.edu.cn///help</a> (CODE:301|SIZE:236)                            </li>
+<li><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn///images">http://oa.lixin.edu.cn///images</a> (CODE:301|SIZE:238)                          </li>
+<li><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn///script">http://oa.lixin.edu.cn///script</a> (CODE:301|SIZE:238)</li>
+</ul>
+<p>suspicious:<br><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn/oanew/sys/taskcenterapp/*default/index.do">http://oa.lixin.edu.cn/oanew/sys/taskcenterapp/*default/index.do</a></p>
+<p>portal (even in the internet):<br><a target="_blank" rel="noopener" href="http://202.121.255.3:8080/portal">http://202.121.255.3:8080/portal</a></p>
+<p>Scan this website with kali linux.</p>
+<p>The Intranet Gateway For Campus: (maybe less hops?)<br><a target="_blank" rel="noopener" href="https://app.topsec.com.cn/">https://app.topsec.com.cn</a></p>
+<p>mitmdump –mode socks5 –listen-port 8050 -w logs.log –flow-detail 3 –set stream_websocket&#x3D;true</p>
+<p>pdvpn.lixin.edu.cn<br>pdvpn2.lixin.edu.cn<br>vpn.lixin.edu.cn<br>vpn2.lixin.edu.cn</p>
+<p>xxb.lixin.edu.cn&#x2F;jszl&#x2F;57078.htm</p>
+<p>201960630:CHENweiyi0519</p>
+<p><a target="_blank" rel="noopener" href="https://cas.paas.lixin.edu.cn/cas/login?service=https://lxjw.lixin.edu.cn/cas/login">https://cas.paas.lixin.edu.cn/cas/login?service=https%3A%2F%2Flxjw.lixin.edu.cn%2Fcas%2Flogin</a></p>
+<p><a target="_blank" rel="noopener" href="https://security-center.paas.lixin.edu.cn/find-pwd">https://security-center.paas.lixin.edu.cn/find-pwd</a></p>
+<p>20039370</p>
+<p>missing puzzle for changing password:</p>
+<p>trial user:<br>201960249</p>
+<p>found russia hacker’s kali tool site: <a target="_blank" rel="noopener" href="https://en.kali.tools/all/">https://en.kali.tools/all/</a></p>
+<p>apparently we have some issue with log4j and this could be our way in, the damn server.</p>
+<p>sniffing the whole damn campus is only possible if we know how to get into the same subnet of all people.</p>
+<p>have searched related websites with site:lixin.edu.cn, could get more if keep doing so, using dnsenum.</p>
+<p>to get all site links with proper titles, we need to use playwright.</p>
+<p>nessus scanner has that 16 ips limitation, we need to crack&#x2F;patch it first.</p>
+<p>to master kali linux, recommend to scrape kali_tools (<a target="_blank" rel="noopener" href="https://tools.kali.org/">https://tools.kali.org/</a>) and tutorialspoint (<a target="_blank" rel="noopener" href="https://www.tutorialspoint.com/kali_linux/index.htm">https://www.tutorialspoint.com/kali_linux/index.htm</a>) for kali, or just simply using manpage.</p>
+<p>cisco router is untouched till now. need we to scan it?<br>(intermediate ip addresses)</p>
+<p>curl ‘<a target="_blank" rel="noopener" href="https://personal-security-center.paas.lixin.edu.cn/api/v1/personal/open/passwordStrategy/verify">https://personal-security-center.paas.lixin.edu.cn/api/v1/personal/open/passwordStrategy/verify</a>‘ <br>  -H ‘Connection: keep-alive’ <br>  -H ‘sec-ch-ua: “(Not(A:Brand”;v&#x3D;”8”, “Chromium”;v&#x3D;”98”, “Google Chrome”;v&#x3D;”98”‘ <br>  -H ‘Accept: application&#x2F;json, text&#x2F;plain, <em>&#x2F;</em>‘ <br>  -H ‘Content-Type: application&#x2F;json;charset&#x3D;UTF-8’ <br>  -H ‘sec-ch-ua-mobile: ?0’ <br>  -H ‘User-Agent: Mozilla&#x2F;5.0 (X11; CrOS aarch64 14371.0.0) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;98.0.4729.0 Safari&#x2F;537.36’ <br>  -H ‘sec-ch-ua-platform: “Chrome OS”‘ <br>  -H ‘Origin: <a target="_blank" rel="noopener" href="https://security-center.paas.lixin.edu.cn/">https://security-center.paas.lixin.edu.cn</a>‘ <br>  -H ‘Sec-Fetch-Site: same-site’ <br>  -H ‘Sec-Fetch-Mode: cors’ <br>  -H ‘Sec-Fetch-Dest: empty’ <br>  -H ‘Referer: <a target="_blank" rel="noopener" href="https://security-center.paas.lixin.edu.cn/">https://security-center.paas.lixin.edu.cn/</a>‘ <br>  -H ‘Accept-Language: en-US,en;q&#x3D;0.9’ <br>  –data-raw ‘{“password”:”abcdefABC”,”userId”:””}’ <br>  –compressed</p>
+<p>curl ‘<a target="_blank" rel="noopener" href="https://personal-security-center.paas.lixin.edu.cn/api/v1/personal/open/forgotPassword/changePassword">https://personal-security-center.paas.lixin.edu.cn/api/v1/personal/open/forgotPassword/changePassword</a>‘ <br>  -H ‘Connection: keep-alive’ <br>  -H ‘sec-ch-ua: “(Not(A:Brand”;v&#x3D;”8”, “Chromium”;v&#x3D;”98”, “Google Chrome”;v&#x3D;”98”‘ <br>  -H ‘Accept: application&#x2F;json, text&#x2F;plain, <em>&#x2F;</em>‘ <br>  -H ‘Content-Type: application&#x2F;json;charset&#x3D;UTF-8’ <br>  -H ‘sec-ch-ua-mobile: ?0’ <br>  -H ‘User-Agent: Mozilla&#x2F;5.0 (X11; CrOS aarch64 14371.0.0) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;98.0.4729.0 Safari&#x2F;537.36’ <br>  -H ‘sec-ch-ua-platform: “Chrome OS”‘ <br>  -H ‘Origin: <a target="_blank" rel="noopener" href="https://security-center.paas.lixin.edu.cn/">https://security-center.paas.lixin.edu.cn</a>‘ <br>  -H ‘Sec-Fetch-Site: same-site’ <br>  -H ‘Sec-Fetch-Mode: cors’ <br>  -H ‘Sec-Fetch-Dest: empty’ <br>  -H ‘Referer: <a target="_blank" rel="noopener" href="https://security-center.paas.lixin.edu.cn/">https://security-center.paas.lixin.edu.cn/</a>‘ <br>  -H ‘Accept-Language: en-US,en;q&#x3D;0.9’ <br>  –data-raw ‘{“confirmPassword”:”abc123ABC”,”newPassword”:”abc123ABC”,”nonce”:”YzhhZmZjYzktNWQ3Ny00MGU1LTg0ODgtYTYzZTMzMDZkMjU0XzE2NDAyNjg5MzcyNTY”}’ <br>  –compressed</p>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/2023/12/22/e73d34b3-d72e-4a03-8669-fd669b27d68a/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/2023/12/22/e82fa063-872b-4101-af10-56c87188b58f/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+    	 
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+           type: "github" ? "github" : "github",       
+	       user: "james4ever0",
+	       repo: "my_blog",
+		   client_id: "",
+           client_secret: "",
+		   no_comment: "No comments yet. Press the button and go to comment now!",
+		   go_to_comment: "Go to comment",
+		   no_issue: "no_issue",
+		   issue_title: "The Hack (Get password and tests)",
+		   issue_id: "",
+		   btn_class: "btn btn-primary",
+		   comments_target: "#comment-thread",
+		   loading_target: "#loading_spin"
+		   });
+	 </script>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2023-12-22 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/hacking/">hacking<span>2</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/freelancer/">freelancer<span>40</span></a></li> <li><a href="/tags/hack/">hack<span>6</span></a></li>
+
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+</body>
+</html>

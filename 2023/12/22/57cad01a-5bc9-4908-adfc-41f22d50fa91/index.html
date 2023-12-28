@@ -1,0 +1,390 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>DNA Cancer Prediction | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="In this assignment, students are tasked with categorizing antimicrobial and antibiofilm peptide sequences using feature extraction techniques by the due date of January 25, 2020. Throughout the process, students must submit daily reports and compile a final PDF report for evaluation. The grading criteria and additional opportunities for earning extra credit are specified.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="DNA Cancer Prediction"/>
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+    <script src="/js/marked.js"></script>
+    <script src="/js/comment.js"></script>
+    <script src="/js/timeago.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+	<script src="/js/spin.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> DNA Cancer Prediction</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>In this assignment, students are tasked with categorizing antimicrobial and antibiofilm peptide sequences using feature extraction techniques by the due date of January 25, 2020. Throughout the process, students must submit daily reports and compile a final PDF report for evaluation. The grading criteria and additional opportunities for earning extra credit are specified.</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <h1 id="DNA-Cancer-Prediction"><a href="#DNA-Cancer-Prediction" class="headerlink" title="DNA Cancer Prediction"></a>DNA Cancer Prediction</h1><p><a target="_blank" rel="noopener" href="https://github.com/davidanastasiu/coen-342-wi22">https://github.com/davidanastasiu/coen-342-wi22</a></p>
+<p>PR1: Peptide Classification</p>
+<p>Published Date:<br>Jan. 12, 2020, 5:00 p.m.</p>
+<p>Deadline Date:<br>Jan. 25, 2020, 11:59 p.m.</p>
+<p>Description:</p>
+<hr>
+<p>This is an individual assignment.</p>
+<hr>
+<p>Overview and Assignment Goals:</p>
+<p>The objectives of this assignment are the following:</p>
+<p><br>Create feed-forward neural networks and train them using your own codes and<br>frameworks.</p>
+<p><br>Experiment with different feature extraction techniques.</p>
+<p><br>Think about dealing with imbalanced data.</p>
+<p>Detailed Description:<br>Develop predictive neural networks that can determine, given an antibacterial peptide,<br>whether it is also an antibiofilm peptide.</p>
+<p>“Proteins are large biomolecules, or macromolecules, consisting of one or more long<br>chains of amino acid residues. Proteins perform a vast array of functions within organisms,<br>including catalysing metabolic reactions, DNA replication, responding to stimuli, providing<br>structure to cells, and organisms, and transporting molecules from one location to another.<br>Proteins differ from one another primarily in their sequence of amino acids, which is<br>dictated by the nucleotide sequence of their genes, and which usually results in protein<br>folding into a specific three-dimensional structure that determines its activity.</p>
+<p>A linear chain of amino acid residues is called a polypeptide. A protein contains at least<br>one long polypeptide. Short polypeptides, containing less than 20-30 residues, are rarely<br>considered to be proteins and are commonly called peptides. […] The sequence of amino<br>acid residues in a protein is defined by the sequence of a gene, which is encoded in the<br>genetic code. In general, the genetic code specifies 20 standard amino acids; […] Proteins<br>can also work together to achieve a particular function, and they often associate to form<br>stable protein complexes.” [Wikipedia, Accessed 2020-02-07,<br><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Protein]">https://en.wikipedia.org/wiki/Protein]</a> </p>
+<p>Biofilms are tightly-connected multicellular communities of microorganisms encased in self-<br>secreted extra-cellular matrices. They are currently one of the major causes of disease for </p>
+<p>two main reasons. First, roughly 75% of all human infections are caused by biofilms.<br>Second, due to the robust multicellular cellular matrix structure, they are resistant both to<br>the host defense mechanisms and to traditional antimicrobial compounds (antibiotics).<br>Thus, it is important to identify peptide sequences that are not only antimicrobial (can<br>destroy or render inert the invading microorganism), but also antibiofilm (can penetrate the<br>extra-cellular matrix so it can get to the microorganism in the first place). </p>
+<p>You have been provided with a training set (train.dat) and a test set (test.dat) consisting of<br>peptide sequences, one per line in the file. Peptides are encoded as strings with characters<br>from an alphabet of 20 characters, each representing an amino-acid residue. The training<br>set also includes the label for each sequence as 1 (antibiofilm) or -1 (not antibiofilm) as the<br>first character in each line of the training file, separated from the sequence by a tab (\t)<br>character. </p>
+<p>The input to your classifiers will not be the peptides themselves, but rather features<br>extracted from the peptides. Two simple approaches for feature extraction are the bag-of-<br>words and the k-mer models you should have learned about in Data Mining or Machine<br>Learning, where a word is one of the amino-acids in the peptide. You should not use any<br>additional external data in this assignment. </p>
+<p>Note that the dataset is imbalanced. We will Matthews’s correlation coefficient (MCC) as<br>evaluation metric for this assignment, which, similar to the F-1 score, combines aspects of<br>the result’s sensitivity and specificity. Given the normal confusion matrix resulting from<br>comparing the predicted and true classes of the test samples, MCC is defined as,</p>
+<p>Programs:</p>
+<p>You are required to write two separate programs for the classification. The first may only<br>use basic Python structures (from numpy or scipy) and you should implement your own<br>functions for training the neural network. This is also the program you will use to make CLP<br>submissions. In addition, you should write a second program that uses a deep learning<br>framework of your choice to train the neural network. The structure of the network may be<br>the same or different from the one you created in the first program. You will present results<br>from this program (which should be at least as good as those from the first program) in<br>your report.</p>
+<p>Considerations:</p>
+<ul>
+<li>Try extracting different features from the peptide strings.</li>
+<li>Consider oversampling the negative class to fix the apparent imbalance.</li>
+<li>Try out different network configurations and activation functions.</li>
+<li>Consider regularization as a way to keep weights balanced in the network.</li>
+</ul>
+<p>Data Description:</p>
+<p>The training dataset consists of 1566 records and the test dataset consists of 392 records.<br>We provide you with the training class labels and the test labels are held out. Your task is<br>to predict those labels for the peptides in the test set and create a test.txt file containing<br>those labels, which you will submit to CLP. Note that CLP only accepts files with extensions<br>.txt or .dat for your predicted labels, and .py or .ipynb or .zip or .tgz for codes.</p>
+<p>Rules:</p>
+<p><br>This is an individual assignment. Discussion of broad level strategies are allowed but<br>any copying of prediction files and source codes will result in an honor code violation.</p>
+<p><br>You are allowed 5 submissions per day.</p>
+<p><br>After the submission deadline, only your chosen or last submission is considered for<br>the leaderboard.</p>
+<p>Deliverables:<br><br>Valid submissions to the Leader Board website: <a target="_blank" rel="noopener" href="https://clp.engr.scu.edu/">https://clp.engr.scu.edu</a> (username is<br>your SCU username and your password is your SCU password).</p>
+<p>Canvas Submission for the report:</p>
+<p><br>Include a 2-page, single-spaced report describing details regarding the steps you </p>
+<p>followed for feature extraction, designing your neural network, and training your model.<br>The report should be in PDF format and the file should be called report.pdf. The report<br>needs to be structured as a technical report (title, abstract, introduction, sections,<br>conclusion), be free from grammatical errors, and use standard page and font sizes (letter<br>size page, 10 or 11 pt font). Be sure to include the following in the report:</p>
+<ol>
+<li>Name and SCU ID.</li>
+<li>Rank &amp; MCC-score for your submission (at the time of writing the report). If</li>
+</ol>
+<p>you chose not to see the leaderboard, state so.</p>
+<ol start="3">
+<li><p>Your approach.</p>
+</li>
+<li><p>Your methodology of choosing the approach and associated parameters.</p>
+</li>
+</ol>
+<p> Ensure you submitted the correct code on CLP that matches your output.<br> Zip up your report and codes for both programs in an archive called <SCU_ID>.zip or </p>
+<p><SCU_ID>.tgz and submit the archive to Canvas.</p>
+<p>Grading:</p>
+<p>Grading for the Assignment will be split on your implementation (70%) and report (30%).<br>Extra credit (1% of final grade) will be awarded to the top-3 performing algorithms. Note<br>that extra credit throughout the semester will be tallied outside of Canvas and will be added<br>to the final grade at the end of the semester.</p>
+<p>Files: available on Canvas. </p>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/2023/12/22/578cd41c-a854-463d-a38c-4ae95dacccfa/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/2023/12/22/5858cdca-15ed-448c-8a93-6f293c40bd6a/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+    	 
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+           type: "github" ? "github" : "github",       
+	       user: "james4ever0",
+	       repo: "my_blog",
+		   client_id: "",
+           client_secret: "",
+		   no_comment: "No comments yet. Press the button and go to comment now!",
+		   go_to_comment: "Go to comment",
+		   no_issue: "no_issue",
+		   issue_title: "DNA Cancer Prediction",
+		   issue_id: "",
+		   btn_class: "btn btn-primary",
+		   comments_target: "#comment-thread",
+		   loading_target: "#loading_spin"
+		   });
+	 </script>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2023-12-22 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Biology/">Biology<span>2</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/freelancer/">freelancer<span>40</span></a></li>
+
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+</body>
+</html>

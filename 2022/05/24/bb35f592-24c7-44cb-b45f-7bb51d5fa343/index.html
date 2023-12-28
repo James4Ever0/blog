@@ -1,0 +1,315 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>标题生成 | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="This article compares different image captioning models, including GPT-3 and CLIP, for various applications like template extraction, neural title generation, reverse image search, and natural language generators. It also showcases examples from gpt3demo.com and explains how to generate stories from pictures using image transformers and GPT-2.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="标题生成"/>
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> 标题生成</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>This article compares different image captioning models, including GPT-3 and CLIP, for various applications like template extraction, neural title generation, reverse image search, and natural language generators. It also showcases examples from gpt3demo.com and explains how to generate stories from pictures using image transformers and GPT-2.</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <h1 id="标题生成-封面生成"><a href="#标题生成-封面生成" class="headerlink" title="标题生成 封面生成"></a>标题生成 封面生成</h1><p><a target="_blank" rel="noopener" href="https://huggingface.co/spaces/nielsr/comparing-captioning-models">comparing different image caption models</a> in which you have a bunch of models ready to use</p>
+<h2 id="template-extraction-neural-template-generation"><a href="#template-extraction-neural-template-generation" class="headerlink" title="template extraction, neural template generation"></a>template extraction, neural template generation</h2><p>封面来源：<br>利用标题进行图片搜索 其实只能站内搜索 因为站外没有这种图片与文字的对应关系<br>截取视频截图<br>b站原图 histogram match 20% 去掉文字 镜像反转 加入随机噪声 旋转1度<br>利用封面进行图片反向搜索 效果其实不好 并没有想要的照片 只能找到原图 有可能起到去水印的效果 但是有限</p>
+<h3 id="reverse-image-search-engine"><a href="#reverse-image-search-engine" class="headerlink" title="reverse image search engine"></a>reverse image search engine</h3><p><a target="_blank" rel="noopener" href="https://github.com/kitUIN/PicImageSearch">reverse image search engine</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/vivithemage/mrisa">meta image search engine</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Nachtalb/reverse_image_search_bot">telegram reverse image search bot</a></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://github.com/harvardnlp/neural-template-gen">neural template gen</a> is a natural language generator based on templates from harvard nlp, can be used for title generation</p>
+<h2 id="根据标签生成广告-同样可以根据标签生成视频标题（推荐）-在千言数据集上训练过"><a href="#根据标签生成广告-同样可以根据标签生成视频标题（推荐）-在千言数据集上训练过" class="headerlink" title="根据标签生成广告 同样可以根据标签生成视频标题（推荐） 在千言数据集上训练过"></a>根据标签生成广告 同样可以根据标签生成视频标题（推荐） 在千言数据集上训练过</h2><p><a target="_blank" rel="noopener" href="https://huggingface.co/cocoshe/gpt2-chinese-gen-ads-by-keywords?text=My+name+is+Clara+and+I+am">https://huggingface.co/cocoshe/gpt2-chinese-gen-ads-by-keywords?text=My+name+is+Clara+and+I+am</a></p>
+<p>title generator(from description):<br><a target="_blank" rel="noopener" href="https://github.com/harveyaot/DianJing/blob/master/scripts/title_generation_lm.py">https://github.com/harveyaot/DianJing/blob/master/scripts/title_generation_lm.py</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/stay_foolish12/article/details/111661358">https://blog.csdn.net/stay_foolish12/article/details/111661358</a></p>
+<p>cover generation<br>rectangle packing allow overlapping<br>when solution is not found, decrease the size of rectangles.</p>
+<p>youtube title generator using AI:<br><a target="_blank" rel="noopener" href="https://github.com/gdemos01/YoutubeVideoIdeasGeneratorAI">https://github.com/gdemos01/YoutubeVideoIdeasGeneratorAI</a></p>
+<p>ai thumbnail generator using pyscenedetect:<br><a target="_blank" rel="noopener" href="https://github.com/yoonhero/ai-thumbnail-generator">https://github.com/yoonhero/ai-thumbnail-generator</a></p>
+<p>image captioning:<br><a target="_blank" rel="noopener" href="https://github.com/ruotianluo/ImageCaptioning.pytorch">https://github.com/ruotianluo/ImageCaptioning.pytorch</a></p>
+<p>youzan clip product title generation:<br><a target="_blank" rel="noopener" href="https://huggingface.co/youzanai/clip-product-title-chinese">https://huggingface.co/youzanai/clip-product-title-chinese</a></p>
+<p>paper title generator without description:<br><a target="_blank" rel="noopener" href="https://github.com/csinva/gpt2-paper-title-generator">https://github.com/csinva/gpt2-paper-title-generator</a></p>
+<p>image captioning using cnn and rnn:<br><a target="_blank" rel="noopener" href="https://github.com/SCK22/image_and_video">https://github.com/SCK22/image_and_video</a></p>
+<p>image captioning can also be used for video captioning. but that will suffice the accuracy.</p>
+<p>keras.io image captioning<br><a target="_blank" rel="noopener" href="https://keras.io/examples/vision/image_captioning/">https://keras.io/examples/vision/image_captioning/</a></p>
+<p>generate image captions using CLIP and GPT(on medium, click continue reading)<br><a target="_blank" rel="noopener" href="https://towardsai.net/p/l/image-captioning-with-clip-and-gpt">https://towardsai.net/p/l/image-captioning-with-clip-and-gpt</a></p>
+<p>gpt3demo.com has provided a lot of interesting tasks that gpt3 can do. including image captioning. may find video captioning, video classification.</p>
+<p>gpt3demo.com provided image captioning libs:<br><a target="_blank" rel="noopener" href="https://gpt3demo.com/category/image-captioning">https://gpt3demo.com/category/image-captioning</a><br>clipclap<br>gpt-3 x image captions</p>
+<p>visualgpt: generate image captions<br><a target="_blank" rel="noopener" href="https://github.com/Vision-CAIR/VisualGPT">https://github.com/Vision-CAIR/VisualGPT</a></p>
+<p>generate stories from pictures, using image transformers and gpt-2, just intro no code<br><a target="_blank" rel="noopener" href="https://www.dataversity.net/image-captioning-generating-stories-from-unstructured-data-using-applied-nlg/">https://www.dataversity.net/image-captioning-generating-stories-from-unstructured-data-using-applied-nlg/</a></p>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/2022/05/24/f62f4fbb-f86f-4252-8323-ab73ac09e832/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/2022/05/24/fda36896-d174-4011-ae7c-f5e913ea4f74/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2022-05-24 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Artificial-Intelligence/">Artificial Intelligence<span>16</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/text-generation/">text generation<span>5</span></a></li> <li><a href="/tags/title-generation/">title generation<span>1</span></a></li>
+
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+
+</body>
+</html>

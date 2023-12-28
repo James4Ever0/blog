@@ -1,0 +1,1670 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>tools | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+<!-- title -->
+<div class="page-header page-header-inverse ">
+  <h1 class="archive-title-tag title title-inverse ">tools</h1>
+</div>
+
+<div class="row page">
+  <!-- cols -->
+  
+  <div class="col-md-9">
+	
+
+	  <div id="top_search"></div>
+
+      
+         <!-- display as entry -->
+	     <div class="mypage">
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2023-10-04 </div>
+			<div class="article-title"><a href="/2023/10/04/f65f508f-260b-484f-92e0-dfce948c5925/" title="This article discusses various tools for monitoring CPU and GPU temperatures across different platforms. The tools mentioned include Archey4, Osx-core-temp, Apple_sensors, Smctemp, Coretemp, and Psensor.">cpu/gpu temperature monitor</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="cpu-gpu-temperature-monitor"><a href="#cpu-gpu-temperature-monitor" class="headerlink" title="cpu&#x2F;gpu temperature monitor"></a>cpu&#x2F;gpu temperature monitor</h1><p>we’ve got <a target="_blank" rel="noopener" href="https://github.com/HorlogeSkynet/archey4">archey4</a>, a cross-platform sysinfo gather tool, with info on temperature monitor tools</p>
+<h2 id="macos"><a href="#macos" class="headerlink" title="macos"></a>macos</h2><p><a target="_blank" rel="noopener" href="https://github.com/lavoiesl/osx-cpu-temp">osx-core-temp</a> for old intel macs</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/fermion-star/apple_sensors/">apple_sensors</a> and <a target="_blank" rel="noopener" href="https://github.com/narugit/smctemp">smctemp</a> for m1 and newer macs</p>
+<p>place this under <code>/opt/homebrew/bin/osx-cpu-temp</code> to run archey4 with cpu temperature:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">smctemp -c</span><br></pre></td></tr></table></figure>
+
+<h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><p><a target="_blank" rel="noopener" href="https://www.alcpu.com/CoreTemp/">coretemp</a></p>
+<h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><p><a target="_blank" rel="noopener" href="https://github.com/chinf/psensor">psensor</a></p>
+
+	
+	</div>
+  <a type="button" href="/2023/10/04/f65f508f-260b-484f-92e0-dfce948c5925/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2022-12-12 </div>
+			<div class="article-title"><a href="/2022/12/12/bae26c6f-804c-40ce-ad99-55629d7522cf/" title="This article discusses different methods for accessing package information and improving search skills using tools like the &#39;man&#39; command, GitHub API, and package managers. It also provides tips on utilizing programming language libraries to enhance your search capabilities.">download/collect info of hack tools</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="download-collect-info-of-hack-tools"><a href="#download-collect-info-of-hack-tools" class="headerlink" title="download&#x2F;collect info of hack tools"></a>download&#x2F;collect info of hack tools</h1><p>what to do when chatgpt is not for everyone?</p>
+<h2 id="general-introduction"><a href="#general-introduction" class="headerlink" title="general introduction"></a>general introduction</h2><p>this is about <strong>information gathering</strong>, so you might learn how to scrape AI models, AI notebooks, tutorials, code snippets from websites&#x2F;search engines&#x2F;social media as well.</p>
+<p>given the name of the hack tool, you may not be able to tell what the tool is (written in python? hosted on github? online tool?) and you want to use search engine to find possible entries. you may take snapshots on these pages and index them.</p>
+<p>if the hack tool is linked to some website&#x2F;manual, you can index the website. if you find it inside some package index or package manager, you will know how to install the package.</p>
+<p>you may miss the wiki, forum, tutorials. you know where to get them.</p>
+<p>here are few sources where you can learn things from:</p>
+<p><a target="_blank" rel="noopener" href="https://www.darknet.org.uk/">darknet.org.uk</a> where you learn hacking and <a target="_blank" rel="noopener" href="https://www.darknet.org.uk/category/hacking-tools/">hack tools</a></p>
+<p><a target="_blank" rel="noopener" href="https://null-byte.wonderhowto.com/">null byte</a> in <a target="_blank" rel="noopener" href="https://www.wonderhowto.com/">wonderhowto</a></p>
+<p>you also have <code>brew</code> <code>sdkman</code> <code>macport</code> <code>pkgsrc</code> <code>chocolatey</code> <code>scoop</code> <code>winget</code>  <code>snap</code> <code>portage</code> <code>conda</code> <code>flatpak</code> <code>rpm</code> <code>urpm</code> <code>yum</code> <code>cargo</code> <code>dnf</code> indexes and more to scrape. maybe it is time to improve your searching skill? (<strong>select few web domains you want to learn things from, then perform the query, still you have to deal with keywords generation and site selection</strong>)</p>
+<p><a target="_blank" rel="noopener" href="https://launchpad.net/~cyborg-hawk/+archive/ubuntu/stable">cyborg hawx linux</a>, backtrack linux may join the parade.</p>
+<p>for language specific package indexs, we have <code>hackage</code> <code>CPAN</code> <code>CRAN</code> <code>crates.io</code> and more (where are package indexes for <code>C</code> <code>C++</code> <code>Pascal</code> <code>BASIC</code> <code>assembly</code> <code>lisp</code> <code>prolog</code> <code>lua</code> and more? visit <a target="_blank" rel="noopener" href="https://awesomeopensource.com/">awesomeopensource</a> then use combined topics to find <a target="_blank" rel="noopener" href="https://awesomeopensource.com/projects/c/package-manager">package managers for c</a> and more. you also have <a target="_blank" rel="noopener" href="https://libraries.io/">libraries.io</a> to monitor libraries across all package managers). just check <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/">tuna mirror site</a> and get a view on that. you may want a network directory traversal tool akin to <code>find</code> in local filesystem, without downloading anything “binary” but just logging all possible urls for you to inspect. (with file size)</p>
+<p>after all these information collecting, you must categorize them (topic modelling), retrieve info when needed (semantic searching? recommendation? dialog based GPT?). you may find many things not obviously a hack tool but in general fit well into specific needs.</p>
+<p>with all packages being scraped, you need to deduplicate it a little bit, either by name or homepage.</p>
+<h2 id="case-specific"><a href="#case-specific" class="headerlink" title="case specific"></a>case specific</h2><h3 id="github"><a href="#github" class="headerlink" title="github"></a>github</h3><p>repo named with “awesome” means this is a collection of handpicked resources</p>
+<p>you will find github links on web, social media, instant messaging and forums</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/henson/Scraper">Scraper</a> scrape popular github repositories every day</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/csurfer/gitsuggest">gitsuggest</a> recommend github repos</p>
+<p><a target="_blank" rel="noopener" href="https://fusebit.io/blog/github-api-list-repositories/?utm_source=cn.bing.com&utm_medium=referral&utm_campaign=none">How to Use the GitHub API to List Repositories</a></p>
+<p><a target="_blank" rel="noopener" href="https://pygithub.readthedocs.io/en/latest/introduction.html">PyGithub</a> use python to automate github api v3</p>
+<p>if you want all README pages on github, you first need to collect all github repo urls. you may also collect info on github repos (OSINT). you can retrieve all repos link to given user with github api (quota limited). you can search github on github or search engine with some juicy&#x2F;promising keywords then collect repo name, username, keywords, repeat the search.</p>
+<p>there are few github repo archives avaliable for download. the github archive program packed many repos to arctic, the list is called <a target="_blank" rel="noopener" href="https://archiveprogram.github.com/assets/img/archive-repos.txt">Greatest Hits</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.gharchive.org/">gharchive</a> provides many websites for monitoring github repos, though stopped archiving since 2016</p>
+<h3 id="kali-parrot"><a href="#kali-parrot" class="headerlink" title="kali, parrot"></a>kali, parrot</h3><p>kali tool list pages</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl https://en.kali.tools/all/ &gt; kali_tools_all.html <span class="comment"># more tags, more categories, the same as blackarch?</span></span><br><span class="line">curl https://www.kali.org/tools/ &gt; kali_official.html</span><br><span class="line">curl https://en.kali.tools/ &gt; pentest_tools_with_name.html</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://www.kali.org/tools/kali-meta/">kali meta page on web</a></p>
+<p><a target="_blank" rel="noopener" href="http://pkg.kali.org/pkg/kali-meta">kali meta page on package index</a></p>
+<p><a target="_blank" rel="noopener" href="https://pkg.kali.org/">kali package index</a></p>
+<p>notice kali official “offsec” provides training courses and materials as apt packages. the list:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">offsec-awae/kali-rolling 2021.1.2 amd64</span><br><span class="line">  Resources for OffSec&#x27;s AWAE/WEB-300</span><br><span class="line"></span><br><span class="line">offsec-awae-python2/kali-rolling 2021.1.2 amd64</span><br><span class="line">  Python 2 resources for OffSec&#x27;s AWAE/WEB-300</span><br><span class="line"></span><br><span class="line">offsec-exp301/kali-rolling 2021.1.2 amd64</span><br><span class="line">  Resources for OffSec&#x27;s WUMED/EXP-301</span><br><span class="line"></span><br><span class="line">offsec-pen300/kali-rolling 2021.1.2 amd64</span><br><span class="line">  Resources for OffSec&#x27;s ETBD/PEN-300</span><br><span class="line"></span><br><span class="line">offsec-pwk/kali-rolling 2021.1.2 amd64</span><br><span class="line">  Resources for OffSec&#x27;s PWK2/PEN-200</span><br></pre></td></tr></table></figure>
+
+<p>these two OSes are for pentesting, using <code>apt</code> as package manager. but parrot does not provide tool introductions.</p>
+<p>get all package names:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt list</span><br></pre></td></tr></table></figure>
+<p>you can retrieve package information in apt command, like:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt show &lt;package_name&gt;</span><br></pre></td></tr></table></figure>
+<p>you will get homepage link and package description<br>if you want package dependencies you will also have it.</p>
+<p>using <code>apt</code> one can retrieve package infos with simple command. find main metapackages like <code>parrot-tools-full</code> (parrot) and <code>kali-linux-everything</code> (kali) first, then retrieve dependency trees.</p>
+<p>parrotos has <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/parrot/index.db">index.db</a> which you can retrieve info from there, or “Packages” for general debian package index, or anything you think is metadata.</p>
+<h3 id="chocolatey"><a href="#chocolatey" class="headerlink" title="chocolatey"></a>chocolatey</h3><p>note: deprecated since v2.0, can only be used to list local packages</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">choco list</span><br></pre></td></tr></table></figure>
+
+<h3 id="blackarch"><a href="#blackarch" class="headerlink" title="blackarch"></a>blackarch</h3><p>blackarch is based on archlinux, which has both official repo and user provided packages repo (AUR). the syntax is almost the same for <code>pacman</code> and <code>yaourt</code> to retrieve all available info of packages.</p>
+<p>maybe you want to retrieve package information with pacman.</p>
+<p>list all package information just like apt, description, dependencies, homepage and more.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Si</span><br></pre></td></tr></table></figure>
+<p>use some parser?</p>
+<p>for aur repos, use yay or yaourt.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yaourt -Si</span><br></pre></td></tr></table></figure>
+<p>you may use dependencies to deduce relationship between packages, use description, man pages, wiki, manual and tutorials to understand the usage of packages.</p>
+<p>download main blackarch tool list:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://www.blackarch.org/tools.html &gt; tools.html</span><br></pre></td></tr></table></figure>
+
+<h3 id="alpine"><a href="#alpine" class="headerlink" title="alpine"></a>alpine</h3><p>alpine linux is able to <a target="_blank" rel="noopener" href="https://georgegarside.com/blog/technology/alpine-linux-install-all-man-pages/">download man page alone without installing package</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apk list -I | sed -rn <span class="string">&#x27;/-doc/! s/([a-z-]+[a-z]).*/\1/p&#x27;</span> | awk <span class="string">&#x27;&#123; print system(&quot;apk info \&quot;&quot;$1&quot;-doc\&quot; &gt; /dev/null&quot;) == 0 ? $ &quot;-doc&quot; : &quot;&quot; &#125;&#x27;</span> | xargs apk add</span><br></pre></td></tr></table></figure>
+
+<h3 id="pypi-pip"><a href="#pypi-pip" class="headerlink" title="pypi&#x2F;pip"></a>pypi&#x2F;pip</h3><p>i remember you have scraped tsinghua pypi index, containing many python tools.</p>
+<p>retrieve python package info as json:<br><code>https://pypi.org/pypi/&lt;package-name&gt;/json</code></p>
+<p>visit <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple/">pypi simple index</a> to get all package names. but the info is clearly on the other page. you retrieve this from pypi. use the below commandline tool?</p>
+<p><code>pypi [information|description] &lt;package_name&gt;</code></p>
+<p>documentation url is provided separately from mainpage.</p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/pypi-command-line/">commandline tool for searching in pypi</a></p>
+<p>install it, then run:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pypi search &lt;query&gt;</span><br></pre></td></tr></table></figure>
+
+<p>it also provides “read-the-docs” to search in documentation of a package, detailed info</p>
+<h3 id="nuget"><a href="#nuget" class="headerlink" title="nuget"></a>nuget</h3><p>we can search in cli tool (not <code>dotnet nuget</code> (installed with dotnet sdk) but <code>nuget</code> (<a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/nuget/reference/nuget-exe-cli-reference">installation guide</a>)) and <a target="_blank" rel="noopener" href="https://www.nuget.org/">web interface</a>.</p>
+<p>list all packages:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nuget list</span><br></pre></td></tr></table></figure>
+
+<p>get package information:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nuget list &lt;packageName&gt; -Verbosity detailed</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/nuget/guides/api/query-for-all-published-packages">query all package information without nuget</a></p>
+<p>the web interface seems allowing us to do some traversal on the parameter: <code>https://www.nuget.org/packages?page=&lt;pagenum&gt;&amp;sortBy=relevance</code></p>
+<p>keep in mind the pagenum cannot be too big (like 2000).</p>
+<h3 id="maven"><a href="#maven" class="headerlink" title="maven"></a>maven</h3><p>there are tools for interacting with maven search api.</p>
+<p>you can retrieve “pom.xml” to get package info like homepage and description.</p>
+<p>maven central has <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/archetype-catalog.xml">archtype-catalog</a> for retrieving all avaliable artifact names</p>
+<p>maven search tools:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/erosb/mvn-search">mvn-search</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mthmulders/mcs">mcs</a></p>
+<h3 id="homebrew"><a href="#homebrew" class="headerlink" title="homebrew"></a>homebrew</h3><p>reading the source code and according to <a target="_blank" rel="noopener" href="https://formulae.brew.sh/docs/api/">brew api docs</a> i found <a target="_blank" rel="noopener" href="https://formulae.brew.sh/api/formula.json">this url</a> is for retrieving all formula info on brew index, and <a target="_blank" rel="noopener" href="https://formulae.brew.sh/api/cask.json">this</a> for casks.</p>
+<p>also run this command for showing local cached package infos:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew info --json --all</span><br></pre></td></tr></table></figure>
+
+<h3 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h3><p>there’s a <a target="_blank" rel="noopener" href="https://github.com/nice-registry/all-the-package-names">repo</a> storing up-to-date package names on github. after that, use <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/npm-description">npm-description</a> to download description for every package.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/nice-registry/all-the-package-repos">all-the-package-repos</a> contains repo information (github, gitlab) of every npm package</p>
+<h3 id="gem"><a href="#gem" class="headerlink" title="gem"></a>gem</h3><p>change gem sources first:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/</span><br></pre></td></tr></table></figure>
+
+<p><code>gem list -r</code> really works. you just have to wait.</p>
+<p><code>gem info -r</code> list all remote gem infos, but too slow and not working, use only one package at a time.</p>
+<h3 id="manpages"><a href="#manpages" class="headerlink" title="manpages"></a>manpages</h3><p>you can download man pages before installing package</p>
+<p>use “dman” by bikeshed (not avaliable on kali, maybe on ubuntu?)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install bikeshed</span><br></pre></td></tr></table></figure>
+
+<p>or browse manpages on web, <a target="_blank" rel="noopener" href="https://linux.die.net/">tutorials on linux and languages</a></p>
+<p><a target="_blank" rel="noopener" href="https://linux.die.net/man/">man pages with different sections (categories)</a></p>
+<p><a target="_blank" rel="noopener" href="https://manpages.ubuntu.com/manpages">hierachical manpages of ubuntu</a></p>
+<p><a target="_blank" rel="noopener" href="https://manpages.ubuntu.com/dman">dman for ubuntu man pages</a></p>
+<p>location of locally installed man pages: <code>/usr/share/man</code></p>
+<h3 id="vscode-plugin"><a href="#vscode-plugin" class="headerlink" title="vscode plugin"></a>vscode plugin</h3><p><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/VSCode">web interface</a> for searching</p>
+
+	
+	</div>
+  <a type="button" href="/2022/12/12/bae26c6f-804c-40ce-ad99-55629d7522cf/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2022-12-07 </div>
+			<div class="article-title"><a href="/2022/12/07/fe91bcb4-5849-446b-a33a-54c44e8f3192/" title="This article highlights several cybersecurity tools and resources, including theHarvester, Shodan, Metagoofil, Searchcode, SpiderFoot, and Babel X. These tools aid in information gathering and exploiting vulnerabilities for security analysis and risk management.">useful sources on cyber attack</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="useful-sources-on-cyber-attack"><a href="#useful-sources-on-cyber-attack" class="headerlink" title="useful sources on cyber attack"></a>useful sources on cyber attack</h1><h2 id="open-source-virus-malware-in-your-arsenal"><a href="#open-source-virus-malware-in-your-arsenal" class="headerlink" title="open source virus&#x2F;malware in your arsenal"></a>open source virus&#x2F;malware in your arsenal</h2><p><a target="_blank" rel="noopener" href="https://github.com/H4de5-7/powershell-obfuscation">powershell obfuscator</a>  advanced, will bypass any av</p>
+<h3 id="post-exploit-framework-evasion"><a href="#post-exploit-framework-evasion" class="headerlink" title="post-exploit framework, evasion"></a>post-exploit framework, evasion</h3><p><a target="_blank" rel="noopener" href="https://github.com/screetsec/TheFatRat">thefatrat</a> is an exploiting tool which compiles a malware with famous payload, and then the compiled maware can be executed on Linux , Windows , Mac and Android. TheFatRat Provides An Easy way to create Backdoors and Payload which can bypass most anti-virus. <a target="_blank" rel="noopener" href="https://github.com/screetsec">the author</a> has some tools to share.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/n1nj4sec/pupy">pupy</a> is an opensource, cross-platform (Windows, Linux, OSX, Android) C2 and post-exploitation framework written in python and C</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/r00t-3xp10it/venom">venom</a> - C2 shellcode generator&#x2F;compiler&#x2F;handler</p>
+<h3 id="virus-samples"><a href="#virus-samples" class="headerlink" title="virus samples"></a>virus samples</h3><p><a target="_blank" rel="noopener" href="https://github.com/Da2dalus/The-MALWARE-Repo">the malware repo</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jaredsburrows/open-virus">open source virus</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ytisf/theZoo">thezoo</a> A repository of LIVE malwares for your own joy and pleasure. theZoo is a project created to make the possibility of malware analysis open and available to the public.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/malwares">malwares</a> codebase, botnet</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/BushidoUK/Open-source-Malware/blob/main/GitHubMalware.csv">open source malware on github, repo list</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/R3YW1N/Virus-for-win-10">virus for win10</a></p>
+<p><a target="_blank" rel="noopener" href="https://bbs.kafan.cn/forum-31-1.html">kafan virus samples</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.vbgood.com/">vbgood</a></p>
+<p><a target="_blank" rel="noopener" href="https://debugmen.dev/">debugman</a> reverse engineering</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://github.com/toolswatch/blackhat-arsenal-tools">official blackhat arsenal</a> under <a target="_blank" rel="noopener" href="https://toolswatch.org/">toolswatch</a> category <a target="_blank" rel="noopener" href="https://www.toolswatch.org/category/arsenal/">arsenal</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/EgeBalci/Mass-Hacker-Arsenal">massive hacking tools collection</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/tristanlatr/burpa">burpa</a> burp suite automation tool</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/James4Ever0/Twitter-Token-Gen">twitter token generator</a> register twitter in batch, has a large proxy list</p>
+<p><a target="_blank" rel="noopener" href="https://i0gan.github.io/">i0gan</a> some hacker with automated tools like <a target="_blank" rel="noopener" href="https://github.com/i0gan/awd_script/fork">awd_script</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ichunqiu.com/">ichunqiu</a> ctf educational resources</p>
+<p><a target="_blank" rel="noopener" href="https://gchq.github.io/CyberChef/">cyberchief</a> online ctf interactive tools suite</p>
+<p><a target="_blank" rel="noopener" href="http://tool.bugku.com/">bugku tools</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ctftools.com/">ctftools</a> curated online tool list</p>
+<p><a target="_blank" rel="noopener" href="http://www.hiencode.com/">ctf online tools</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.kanxue.com/">kanxue</a> home page, articles</p>
+<p><a target="_blank" rel="noopener" href="https://down.52pojie.cn/Tools/">52pojie hack tools</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.kanxue.com/chm.htm">kanxue knowledge base</a></p>
+<p><a target="_blank" rel="noopener" href="https://ctf.show/">ctfshow</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ctfhub.com/#/tools">ctfhub tools</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.shentoushi.top/">渗透师导航</a></p>
+<p><a target="_blank" rel="noopener" href="https://ctf-wiki.org/introduction/resources/">resources recommended by ctfwiki</a></p>
+<p><a target="_blank" rel="noopener" href="http://shell-storm.org/shellcode/index.html">shellcode storm database</a> can be queried via api</p>
+<p><a target="_blank" rel="noopener" href="https://www.exploit-db.com/">exploitdb</a> find exploits, poc code, <a target="_blank" rel="noopener" href="https://www.exploit-db.com/google-hacking-database">google hacking database</a> for finding juicy information&#x2F;urls, <a target="_blank" rel="noopener" href="https://www.exploit-db.com/shellcodes">shellcodes</a> with an <a target="_blank" rel="noopener" href="https://www.exploit-db.com/search">advanced search interface</a></p>
+<p><a target="_blank" rel="noopener" href="https://cracking.org/">cracking.org</a></p>
+<p>OSINT: open source (public source) intelligence is the practice of collecting information from published or otherwise publicly available sources</p>
+<p><a target="_blank" rel="noopener" href="https://www.csoonline.com/article/3445357/what-is-osint-top-open-source-intelligence-tools.html">osint tools</a>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Maltego</span><br><span class="line">Google dorks</span><br><span class="line">Mitaka</span><br><span class="line">SpiderFoot</span><br><span class="line">Spyse</span><br><span class="line">BuiltWith</span><br><span class="line">Intelligence X</span><br><span class="line">DarkSearch.io</span><br><span class="line">Grep.app</span><br><span class="line">Recon-ng</span><br><span class="line">theHarvester</span><br><span class="line">Shodan</span><br><span class="line">Metagoofil</span><br><span class="line">Searchcode</span><br><span class="line">SpiderFoot</span><br><span class="line">Babel X</span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2022/12/07/fe91bcb4-5849-446b-a33a-54c44e8f3192/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2022-11-29 </div>
+			<div class="article-title"><a href="/2022/11/29/80ecad66-1b58-4a5e-ba26-d351c54dbaa6/" title="This article highlights various hacker forums and cybersecurity websites that offer valuable resources and tools to professionals in the field, including but not limited to: Leakbase, Breached, Xss, phrack.org, whitehats.com, nhs8.com, packetstormsecurity.com, and securityfocus.com.">hacker forums</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="hacker-forums"><a href="#hacker-forums" class="headerlink" title="hacker forums"></a>hacker forums</h1><p>some hacker forums like leakbase has <a target="_blank" rel="noopener" href="https://leakbase.cc/forums/-/index.rss">rss feed</a></p>
+<p>leakbase has <a target="_blank" rel="noopener" href="https://leakbase.cc/forums/proxy/">proxy section</a> in which you may find fresh proxy lists (may not work in mainland, but who knows?)</p>
+<p>search with the name or link of these forums in github and you will get more info about hacking.</p>
+<p><a target="_blank" rel="noopener" href="https://robbing.cash/">a bunch of hacker forums</a>, including:</p>
+<p><a href="breached.vc">Breached</a><br><a href="xss.is">Xss</a><br><a href="exploit.in">Exploit</a><br><a target="_blank" rel="noopener" href="https://0x00sec.org/">0x00sec</a><br><a target="_blank" rel="noopener" href="https://lolz.guru/">lolz</a><br><a target="_blank" rel="noopener" href="https://leakzone.net/">Leakzone</a><br><a target="_blank" rel="noopener" href="https://enclave.cc/">Enclave</a><br><a target="_blank" rel="noopener" href="https://dublikat.cc/">dublikat</a><br><a target="_blank" rel="noopener" href="https://vlmi.ws/">Vlmi</a><br><a target="_blank" rel="noopener" href="https://omrt.cc/">Omrt</a><br><a href="nulled.to">Nulled</a><br><a target="_blank" rel="noopener" href="https://cracked.to/">Cracked</a><br><a target="_blank" rel="noopener" href="https://coockie.pro/">Coockie</a><br><a target="_blank" rel="noopener" href="https://altenens.is/">Altenens</a><br><a target="_blank" rel="noopener" href="https://bidencash.cc/">Bidencash</a></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://wooyun.hctrah.com/">wooyun.org mirror site</a> wooyun is dead&#x2F;closed since 2016</p>
+<p>social engineering is just a fancy name for spotting candidates, hooking up, gaining trust and doing shit.</p>
+<p>in hacking we must be multilingual, as this shit is really hard to get right.</p>
+<p>you would read them sometime do you? you would collect info from these sites do you? you would search for things when you need it do you?</p>
+<p>You would like forums for dark web? Forum for hacking?</p>
+<p>你要的是社工库 提取出来的账号密码库 用来撞库？百度谷歌 QQ 百度云盘 github 磁力种子搜索</p>
+<p>when not reached, make sure you are in the channel!</p>
+<p>Offensive Community</p>
+<p>安全脉搏</p>
+<p>网络尖刀</p>
+<p>习科论坛</p>
+<p>红黑联盟</p>
+<p>黑客X档案</p>
+<p>Alternative to ‘raid forum’: visit it in archive.org!</p>
+<p>看雪论坛</p>
+<p>乌云论坛（archive里面看吧）</p>
+<p>吾爱破解</p>
+<p>3dm</p>
+<p>freebuf</p>
+<p>Hack Today</p>
+<p>GreySec Forums</p>
+<p>世界中文黑客论坛</p>
+<p>90Sec</p>
+<p>T00LS</p>
+<p><a target="_blank" rel="noopener" href="https://jaq.alibaba.com/community/index">https://jaq.alibaba.com/community/index</a></p>
+<p><a target="_blank" rel="noopener" href="http://bobao.360.cn/index/index">http://bobao.360.cn/index/index</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ichunqiu.com/">https://www.ichunqiu.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://pentesterlab.com/">https://pentesterlab.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://xianzhi.aliyun.com/forum/">https://xianzhi.aliyun.com/forum/</a></p>
+<p><a target="_blank" rel="noopener" href="http://lab.seclover.com/">http://lab.seclover.com/</a></p>
+<p>腾讯玄武实验室</p>
+<p><a target="_blank" rel="noopener" href="http://xlab.tencent.com/cn/">http://xlab.tencent.com/cn/</a></p>
+<p><a target="_blank" rel="noopener" href="https://xss.is/">xss.is</a></p>
+<p><a target="_blank" rel="noopener" href="https://cracked.io/">cracked.io</a> </p>
+<p><a target="_blank" rel="noopener" href="https://breached.vc/">Breached forum</a> and <a target="_blank" rel="noopener" href="http://breached65xqh64s7xbkvqgg7bmj4nj7656hcb7x4g42x753r7zmejqd.onion/">onion</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.nulled.to/">nulled</a></p>
+<p><a href="dreadytofatroptsdj6io7l3xptbet6onoyno2yv7jicoxknyazubrad.onion">dread</a> (forum)</p>
+<p><a target="_blank" rel="noopener" href="https://leakbase.cc/">leakbase</a> forum leaked database</p>
+<p><a target="_blank" rel="noopener" href="https://exploit.in/">exploit.in</a> in russian</p>
+<p><a target="_blank" rel="noopener" href="http://hacktownpagdenbb.onion/">hacktown</a> hacking tutorial</p>
+<p><a target="_blank" rel="noopener" href="https://hackforums.net/">hackforums</a> site offline? another web archive shit?</p>
+<p><a target="_blank" rel="noopener" href="https://evilzone.org/">evilzone</a></p>
+<p>cryptbb is dead?</p>
+<p>freehacks dead?</p>
+<p>CrackingKing dead?</p>
+<p><a target="_blank" rel="noopener" href="http://envoys5appps3bin.onion/">envoy</a> dead?</p>
+<p><a target="_blank" rel="noopener" href="http://fahue6hb7odzns36vfoi2dqfvqvjq4btt7vo52a67jivmyz6a6h3vzqd.onion/">helium</a> dead?</p>
+<p>HackADay</p>
+<p>Exploit Database</p>
+<p>Tinkernut</p>
+<p>Dark Web Forum</p>
+<p>Jean Valjean forum</p>
+<p>Carding Team</p>
+<p>BiTSHACK</p>
+<p>SecList</p>
+<p>0Day</p>
+<p>HackerPlace</p>
+<p>0x00sec</p>
+<p>Hack5 Forums</p>
+<p>BHF</p>
+<p>Hack This Site</p>
+<p>KickAss</p>
+<p>Breaking Bad</p>
+<p>Packet Storm</p>
+<p>OpenSC</p>
+<p>HackMac</p>
+<p>Enigma Group</p>
+<p>Rohitab</p>
+<p>Ethical Hacker</p>
+<p>Cracking Forum</p>
+<p>Crackmes de</p>
+<p>Binary Revolution Hacking Forums</p>
+<p>Hack Hound</p>
+<p>Hellbound Hackers</p>
+<p><a href="ftp://www.ly2008.com/">ftp://www.ly2008.com</a><br>用户名:ly2008<br>密码:ly2008</p>
+<p><a target="_blank" rel="noopener" href="http://discovery0.blog.hexun.com/3271892_d.html">http://discovery0.blog.hexun.com/3271892_d.html</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.hackerxfiles.net/">http://www.hackerxfiles.net/</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.nohack.cn/">http://www.nohack.cn/</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.hacker.com.cn/">http://www.hacker.com.cn/</a></p>
+<p><a href="ftp://fseandxy1@y667.com/">ftp://fseandxy1@y667.com/</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.mmbest.com/SoftList/Catalog8/SoftList_Time_1.html">http://www.mmbest.com/SoftList/Catalog8/SoftList_Time_1.html</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.it-is.com.cn/dh/">http://www.it-is.com.cn/dh/</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.20cn.net/cgi-bin/download/down.cgi?list=passwd">http://www.20cn.net/cgi-bin/download/down.cgi?list=passwd</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.98919.com/index.html">http://www.98919.com/index.html</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.muvip119.net/2/index.html">http://www.muvip119.net/2/index.html</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.anqn.com/">http://www.anqn.com/</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.hf110.com/">http://www.hf110.com</a></p>
+<p><a target="_blank" rel="noopener" href="http://down.juntuan.net/index.html">http://down.juntuan.net/index.html</a></p>
+<p><a target="_blank" rel="noopener" href="http://new.shockhack.net/index.asp">http://new.shockhack.net/index.asp</a></p>
+<p><a target="_blank" rel="noopener" href="http://dx.hackbase.com/">http://dx.hackbase.com/</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.chinahonker.com/index.htm">http://www.chinahonker.com/index.htm</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.cnhacker.com/">http://www.cnhacker.com/</a></p>
+<p><a target="_blank" rel="noopener" href="http://77169.org/index.html">http://77169.org/index.html</a></p>
+<p>legionhiden4dqh4.onion - Let’s start with HeLL Reloaded, probably the only one that isn’t just awful. where Tor Carding Forum (TCF) members who weren’t arrested when it was seized are now dwelling! Not operated by the same people behind the original HeLL, but after the original was seized, some of the moderators and members made this site.</p>
+<p>exoduockgfq3ikf7.onion Ex0du$, Pretty mediocre forum, lots of shitty banking botnets being sold. Also ransomeware is the big thing recently, so of course that’s being sold. The code is HILARIOUS. RansomWare coded in visual basic, Java, C# and AutoIT v3! Great.</p>
+<p>damagelabraahzcu.onion - DamageLabs primarily russian forum, looks like there’s not much interesting going on here either. They have a good collection of pirated programming books.</p>
+<p>darkod3eeziu3w5p.onion - looks like a really dead forum.</p>
+<p>dublik2uqiorycsj.onion - dublik russian forum</p>
+<p>forohpysho2t5mjs.onion - another random forum</p>
+<p>1、独自等待：<a target="_blank" rel="noopener" href="https://www.waitalone.cn/">https://www.waitalone.cn/</a></p>
+<p>2、中国红客联盟：<a target="_blank" rel="noopener" href="https://www.ihonker.org/forum.php">https://www.ihonker.org/forum.php</a></p>
+<p>3、安全沙漏：<a target="_blank" rel="noopener" href="https://www.secsilo.com/about">https://www.secsilo.com/about</a></p>
+<p>4、易安在线：<a target="_blank" rel="noopener" href="https://www.e365.info/">https://www.e365.info/</a></p>
+<p>5、铁匠运维网：<a target="_blank" rel="noopener" href="http://www.tiejiang.org/">http://www.tiejiang.org/</a></p>
+<p>6、吾爱漏洞：<a target="_blank" rel="noopener" href="http://www.52bug.cn/">http://www.52bug.cn/</a></p>
+<p>7、破晓团队：<a target="_blank" rel="noopener" href="http://www.secbug.org/">http://www.secbug.org/</a></p>
+<p>8、黑白网：<a target="_blank" rel="noopener" href="http://www.heibai.org/178.html">http://www.heibai.org/178.html</a></p>
+<p>9、安全客：<a target="_blank" rel="noopener" href="https://www.anquanke.com/">https://www.anquanke.com/</a></p>
+<p>10、E安全：<a target="_blank" rel="noopener" href="https://www.easyaq.com/">https://www.easyaq.com/</a></p>
+<p>11、漏洞时代：<a target="_blank" rel="noopener" href="http://0day5.com/">http://0day5.com/</a></p>
+<p>12、猫头鹰：<a target="_blank" rel="noopener" href="http://www.mottoin.com/">http://www.mottoin.com/</a></p>
+<p>13、华域联盟论坛：<a target="_blank" rel="noopener" href="https://www.cnhackhy.com/forum.php">https://www.cnhackhy.com/forum.php</a></p>
+<p>14、逆向未来：<a target="_blank" rel="noopener" href="https://www.pd521.com/">https://www.pd521.com/</a></p>
+<p>15、邪恶八进制：<a target="_blank" rel="noopener" href="https://forum.eviloctal.com/">https://forum.eviloctal.com/</a></p>
+<p>16、飘云阁：<a target="_blank" rel="noopener" href="https://www.chinapyg.com/">https://www.chinapyg.com/</a></p>
+<p>17、红黑联盟：<a target="_blank" rel="noopener" href="http://bbs.2cto.com/">http://bbs.2cto.com/</a></p>
+<p>18、技术宅的世界：<a target="_blank" rel="noopener" href="https://www.0xaa55.com/">https://www.0xaa55.com/</a></p>
+<p>19、安全牛：<a target="_blank" rel="noopener" href="https://www.aqniu.com/">https://www.aqniu.com/</a></p>
+<p>20、兄弟论坛：<a target="_blank" rel="noopener" href="http://hackxd.com/">http://hackxd.com/</a></p>
+<p>21、零日安全：<a target="_blank" rel="noopener" href="https://www.jmpoep.com/">https://www.jmpoep.com/</a></p>
+<p>22、南域剑盟：<a target="_blank" rel="noopener" href="http://www.98exe.net/">http://www.98exe.net/</a></p>
+<p>23、黑基论坛：<a target="_blank" rel="noopener" href="http://www.safebase.cn/">http://www.safebase.cn/</a></p>
+<p>24、网络攻防小组（WLGF）：<a target="_blank" rel="noopener" href="http://www.nsoad.com/">http://www.nsoad.com/</a></p>
+<p>25、黑吧安全网：<a target="_blank" rel="noopener" href="http://www.myhack58.com/">http://www.myhack58.com/</a></p>
+<p>26、幽灵学院：<a target="_blank" rel="noopener" href="http://www.41443.com/">http://www.41443.com/</a></p>
+<p>纵观黑客发展史，大可分为三代：<br>   第一代：专门从事计算机、网络，其代表组织为“绿色兵团”（1996年—1998年）<br>   第二代：网络爱好者和在校学生.其代表组织为“中国黑客联盟”（1998年—2000年）<br>   第三代：在校学生，其代表组织为“红客联盟”，“中国鹰派”（2000年—今）<br>以下为几个典型的黑客组织：<br>●安全焦点（代表人：冰河）网址：<a target="_blank" rel="noopener" href="http://www.xfocus.net/">www.xfocus.net</a><br>●绿色兵团（已解散）（代表人：龚蔚）<br>●中国鹰派联盟（代表人：老鹰）网址：<a target="_blank" rel="noopener" href="http://www.chinaeagle.org/">www.chinaeagle.org</a>   博客：blog.sina.com.cn&#x2F;u&#x2F;1262168602<br>●小榕工作室（代表人：小榕）网址：<a target="_blank" rel="noopener" href="http://www.netxeyes.com/">www.netxeyes.com</a><br>●第八军团（代表人：陈三公子）网址：<a target="_blank" rel="noopener" href="http://www.sec520.com/">www.sec520.com</a><br>●邪恶八进制（代表人：冰血封情）网址：forum.eviloctal.com<br>●黑客基地（代表人：孤独剑客）网址：<a target="_blank" rel="noopener" href="http://www.hackbase.com/">www.hackbase.com</a><br>●华夏黑客同盟（代表人:怪狗）网址：<a target="_blank" rel="noopener" href="http://www.77169.com/">www.77169.com</a><br>●牧民网安（代表人：牧民战天）网址：<a target="_blank" rel="noopener" href="http://www.hack006.com/">www.hack006.com</a><br>●黑客防线 网址：<a target="_blank" rel="noopener" href="http://www.hacker.com.cn/">www.hacker.com.cn</a><br>国外黑客组织站点及介绍黑客知识的网站：<br>●<a target="_blank" rel="noopener" href="http://www.security.nnov.ru/%EF%BC%8C%E4%BF%84%E7%BD%97%E6%96%AF%E7%9A%84%E4%B8%80%E4%B8%AA%E5%AE%89%E5%85%A8%E7%AB%99%E7%82%B9">http://www.security.nnov.ru/，俄罗斯的一个安全站点</a><br>●<a target="_blank" rel="noopener" href="http://chess.eecs.berkeley.edu/trust/%E5%8A%A0%E5%B7%9E%E5%A4%A7%E5%AD%A6%E4%BC%AF%E5%85%8B%E5%88%A9%E5%88%86%E6%A0%A1%E2%80%9C%E6%99%AE%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6%E5%B0%8F%E7%BB%84%E2%80%9D%E7%BD%91%E7%AB%99">http://chess.eecs.berkeley.edu/trust/加州大学伯克利分校“普安全技术研究小组”网站</a><br>●<a target="_blank" rel="noopener" href="http://www.io.com/.vkp%E7%9A%84%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%EF%BC%8Clinux%E5%AE%89%E5%85%A8%E6%96%B9%E9%9D%A2%E7%9A%84%E4%B8%93%E4%B8%9A%E4%BA%BA%E5%91%98(%E7%A8%8B%E5%BA%8F%E5%91%98)">http://www.io.com/.vkp的个人主页，linux安全方面的专业人员(程序员)</a>.<br>●<a target="_blank" rel="noopener" href="http://linsec.ca/%E5%8A%A0%E6%8B%BF%E5%A4%A7%E4%B8%80%E4%B8%AA%E4%B8%BB%E8%A6%81%E6%94%B6%E9%9B%86linux%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E6%96%87%E6%A1%A3%E8%B5%84%E6%96%99%E7%9A%84%E7%AB%99%E7%82%B9">http://linsec.ca/加拿大一个主要收集linux安全相关的文档资料的站点</a>, 也包括其它类Unix系统如OpenBSD, Mac OS X等.<br>●<a target="_blank" rel="noopener" href="http://www.rootsecure.net/%E4%B8%80%E4%B8%AA%E4%B8%93%E9%97%A8%E4%B8%BA%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98%E5%92%8C%E9%BB%91%E5%AE%A2%E6%8F%90%E4%BE%9B%E5%AE%89%E5%85%A8%E6%96%B0%E9%97%BB%E7%9A%84%E7%BD%91%E7%AB%99%EF%BC%8C%E6%88%90%E7%AB%8B%E4%BA%8E2002%E5%B9%B49%E6%9C%888%E6%97%A5">http://www.rootsecure.net/一个专门为系统管理员和黑客提供安全新闻的网站，成立于2002年9月8日</a><br>●<a target="_blank" rel="noopener" href="http://astalavista.box.sk.著名的软件破解网站/">http://astalavista.box.sk.著名的软件破解网站</a><br>●auscert.org.au.一个很棒的黑客工具和入侵攻击的搜索网站<br>●<a target="_blank" rel="noopener" href="http://www.elitehackers.info/.%E4%B8%BA%E5%8D%9A%E5%AD%A6%E7%9A%84%E9%BB%91%E5%AE%A2%E6%8F%90%E4%BE%9B%E7%9A%84%E4%BF%A1%E6%81%AF%E5%85%AC%E5%91%8A%E7%89%8C%EF%BC%8C%E6%98%AF%E4%B8%8A%E4%BA%86%E7%AD%89%E7%BA%A7%E7%9A%84%E9%BB%91%E5%AE%A2%E5%8E%BB%E7%9A%84%E5%9C%B0%E6%96%B9%E3%80%82%E5%8F%AF%E6%89%BE%E5%88%B0%E6%9C%80%E6%96%B0%E7%9A%84%E5%85%A5%E4%BE%B5%E6%94%BB%E5%87%BB%E5%8F%8A%E5%AF%B9%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95">http://www.elitehackers.info/.为博学的黑客提供的信息公告牌，是上了等级的黑客去的地方。可找到最新的入侵攻击及对解决办法</a><br>●<a href="ftp://ftp.nec.com/.%E5%9C%A8/pub/securit%E7%9B%AE%E5%BD%95%E4%B8%8B%E9%9D%A2%E5%8C%85%E5%90%AB%E4%B8%80%E4%B8%AA%E5%B7%A8%E5%A4%A7%E7%9A%84%E5%B7%A5%E5%85%B7%E5%BA%93">ftp://ftp.nec.com/.在/pub/securit目录下面包含一个巨大的工具库</a><br>●ftp.win.tue.nl.在&#x2F;pub&#x2F;securit目录下包含巨大的安全工具库<br>国外安全 <a target="_blank" rel="noopener" href="http://www.neohapsis.com/">http://www.neohapsis.com/</a> 内容极为丰富<br>国外安全 <a target="_blank" rel="noopener" href="http://www.deadly.org/">http://www.deadly.org/</a> 大量关于OpenBSD的资料文档教程<br>国外安全 <a target="_blank" rel="noopener" href="http://www.guninski.com/">http://www.guninski.com/</a> 安全专家Guninski的主页，有大量由系统漏洞<br>国外安全 <a target="_blank" rel="noopener" href="http://www.sysinternals.com/">http://www.sysinternals.com</a> 有很好的windows下的工具及源代码<br>国外安全 <a target="_blank" rel="noopener" href="http://www.securityflaw.com/bible/">http://www.securityflaw.com/bible/</a> 入侵检测等文档整理较好的站点<br>国外安全 <a target="_blank" rel="noopener" href="http://www.secinf.net/">http://www.secinf.net/</a> 网络安全方面的大量文档<br>国外安全 <a target="_blank" rel="noopener" href="http://www.incident-response.org/">http://www.incident-response.org</a> 入侵反应，数据恢复工具等<br>国外安全 <a target="_blank" rel="noopener" href="http://www.securityfocus.com/">http://www.securityfocus.com/</a> 安全资料整合最好的站<br>国外安全 <a target="_blank" rel="noopener" href="http://www.project.honeynet.org/">http://www.project.honeynet.org/</a> 由安全界一帮牛人组织的一个project<br>国外安全 <a target="_blank" rel="noopener" href="http://www.packetstormsecurity.com/">http://www.packetstormsecurity.com</a> 资料全面的安全站<br>国外安全 <a target="_blank" rel="noopener" href="http://www.securityportal.com/">http://www.securityportal.com/</a> 还可以看看的安全站<br>国外安全 <a target="_blank" rel="noopener" href="http://www.ussrback.com/">http://www.ussrback.com/</a> 比较活跃的安全站<br>国外安全 <a target="_blank" rel="noopener" href="http://www.attrition.org/">http://www.attrition.org/</a> 内容全面的安全站<br>国外安全 <a target="_blank" rel="noopener" href="http://www.wiretrip.net/rfp/2/index.asp">http://www.wiretrip.net/rfp/2/index.asp</a> rfp的安全主页，提供权威的安全信息<br>国外安全 <a target="_blank" rel="noopener" href="http://www.antionline.com/">http://www.antionline.com/</a> 有些特色栏目的安全站<br>国外安全 <a target="_blank" rel="noopener" href="http://www.eeye.com/">http://www.eeye.com/</a> eeye公司的主页，提供权威性的安全建议和工具<br>国外安全 <a target="_blank" rel="noopener" href="http://www.insecure.org/">http://www.insecure.org/</a> Fyodor的主页，nmap的老家，还有exploit<br>国外安全 <a target="_blank" rel="noopener" href="http://www.atstake.com/">http://www.atstake.com/</a> @stack公司的主页，提供权威的安全建议<br>国外安全 <a target="_blank" rel="noopener" href="http://www.bugnet.com/">http://www.bugnet.com/</a> 提供漏洞修补<br>国外黑客 <a target="_blank" rel="noopener" href="http://lsd-pl.net/">http://lsd-pl.net/</a> LsD的站,最新最有效的exploit<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.s0ftpj.org/">http://www.s0ftpj.org</a> 提供一些水平很高的小工具<br>国外黑客 <a target="_blank" rel="noopener" href="http://phrack.org/">http://phrack.org/</a> Phrack的主页，经典的黑客技术电子杂志<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.w00w00.org/">http://www.w00w00.org/</a> w00w00组织的主页<br>国外黑客 <a target="_blank" rel="noopener" href="http://mixter.void.ru/">http://mixter.void.ru/</a> Mixter的个人主页，不少有用的工具<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.thehackerschoice.com/">http://www.thehackerschoice.com/</a> THC黑客组织的页面，很好的安全文档和工具<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.win2000mag.net/">www.win2000mag.net</a> Windows &amp; .NET Magazine Network 绝对专业的站点，文章都是一流的<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.2600.com/">http://www.2600.com/</a> 2600 Magazine<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.experts-exchange.com/">www.experts-exchange.com</a> 全球有名的社区<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.is-it-true.org/">www.is-it-true.org</a> 类似于FAQ的站点，资源丰富<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.mixter.warrior2k.com/">www.mixter.warrior2k.com</a> mixter security<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.liun.hektik.org/">www.liun.hektik.org</a> Long Island our Underground Networks<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.ussrback.com/">www.ussrback.com</a> ussr is back<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.securiteam.com/">www.securiteam.com</a> 非常好的安全文章漏洞利用工具下载站点<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.lsd-pl.net/">www.lsd-pl.net</a> The Last Stage of Delirium Research Group<br>国外黑客 www. neworder.box.sk Box Network team<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.sysinternals.com/">www.sysinternals.com</a> sysinternals<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.webattack.com/">www.webattack.com</a> WebAttack Inc<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.blackhat.com/">www.blackhat.com</a> Black Hat, Inc<br>国外黑客 <a target="_blank" rel="noopener" href="http://p.ulh.as/">http://p.ulh.as</a> pulhas<br><a target="_blank" rel="noopener" href="http://www.hack.co.za/">http://www.hack.co.za</a> (国外著名黑客站点，较全的Exploit库)<br><a target="_blank" rel="noopener" href="http://www.phrack.org/">http://www.phrack.org</a> (经典的黑客技术电子杂志)<br><a target="_blank" rel="noopener" href="http://www.antionline.com/">http://www.antionline.com</a> (国外经典黑客站点)<br><a target="_blank" rel="noopener" href="http://whitehats.com/">http://whitehats.com</a> (白帽子网站，有最新的规则库下载，关于Snort等)<br><a target="_blank" rel="noopener" href="http://lsd-pl.net/">http://lsd-pl.net</a> (发布最新的Exploit程序)<br><a target="_blank" rel="noopener" href="http://www.nhs8.com/">http://www.nhs8.com/</a> 神刀网<br><a target="_blank" rel="noopener" href="http://packetstormsecurity.com/">http://packetstormsecurity.com</a> (国外著名漏洞库，有大量exploit程序)<br><a target="_blank" rel="noopener" href="http://oliver.efri.hr/~crv/security/bugs/list.html">http://oliver.efri.hr/~crv/security/bugs/list.html</a> (有整理好的最新漏洞库供下载)<br><a target="_blank" rel="noopener" href="http://astalavista.box.sk/">http://astalavista.box.sk</a> (著名的软件破解网站)<br><a target="_blank" rel="noopener" href="http://www.thehackerschoice.com/">http://www.thehackerschoice.com</a> (THC黑客组织的站点，有很多资料和工具)<br><a target="_blank" rel="noopener" href="http://www.insecure.org/">http://www.insecure.org</a> (Fyoderr的个人站点,即Nmap的老家)<br><a target="_blank" rel="noopener" href="http://www.securityfocus.com/">http://www.securityfocus.com/</a><br><a target="_blank" rel="noopener" href="http://www.milw0rm.com/">http://www.milw0rm.com/</a><br><a target="_blank" rel="noopener" href="http://www.metasploit.com/">http://www.metasploit.com/</a></p>
+
+	
+	</div>
+  <a type="button" href="/2022/11/29/80ecad66-1b58-4a5e-ba26-d351c54dbaa6/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2022-11-11 </div>
+			<div class="article-title"><a href="/2022/11/11/d0b9856e-dd90-4c52-952c-17e1a66c1b3e/" title="This article discusses two tools, rb_call and puby, which enable Python programs to call Ruby functions and leverage Ruby libraries. These tools promote seamless interaction between Python and Ruby, enhancing the interoperability between the two languages.">call ruby from python</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="call-ruby-from-python"><a href="#call-ruby-from-python" class="headerlink" title="call ruby from python"></a>call ruby from python</h1><p><a target="_blank" rel="noopener" href="https://github.com/yohm/rb_call">rb_call</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/tomjnixon/puby">puby</a></p>
+
+	
+	</div>
+  <a type="button" href="/2022/11/11/d0b9856e-dd90-4c52-952c-17e1a66c1b3e/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2022-10-09 </div>
+			<div class="article-title"><a href="/2022/10/09/93902e98-2508-4d74-80af-9afb6ecff3ae/" title="AI video generation tools such as Text2Video-Zero, Phenaki Video, Imagen-PyTorch, and Make-a-Video-PyTorch are revolutionizing the video production process. These platforms enable users to generate videos using source material quality, editing capabilities, subtitles, color changes, and even music composition through Google&#39;s AudioLM. Access to these tools is available on ModelScope, Hugging Face, and GitHub.">video generation/modification (vfx) from text</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="video-generation-modification-vfx-from-text"><a href="#video-generation-modification-vfx-from-text" class="headerlink" title="video generation&#x2F;modification (vfx) from text"></a>video generation&#x2F;modification (vfx) from text</h1><p>达摩院放出了<a target="_blank" rel="noopener" href="https://modelscope.cn/models/damo/text-to-video-synthesis/summary">文本生成视频模型</a>，支持英文输入</p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/damo-vilab/modelscope-damo-text-to-video-synthesis">huggingface space</a></p>
+<p>model weights:</p>
+<table>
+<thead>
+<tr>
+<th>weight path</th>
+<th>weight size</th>
+<th>model name</th>
+<th>author</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://huggingface.co/damo-vilab/text-to-video-ms-1.7b">text-to-video-ms-1.7b</a></td>
+<td>unknown</td>
+<td>unknown</td>
+<td>damo-vilab</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://huggingface.co/damo-vilab/modelscope-damo-text-to-video-synthesis">modelscope-damo-text-to-video-synthesis</a></td>
+<td>unknown</td>
+<td>unknown</td>
+<td>damo-vilab</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://huggingface.co/damo-vilab/text-to-video-ms-1.7b-legacy">text-to-video-ms-1.7b-legacy</a></td>
+<td>unknown</td>
+<td>unknown</td>
+<td>damo-vilab</td>
+</tr>
+</tbody></table>
+<p>can also use from modelscope:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> modelscope.pipelines <span class="keyword">import</span> pipeline</span><br><span class="line"><span class="keyword">from</span> modelscope.utils.constant <span class="keyword">import</span> Tasks</span><br><span class="line"></span><br><span class="line">p = pipeline(<span class="string">&#x27;text-to-video-synthesis&#x27;</span>, <span class="string">&#x27;damo/text-to-video-synthesis&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/spaces/PAIR">PAIR</a> now releases <a target="_blank" rel="noopener" href="https://huggingface.co/spaces/PAIR/Text2Video-Zero">Text2Video-Zero</a> which leverages existing stable diffusion models to generate video. also released a bunch of controlnet dreambooth weights.</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://github.com/lucidrains">lucidrains</a> is a workaholic on transformer implementations. we should scrape all the repos and index them. there are <a target="_blank" rel="noopener" href="https://github.com/lucidrains/memory-efficient-attention-pytorch">faster language models</a> to train.</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://github.com/lucidrains/phenaki-pytorch">Phenaki Video</a>, which uses Mask GIT to produce text guided videos of up to 2 minutes in length, in Pytorch</p>
+<p><a target="_blank" rel="noopener" href="https://dreamix-video-editing.github.io/">dreamix</a> (not open-source)</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/timothybrooks/instruct-pix2pix">instruct-pix2pix</a> requires 16GB+ VRAM</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/omerbt/Text2LIVE">text2live</a> modify video by text prompt (such as add fire in mouth)</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lucidrains/recurrent-interface-network-pytorch">recurrent-interface-network-pytorch</a> using diffusion to generate images and video</p>
+<p>high quality! <a target="_blank" rel="noopener" href="https://github.com/lucidrains/imagen-pytorch/blob/main/imagen_pytorch/imagen_video.py">imagegen-video code</a> with <a target="_blank" rel="noopener" href="https://imagen.research.google/video/">demo</a> and <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2210.02303.pdf">paper</a></p>
+<p>抄视频 视频的时间要讲究 看看是抄一年前的好还是抄刚刚发布的好</p>
+<p>在发布的一个视频当中 最多抄某个作者的两三个符合要求的片段</p>
+<p>use editly smooth&#x2F;slick transitions and subtitles to beat the copy-detection algorithm, also consider color change in ffmpeg</p>
+<p>动态 专栏也可以抄</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lucidrains/make-a-video-pytorch">make-a-video</a></p>
+<p>谷歌AI歌手震撼来袭！AudioLM简单听几秒，便能谱曲写歌 <a target="_blank" rel="noopener" href="https://www.kuxai.com/article/398">https://www.kuxai.com/article/398</a></p>
+
+	
+	</div>
+  <a type="button" href="/2022/10/09/93902e98-2508-4d74-80af-9afb6ecff3ae/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2022-09-12 </div>
+			<div class="article-title"><a href="/2022/09/12/4cf8e73f-7fcf-4672-9623-a9bea82fb7a1/" title="This article delves into the world of audio processing tools, exploring options for tasks like removing filler words, editing audio/video, enhancing guitar audio using machine learning, and creating and sharing music. Some popular tools mentioned include Cleanvoice AI, Descript, Revoldiv, AudioStellar, Beepbox, Audacity, Audiomass, and VB-Audio Virtual Apps. These tools can be used for various purposes such as recording webinars, mixing audio for broadcasting on Zoom and YouTube, and working with multiple audio sources.">Audio and Music Tools</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="Audio-and-Music-Tools"><a href="#Audio-and-Music-Tools" class="headerlink" title="Audio and Music Tools"></a>Audio and Music Tools</h1><p>Audio and music processing tools.</p>
+<p>Related links:<br>🔗 <a href="/app/audio-streaming">Audio, Music, Radio, and Podcast Streaming Apps</a><br>🔗 <a href="/app/audio-tool">Audio and Music Tools</a><br>🔗 <a href="/app/free-audio">Free Audio and Music</a>  </p>
+<h2 id="AI-Apps-for-Audio"><a href="#AI-Apps-for-Audio" class="headerlink" title="AI Apps for Audio"></a>AI Apps for Audio</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://cleanvoice.ai/">Cleanvoice AI - Get rid of filler words from your audio recordings</a></li>
+<li><a target="_blank" rel="noopener" href="https://pytorchvideo.org/">PyTorchVideo · A deep learning library for video understanding research</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.descript.com/">Descript - All-in-one audio&#x2F;video editing, as easy as a doc.</a></li>
+<li><a target="_blank" rel="noopener" href="https://auphonic.com/landing">Auphonic</a></li>
+<li><a target="_blank" rel="noopener" href="https://revoldiv.com/">Revoldiv</a></li>
+</ul>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.audiostellar.xyz/">AudioStellar</a></li>
+</ul>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.zakjost.com/post/guitarml/">GuitarML - Zak Jost</a> Audio Enhancement Machine Learning</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/tyiannak/pyAudioAnalysis">tyiannak&#x2F;pyAudioAnalysis: Python Audio Analysis Library: Feature Extraction, Classification, Segmentation and Applications</a></li>
+<li><a target="_blank" rel="noopener" href="https://librosa.org/doc/latest/index.html">librosa — librosa 0.8.1 documentation</a> python package for music and audio analysis</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Yaafe/Yaafe">Yaafe&#x2F;Yaafe: Audio features extraction</a></li>
+<li><a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=31968456">Ask HN: AI-Generated Music? | Hacker News</a></li>
+</ul>
+<h3 id="AI-Music-Separation"><a href="#AI-Music-Separation" class="headerlink" title="AI Music Separation"></a>AI Music Separation</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://source-separation.github.io/tutorial/landing.html">Open Source Tools and Data for Music Source Separation</a> License: CC-BY-NC</li>
+<li>Spleeter, open source music separation library from Deezer, from <a target="_blank" rel="noopener" href="https://www.acapella-extractor.com/">Accapella</a>, <a target="_blank" rel="noopener" href="https://melody.ml/">Melody</a>, <a target="_blank" rel="noopener" href="https://moises.ai/">Moises</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/linuxmao-org/ISSE">ISSE</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/etzinis/sudo_rm_rf">SUDO RM RF</a> : SUccessive DOwnsampling and Resampling of Multi-Resolution Features which enables a more efficient way of separating sources from mixtures</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/adobe/Deep-Audio-Prior">Deep Audio</a> : Audio Source Separation Without Any Training Data</li>
+</ul>
+<h3 id="AI-Music-Recognition"><a href="#AI-Music-Recognition" class="headerlink" title="AI Music Recognition"></a>AI Music Recognition</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://audiotag.info/">Audio Tag for recognize music</a></li>
+</ul>
+<h2 id="Audio-Creation"><a href="#Audio-Creation" class="headerlink" title="Audio Creation"></a>Audio Creation</h2><h3 id="Audio-and-Music-Programming"><a href="#Audio-and-Music-Programming" class="headerlink" title="Audio and Music Programming"></a>Audio and Music Programming</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=28198641">Alda – Text-Based Programming Language for Music Composition - Hacker News</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/maximecb/noisecraft">maximecb&#x2F;noisecraft: Browser-based visual programming language and platform for sound synthesis.</a></li>
+<li><a target="_blank" rel="noopener" href="https://helio.fm/">helio.fm</a> libre music composition software</li>
+<li><a target="_blank" rel="noopener" href="https://faust.grame.fr/">Faust Programming Language</a></li>
+</ul>
+<h3 id="AI-Audio-and-Music-Generator"><a href="#AI-Audio-and-Music-Generator" class="headerlink" title="AI Audio and Music Generator"></a>AI Audio and Music Generator</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://dopeloop.ai/melody-generator/">AI Melody Generator</a></li>
+<li><a target="_blank" rel="noopener" href="http://typedrummer.com/">typedrummer</a></li>
+</ul>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://openai.com/blog/jukebox/">Jukebox</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2108.12290">2108.12290 Music Composition with Deep Learning: A Review</a></li>
+</ul>
+<h3 id="Audio-and-Music-Creation-and-Sharing"><a href="#Audio-and-Music-Creation-and-Sharing" class="headerlink" title="Audio and Music Creation and Sharing"></a>Audio and Music Creation and Sharing</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://beepbox.co/">Beepbox</a> : BeepBox is an online tool for sketching and sharing instrumental melodies. </li>
+<li><a target="_blank" rel="noopener" href="https://jummbus.bitbucket.io/">Jummbox</a> : Jummbox is Beepbox modification (online tool for sketching and sharing chip tune melodies).</li>
+</ul>
+<h2 id="WASM-Audio-Processing"><a href="#WASM-Audio-Processing" class="headerlink" title="WASM Audio Processing"></a>WASM Audio Processing</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://ampedstudio.com/">Amped Studio</a> : audio processing, need login</li>
+<li><a target="_blank" rel="noopener" href="https://soundation.com/">Soundation</a> : audio processing, need login</li>
+<li><a target="_blank" rel="noopener" href="https://brionv.com/misc/ogv.js/demo/">ogv.js</a> : audio processing</li>
+<li><a target="_blank" rel="noopener" href="https://www.webaudiomodules.org/">Audio Processing</a></li>
+<li><a target="_blank" rel="noopener" href="https://learningsynths.ableton.com/">Learning Syhthesizer and Sound</a></li>
+<li><a target="_blank" rel="noopener" href="https://petersalomonsen.com/webassemblymusic/livecodev1/?gist=ea73551e352440d5f470c6af89d7fe7c">Music Coding</a></li>
+<li><a target="_blank" rel="noopener" href="https://timdaub.github.io/wasm-synth/">WASM Synth</a> WASM Music Synthesizer</li>
+</ul>
+<h2 id="Audio-Player"><a href="#Audio-Player" class="headerlink" title="Audio Player"></a>Audio Player</h2><h3 id="Online-Audio-Player"><a href="#Online-Audio-Player" class="headerlink" title="Online Audio Player"></a>Online Audio Player</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/captbaritone/webamp">captbaritone&#x2F;webamp: Winamp 2 reimplemented for the browser</a></li>
+</ul>
+<h3 id="Peer-to-Peer-Audio"><a href="#Peer-to-Peer-Audio" class="headerlink" title="Peer to Peer Audio"></a>Peer to Peer Audio</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://sonobus.net/">SonoBus - peer to peer music</a></li>
+</ul>
+<h2 id="Audio-Editor"><a href="#Audio-Editor" class="headerlink" title="Audio Editor"></a>Audio Editor</h2><h3 id="Desktop-Audio-Editor"><a href="#Desktop-Audio-Editor" class="headerlink" title="Desktop Audio Editor"></a>Desktop Audio Editor</h3><ul>
+<li>Audacity, #opensource</li>
+</ul>
+<h3 id="Online-Audio-Editor"><a href="#Online-Audio-Editor" class="headerlink" title="Online Audio Editor"></a>Online Audio Editor</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://audiomass.co/">Audiomass</a>, <a target="_blank" rel="noopener" href="https://github.com/pkalogiros/audiomass">Github</a>Audio Editor</li>
+</ul>
+<h2 id="Other-Audio-Tools"><a href="#Other-Audio-Tools" class="headerlink" title="Other Audio Tools"></a>Other Audio Tools</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://vb-audio.com/Cable/">VB-Audio Virtual Apps</a> audio output to audio input</li>
+</ul>
+<h2 id="Working-with-Virtual-Audio-Tools"><a href="#Working-with-Virtual-Audio-Tools" class="headerlink" title="Working with Virtual Audio Tools"></a>Working with Virtual Audio Tools</h2><h3 id="Audio-Recording-Transcription"><a href="#Audio-Recording-Transcription" class="headerlink" title="Audio Recording - Transcription"></a>Audio Recording - Transcription</h3><p>Benefits&#x2F;drawbacks:</p>
+<ul>
+<li>We cannot listen the audio output from playback apps</li>
+</ul>
+<p><img src="/_v_images/20211023055131420_4883.png" alt="VAC Audio Recording"></p>
+<p>Use cases:</p>
+<ul>
+<li>Record Zoom Webinar to Speechtexter, Google Docs etc.</li>
+</ul>
+<h3 id="Audio-Input-Mixing"><a href="#Audio-Input-Mixing" class="headerlink" title="Audio Input Mixing"></a>Audio Input Mixing</h3><p><img src="/_v_images/20211023055947660_4903.png" alt="Audio Input Mixing"></p>
+<p>Use cases:</p>
+<ul>
+<li>Record with multip<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/irosyadi/vnote.image/master/vnotebook/app/music-audio-tool.md/20211023055947660_4903.pngP">https://raw.githubusercontent.com/irosyadi/vnote.image/master/vnotebook/app/music-audio-tool.md/20211023055947660_4903.pngP</a>) to Audacity</li>
+<li>Broadcast with multiple input (our voice + music from AIMP) to Zoom, Youtube etc.</li>
+</ul>
+<h3 id="Audio-Output-Mixing"><a href="#Audio-Output-Mixing" class="headerlink" title="Audio Output Mixing"></a>Audio Output Mixing</h3><p><img src="/_v_images/20211023060503358_26770.png" alt="Audio Output Mixing"></p>
+<p>Setting:</p>
+<ul>
+<li>OS Sound Setting<ul>
+<li>Outp<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/irosyadi/vnote.image/master/vnotebook/app/music-audio-tool.md/20211023060503358_26770.pngine">https://raw.githubusercontent.com/irosyadi/vnote.image/master/vnotebook/app/music-audio-tool.md/20211023060503358_26770.pngine</a> 1 VAC Microphone</li>
+</ul>
+</li>
+<li>VAC Repeater Setting<ul>
+<li>Wave in: Line 1 VAC Microphone</li>
+<li>Wave out: Speaker&#x2F;Headphone</li>
+<li>Start</li>
+</ul>
+</li>
+</ul>
+<p>Use cases:</p>
+<ul>
+<li>Transcribe (and listen) Zoom Seminar to Speaker and Speechtexter, Google Docs</li>
+<li>Translate Youtube Video using Google Translate</li>
+</ul>
+<h3 id="Zoom-Audio-Recording-Transcription"><a href="#Zoom-Audio-Recording-Transcription" class="headerlink" title="Zoom Audio Recording&#x2F;Transcription"></a>Zoom Audio Recording&#x2F;Transcription</h3><p><img src="/_v_images/20211023061101034_12558.png" alt="Zoom Recording Transcription"></p>
+<h3 id="Google-Meet-Audio-Transcription"><a href="#Google-Meet-Audio-Transcription" class="headerlink" title="Google Meet Audio Transcription"></a>Google Meet Audio Transcription</h3><ul>
+<li>Open Google Meet, usi<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/irosyadi/vnote.image/master/vnotebook/app/music-audio-tool.md/20211023061101034_12558.pngsing">https://raw.githubusercontent.com/irosyadi/vnote.image/master/vnotebook/app/music-audio-tool.md/20211023061101034_12558.pngsing</a> default Mic</li>
+</ul>
+<p>But we cannot do both Speechtexter and Google Docs<br>We cannot do both Speechtexter and Voice Note<br>We can do both Google Meet and Speechtexter&#x2F;VoiceNote&#x2F;Dictanote<br>We can do both Zoom and Speechtexter&#x2F;VoiceNote&#x2F;Dictanote</p>
+
+	
+	</div>
+  <a type="button" href="/2022/09/12/4cf8e73f-7fcf-4672-9623-a9bea82fb7a1/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+	     </div>
+	     <div>
+	       <center>
+	         <div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+	       </center>
+	     </div>	
+      
+
+</div> <!-- col-md-9/col-md-12 -->
+
+
+<div class="col-md-3">
+	<div id="sidebar">
+	
+			
+  <div id="site_search">
+   <div class="form-group">
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="Search" class="st-search-input st-default-search-input form-control"/>
+   </div>  
+  <div id="local-search-result"></div>
+  </div>
+
+
+		
+			
+	<div class="widget">
+		<h4>Categories</h4>
+		<ul class="tag_box inline list-unstyled">
+		
+			<li><a href="/categories/2D-Animation/">2D Animation<span>1</span></a></li>
+		
+			<li><a href="/categories/3D-Avatar-Creation/">3D Avatar Creation<span>1</span></a></li>
+		
+			<li><a href="/categories/3D-Modeling/">3D Modeling<span>2</span></a></li>
+		
+			<li><a href="/categories/3D-Rendering/">3D Rendering<span>1</span></a></li>
+		
+			<li><a href="/categories/AI/">AI<span>7</span></a></li>
+		
+			<li><a href="/categories/AI-Accelerators/">AI Accelerators<span>1</span></a></li>
+		
+			<li><a href="/categories/AI-Competitions/">AI Competitions<span>1</span></a></li>
+		
+			<li><a href="/categories/AI-Libraries/">AI Libraries<span>1</span></a></li>
+		
+			<li><a href="/categories/AI-Optimization/">AI Optimization<span>1</span></a></li>
+		
+			<li><a href="/categories/AI-System-Design-Guidelines/">AI System Design Guidelines<span>1</span></a></li>
+		
+			<li><a href="/categories/AI-Techniques-for-Text-Generation-and-Paraphrasing/">AI Techniques for Text Generation and Paraphrasing<span>1</span></a></li>
+		
+			<li><a href="/categories/AI-Video-Generation/">AI Video Generation<span>1</span></a></li>
+		
+			<li><a href="/categories/AI-development/">AI development<span>2</span></a></li>
+		
+			<li><a href="/categories/AI-tools-collections/">AI tools collections<span>1</span></a></li>
+		
+			<li><a href="/categories/AI-Generated-Singing-Voices/">AI-Generated Singing Voices<span>1</span></a></li>
+		
+			<li><a href="/categories/AI-generated-Art/">AI-generated Art<span>1</span></a></li>
+		
+			<li><a href="/categories/API/">API<span>5</span></a></li>
+		
+			<li><a href="/categories/API-Development/">API Development<span>1</span></a></li>
+		
+			<li><a href="/categories/API-Scraping/">API Scraping<span>1</span></a></li>
+		
+			<li><a href="/categories/APIs/">APIs<span>2</span></a></li>
+		
+			<li><a href="/categories/Academic-Articles/">Academic Articles<span>1</span></a></li>
+		
+			<li><a href="/categories/Accessibility-tools/">Accessibility tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Account-Management/">Account Management<span>1</span></a></li>
+		
+			<li><a href="/categories/Account-Registration/">Account Registration<span>1</span></a></li>
+		
+			<li><a href="/categories/Advanced-AI-powered-video-editors/">Advanced AI-powered video editors<span>1</span></a></li>
+		
+			<li><a href="/categories/Android/">Android<span>1</span></a></li>
+		
+			<li><a href="/categories/Android-Development/">Android Development<span>2</span></a></li>
+		
+			<li><a href="/categories/Android-Reverse-Engineering/">Android Reverse Engineering<span>1</span></a></li>
+		
+			<li><a href="/categories/Android-Security/">Android Security<span>1</span></a></li>
+		
+			<li><a href="/categories/Android-automation/">Android automation<span>1</span></a></li>
+		
+			<li><a href="/categories/Android-emulators/">Android emulators<span>1</span></a></li>
+		
+			<li><a href="/categories/Animation-Tools/">Animation Tools<span>2</span></a></li>
+		
+			<li><a href="/categories/Anime/">Anime<span>2</span></a></li>
+		
+			<li><a href="/categories/Anime-Video-Downloads/">Anime Video Downloads<span>1</span></a></li>
+		
+			<li><a href="/categories/App-Compatibility/">App Compatibility<span>1</span></a></li>
+		
+			<li><a href="/categories/Artificial-General-Intelligence/">Artificial General Intelligence<span>1</span></a></li>
+		
+			<li><a href="/categories/Artificial-Intelligence/">Artificial Intelligence<span>16</span></a></li>
+		
+			<li><a href="/categories/Asynchronous-Requests/">Asynchronous Requests<span>1</span></a></li>
+		
+			<li><a href="/categories/Audio-Processing/">Audio Processing<span>4</span></a></li>
+		
+			<li><a href="/categories/Audio-Production/">Audio Production<span>1</span></a></li>
+		
+			<li><a href="/categories/Audio-Recognition/">Audio Recognition<span>1</span></a></li>
+		
+			<li><a href="/categories/Augmented-Reality/">Augmented Reality<span>1</span></a></li>
+		
+			<li><a href="/categories/Automated-Essay-Scoring/">Automated Essay Scoring<span>1</span></a></li>
+		
+			<li><a href="/categories/Automation/">Automation<span>1</span></a></li>
+		
+			<li><a href="/categories/Automotive-Computer-Research/">Automotive Computer Research<span>1</span></a></li>
+		
+			<li><a href="/categories/Backup-software/">Backup software<span>1</span></a></li>
+		
+			<li><a href="/categories/Battery-Damage-Prevention/">Battery Damage Prevention<span>1</span></a></li>
+		
+			<li><a href="/categories/Behavior-Driven-Development/">Behavior Driven Development<span>1</span></a></li>
+		
+			<li><a href="/categories/Best-Earphones/">Best Earphones<span>1</span></a></li>
+		
+			<li><a href="/categories/Bilibili/">Bilibili<span>2</span></a></li>
+		
+			<li><a href="/categories/Biology/">Biology<span>1</span></a></li>
+		
+			<li><a href="/categories/Bot-Development/">Bot Development<span>1</span></a></li>
+		
+			<li><a href="/categories/Browser-Extensions/">Browser Extensions<span>2</span></a></li>
+		
+			<li><a href="/categories/CACANi-Software/">CACANi Software<span>1</span></a></li>
+		
+			<li><a href="/categories/Captcha-recognition/">Captcha recognition<span>1</span></a></li>
+		
+			<li><a href="/categories/Cheminformatics/">Cheminformatics<span>1</span></a></li>
+		
+			<li><a href="/categories/Chinese-Input-Methods/">Chinese Input Methods<span>1</span></a></li>
+		
+			<li><a href="/categories/Chocolatey/">Chocolatey<span>1</span></a></li>
+		
+			<li><a href="/categories/Chromium-Policies/">Chromium Policies<span>1</span></a></li>
+		
+			<li><a href="/categories/Clash-GitHub-Fastgithub-DNS-settings-macOS-Linux-monit-shell-scripts/">Clash, GitHub, Fastgithub, DNS settings, macOS, Linux, monit, shell scripts<span>1</span></a></li>
+		
+			<li><a href="/categories/Clipboard-issue-in-Android-10/">Clipboard issue in Android 10<span>1</span></a></li>
+		
+			<li><a href="/categories/Code-Auditing/">Code Auditing<span>1</span></a></li>
+		
+			<li><a href="/categories/Code-Refactoring/">Code Refactoring<span>1</span></a></li>
+		
+			<li><a href="/categories/Collaborative-Programming/">Collaborative Programming<span>1</span></a></li>
+		
+			<li><a href="/categories/Color-Palette-Extraction/">Color Palette Extraction<span>1</span></a></li>
+		
+			<li><a href="/categories/Command-line-Tools/">Command-line Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Community-Detection/">Community Detection<span>1</span></a></li>
+		
+			<li><a href="/categories/Computer-Vision/">Computer Vision<span>3</span></a></li>
+		
+			<li><a href="/categories/Content-Creation/">Content Creation<span>4</span></a></li>
+		
+			<li><a href="/categories/Content-Promotion/">Content Promotion<span>1</span></a></li>
+		
+			<li><a href="/categories/Copying-and-Moving-Files/">Copying and Moving Files<span>1</span></a></li>
+		
+			<li><a href="/categories/Cross-Platform-Apps/">Cross-Platform Apps<span>1</span></a></li>
+		
+			<li><a href="/categories/Cross-Platform-Publishing/">Cross-Platform Publishing<span>1</span></a></li>
+		
+			<li><a href="/categories/Cybergod-Projects/">Cybergod Projects<span>1</span></a></li>
+		
+			<li><a href="/categories/Cybersecurity/">Cybersecurity<span>5</span></a></li>
+		
+			<li><a href="/categories/DNS-proxies/">DNS proxies<span>1</span></a></li>
+		
+			<li><a href="/categories/DWG-to-DXF-conversion/">DWG to DXF conversion<span>1</span></a></li>
+		
+			<li><a href="/categories/Dark-Web/">Dark Web<span>1</span></a></li>
+		
+			<li><a href="/categories/Data-Annotation-Tools/">Data Annotation Tools<span>2</span></a></li>
+		
+			<li><a href="/categories/Data-Backup/">Data Backup<span>2</span></a></li>
+		
+			<li><a href="/categories/Data-Capture/">Data Capture<span>2</span></a></li>
+		
+			<li><a href="/categories/Data-Scraping/">Data Scraping<span>1</span></a></li>
+		
+			<li><a href="/categories/Data-Security/">Data Security<span>1</span></a></li>
+		
+			<li><a href="/categories/Database/">Database<span>1</span></a></li>
+		
+			<li><a href="/categories/Database-Management/">Database Management<span>2</span></a></li>
+		
+			<li><a href="/categories/Deep-Learning/">Deep Learning<span>2</span></a></li>
+		
+			<li><a href="/categories/Digital-Identity/">Digital Identity<span>1</span></a></li>
+		
+			<li><a href="/categories/Digital-Marketing/">Digital Marketing<span>1</span></a></li>
+		
+			<li><a href="/categories/Discord-Channels/">Discord Channels<span>1</span></a></li>
+		
+			<li><a href="/categories/Disk-Management/">Disk Management<span>2</span></a></li>
+		
+			<li><a href="/categories/Docker/">Docker<span>3</span></a></li>
+		
+			<li><a href="/categories/Domain-specific-languages-DSL/">Domain-specific languages (DSL)<span>1</span></a></li>
+		
+			<li><a href="/categories/Drivers-updates/">Drivers updates<span>1</span></a></li>
+		
+			<li><a href="/categories/Dynamic-Classification-Systems/">Dynamic Classification Systems<span>1</span></a></li>
+		
+			<li><a href="/categories/E-book-conversion/">E-book conversion<span>1</span></a></li>
+		
+			<li><a href="/categories/Education/">Education<span>3</span></a></li>
+		
+			<li><a href="/categories/Emotion-Manipulation/">Emotion Manipulation<span>1</span></a></li>
+		
+			<li><a href="/categories/Energy-System-Simulation/">Energy System Simulation<span>1</span></a></li>
+		
+			<li><a href="/categories/Ergonomics/">Ergonomics<span>1</span></a></li>
+		
+			<li><a href="/categories/Error-Resolution/">Error Resolution<span>1</span></a></li>
+		
+			<li><a href="/categories/Evolution/">Evolution<span>1</span></a></li>
+		
+			<li><a href="/categories/Exception-Handling/">Exception Handling<span>1</span></a></li>
+		
+			<li><a href="/categories/Expect-Send/">Expect Send<span>1</span></a></li>
+		
+			<li><a href="/categories/Extensions/">Extensions<span>1</span></a></li>
+		
+			<li><a href="/categories/Facial-Expression-Detection/">Facial Expression Detection<span>1</span></a></li>
+		
+			<li><a href="/categories/Fake-Content-Detection/">Fake Content Detection<span>1</span></a></li>
+		
+			<li><a href="/categories/FastAPI/">FastAPI<span>1</span></a></li>
+		
+			<li><a href="/categories/File-Hosting-Services/">File Hosting Services<span>1</span></a></li>
+		
+			<li><a href="/categories/File-Transfer/">File Transfer<span>1</span></a></li>
+		
+			<li><a href="/categories/Filesystem-Cache/">Filesystem Cache<span>1</span></a></li>
+		
+			<li><a href="/categories/GUI-Programming/">GUI Programming<span>1</span></a></li>
+		
+			<li><a href="/categories/Generative-Adversarial-Networks-GAN/">Generative Adversarial Networks (GAN)<span>1</span></a></li>
+		
+			<li><a href="/categories/Generative-Adversarial-Networks-GANs/">Generative Adversarial Networks (GANs)<span>1</span></a></li>
+		
+			<li><a href="/categories/Geometry/">Geometry<span>1</span></a></li>
+		
+			<li><a href="/categories/GitFS/">GitFS<span>1</span></a></li>
+		
+			<li><a href="/categories/GitHub/">GitHub<span>3</span></a></li>
+		
+			<li><a href="/categories/Hacking/">Hacking<span>3</span></a></li>
+		
+			<li><a href="/categories/Hacking-Tutorials/">Hacking Tutorials<span>1</span></a></li>
+		
+			<li><a href="/categories/Hacking-techniques/">Hacking techniques<span>1</span></a></li>
+		
+			<li><a href="/categories/Health/">Health<span>2</span></a></li>
+		
+			<li><a href="/categories/Home-Appliances/">Home Appliances<span>1</span></a></li>
+		
+			<li><a href="/categories/Hot-Reloading/">Hot Reloading<span>1</span></a></li>
+		
+			<li><a href="/categories/Huggingface/">Huggingface<span>1</span></a></li>
+		
+			<li><a href="/categories/Human-in-the-Loop-AI/">Human-in-the-Loop AI<span>1</span></a></li>
+		
+			<li><a href="/categories/Image-Classification/">Image Classification<span>1</span></a></li>
+		
+			<li><a href="/categories/Image-Generation/">Image Generation<span>1</span></a></li>
+		
+			<li><a href="/categories/Image-Processing/">Image Processing<span>5</span></a></li>
+		
+			<li><a href="/categories/Image-Search-Tools/">Image Search Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Image-restoration/">Image restoration<span>1</span></a></li>
+		
+			<li><a href="/categories/Information-Management/">Information Management<span>1</span></a></li>
+		
+			<li><a href="/categories/Installation/">Installation<span>2</span></a></li>
+		
+			<li><a href="/categories/Installation-Instructions/">Installation Instructions<span>1</span></a></li>
+		
+			<li><a href="/categories/Interactive-Interfaces/">Interactive Interfaces<span>1</span></a></li>
+		
+			<li><a href="/categories/Interpolation-Techniques/">Interpolation Techniques<span>1</span></a></li>
+		
+			<li><a href="/categories/Interval-set-manipulation/">Interval set manipulation<span>1</span></a></li>
+		
+			<li><a href="/categories/IoT/">IoT<span>1</span></a></li>
+		
+			<li><a href="/categories/JavaScript/">JavaScript<span>2</span></a></li>
+		
+			<li><a href="/categories/Kafka-System-Design/">Kafka System Design<span>1</span></a></li>
+		
+			<li><a href="/categories/Kali-Linux/">Kali Linux<span>2</span></a></li>
+		
+			<li><a href="/categories/Karaoke/">Karaoke<span>1</span></a></li>
+		
+			<li><a href="/categories/Keyboard-Shortcuts/">Keyboard Shortcuts<span>1</span></a></li>
+		
+			<li><a href="/categories/Kotlin-ORM-libraries/">Kotlin ORM libraries<span>1</span></a></li>
+		
+			<li><a href="/categories/Kotlin-Spring-Boot/">Kotlin Spring Boot<span>1</span></a></li>
+		
+			<li><a href="/categories/Library-Management/">Library Management<span>1</span></a></li>
+		
+			<li><a href="/categories/Linux/">Linux<span>6</span></a></li>
+		
+			<li><a href="/categories/Live-Streaming/">Live Streaming<span>2</span></a></li>
+		
+			<li><a href="/categories/Live-broadcasting/">Live broadcasting<span>1</span></a></li>
+		
+			<li><a href="/categories/Logo-Finders/">Logo Finders<span>1</span></a></li>
+		
+			<li><a href="/categories/Lua-Python-Bridge/">Lua Python Bridge<span>1</span></a></li>
+		
+			<li><a href="/categories/MIDI-Conversion-Tools/">MIDI Conversion Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Machine-Learning/">Machine Learning<span>8</span></a></li>
+		
+			<li><a href="/categories/Man-in-the-middle-proxy/">Man-in-the-middle proxy<span>1</span></a></li>
+		
+			<li><a href="/categories/Manga/">Manga<span>2</span></a></li>
+		
+			<li><a href="/categories/Markdown-to-PDF-Conversion/">Markdown to PDF Conversion<span>1</span></a></li>
+		
+			<li><a href="/categories/Mass-Email-SMS-Tools/">Mass Email/SMS Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Mathematica/">Mathematica<span>1</span></a></li>
+		
+			<li><a href="/categories/Mathematica-software/">Mathematica software<span>1</span></a></li>
+		
+			<li><a href="/categories/Mathematics/">Mathematics<span>2</span></a></li>
+		
+			<li><a href="/categories/Media-Filtering/">Media Filtering<span>1</span></a></li>
+		
+			<li><a href="/categories/Media-repurposing-tools/">Media repurposing tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Meta-Search-Engines/">Meta Search Engines<span>1</span></a></li>
+		
+			<li><a href="/categories/Metasploit-Python-scripting/">Metasploit Python scripting<span>1</span></a></li>
+		
+			<li><a href="/categories/Mini-ITX-Computers/">Mini-ITX Computers<span>1</span></a></li>
+		
+			<li><a href="/categories/Mitmproxy-tool/">Mitmproxy tool<span>1</span></a></li>
+		
+			<li><a href="/categories/Mobile-App-Development/">Mobile App Development<span>1</span></a></li>
+		
+			<li><a href="/categories/Mobile-Phones/">Mobile Phones<span>1</span></a></li>
+		
+			<li><a href="/categories/Model-Optimization/">Model Optimization<span>1</span></a></li>
+		
+			<li><a href="/categories/Model-Uploading/">Model Uploading<span>1</span></a></li>
+		
+			<li><a href="/categories/Model-zoos/">Model zoos<span>1</span></a></li>
+		
+			<li><a href="/categories/Molecular-dynamics-simulations/">Molecular dynamics simulations<span>1</span></a></li>
+		
+			<li><a href="/categories/Movies/">Movies<span>1</span></a></li>
+		
+			<li><a href="/categories/Music/">Music<span>1</span></a></li>
+		
+			<li><a href="/categories/Music-Discovery/">Music Discovery<span>1</span></a></li>
+		
+			<li><a href="/categories/Music-Generation/">Music Generation<span>1</span></a></li>
+		
+			<li><a href="/categories/Music-Platforms/">Music Platforms<span>1</span></a></li>
+		
+			<li><a href="/categories/Music-Production/">Music Production<span>1</span></a></li>
+		
+			<li><a href="/categories/NAS/">NAS<span>1</span></a></li>
+		
+			<li><a href="/categories/NLP-Frameworks/">NLP Frameworks<span>1</span></a></li>
+		
+			<li><a href="/categories/NLP-Tools/">NLP Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/NTFS-Recovery-Tools/">NTFS Recovery Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/NVIDIA-drivers/">NVIDIA drivers<span>1</span></a></li>
+		
+			<li><a href="/categories/Natural-Language-Generation/">Natural Language Generation<span>1</span></a></li>
+		
+			<li><a href="/categories/Natural-Language-Processing/">Natural Language Processing<span>6</span></a></li>
+		
+			<li><a href="/categories/Neo4j/">Neo4j<span>1</span></a></li>
+		
+			<li><a href="/categories/Neo4j-Cypher-Cheatsheet/">Neo4j Cypher Cheatsheet<span>1</span></a></li>
+		
+			<li><a href="/categories/Neo4j-Graph-Data-Science/">Neo4j Graph Data Science<span>1</span></a></li>
+		
+			<li><a href="/categories/Network-Switching/">Network Switching<span>1</span></a></li>
+		
+			<li><a href="/categories/Network-communication/">Network communication<span>1</span></a></li>
+		
+			<li><a href="/categories/Networking/">Networking<span>4</span></a></li>
+		
+			<li><a href="/categories/Neural-Search-Engines/">Neural Search Engines<span>1</span></a></li>
+		
+			<li><a href="/categories/NeuralDiff/">NeuralDiff<span>1</span></a></li>
+		
+			<li><a href="/categories/Note-Syncing/">Note Syncing<span>1</span></a></li>
+		
+			<li><a href="/categories/Notes-and-Scripts-Backup/">Notes and Scripts Backup<span>1</span></a></li>
+		
+			<li><a href="/categories/Numpy/">Numpy<span>1</span></a></li>
+		
+			<li><a href="/categories/OCR-Techniques/">OCR Techniques<span>1</span></a></li>
+		
+			<li><a href="/categories/OCR-Tools/">OCR Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Online-Movies/">Online Movies<span>1</span></a></li>
+		
+			<li><a href="/categories/Online-Security-and-Privacy/">Online Security and Privacy<span>1</span></a></li>
+		
+			<li><a href="/categories/Online-Tools/">Online Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Online-security-and-privacy/">Online security and privacy<span>1</span></a></li>
+		
+			<li><a href="/categories/Open-source-Android-Automation/">Open-source Android Automation<span>1</span></a></li>
+		
+			<li><a href="/categories/Open-source-Chinese-Fonts/">Open-source Chinese Fonts<span>1</span></a></li>
+		
+			<li><a href="/categories/Open-source-Software/">Open-source Software<span>1</span></a></li>
+		
+			<li><a href="/categories/OpenCV/">OpenCV<span>1</span></a></li>
+		
+			<li><a href="/categories/Opqbot/">Opqbot<span>1</span></a></li>
+		
+			<li><a href="/categories/Optical-Flow-Techniques/">Optical Flow Techniques<span>1</span></a></li>
+		
+			<li><a href="/categories/Optimization-Techniques/">Optimization Techniques<span>1</span></a></li>
+		
+			<li><a href="/categories/Package-Management/">Package Management<span>2</span></a></li>
+		
+			<li><a href="/categories/Package-Managers/">Package Managers<span>1</span></a></li>
+		
+			<li><a href="/categories/Paraphrasing/">Paraphrasing<span>1</span></a></li>
+		
+			<li><a href="/categories/Password-Reset/">Password Reset<span>1</span></a></li>
+		
+			<li><a href="/categories/Payment-Systems/">Payment Systems<span>1</span></a></li>
+		
+			<li><a href="/categories/Platform-Tutorials/">Platform Tutorials<span>1</span></a></li>
+		
+			<li><a href="/categories/Playwright/">Playwright<span>1</span></a></li>
+		
+			<li><a href="/categories/Politics-and-Capitalism/">Politics and Capitalism<span>1</span></a></li>
+		
+			<li><a href="/categories/Probabilistic-Programming/">Probabilistic Programming<span>2</span></a></li>
+		
+			<li><a href="/categories/Process-Management/">Process Management<span>1</span></a></li>
+		
+			<li><a href="/categories/Process-Monitoring/">Process Monitoring<span>1</span></a></li>
+		
+			<li><a href="/categories/Producer-flags/">Producer flags<span>1</span></a></li>
+		
+			<li><a href="/categories/Product-Issues/">Product Issues<span>1</span></a></li>
+		
+			<li><a href="/categories/Programming/">Programming<span>2</span></a></li>
+		
+			<li><a href="/categories/Programming-Humor/">Programming Humor<span>1</span></a></li>
+		
+			<li><a href="/categories/Programming-Languages/">Programming Languages<span>4</span></a></li>
+		
+			<li><a href="/categories/Project-Planning/">Project Planning<span>1</span></a></li>
+		
+			<li><a href="/categories/Propagation-Science/">Propagation Science<span>1</span></a></li>
+		
+			<li><a href="/categories/Proxies/">Proxies<span>1</span></a></li>
+		
+			<li><a href="/categories/PyTorch/">PyTorch<span>1</span></a></li>
+		
+			<li><a href="/categories/Python/">Python<span>4</span></a></li>
+		
+			<li><a href="/categories/Python-Libraries/">Python Libraries<span>2</span></a></li>
+		
+			<li><a href="/categories/Python-Performance/">Python Performance<span>1</span></a></li>
+		
+			<li><a href="/categories/Python-Programming/">Python Programming<span>3</span></a></li>
+		
+			<li><a href="/categories/Python-Testing/">Python Testing<span>1</span></a></li>
+		
+			<li><a href="/categories/Python-Tools/">Python Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Python-programming/">Python programming<span>7</span></a></li>
+		
+			<li><a href="/categories/Quantitative-Trading-Platforms/">Quantitative Trading Platforms<span>1</span></a></li>
+		
+			<li><a href="/categories/Quantum-Computing/">Quantum Computing<span>1</span></a></li>
+		
+			<li><a href="/categories/RAM-Disk/">RAM Disk<span>1</span></a></li>
+		
+			<li><a href="/categories/RSS-Feeds-and-Aggregators/">RSS Feeds and Aggregators<span>1</span></a></li>
+		
+			<li><a href="/categories/RWKV-Language-Models/">RWKV Language Models<span>1</span></a></li>
+		
+			<li><a href="/categories/Radar-systems/">Radar systems<span>1</span></a></li>
+		
+			<li><a href="/categories/Random-Number-Generation/">Random Number Generation<span>1</span></a></li>
+		
+			<li><a href="/categories/Recaptcha-Solving-Solutions/">Recaptcha Solving Solutions<span>1</span></a></li>
+		
+			<li><a href="/categories/Recommendation-Algorithms/">Recommendation Algorithms<span>1</span></a></li>
+		
+			<li><a href="/categories/Recovery-USB/">Recovery USB<span>1</span></a></li>
+		
+			<li><a href="/categories/Rectangularization-Methods/">Rectangularization Methods<span>1</span></a></li>
+		
+			<li><a href="/categories/Redis/">Redis<span>1</span></a></li>
+		
+			<li><a href="/categories/Redis-py-library/">Redis-py library<span>1</span></a></li>
+		
+			<li><a href="/categories/Reinforcement-Learning/">Reinforcement Learning<span>2</span></a></li>
+		
+			<li><a href="/categories/Remote-Connection/">Remote Connection<span>1</span></a></li>
+		
+			<li><a href="/categories/Remote-Jobs/">Remote Jobs<span>1</span></a></li>
+		
+			<li><a href="/categories/Remote-Procedure-Call-Technologies/">Remote Procedure Call Technologies<span>1</span></a></li>
+		
+			<li><a href="/categories/Retry-Libraries/">Retry Libraries<span>1</span></a></li>
+		
+			<li><a href="/categories/Reverse-Engineering/">Reverse Engineering<span>2</span></a></li>
+		
+			<li><a href="/categories/Robotics/">Robotics<span>1</span></a></li>
+		
+			<li><a href="/categories/Royalty-free-video-sources/">Royalty-free video sources<span>1</span></a></li>
+		
+			<li><a href="/categories/SEO/">SEO<span>1</span></a></li>
+		
+			<li><a href="/categories/SQL-Injection-Attacks/">SQL Injection Attacks<span>1</span></a></li>
+		
+			<li><a href="/categories/SQLite-ORM/">SQLite ORM<span>1</span></a></li>
+		
+			<li><a href="/categories/SSH-keys/">SSH keys<span>1</span></a></li>
+		
+			<li><a href="/categories/Scraping/">Scraping<span>1</span></a></li>
+		
+			<li><a href="/categories/Search-Engine-Optimization/">Search Engine Optimization<span>1</span></a></li>
+		
+			<li><a href="/categories/Search-Engines/">Search Engines<span>3</span></a></li>
+		
+			<li><a href="/categories/Search-Methods/">Search Methods<span>1</span></a></li>
+		
+			<li><a href="/categories/Security/">Security<span>8</span></a></li>
+		
+			<li><a href="/categories/Security-Tools/">Security Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Semantic-Search/">Semantic Search<span>1</span></a></li>
+		
+			<li><a href="/categories/Session-Management/">Session Management<span>1</span></a></li>
+		
+			<li><a href="/categories/Short-URL-generators/">Short URL generators<span>1</span></a></li>
+		
+			<li><a href="/categories/Sketch-based-Applications/">Sketch-based Applications<span>1</span></a></li>
+		
+			<li><a href="/categories/Skin-Products-and-Diet/">Skin Products and Diet<span>1</span></a></li>
+		
+			<li><a href="/categories/Sleep/">Sleep<span>1</span></a></li>
+		
+			<li><a href="/categories/Smartwatches/">Smartwatches<span>2</span></a></li>
+		
+			<li><a href="/categories/Social-Media/">Social Media<span>1</span></a></li>
+		
+			<li><a href="/categories/Social-Media-Transformation/">Social Media Transformation<span>1</span></a></li>
+		
+			<li><a href="/categories/Software/">Software<span>2</span></a></li>
+		
+			<li><a href="/categories/Software-Security/">Software Security<span>1</span></a></li>
+		
+			<li><a href="/categories/Software-Testing-Efficiency-Metrics/">Software Testing Efficiency Metrics<span>1</span></a></li>
+		
+			<li><a href="/categories/Software-Tools/">Software Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Software-Troubleshooting/">Software Troubleshooting<span>3</span></a></li>
+		
+			<li><a href="/categories/Software-activation/">Software activation<span>1</span></a></li>
+		
+			<li><a href="/categories/Software-as-a-Service-SaaS/">Software as a Service (SaaS)<span>1</span></a></li>
+		
+			<li><a href="/categories/Software-troubleshooting/">Software troubleshooting<span>1</span></a></li>
+		
+			<li><a href="/categories/Sound-Effects/">Sound Effects<span>1</span></a></li>
+		
+			<li><a href="/categories/Speaker-Detection/">Speaker Detection<span>1</span></a></li>
+		
+			<li><a href="/categories/Speech-to-Text-Conversion/">Speech-to-Text Conversion<span>1</span></a></li>
+		
+			<li><a href="/categories/Stock-Data/">Stock Data<span>1</span></a></li>
+		
+			<li><a href="/categories/Stock-Market-Analysis/">Stock Market Analysis<span>1</span></a></li>
+		
+			<li><a href="/categories/Stock-Selection/">Stock Selection<span>1</span></a></li>
+		
+			<li><a href="/categories/Story-Dalle/">Story-Dalle<span>1</span></a></li>
+		
+			<li><a href="/categories/Synchronization/">Synchronization<span>1</span></a></li>
+		
+			<li><a href="/categories/System-Administration/">System Administration<span>1</span></a></li>
+		
+			<li><a href="/categories/System-Monitoring/">System Monitoring<span>1</span></a></li>
+		
+			<li><a href="/categories/Tab-Management/">Tab Management<span>1</span></a></li>
+		
+			<li><a href="/categories/Technology/">Technology<span>2</span></a></li>
+		
+			<li><a href="/categories/Technology-and-Innovation/">Technology and Innovation<span>1</span></a></li>
+		
+			<li><a href="/categories/Temperature-Management/">Temperature Management<span>1</span></a></li>
+		
+			<li><a href="/categories/TensorFlow-js/">TensorFlow.js<span>1</span></a></li>
+		
+			<li><a href="/categories/Tensorly-and-Torch-based-Liquid-State-Machine-for-Efficient-Data-Processing-of-Complex-Datasets-like-Brain-Neurons/">Tensorly and Torch-based Liquid State Machine for Efficient Data Processing of Complex Datasets like Brain Neurons<span>1</span></a></li>
+		
+			<li><a href="/categories/Terminal-autocomplete/">Terminal autocomplete<span>1</span></a></li>
+		
+			<li><a href="/categories/Termux/">Termux<span>3</span></a></li>
+		
+			<li><a href="/categories/Text-Editors/">Text Editors<span>1</span></a></li>
+		
+			<li><a href="/categories/Text-to-Speech/">Text to Speech<span>1</span></a></li>
+		
+			<li><a href="/categories/Text-to-Video-Projects/">Text-to-Video Projects<span>1</span></a></li>
+		
+			<li><a href="/categories/Throat-Care/">Throat Care<span>1</span></a></li>
+		
+			<li><a href="/categories/Time-Series-Analysis/">Time Series Analysis<span>1</span></a></li>
+		
+			<li><a href="/categories/Torrent-Search-Engines/">Torrent Search Engines<span>1</span></a></li>
+		
+			<li><a href="/categories/Training-Large-Language-Models/">Training Large Language Models<span>1</span></a></li>
+		
+			<li><a href="/categories/Trash-Management/">Trash Management<span>1</span></a></li>
+		
+			<li><a href="/categories/Troubleshooting/">Troubleshooting<span>8</span></a></li>
+		
+			<li><a href="/categories/Tutorial/">Tutorial<span>1</span></a></li>
+		
+			<li><a href="/categories/Unblocked-content/">Unblocked content<span>1</span></a></li>
+		
+			<li><a href="/categories/Unlocking-Bootloader/">Unlocking Bootloader<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Analysis/">Video Analysis<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Compression/">Video Compression<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Creation-Methods/">Video Creation Methods<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Downloaders/">Video Downloaders<span>2</span></a></li>
+		
+			<li><a href="/categories/Video-Downloading-Tools/">Video Downloading Tools<span>2</span></a></li>
+		
+			<li><a href="/categories/Video-Editing/">Video Editing<span>5</span></a></li>
+		
+			<li><a href="/categories/Video-Editing-Software/">Video Editing Software<span>2</span></a></li>
+		
+			<li><a href="/categories/Video-Editing-Tools/">Video Editing Tools<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Enhancement/">Video Enhancement<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Manipulation/">Video Manipulation<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Object-Tracking/">Video Object Tracking<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Processing/">Video Processing<span>4</span></a></li>
+		
+			<li><a href="/categories/Video-Production/">Video Production<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Quality-Assessment/">Video Quality Assessment<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Search/">Video Search<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-Sharing-Platforms/">Video Sharing Platforms<span>1</span></a></li>
+		
+			<li><a href="/categories/Video-and-Audio-Processing/">Video and Audio Processing<span>1</span></a></li>
+		
+			<li><a href="/categories/Virtual-Environments/">Virtual Environments<span>1</span></a></li>
+		
+			<li><a href="/categories/Virtualization/">Virtualization<span>1</span></a></li>
+		
+			<li><a href="/categories/Visual-Studio-Code/">Visual Studio Code<span>1</span></a></li>
+		
+			<li><a href="/categories/Volume-Management/">Volume Management<span>1</span></a></li>
+		
+			<li><a href="/categories/Water-Cooling-Systems/">Water Cooling Systems<span>1</span></a></li>
+		
+			<li><a href="/categories/Wearable-Devices/">Wearable Devices<span>1</span></a></li>
+		
+			<li><a href="/categories/Web-Application-Security/">Web Application Security<span>3</span></a></li>
+		
+			<li><a href="/categories/Web-Applications/">Web Applications<span>2</span></a></li>
+		
+			<li><a href="/categories/Web-Customization/">Web Customization<span>1</span></a></li>
+		
+			<li><a href="/categories/Web-Development/">Web Development<span>2</span></a></li>
+		
+			<li><a href="/categories/Web-Scraping/">Web Scraping<span>7</span></a></li>
+		
+			<li><a href="/categories/Webhooks/">Webhooks<span>1</span></a></li>
+		
+			<li><a href="/categories/Webpage-Rendering/">Webpage Rendering<span>1</span></a></li>
+		
+			<li><a href="/categories/Website-Resources/">Website Resources<span>1</span></a></li>
+		
+			<li><a href="/categories/Wi-Fi-Troubleshooting/">Wi-Fi Troubleshooting<span>1</span></a></li>
+		
+			<li><a href="/categories/Window-Management/">Window Management<span>2</span></a></li>
+		
+			<li><a href="/categories/Windows/">Windows<span>1</span></a></li>
+		
+			<li><a href="/categories/Windows-10-Performance/">Windows 10 Performance<span>1</span></a></li>
+		
+			<li><a href="/categories/Yoga/">Yoga<span>1</span></a></li>
+		
+			<li><a href="/categories/YouTube-Monetization/">YouTube Monetization<span>1</span></a></li>
+		
+			<li><a href="/categories/Zhihu/">Zhihu<span>1</span></a></li>
+		
+			<li><a href="/categories/anti-censorship/">anti-censorship<span>1</span></a></li>
+		
+			<li><a href="/categories/bilibili/">bilibili<span>1</span></a></li>
+		
+			<li><a href="/categories/book-scanning/">book scanning<span>1</span></a></li>
+		
+			<li><a href="/categories/brainwave-translation/">brainwave translation<span>1</span></a></li>
+		
+			<li><a href="/categories/copyright/">copyright<span>1</span></a></li>
+		
+			<li><a href="/categories/ctf-competitions/">ctf competitions<span>1</span></a></li>
+		
+			<li><a href="/categories/data-security/">data security<span>1</span></a></li>
+		
+			<li><a href="/categories/deobfustication/">deobfustication<span>1</span></a></li>
+		
+			<li><a href="/categories/filename-issues/">filename issues<span>1</span></a></li>
+		
+			<li><a href="/categories/fire-prevention/">fire_prevention<span>1</span></a></li>
+		
+			<li><a href="/categories/gaming/">gaming<span>1</span></a></li>
+		
+			<li><a href="/categories/hacking/">hacking<span>1</span></a></li>
+		
+			<li><a href="/categories/hardware-simulator/">hardware_simulator<span>1</span></a></li>
+		
+			<li><a href="/categories/iOS-device-control/">iOS device control<span>1</span></a></li>
+		
+			<li><a href="/categories/javascript/">javascript<span>1</span></a></li>
+		
+			<li><a href="/categories/macOS/">macOS<span>1</span></a></li>
+		
+			<li><a href="/categories/noise-generation/">noise_generation<span>1</span></a></li>
+		
+			<li><a href="/categories/npm/">npm<span>1</span></a></li>
+		
+			<li><a href="/categories/package-managers/">package_managers<span>1</span></a></li>
+		
+			<li><a href="/categories/podcasts/">podcasts<span>1</span></a></li>
+		
+			<li><a href="/categories/pwntools/">pwntools<span>1</span></a></li>
+		
+			<li><a href="/categories/search-engines/">search_engines<span>1</span></a></li>
+		
+			<li><a href="/categories/seo-tools/">seo_tools<span>1</span></a></li>
+		
+			<li><a href="/categories/strategies-for-defeating-deduplicate-algorithms/">strategies for defeating deduplicate algorithms<span>1</span></a></li>
+		
+			<li><a href="/categories/systemd/">systemd<span>1</span></a></li>
+		
+			<li><a href="/categories/text-mining/">text-mining<span>1</span></a></li>
+		
+			<li><a href="/categories/video-sites/">video_sites<span>1</span></a></li>
+		
+			<li><a href="/categories/viral-strategies/">viral_strategies<span>1</span></a></li>
+		
+		</ul>
+	</div>
+
+		
+			
+	<div class="widget">
+		<h4>Tag Cloud</h4>
+		<ul class="tag_box inline list-unstyled">		
+		
+			<li><a href="/tags/Ear-earlobe/">Ear earlobe<span>1</span></a></li>
+		
+			<li><a href="/tags/DeepL-API/">DeepL API<span>1</span></a></li>
+		
+			<li><a href="/tags/ocr/">ocr<span>2</span></a></li>
+		
+			<li><a href="/tags/mouse-keyboard-control/">mouse/keyboard control<span>1</span></a></li>
+		
+			<li><a href="/tags/text-to-picture/">text to picture<span>1</span></a></li>
+		
+			<li><a href="/tags/tor/">tor<span>1</span></a></li>
+		
+			<li><a href="/tags/journaling/">journaling<span>1</span></a></li>
+		
+			<li><a href="/tags/brightness/">brightness<span>1</span></a></li>
+		
+			<li><a href="/tags/phone/">phone<span>1</span></a></li>
+		
+			<li><a href="/tags/chargrid/">chargrid<span>1</span></a></li>
+		
+			<li><a href="/tags/resources-inheritance/">resources inheritance<span>1</span></a></li>
+		
+			<li><a href="/tags/classification/">classification<span>3</span></a></li>
+		
+			<li><a href="/tags/Services/">Services<span>1</span></a></li>
+		
+			<li><a href="/tags/Python-Code-Refactoring/">Python Code Refactoring<span>1</span></a></li>
+		
+			<li><a href="/tags/2022-competition/">2022 competition<span>1</span></a></li>
+		
+			<li><a href="/tags/exposing-localhost/">exposing localhost<span>1</span></a></li>
+		
+			<li><a href="/tags/Beanshell-code/">Beanshell code<span>1</span></a></li>
+		
+			<li><a href="/tags/remedy/">remedy<span>2</span></a></li>
+		
+			<li><a href="/tags/crontab/">crontab<span>1</span></a></li>
+		
+			<li><a href="/tags/Slashdot/">Slashdot<span>1</span></a></li>
+		
+		
+		   <li><a href="/tags">...<span>2344</span></a></li>
+		 
+		</ul>
+	</div>
+
+
+		
+			
+<div class="widget">
+  <h4>Recent Posts</h4>
+  <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2023/12/25/94043d9a-08e0-43ba-8c58-876d65a7f546/"  title="A compilation of various projects related to Cybergod, which are clones from different GitHub repositories such as Q-Star, QStarLearning, open_qstar, Video-Pre-Training, SingularGPT, GPT-4V-Act, gpt-eyes, self-operating-computer, gpt4v-browsing, CogVLM, and AppAgent. These projects aim to develop various tools and models for diverse purposes within the Cybergod framework." ><i class="fa fa-file-o"></i>cybergod related projects</a>
+      </li>
+    
+      <li>
+        <a href="/2023/12/21/2cbfa8d5-63ac-4696-bb14-58f5385ceb27/"  title="This article provides step-by-step instructions for installing Waydroid on Ubuntu and offers troubleshooting tips for network issues. It explains how to enable firewalld or ufw to resolve connectivity problems, while also clarifying the difference between the wifi switch and its effect on connectivity." ><i class="fa fa-file-o"></i>Waydroid installation steps</a>
+      </li>
+    
+      <li>
+        <a href="/2023/12/20/ca75dd0f-260b-4115-a85b-eb3c9c4bdd39/"  title="This article explores the application of Large Language Models (LLMs) in generating various elements such as images, tags, categories, and embeddings for content. It also delves into the capabilities of these models to perform full-text and vector searches, generate query words and media, update relevance based on user preferences, and even generate new queries for content." ><i class="fa fa-file-o"></i>RAG in my mind</a>
+      </li>
+    
+      <li>
+        <a href="/2023/12/18/8a6267a2-bda4-4d09-a577-49dbf47fb6d3/"  title="This text provides guidance on utilizing the Python utility &#39;pylint&#39; to identify unspecified exceptions in a Python file and proposes constructing microservices and tracking failures for enhanced error management." ><i class="fa fa-file-o"></i>Exception Phobia in Python</a>
+      </li>
+    
+      <li>
+        <a href="/2023/12/09/5a1f6160-e47a-453d-8bd5-eb06e9d5e62d/"  title="This article discusses the process of using an RX580 16g graphics card with the codename `gfx803` as an AI accelerator. The user is provided with a GitHub link to build it themselves." ><i class="fa fa-file-o"></i>RX580 16g used as AI accele...</a>
+      </li>
+    
+  </ul>
+</div>
+
+		
+			
+<div class="widget">
+	<h4>Links</h4>
+	<ul class="blogroll list-unstyled">
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/agi_computer_control/" title="Autonomous computer agent" target="_blank"]);">Project Cybergod</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/pyjom/" title="Media content automation" target="_blank"]);">Project Pyjom</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/prometheous/" title="Automated documentation, AI+IR(RAG)" target="_blank"]);">Project Prometheus</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/pyjom/" title="Media Content Automation" target="_blank"]);">Project Pyjom</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/my_blog_source/" title="Source code of my blog"" target="_blank"]);">Blog Source Code</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="http://www.github.com/james4ever0" title="My Github account" target="_blank"]);">My Github</a></li>
+	
+	</ul>
+</div>
+
+
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+
+</body>
+</html>

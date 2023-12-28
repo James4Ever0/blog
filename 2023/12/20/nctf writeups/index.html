@@ -1,0 +1,336 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>nctf writeups | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="nctf writeupschallengesthe platform
+official released source code
+buuctf online judge
+you may find many writeups in blog and github for buuctf.
+hints ">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="nctf writeups"/>
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+    <script src="/js/marked.js"></script>
+    <script src="/js/comment.js"></script>
+    <script src="/js/timeago.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+	<script src="/js/spin.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> nctf writeups</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h1 id="nctf-writeups"><a href="#nctf-writeups" class="headerlink" title="nctf writeups"></a>nctf writeups</h1><h2 id="challenges"><a href="#challenges" class="headerlink" title="challenges"></a>challenges</h2><p><a target="_blank" rel="noopener" href="https://nctf.h4ck.fun/">the platform</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/X1cT34m/NCTF2022">official released source code</a></p>
+<p><a target="_blank" rel="noopener" href="https://buuoj.cn/">buuctf</a> online judge</p>
+<p>you may find many writeups <a target="_blank" rel="noopener" href="https://oopsdc.com/post/buuctf/">in blog</a> and <a target="_blank" rel="noopener" href="https://github.com/Yeuoly/buuctf_pwn">github</a> for buuctf.</p>
+<h2 id="hints-and-tools"><a href="#hints-and-tools" class="headerlink" title="hints and tools"></a>hints and tools</h2><p>binwalk</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Arr3stY0u">arr3esty0u github info</a></p>
+<p><a target="_blank" rel="noopener" href="https://shg-sec.com/#">shg-sec</a></p>
+<p><a target="_blank" rel="noopener" href="https://ctftime.org/event/1727">hack.lu 2022</a></p>
+<p>ayacms rce in nctf 2022? how to identify the cms? and how the fuck did those guys identify the shit from that damn website (bing-upms)?</p>
+<p>answer: they are both busting common web directories. can be induced by common repo structures.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zieglerk/baby-AES">baby-aes</a> for crypto signin?</p>
+<p><a target="_blank" rel="noopener" href="https://www.doyler.net/security-not-included/zsteg-easy-ctf-flags">zsteg</a> for solving that png problem?</p>
+<p><a target="_blank" rel="noopener" href="https://www.doyler.net/security-not-included/sqlite-injection">normal sql injection, not for denodb</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.huli.tw/">huli: interesting blog where denodb 0day came from</a></p>
+<p>some z3 code, which does not but angr solved the problem</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> z3 <span class="keyword">import</span> *</span><br><span class="line">data1=<span class="number">0x162AEB99F80DD8EF8C82AFADBA2E087A</span></span><br><span class="line">data2=<span class="number">0x47C9F2ACA92F6476BE7F0A6DC89F4305</span></span><br><span class="line">data3=<span class="number">0x33B57575</span></span><br><span class="line">answer=[]</span><br><span class="line">flag1=[]</span><br><span class="line">key=[<span class="number">0x7e</span>,<span class="number">0x1f</span>,<span class="number">0x19</span>,<span class="number">0x75</span>]</span><br><span class="line">solver=Solver()</span><br><span class="line">flag=[Int(<span class="string">&#x27;flag%d&#x27;</span>%i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">36</span>)]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">16</span>):</span><br><span class="line">    answer.append((data1&gt;&gt;<span class="number">8</span>*i)&amp;<span class="number">0xff</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">16</span>):</span><br><span class="line">    answer.append((data2&gt;&gt;<span class="number">8</span>*i)&amp;<span class="number">0xff</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">    answer.append((data3&gt;&gt;<span class="number">8</span>*i)&amp;<span class="number">0xff</span>)</span><br><span class="line"><span class="built_in">print</span>(answer)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="number">9</span>):</span><br><span class="line">    v3=key[<span class="number">3</span>]</span><br><span class="line">    v4=flag[<span class="number">4</span>*i+<span class="number">3</span>]</span><br><span class="line">    v5=key[<span class="number">0</span>]</span><br><span class="line">    v6=flag[<span class="number">4</span>*i]</span><br><span class="line">    v7=flag[<span class="number">4</span>*i+<span class="number">1</span>]</span><br><span class="line">    v8=key[<span class="number">1</span>]</span><br><span class="line">    v9=flag[<span class="number">4</span>*i+<span class="number">2</span>]</span><br><span class="line">    v10=(v6 + v4) * (key[<span class="number">0</span>] + v3)</span><br><span class="line">    v11=key[<span class="number">2</span>]</span><br><span class="line">    v12 = v3 * (v6 + v7)</span><br><span class="line">    v13 = (v3 + v11) * (v7 - v4)</span><br><span class="line">    v14 = v4 * (v11 - v5)</span><br><span class="line">    v15 = v5 * (v9 + v4)</span><br><span class="line">    solver.add(v14+v10+v13-v12==answer[<span class="number">4</span>*i])</span><br><span class="line">    solver.add(v6 * (v8 - v3) + v12==answer[<span class="number">4</span>*i+<span class="number">1</span>])</span><br><span class="line">    solver.add(v15 + v14==answer[<span class="number">4</span>*i+<span class="number">2</span>])</span><br><span class="line">    solver.add(v6 * (v8 - v3) + (v8 + v5) * (v9 - v6) + v10 - v15==answer[<span class="number">4</span>*i+<span class="number">3</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> solver.check()==sat:</span><br><span class="line">    m=solver.model()</span><br><span class="line">    rex = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">34</span>):</span><br><span class="line">        rex.append(m[flag[i]].as_long())</span><br><span class="line">    <span class="built_in">print</span>(rex)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;n0&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="writeups"><a href="#writeups" class="headerlink" title="writeups"></a>writeups</h2><p><a target="_blank" rel="noopener" href="https://pupil857.github.io/">saying this is complete for 2022 nctf?</a></p>
+<p><a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=Mzg4MjcxMTAwMQ==&mid=2247485772&idx=1&sn=0f5b969f111d79027c59e6e2145698ef&chksm=cf53c9faf82440ec839aa7fc6b35bbc03251c824c5c5407ed9eb51181471d7514d651e3cfe97&mpshare=1&scene=23&srcid=12055uACFGja8KBjcPtP8ErG&sharer_sharetime=1670169963855&sharer_shareid=6eea79ff6da57fc6752ab0bc570bf392#rd">arr3ty0u nctf 2022 writeup</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.codetd.com/en/article/9046407">nctf 2019 writeup</a></p>
+<p>don’t know when it is, but i remember i have seen this shit: <a target="_blank" rel="noopener" href="https://blog.katastros.com/a?ID=00650-571829f2-3af9-4b1c-a3b7-3ebebca04377">katastros’s nctf writeup</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ctfiot.com/83703.html">ctfiot chamd5 nctf 2022 writeup</a></p>
+<p><a target="_blank" rel="noopener" href="http://blog.tolinchan.xyz/2022/12/05/nctf-2022-official-writeup-crypto/">nctf 2022 official crypto writeup</a></p>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/2023/12/20/modify_create%20magnet%20links,%20create%20porn%20videos%20with%20password%20with%20payment%20method/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/2023/12/20/motion%20verctor%20estimation,%20motion%20vector%20export,%20ffmpeg%20advanced%20usage/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+    	 
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+           type: "github" ? "github" : "github",       
+	       user: "james4ever0",
+	       repo: "my_blog",
+		   client_id: "",
+           client_secret: "",
+		   no_comment: "No comments yet. Press the button and go to comment now!",
+		   go_to_comment: "Go to comment",
+		   no_issue: "no_issue",
+		   issue_title: "nctf writeups",
+		   issue_id: "",
+		   btn_class: "btn btn-primary",
+		   comments_target: "#comment-thread",
+		   loading_target: "#loading_spin"
+		   });
+	 </script>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2023-12-20 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+</body>
+</html>

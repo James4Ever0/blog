@@ -1,0 +1,337 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>pyro object detection, 3d convolution on video, remove watermark in video | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="This article provides a detailed explanation of training deep learning models in PyTorch for watermark location detection using CNN and object detection with the Pyro library. The process involves implementing 3D convolution on video frames and defining layers for object detection from available Pyro resources.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="pyro object detection, 3d convolution on video, remove watermark in video"/>
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> pyro object detection, 3d convolution on video, remove watermark in video</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>This article provides a detailed explanation of training deep learning models in PyTorch for watermark location detection using CNN and object detection with the Pyro library. The process involves implementing 3D convolution on video frames and defining layers for object detection from available Pyro resources.</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <h1 id="pyro-object-detection-3d-convolution-on-video-remove-watermark-in-video"><a href="#pyro-object-detection-3d-convolution-on-video-remove-watermark-in-video" class="headerlink" title="pyro object detection, 3d convolution on video, remove watermark in video"></a>pyro object detection, 3d convolution on video, remove watermark in video</h1><h2 id="use-pyro-to-create-an-object-detector"><a href="#use-pyro-to-create-an-object-detector" class="headerlink" title="use pyro to create an object detector"></a>use pyro to create an object detector</h2><p>Pyro is a probabilistic programming language built on top of PyTorch that allows you to build flexible, expressive models and perform Bayesian inference. You can use Pyro to build an object detector by defining a probabilistic model that takes an input image and outputs a set of bounding boxes and class labels for the objects in the image.</p>
+<p>Here is an outline of the process you can follow to build an object detector using Pyro:</p>
+<p>Collect and preprocess a dataset of images and annotated bounding boxes for the objects you want to detect.</p>
+<p>Define a probabilistic model in Pyro that takes an input image and outputs a set of bounding boxes and class labels for the objects in the image. You can use a convolutional neural network (CNN) to extract features from the input image and a multi-layer perceptron (MLP) to predict the bounding boxes and class labels.</p>
+<p>Define a loss function that measures the difference between the predicted bounding boxes and class labels and the ground truth annotations in the dataset.</p>
+<p>Use Pyro’s optimization algorithms to optimize the model’s parameters with respect to the loss function.</p>
+<p>Use the trained model to make predictions on new images.</p>
+<p>Here is an example of how you can define a simple object detector using Pyro:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> pyro</span><br><span class="line"><span class="keyword">import</span> pyro.distributions <span class="keyword">as</span> dist</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ObjectDetector</span>(pyro.nn.PyroModule):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, num_classes</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.num_classes = num_classes</span><br><span class="line">        self.cnn = pyro.nn.Sequential(</span><br><span class="line">            <span class="comment"># Define the CNN layers here</span></span><br><span class="line">        )</span><br><span class="line">        self.mlp = pyro.nn.Sequential(</span><br><span class="line">            <span class="comment"># Define the MLP layers here</span></span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        features = self.cnn(x)</span><br><span class="line">        bboxes, labels = self.mlp(features)</span><br><span class="line">        <span class="keyword">return</span> bboxes, labels</span><br><span class="line"></span><br><span class="line"><span class="comment"># Define the loss function</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">loss</span>(<span class="params">model, x, bboxes, labels</span>):</span><br><span class="line">    predicted_bboxes, predicted_labels = model(x)</span><br><span class="line">    bbox_loss = <span class="comment"># Compute the bounding box loss here</span></span><br><span class="line">    label_loss = <span class="comment"># Compute the class label loss here</span></span><br><span class="line">    <span class="keyword">return</span> bbox_loss + label_loss</span><br><span class="line"></span><br><span class="line"><span class="comment"># Define the model and optimizer</span></span><br><span class="line">model = ObjectDetector(num_classes)</span><br><span class="line">optimizer = pyro.optim.Adam(&#123;<span class="string">&quot;lr&quot;</span>: <span class="number">0.001</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Loop over the dataset and optimize the model</span></span><br><span class="line"><span class="keyword">for</span> x, bboxes, labels <span class="keyword">in</span> dataset:</span><br><span class="line">    optimizer.zero_grad()</span><br><span class="line">    loss_value = loss(model, x, bboxes, labels)</span><br><span class="line">    loss_value.backward()</span><br><span class="line">    optimizer.step()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Use the trained model to make predictions on new images</span></span><br><span class="line">x_new = <span class="comment"># Load a new image</span></span><br><span class="line">bboxes, labels = model(x_new)</span><br></pre></td></tr></table></figure>
+<p>This is just a simple example of how you can use Pyro to build an object detector. You can find more detailed examples and resources on the Pyro website (<a target="_blank" rel="noopener" href="https://pyro.ai/">https://pyro.ai/</a>) and in the Pyro documentation (<a target="_blank" rel="noopener" href="https://docs.pyro.ai/">https://docs.pyro.ai/</a>).</p>
+<h2 id="define-the-CNN-network-and-the-MLP-network"><a href="#define-the-CNN-network-and-the-MLP-network" class="headerlink" title="define the CNN network and the MLP network"></a>define the CNN network and the MLP network</h2><p>To define the CNN and MLP networks for an object detector using Pyro, you can use Pyro’s nn module to define the layers of the network.</p>
+<p>For the CNN, you can use a combination of convolutional, pooling, and fully-connected (FC) layers to extract features from the input image. Here is an example of how you can define a simple CNN in Pyro:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> pyro.nn <span class="keyword">as</span> pyro_nn</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CNN</span>(pyro_nn.PyroModule):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, num_classes</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.conv1 = pyro_nn.Conv2d(<span class="number">3</span>, <span class="number">16</span>, kernel_size=<span class="number">3</span>, stride=<span class="number">1</span>, padding=<span class="number">1</span>)</span><br><span class="line">        self.conv2 = pyro_nn.Conv2d(<span class="number">16</span>, <span class="number">32</span>, kernel_size=<span class="number">3</span>, stride=<span class="number">1</span>, padding=<span class="number">1</span>)</span><br><span class="line">        self.pool = pyro_nn.MaxPool2d(kernel_size=<span class="number">2</span>, stride=<span class="number">2</span>)</span><br><span class="line">        self.fc1 = pyro_nn.Linear(<span class="number">32</span> * <span class="number">7</span> * <span class="number">7</span>, num_classes)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = self.conv1(x)</span><br><span class="line">        x = self.pool(x)</span><br><span class="line">        x = self.conv2(x)</span><br><span class="line">        x = self.pool(x)</span><br><span class="line">        x = x.view(-<span class="number">1</span>, <span class="number">32</span> * <span class="number">7</span> * <span class="number">7</span>)</span><br><span class="line">        x = self.fc1(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure>
+<p>For the MLP, you can use a combination of fully-connected (FC) layers to predict the bounding boxes and class labels for the objects in the image. Here is an example of how you can define an MLP in Pyro:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> pyro.nn <span class="keyword">as</span> pyro_nn</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MLP</span>(pyro_nn.PyroModule):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, num_classes, num_bboxes</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.fc1 = pyro_nn.Linear(num_classes, <span class="number">128</span>)</span><br><span class="line">        self.fc2 = pyro_nn.Linear(<span class="number">128</span>, num_bboxes * <span class="number">4</span>)</span><br><span class="line">        self.fc3 = pyro_nn.Linear(<span class="number">128</span>, num_bboxes * num_classes)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = self.fc1(x)</span><br><span class="line">        bboxes = self.fc2(x)</span><br><span class="line">        labels = self.fc3(x)</span><br><span class="line">        <span class="keyword">return</span> bboxes, labels</span><br></pre></td></tr></table></figure>
+<p>You can then combine the CNN and MLP into a single object detector model by defining a PyroModule that takes an input image and outputs the predicted bounding boxes and class labels.</p>
+<p>To continue building an object detector using Pyro, you can define a loss function that measures the difference between the predicted bounding boxes and class labels and the ground truth annotations in the dataset. You can then use Pyro’s optimization algorithms to optimize the model’s parameters with respect to the loss function.</p>
+<p>For example, you can define a loss function that combines a bounding box loss and a class label loss. The bounding box loss can be computed using the mean squared error (MSE) between the predicted bounding boxes and the ground truth bounding boxes. The class label loss can be computed using the cross-entropy loss between the predicted class labels and the ground truth labels.</p>
+<p>Here is an example of how you can define the loss function:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> pyro</span><br><span class="line"><span class="keyword">import</span> pyro.distributions <span class="keyword">as</span> dist</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">loss</span>(<span class="params">model, x, bboxes, labels</span>):</span><br><span class="line">    predicted_bboxes, predicted_labels = model(x)</span><br><span class="line">    bbox_loss = torch.mean((predicted_bboxes - bboxes) ** <span class="number">2</span>)</span><br><span class="line">    label_loss = torch.nn.CrossEntropyLoss()(predicted_labels, labels)</span><br><span class="line">    <span class="keyword">return</span> bbox_loss + label_loss</span><br></pre></td></tr></table></figure>
+<p>To optimize the model’s parameters, you can use an optimization algorithm such as Adam or SGD. Here is an example of how you can define an optimizer and use it to train the model:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> pyro</span><br><span class="line"><span class="keyword">import</span> pyro.optim <span class="keyword">as</span> optim</span><br><span class="line"></span><br><span class="line"><span class="comment"># Define the model and optimizer</span></span><br><span class="line">model = ObjectDetector(num_classes, num_bboxes)</span><br><span class="line">optimizer = optim.Adam(model.parameters(), lr=<span class="number">0.001</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Loop over the dataset and optimize the model</span></span><br><span class="line"><span class="keyword">for</span> x, bboxes, labels <span class="keyword">in</span> dataset:</span><br><span class="line">    optimizer.zero_grad()</span><br><span class="line">    loss_value = loss(model, x, bboxes, labels)</span><br><span class="line">    loss_value.backward()</span><br><span class="line">    optimizer.step()</span><br></pre></td></tr></table></figure>
+<p>Once the model is trained, you can use it to make predictions on new images. To do this, you can pass the new images through the model and use the predicted bounding boxes and class labels to draw bounding boxes around the objects in the image.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Use the trained model to make predictions on new images</span></span><br><span class="line">x_new = <span class="comment"># Load a new image</span></span><br><span class="line">bboxes, labels = model(x_new)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Draw bounding boxes around the objects in the image</span></span><br><span class="line"><span class="keyword">for</span> bbox, label <span class="keyword">in</span> <span class="built_in">zip</span>(bboxes, labels):</span><br><span class="line">    <span class="comment"># Draw the bounding box on the image</span></span><br><span class="line">    <span class="comment"># ...</span></span><br><span class="line">I hope this helps! Let me know <span class="keyword">if</span> you have <span class="built_in">any</span> questions.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="how-to-do-3d-convolution-on-video-with-pytorch"><a href="#how-to-do-3d-convolution-on-video-with-pytorch" class="headerlink" title="how to do 3d convolution on video with pytorch"></a>how to do 3d convolution on video with pytorch</h2><p>To perform 3D convolution on a video with PyTorch, you can use the nn.Conv3d layer. This layer applies a 3D convolution over the input tensor, which has shape (batch_size, channels, depth, height, width).</p>
+<p>Here is an example of how you can define a 3D convolutional neural network (CNN) in PyTorch to process a video:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">VideoCNN</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.conv1 = nn.Conv3d(<span class="number">3</span>, <span class="number">16</span>, kernel_size=<span class="number">3</span>, stride=<span class="number">1</span>, padding=<span class="number">1</span>)</span><br><span class="line">        self.conv2 = nn.Conv3d(<span class="number">16</span>, <span class="number">32</span>, kernel_size=<span class="number">3</span>, stride=<span class="number">1</span>, padding=<span class="number">1</span>)</span><br><span class="line">        self.pool = nn.MaxPool3d(kernel_size=<span class="number">2</span>, stride=<span class="number">2</span>)</span><br><span class="line">        self.fc1 = nn.Linear(<span class="number">32</span> * <span class="number">7</span> * <span class="number">7</span> * <span class="number">7</span>, <span class="number">128</span>)</span><br><span class="line">        self.fc2 = nn.Linear(<span class="number">128</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = self.conv1(x)</span><br><span class="line">        x = self.pool(x)</span><br><span class="line">        x = self.conv2(x)</span><br><span class="line">        x = self.pool(x)</span><br><span class="line">        x = x.view(-<span class="number">1</span>, <span class="number">32</span> * <span class="number">7</span> * <span class="number">7</span> * <span class="number">7</span>)</span><br><span class="line">        x = self.fc1(x)</span><br><span class="line">        x = self.fc2(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure>
+<p>To process a video with this CNN, you can first split the video into a sequence of frames, and then pass each frame through the CNN. You can use the torchvision.io.read_video function to read the video and the torchvision.transforms.ToTensor transformation to convert the frames to tensors.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torchvision</span><br><span class="line"><span class="keyword">import</span> torchvision.transforms <span class="keyword">as</span> transforms</span><br><span class="line"></span><br><span class="line"><span class="comment"># Read the video and split it into a sequence of frames</span></span><br><span class="line">video, _ = torchvision.io.read_video(<span class="string">&quot;video.mp4&quot;</span>)</span><br><span class="line">frames = video.permute(<span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Convert the frames to tensors</span></span><br><span class="line">transform = transforms.ToTensor()</span><br><span class="line">tensors = [transform(frame) <span class="keyword">for</span> frame <span class="keyword">in</span> frames]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Pass the tensors through the CNN</span></span><br><span class="line">cnn = VideoCNN()</span><br><span class="line">outputs = [cnn(tensor.unsqueeze(<span class="number">0</span>)) <span class="keyword">for</span> tensor <span class="keyword">in</span> tensors]</span><br></pre></td></tr></table></figure>
+<p>You can then use the output of the CNN to perform various tasks, such as classification or object detection.</p>
+<p>I hope this helps! Let me know if you have any questions.</p>
+<h2 id="use-3d-convolution-to-determine-location-of-watermark-on-video"><a href="#use-3d-convolution-to-determine-location-of-watermark-on-video" class="headerlink" title="use 3d convolution to determine location of watermark on video"></a>use 3d convolution to determine location of watermark on video</h2><p>To use 3D convolution to determine the location of a watermark on a video, you can build a convolutional neural network (CNN) that takes a sequence of frames from the video as input and outputs a prediction of the watermark’s location.</p>
+<p>Here is an outline of the process you can follow to build such a CNN using PyTorch:</p>
+<p>Collect and preprocess a dataset of videos and annotated watermark locations. To do this, you can manually label the watermark locations in a set of videos, or you can use a watermarked video and its corresponding unwatermarked version to automatically generate labels.</p>
+<p>Define a CNN in PyTorch that takes a sequence of frames from a video as input and outputs a prediction of the watermark’s location. You can use 3D convolutional layers to extract features from the frames and fully-connected (FC) layers to make the prediction.</p>
+<p>Define a loss function that measures the difference between the predicted watermark location and the ground truth location. You can use a regression loss such as mean squared error (MSE) or mean absolute error (MAE).</p>
+<p>Use PyTorch’s optimization algorithms to optimize the CNN’s parameters with respect to the loss function.</p>
+<p>Use the trained CNN to make predictions on new videos.</p>
+<p>Here is an example of how you can define a simple CNN in PyTorch to determine the location of a watermark on a video:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">WatermarkCNN</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.conv1 = nn.Conv3d(<span class="number">3</span>, <span class="number">16</span>, kernel_size=<span class="number">3</span>, stride=<span class="number">1</span>, padding=<span class="number">1</span>)</span><br><span class="line">        self.conv2 = nn.Conv3d(<span class="number">16</span>, <span class="number">32</span>, kernel_size=<span class="number">3</span>, stride=<span class="number">1</span>, padding=<span class="number">1</span>)</span><br><span class="line">        self.pool = nn.MaxPool3d(kernel_size=<span class="number">2</span>, stride=<span class="number">2</span>)</span><br><span class="line">        self.fc1 = nn.Linear(<span class="number">32</span> * <span class="number">7</span> * <span class="number">7</span> * <span class="number">7</span>, <span class="number">128</span>)</span><br><span class="line">        self.fc2 = nn.Linear(<span class="number">128</span>, <span class="number">4</span>)  <span class="comment"># 4 values for (x, y, width, height)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = self.conv1(x)</span><br><span class="line">        x = self.pool(x)</span><br><span class="line">        x = self.conv2(x)</span><br><span class="line">        x = self.pool(x)</span><br><span class="line">        x = x.view(-<span class="number">1</span>, <span class="number">32</span> * <span class="number">7</span> * <span class="number">7</span> * <span class="number">7</span>)</span><br><span class="line">        x = self.fc1(x)</span><br><span class="line">        x = self.fc2(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure>
+<p>To train this CNN, you can loop over the dataset and optimize the CNN’s parameters with respect to the loss function. Here is an example of how you can define the loss function and optimizer, and use them to train the CNN:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"></span><br><span class="line"><span class="comment"># Define the loss function</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">loss</span>(<span class="params">predictions, targets</span>):</span><br><span class="line">    <span class="keyword">return</span> nn.MSELoss()(predictions, targets)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Define the model and optimizer</span></span><br><span class="line">model = WatermarkCNN()</span><br><span class="line">optimizer = optim.Adam(model.parameters(), lr=<span class="number">0.001</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Loop over the dataset and optimize the model</span></span><br><span class="line"><span class="keyword">for</span> frames, watermark_location <span class="keyword">in</span> dataset:</span><br><span class="line">    optimizer.zero_grad()</span><br><span class="line">    predictions = model(frames)</span><br><span class="line">    loss_value = loss(predictions, watermark_location)</span><br><span class="line">    loss_value.backward()</span><br><span class="line">    optimizer.step()</span><br></pre></td></tr></table></figure>
+<p>Once the model is trained, you can use it to make predictions on new videos. To do this, you can pass the frames of the video through the model and use the predicted watermark location to draw a bounding box around the watermark.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Use the trained model to make predictions on new videos</span></span><br><span class="line">frames = <span class="comment"># Load the frames of a new video</span></span><br><span class="line">predictions = model(frames)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Draw a bounding box around the watermark</span></span><br><span class="line">x, y, width, height = predictions</span><br><span class="line"><span class="comment"># Draw the bounding box on the frames</span></span><br><span class="line"><span class="comment"># ...</span></span><br></pre></td></tr></table></figure>
+<p>I hope this helps! Let me know if you have any questions.</p>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/2022/12/18/62cd69ba-827f-4252-a15e-01fcc93a3fe7/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/2022/12/16/563f6a50-9ae7-4317-9393-0239d30ad2a9/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2022-12-16 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Deep-Learning/">Deep Learning<span>2</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/Pyro/">Pyro<span>4</span></a></li> <li><a href="/tags/PyTorch/">PyTorch<span>3</span></a></li> <li><a href="/tags/deep-learning/">deep_learning<span>1</span></a></li> <li><a href="/tags/watermark-detection/">watermark_detection<span>1</span></a></li> <li><a href="/tags/CNN/">CNN<span>1</span></a></li> <li><a href="/tags/3D-convolution/">3D_convolution<span>1</span></a></li> <li><a href="/tags/object-detection/">object_detection<span>1</span></a></li>
+
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2023 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+
+</body>
+</html>
