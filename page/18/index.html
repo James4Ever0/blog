@@ -161,7 +161,8 @@
   <div class="row">
 	
 	
-		<p>where’s the animation anyway?<br><a target="_blank" rel="noopener" href="https://splash.readthedocs.io/en/stable/install.html#linux-docker">splash doc</a></p>
+		<p>where’s the animation anyway?</p>
+<p><a target="_blank" rel="noopener" href="https://splash.readthedocs.io/en/stable/install.html#linux-docker">splash doc</a></p>
 
 	
 	</div>
@@ -187,7 +188,8 @@
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://github.com/clj-python/libpython-clj">libpython-clj</a> deep python integration in clojure<br><a target="_blank" rel="noopener" href="https://clj-python.github.io/libpython-clj/embedded.html">embed clojure in python</a> call clojure in python</p>
+		<p><a target="_blank" rel="noopener" href="https://github.com/clj-python/libpython-clj">libpython-clj</a> deep python integration in clojure</p>
+<p><a target="_blank" rel="noopener" href="https://clj-python.github.io/libpython-clj/embedded.html">embed clojure in python</a> call clojure in python</p>
 
 	
 	</div>
@@ -213,7 +215,8 @@
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://github.com/yohm/rb_call">rb_call</a><br><a target="_blank" rel="noopener" href="https://github.com/tomjnixon/puby">puby</a></p>
+		<p><a target="_blank" rel="noopener" href="https://github.com/yohm/rb_call">rb_call</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/tomjnixon/puby">puby</a></p>
 
 	
 	</div>
@@ -239,7 +242,8 @@
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://behave.readthedocs.io/en/stable/tutorial.html#python-step-implementations">behave doc</a> <a target="_blank" rel="noopener" href="https://pypi.org/project/behave/">pypi</a><br><a target="_blank" rel="noopener" href="https://pypi.org/project/pytest-bdd/">pytest-bdd</a></p>
+		<p><a target="_blank" rel="noopener" href="https://behave.readthedocs.io/en/stable/tutorial.html#python-step-implementations">behave doc</a> <a target="_blank" rel="noopener" href="https://pypi.org/project/behave/">pypi</a></p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/pytest-bdd/">pytest-bdd</a></p>
 
 	
 	</div>
@@ -266,8 +270,9 @@
 	
 	
 		<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/15792105/simulating-tv-noise">simulating tv noise</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -f lavfi -i nullsrc=s=1280x720 -filter_complex \</span><br><span class="line"><span class="string">&quot;geq=random(1)*255:128:128;aevalsrc=-2+random(0)&quot;</span> \</span><br><span class="line">-t 5 output.mkv</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -f rawvideo -video_size 1280x720 -pixel_format yuv420p -framerate 25 \</span><br><span class="line">-i /dev/urandom -ar 48000 -ac 2 -f s16le -i /dev/urandom -codec:a copy \</span><br><span class="line">-t 5 output.mkv</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -f lavfi -i nullsrc=s=1280x720 -filter_complex \</span><br><span class="line"><span class="string">&quot;geq=random(1)*255:128:128;aevalsrc=-2+random(0)&quot;</span> \</span><br><span class="line">-t 5 output.mkv</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -f rawvideo -video_size 1280x720 -pixel_format yuv420p -framerate 25 \</span><br><span class="line">-i /dev/urandom -ar 48000 -ac 2 -f s16le -i /dev/urandom -codec:a copy \</span><br><span class="line">-t 5 output.mkv</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 	
 	</div>
   <a type="button" href="/blog/2022/11/09/1210e7f0-68eb-4dbc-9012-9f7bbdb4b730/#more" class="btn btn-default more">Read More</a>
@@ -294,15 +299,26 @@
 	
 		<h2 id="peewee"><a href="#peewee" class="headerlink" title="peewee"></a>peewee</h2><h3 id="docs"><a href="#docs" class="headerlink" title="docs"></a>docs</h3><p><a target="_blank" rel="noopener" href="http://docs.peewee-orm.com/">official doc</a></p>
 <h2 id="milvus"><a href="#milvus" class="headerlink" title="milvus"></a>milvus</h2><h3 id="docs-1"><a href="#docs-1" class="headerlink" title="docs"></a>docs</h3><p><a target="_blank" rel="noopener" href="https://milvus.io/docs">official doc</a></p>
-<h2 id="neo4j"><a href="#neo4j" class="headerlink" title="neo4j"></a>neo4j</h2><h3 id="OGM-object-graph-mapping"><a href="#OGM-object-graph-mapping" class="headerlink" title="OGM, object-graph mapping"></a>OGM, object-graph mapping</h3><p><a target="_blank" rel="noopener" href="https://github.com/neo4jrb/activegraph">activegraph</a><br><a target="_blank" rel="noopener" href="https://github.com/bratushka/cypher">cypher</a><br><a target="_blank" rel="noopener" href="https://github.com/neo4j-contrib/neomodel">neomodel</a><br><a target="_blank" rel="noopener" href="https://github.com/adam-cowley/neode">neode</a></p>
-<h3 id="docs-2"><a href="#docs-2" class="headerlink" title="docs"></a>docs</h3><p><a target="_blank" rel="noopener" href="https://neo4j.com/docs/graph-data-science/current/operations-reference/algorithm-references/">graph data science</a><br><a target="_blank" rel="noopener" href="https://neo4j.com/docs/python-manual/current/get-started/">python driver doc</a></p>
-<h3 id="drivers"><a href="#drivers" class="headerlink" title="drivers"></a>drivers</h3><p><a target="_blank" rel="noopener" href="https://github.com/neo4j/neo4j-python-driver">neo4j python driver</a><br><a target="_blank" rel="noopener" href="https://github.com/neo4j/graph-data-science-client">neo4j python graph data science driver</a></p>
-<h3 id="wrappers"><a href="#wrappers" class="headerlink" title="wrappers"></a>wrappers</h3><p><a target="_blank" rel="noopener" href="https://github.com/emehrkay/Pypher">pypher</a> cypher builder in python <a target="_blank" rel="noopener" href="https://neo4j.com/blog/express-cypher-queries-pure-python-pypher/">intro</a><br><a target="_blank" rel="noopener" href="https://github.com/pawamoy/neopy">neopy</a><br><a target="_blank" rel="noopener" href="https://github.com/stellasia/pygds">pygds</a> a python wrapper to call Neo4j Graph Data Science procedures from python using the Neo4j python driver</p>
+<h2 id="neo4j"><a href="#neo4j" class="headerlink" title="neo4j"></a>neo4j</h2><h3 id="OGM-object-graph-mapping"><a href="#OGM-object-graph-mapping" class="headerlink" title="OGM, object-graph mapping"></a>OGM, object-graph mapping</h3><p><a target="_blank" rel="noopener" href="https://github.com/neo4jrb/activegraph">activegraph</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/bratushka/cypher">cypher</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/neo4j-contrib/neomodel">neomodel</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/adam-cowley/neode">neode</a></p>
+<h3 id="docs-2"><a href="#docs-2" class="headerlink" title="docs"></a>docs</h3><p><a target="_blank" rel="noopener" href="https://neo4j.com/docs/graph-data-science/current/operations-reference/algorithm-references/">graph data science</a></p>
+<p><a target="_blank" rel="noopener" href="https://neo4j.com/docs/python-manual/current/get-started/">python driver doc</a></p>
+<h3 id="drivers"><a href="#drivers" class="headerlink" title="drivers"></a>drivers</h3><p><a target="_blank" rel="noopener" href="https://github.com/neo4j/neo4j-python-driver">neo4j python driver</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/neo4j/graph-data-science-client">neo4j python graph data science driver</a></p>
+<h3 id="wrappers"><a href="#wrappers" class="headerlink" title="wrappers"></a>wrappers</h3><p><a target="_blank" rel="noopener" href="https://github.com/emehrkay/Pypher">pypher</a> cypher builder in python <a target="_blank" rel="noopener" href="https://neo4j.com/blog/express-cypher-queries-pure-python-pypher/">intro</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/pawamoy/neopy">neopy</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/stellasia/pygds">pygds</a> a python wrapper to call Neo4j Graph Data Science procedures from python using the Neo4j python driver</p>
 <h2 id="mindsdb"><a href="#mindsdb" class="headerlink" title="mindsdb"></a>mindsdb</h2><p>since mindsdb is sql-based it is time to create monkey patches for sqlalchemy core?</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sqlalchemy <span class="keyword">import</span> text</span><br><span class="line"><span class="comment"># write the SQL query inside the text() block</span></span><br><span class="line">sql = text(<span class="string">&#x27;SELECT * from BOOKS WHERE BOOKS.book_price &gt; 50&#x27;</span>)</span><br><span class="line">results = engine.execute(sql)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sqlalchemy <span class="keyword">import</span> text</span><br><span class="line"><span class="comment"># write the SQL query inside the text() block</span></span><br><span class="line">sql = text(<span class="string">&#x27;SELECT * from BOOKS WHERE BOOKS.book_price &gt; 50&#x27;</span>)</span><br><span class="line">results = engine.execute(sql)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <h3 id="tools"><a href="#tools" class="headerlink" title="tools"></a>tools</h3><p><a target="_blank" rel="noopener" href="https://github.com/mindsdb/lightwood">Lightwood</a> is an AutoML framework that enables you to generate and customize machine learning pipelines declarative syntax called JSON-AI <a target="_blank" rel="noopener" href="https://lightwood.io/">doc</a></p>
 <h3 id="docs-3"><a href="#docs-3" class="headerlink" title="docs"></a>docs</h3><p><a target="_blank" rel="noopener" href="https://docs.mindsdb.com/">official doc</a></p>
-<h3 id="wrappers-1"><a href="#wrappers-1" class="headerlink" title="wrappers"></a>wrappers</h3><p><a target="_blank" rel="noopener" href="https://docs.sqlalchemy.org/en/20/tutorial/engine.html">sqlalchemy 2.0 doc</a><br><a target="_blank" rel="noopener" href="https://pypika.readthedocs.io/en/latest/">pypika</a> sql query builder<br><a target="_blank" rel="noopener" href="https://github.com/mindsdb/mindsdb_native">mindsdb native</a><br><a target="_blank" rel="noopener" href="https://github.com/mindsdb/mindsdb_python_sdk">mindsdb python sdk</a></p>
+<h3 id="wrappers-1"><a href="#wrappers-1" class="headerlink" title="wrappers"></a>wrappers</h3><p><a target="_blank" rel="noopener" href="https://docs.sqlalchemy.org/en/20/tutorial/engine.html">sqlalchemy 2.0 doc</a></p>
+<p><a target="_blank" rel="noopener" href="https://pypika.readthedocs.io/en/latest/">pypika</a> sql query builder</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mindsdb/mindsdb_native">mindsdb native</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mindsdb/mindsdb_python_sdk">mindsdb python sdk</a></p>
 
 	
 	</div>
@@ -328,7 +344,11 @@
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository">remove sensitive data from github</a><br>use <a target="_blank" rel="noopener" href="https://rtyley.github.io/bfg-repo-cleaner/">bfg repo cleaner</a>, avaliable in <code>brew</code>, downloadable <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/com/madgag/bfg/1.14.0/bfg-1.14.0.jar">as a jar</a>.<br><a target="_blank" rel="noopener" href="https://github.com/newren/git-filter-repo#solving-this-with-bfg-repo-cleaner">git-filter-repo</a><br>other tools either perform poorly or have complex syntax. may not work as expected!<br><a target="_blank" rel="noopener" href="https://github.com/newren/git-filter-repo/blob/main/Documentation/converting-from-bfg-repo-cleaner.md#cheat-sheet-conversion-of-examples-from-bfg">cheat sheet for converting bfg commands into git filter-repo</a></p>
+		<p><a target="_blank" rel="noopener" href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository">remove sensitive data from github</a></p>
+<p>use <a target="_blank" rel="noopener" href="https://rtyley.github.io/bfg-repo-cleaner/">bfg repo cleaner</a>, avaliable in <code>brew</code>, downloadable <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/com/madgag/bfg/1.14.0/bfg-1.14.0.jar">as a jar</a>.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/newren/git-filter-repo#solving-this-with-bfg-repo-cleaner">git-filter-repo</a></p>
+<p>other tools either perform poorly or have complex syntax. may not work as expected!</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/newren/git-filter-repo/blob/main/Documentation/converting-from-bfg-repo-cleaner.md#cheat-sheet-conversion-of-examples-from-bfg">cheat sheet for converting bfg commands into git filter-repo</a></p>
 
 	
 	</div>
@@ -355,11 +375,18 @@
 	
 	
 		<p>百度贴吧移动端app接口分为：</p>
-<h2 id="首页"><a href="#首页" class="headerlink" title="首页"></a>首页</h2><p>大家都在搜<br>热搜榜 热吧榜 游戏榜（手游 端游 主机）<br>关注 推荐<br>热榜 （贴吧话题榜，热帖榜（总榜，视频，长更，游戏，数码）<br>直播 （我的关注，排行榜，讨论区，个人中心，我要直播，推荐，颜值）<br>视频</p>
+<h2 id="首页"><a href="#首页" class="headerlink" title="首页"></a>首页</h2><p>大家都在搜</p>
+<p>热搜榜 热吧榜 游戏榜（手游 端游 主机）</p>
+<p>关注 推荐</p>
+<p>热榜 （贴吧话题榜，热帖榜（总榜，视频，长更，游戏，数码）</p>
+<p>直播 （我的关注，排行榜，讨论区，个人中心，我要直播，推荐，颜值）</p>
+<p>视频</p>
 <h2 id="进吧"><a href="#进吧" class="headerlink" title="进吧"></a>进吧</h2><p>关注的吧 吧广场 最近逛的吧</p>
 <h2 id="频道"><a href="#频道" class="headerlink" title="频道"></a>频道</h2><p>游戏 数码 娱乐 影视 动漫 体育 小说 同城</p>
 <h2 id="消息"><a href="#消息" class="headerlink" title="消息"></a>消息</h2><p>@我的 点赞 回复 粉丝</p>
-<h2 id="我的"><a href="#我的" class="headerlink" title="我的"></a>我的</h2><p>关注 粉丝 吧<br>我的帖子 大神认证 创作学院 热门活动<br>我的收藏 浏览历史 直播 话题（贴吧话题榜）</p>
+<h2 id="我的"><a href="#我的" class="headerlink" title="我的"></a>我的</h2><p>关注 粉丝 吧</p>
+<p>我的帖子 大神认证 创作学院 热门活动</p>
+<p>我的收藏 浏览历史 直播 话题（贴吧话题榜）</p>
 
 	
 	</div>
@@ -385,7 +412,15 @@
   <div class="row">
 	
 	
-		<h2 id="code-refactoring-tools"><a href="#code-refactoring-tools" class="headerlink" title="code refactoring tools"></a>code refactoring tools</h2><h2 id="hot-reloading-and-exception-capture-tools"><a href="#hot-reloading-and-exception-capture-tools" class="headerlink" title="hot reloading and exception capture tools"></a>hot reloading and exception capture tools</h2><p><a target="_blank" rel="noopener" href="https://github.com/julvo/reloading">reloading</a> Change Python code while it’s running without losing state<br><a target="_blank" rel="noopener" href="https://github.com/breuleux/jurigged">jurigged</a> Hot reloading for Python<br><a target="_blank" rel="noopener" href="https://github.com/microsoft/debugpy">DebugPy</a> can capture every exception <a target="_blank" rel="noopener" href="https://github.com/microsoft/debugpy/blob/8157273a28b5d4d1ea49fe90eb51f9f1c19b80dc/src/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_frame.py">at the time it is raised</a> and preserve state (but cannot instruct the frame to continue execution without exception), no matter it is wrapped around some ‘try-except’ or not.<br><a target="_blank" rel="noopener" href="https://github.com/reloadware/reloadium">Reloadium</a> requires breakpoints to reload scripts. However, breakpoints can be generated&#x2F;inferenced and removed at runtime. Currently it only works with <a target="_blank" rel="noopener" href="https://github.com/fabioz/PyDev.Debugger">pydevd</a> inside pycharm. Reloadium supports line-wise profiling.<br><a target="_blank" rel="noopener" href="https://microsoft.github.io/debug-adapter-protocol/specification">Debug Adapter Protocol</a><br><a target="_blank" rel="noopener" href="https://github.com/mfussenegger/nvim-dap">DAP client in neovim</a><br><a target="_blank" rel="noopener" href="https://github.com/abhilashgupta/DAP-client/blob/master/Client_class.ipynb">DAP client in python</a><br><a target="_blank" rel="noopener" href="https://github.com/microsoft/debugpy/wiki/DAP-Client-reference">Official DAP client reference</a><br><a target="_blank" rel="noopener" href="https://github.com/fyrestone/pydevd_reload">pydevd_reload</a> An enhanced hot reload module from PyDev</p>
+		<h2 id="code-refactoring-tools"><a href="#code-refactoring-tools" class="headerlink" title="code refactoring tools"></a>code refactoring tools</h2><h2 id="hot-reloading-and-exception-capture-tools"><a href="#hot-reloading-and-exception-capture-tools" class="headerlink" title="hot reloading and exception capture tools"></a>hot reloading and exception capture tools</h2><p><a target="_blank" rel="noopener" href="https://github.com/julvo/reloading">reloading</a> Change Python code while it’s running without losing state</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/breuleux/jurigged">jurigged</a> Hot reloading for Python</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/microsoft/debugpy">DebugPy</a> can capture every exception <a target="_blank" rel="noopener" href="https://github.com/microsoft/debugpy/blob/8157273a28b5d4d1ea49fe90eb51f9f1c19b80dc/src/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_frame.py">at the time it is raised</a> and preserve state (but cannot instruct the frame to continue execution without exception), no matter it is wrapped around some ‘try-except’ or not.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/reloadware/reloadium">Reloadium</a> requires breakpoints to reload scripts. However, breakpoints can be generated&#x2F;inferenced and removed at runtime. Currently it only works with <a target="_blank" rel="noopener" href="https://github.com/fabioz/PyDev.Debugger">pydevd</a> inside pycharm. Reloadium supports line-wise profiling.</p>
+<p><a target="_blank" rel="noopener" href="https://microsoft.github.io/debug-adapter-protocol/specification">Debug Adapter Protocol</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mfussenegger/nvim-dap">DAP client in neovim</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/abhilashgupta/DAP-client/blob/master/Client_class.ipynb">DAP client in python</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/microsoft/debugpy/wiki/DAP-Client-reference">Official DAP client reference</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/fyrestone/pydevd_reload">pydevd_reload</a> An enhanced hot reload module from PyDev</p>
 
 	
 	</div>

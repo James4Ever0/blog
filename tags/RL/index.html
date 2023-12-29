@@ -128,12 +128,31 @@
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://github.com/google/oss-fuzz">oss-fuzz</a> supports fuzzing C&#x2F;C++, Rust, Go, Python and Java&#x2F;JVM code<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/Eastmount/article/details/107825286">blog about greyone</a> Discover Vulnerabilities with Flow Sensitive Fuzzing<br><a target="_blank" rel="noopener" href="https://github.com/google/afl">AFL</a>（American Fuzzy Lop）是由安全研究员Michał Zalewski（@lcamtuf）开发的一款基于覆盖引导（Coverage-guided）的模糊测试工具，它通过记录输入样本的代码覆盖率，从而调整输入样本以提高覆盖率，增加发现漏洞的概率<br><a target="_blank" rel="noopener" href="https://countuponsecurity.com/2018/03/07/intro-to-american-fuzzy-lop-fuzzing-in-5-steps/">intro-to-american-fuzzy-lop-fuzzing-in-5-steps</a><br><a target="_blank" rel="noopener" href="https://labs.nettitude.com/blog/fuzzing-with-american-fuzzy-lop-afl/#:~:text=Fuzzing%20with%20American%20Fuzzy%20Lop%20%28AFL%29%201%201.,2.%20Run%20our%20instrumented%20%E2%80%9Ctar%E2%80%9D%20binary%3A%20%E2%80%93%20~%2Ftar-1.28%2Fsrc%2Ftar">fuzzing-with-american-fuzzy-lop-afl</a><br><a target="_blank" rel="noopener" href="https://github.com/AFLplusplus/AFLplusplus">AFL++</a> can fuzz c source code, binary targets, network services, gui programs<br><a target="_blank" rel="noopener" href="https://github.com/WSP-LAB/Montage">Montage</a>: A Neural Network Language Model-Guided JavaScript Engine Fuzzer</p>
-<h2 id="seed-generation"><a href="#seed-generation" class="headerlink" title="seed generation"></a>seed generation</h2><h3 id="AI-based"><a href="#AI-based" class="headerlink" title="AI based"></a>AI based</h3><p>Skyfire (learn a probabilistic CFG grammar)<br>Learn&amp;Fuzz (learn a RNN model of valid inputs)<br>GAN (learn a GAN to generate legitimate seeds)<br>Neuzz (learn a NN to model input -&gt; coverage)</p>
-<h3 id="Symbolic-Execution"><a href="#Symbolic-Execution" class="headerlink" title="Symbolic Execution"></a>Symbolic Execution</h3><p>Driller<br>QSYM<br>DigFuzz<br>SAVIOR<br>Intriguer<br>Matryoshka<br>HFL</p>
+		<p><a target="_blank" rel="noopener" href="https://github.com/google/oss-fuzz">oss-fuzz</a> supports fuzzing C&#x2F;C++, Rust, Go, Python and Java&#x2F;JVM code</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Eastmount/article/details/107825286">blog about greyone</a> Discover Vulnerabilities with Flow Sensitive Fuzzing</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/google/afl">AFL</a>（American Fuzzy Lop）是由安全研究员Michał Zalewski（@lcamtuf）开发的一款基于覆盖引导（Coverage-guided）的模糊测试工具，它通过记录输入样本的代码覆盖率，从而调整输入样本以提高覆盖率，增加发现漏洞的概率</p>
+<p><a target="_blank" rel="noopener" href="https://countuponsecurity.com/2018/03/07/intro-to-american-fuzzy-lop-fuzzing-in-5-steps/">intro-to-american-fuzzy-lop-fuzzing-in-5-steps</a></p>
+<p><a target="_blank" rel="noopener" href="https://labs.nettitude.com/blog/fuzzing-with-american-fuzzy-lop-afl/#:~:text=Fuzzing%20with%20American%20Fuzzy%20Lop%20%28AFL%29%201%201.,2.%20Run%20our%20instrumented%20%E2%80%9Ctar%E2%80%9D%20binary%3A%20%E2%80%93%20~%2Ftar-1.28%2Fsrc%2Ftar">fuzzing-with-american-fuzzy-lop-afl</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/AFLplusplus/AFLplusplus">AFL++</a> can fuzz c source code, binary targets, network services, gui programs</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/WSP-LAB/Montage">Montage</a>: A Neural Network Language Model-Guided JavaScript Engine Fuzzer</p>
+<h2 id="seed-generation"><a href="#seed-generation" class="headerlink" title="seed generation"></a>seed generation</h2><h3 id="AI-based"><a href="#AI-based" class="headerlink" title="AI based"></a>AI based</h3><p>Skyfire (learn a probabilistic CFG grammar)</p>
+<p>Learn&amp;Fuzz (learn a RNN model of valid inputs)</p>
+<p>GAN (learn a GAN to generate legitimate seeds)</p>
+<p>Neuzz (learn a NN to model input -&gt; coverage)</p>
+<h3 id="Symbolic-Execution"><a href="#Symbolic-Execution" class="headerlink" title="Symbolic Execution"></a>Symbolic Execution</h3><p>Driller</p>
+<p>QSYM</p>
+<p>DigFuzz</p>
+<p>SAVIOR</p>
+<p>Intriguer</p>
+<p>Matryoshka</p>
+<p>HFL</p>
 <h3 id="static-dynamic-analysis"><a href="#static-dynamic-analysis" class="headerlink" title="static&#x2F;dynamic analysis"></a>static&#x2F;dynamic analysis</h3><p>FANS</p>
-<h2 id="seed-mutation"><a href="#seed-mutation" class="headerlink" title="seed mutation"></a>seed mutation</h2><h3 id="AI-based-1"><a href="#AI-based-1" class="headerlink" title="AI based"></a>AI based</h3><p>Mopt<br>LSTM<br>RL<br>ILF</p>
-<h3 id="program-based"><a href="#program-based" class="headerlink" title="program based"></a>program based</h3><p>VUzzer<br>GreyOne</p>
+<h2 id="seed-mutation"><a href="#seed-mutation" class="headerlink" title="seed mutation"></a>seed mutation</h2><h3 id="AI-based-1"><a href="#AI-based-1" class="headerlink" title="AI based"></a>AI based</h3><p>Mopt</p>
+<p>LSTM</p>
+<p>RL</p>
+<p>ILF</p>
+<h3 id="program-based"><a href="#program-based" class="headerlink" title="program based"></a>program based</h3><p>VUzzer</p>
+<p>GreyOne</p>
 <h2 id="efficient-testing"><a href="#efficient-testing" class="headerlink" title="efficient testing"></a>efficient testing</h2><h2 id="coverage-metrics"><a href="#coverage-metrics" class="headerlink" title="coverage metrics"></a>coverage metrics</h2>
 	
 	</div>
@@ -157,12 +176,54 @@
   <div class="row">
 	
 	
-		<h1 id="quantative-financial-stock-market-analysis"><a href="#quantative-financial-stock-market-analysis" class="headerlink" title="quantative financial stock market analysis"></a>quantative financial stock market analysis</h1><h2 id="pyportfoliooptamplfinance"><a href="#pyportfoliooptamplfinance" class="headerlink" title="pyportfoliooptamplfinance"></a><a target="_blank" rel="noopener" href="https://github.com/robertmartin8/PyPortfoiloOpt">pyportfolioopt</a><br><a target="_blank" rel="noopener" href="https://github.com/ampl/amplpyfinance">amplfinance</a></h2><p>造模拟炒股软件 走势跟着大盘 收集用户交易数据<br>随机假设买卖点 随机假设成交 构成无数虚拟账户交易 或者用某种假设原理拆分不同来源的买卖单<br><a target="_blank" rel="noopener" href="https://huggingface.co/blog/time-series-transformers">time-series-transformers</a> huggingface blog<br>深入浅出Python量化交易 <a target="_blank" rel="noopener" href="https://www.wqyunpan.com/resourceDetail.html?id=257365&openId=oUgl9wSv5p1X-HH-MnP4jFvTIlHM&qrcodeId=219912&sign=ZTVkOGM1MGRhZDJjLTE2NjE3NjA4MDQyNzQ=">配套代码</a></p>
-<h2 id="数据来源"><a href="#数据来源" class="headerlink" title="数据来源"></a>数据来源</h2><p><code>pandas_datareader</code> by yahoo 是国外股票的数据<br><code>tushare</code> 国内股票数据</p>
-<h2 id="模型建立"><a href="#模型建立" class="headerlink" title="模型建立"></a>模型建立</h2><p><a target="_blank" rel="noopener" href="https://quantecon.org/">open source code for economics modeling in python&#x2F;julia</a><br><a target="_blank" rel="noopener" href="https://sinyi-chou.github.io/python-pandas-pipe/#:~:text=Pipe%20is%20a%20method%20in%20pandas.DataFrame%20capable%20of,can%20be%20combined%20with%20method%20chaining%20without%20nesting.">pandas pipe</a> for streamline processing of real time data<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/385094015">time series forcast</a><br>有类似的软件 我下载到windows上面过 (agent based simulation&#x2F;agent based modeling) called <a href="">altreva adaptive modeler</a><br><a target="_blank" rel="noopener" href="https://pythonhosted.org/fms/">fms</a><br>还原持仓的对象 每一个账户都要详细分析 分析每个账户什么时候买入 卖出 还有不买入 不卖出 观望的那些人 所有人都要还原</p>
-<h2 id="实盘接口"><a href="#实盘接口" class="headerlink" title="实盘接口"></a>实盘接口</h2><p><strong>tools for high frequency trading</strong> <strong>low latency trading tool</strong><br><strong>高频交易工具</strong> <strong>低延迟交易工具</strong><br>要抢涨停板 网络必须要好 下单速度要快<br>joinquant<br><a target="_blank" rel="noopener" href="https://github.com/shidenggui/easytrader">easytrader</a><br><a target="_blank" rel="noopener" href="http://www.iguuu.com/e">实盘易 支持多个客户端</a> 服务端要钱的 sdk都是服务端的client</p>
-<h2 id="tools"><a href="#tools" class="headerlink" title="tools"></a>tools</h2><p><a target="_blank" rel="noopener" href="https://github.com/mpquant/MyTT">mytt 通达信公式转换器</a><br><a target="_blank" rel="noopener" href="https://github.com/cedricporter/funcat">funcat 通达信公式转换器</a></p>
-<h2 id="models-and-frameworks"><a href="#models-and-frameworks" class="headerlink" title="models and frameworks"></a>models and frameworks</h2><p>general reinforcement learning:<br><a target="_blank" rel="noopener" href="https://github.com/DLR-RM/stable-baselines3">https://github.com/DLR-RM/stable-baselines3</a><br>crypto trading bot, support all crypto trading markets:<br><a target="_blank" rel="noopener" href="https://github.com/freqtrade/freqtrade">https://github.com/freqtrade/freqtrade</a><br>qlib by microsoft, quantatitive financial analysis:<br><a target="_blank" rel="noopener" href="https://github.com/microsoft/qlib">https://github.com/microsoft/qlib</a><br>reinforcement financial deep learning package:<br><a target="_blank" rel="noopener" href="https://github.com/AI4Finance-Foundation/FinRL">https://github.com/AI4Finance-Foundation/FinRL</a><br>openbb_terminal:<br><a target="_blank" rel="noopener" href="https://github.com/OpenBB-finance/OpenBBTerminal">https://github.com/OpenBB-finance/OpenBBTerminal</a><br>zipline<br><a target="_blank" rel="noopener" href="https://github.com/quantopian/zipline">https://github.com/quantopian/zipline</a><br>pyalgotrade<br><a target="_blank" rel="noopener" href="https://github.com/gbeced/pyalgotrade">https://github.com/gbeced/pyalgotrade</a><br>quantaxis:<br><a target="_blank" rel="noopener" href="https://github.com/yutiansut/QUANTAXIS">https://github.com/yutiansut/QUANTAXIS</a><br>vn.py:<br><a target="_blank" rel="noopener" href="https://github.com/vnpy/vnpy">https://github.com/vnpy/vnpy</a><br><a target="_blank" rel="noopener" href="https://www.vnpy.com/docs/">https://www.vnpy.com/docs/</a><br>talib:<br><a target="_blank" rel="noopener" href="https://github.com/mrjbq7/ta-lib">https://github.com/mrjbq7/ta-lib</a><br><a target="_blank" rel="noopener" href="https://www.programcreek.com/python/example/92322/talib.EMA?msclkid=425d0f6cb5dd11ec9da2a03aa72194cd">https://www.programcreek.com/python/example/92322/talib.EMA?msclkid=425d0f6cb5dd11ec9da2a03aa72194cd</a><br>superalgos:<br><a target="_blank" rel="noopener" href="https://github.com/Superalgos/Superalgos">https://github.com/Superalgos/Superalgos</a><br><a target="_blank" rel="noopener" href="https://superalgos.org/">https://superalgos.org</a></p>
+		<h1 id="quantative-financial-stock-market-analysis"><a href="#quantative-financial-stock-market-analysis" class="headerlink" title="quantative financial stock market analysis"></a>quantative financial stock market analysis</h1><p><a target="_blank" rel="noopener" href="https://github.com/robertmartin8/PyPortfoiloOpt">pyportfolioopt</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ampl/amplpyfinance">amplfinance</a></p>
+<hr>
+<p>造模拟炒股软件 走势跟着大盘 收集用户交易数据</p>
+<p>随机假设买卖点 随机假设成交 构成无数虚拟账户交易 或者用某种假设原理拆分不同来源的买卖单</p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/blog/time-series-transformers">time-series-transformers</a> huggingface blog</p>
+<p>深入浅出Python量化交易 <a target="_blank" rel="noopener" href="https://www.wqyunpan.com/resourceDetail.html?id=257365&openId=oUgl9wSv5p1X-HH-MnP4jFvTIlHM&qrcodeId=219912&sign=ZTVkOGM1MGRhZDJjLTE2NjE3NjA4MDQyNzQ=">配套代码</a></p>
+<h2 id="数据来源"><a href="#数据来源" class="headerlink" title="数据来源"></a>数据来源</h2><p><code>pandas_datareader</code> by yahoo 是国外股票的数据</p>
+<p><code>tushare</code> 国内股票数据</p>
+<h2 id="模型建立"><a href="#模型建立" class="headerlink" title="模型建立"></a>模型建立</h2><p><a target="_blank" rel="noopener" href="https://quantecon.org/">open source code for economics modeling in python&#x2F;julia</a></p>
+<p><a target="_blank" rel="noopener" href="https://sinyi-chou.github.io/python-pandas-pipe/#:~:text=Pipe%20is%20a%20method%20in%20pandas.DataFrame%20capable%20of,can%20be%20combined%20with%20method%20chaining%20without%20nesting.">pandas pipe</a> for streamline processing of real time data</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/385094015">time series forcast</a></p>
+<p>有类似的软件 我下载到windows上面过 (agent based simulation&#x2F;agent based modeling) called <a href="">altreva adaptive modeler</a></p>
+<p><a target="_blank" rel="noopener" href="https://pythonhosted.org/fms/">fms</a></p>
+<p>还原持仓的对象 每一个账户都要详细分析 分析每个账户什么时候买入 卖出 还有不买入 不卖出 观望的那些人 所有人都要还原</p>
+<h2 id="实盘接口"><a href="#实盘接口" class="headerlink" title="实盘接口"></a>实盘接口</h2><p><strong>tools for high frequency trading</strong> <strong>low latency trading tool</strong></p>
+<p><strong>高频交易工具</strong> <strong>低延迟交易工具</strong></p>
+<p>要抢涨停板 网络必须要好 下单速度要快</p>
+<p>joinquant</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/shidenggui/easytrader">easytrader</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.iguuu.com/e">实盘易 支持多个客户端</a> 服务端要钱的 sdk都是服务端的client</p>
+<h2 id="tools"><a href="#tools" class="headerlink" title="tools"></a>tools</h2><p><a target="_blank" rel="noopener" href="https://github.com/mpquant/MyTT">mytt 通达信公式转换器</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/cedricporter/funcat">funcat 通达信公式转换器</a></p>
+<h2 id="models-and-frameworks"><a href="#models-and-frameworks" class="headerlink" title="models and frameworks"></a>models and frameworks</h2><p>general reinforcement learning:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/DLR-RM/stable-baselines3">https://github.com/DLR-RM/stable-baselines3</a></p>
+<p>crypto trading bot, support all crypto trading markets:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/freqtrade/freqtrade">https://github.com/freqtrade/freqtrade</a></p>
+<p>qlib by microsoft, quantatitive financial analysis:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/microsoft/qlib">https://github.com/microsoft/qlib</a></p>
+<p>reinforcement financial deep learning package:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/AI4Finance-Foundation/FinRL">https://github.com/AI4Finance-Foundation/FinRL</a></p>
+<p>openbb_terminal:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/OpenBB-finance/OpenBBTerminal">https://github.com/OpenBB-finance/OpenBBTerminal</a></p>
+<p>zipline</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/quantopian/zipline">https://github.com/quantopian/zipline</a></p>
+<p>pyalgotrade</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/gbeced/pyalgotrade">https://github.com/gbeced/pyalgotrade</a></p>
+<p>quantaxis:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yutiansut/QUANTAXIS">https://github.com/yutiansut/QUANTAXIS</a></p>
+<p>vn.py:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/vnpy/vnpy">https://github.com/vnpy/vnpy</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.vnpy.com/docs/">https://www.vnpy.com/docs/</a></p>
+<p>talib:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mrjbq7/ta-lib">https://github.com/mrjbq7/ta-lib</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.programcreek.com/python/example/92322/talib.EMA?msclkid=425d0f6cb5dd11ec9da2a03aa72194cd">https://www.programcreek.com/python/example/92322/talib.EMA?msclkid=425d0f6cb5dd11ec9da2a03aa72194cd</a></p>
+<p>superalgos:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Superalgos/Superalgos">https://github.com/Superalgos/Superalgos</a></p>
+<p><a target="_blank" rel="noopener" href="https://superalgos.org/">https://superalgos.org</a></p>
 
 	
 	</div>

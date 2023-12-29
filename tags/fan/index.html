@@ -128,14 +128,21 @@
   <div class="row">
 	
 	
-		<p>everytime the fucking machine restarts, it fails devastatingly.<br>the word: <code>Giving the fans some time to reach full speed...</code><br>the script:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/expect</span></span><br><span class="line">spawn pwmconfig</span><br><span class="line"><span class="comment">#expect &quot;Giving the fans some time to reach full speed...&quot;</span></span><br><span class="line">expect <span class="string">&quot;If you do not want to do this hit control-C now!!!&quot;</span></span><br><span class="line">send <span class="string">&quot;\03&quot;</span></span><br><span class="line">expect eof</span><br></pre></td></tr></table></figure>
+		<p>everytime the fucking machine restarts, it fails devastatingly.</p>
+<p>the word: <code>Giving the fans some time to reach full speed...</code></p>
+<p>the script:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/expect</span></span><br><span class="line">spawn pwmconfig</span><br><span class="line"><span class="comment">#expect &quot;Giving the fans some time to reach full speed...&quot;</span></span><br><span class="line">expect <span class="string">&quot;If you do not want to do this hit control-C now!!!&quot;</span></span><br><span class="line">send <span class="string">&quot;\03&quot;</span></span><br><span class="line">expect eof</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>hope this shit works?</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> 255 | sudo <span class="built_in">tee</span> /sys/class/hwmon/hwmon6/pwm3</span><br><span class="line"><span class="built_in">echo</span> 255 | sudo <span class="built_in">tee</span> /sys/class/hwmon/hwmon6/pwm1</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> 255 | sudo <span class="built_in">tee</span> /sys/class/hwmon/hwmon6/pwm3</span><br><span class="line"><span class="built_in">echo</span> 255 | sudo <span class="built_in">tee</span> /sys/class/hwmon/hwmon6/pwm1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>i have install something other than that. like i8kctl, some thermal controllers by intel (thermald)? but still gpu fan not spinning till now.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt install -y lm-sensors fancontrol</span><br><span class="line">sensors-detect</span><br><span class="line">pwmconfig</span><br></pre></td></tr></table></figure>
-<p>already have cpu frequency under control by running temp_throttle.sh<br>notes: found controllers <code>dell_smm-isa-0000</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Found the following PWM controls:</span><br><span class="line">hwmon6/pwm1           current value: 255</span><br><span class="line">hwmon6/pwm3           current value: 255</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt install -y lm-sensors fancontrol</span><br><span class="line">sensors-detect</span><br><span class="line">pwmconfig</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>already have cpu frequency under control by running temp_throttle.sh</p>
+<p>notes: found controllers <code>dell_smm-isa-0000</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Found the following PWM controls:</span><br><span class="line">hwmon6/pwm1           current value: 255</span><br><span class="line">hwmon6/pwm3           current value: 255</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 	
 	</div>
   <a type="button" href="/blog/2022/08/11/2a69a080-7a45-4b12-aca1-b81c0fd1737c/#more" class="btn btn-default more">Read More</a>
@@ -158,7 +165,11 @@
   <div class="row">
 	
 	
-		<h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><p><a target="_blank" rel="noopener" href="http://kernel.org/pub/linux/utils/kernel/cpufreq/cpufrequtils.html">cpufrequtils</a><br><a target="_blank" rel="noopener" href="https://github.com/Sepero/temp-throttle">throttling cpu frequencies by temperature incrementally</a><br>the desired temperature is 60.<br>usually when one throttles the CPU temperature, the GPU cannot be overheated.<br>it is turning my core i7 into a pentium 3! but not entirely cumbersome.</p>
+		<h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><p><a target="_blank" rel="noopener" href="http://kernel.org/pub/linux/utils/kernel/cpufreq/cpufrequtils.html">cpufrequtils</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Sepero/temp-throttle">throttling cpu frequencies by temperature incrementally</a></p>
+<p>the desired temperature is 60.</p>
+<p>usually when one throttles the CPU temperature, the GPU cannot be overheated.</p>
+<p>it is turning my core i7 into a pentium 3! but not entirely cumbersome.</p>
 
 	
 	</div>

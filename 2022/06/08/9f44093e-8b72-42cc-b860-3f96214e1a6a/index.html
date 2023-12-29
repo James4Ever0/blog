@@ -125,8 +125,71 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="Search-Engines-DIY"><a href="#Search-Engines-DIY" class="headerlink" title="Search Engines DIY"></a>Search Engines DIY</h1><h2 id="my-custom-search-engine-built-upon-thesaurus-synonyms-antenyms-fzf-and-grep"><a href="#my-custom-search-engine-built-upon-thesaurus-synonyms-antenyms-fzf-and-grep" class="headerlink" title="my custom search engine built upon thesaurus&#x2F;synonyms&#x2F;antenyms, fzf and grep"></a>my custom search engine built upon thesaurus&#x2F;synonyms&#x2F;antenyms, fzf and grep</h2><p><a target="_blank" rel="noopener" href="https://github.com/lucidrains/RETRO-pytorch">RETRO</a> retrieval based attention net, though using faiss, unclear if it is search related. on page 8 of the <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2112.04426.pdf">paper</a> there are different retrieval based models for selections. LDA (topic modeling) can assist search by discovering similar topics.<br>download nltk data <a target="_blank" rel="noopener" href="http://www.nltk.org/nltk_data/">here</a>. when downloading manually, beware of the url path and id, so you would put things in order.<br>you would patch nltk in order to download via proxy. these data files are hosted on github assets.<br>check keyword <code>urlopen</code> and file<code>downloder.py</code> under <code>/data/data/com.termux/files/usr/lib/python3.10/site-packages/nltk</code><br>maybe you can explore further with online search engines? select your keyword then search again.<br>thesaurus will slow down things. make it into a preprocessor.<br>related shits can be found <a target="_blank" rel="noopener" href="https://www.github.com/James4Ever0/hack_all_the_thing/tree/main/tests%2Fsearch_engine_helper_docs%2Fhelp_apt_search.sh">here</a></p>
-<h2 id="search-engine-optimization"><a href="#search-engine-optimization" class="headerlink" title="search engine optimization"></a>search engine optimization</h2><p><a target="_blank" rel="noopener" href="https://advertools.readthedocs.io/en/master/readme.html">advertools</a><br><a target="_blank" rel="noopener" href="https://github.com/zinclabs/zinc">zinc search</a><br><a target="_blank" rel="noopener" href="https://huggingface.co/microsoft/markuplm-base">markuplm markup language model</a> used for feature rich information extraction, <a target="_blank" rel="noopener" href="https://github.com/susht3/webQA_sequence_labelling_pytorch">webqa</a>, arxiv paper: <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1704.00051">reading wikipedia to answer open domain questions</a><br><a target="_blank" rel="noopener" href="https://github.com/zinclabs/zinc">zinc search, go implementation of elastic search alternative</a><br>I bet there are many many alternatives. even for a relational database or graph database it can be a search engine by its nature.<br>how the heck can i search my own notes? slice it into little segments? standard excerpt included.<br>search for search engine in github.<br>search engines are related to spiders&#x2F;crawlers.<br>how to utilize these search engines is a problem&#x2F;challenge. use url filters, generic extractors, readbility.js, summarizers like sumy.<br>many specialized search engines that can search image, video and audio. one example is Jina<br>semantic search tool, multimedia search tool, neural search tool<br><a target="_blank" rel="noopener" href="https://github.com/searxng/searxng">https://github.com/searxng/searxng</a><br>parse popular search engine results like baidu, bing:<br><a target="_blank" rel="noopener" href="https://github.com/bisohns/search-engine-parser">https://github.com/bisohns/search-engine-parser</a><br>search and scrape news<br><a target="_blank" rel="noopener" href="https://github.com/01joy/news-search-engine">https://github.com/01joy/news-search-engine</a><br>image search engine<br><a target="_blank" rel="noopener" href="https://github.com/matsui528/sis">https://github.com/matsui528/sis</a><br>search engines used by hackers, social engineering, onion sites:<br><a target="_blank" rel="noopener" href="https://github.com/edoardottt/awesome-hacker-search-engines">https://github.com/edoardottt/awesome-hacker-search-engines</a><br>search engine with customized recommendation:<br><a target="_blank" rel="noopener" href="https://github.com/mtianyan/FunpySpiderSearchEngine">https://github.com/mtianyan/FunpySpiderSearchEngine</a><br>seo tools 百度下拉词获取 推荐词相关词<br><a target="_blank" rel="noopener" href="https://github.com/marcobiedermann/search-engine-optimization">https://github.com/marcobiedermann/search-engine-optimization</a><br>a self-hosted search engine that can be deployed on heroku, google alike:<br><a target="_blank" rel="noopener" href="https://github.com/benbusby/whoogle-search">https://github.com/benbusby/whoogle-search</a><br>txtai:<br>semantic search tool<br>pip3 install txtai<br>using sentence-transformer models from huggingface sentence embedding<br><a target="_blank" rel="noopener" href="https://github.com/neuml/txtai">https://github.com/neuml/txtai</a><br>yacy:<br>distributed search engine circumvent censorship<br>provide rss feeds<br>searx:<br>meta search engine self-hosted<br>has third-party hosted searx websites avaliable:<br><a target="_blank" rel="noopener" href="https://searx.space/">https://searx.space/</a> total 83 online(currently)<br>mwmbl:<br>distributed crawler central search engine, can be self-hosted<br>written in python<br>video search engine:<br>generate summary from frames<br><a target="_blank" rel="noopener" href="https://github.com/AkshatSh/VideoSearchEngine">https://github.com/AkshatSh/VideoSearchEngine</a><br>yuno:<br>context based search engine for anime, anime search engine with transformer and deep learning. text based search. more like a semantic search tool, or neural search tool.<br>Yuno is a context based search engine that indexes over 0.5 million anime reviews and other anime informations. To help you find anime with specific properties. This search engine will help people of r&#x2F;AnimeSuggest who are looking for specific type of anime to watch.<br>This search engine was created to solve the problem of finding an object with specific properties and the object in this case is anime. But this search engine can be easily extended to any domain like books,movies,etc. Without the need of any kind of handcrafted dataset.<br>TypeSense:<br>dedicated client for every popular programminhg language<br>consume much fewer ram than meilisearch<br>need to write custom web interface via nodejs<br>upload data via client api<br>MeiliSearch:<br>good for small dataset<br>consume whoopy 900mb for my 9mb json dataset.<br>has intuitive web interface.<br>upload document via web post.</p>
+	  <h1 id="Search-Engines-DIY"><a href="#Search-Engines-DIY" class="headerlink" title="Search Engines DIY"></a>Search Engines DIY</h1><h2 id="my-custom-search-engine-built-upon-thesaurus-synonyms-antenyms-fzf-and-grep"><a href="#my-custom-search-engine-built-upon-thesaurus-synonyms-antenyms-fzf-and-grep" class="headerlink" title="my custom search engine built upon thesaurus&#x2F;synonyms&#x2F;antenyms, fzf and grep"></a>my custom search engine built upon thesaurus&#x2F;synonyms&#x2F;antenyms, fzf and grep</h2><p><a target="_blank" rel="noopener" href="https://github.com/lucidrains/RETRO-pytorch">RETRO</a> retrieval based attention net, though using faiss, unclear if it is search related. on page 8 of the <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2112.04426.pdf">paper</a> there are different retrieval based models for selections. LDA (topic modeling) can assist search by discovering similar topics.</p>
+<p>download nltk data <a target="_blank" rel="noopener" href="http://www.nltk.org/nltk_data/">here</a>. when downloading manually, beware of the url path and id, so you would put things in order.</p>
+<p>you would patch nltk in order to download via proxy. these data files are hosted on github assets.</p>
+<p>check keyword <code>urlopen</code> and file<code>downloder.py</code> under <code>/data/data/com.termux/files/usr/lib/python3.10/site-packages/nltk</code></p>
+<p>maybe you can explore further with online search engines? select your keyword then search again.</p>
+<p>thesaurus will slow down things. make it into a preprocessor.</p>
+<p>related shits can be found <a target="_blank" rel="noopener" href="https://www.github.com/James4Ever0/hack_all_the_thing/tree/main/tests%2Fsearch_engine_helper_docs%2Fhelp_apt_search.sh">here</a></p>
+<h2 id="search-engine-optimization"><a href="#search-engine-optimization" class="headerlink" title="search engine optimization"></a>search engine optimization</h2><p><a target="_blank" rel="noopener" href="https://advertools.readthedocs.io/en/master/readme.html">advertools</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zinclabs/zinc">zinc search</a></p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/microsoft/markuplm-base">markuplm markup language model</a> used for feature rich information extraction, <a target="_blank" rel="noopener" href="https://github.com/susht3/webQA_sequence_labelling_pytorch">webqa</a>, arxiv paper: <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1704.00051">reading wikipedia to answer open domain questions</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zinclabs/zinc">zinc search, go implementation of elastic search alternative</a></p>
+<p>I bet there are many many alternatives. even for a relational database or graph database it can be a search engine by its nature.</p>
+<p>how the heck can i search my own notes? slice it into little segments? standard excerpt included.</p>
+<p>search for search engine in github.</p>
+<p>search engines are related to spiders&#x2F;crawlers.</p>
+<p>how to utilize these search engines is a problem&#x2F;challenge. use url filters, generic extractors, readbility.js, summarizers like sumy.</p>
+<p>many specialized search engines that can search image, video and audio. one example is Jina</p>
+<p>semantic search tool, multimedia search tool, neural search tool</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/searxng/searxng">https://github.com/searxng/searxng</a></p>
+<p>parse popular search engine results like baidu, bing:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/bisohns/search-engine-parser">https://github.com/bisohns/search-engine-parser</a></p>
+<p>search and scrape news</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/01joy/news-search-engine">https://github.com/01joy/news-search-engine</a></p>
+<p>image search engine</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/matsui528/sis">https://github.com/matsui528/sis</a></p>
+<p>search engines used by hackers, social engineering, onion sites:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/edoardottt/awesome-hacker-search-engines">https://github.com/edoardottt/awesome-hacker-search-engines</a></p>
+<p>search engine with customized recommendation:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mtianyan/FunpySpiderSearchEngine">https://github.com/mtianyan/FunpySpiderSearchEngine</a></p>
+<p>seo tools 百度下拉词获取 推荐词相关词</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/marcobiedermann/search-engine-optimization">https://github.com/marcobiedermann/search-engine-optimization</a></p>
+<p>a self-hosted search engine that can be deployed on heroku, google alike:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/benbusby/whoogle-search">https://github.com/benbusby/whoogle-search</a></p>
+<p>txtai:</p>
+<p>semantic search tool</p>
+<p>pip3 install txtai</p>
+<p>using sentence-transformer models from huggingface sentence embedding</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/neuml/txtai">https://github.com/neuml/txtai</a></p>
+<p>yacy:</p>
+<p>distributed search engine circumvent censorship</p>
+<p>provide rss feeds</p>
+<p>searx:</p>
+<p>meta search engine self-hosted</p>
+<p>has third-party hosted searx websites avaliable:</p>
+<p><a target="_blank" rel="noopener" href="https://searx.space/">https://searx.space/</a> total 83 online(currently)</p>
+<p>mwmbl:</p>
+<p>distributed crawler central search engine, can be self-hosted</p>
+<p>written in python</p>
+<p>video search engine:</p>
+<p>generate summary from frames</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/AkshatSh/VideoSearchEngine">https://github.com/AkshatSh/VideoSearchEngine</a></p>
+<p>yuno:</p>
+<p>context based search engine for anime, anime search engine with transformer and deep learning. text based search. more like a semantic search tool, or neural search tool.</p>
+<p>Yuno is a context based search engine that indexes over 0.5 million anime reviews and other anime informations. To help you find anime with specific properties. This search engine will help people of r&#x2F;AnimeSuggest who are looking for specific type of anime to watch.</p>
+<p>This search engine was created to solve the problem of finding an object with specific properties and the object in this case is anime. But this search engine can be easily extended to any domain like books,movies,etc. Without the need of any kind of handcrafted dataset.</p>
+<p>TypeSense:</p>
+<p>dedicated client for every popular programminhg language</p>
+<p>consume much fewer ram than meilisearch</p>
+<p>need to write custom web interface via nodejs</p>
+<p>upload data via client api</p>
+<p>MeiliSearch:</p>
+<p>good for small dataset</p>
+<p>consume whoopy 900mb for my 9mb json dataset.</p>
+<p>has intuitive web interface.</p>
+<p>upload document via web post.</p>
 	  
 	</div>
 

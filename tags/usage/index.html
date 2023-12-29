@@ -128,8 +128,12 @@
   <div class="row">
 	
 	
-		<p>macos mount ntfs read-only by default.<br>code from <a target="_blank" rel="noopener" href="https://mounty.app/">mounty.app</a><br>mounty is somehow not working so manual remount is needed.<br>one needs to click the remount button to mount it again under <code>/Users/jamesbrown/.mounty/Toshiba3000</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo umount /Volumes/Toshiba3000</span><br><span class="line">sudo <span class="built_in">mkdir</span> /Volumes/Toshiba3000; sudo mount -t ntfs -o rw,auto,nobrowse /dev/&lt;diskIdentifier&gt; /Volumes/Toshiba3000</span><br></pre></td></tr></table></figure>
+		<p>macos mount ntfs read-only by default.</p>
+<p>code from <a target="_blank" rel="noopener" href="https://mounty.app/">mounty.app</a></p>
+<p>mounty is somehow not working so manual remount is needed.</p>
+<p>one needs to click the remount button to mount it again under <code>/Users/jamesbrown/.mounty/Toshiba3000</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo umount /Volumes/Toshiba3000</span><br><span class="line">sudo <span class="built_in">mkdir</span> /Volumes/Toshiba3000; sudo mount -t ntfs -o rw,auto,nobrowse /dev/&lt;diskIdentifier&gt; /Volumes/Toshiba3000</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 	
 	</div>
   <a type="button" href="/blog/2022/08/08/5902663e-ca51-4206-8344-b9b6e7aa8d6b/#more" class="btn btn-default more">Read More</a>

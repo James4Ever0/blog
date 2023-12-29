@@ -128,13 +128,35 @@
   <div class="row">
 	
 	
-		<h2 id="im2latex-tensorflow-sucks-looking-for-alternatives"><a href="#im2latex-tensorflow-sucks-looking-for-alternatives" class="headerlink" title="im2latex-tensorflow sucks, looking for alternatives"></a>im2latex-tensorflow sucks, looking for alternatives</h2><p><strong>training on gpu is intensive and will occasionally burn hardware if not careful, doing this on kaggle or modify the software to stop training when gpu goes hot, but we are using trainer here</strong><br><a target="_blank" rel="noopener" href="http://nlp.seas.harvard.edu/code/">harvard nlp showcase</a><br>for those doesn’t provide pretrained models:<br><a target="_blank" rel="noopener" href="https://github.com/guillaumegenthial/im2latex">im2latex</a> in tensorflow, with makefile support, run on tensorflow v1 and python3<br><a target="_blank" rel="noopener" href="https://github.com/luopeixiang/im2latex">im2latex</a> in pytorch, more recent. the dataset has relocated to <a target="_blank" rel="noopener" href="https://zenodo.org/record/56198#.YwtB9PcRU5t">here</a> according to <a target="_blank" rel="noopener" href="https://im2markup.yuntiandeng.com/">official website</a></p>
-<h2 id="install-or-run-python2-7-to-run-im2latex-tensorflow"><a href="#install-or-run-python2-7-to-run-im2latex-tensorflow" class="headerlink" title="install or run python2.7 to run im2latex-tensorflow"></a>install or run python2.7 to run <a target="_blank" rel="noopener" href="https://github.com/ArminKaramzade/im2latex">im2latex-tensorflow</a></h2><p>you may need to adapt our modified code to load the weights and test the result against our image.<br>it is reported the performance is poor. maybe it does not worth trying.<br>download tensorflow 0.12.0 for macos <a target="_blank" rel="noopener" href="https://pypi.org/project/tensorflow/0.12.0/#files">here</a><br>visit <a target="_blank" rel="noopener" href="https://docs.conda.io/en/latest/miniconda.html">here</a> to get all miniconda installers<br>to install on macos, download the installer <a target="_blank" rel="noopener" href="https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.pkg">here</a><br>some tutorial <a target="_blank" rel="noopener" href="https://blog.balasundar.com/install-older-versions-of-python-using-miniconda-on-mac-m1">here</a> about libmagic as bonus tips</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CONDA_SUBDIR=osx-64 conda create -n py27 python=2.7  <span class="comment"># include other packages here</span></span><br><span class="line"><span class="comment"># ensure that future package installs in this env stick to &#x27;osx-64&#x27;</span></span><br><span class="line">conda activate py27</span><br><span class="line">conda config --<span class="built_in">env</span> --<span class="built_in">set</span> subdir osx-64</span><br></pre></td></tr></table></figure>
+		<h2 id="im2latex-tensorflow-sucks-looking-for-alternatives"><a href="#im2latex-tensorflow-sucks-looking-for-alternatives" class="headerlink" title="im2latex-tensorflow sucks, looking for alternatives"></a>im2latex-tensorflow sucks, looking for alternatives</h2><p><strong>training on gpu is intensive and will occasionally burn hardware if not careful, doing this on kaggle or modify the software to stop training when gpu goes hot, but we are using trainer here</strong></p>
+<p><a target="_blank" rel="noopener" href="http://nlp.seas.harvard.edu/code/">harvard nlp showcase</a></p>
+<p>for those doesn’t provide pretrained models:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/guillaumegenthial/im2latex">im2latex</a> in tensorflow, with makefile support, run on tensorflow v1 and python3</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/luopeixiang/im2latex">im2latex</a> in pytorch, more recent. the dataset has relocated to <a target="_blank" rel="noopener" href="https://zenodo.org/record/56198#.YwtB9PcRU5t">here</a> according to <a target="_blank" rel="noopener" href="https://im2markup.yuntiandeng.com/">official website</a></p>
+<h2 id="install-or-run-python2-7-to-run-im2latex-tensorflow"><a href="#install-or-run-python2-7-to-run-im2latex-tensorflow" class="headerlink" title="install or run python2.7 to run im2latex-tensorflow"></a>install or run python2.7 to run <a target="_blank" rel="noopener" href="https://github.com/ArminKaramzade/im2latex">im2latex-tensorflow</a></h2><p>you may need to adapt our modified code to load the weights and test the result against our image.</p>
+<p>it is reported the performance is poor. maybe it does not worth trying.</p>
+<p>download tensorflow 0.12.0 for macos <a target="_blank" rel="noopener" href="https://pypi.org/project/tensorflow/0.12.0/#files">here</a></p>
+<p>visit <a target="_blank" rel="noopener" href="https://docs.conda.io/en/latest/miniconda.html">here</a> to get all miniconda installers</p>
+<p>to install on macos, download the installer <a target="_blank" rel="noopener" href="https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.pkg">here</a></p>
+<p>some tutorial <a target="_blank" rel="noopener" href="https://blog.balasundar.com/install-older-versions-of-python-using-miniconda-on-mac-m1">here</a> about libmagic as bonus tips</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CONDA_SUBDIR=osx-64 conda create -n py27 python=2.7  <span class="comment"># include other packages here</span></span><br><span class="line"><span class="comment"># ensure that future package installs in this env stick to &#x27;osx-64&#x27;</span></span><br><span class="line">conda activate py27</span><br><span class="line">conda config --<span class="built_in">env</span> --<span class="built_in">set</span> subdir osx-64</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>after that, do this to get pip on python2.7 (rosetta2)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py</span><br><span class="line">python get-pip.py</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py</span><br><span class="line">python get-pip.py</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>install tensorflow version below 1, and doing this can be far more easier on linux. maybe we should do this in conda virtual enviorment to prevent conflicts.</p>
-<h2 id="we-are-doing-this-for-the-original-lua-implementation-of-im2markup"><a href="#we-are-doing-this-for-the-original-lua-implementation-of-im2markup" class="headerlink" title="we are doing this for the original lua implementation of im2markup"></a>we are doing this for the original lua implementation of <a target="_blank" rel="noopener" href="https://github.com/harvardnlp/im2markup">im2markup</a></h2><p><strong>it works!</strong><br>download libcudnn5 for torch<br>remember to activate torch enviorment by exporting the path to some shell script<br>difference between cudamalloc and cudamallocasync, and that’s some copying and pasting about some generalized template of memory manager function<br>qt4 uses CRLF so convert all text files using dos2unix<br>need to hack qt4 files to build qt4<br>hack luarocks to allow install from local spec file and download repo from github via https<br>hack some lua torch file to be compatible with cuda11<br>about c++ tweaks:<br>add ‘+’ to force type inference<br>force type conversion by using brackets<br>some macro to disable some blocks of code</p>
+<h2 id="we-are-doing-this-for-the-original-lua-implementation-of-im2markup"><a href="#we-are-doing-this-for-the-original-lua-implementation-of-im2markup" class="headerlink" title="we are doing this for the original lua implementation of im2markup"></a>we are doing this for the original lua implementation of <a target="_blank" rel="noopener" href="https://github.com/harvardnlp/im2markup">im2markup</a></h2><p><strong>it works!</strong></p>
+<p>download libcudnn5 for torch</p>
+<p>remember to activate torch enviorment by exporting the path to some shell script</p>
+<p>difference between cudamalloc and cudamallocasync, and that’s some copying and pasting about some generalized template of memory manager function</p>
+<p>qt4 uses CRLF so convert all text files using dos2unix</p>
+<p>need to hack qt4 files to build qt4</p>
+<p>hack luarocks to allow install from local spec file and download repo from github via https</p>
+<p>hack some lua torch file to be compatible with cuda11</p>
+<p>about c++ tweaks:</p>
+<p>add ‘+’ to force type inference</p>
+<p>force type conversion by using brackets</p>
+<p>some macro to disable some blocks of code</p>
 
 	
 	</div>
@@ -158,7 +180,16 @@
   <div class="row">
 	
 	
-		<h1 id="Hugo-the-blog-generator"><a href="#Hugo-the-blog-generator" class="headerlink" title="Hugo the blog generator"></a>Hugo the blog generator</h1><p>install hugo:<br><a target="_blank" rel="noopener" href="https://gohugo.io/getting-started/installing/">https://gohugo.io/getting-started/installing/</a><br>install hugo from snap:<br>snap install hugo –channel&#x3D;extended<br>install on debian&#x2F;ubuntu:<br>apt-get install hugo<br>hugo themes:<br><a target="_blank" rel="noopener" href="https://themes.gohugo.io/">https://themes.gohugo.io</a><br>how to create hugo blog:<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/cumi7754/article/details/108101980">https://blog.csdn.net/cumi7754/article/details/108101980</a></p>
+		<h1 id="Hugo-the-blog-generator"><a href="#Hugo-the-blog-generator" class="headerlink" title="Hugo the blog generator"></a>Hugo the blog generator</h1><p>install hugo:</p>
+<p><a target="_blank" rel="noopener" href="https://gohugo.io/getting-started/installing/">https://gohugo.io/getting-started/installing/</a></p>
+<p>install hugo from snap:</p>
+<p>snap install hugo –channel&#x3D;extended</p>
+<p>install on debian&#x2F;ubuntu:</p>
+<p>apt-get install hugo</p>
+<p>hugo themes:</p>
+<p><a target="_blank" rel="noopener" href="https://themes.gohugo.io/">https://themes.gohugo.io</a></p>
+<p>how to create hugo blog:</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/cumi7754/article/details/108101980">https://blog.csdn.net/cumi7754/article/details/108101980</a></p>
 
 	
 	</div>

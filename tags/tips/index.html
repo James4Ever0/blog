@@ -128,8 +128,12 @@
   <div class="row">
 	
 	
-		<p>macos mount ntfs read-only by default.<br>code from <a target="_blank" rel="noopener" href="https://mounty.app/">mounty.app</a><br>mounty is somehow not working so manual remount is needed.<br>one needs to click the remount button to mount it again under <code>/Users/jamesbrown/.mounty/Toshiba3000</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo umount /Volumes/Toshiba3000</span><br><span class="line">sudo <span class="built_in">mkdir</span> /Volumes/Toshiba3000; sudo mount -t ntfs -o rw,auto,nobrowse /dev/&lt;diskIdentifier&gt; /Volumes/Toshiba3000</span><br></pre></td></tr></table></figure>
+		<p>macos mount ntfs read-only by default.</p>
+<p>code from <a target="_blank" rel="noopener" href="https://mounty.app/">mounty.app</a></p>
+<p>mounty is somehow not working so manual remount is needed.</p>
+<p>one needs to click the remount button to mount it again under <code>/Users/jamesbrown/.mounty/Toshiba3000</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo umount /Volumes/Toshiba3000</span><br><span class="line">sudo <span class="built_in">mkdir</span> /Volumes/Toshiba3000; sudo mount -t ntfs -o rw,auto,nobrowse /dev/&lt;diskIdentifier&gt; /Volumes/Toshiba3000</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 	
 	</div>
   <a type="button" href="/blog/2022/08/08/5902663e-ca51-4206-8344-b9b6e7aa8d6b/#more" class="btn btn-default more">Read More</a>
@@ -153,11 +157,14 @@
 	
 	
 		<h2 id="the-fix"><a href="#the-fix" class="headerlink" title="the fix"></a>the fix</h2><p>to enable the service:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>to update locate db:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/libexec/locate.updatedb</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/libexec/locate.updatedb</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>or, more conveniently:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">ln</span> -s /usr/libexec/locate.updatedb /usr/local/sbin/updatedb</span><br><span class="line">sudo updatedb</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">ln</span> -s /usr/libexec/locate.updatedb /usr/local/sbin/updatedb</span><br><span class="line">sudo updatedb</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <h2 id="alternative"><a href="#alternative" class="headerlink" title="alternative"></a>alternative</h2><p>use <code>mdfind</code></p>
 
 	
@@ -182,7 +189,8 @@
   <div class="row">
 	
 	
-		<p>use cmd-click to operate the inactive window without activating it.<br>linux&#x2F;windows not having this feature. might need custom hot key for this.</p>
+		<p>use cmd-click to operate the inactive window without activating it.</p>
+<p>linux&#x2F;windows not having this feature. might need custom hot key for this.</p>
 
 	
 	</div>
@@ -206,7 +214,11 @@
   <div class="row">
 	
 	
-		<p>[documentation[(<a target="_blank" rel="noopener" href="http://vimdoc.sourceforge.net/htmldoc/syntax.html#:highlight">http://vimdoc.sourceforge.net/htmldoc/syntax.html#:highlight</a>)<br><a target="_blank" rel="noopener" href="https://www.ditig.com/256-colors-cheat-sheet">vim terminal color codes</a><br>keyword for vertical spliters:<br>VertSplit<br>keyword for bottom line:</p>
+		<p>[documentation[(<a target="_blank" rel="noopener" href="http://vimdoc.sourceforge.net/htmldoc/syntax.html#:highlight">http://vimdoc.sourceforge.net/htmldoc/syntax.html#:highlight</a>)</p>
+<p><a target="_blank" rel="noopener" href="https://www.ditig.com/256-colors-cheat-sheet">vim terminal color codes</a></p>
+<p>keyword for vertical spliters:</p>
+<p>VertSplit</p>
+<p>keyword for bottom line:</p>
 
 	
 	</div>
@@ -278,7 +290,9 @@
   <div class="row">
 	
 	
-		<p>cookie not found on request event handler.<br>cookie can be obtained via context.cookies()<br>router</p>
+		<p>cookie not found on request event handler.</p>
+<p>cookie can be obtained via context.cookies()</p>
+<p>router</p>
 
 	
 	</div>
@@ -302,7 +316,12 @@
   <div class="row">
 	
 	
-		<p>剪的时候不要超过4分钟 可以用spleeter切出语音 加入自己的背景音乐<br>这个属于anti nsfw anti censorship 反内容审查 反视频审查 对抗机制 可以在github上面搜索<br>二创某种意义也是反审查<br>审查的 nsfw 微信小程序 可以解包 然后调用别人的接口 可能不稳定<br><a target="_blank" rel="noopener" href="https://github.com/superdashu/frida_with_wechat_applet">https://github.com/superdashu/frida_with_wechat_applet</a><br><a target="_blank" rel="noopener" href="https://github.com/superdashu/pc_wxapkg_decrypt_python">https://github.com/superdashu/pc_wxapkg_decrypt_python</a></p>
+		<p>剪的时候不要超过4分钟 可以用spleeter切出语音 加入自己的背景音乐</p>
+<p>这个属于anti nsfw anti censorship 反内容审查 反视频审查 对抗机制 可以在github上面搜索</p>
+<p>二创某种意义也是反审查</p>
+<p>审查的 nsfw 微信小程序 可以解包 然后调用别人的接口 可能不稳定</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/superdashu/frida_with_wechat_applet">https://github.com/superdashu/frida_with_wechat_applet</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/superdashu/pc_wxapkg_decrypt_python">https://github.com/superdashu/pc_wxapkg_decrypt_python</a></p>
 
 	
 	</div>
@@ -326,7 +345,9 @@
   <div class="row">
 	
 	
-		<p>medialang<br>vsce token:<br>xt2s4ohfn57ri5vfcxvwmb7yzddfnqmd2a37tfaidwhy3uaqwzlq</p>
+		<p>medialang</p>
+<p>vsce token:</p>
+<p>xt2s4ohfn57ri5vfcxvwmb7yzddfnqmd2a37tfaidwhy3uaqwzlq</p>
 
 	
 	</div>

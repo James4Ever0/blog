@@ -128,7 +128,57 @@
   <div class="row">
 	
 	
-		<h2 id="达摩院放出了文本生成视频模型，支持英文输入huggingface-spacemodel-weights-weight-path-weight-size-model-name-author-–-–-–-–-text-to-video-ms-1-7b-unknown-unknown-damo-vilab-modelscope-damo-text-to-video-synthesis-unknown-unknown-damo-vilab-text-to-video-ms-1-7b-legacy-unknown-unknown-damo-vilab-can-also-use-from-modelscope"><a href="#达摩院放出了文本生成视频模型，支持英文输入huggingface-spacemodel-weights-weight-path-weight-size-model-name-author-–-–-–-–-text-to-video-ms-1-7b-unknown-unknown-damo-vilab-modelscope-damo-text-to-video-synthesis-unknown-unknown-damo-vilab-text-to-video-ms-1-7b-legacy-unknown-unknown-damo-vilab-can-also-use-from-modelscope" class="headerlink" title="达摩院放出了文本生成视频模型，支持英文输入huggingface spacemodel weights:| weight path | weight size | model name | author || – | – | – | – || text-to-video-ms-1.7b | unknown | unknown | damo-vilab || modelscope-damo-text-to-video-synthesis | unknown | unknown | damo-vilab || text-to-video-ms-1.7b-legacy | unknown | unknown | damo-vilab |can also use from modelscope:"></a>达摩院放出了<a target="_blank" rel="noopener" href="https://modelscope.cn/models/damo/text-to-video-synthesis/summary">文本生成视频模型</a>，支持英文输入<br><a target="_blank" rel="noopener" href="https://huggingface.co/damo-vilab/modelscope-damo-text-to-video-synthesis">huggingface space</a><br>model weights:<br>| weight path | weight size | model name | author |<br>| – | – | – | – |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/damo-vilab/text-to-video-ms-1.7b">text-to-video-ms-1.7b</a> | unknown | unknown | damo-vilab |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/damo-vilab/modelscope-damo-text-to-video-synthesis">modelscope-damo-text-to-video-synthesis</a> | unknown | unknown | damo-vilab |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/damo-vilab/text-to-video-ms-1.7b-legacy">text-to-video-ms-1.7b-legacy</a> | unknown | unknown | damo-vilab |<br>can also use from modelscope:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> modelscope.pipelines <span class="keyword">import</span> pipeline</span><br><span class="line"><span class="keyword">from</span> modelscope.utils.constant <span class="keyword">import</span> Tasks</span><br><span class="line">p = pipeline(<span class="string">&#x27;text-to-video-synthesis&#x27;</span>, <span class="string">&#x27;damo/text-to-video-synthesis&#x27;</span>)</span><br></pre></td></tr></table></figure></h2><h2 id="PAIR-now-releases-Text2Video-Zero-which-leverages-existing-stable-diffusion-models-to-generate-video-also-released-a-bunch-of-controlnet-dreambooth-weights"><a href="#PAIR-now-releases-Text2Video-Zero-which-leverages-existing-stable-diffusion-models-to-generate-video-also-released-a-bunch-of-controlnet-dreambooth-weights" class="headerlink" title="PAIR now releases Text2Video-Zero which leverages existing stable diffusion models to generate video. also released a bunch of controlnet dreambooth weights."></a><a target="_blank" rel="noopener" href="https://huggingface.co/spaces/PAIR">PAIR</a> now releases <a target="_blank" rel="noopener" href="https://huggingface.co/spaces/PAIR/Text2Video-Zero">Text2Video-Zero</a> which leverages existing stable diffusion models to generate video. also released a bunch of controlnet dreambooth weights.</h2><h2 id="lucidrains-is-a-workaholic-on-transformer-implementations-we-should-scrape-all-the-repos-and-index-them-there-are-faster-language-models-to-train"><a href="#lucidrains-is-a-workaholic-on-transformer-implementations-we-should-scrape-all-the-repos-and-index-them-there-are-faster-language-models-to-train" class="headerlink" title="lucidrains is a workaholic on transformer implementations. we should scrape all the repos and index them. there are faster language models to train."></a><a target="_blank" rel="noopener" href="https://github.com/lucidrains">lucidrains</a> is a workaholic on transformer implementations. we should scrape all the repos and index them. there are <a target="_blank" rel="noopener" href="https://github.com/lucidrains/memory-efficient-attention-pytorch">faster language models</a> to train.</h2><p><a target="_blank" rel="noopener" href="https://github.com/lucidrains/phenaki-pytorch">Phenaki Video</a>, which uses Mask GIT to produce text guided videos of up to 2 minutes in length, in Pytorch<br><a target="_blank" rel="noopener" href="https://dreamix-video-editing.github.io/">dreamix</a> (not open-source)<br><a target="_blank" rel="noopener" href="https://github.com/timothybrooks/instruct-pix2pix">instruct-pix2pix</a> requires 16GB+ VRAM<br><a target="_blank" rel="noopener" href="https://github.com/omerbt/Text2LIVE">text2live</a> modify video by text prompt (such as add fire in mouth)<br><a target="_blank" rel="noopener" href="https://github.com/lucidrains/recurrent-interface-network-pytorch">recurrent-interface-network-pytorch</a> using diffusion to generate images and video<br>high quality! <a target="_blank" rel="noopener" href="https://github.com/lucidrains/imagen-pytorch/blob/main/imagen_pytorch/imagen_video.py">imagegen-video code</a> with <a target="_blank" rel="noopener" href="https://imagen.research.google/video/">demo</a> and <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2210.02303.pdf">paper</a><br>抄视频 视频的时间要讲究 看看是抄一年前的好还是抄刚刚发布的好<br>在发布的一个视频当中 最多抄某个作者的两三个符合要求的片段<br>use editly smooth&#x2F;slick transitions and subtitles to beat the copy-detection algorithm, also consider color change in ffmpeg<br>动态 专栏也可以抄<br><a target="_blank" rel="noopener" href="https://github.com/lucidrains/make-a-video-pytorch">make-a-video</a><br>谷歌AI歌手震撼来袭！AudioLM简单听几秒，便能谱曲写歌 <a target="_blank" rel="noopener" href="https://www.kuxai.com/article/398">https://www.kuxai.com/article/398</a></p>
+		<p>达摩院放出了<a target="_blank" rel="noopener" href="https://modelscope.cn/models/damo/text-to-video-synthesis/summary">文本生成视频模型</a>，支持英文输入</p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/damo-vilab/modelscope-damo-text-to-video-synthesis">huggingface space</a></p>
+<p>model weights:</p>
+<table>
+<thead>
+<tr>
+<th>weight path</th>
+<th>weight size</th>
+<th>model name</th>
+<th>author</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://huggingface.co/damo-vilab/text-to-video-ms-1.7b">text-to-video-ms-1.7b</a></td>
+<td>unknown</td>
+<td>unknown</td>
+<td>damo-vilab</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://huggingface.co/damo-vilab/modelscope-damo-text-to-video-synthesis">modelscope-damo-text-to-video-synthesis</a></td>
+<td>unknown</td>
+<td>unknown</td>
+<td>damo-vilab</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://huggingface.co/damo-vilab/text-to-video-ms-1.7b-legacy">text-to-video-ms-1.7b-legacy</a></td>
+<td>unknown</td>
+<td>unknown</td>
+<td>damo-vilab</td>
+</tr>
+</tbody></table>
+<p>can also use from modelscope:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> modelscope.pipelines <span class="keyword">import</span> pipeline</span><br><span class="line"><span class="keyword">from</span> modelscope.utils.constant <span class="keyword">import</span> Tasks</span><br><span class="line">p = pipeline(<span class="string">&#x27;text-to-video-synthesis&#x27;</span>, <span class="string">&#x27;damo/text-to-video-synthesis&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/spaces/PAIR">PAIR</a> now releases <a target="_blank" rel="noopener" href="https://huggingface.co/spaces/PAIR/Text2Video-Zero">Text2Video-Zero</a> which leverages existing stable diffusion models to generate video. also released a bunch of controlnet dreambooth weights.</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://github.com/lucidrains">lucidrains</a> is a workaholic on transformer implementations. we should scrape all the repos and index them. there are <a target="_blank" rel="noopener" href="https://github.com/lucidrains/memory-efficient-attention-pytorch">faster language models</a> to train.</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://github.com/lucidrains/phenaki-pytorch">Phenaki Video</a>, which uses Mask GIT to produce text guided videos of up to 2 minutes in length, in Pytorch</p>
+<p><a target="_blank" rel="noopener" href="https://dreamix-video-editing.github.io/">dreamix</a> (not open-source)</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/timothybrooks/instruct-pix2pix">instruct-pix2pix</a> requires 16GB+ VRAM</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/omerbt/Text2LIVE">text2live</a> modify video by text prompt (such as add fire in mouth)</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lucidrains/recurrent-interface-network-pytorch">recurrent-interface-network-pytorch</a> using diffusion to generate images and video</p>
+<p>high quality! <a target="_blank" rel="noopener" href="https://github.com/lucidrains/imagen-pytorch/blob/main/imagen_pytorch/imagen_video.py">imagegen-video code</a> with <a target="_blank" rel="noopener" href="https://imagen.research.google/video/">demo</a> and <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2210.02303.pdf">paper</a></p>
+<p>抄视频 视频的时间要讲究 看看是抄一年前的好还是抄刚刚发布的好</p>
+<p>在发布的一个视频当中 最多抄某个作者的两三个符合要求的片段</p>
+<p>use editly smooth&#x2F;slick transitions and subtitles to beat the copy-detection algorithm, also consider color change in ffmpeg</p>
+<p>动态 专栏也可以抄</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lucidrains/make-a-video-pytorch">make-a-video</a></p>
+<p>谷歌AI歌手震撼来袭！AudioLM简单听几秒，便能谱曲写歌 <a target="_blank" rel="noopener" href="https://www.kuxai.com/article/398">https://www.kuxai.com/article/398</a></p>
 
 	
 	</div>

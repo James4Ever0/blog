@@ -128,7 +128,44 @@
   <div class="row">
 	
 	
-		<p>does appium have linux accessibility implementation?<br>windows a11y:<br><a target="_blank" rel="noopener" href="https://github.com/blackrosezy/gui-inspect-tool">https://github.com/blackrosezy/gui-inspect-tool</a><br>pywinauto<br>bookmark_history_search sucks. it does not include webpage summaries, only title, which makes searching the history very hard. the solution is to use readbility.js to visit and summarize these pages, and update these documents in meilisearch.<br>a11y is the general term for accessibility, for web browsers like firefox. however, there’s implementation for gnome internally.<br>linux a11y:<br><a target="_blank" rel="noopener" href="https://github.com/shubhamvasaikar/Auto-GUI-Testing">https://github.com/shubhamvasaikar/Auto-GUI-Testing</a><br>gnome accessibility toolkit(atk)<br><a target="_blank" rel="noopener" href="https://gitlab.gnome.org/GNOME/pyatspi2">https://gitlab.gnome.org/GNOME/pyatspi2</a><br><a target="_blank" rel="noopener" href="https://gitlab.com/dogtail/dogtail">https://gitlab.com/dogtail/dogtail</a><br><a target="_blank" rel="noopener" href="https://www.freedesktop.org/wiki/Accessibility/PyAtSpi2Example/">https://www.freedesktop.org/wiki/Accessibility/PyAtSpi2Example/</a><br>accessibility implementation in different toolkits:<br><a target="_blank" rel="noopener" href="https://github.com/GNOME/at-spi2-core/blob/e83d5558d2fbded5b345b0af254f26865e148e49/devel-docs/toolkits.md">https://github.com/GNOME/at-spi2-core/blob/e83d5558d2fbded5b345b0af254f26865e148e49/devel-docs/toolkits.md</a><br>Toolkits that use the DBus APIs directly<br>GTK4<br>Sources: gtk4&#x2F;gtk&#x2F;a11y<br>Qt5<br>Sources: qtbase&#x2F;src&#x2F;gui&#x2F;accessible&#x2F;linux<br>WebKit<br>Sources: WebKit&#x2F;Source&#x2F;WebCore&#x2F;accessibility&#x2F;atspi<br>Toolkits that use ATK<br>GTK3<br>Sources: gtk3&#x2F;gtk&#x2F;a11y<br>gnome-shell &#x2F; St &#x2F; via clutter’s cally<br>Sources: mutter&#x2F;clutter&#x2F;clutter&#x2F;cally<br>Mozilla Firefox<br>Sources: gecko-dev&#x2F;accessible&#x2F;atk<br>Chromium<br>Uses both ATK and libatspi?<br>Sources:<br>chromium&#x2F;ui&#x2F;accessibility&#x2F;platform&#x2F;<em>auralinux</em> (atk)<br>chromium&#x2F;ui&#x2F;accessibility&#x2F;platform&#x2F;inspect&#x2F;<em>auralinux</em> (atspi)<br>chromium&#x2F;content&#x2F;browser&#x2F;accessibility&#x2F;<em>auralinux</em> (atspi and atk)<br>LibreOffice<br>Sources: LibreOffice&#x2F;core&#x2F;vcl&#x2F;unx&#x2F;gtk3&#x2F;a11y<br>Java Swing - via java-atk-wrapper<br>Sources: java-atk-wrapper</p>
+		<p>does appium have linux accessibility implementation?</p>
+<p>windows a11y:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/blackrosezy/gui-inspect-tool">https://github.com/blackrosezy/gui-inspect-tool</a></p>
+<p>pywinauto</p>
+<p>bookmark_history_search sucks. it does not include webpage summaries, only title, which makes searching the history very hard. the solution is to use readbility.js to visit and summarize these pages, and update these documents in meilisearch.</p>
+<p>a11y is the general term for accessibility, for web browsers like firefox. however, there’s implementation for gnome internally.</p>
+<p>linux a11y:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/shubhamvasaikar/Auto-GUI-Testing">https://github.com/shubhamvasaikar/Auto-GUI-Testing</a></p>
+<p>gnome accessibility toolkit(atk)</p>
+<p><a target="_blank" rel="noopener" href="https://gitlab.gnome.org/GNOME/pyatspi2">https://gitlab.gnome.org/GNOME/pyatspi2</a></p>
+<p><a target="_blank" rel="noopener" href="https://gitlab.com/dogtail/dogtail">https://gitlab.com/dogtail/dogtail</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.freedesktop.org/wiki/Accessibility/PyAtSpi2Example/">https://www.freedesktop.org/wiki/Accessibility/PyAtSpi2Example/</a></p>
+<p>accessibility implementation in different toolkits:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/GNOME/at-spi2-core/blob/e83d5558d2fbded5b345b0af254f26865e148e49/devel-docs/toolkits.md">https://github.com/GNOME/at-spi2-core/blob/e83d5558d2fbded5b345b0af254f26865e148e49/devel-docs/toolkits.md</a></p>
+<p>Toolkits that use the DBus APIs directly</p>
+<p>GTK4</p>
+<p>Sources: gtk4&#x2F;gtk&#x2F;a11y</p>
+<p>Qt5</p>
+<p>Sources: qtbase&#x2F;src&#x2F;gui&#x2F;accessible&#x2F;linux</p>
+<p>WebKit</p>
+<p>Sources: WebKit&#x2F;Source&#x2F;WebCore&#x2F;accessibility&#x2F;atspi</p>
+<p>Toolkits that use ATK</p>
+<p>GTK3</p>
+<p>Sources: gtk3&#x2F;gtk&#x2F;a11y</p>
+<p>gnome-shell &#x2F; St &#x2F; via clutter’s cally</p>
+<p>Sources: mutter&#x2F;clutter&#x2F;clutter&#x2F;cally</p>
+<p>Mozilla Firefox</p>
+<p>Sources: gecko-dev&#x2F;accessible&#x2F;atk</p>
+<p>Chromium</p>
+<p>Uses both ATK and libatspi?</p>
+<p>Sources:</p>
+<p>chromium&#x2F;ui&#x2F;accessibility&#x2F;platform&#x2F;<em>auralinux</em> (atk)</p>
+<p>chromium&#x2F;ui&#x2F;accessibility&#x2F;platform&#x2F;inspect&#x2F;<em>auralinux</em> (atspi)</p>
+<p>chromium&#x2F;content&#x2F;browser&#x2F;accessibility&#x2F;<em>auralinux</em> (atspi and atk)</p>
+<p>LibreOffice</p>
+<p>Sources: LibreOffice&#x2F;core&#x2F;vcl&#x2F;unx&#x2F;gtk3&#x2F;a11y</p>
+<p>Java Swing - via java-atk-wrapper</p>
+<p>Sources: java-atk-wrapper</p>
 
 	
 	</div>

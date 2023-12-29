@@ -129,14 +129,43 @@
 	
 	
 		<p><a target="_blank" rel="noopener" href="https://speechbrain.github.io/">speechbrain</a> has features of Speech Recognition, Speaker Recognition, Speech Enhancement, Speech Processing, Multi Microphone Processing, Text-to-Speech, and also supports Spoken Language Understanding, Language Modeling, Diarization, Speech Translation, Language Identification, Voice Activity Detection, Sound classification, Grapheme-to-Phoneme, and many others.</p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>视频里面的语言分为图片上面打出来的字幕以及人说的话<br>涉及到的问题分别为： 图片文字的语言分类 以及音频语言分类</p>
-<h2 id="音频识别"><a href="#音频识别" class="headerlink" title="音频识别"></a>音频识别</h2><p>online speech recognition<br>pip install SpeechRecognition<br>offline, need to provide language id:<br><a target="_blank" rel="noopener" href="https://pypi.org/project/automatic-speech-recognition/">https://pypi.org/project/automatic-speech-recognition/</a><br>use paddlespeech if possible, for chinese and english</p>
-<h2 id="图片语言识别"><a href="#图片语言识别" class="headerlink" title="图片语言识别"></a>图片语言识别</h2><p>use google cloud to detect language type in image:<br><a target="_blank" rel="noopener" href="https://github.com/deduced/ml-ocr-lang-detection">https://github.com/deduced/ml-ocr-lang-detection</a><br>Detects and Recognizes text and font language in an image<br><a target="_blank" rel="noopener" href="https://github.com/JAIJANYANI/Language-Detection-in-Image">https://github.com/JAIJANYANI/Language-Detection-in-Image</a><br>图片语言文字分类 可以用easyocr实现 加载多个模型 比如 中文加英文加日语 b站其他语言的可能也不怎么受欢迎 最多再加韩语<br>可以从视频简介 标题 链接里面提取出句子 每个句子进行语言分类 确定要使用的OCR模型 也有可能出现描述语言和视频图片文字语言不一致的情况<br>wolfram language提供了一个图片分类器 分类出来的结果可能很有意思 可以结合苹果的图片关注区域生成器来结合使用<br>ImageIdentify[pictureObj]<br>这个方法还支持subcategory分类 支持多输出 具体看文档<br><a target="_blank" rel="noopener" href="https://www.imageidentify.com/about/how-it-works">https://www.imageidentify.com/about/how-it-works</a><br>wolfram支持cloud deploy 到wolfram cloud不过那样可能不行</p>
-<h2 id="文本语言识别分类"><a href="#文本语言识别分类" class="headerlink" title="文本语言识别分类"></a>文本语言识别分类</h2><p><a target="_blank" rel="noopener" href="https://github.com/pemistahl/lingua">lingua</a> performs good in short text, can be used in java or kotlin<br>supporting detecting different languages:<br><a target="_blank" rel="noopener" href="https://github.com/ropensci/cld2">cld2</a> containing useful vectors containing text spans <a target="_blank" rel="noopener" href="https://pypi.org/project/pycld2/">python binding</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pycld2 <span class="keyword">as</span> cld2</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>text_content = <span class="string">&quot;&quot;&quot; A accès aux chiens et aux frontaux qui lui ont été il peut consulter et modifier ses collections et exporter Cet article concerne le pays européen aujourd’hui appelé République française.</span></span><br><span class="line"><span class="string">Pour d’autres usages du nom France, Pour une aide rapide et effective, veuiller trouver votre aide dans le menu ci-dessus.</span></span><br><span class="line"><span class="string">Welcome, to this world of Data Scientist. Today is a lovely day.&quot;&quot;&quot;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_, _, _, detected_language = cld2.detect(text_content,  returnVectors=<span class="literal">True</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(detected_language)</span><br><span class="line">((<span class="number">0</span>, <span class="number">323</span>, <span class="string">&#x27;FRENCH&#x27;</span>, <span class="string">&#x27;fr&#x27;</span>), (<span class="number">323</span>, <span class="number">64</span>, <span class="string">&#x27;ENGLISH&#x27;</span>, <span class="string">&#x27;en&#x27;</span>))</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://github.com/google/cld3">original cld3</a> is designed for chromium and it relies on chromium code to run<br><a target="_blank" rel="noopener" href="https://pypi.org/project/gcld3/">official cld3 python bindings</a><br>additional Python language related library from geeksforgeeks:<br><a target="_blank" rel="noopener" href="https://textblob.readthedocs.io/en/dev/">textblob</a> is a natural language processing toolkit</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> textblob <span class="keyword">import</span> TextBlob</span><br><span class="line">text = <span class="string">&quot;это компьютерный портал для гиков. It was a beautiful day .&quot;</span></span><br><span class="line">lang = TextBlob(text)</span><br><span class="line"><span class="built_in">print</span>(lang.detect_language())</span><br><span class="line"><span class="comment"># ru</span></span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://github.com/saffsd/langid.py">langid</a> performs good in short text<br><a target="_blank" rel="noopener" href="https://cran.r-project.org/package=textcat">textcat (r package)</a><br>google language detection library in python: langdetect<br>javascript:<br><a target="_blank" rel="noopener" href="https://github.com/wooorm/franc">https://github.com/wooorm/franc</a><br>python version of franc:<br>pyfranc<br>wlatlang.org provides whatlang-rs as rust package, also whatlang-py as python bindings</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>视频里面的语言分为图片上面打出来的字幕以及人说的话</p>
+<p>涉及到的问题分别为： 图片文字的语言分类 以及音频语言分类</p>
+<h2 id="音频识别"><a href="#音频识别" class="headerlink" title="音频识别"></a>音频识别</h2><p>online speech recognition</p>
+<p>pip install SpeechRecognition</p>
+<p>offline, need to provide language id:</p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/automatic-speech-recognition/">https://pypi.org/project/automatic-speech-recognition/</a></p>
+<p>use paddlespeech if possible, for chinese and english</p>
+<h2 id="图片语言识别"><a href="#图片语言识别" class="headerlink" title="图片语言识别"></a>图片语言识别</h2><p>use google cloud to detect language type in image:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/deduced/ml-ocr-lang-detection">https://github.com/deduced/ml-ocr-lang-detection</a></p>
+<p>Detects and Recognizes text and font language in an image</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/JAIJANYANI/Language-Detection-in-Image">https://github.com/JAIJANYANI/Language-Detection-in-Image</a></p>
+<p>图片语言文字分类 可以用easyocr实现 加载多个模型 比如 中文加英文加日语 b站其他语言的可能也不怎么受欢迎 最多再加韩语</p>
+<p>可以从视频简介 标题 链接里面提取出句子 每个句子进行语言分类 确定要使用的OCR模型 也有可能出现描述语言和视频图片文字语言不一致的情况</p>
+<p>wolfram language提供了一个图片分类器 分类出来的结果可能很有意思 可以结合苹果的图片关注区域生成器来结合使用</p>
+<p>ImageIdentify[pictureObj]</p>
+<p>这个方法还支持subcategory分类 支持多输出 具体看文档</p>
+<p><a target="_blank" rel="noopener" href="https://www.imageidentify.com/about/how-it-works">https://www.imageidentify.com/about/how-it-works</a></p>
+<p>wolfram支持cloud deploy 到wolfram cloud不过那样可能不行</p>
+<h2 id="文本语言识别分类"><a href="#文本语言识别分类" class="headerlink" title="文本语言识别分类"></a>文本语言识别分类</h2><p><a target="_blank" rel="noopener" href="https://github.com/pemistahl/lingua">lingua</a> performs good in short text, can be used in java or kotlin</p>
+<p>supporting detecting different languages:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ropensci/cld2">cld2</a> containing useful vectors containing text spans <a target="_blank" rel="noopener" href="https://pypi.org/project/pycld2/">python binding</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pycld2 <span class="keyword">as</span> cld2</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>text_content = <span class="string">&quot;&quot;&quot; A accès aux chiens et aux frontaux qui lui ont été il peut consulter et modifier ses collections et exporter Cet article concerne le pays européen aujourd’hui appelé République française.</span></span><br><span class="line"><span class="string">Pour d’autres usages du nom France, Pour une aide rapide et effective, veuiller trouver votre aide dans le menu ci-dessus.</span></span><br><span class="line"><span class="string">Welcome, to this world of Data Scientist. Today is a lovely day.&quot;&quot;&quot;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_, _, _, detected_language = cld2.detect(text_content,  returnVectors=<span class="literal">True</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(detected_language)</span><br><span class="line">((<span class="number">0</span>, <span class="number">323</span>, <span class="string">&#x27;FRENCH&#x27;</span>, <span class="string">&#x27;fr&#x27;</span>), (<span class="number">323</span>, <span class="number">64</span>, <span class="string">&#x27;ENGLISH&#x27;</span>, <span class="string">&#x27;en&#x27;</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/google/cld3">original cld3</a> is designed for chromium and it relies on chromium code to run</p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/gcld3/">official cld3 python bindings</a></p>
+<p>additional Python language related library from geeksforgeeks:</p>
+<p><a target="_blank" rel="noopener" href="https://textblob.readthedocs.io/en/dev/">textblob</a> is a natural language processing toolkit</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> textblob <span class="keyword">import</span> TextBlob</span><br><span class="line">text = <span class="string">&quot;это компьютерный портал для гиков. It was a beautiful day .&quot;</span></span><br><span class="line">lang = TextBlob(text)</span><br><span class="line"><span class="built_in">print</span>(lang.detect_language())</span><br><span class="line"><span class="comment"># ru</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/saffsd/langid.py">langid</a> performs good in short text</p>
+<p><a target="_blank" rel="noopener" href="https://cran.r-project.org/package=textcat">textcat (r package)</a></p>
+<p>google language detection library in python: langdetect</p>
+<p>javascript:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/wooorm/franc">https://github.com/wooorm/franc</a></p>
+<p>python version of franc:</p>
+<p>pyfranc</p>
+<p>wlatlang.org provides whatlang-rs as rust package, also whatlang-py as python bindings</p>
 
 	
 	</div>
@@ -160,7 +189,16 @@
   <div class="row">
 	
 	
-		<p>Consider recording the media before real-time processing.<br>Scan the object via taobao streaming and make it dance.<br>Transplant lolita pictures to bilibili.<br>Share dialogs&#x2F;info from soul&#x2F;qq&#x2F;wechat.<br>Repurpose a wide range of streaming platforms.<br>use ocr to filter out text info<br>find new title from danmaku or comments<br>我们都知道，视频主要由画面和音频组成。但还有一个元素同样包含了巨大的信息量 —— 字幕。结合现有的自然语言处理模型，我们便能实现对话抽取式的自动剪辑。PS: 软件图标是我妹妹Hannah设计滴~<br>项目开源地址：<a target="_blank" rel="noopener" href="https://github.com/COLOR-SKY/DialogueExtractor">https://github.com/COLOR-SKY/DialogueExtractor</a><br>学业之余我会陆续更新工具教程。</p>
+		<p>Consider recording the media before real-time processing.</p>
+<p>Scan the object via taobao streaming and make it dance.</p>
+<p>Transplant lolita pictures to bilibili.</p>
+<p>Share dialogs&#x2F;info from soul&#x2F;qq&#x2F;wechat.</p>
+<p>Repurpose a wide range of streaming platforms.</p>
+<p>use ocr to filter out text info</p>
+<p>find new title from danmaku or comments</p>
+<p>我们都知道，视频主要由画面和音频组成。但还有一个元素同样包含了巨大的信息量 —— 字幕。结合现有的自然语言处理模型，我们便能实现对话抽取式的自动剪辑。PS: 软件图标是我妹妹Hannah设计滴~</p>
+<p>项目开源地址：<a target="_blank" rel="noopener" href="https://github.com/COLOR-SKY/DialogueExtractor">https://github.com/COLOR-SKY/DialogueExtractor</a></p>
+<p>学业之余我会陆续更新工具教程。</p>
 
 	
 	</div>

@@ -125,8 +125,10 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <p>not possible. use personal access token as password instead.<br>cause the deploy public key does not allow duplicate public key, causing trouble for us to use the git repo sync tool.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PRIVATE_KEY_PATH=/Users/jamesbrown/.notable/id_rsa_original_backup</span><br><span class="line">PUBKEY_PATH=/Users/jamesbrown/.notable/id_rsa.pub2</span><br><span class="line">ssh-keygen -y -f <span class="variable">$PRIVATE_KEY_PATH</span> &gt; <span class="variable">$PUBKEY_PATH</span></span><br></pre></td></tr></table></figure>	  
+	  <p>not possible. use personal access token as password instead.</p>
+<p>cause the deploy public key does not allow duplicate public key, causing trouble for us to use the git repo sync tool.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PRIVATE_KEY_PATH=/Users/jamesbrown/.notable/id_rsa_original_backup</span><br><span class="line">PUBKEY_PATH=/Users/jamesbrown/.notable/id_rsa.pub2</span><br><span class="line">ssh-keygen -y -f <span class="variable">$PRIVATE_KEY_PATH</span> &gt; <span class="variable">$PUBKEY_PATH</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+	  
 	</div>
 
 	<!-- recommended posts -->

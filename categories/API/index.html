@@ -129,11 +129,18 @@
 	
 	
 		<p>百度贴吧移动端app接口分为：</p>
-<h2 id="首页"><a href="#首页" class="headerlink" title="首页"></a>首页</h2><p>大家都在搜<br>热搜榜 热吧榜 游戏榜（手游 端游 主机）<br>关注 推荐<br>热榜 （贴吧话题榜，热帖榜（总榜，视频，长更，游戏，数码）<br>直播 （我的关注，排行榜，讨论区，个人中心，我要直播，推荐，颜值）<br>视频</p>
+<h2 id="首页"><a href="#首页" class="headerlink" title="首页"></a>首页</h2><p>大家都在搜</p>
+<p>热搜榜 热吧榜 游戏榜（手游 端游 主机）</p>
+<p>关注 推荐</p>
+<p>热榜 （贴吧话题榜，热帖榜（总榜，视频，长更，游戏，数码）</p>
+<p>直播 （我的关注，排行榜，讨论区，个人中心，我要直播，推荐，颜值）</p>
+<p>视频</p>
 <h2 id="进吧"><a href="#进吧" class="headerlink" title="进吧"></a>进吧</h2><p>关注的吧 吧广场 最近逛的吧</p>
 <h2 id="频道"><a href="#频道" class="headerlink" title="频道"></a>频道</h2><p>游戏 数码 娱乐 影视 动漫 体育 小说 同城</p>
 <h2 id="消息"><a href="#消息" class="headerlink" title="消息"></a>消息</h2><p>@我的 点赞 回复 粉丝</p>
-<h2 id="我的"><a href="#我的" class="headerlink" title="我的"></a>我的</h2><p>关注 粉丝 吧<br>我的帖子 大神认证 创作学院 热门活动<br>我的收藏 浏览历史 直播 话题（贴吧话题榜）</p>
+<h2 id="我的"><a href="#我的" class="headerlink" title="我的"></a>我的</h2><p>关注 粉丝 吧</p>
+<p>我的帖子 大神认证 创作学院 热门活动</p>
+<p>我的收藏 浏览历史 直播 话题（贴吧话题榜）</p>
 
 	
 	</div>
@@ -157,7 +164,20 @@
   <div class="row">
 	
 	
-		<p>B站允许最多10个标签<br>不能发布太频繁, B站官方限制<strong>30秒一稿</strong><br><a target="_blank" rel="noopener" href="https://github.com/xunsword/bilibil/blob/2abf66a9771daebc12c181f88d8af82613975548/bilibili_up.py">some upload api</a><br>this api does not analyze the video content. it only predict tags from metadata:<br><code>https://member.bilibili.com/x/web/archive/tags</code><br><a target="_blank" rel="noopener" href="https://github.com/xunsword/bilibil/blob/2abf66a9771daebc12c181f88d8af82613975548/bilibili_up.py">how to get upload_id</a><br>只有PC网页端有这个 手机端没有 可能是新功能<br>b站最新更新了这两个接口 需要传入upload_id 具体参数抓包获取<br>分区推荐 POST：<br><a target="_blank" rel="noopener" href="https://member.bilibili.com/x/vupre/web/archive/types/predict">https://member.bilibili.com/x/vupre/web/archive/types/predict</a><br>标签推荐 GET（可能有延迟 需要请求两次 因为第一次标签数量较少）：<br><a target="_blank" rel="noopener" href="https://member.bilibili.com/x/vupre/web/tag/recommend">https://member.bilibili.com/x/vupre/web/tag/recommend</a><br>获取活动标签:<br><a target="_blank" rel="noopener" href="https://member.bilibili.com/x/vupre/web/topic/type?type_id=21&pn=0&ps=200&title=20210210_298667075925_waou_5s&t=1667530591393">https://member.bilibili.com/x/vupre/web/topic/type?type_id=21&amp;pn=0&amp;ps=200&amp;title=20210210_298667075925_waou_5s&amp;t=1667530591393</a></p>
+		<p>B站允许最多10个标签</p>
+<p>不能发布太频繁, B站官方限制<strong>30秒一稿</strong></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/xunsword/bilibil/blob/2abf66a9771daebc12c181f88d8af82613975548/bilibili_up.py">some upload api</a></p>
+<p>this api does not analyze the video content. it only predict tags from metadata:</p>
+<p><code>https://member.bilibili.com/x/web/archive/tags</code></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/xunsword/bilibil/blob/2abf66a9771daebc12c181f88d8af82613975548/bilibili_up.py">how to get upload_id</a></p>
+<p>只有PC网页端有这个 手机端没有 可能是新功能</p>
+<p>b站最新更新了这两个接口 需要传入upload_id 具体参数抓包获取</p>
+<p>分区推荐 POST：</p>
+<p><a target="_blank" rel="noopener" href="https://member.bilibili.com/x/vupre/web/archive/types/predict">https://member.bilibili.com/x/vupre/web/archive/types/predict</a></p>
+<p>标签推荐 GET（可能有延迟 需要请求两次 因为第一次标签数量较少）：</p>
+<p><a target="_blank" rel="noopener" href="https://member.bilibili.com/x/vupre/web/tag/recommend">https://member.bilibili.com/x/vupre/web/tag/recommend</a></p>
+<p>获取活动标签:</p>
+<p><a target="_blank" rel="noopener" href="https://member.bilibili.com/x/vupre/web/topic/type?type_id=21&pn=0&ps=200&title=20210210_298667075925_waou_5s&t=1667530591393">https://member.bilibili.com/x/vupre/web/topic/type?type_id=21&amp;pn=0&amp;ps=200&amp;title=20210210_298667075925_waou_5s&amp;t=1667530591393</a></p>
 
 	
 	</div>
@@ -181,7 +201,9 @@
   <div class="row">
 	
 	
-		<h2 id="notice"><a href="#notice" class="headerlink" title="notice"></a>notice</h2><p>涩图可以发到qq群里面活跃气氛 可以发到专栏里面 可以添加到视频里面“截图选老婆”<br>涩图分为二次元和三次元涩图 皆要控制尺度<br>除了涩图之外，能够随时使用的番剧clip也是很重要的 如何获取“动漫名场面”呢</p>
+		<h2 id="notice"><a href="#notice" class="headerlink" title="notice"></a>notice</h2><p>涩图可以发到qq群里面活跃气氛 可以发到专栏里面 可以添加到视频里面“截图选老婆”</p>
+<p>涩图分为二次元和三次元涩图 皆要控制尺度</p>
+<p>除了涩图之外，能够随时使用的番剧clip也是很重要的 如何获取“动漫名场面”呢</p>
 <h2 id="projects"><a href="#projects" class="headerlink" title="projects"></a>projects</h2><p><a target="_blank" rel="noopener" href="https://github.com/opq-osc/OPQ-SetuBot">https://github.com/opq-osc/OPQ-SetuBot</a> 直接搜索的pixiv</p>
 <h2 id="二次元涩图api"><a href="#二次元涩图api" class="headerlink" title="二次元涩图api"></a>二次元涩图api</h2><p><a target="_blank" rel="noopener" href="https://api.lolicon.app/#/setu">https://api.lolicon.app/#/setu</a> 注意不要r18的 要用nsfw检查一下至少</p>
 <h2 id="三次元涩图api"><a href="#三次元涩图api" class="headerlink" title="三次元涩图api"></a>三次元涩图api</h2>
@@ -207,11 +229,33 @@
   <div class="row">
 	
 	
-		<h2 id="gif-ratings"><a href="#gif-ratings" class="headerlink" title="gif ratings"></a>gif ratings</h2><p><a target="_blank" rel="noopener" href="https://support.giphy.com/hc/en-us/articles/360058840971-Content-Rating">official doc</a><br>vulgar rate:<br>r &gt; pg-13 &gt; pg &gt; g<br>while ‘y’ means accepting all shits, not ‘youth’ nor ‘young’</p>
-<h2 id="implementation"><a href="#implementation" class="headerlink" title="implementation"></a>implementation</h2><p>giphy has many extensible apis. i guess most media platforms are all the same (complex enough), but we have to start somewhere though…<br>giphy has ‘clips’ now. clips are gifs with sound, just like short videos.<br>beta key limitations:<br>1000 requests per day, 42 requests per hour<br><del>or just use the public beta key? does that subject to the rate limit?</del><br>this public beta key is trashed.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="variable constant_">PUBLIC_BETA_API_KEY</span> = <span class="string">&#x27;dc6zaTOxFJmzC&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<p>is this public api key? maybe it is both api and sdk key.<br>Gc7131jiJuvI7IdN0HZ1D7nh0ow5BU6g<br>api keys:<br>IoJVsWoxDPKBr6gOcCgOPWAB25773hqP<br>lTRWAEGHjB1AkfO0sk2XTdujaPB5aH7X<br>sdk keys:<br>6esYBEm9OG3wAifbBFZ2mA0Ml6Ic0rvy<br>sXpGFDGZs0Dv1mmNFvYaGUvYwKX0PWIh<br>to use api:<br><a target="_blank" rel="noopener" href="https://github.com/austinkelleher/giphy-api">https://github.com/austinkelleher/giphy-api</a><br>to use sdk:<br><a target="_blank" rel="noopener" href="https://github.com/Giphy/giphy-js/blob/master/packages/fetch-api/README.md">https://github.com/Giphy/giphy-js/blob/master/packages/fetch-api/README.md</a><br>find public api keys inside html:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_MOBILE_API_KEY</span> = <span class="string">&quot;L8eXbxrbPETZxlvgXN9kIEzQ55Df04v0&quot;</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_WEB_API_KEY</span> = <span class="string">&quot;Gc7131jiJuvI7IdN0HZ1D7nh0ow5BU6g&quot;</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_FOUR_O_FOUR_API_KEY</span> = <span class="string">&quot;MRwXFtxAnaHo3EUMrSefHWmI0eYz5aGe&quot;</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_STORIES_AND_GIPHY_TV_API_KEY</span> = <span class="string">&quot;3eFQvabDx69SMoOemSPiYfh9FY0nzO9x&quot;</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_DEFAULT_API_SERVICE_KEY</span> = <span class="string">&quot;5nt3fDeGakBKzV6lHtRM1zmEBAs6dsIc&quot;</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_GET_POST_HEADERS_KEY</span> = <span class="string">&quot;e0771ed7b244ec9c942bea646ad08e6bf514f51a&quot;</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_MEDIUM_BLOG_API_KEY</span> = <span class="string">&quot;i3dev0tcpgvcuaocfmdslony2q9er7tvfndxcszm&quot;</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_EMBED_KEY</span> = <span class="string">&quot;eDs1NYmCVgdHvI1x0nitWd5ClhDWMpRE&quot;</span></span><br></pre></td></tr></table></figure>
+		<h2 id="gif-ratings"><a href="#gif-ratings" class="headerlink" title="gif ratings"></a>gif ratings</h2><p><a target="_blank" rel="noopener" href="https://support.giphy.com/hc/en-us/articles/360058840971-Content-Rating">official doc</a></p>
+<p>vulgar rate:</p>
+<p>r &gt; pg-13 &gt; pg &gt; g</p>
+<p>while ‘y’ means accepting all shits, not ‘youth’ nor ‘young’</p>
+<h2 id="implementation"><a href="#implementation" class="headerlink" title="implementation"></a>implementation</h2><p>giphy has many extensible apis. i guess most media platforms are all the same (complex enough), but we have to start somewhere though…</p>
+<p>giphy has ‘clips’ now. clips are gifs with sound, just like short videos.</p>
+<p>beta key limitations:</p>
+<p>1000 requests per day, 42 requests per hour</p>
+<p><del>or just use the public beta key? does that subject to the rate limit?</del></p>
+<p>this public beta key is trashed.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="variable constant_">PUBLIC_BETA_API_KEY</span> = <span class="string">&#x27;dc6zaTOxFJmzC&#x27;</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>is this public api key? maybe it is both api and sdk key.</p>
+<p>Gc7131jiJuvI7IdN0HZ1D7nh0ow5BU6g</p>
+<p>api keys:</p>
+<p>IoJVsWoxDPKBr6gOcCgOPWAB25773hqP</p>
+<p>lTRWAEGHjB1AkfO0sk2XTdujaPB5aH7X</p>
+<p>sdk keys:</p>
+<p>6esYBEm9OG3wAifbBFZ2mA0Ml6Ic0rvy</p>
+<p>sXpGFDGZs0Dv1mmNFvYaGUvYwKX0PWIh</p>
+<p>to use api:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/austinkelleher/giphy-api">https://github.com/austinkelleher/giphy-api</a></p>
+<p>to use sdk:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Giphy/giphy-js/blob/master/packages/fetch-api/README.md">https://github.com/Giphy/giphy-js/blob/master/packages/fetch-api/README.md</a></p>
+<p>find public api keys inside html:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_MOBILE_API_KEY</span> = <span class="string">&quot;L8eXbxrbPETZxlvgXN9kIEzQ55Df04v0&quot;</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_WEB_API_KEY</span> = <span class="string">&quot;Gc7131jiJuvI7IdN0HZ1D7nh0ow5BU6g&quot;</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_FOUR_O_FOUR_API_KEY</span> = <span class="string">&quot;MRwXFtxAnaHo3EUMrSefHWmI0eYz5aGe&quot;</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_STORIES_AND_GIPHY_TV_API_KEY</span> = <span class="string">&quot;3eFQvabDx69SMoOemSPiYfh9FY0nzO9x&quot;</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_DEFAULT_API_SERVICE_KEY</span> = <span class="string">&quot;5nt3fDeGakBKzV6lHtRM1zmEBAs6dsIc&quot;</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_GET_POST_HEADERS_KEY</span> = <span class="string">&quot;e0771ed7b244ec9c942bea646ad08e6bf514f51a&quot;</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_MEDIUM_BLOG_API_KEY</span> = <span class="string">&quot;i3dev0tcpgvcuaocfmdslony2q9er7tvfndxcszm&quot;</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_EMBED_KEY</span> = <span class="string">&quot;eDs1NYmCVgdHvI1x0nitWd5ClhDWMpRE&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>search for ‘ear flops’ to locate the tags in ‘samoyed.html’</p>
 
 	
@@ -236,7 +280,19 @@
   <div class="row">
 	
 	
-		<p>using github&#x2F;gitee apis with watchdog.<br>exclude xonsh yaml(.yml) files<br>if you decide to upload the thing to github privately, and to sync among devices, then you need to deploy and share your ssh key.<br>run git related command after opened the vscode repeatedly, just like notable.<br>before git submodule .git folder deletion you may record the remote origin url to somewhere in the base folder.<br>you could patch the vscode launcher somehow, read the working directory to determine to repeatedly sync or not.<br>git init is a manual process.<br>also you might need five filelocks: one for main loop process running,  one for git sync, one for local sync, two for remote sync.<br>use <code>$@</code> or <code>$*</code> will do to pass arguments to the vscode binary.<br>首先不能follow symlink<br>其次忽略二进制文件 忽略特定后缀以外的文件<br>第一次建立的时候 递归扫描所有文件 去除大文件 append到.gitignore根目录下面<br>下一次 git add .之前 利用git的功能寻找有变化的文件目录 把大文件目录append到.gitignore里面</p>
+		<p>using github&#x2F;gitee apis with watchdog.</p>
+<p>exclude xonsh yaml(.yml) files</p>
+<p>if you decide to upload the thing to github privately, and to sync among devices, then you need to deploy and share your ssh key.</p>
+<p>run git related command after opened the vscode repeatedly, just like notable.</p>
+<p>before git submodule .git folder deletion you may record the remote origin url to somewhere in the base folder.</p>
+<p>you could patch the vscode launcher somehow, read the working directory to determine to repeatedly sync or not.</p>
+<p>git init is a manual process.</p>
+<p>also you might need five filelocks: one for main loop process running,  one for git sync, one for local sync, two for remote sync.</p>
+<p>use <code>$@</code> or <code>$*</code> will do to pass arguments to the vscode binary.</p>
+<p>首先不能follow symlink</p>
+<p>其次忽略二进制文件 忽略特定后缀以外的文件</p>
+<p>第一次建立的时候 递归扫描所有文件 去除大文件 append到.gitignore根目录下面</p>
+<p>下一次 git add .之前 利用git的功能寻找有变化的文件目录 把大文件目录append到.gitignore里面</p>
 
 	
 	</div>

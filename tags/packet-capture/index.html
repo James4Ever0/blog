@@ -128,11 +128,17 @@
   <div class="row">
 	
 	
-		<h2 id="disable-ssl-pinning"><a href="#disable-ssl-pinning" class="headerlink" title="disable ssl pinning"></a>disable ssl pinning</h2><p>use frida scripts specific to applications<br>justtrustme xposed<br>sslunpinning xposed<br><a target="_blank" rel="noopener" href="https://github.com/shroudedcode/apk-mitm">apk-mitm</a> by repacking apk and resigning</p>
-<h2 id="capture-packet-routing"><a href="#capture-packet-routing" class="headerlink" title="capture, packet routing"></a>capture, packet routing</h2><p>recommend to use: <a target="_blank" rel="noopener" href="https://github.com/James4Ever0/PCAPdroid-API">PCAPdroid-API</a><br><a target="_blank" rel="noopener" href="https://github.com/emanuele-f/PCAPdroid/blob/master/docs/app_api.md">PCAPdroid API reference</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell am start -e action start -e pcap_dump_mode udp_exporter -e collector_ip_address 127.0.0.1 -e collector_port 5123 -e app_filter com.tencent.mobileqq -n com.emanuelef.remote_capture.debug/com.emanuelef.remote_capture.activities.CaptureCtrl</span><br></pre></td></tr></table></figure>
+		<h2 id="disable-ssl-pinning"><a href="#disable-ssl-pinning" class="headerlink" title="disable ssl pinning"></a>disable ssl pinning</h2><p>use frida scripts specific to applications</p>
+<p>justtrustme xposed</p>
+<p>sslunpinning xposed</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/shroudedcode/apk-mitm">apk-mitm</a> by repacking apk and resigning</p>
+<h2 id="capture-packet-routing"><a href="#capture-packet-routing" class="headerlink" title="capture, packet routing"></a>capture, packet routing</h2><p>recommend to use: <a target="_blank" rel="noopener" href="https://github.com/James4Ever0/PCAPdroid-API">PCAPdroid-API</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/emanuele-f/PCAPdroid/blob/master/docs/app_api.md">PCAPdroid API reference</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb shell am start -e action start -e pcap_dump_mode udp_exporter -e collector_ip_address 127.0.0.1 -e collector_port 5123 -e app_filter com.tencent.mobileqq -n com.emanuelef.remote_capture.debug/com.emanuelef.remote_capture.activities.CaptureCtrl</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>setting up http proxy via adb:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># this does not ensure that the target app is captured.</span></span><br><span class="line">adb shell settings put global http_proxy &lt;address&gt;:&lt;port&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># this does not ensure that the target app is captured.</span></span><br><span class="line">adb shell settings put global http_proxy &lt;address&gt;:&lt;port&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 	
 	</div>
   <a type="button" href="/blog/2022/11/04/e6ff2337-31b6-4d2c-b824-603fe629c951/#more" class="btn btn-default more">Read More</a>

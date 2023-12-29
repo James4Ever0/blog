@@ -135,9 +135,76 @@
   <div class="row">
 	
 	
-		<p>服务器重量在25公斤以上 运输和搬运均需注意<br>服务器制造的热风需要用空调降温 或者需要有专门的通风管道<br>服务器的功耗是非常大的 服务器标配暴力风扇 虽然降温稳定性能很好 可以随时更换 但是噪音非常大 如果插上了不支持的显卡那么风扇会高速旋转 可能需要转接卡或者适配装置 待机功耗300w起步 而一般的台式机待机100w 如果加装了显卡那么功耗还会继续上升 同时满载的m1 ultra的mac studio功耗在140w-200w左右 相对比较节能<br>服务器需要标配灭火装置和烟雾报警装置<br>服务器需要放置在隔音机柜里面 专门的隔音机柜非常的贵 但是如果自己只买铁皮机柜加隔音棉那么会便宜一些 可能需要再加装一层外壳 透明的玻璃可能需要被更换成不透明的 同时改装之后需要留出专门的风道 风道内部塞管道隔音棉 风道出入口添加防尘网<br>to support multiple gpus, one must use pci-e extended cable. 128g per ram slot.<br>Dell r750 series, using dell riser card to connect gpu<br><a target="_blank" rel="noopener" href="https://github.com/hpcaitech/ColossalAI">https://github.com/hpcaitech/ColossalAI</a><br>for monsterious models, zero offload, pytorch loghtning, distributed training in pytorch, or deepspeed, fairscale, colossalai, Horovod is needed. no single gpu is able to hold gpt3-175B at once.<br>exporting to onnx:<br><a target="_blank" rel="noopener" href="https://huggingface.co/docs/transformers/serialization?highlight=onnx">https://huggingface.co/docs/transformers/serialization?highlight=onnx</a><br>lower model precision (quantization):<br>如果想要在GPU上操作，可以先使用torch.nn.export函数将模型转换成onnx格式，然后就可以放到TensorRT框架上inference了。（TensorRT目前不能直接解析Pytorch的网络模型，需要转换成onnx）<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/cf83c877d71d">https://www.jianshu.com/p/cf83c877d71d</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/zimiao552147572/article/details/105910915">https://blog.csdn.net/zimiao552147572/article/details/105910915</a><br><a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/quantization.html">https://pytorch.org/docs/stable/quantization.html</a><br><a target="_blank" rel="noopener" href="https://github.com/huggingface/transformers/issues/14839">https://github.com/huggingface/transformers/issues/14839</a> (training gpt-j on colab)</p>
-<h1 id="使用torch-quantization-quantize-dynamic获得动态量化的模型"><a href="#使用torch-quantization-quantize-dynamic获得动态量化的模型" class="headerlink" title="使用torch.quantization.quantize_dynamic获得动态量化的模型"></a>使用torch.quantization.quantize_dynamic获得动态量化的模型</h1><h1 id="量化的网络层为所有的nn-Linear的权重，使其成为int8"><a href="#量化的网络层为所有的nn-Linear的权重，使其成为int8" class="headerlink" title="量化的网络层为所有的nn.Linear的权重，使其成为int8"></a>量化的网络层为所有的nn.Linear的权重，使其成为int8</h1><p>quantized_model &#x3D; torch.quantization.quantize_dynamic(<br>model, {torch.nn.Linear}, dtype&#x3D;torch.qint8<br>)</p>
-<h1 id="打印动态量化后的BERT模型"><a href="#打印动态量化后的BERT模型" class="headerlink" title="打印动态量化后的BERT模型"></a>打印动态量化后的BERT模型</h1><p>print(quantized_model)<br>how to use huggingface trainer:<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/363670628">https://zhuanlan.zhihu.com/p/363670628</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/486938936">https://zhuanlan.zhihu.com/p/486938936</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/358525654">https://zhuanlan.zhihu.com/p/358525654</a><br><a target="_blank" rel="noopener" href="https://huggingface.co/docs/transformers/main_classes/deepspeed#custom-deepspeed-zero-inference">https://huggingface.co/docs/transformers/main_classes/deepspeed#custom-deepspeed-zero-inference</a><br><a target="_blank" rel="noopener" href="https://huggingface.co/docs/transformers/main_classes/deepspeed">https://huggingface.co/docs/transformers/main_classes/deepspeed</a><br>zero offload requires sufficient RAM.<br><a target="_blank" rel="noopener" href="https://github.com/alibaba/EasyParallelLibrary">https://github.com/alibaba/EasyParallelLibrary</a><br><a target="_blank" rel="noopener" href="https://github.com/SeanNaren/minGPT/tree/stage3">https://github.com/SeanNaren/minGPT/tree/stage3</a><br><a target="_blank" rel="noopener" href="https://github.com/prigoyal/pytorch_memonger/blob/master/tutorial/Checkpointing_for_PyTorch_models.ipynb">https://github.com/prigoyal/pytorch_memonger/blob/master/tutorial/Checkpointing_for_PyTorch_models.ipynb</a><br><a target="_blank" rel="noopener" href="https://github.com/eladrich/pixel2style2pixel">https://github.com/eladrich/pixel2style2pixel</a><br><a target="_blank" rel="noopener" href="https://github.com/EleutherAI/gpt-neox">https://github.com/EleutherAI/gpt-neox</a><br><a target="_blank" rel="noopener" href="https://www.eleuther.ai/">https://www.eleuther.ai</a><br>training turing-nlg:<br><a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/research/blog/turing-nlg-a-17-billion-parameter-language-model-by-microsoft/">https://www.microsoft.com/en-us/research/blog/turing-nlg-a-17-billion-parameter-language-model-by-microsoft/</a><br>cited from deepspeed:<br>Extremely memory efficient: With just a single GPU, ZeRO-Offload of DeepSpeed can train models with over 10B parameters, 10x bigger than the state of the art, democratizing multi-billion-parameter model training such that many deep learning scientists can explore bigger and better models.<br>need p40&#x2F;m40 which has 24gb vram. need at least 60gb ram to load model.<br>using low ram devices need library like deepspeed, bminf or megengine.<br>you can also use others provided web services.<br>can use colab&#x2F;kaggle or aistudio to do the job. paid training enviorment is also avaliable.<br><a target="_blank" rel="noopener" href="https://github.com/TsinghuaAI/CPM-1-Generate">https://github.com/TsinghuaAI/CPM-1-Generate</a><br><a target="_blank" rel="noopener" href="https://github.com/arrmansa/Basic-UI-for-GPT-J-6B-with-low-vram">https://github.com/arrmansa/Basic-UI-for-GPT-J-6B-with-low-vram</a><br><a target="_blank" rel="noopener" href="https://pythonawesome.com/finetune-gpt2-xl-and-gpt-neo-on-a-single-gpu-with-huggingface-transformers-using-deepspeed">https://pythonawesome.com/finetune-gpt2-xl-and-gpt-neo-on-a-single-gpu-with-huggingface-transformers-using-deepspeed</a><br><a target="_blank" rel="noopener" href="https://github.com/OpenBMB/BMInf">https://github.com/OpenBMB/BMInf</a><br>web api for chinese plug:<br><a target="_blank" rel="noopener" href="https://m.nlp.aliyun.com/mportal#/textGenerate">https://m.nlp.aliyun.com/mportal#/textGenerate</a><br>NVIDIA Tesla M40  24G 专业运算 英伟达 图形GPU加速深度学习显卡<br>提供魔改教程，需要一张亮机卡，用丽台K600当亮机卡就行，魔改后可用此卡打游戏<br>散热器可看图片，用3D打印散热风道，加上风扇就能用了<br>虚拟化 用这些卡 K1 K2 K340 K520（不需要授权） M60 P4 P10 P100 T4 RTX6000 RTX8000 V100 RTXA6000 P40 （需要授权）<br>虚拟化 VGPU 有两种模式 一种是VPC 适合普通办公 一种是VDWS 适合专业图形应用 然后P40两种模式都支持<br>购买之前先了解以下信息（您必须了解）：<br>1、电源供电有没有8针供电；<br>2、普通台式机X99以上主板，DDR4内存；<br>3、主板要支持多显卡显示；<br>4、建议电源功率在600W以上；<br>5、机箱内的空间是否足够（卡宽双挡片位置，卡长度28~30cm）<br>6、普通台式机需要加装主动散热，服务器可以选择被动散热<br>7、先查看主板bios的pcie设置里面有没有above 4g选项<br>超微服务器原装拆机 成色超新 测试好发货<br>普通台式机上Tesla M40显卡paddleGPU深度学习柯南的变身器上机体验<br>最近在paddlepaddle溜达，看到了柯南变身器，于是从aistudio下载到本地玩，单位的1060 6G版显卡，跑起来，语句一场就不行，遂上淘宝，咸鱼溜达一圈，见到了tesla k80 m40等一系列的卡卡。于是经过多番考虑（知乎一位买k80说翻车的帖子），于是最终下手m40。咸鱼有卖1800的，我问他保一个月质保不，他说，不保，我说谢谢，我考虑一下，他骂***（这时代也不知道怎么了，我就发了两条消息，这货好像脑子有点问题了，随后拉黑。因此不建议上咸鱼买，毕竟想上m40卡的应当希望稳妥一点）。随后在淘宝找了一家1945包邮的，还送一条转接线。挺合适，单买电源转接线需要30左右。（其实我怀疑这两家是一家，因为都是上海的）。淘宝这个质保3个月。当个保险。我用的机器配置如下，都是王牌(快玩完了的)产品。附上大师截图。大师我们需要它，他是给我们装显卡驱动的。win10自己好像不太认。以下配置，绝对可以跑paddlepaddleGPU框架。除了U，别的都挺便宜，刚开始买来做NAS的奈何功耗太高40w了，搁置了，现在加上m40满血复活。整套下来5000千元。当然，内存大家没必要这么大。4千完全够。我这主要是普通台式机使用m40，大家完全可以用二手服务器。买完之后，我发现网上很多说m40这些系列必须专门的主板和u才能跑，所以，那心情大家都能猜到，已经做好，再买板子的准备的我。<br>正文<br>两天到货了，同时购买的电源，没有收到，买的600W电源，没办法，偏远小城市，快递缓慢。<br>建议大家 买大于600w的电源，我原本一台没有独显的机器用的是300W电源，随机迫于心急之情，开始剪线，改电源。<br>改电源线<br>我原本的电源提供一个常规的显卡供电口，是6+2&#x3D;8的结构，3x12V 3xGND 2GND结构<br>而Tesla系列根据知乎朋友的介绍和，我的实际观察，确定其为一排4x12V 一排4xGND的结构，也就是和我的主板CPU供电一致。所以，知乎这位朋友说，他一开始用常规显卡接口供电，将他的k80干坏电容问题，估计很真实，也是这个前车之鉴，我小心对比了电源结构，最终开始剪掉了老板送电源线和我自己那个300W电源的12V显卡口，（其实一开始，准备只剪我自己这个电源的显卡口，改一下线路来着，奈何我这90块钱的电源，那线 细的就像头发丝 让我直接干断了）。接完线，我还发现我用的那个接口保护的热缩管，给小了，无奈，只能用电胶带缠绕。</p>
+		<p>服务器重量在25公斤以上 运输和搬运均需注意</p>
+<p>服务器制造的热风需要用空调降温 或者需要有专门的通风管道</p>
+<p>服务器的功耗是非常大的 服务器标配暴力风扇 虽然降温稳定性能很好 可以随时更换 但是噪音非常大 如果插上了不支持的显卡那么风扇会高速旋转 可能需要转接卡或者适配装置 待机功耗300w起步 而一般的台式机待机100w 如果加装了显卡那么功耗还会继续上升 同时满载的m1 ultra的mac studio功耗在140w-200w左右 相对比较节能</p>
+<p>服务器需要标配灭火装置和烟雾报警装置</p>
+<p>服务器需要放置在隔音机柜里面 专门的隔音机柜非常的贵 但是如果自己只买铁皮机柜加隔音棉那么会便宜一些 可能需要再加装一层外壳 透明的玻璃可能需要被更换成不透明的 同时改装之后需要留出专门的风道 风道内部塞管道隔音棉 风道出入口添加防尘网</p>
+<p>to support multiple gpus, one must use pci-e extended cable. 128g per ram slot.</p>
+<p>Dell r750 series, using dell riser card to connect gpu</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/hpcaitech/ColossalAI">https://github.com/hpcaitech/ColossalAI</a></p>
+<p>for monsterious models, zero offload, pytorch loghtning, distributed training in pytorch, or deepspeed, fairscale, colossalai, Horovod is needed. no single gpu is able to hold gpt3-175B at once.</p>
+<p>exporting to onnx:</p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/docs/transformers/serialization?highlight=onnx">https://huggingface.co/docs/transformers/serialization?highlight=onnx</a></p>
+<p>lower model precision (quantization):</p>
+<p>如果想要在GPU上操作，可以先使用torch.nn.export函数将模型转换成onnx格式，然后就可以放到TensorRT框架上inference了。（TensorRT目前不能直接解析Pytorch的网络模型，需要转换成onnx）</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/cf83c877d71d">https://www.jianshu.com/p/cf83c877d71d</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zimiao552147572/article/details/105910915">https://blog.csdn.net/zimiao552147572/article/details/105910915</a></p>
+<p><a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/quantization.html">https://pytorch.org/docs/stable/quantization.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/huggingface/transformers/issues/14839">https://github.com/huggingface/transformers/issues/14839</a> (training gpt-j on colab)</p>
+<h1 id="使用torch-quantization-quantize-dynamic获得动态量化的模型"><a href="#使用torch-quantization-quantize-dynamic获得动态量化的模型" class="headerlink" title="使用torch.quantization.quantize_dynamic获得动态量化的模型"></a>使用torch.quantization.quantize_dynamic获得动态量化的模型</h1><h1 id="量化的网络层为所有的nn-Linear的权重，使其成为int8"><a href="#量化的网络层为所有的nn-Linear的权重，使其成为int8" class="headerlink" title="量化的网络层为所有的nn.Linear的权重，使其成为int8"></a>量化的网络层为所有的nn.Linear的权重，使其成为int8</h1><p>quantized_model &#x3D; torch.quantization.quantize_dynamic(</p>
+<p>model, {torch.nn.Linear}, dtype&#x3D;torch.qint8</p>
+<p>)</p>
+<h1 id="打印动态量化后的BERT模型"><a href="#打印动态量化后的BERT模型" class="headerlink" title="打印动态量化后的BERT模型"></a>打印动态量化后的BERT模型</h1><p>print(quantized_model)</p>
+<p>how to use huggingface trainer:</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/363670628">https://zhuanlan.zhihu.com/p/363670628</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/486938936">https://zhuanlan.zhihu.com/p/486938936</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/358525654">https://zhuanlan.zhihu.com/p/358525654</a></p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/docs/transformers/main_classes/deepspeed#custom-deepspeed-zero-inference">https://huggingface.co/docs/transformers/main_classes/deepspeed#custom-deepspeed-zero-inference</a></p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/docs/transformers/main_classes/deepspeed">https://huggingface.co/docs/transformers/main_classes/deepspeed</a></p>
+<p>zero offload requires sufficient RAM.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/alibaba/EasyParallelLibrary">https://github.com/alibaba/EasyParallelLibrary</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/SeanNaren/minGPT/tree/stage3">https://github.com/SeanNaren/minGPT/tree/stage3</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/prigoyal/pytorch_memonger/blob/master/tutorial/Checkpointing_for_PyTorch_models.ipynb">https://github.com/prigoyal/pytorch_memonger/blob/master/tutorial/Checkpointing_for_PyTorch_models.ipynb</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/eladrich/pixel2style2pixel">https://github.com/eladrich/pixel2style2pixel</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/EleutherAI/gpt-neox">https://github.com/EleutherAI/gpt-neox</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.eleuther.ai/">https://www.eleuther.ai</a></p>
+<p>training turing-nlg:</p>
+<p><a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/research/blog/turing-nlg-a-17-billion-parameter-language-model-by-microsoft/">https://www.microsoft.com/en-us/research/blog/turing-nlg-a-17-billion-parameter-language-model-by-microsoft/</a></p>
+<p>cited from deepspeed:</p>
+<p>Extremely memory efficient: With just a single GPU, ZeRO-Offload of DeepSpeed can train models with over 10B parameters, 10x bigger than the state of the art, democratizing multi-billion-parameter model training such that many deep learning scientists can explore bigger and better models.</p>
+<p>need p40&#x2F;m40 which has 24gb vram. need at least 60gb ram to load model.</p>
+<p>using low ram devices need library like deepspeed, bminf or megengine.</p>
+<p>you can also use others provided web services.</p>
+<p>can use colab&#x2F;kaggle or aistudio to do the job. paid training enviorment is also avaliable.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/TsinghuaAI/CPM-1-Generate">https://github.com/TsinghuaAI/CPM-1-Generate</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/arrmansa/Basic-UI-for-GPT-J-6B-with-low-vram">https://github.com/arrmansa/Basic-UI-for-GPT-J-6B-with-low-vram</a></p>
+<p><a target="_blank" rel="noopener" href="https://pythonawesome.com/finetune-gpt2-xl-and-gpt-neo-on-a-single-gpu-with-huggingface-transformers-using-deepspeed">https://pythonawesome.com/finetune-gpt2-xl-and-gpt-neo-on-a-single-gpu-with-huggingface-transformers-using-deepspeed</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/OpenBMB/BMInf">https://github.com/OpenBMB/BMInf</a></p>
+<p>web api for chinese plug:</p>
+<p><a target="_blank" rel="noopener" href="https://m.nlp.aliyun.com/mportal#/textGenerate">https://m.nlp.aliyun.com/mportal#/textGenerate</a></p>
+<p>NVIDIA Tesla M40  24G 专业运算 英伟达 图形GPU加速深度学习显卡</p>
+<p>提供魔改教程，需要一张亮机卡，用丽台K600当亮机卡就行，魔改后可用此卡打游戏</p>
+<p>散热器可看图片，用3D打印散热风道，加上风扇就能用了</p>
+<p>虚拟化 用这些卡 K1 K2 K340 K520（不需要授权） M60 P4 P10 P100 T4 RTX6000 RTX8000 V100 RTXA6000 P40 （需要授权）</p>
+<p>虚拟化 VGPU 有两种模式 一种是VPC 适合普通办公 一种是VDWS 适合专业图形应用 然后P40两种模式都支持</p>
+<p>购买之前先了解以下信息（您必须了解）：</p>
+<p>1、电源供电有没有8针供电；</p>
+<p>2、普通台式机X99以上主板，DDR4内存；</p>
+<p>3、主板要支持多显卡显示；</p>
+<p>4、建议电源功率在600W以上；</p>
+<p>5、机箱内的空间是否足够（卡宽双挡片位置，卡长度28~30cm）</p>
+<p>6、普通台式机需要加装主动散热，服务器可以选择被动散热</p>
+<p>7、先查看主板bios的pcie设置里面有没有above 4g选项</p>
+<p>超微服务器原装拆机 成色超新 测试好发货</p>
+<p>普通台式机上Tesla M40显卡paddleGPU深度学习柯南的变身器上机体验</p>
+<p>最近在paddlepaddle溜达，看到了柯南变身器，于是从aistudio下载到本地玩，单位的1060 6G版显卡，跑起来，语句一场就不行，遂上淘宝，咸鱼溜达一圈，见到了tesla k80 m40等一系列的卡卡。于是经过多番考虑（知乎一位买k80说翻车的帖子），于是最终下手m40。咸鱼有卖1800的，我问他保一个月质保不，他说，不保，我说谢谢，我考虑一下，他骂***（这时代也不知道怎么了，我就发了两条消息，这货好像脑子有点问题了，随后拉黑。因此不建议上咸鱼买，毕竟想上m40卡的应当希望稳妥一点）。随后在淘宝找了一家1945包邮的，还送一条转接线。挺合适，单买电源转接线需要30左右。（其实我怀疑这两家是一家，因为都是上海的）。淘宝这个质保3个月。当个保险。我用的机器配置如下，都是王牌(快玩完了的)产品。附上大师截图。大师我们需要它，他是给我们装显卡驱动的。win10自己好像不太认。以下配置，绝对可以跑paddlepaddleGPU框架。除了U，别的都挺便宜，刚开始买来做NAS的奈何功耗太高40w了，搁置了，现在加上m40满血复活。整套下来5000千元。当然，内存大家没必要这么大。4千完全够。我这主要是普通台式机使用m40，大家完全可以用二手服务器。买完之后，我发现网上很多说m40这些系列必须专门的主板和u才能跑，所以，那心情大家都能猜到，已经做好，再买板子的准备的我。</p>
+<p>正文</p>
+<p>两天到货了，同时购买的电源，没有收到，买的600W电源，没办法，偏远小城市，快递缓慢。</p>
+<p>建议大家 买大于600w的电源，我原本一台没有独显的机器用的是300W电源，随机迫于心急之情，开始剪线，改电源。</p>
+<p>改电源线</p>
+<p>我原本的电源提供一个常规的显卡供电口，是6+2&#x3D;8的结构，3x12V 3xGND 2GND结构</p>
+<p>而Tesla系列根据知乎朋友的介绍和，我的实际观察，确定其为一排4x12V 一排4xGND的结构，也就是和我的主板CPU供电一致。所以，知乎这位朋友说，他一开始用常规显卡接口供电，将他的k80干坏电容问题，估计很真实，也是这个前车之鉴，我小心对比了电源结构，最终开始剪掉了老板送电源线和我自己那个300W电源的12V显卡口，（其实一开始，准备只剪我自己这个电源的显卡口，改一下线路来着，奈何我这90块钱的电源，那线 细的就像头发丝 让我直接干断了）。接完线，我还发现我用的那个接口保护的热缩管，给小了，无奈，只能用电胶带缠绕。</p>
 
 	
 	</div>
@@ -163,7 +230,22 @@
   <div class="row">
 	
 	
-		<p>水里加醇类物质可以防止导电<br>软管加弹簧防止弯折<br>液体生料带 ergo 5500陶瓷胶 密封胶 液态密封圈 堵漏 用油管防止老化<br>用水管变径器来改变管径 先用相同大小软管连接目标接头 再用变径器链接变径软管<br>气压计 肥皂水测试是否漏水<br>水泵串联并联增加流量和扬程<br>多水道设计增加导热效率<br>显卡mos管需要水冷散热 建议看显卡发热红外图其他未水冷的地方贴上散热脊片<br>主板本来有热管 风扇散热的地方 例如南北桥 供电 如果要拆除 必须替换成水冷 背面也应该加上水冷<br>氟化液沉浸式散热 可以用潜水泵抽水加冷排<br>压缩机28度以上防止冷凝水聚集<br>用水冷弹性弹簧喉夹来链接软管 有快拧接口的要有快拧头连接硬管或软管<br>用热缩编织管来避免磨损 用阻燃波纹管套住最外面<br>打磨弹簧套管的两端 避免戳穿软管<br>用全开放式机架 铝合金框架 方便主板背面 显卡背面冷却装置的安装<br>工业装甲带缠绕接头部分</p>
+		<p>水里加醇类物质可以防止导电</p>
+<p>软管加弹簧防止弯折</p>
+<p>液体生料带 ergo 5500陶瓷胶 密封胶 液态密封圈 堵漏 用油管防止老化</p>
+<p>用水管变径器来改变管径 先用相同大小软管连接目标接头 再用变径器链接变径软管</p>
+<p>气压计 肥皂水测试是否漏水</p>
+<p>水泵串联并联增加流量和扬程</p>
+<p>多水道设计增加导热效率</p>
+<p>显卡mos管需要水冷散热 建议看显卡发热红外图其他未水冷的地方贴上散热脊片</p>
+<p>主板本来有热管 风扇散热的地方 例如南北桥 供电 如果要拆除 必须替换成水冷 背面也应该加上水冷</p>
+<p>氟化液沉浸式散热 可以用潜水泵抽水加冷排</p>
+<p>压缩机28度以上防止冷凝水聚集</p>
+<p>用水冷弹性弹簧喉夹来链接软管 有快拧接口的要有快拧头连接硬管或软管</p>
+<p>用热缩编织管来避免磨损 用阻燃波纹管套住最外面</p>
+<p>打磨弹簧套管的两端 避免戳穿软管</p>
+<p>用全开放式机架 铝合金框架 方便主板背面 显卡背面冷却装置的安装</p>
+<p>工业装甲带缠绕接头部分</p>
 
 	
 	</div>
@@ -189,10 +271,631 @@
   <div class="row">
 	
 	
-		<h1 id="Userscript-and-info-data-collection"><a href="#Userscript-and-info-data-collection" class="headerlink" title="Userscript and info&#x2F;data collection"></a>Userscript and info&#x2F;data collection</h1><p><a target="_blank" rel="noopener" href="https://github.com/alist-org/alist">Alist</a> a filelist manager for all common cloud storage providers<br>for site collection list you could just search for it.<br>you can search for netdisk managers.<br>aliyun netdisk manager:<br><a target="_blank" rel="noopener" href="https://github.com/tickstep/aliyunpan">https://github.com/tickstep/aliyunpan</a><br>found a repo full of userscripts:<br><a target="_blank" rel="noopener" href="https://github.com/XIU2/UserScript">https://github.com/XIU2/UserScript</a><br>baidunetdisk cli go:<br><a target="_blank" rel="noopener" href="https://github.com/qjfoidnh/BaiduPCS-Go">https://github.com/qjfoidnh/BaiduPCS-Go</a><br>bittorrent trackers:<br><a target="_blank" rel="noopener" href="https://github.com/XIU2/TrackersListCollection">https://github.com/XIU2/TrackersListCollection</a><br>script list:<br>护眼模式 	简单有效的全网通用护眼模式、夜间模式、暗黑模式~ 	安装 | 备用<br>知乎 美化 	宽屏显示、暗黑模式、屏蔽首页活动、调整图片最大高度… 	安装 | 备用<br>知乎 增强 	移除登录弹窗、屏蔽首页视频、屏蔽用户、屏蔽关键词… 	安装 | 备用<br>V2EX 增强 	自动签到、链接转图片、自动无缝翻页、新标签页打开链… 	安装 | 备用<br>Github 增强 	高速下载 Git Clone&#x2F;SSH、Release、Raw、Code(ZIP) … 	安装 | 备用<br>Ping.Sx 增强 	一键复制所有 IP、清理 IP 链接、快捷回到顶部 … 	安装 | 备用<br>自动无缝翻页 * 	无缝衔接下一页内容 (瀑布流) 支持各论坛&#x2F;漫画&#x2F;百度&#x2F;谷歌等… 	安装 | 备用<br>3DM论坛 美化 	精简多余内容、样式优化 	安装 | 备用<br>3DM论坛 增强 	自动回复、自动无缝翻页、清理置顶帖子、自动滚至隐藏… 	安装 | 备用<br>蓝奏云网盘 增强 * 	右键显示菜单、直接下载文件、显示更多文件、自动密码… 	安装 | 备用<br>新标签页打开链接 * 	将网页中所有链接改为新标签页打开~ 	安装 | 备用<br>DuckDuckGo 增强 	屏蔽指定域名、修复图标加载、链接不携来源、快捷回到… 	安装 | 备用<br>吾爱破解论坛 美化 	精简多余内容、样式优化 	安装 | 备用<br>吾爱破解论坛 增强 	自动签到、自动无缝翻页、屏蔽导读悬赏贴 (最新发表页)… 	安装 | 备用<br>全球主机交流论坛 增强 * 	自动访问空间(22积分)、屏蔽用户、屏蔽关键词、自动翻… 	安装 | 备用<br>Steam 创意工坊大图 修复 	修复 Steam 创意工坊预览大图无法显示的问题 	安装 | 备用<br>HTML5 视频音频默认音量 	避免被 100% 音量吓一跳！且支持各网站分别记住音量… 	安装 | 备用<br>Google 翻译 美化 	精简多余内容、修复翻译结果溢出屏幕问题 	安装 | 备用<br>智友邦论坛 美化 	精简多余内容、样式优化、宽屏显示 	安装 | 备用<br>智友邦论坛 增强 	自动签到、自动回复、自动无缝翻页、快捷回到顶部、附… 	安装 | 备用<br>autopager:<br><a target="_blank" rel="noopener" href="https://greasyfork.org/en/scripts/419215-%E8%87%AA%E5%8A%A8%E6%97%A0%E7%BC%9D%E7%BF%BB%E9%A1%B5">https://greasyfork.org/en/scripts/419215-%E8%87%AA%E5%8A%A8%E6%97%A0%E7%BC%9D%E7%BF%BB%E9%A1%B5</a><br>autopager supported websites:<br>&lt; - - - - - - - - 网站 - - - - - - - - &gt; 	主页 	分类 	文章 	评论 	搜索 	&lt; - - - - - - - - - - - - - - - - - - - - - - - - - 备注 - - - - - - - - - - - - - - - - - - - - - - - - - &gt;<br>所有 Discuz! 论坛 	✔ 	✔ 	✔ 	- 	✔ 	国内常见 论坛系统 (如：吾爱破解、3DM 等)<br>所有 phpBB 论坛 	✔ 	✔ 	✔ 	- 	✔ 	国外常见 论坛系统<br>所有 XenForo 论坛 	✔ 	✔ 	✔ 	- 	✔ 	国外常见 论坛系统<br>所有 NexusPHP 论坛 	✔ 	✔ 	✔ 	- 	✔ 	国内常见 论坛系统 (BT &#x2F; PT 论坛)<br>所有 Flarum 论坛 	✔ 	✔ 	✔ 	- 	✔ 	简洁开源 论坛系统<br>所有 Xiuno 论坛 	✔ 	✔ 	✔ 	- 	✔ 	国内开源 论坛系统<br>所有 笔趣阁 网站 	- 	- 	✔ 	- 	- 	小说网站常用的 笔趣阁 模板<br>部分 Typecho 网站 	✔ 	✔ 	- 	- 	✔ 	适配一些常见的 Typecho 网站主题<br>部分 WordPress 网站 	✔ 	✔ 	- 	- 	✔ 	适配一些常见的 WordPress 网站主题<br>部分 在线影视模板 网站 	✔ 	✔ 	- 	- 	✔ 	适配一些常见的 在线影视 网站模板<br>部分 自带无缝翻页 网站 	✔ 	✔ 	- 	- 	✔ 	适配一些支持 [加载更多] 的网站 (为了避免误触，规则比较保守)</p>
+		<h1 id="Userscript-and-info-data-collection"><a href="#Userscript-and-info-data-collection" class="headerlink" title="Userscript and info&#x2F;data collection"></a>Userscript and info&#x2F;data collection</h1><p><a target="_blank" rel="noopener" href="https://github.com/alist-org/alist">Alist</a> a filelist manager for all common cloud storage providers</p>
+<p>for site collection list you could just search for it.</p>
+<p>you can search for netdisk managers.</p>
+<p>aliyun netdisk manager:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/tickstep/aliyunpan">https://github.com/tickstep/aliyunpan</a></p>
+<p>found a repo full of userscripts:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/XIU2/UserScript">https://github.com/XIU2/UserScript</a></p>
+<p>baidunetdisk cli go:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/qjfoidnh/BaiduPCS-Go">https://github.com/qjfoidnh/BaiduPCS-Go</a></p>
+<p>bittorrent trackers:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/XIU2/TrackersListCollection">https://github.com/XIU2/TrackersListCollection</a></p>
+<p>script list:</p>
+<p>护眼模式 	简单有效的全网通用护眼模式、夜间模式、暗黑模式~ 	安装 | 备用</p>
+<p>知乎 美化 	宽屏显示、暗黑模式、屏蔽首页活动、调整图片最大高度… 	安装 | 备用</p>
+<p>知乎 增强 	移除登录弹窗、屏蔽首页视频、屏蔽用户、屏蔽关键词… 	安装 | 备用</p>
+<p>V2EX 增强 	自动签到、链接转图片、自动无缝翻页、新标签页打开链… 	安装 | 备用</p>
+<p>Github 增强 	高速下载 Git Clone&#x2F;SSH、Release、Raw、Code(ZIP) … 	安装 | 备用</p>
+<p>Ping.Sx 增强 	一键复制所有 IP、清理 IP 链接、快捷回到顶部 … 	安装 | 备用</p>
+<p>自动无缝翻页 * 	无缝衔接下一页内容 (瀑布流) 支持各论坛&#x2F;漫画&#x2F;百度&#x2F;谷歌等… 	安装 | 备用</p>
+<p>3DM论坛 美化 	精简多余内容、样式优化 	安装 | 备用</p>
+<p>3DM论坛 增强 	自动回复、自动无缝翻页、清理置顶帖子、自动滚至隐藏… 	安装 | 备用</p>
+<p>蓝奏云网盘 增强 * 	右键显示菜单、直接下载文件、显示更多文件、自动密码… 	安装 | 备用</p>
+<p>新标签页打开链接 * 	将网页中所有链接改为新标签页打开~ 	安装 | 备用</p>
+<p>DuckDuckGo 增强 	屏蔽指定域名、修复图标加载、链接不携来源、快捷回到… 	安装 | 备用</p>
+<p>吾爱破解论坛 美化 	精简多余内容、样式优化 	安装 | 备用</p>
+<p>吾爱破解论坛 增强 	自动签到、自动无缝翻页、屏蔽导读悬赏贴 (最新发表页)… 	安装 | 备用</p>
+<p>全球主机交流论坛 增强 * 	自动访问空间(22积分)、屏蔽用户、屏蔽关键词、自动翻… 	安装 | 备用</p>
+<p>Steam 创意工坊大图 修复 	修复 Steam 创意工坊预览大图无法显示的问题 	安装 | 备用</p>
+<p>HTML5 视频音频默认音量 	避免被 100% 音量吓一跳！且支持各网站分别记住音量… 	安装 | 备用</p>
+<p>Google 翻译 美化 	精简多余内容、修复翻译结果溢出屏幕问题 	安装 | 备用</p>
+<p>智友邦论坛 美化 	精简多余内容、样式优化、宽屏显示 	安装 | 备用</p>
+<p>智友邦论坛 增强 	自动签到、自动回复、自动无缝翻页、快捷回到顶部、附… 	安装 | 备用</p>
+<p>autopager:</p>
+<p><a target="_blank" rel="noopener" href="https://greasyfork.org/en/scripts/419215-%E8%87%AA%E5%8A%A8%E6%97%A0%E7%BC%9D%E7%BF%BB%E9%A1%B5">https://greasyfork.org/en/scripts/419215-%E8%87%AA%E5%8A%A8%E6%97%A0%E7%BC%9D%E7%BF%BB%E9%A1%B5</a></p>
+<p>autopager supported websites:</p>
+<p>&lt; - - - - - - - - 网站 - - - - - - - - &gt; 	主页 	分类 	文章 	评论 	搜索 	&lt; - - - - - - - - - - - - - - - - - - - - - - - - - 备注 - - - - - - - - - - - - - - - - - - - - - - - - - &gt;</p>
+<p>所有 Discuz! 论坛 	✔ 	✔ 	✔ 	- 	✔ 	国内常见 论坛系统 (如：吾爱破解、3DM 等)</p>
+<p>所有 phpBB 论坛 	✔ 	✔ 	✔ 	- 	✔ 	国外常见 论坛系统</p>
+<p>所有 XenForo 论坛 	✔ 	✔ 	✔ 	- 	✔ 	国外常见 论坛系统</p>
+<p>所有 NexusPHP 论坛 	✔ 	✔ 	✔ 	- 	✔ 	国内常见 论坛系统 (BT &#x2F; PT 论坛)</p>
+<p>所有 Flarum 论坛 	✔ 	✔ 	✔ 	- 	✔ 	简洁开源 论坛系统</p>
+<p>所有 Xiuno 论坛 	✔ 	✔ 	✔ 	- 	✔ 	国内开源 论坛系统</p>
+<p>所有 笔趣阁 网站 	- 	- 	✔ 	- 	- 	小说网站常用的 笔趣阁 模板</p>
+<p>部分 Typecho 网站 	✔ 	✔ 	- 	- 	✔ 	适配一些常见的 Typecho 网站主题</p>
+<p>部分 WordPress 网站 	✔ 	✔ 	- 	- 	✔ 	适配一些常见的 WordPress 网站主题</p>
+<p>部分 在线影视模板 网站 	✔ 	✔ 	- 	- 	✔ 	适配一些常见的 在线影视 网站模板</p>
+<p>部分 自带无缝翻页 网站 	✔ 	✔ 	- 	- 	✔ 	适配一些支持 [加载更多] 的网站 (为了避免误触，规则比较保守)</p>
 <blockquote>
-<p>[搜索引擎] &lt;<br>谷歌 (Google) 	- 	- 	- 	- 	✔ 	(建议开启各搜索引擎设置中的 新标签页打开链接 选项，以提高使用体验)<br>必应 (Bing) 	- 	- 	- 	- 	✔ 	(微软的)<br>百度 	- 	- 	- 	- 	✔<br>搜狗 	- 	- 	- 	- 	✔<br>搜狗微信 	✔ 	✔ 	- 	- 	✔ 	(微信文章&#x2F;公众号搜索)<br>头条搜索 	- 	- 	- 	- 	✔<br>神马搜索 	- 	- 	- 	- 	✔<br>无追搜索 	- 	- 	- 	- 	✔<br>360 搜索 	- 	- 	- 	- 	✔<br>Searxng 	- 	- 	- 	- 	✔ 	(对各大搜索引擎的聚合搜索)<br>DuckDuckGo 	- 	- 	- 	- 	✔ 	(以上这几个均支持手机版)<br>Startpage 	- 	- 	- 	- 	✔<br>Yandex 	- 	- 	- 	- 	✔ 	(俄罗斯的，如果卡住说明弹验证码了，请刷新网页后继续…)<br>Yahoo 	- 	- 	- 	- 	✔ 	(包含 Yahoo JP 域名)<br>Qwant 	- 	- 	- 	- 	✔<br>Ecosia 	- 	- 	- 	- 	✔<br>Goobe 	- 	- 	- 	- 	✔ 	(代码相关)<br>Magi 	- 	- 	- 	- 	✔<br>轻搜 	- 	- 	- 	- 	✔<br>ASK 	- 	- 	- 	- 	✔<br>[社区] &lt;<br>贴吧 	- 	✔ 	✔ 	- 	✔ 	(如要发帖请点击右侧悬浮 [发帖] 按钮 或 点击左下角页码暂停翻页)<br>豆瓣 	- 	✔ 	✔ 	✔ 	- 	(短评、影评、评论、小组帖子 等等…)<br>知乎 	- 	✔ 	- 	- 	- 	(用户主页下的回答、文章 与 收藏夹页)<br>微博 	- 	- 	- 	✔ 	-<br>天涯 	- 	✔ 	✔ 	- 	-<br>虎扑 	- 	✔ 	✔ 	- 	-<br>NGA 	- 	✔ 	✔ 	- 	- 	(玩家相关)<br>V2EX 	✔ 	✔ 	- 	- 	-<br>煎蛋网 	✔ 	✔ 	- 	✔ 	-<br>水木社区 	- 	✔ 	✔ 	- 	- 	(清华论坛)<br>龙的天空 	- 	✔ 	✔ 	- 	- 	(小说相关)<br>看雪论坛 	- 	✔ 	- 	- 	- 	(安全相关)<br>番组计划 (Bangumi) 	- 	✔ 	- 	- 	- 	(二次元版豆瓣？)<br>懂车帝论坛 	- 	✔ 	- 	- 	-<br>宽带山论坛 	✔ 	✔ 	✔ 	- 	- 	(上海地方论坛)<br>篱笆网论坛 	✔ 	✔ 	✔ 	- 	✔ 	(上海地方论坛)<br>淘股吧论坛 	✔ 	✔ 	✔ 	- 	-<br>芥子空间论坛 	- 	✔ 	- 	- 	- 	(手游相关)<br>LowEndTalk 	✔ 	✔ 	✔ 	- 	- 	(海外服务器相关)<br>RuTracker 	- 	✔ 	✔ 	- 	- 	(俄罗斯学习资源论坛)<br>A 岛 	- 	✔ 	✔ 	- 	-<br>B 站 (Bilibili) 	- 	- 	- 	- 	✔<br>[设计&#x2F;素材] &lt;<br>Pixiv 	- 	✔ 	- 	- 	✔ 	(插画)<br>Vilipix 	- 	✔ 	- 	- 	✔ 	(内容来自 Pixiv，下同 ⤵)<br>Pixivision 	- 	✔ 	- 	- 	✔<br>站酷 (ZCOOL) 	✔ 	- 	- 	- 	- 	(图片&#x2F;设计素材，下同 ⤵)<br>千图网 	- 	✔ 	- 	- 	✔<br>千库网 	- 	✔ 	- 	- 	✔<br>昵图网 	- 	✔ 	- 	- 	✔<br>众图网 	- 	✔ 	- 	- 	✔<br>我图网 	- 	✔ 	- 	- 	✔<br>包图网 	- 	✔ 	- 	- 	✔<br>图怪兽 	- 	✔ 	- 	- 	✔<br>Pixabay 	- 	✔ 	- 	- 	✔<br>搜图神器 	✔ 	- 	- 	- 	✔<br>素材中国 	- 	✔ 	- 	- 	✔<br>iconfont 	- 	- 	- 	- 	✔ 	(图标，下同 ⤵)<br>IconArchive 	- 	- 	- 	- 	✔<br>Mixkit 	- 	✔ 	- 	- 	✔ 	(视频&#x2F;音乐素材)<br>普象网 	✔ 	✔ 	- 	- 	✔ 	(产品设计，下同 ⤵)<br>学犀牛 	✔ 	✔ 	✔ 	- 	✔<br>欧模网 	- 	✔ 	- 	- 	✔ 	(模型素材，下同 ⤵)<br>下得乐 	- 	✔ 	- 	- 	✔<br>[游戏] &lt;<br>3DM 	- 	✔ 	✔ 	- 	- 	(包括论坛，下同 ⤵)<br>游侠网 	- 	✔ 	✔ 	- 	-<br>游民星空 	- 	- 	✔ 	- 	-<br>3DM MOD 	- 	✔ 	- 	- 	✔ 	(游戏 MOD，下同 ⤵)<br>CurseForge 	- 	✔ 	- 	- 	✔<br>NexusMods 	- 	✔ 	- 	- 	✔<br>Steam 创意工坊 	✔ 	✔ 	- 	- 	✔ 	(创意工坊 MOD 文件下载1&#x2F;下载2)<br>Steam 活动评论 	- 	- 	- 	✔ 	- 	(商家动态&#x2F;活动下的评论区)<br>小霸王其乐无穷 	✔ 	✔ 	- 	- 	✔<br>Switch520 	✔ 	✔ 	- 	- 	✔<br>CS.RIN.RU 	- 	✔ 	✔ 	- 	✔ 	(国外的游戏分享网站，下同 ⤵)<br>Byrutor 	✔ 	✔ 	- 	- 	-<br>Crackhub213 	✔ 	✔ 	- 	- 	✔<br>FitGirl Repacks 	✔ 	✔ 	- 	- 	✔<br>Masquerade Repacks 	✔ 	✔ 	- 	- 	✔<br>[影视&#x2F;在线] &lt;<br>茶杯狐 	- 	- 	✔ 	- 	✔ 	(以下部分网站同时包含 BT&#x2F;动漫)<br>NO 视频 	- 	✔ 	- 	- 	✔<br>低端影视 	✔ 	✔ 	- 	- 	✔<br>奈菲影视 	- 	✔ 	- 	- 	✔<br>在线之家 	- 	✔ 	- 	- 	✔<br>片吧影院 	- 	✔ 	- 	- 	✔<br>嗯哩嗯哩 	- 	✔ 	- 	- 	✔<br>91 美剧网 	- 	✔ 	- 	- 	✔<br>真不卡影院 	- 	✔ 	- 	- 	✔<br>ZzzFun 动漫 	- 	✔ 	- 	- 	✔ 	(仅动漫，下同 ⤵)<br>吐槽弹幕网 	- 	✔ 	- 	- 	✔<br>樱花动漫 	- 	✔ 	- 	- 	✔<br>怡萱动漫 	- 	✔ 	- 	- 	✔<br>妮可动漫 	- 	✔ 	- 	- 	✔<br>漫岛动漫 	- 	✔ 	- 	- 	✔<br>AGE 动漫 	- 	✔ 	- 	- 	✔<br>233 动漫 	- 	✔ 	- 	- 	✔<br>Anime1 	✔ 	- 	- 	- 	✔<br>[BT&#x2F;下载] &lt;<br>音范丝 	✔ 	✔ 	- 	- 	✔<br>片源网 	- 	- 	- 	- 	✔<br>磁力狗 	- 	- 	- 	- 	✔<br>雨花阁 	- 	- 	- 	- 	✔<br>BT 之家 	✔ 	✔ 	- 	- 	✔ 	(匹配所有包含 btbtt 的域名)<br>BD 影视 	- 	✔ 	- 	- 	✔<br>高清电台 	✔ 	✔ 	- 	- 	✔<br>爱恋动漫 	✔ 	✔ 	- 	- 	✔ 	(动漫，下同 ⤵)<br>末日动漫 	✔ 	✔ 	- 	- 	✔ 	(包括 国际站)<br>动漫花园 	✔ 	✔ 	- 	- 	✔ 	(包括 镜像站)<br>简单动漫 	✔ 	✔ 	- 	- 	✔<br>零度动漫 	✔ 	✔ 	- 	- 	✔<br>ACG.RIP 	✔ 	✔ 	- 	- 	✔<br>萌番组 	✔ 	✔ 	- 	- 	✔ 	(包括 Lite 版)<br>MioBT 	✔ 	✔ 	- 	- 	✔<br>SkrBT 	✔ 	✔ 	- 	- 	✔ 	(匹配所有包含 skrbt 的域名)<br>Nyaa 	✔ 	- 	- 	- 	✔<br>YTS 	- 	✔ 	- 	- 	✔ 	(这个 + 下面这两个算是我最常用的了<del>)<br>1337x 	✔ 	✔ 	- 	- 	✔ 	(包括 镜像站)<br>RARBG 	✔ 	✔ 	- 	- 	✔ 	(包括 镜像站)<br>Zooqle 	- 	✔ 	- 	- 	✔<br>Kickass 	- 	✔ 	- 	- 	✔<br>WebHD 	✔ 	- 	- 	- 	✔ 	(与 SubHD 字幕网站配套)<br>MINI4K 	- 	✔ 	- 	- 	✔ 	(与 A4k 字幕网站配套)<br>Trackerslist.com 	- 	- 	- 	- 	- 	(分享我自制自用的 Tracker 列表，多少会提高点 BT 下载速度</del> 12k+⭐)<br>[字幕] &lt;<br>A4k 	✔ 	✔ 	- 	- 	✔<br>SubHD 	- 	✔ 	- 	- 	✔<br>伪射手网 	- 	✔ 	- 	- 	✔<br>点点字幕 	- 	- 	- 	- 	✔<br>中文字幕网 	- 	✔ 	- 	- 	✔<br>字幕库 	✔ 	✔ 	- 	- 	✔<br>[漫画] &lt;<br>漫本 	- 	✔ 	✔ 	- 	-<br>好漫 6 	- 	✔ 	✔ 	- 	✔<br>6 漫画 	- 	✔ 	✔ 	- 	-<br>动漫狂 	- 	✔ 	✔ 	- 	✔ 	(部分早期章节，因网站问题而无法自动衔接下一章)<br>动漫啦 	- 	✔ 	✔ 	- 	✔<br>漫漫聚 	- 	- 	✔ 	- 	-<br>漫画猫 	- 	✔ 	✔ 	- 	✔<br>漫画皮 	- 	✔ 	✔ 	- 	-<br>漫画人 	- 	- 	✔ 	- 	-<br>漫画柜 	- 	✔ 	✔ 	- 	✔<br>36漫画 	- 	✔ 	✔ 	- 	✔<br>爱漫画 	- 	✔ 	✔ 	- 	✔<br>漫画 DB 	- 	✔ 	✔ 	- 	✔<br>HiComic (嗨漫画) 	- 	- 	✔ 	- 	-<br>动漫之家 (主站) 	- 	✔ 	✔ 	- 	✔ 	(这网站两个域名内容不一样 ⤵)<br>动漫之家 (日漫) 	- 	✔ 	✔ 	- 	✔<br>阿狸漫画 	- 	✔ 	✔ 	- 	✔<br>快岸漫画 	- 	✔ 	✔ 	- 	✔<br>动漫之家 	- 	- 	✔ 	- 	-<br>动漫戏说 	- 	✔ 	✔ 	- 	-<br>优酷漫画 	- 	✔ 	✔ 	- 	✔<br>拷贝漫画 	- 	✔ 	✔ 	- 	-<br>木马漫画 	- 	✔ 	✔ 	- 	-<br>漫画星球 	- 	✔ 	✔ 	- 	-<br>风之动漫 	- 	- 	✔ 	- 	-<br>包子漫画 	- 	- 	✔ 	- 	-<br>乐语漫画 	- 	✔ 	✔ 	- 	✔<br>新新漫画 	- 	✔ 	✔ 	- 	✔<br>188漫画网 	- 	- 	✔ 	- 	-<br>古风漫画网 	- 	✔ 	✔ 	- 	✔<br>砂之船动漫家 	- 	✔ 	✔ 	- 	✔<br>Mangabz 漫画 	- 	✔ 	✔ 	- 	✔<br>Xmanhua 漫画 	- 	✔ 	✔ 	- 	✔<br>COCOMANGA 漫画 	- 	✔ 	✔ 	- 	✔<br>[小说] &lt;<br>起点中文 	- 	✔ 	✔ 	- 	-<br>七猫中文 	- 	- 	✔ 	- 	-<br>知轩藏书 	- 	✔ 	- 	- 	- 	(仅下载)<br>宝书网 	- 	✔ 	- 	- 	- 	(仅下载)<br>御书网 	- 	✔ 	✔ 	- 	-<br>owLook 	- 	- 	✔ 	- 	- 	(支持在线阅读的小说搜索引擎)<br>铅笔小说 	- 	✔ 	✔ 	- 	-<br>无错小说网 	- 	✔ 	✔ 	- 	✔<br>读书族小说网 	- 	- 	✔ 	- 	-<br>哔哩轻小说 	- 	✔ 	✔ 	- 	- 	(包括 手机版，轻小说，下同 ⤵)<br>话本小说网 	- 	- 	✔ 	- 	-<br>轻之文库 	- 	✔ 	✔ 	- 	✔<br>Archive of OurOwn 	- 	✔ 	✔ 	- 	✔<br>精品书源 	- 	- 	- 	- 	- 	(分享我自制自用的「阅读」APP 精品书源 1.6k+⭐)<br>[软件分享] &lt;<br>蓝鲨 	✔ 	✔ 	- 	- 	✔<br>不死鸟 	✔ 	✔ 	- 	- 	✔<br>分享者 	✔ 	✔ 	- 	- 	✔<br>扩展迷 	- 	✔ 	- 	- 	- 	(浏览器扩展)<br>MacWK 	- 	✔ 	- 	- 	✔ 	(MAC 相关)<br>小众软件 	✔ 	✔ 	- 	- 	✔<br>乐软博客 	✔ 	✔ 	- 	- 	✔<br>果核剥壳 	✔ 	✔ 	- 	- 	✔<br>六音软件 	✔ 	✔ 	- 	- 	✔<br>反斗软件 	✔ 	✔ 	- 	- 	✔<br>微当下载 	✔ 	✔ 	- 	- 	✔<br>大眼仔旭 	- 	✔ 	- 	- 	✔<br>423Down 	✔ 	✔ 	- 	✔ 	✔<br>发烧友绿软 	✔ 	✔ 	- 	- 	✔<br>异次元软件 	✔ 	✔ 	- 	✔ 	✔<br>悪魔の小站 	✔ 	✔ 	- 	- 	✔<br>老殁殁漂遥 	✔ 	✔ 	- 	- 	✔<br>腾龙工作室 	✔ 	✔ 	- 	- 	-<br>异星软件空间 	✔ 	✔ 	- 	- 	✔<br>Nite07 的小窝 	✔ 	- 	- 	- 	-<br>Sordum 	✔ 	✔ 	- 	- 	✔ 	(国外的软件分享网站，下同 ⤵)<br>Winaero 	- 	✔ 	- 	- 	-<br>LRepacks 	✔ 	✔ 	- 	- 	-<br>DlAndroid 	- 	✔ 	- 	- 	✔ 	(国外安卓 App 相关)<br>Winhelponline 	✔ 	✔ 	- 	- 	-<br>WindowsLatest 	✔ 	✔ 	- 	- 	-<br>TheWindowsClub 	✔ 	✔ 	- 	- 	-<br>[学术] &lt;<br>Wiley Online Library 	- 	- 	- 	- 	✔<br>ACS (Publications) 	- 	- 	- 	- 	✔<br>Library Genesis 	- 	- 	- 	- 	✔ 	(匹配所有包含 libgen 的域名)<br>ScienceDirect 	- 	- 	- 	- 	✔<br>Z-Library 	- 	- 	- 	- 	✔ 	(包括 镜像站)<br>PubMed 	- 	- 	- 	- 	✔<br>X-MOL 	- 	✔ 	- 	- 	✔<br>维普网 	- 	- 	- 	- 	✔<br>科研通 	- 	✔ 	✔ 	- 	✔<br>酷科研 	- 	- 	✔ 	- 	-<br>小木虫 	- 	✔ 	✔ 	- 	✔<br>百度学术 	- 	✔ 	- 	- 	✔<br>必应学术 (Bing) 	- 	- 	- 	- 	✔<br>谷歌学术 (Google) 	- 	- 	- 	- 	✔ 	包括 镜像站1 &#x2F; 2<br>国家自然科学基金 	- 	- 	✔ 	- 	-<br>[编程&#x2F;技术] &lt;<br>StackOverflow 	- 	✔ 	- 	- 	✔ 	技术问答<br>SegmentFault 	- 	✔ 	- 	- 	✔<br>W3Cschool 	- 	✔ 	- 	- 	- 	编程教程<br>W3school 	- 	✔ 	- 	- 	-<br>菜鸟教程 	- 	✔ 	- 	- 	-<br>博客园 	✔ 	✔ 	- 	- 	✔ 	技术博客<br>51CTO 	✔ 	✔ 	- 	- 	✔<br>Gitee 	- 	✔ 	✔ 	✔ 	✔ 	开源分享<br>Github 	✔ 	✔ 	✔ 	✔ 	✔ 	(建议搭配我另一个 Github 增强 - 高速下载 油猴脚本<del>)<br>[资讯&#x2F;科技] &lt;<br>ScienceAlert 	✔ 	✔ 	- 	- 	-<br>果壳网 	✔ 	✔ 	- 	✔ 	-<br>蓝点网 	- 	✔ 	- 	- 	-<br>可能吧 	✔ 	✔ 	- 	- 	-<br>超能网 	✔ 	✔ 	- 	- 	-<br>IT之家 	- 	✔ 	- 	- 	-<br>36 氪 	- 	✔ 	- 	- 	-<br>[其他] &lt;<br>IMDb 	- 	✔ 	- 	- 	✔<br>烂番茄 	- 	✔ 	- 	- 	✔<br>致美化 	- 	✔ 	- 	- 	- 	系统美化<br>蓝奏云 	- 	✔ 	- 	- 	- 	网盘 (后台及分享链接列表)<br>新片场 	- 	✔ 	- 	- 	- 	视频短片<br>wikiHow 	- 	✔ 	- 	- 	✔ 	指南<br>AfreecaTV 	✔ 	✔ 	- 	- 	- 	直播 (大都是韩国人)<br>GreasyFork 	✔ 	✔ 	- 	✔ 	✔ 	本站<br>UserScript 	- 	- 	- 	- 	✔ 	油猴脚本的聚合搜索 (Tampermonkey 作者做的)<br>UserStyles 	✔ 	✔ 	- 	✔ 	✔<br>Quicker 	✔ 	✔ 	- 	✔ 	✔<br>Xposed 	- 	✔ 	- 	- 	✔<br>书签地球 	✔ 	- 	- 	- 	✔<br>什么值得买 	- 	✔ 	- 	- 	✔<br>没得比导购 	- 	✔ 	- 	- 	✔<br>叽哩叽哩日报 	- 	✔ 	- 	- 	-<br>彼岸图网 	✔ 	✔ 	- 	- 	- 	壁纸 (下同 ⤵)<br>必应壁纸 	✔ 	✔ 	- 	- 	-<br>动漫壁纸 	- 	✔ 	- 	- 	✔<br>动漫壁纸2 	- 	✔ 	- 	- 	✔<br>HDQwalls 	✔ 	✔ 	- 	- 	✔<br>Nastol 	✔ 	✔ 	- 	- 	✔<br>以上仅为一小部分… 						持续添加中，欢迎申请</del><br>potential useful websites:<br><a target="_blank" rel="noopener" href="https://greasyfork.org/en/users/sign_in?return_to=/en/sc%E2%80%A6%25E6%2597%25A0%25E7%25BC%259D%25E7%25BF%25BB%25E9%25A1%25B5">https://greasyfork.org/en/users/sign_in?return_to=%2Fen%2Fsc…%25E6%2597%25A0%25E7%25BC%259D%25E7%25BF%25BB%25E9%25A1%25B5</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://greasyfork.org/scripts/419215-%E8%87%AA%E5%8A%A8%E6%%E2%80%A68%87%AA%E5%8A%A8%E6%97%A0%E7%BC%9D%E7%BF%BB%E9%A1%B5.user.js">https://greasyfork.org/scripts/419215-%E8%87%AA%E5%8A%A8%E6%…8%87%AA%E5%8A%A8%E6%97%A0%E7%BC%9D%E7%BF%BB%E9%A1%B5.user.js</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://greasyfork.org/en/help/installing-user-scripts">https://greasyfork.org/en/help/installing-user-scripts</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://greasyfork.org/scripts/419081-%E7%9F%A5%E4%B9%8E%E5%%E2%80%A6E%E5%BC%BA/code/%E7%9F%A5%E4%B9%8E%E5%A2%9E%E5%BC%BA.user.js">https://greasyfork.org/scripts/419081-%E7%9F%A5%E4%B9%8E%E5%…E%E5%BC%BA/code/%E7%9F%A5%E4%B9%8E%E5%A2%9E%E5%BC%BA.user.js</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://github.com/XIU2/UserScript">https://github.com/XIU2/UserScript</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://greasyfork.org/en/scripts/419215-%E8%87%AA%E5%8A%A8%E6%97%A0%E7%BC%9D%E7%BF%BB%E9%A1%B5/feedback#post-discussion">https://greasyfork.org/en/scripts/419215-%E8%87%AA%E5%8A%A8%E6%97%A0%E7%BC%9D%E7%BF%BB%E9%A1%B5/feedback#post-discussion</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://greasyfork.org/en/reports/new?item_class=script&item_id=419215">https://greasyfork.org/en/reports/new?item_class=script&amp;item_id=419215</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.jsdelivr.com/package/gh/XIU2/UserScript">https://www.jsdelivr.com/package/gh/XIU2/UserScript</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.discuz.net/">https://www.discuz.net/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.phpbb.com/community/">https://www.phpbb.com/community/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://xenforo.com/community/">https://xenforo.com/community/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://demo.nexusphp.org/">https://demo.nexusphp.org/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://discuss.flarum.org/">https://discuss.flarum.org/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.axiuno.com/">https://www.axiuno.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.google.com/">https://www.google.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://cn.bing.com/">https://cn.bing.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.baidu.com/">https://www.baidu.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.sogou.com/">https://www.sogou.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://weixin.sogou.com/">https://weixin.sogou.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.toutiao.com/">https://www.toutiao.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://m.sm.cn/">https://m.sm.cn/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.wuzhuiso.com/">https://www.wuzhuiso.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.so.com/">https://www.so.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://searx.owlook.com.cn/">https://searx.owlook.com.cn/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://duckduckgo.com/">https://duckduckgo.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.startpage.com/">https://www.startpage.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://yandex.com/">https://yandex.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://search.yahoo.com/">https://search.yahoo.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.qwant.com/">https://www.qwant.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.ecosia.org/">https://www.ecosia.org/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://goobe.io/">https://goobe.io/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://magi.com/">https://magi.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.qingsearch.com/">https://www.qingsearch.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.ask.com/">https://www.ask.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://tieba.baidu.com/">https://tieba.baidu.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://movie.douban.com/">https://movie.douban.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.zhihu.com/">https://www.zhihu.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://weibo.com/">https://weibo.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://bbs.tianya.cn/">https://bbs.tianya.cn/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://bbs.hupu.com/">https://bbs.hupu.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://bbs.nga.cn/">https://bbs.nga.cn/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://v2ex.com/">https://v2ex.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://jandan.net/">https://jandan.net/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.mysmth.net/">https://www.mysmth.net/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.lkong.com/">https://www.lkong.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://bbs.pediy.com/">https://bbs.pediy.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://bangumi.tv/">https://bangumi.tv/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.dongchedi.com/car_fans_community">https://www.dongchedi.com/car_fans_community</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://club.kdslife.com/">https://club.kdslife.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.libaclub.com/">https://www.libaclub.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.taoguba.com.cn/">https://www.taoguba.com.cn/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://bbs.lieyou888.com/">https://bbs.lieyou888.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://lowendtalk.com/">https://lowendtalk.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://rutracker.org/">https://rutracker.org/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://adnmb3.com/">https://adnmb3.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://search.bilibili.com/">https://search.bilibili.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.pixiv.net/">https://www.pixiv.net/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.vilipix.com/">https://www.vilipix.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.pixivision.net/">https://www.pixivision.net/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.zcool.com.cn/">https://www.zcool.com.cn/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.58pic.com/">https://www.58pic.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://588ku.com/">https://588ku.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.nipic.com/">https://www.nipic.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.ztupic.com/">https://www.ztupic.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.ooopic.com/">https://www.ooopic.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://ibaotu.com/">https://ibaotu.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://818ps.com/">https://818ps.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://pixabay.com/">https://pixabay.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.logosc.cn/so/">https://www.logosc.cn/so/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="http://www.sccnn.com/">http://www.sccnn.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.iconfont.cn/">https://www.iconfont.cn/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://iconarchive.com/">https://iconarchive.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://mixkit.co/">https://mixkit.co/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.puxiang.com/">https://www.puxiang.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.xuexiniu.com/">https://www.xuexiniu.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.om.cn/">https://www.om.cn/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="http://www.xiadele.com/">http://www.xiadele.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.3dmgame.com/">https://www.3dmgame.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.ali213.net/">https://www.ali213.net/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.gamersky.com/">https://www.gamersky.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://mod.3dmgame.com/">https://mod.3dmgame.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.curseforge.com/">https://www.curseforge.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.nexusmods.com/">https://www.nexusmods.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://steamcommunity.com/workshop/browse/?appid=550&browsesort=trend&section=readytouseitems">https://steamcommunity.com/workshop/browse/?appid=550&amp;browsesort=trend&amp;section=readytouseitems</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://steamworkshopdownloader.io/">https://steamworkshopdownloader.io/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="http://steamworkshop.download/">http://steamworkshop.download/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://steamcommunity.com/">https://steamcommunity.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.yikm.net/">https://www.yikm.net/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://switch520.com/">https://switch520.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://cs.rin.ru/forum/viewforum.php?f=10">https://cs.rin.ru/forum/viewforum.php?f=10</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://byrut.org/">https://byrut.org/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://crackhub.site/">https://crackhub.site/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://fitgirl-repacks.site/">https://fitgirl-repacks.site/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://masquerade.site/">https://masquerade.site/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.cupfox.app/">https://www.cupfox.app/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.novipnoad.com/">https://www.novipnoad.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://ddrk.me/">https://ddrk.me/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.nfmovies.com/">https://www.nfmovies.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.zxzjtv.com/">https://www.zxzjtv.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.pianba.tv/">https://www.pianba.tv/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://enlienli.com/">https://enlienli.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://mjw21.com/">https://mjw21.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.zhenbuka3.com/">https://www.zhenbuka3.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="http://www.zzzfun.com/">http://www.zzzfun.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.tucao.one/">https://www.tucao.one/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="http://www.imomoe.live/">http://www.imomoe.live/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="http://www.yxdm.li/">http://www.yxdm.li/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="http://www.nicotv.me/">http://www.nicotv.me/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.mandao.tv/">https://www.mandao.tv/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.agemys.com/">https://www.agemys.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.dm233.cc/">https://www.dm233.cc/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://anime1.me/">https://anime1.me/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.yinfans.me/">https://www.yinfans.me/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://pianyuan.org/">https://pianyuan.org/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="http://clg.im/">http://clg.im/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.yuhuage52.xyz/">https://www.yuhuage52.xyz/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://btbtt20.com/">https://btbtt20.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.bd2020.com/">https://www.bd2020.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://gaoqing.fm/">https://gaoqing.fm/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.kisssub.org/">https://www.kisssub.org/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://share.acgnx.net/">https://share.acgnx.net/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.acgnx.se/">https://www.acgnx.se/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://share.dmhy.org/">https://share.dmhy.org/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://dmhy.anoneko.com/">https://dmhy.anoneko.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.36dm.club/">https://www.36dm.club/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://bt.acgzero.com/">https://bt.acgzero.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://acg.rip/">https://acg.rip/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://bangumi.moe/">https://bangumi.moe/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://banguami.moe/lite">https://banguami.moe/lite</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://miobt.com/">https://miobt.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://skrbtga.xyz/">https://skrbtga.xyz/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://nyaa.si/">https://nyaa.si/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://yts.mx/">https://yts.mx/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://1337x.to/">https://1337x.to/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://rarbg.to/">https://rarbg.to/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://zooqle.com/">https://zooqle.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://kickasss.to/">https://kickasss.to/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://webhd.cc/">https://webhd.cc/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.mini4k.com/">https://www.mini4k.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://trackerslist.com/">https://trackerslist.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.a4k.net/">https://www.a4k.net/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://subhd.tv/">https://subhd.tv/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://assrt.net/">https://assrt.net/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="http://www.ddzimu.com/">http://www.ddzimu.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://cn.zimuzimu.com/">https://cn.zimuzimu.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://zimuku.org/">https://zimuku.org/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.manben.com/">https://www.manben.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.haoman6.com/">https://www.haoman6.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="http://www.sixmh7.com/">http://www.sixmh7.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.cartoonmad.com/">https://www.cartoonmad.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.dongman.la/">https://www.dongman.la/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="http://www.manmanju.com/">http://www.manmanju.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.maofly.com/">https://www.maofly.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.manhuapi.com/">https://www.manhuapi.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.manhuaren.com/">https://www.manhuaren.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.mhgui.com/">https://www.mhgui.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.36manga.com/">https://www.36manga.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.imanhuaw.net/">https://www.imanhuaw.net/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.manhuadb.com/">https://www.manhuadb.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.hicomic.net/">https://www.hicomic.net/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.dmzj.com/">https://www.dmzj.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://manhua.dmzj.com/">https://manhua.dmzj.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="http://www.alimanhua.com/">http://www.alimanhua.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.kanbook.net/">https://www.kanbook.net/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://manhua.dmzj.com/">https://manhua.dmzj.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://comic.acgn.cc/">https://comic.acgn.cc/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.ykmh.com/">https://www.ykmh.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://copymanga.net/">https://copymanga.net/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.omyschool.com/">https://www.omyschool.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="http://www.mhxqiu1.com/">http://www.mhxqiu1.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="http://manhua.fffdm.com/">http://manhua.fffdm.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.webmota.com/">https://www.webmota.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.leyuman.com/">https://www.leyuman.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.77mh.xyz/">https://www.77mh.xyz/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="http://www.ccshwy.com/all/">http://www.ccshwy.com/all/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.gufengmh9.com/">https://www.gufengmh9.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.szcdmj.com/">https://www.szcdmj.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://mangabz.com/">https://mangabz.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.xmanhua.com/">https://www.xmanhua.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.cocomanga.com/">https://www.cocomanga.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.qidian.com/">https://www.qidian.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.qimao.com/">https://www.qimao.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="http://zxcs.me/">http://zxcs.me/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.baoshuu.com/">https://www.baoshuu.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.yushubo.com/">https://www.yushubo.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.owlook.com.cn/">https://www.owlook.com.cn/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.23qb.com/">https://www.23qb.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.xineyby.com/">https://www.xineyby.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://m.xiaoshuo77.net/">https://m.xiaoshuo77.net/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.linovelib.com/">https://www.linovelib.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://w.linovelib.com/">https://w.linovelib.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.ihuaben.com/">https://www.ihuaben.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.linovel.net/">https://www.linovel.net/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://archiveofourown.org/">https://archiveofourown.org/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://yuedu.xiu2.xyz/">https://yuedu.xiu2.xyz/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.lan-sha.com/">https://www.lan-sha.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://iao.su/">https://iao.su/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.sharerw.com/">https://www.sharerw.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.extfans.com/">https://www.extfans.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.macwk.com/">https://www.macwk.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.appinn.com/">https://www.appinn.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.isharepc.com/">https://www.isharepc.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.ghxi.com/">https://www.ghxi.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.6yit.com/">https://www.6yit.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="http://www.apprcn.com/">http://www.apprcn.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.weidown.com/">https://www.weidown.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.dayanzai.me/">https://www.dayanzai.me/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.423down.com/">https://www.423down.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://fsylr.com/">https://fsylr.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.iplaysoft.com/">https://www.iplaysoft.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="http://www.mubolin.cn:99/">http://www.mubolin.cn:99/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.mpyit.com/">https://www.mpyit.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.tenlonstudio.com/">https://www.tenlonstudio.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.yxssp.com/">https://www.yxssp.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.nite07.com/">https://www.nite07.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.sordum.org/">https://www.sordum.org/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://winaero.com/">https://winaero.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://lrepacks.net/">https://lrepacks.net/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://dlandroid.com/">https://dlandroid.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.winhelponline.com/blog/">https://www.winhelponline.com/blog/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.windowslatest.com/">https://www.windowslatest.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.thewindowsclub.com/">https://www.thewindowsclub.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/">https://onlinelibrary.wiley.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://pubs.acs.org/">https://pubs.acs.org/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://libgen.rs/">https://libgen.rs/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/">https://www.sciencedirect.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://z-lib.org/">https://z-lib.org/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://pubmed.ncbi.nlm.nih.gov/">https://pubmed.ncbi.nlm.nih.gov/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.x-mol.com/">https://www.x-mol.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="http://www.cqvip.com/">http://www.cqvip.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.ablesci.com/">https://www.ablesci.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.coolkeyan.com/">https://www.coolkeyan.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="http://muchong.com/bbs">http://muchong.com/bbs</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://xueshu.baidu.com/">https://xueshu.baidu.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://cn.bing.com/academic">https://cn.bing.com/academic</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://scholar.google.com/">https://scholar.google.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://sc.panda321.com/">https://sc.panda321.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://xs2.dailyheadlines.cc/">https://xs2.dailyheadlines.cc/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://output.nsfc.gov.cn/">https://output.nsfc.gov.cn/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://stackoverflow.com/">https://stackoverflow.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://segmentfault.com/">https://segmentfault.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.w3cschool.cn/">https://www.w3cschool.cn/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/">https://www.w3school.com.cn/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.runoob.com/">https://www.runoob.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/">https://www.cnblogs.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.51cto.com/">https://www.51cto.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://gitee.com/">https://gitee.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.sciencealert.com/">https://www.sciencealert.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.guokr.com/">https://www.guokr.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.landian.vip/">https://www.landian.vip/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://kenengba.com/">https://kenengba.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.expreview.com/">https://www.expreview.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.ithome.com/">https://www.ithome.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://36kr.com/">https://36kr.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.imdb.com/">https://www.imdb.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.rottentomatoes.com/">https://www.rottentomatoes.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://zhutix.com/">https://zhutix.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://lanzou.com/">https://lanzou.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.xinpianchang.com/">https://www.xinpianchang.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://zh.wikihow.com/">https://zh.wikihow.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.afreecatv.com/">https://www.afreecatv.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.userscript.zone/">https://www.userscript.zone/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://userstyles.world/">https://userstyles.world/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://getquicker.net/">https://getquicker.net/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://repo.xposed.info/module-overview">https://repo.xposed.info/module-overview</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.bookmarkearth.com/">https://www.bookmarkearth.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.smzdm.com/">https://www.smzdm.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.meidebi.com/">https://www.meidebi.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.jiligamefun.com/">https://www.jiligamefun.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://pic.netbian.com/">https://pic.netbian.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://bing.ioliu.cn/">https://bing.ioliu.cn/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://konachan.net/">https://konachan.net/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://anime-pictures.net/">https://anime-pictures.net/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://hdqwalls.com/">https://hdqwalls.com/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.nastol.com.ua/">https://www.nastol.com.ua/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://www.snapmail.cc/">https://www.snapmail.cc/</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://pan.lanzouo.com/b073l8d1e">https://pan.lanzouo.com/b073l8d1e</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd?hl=zh-CN">https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd?hl=zh-CN</a> debugger eval code:1:60<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/276027099">https://zhuanlan.zhihu.com/p/276027099</a></p>
+<p>[搜索引擎] &lt;</p>
 </blockquote>
+<p>谷歌 (Google) 	- 	- 	- 	- 	✔ 	(建议开启各搜索引擎设置中的 新标签页打开链接 选项，以提高使用体验)</p>
+<p>必应 (Bing) 	- 	- 	- 	- 	✔ 	(微软的)</p>
+<p>百度 	- 	- 	- 	- 	✔</p>
+<p>搜狗 	- 	- 	- 	- 	✔</p>
+<p>搜狗微信 	✔ 	✔ 	- 	- 	✔ 	(微信文章&#x2F;公众号搜索)</p>
+<p>头条搜索 	- 	- 	- 	- 	✔</p>
+<p>神马搜索 	- 	- 	- 	- 	✔</p>
+<p>无追搜索 	- 	- 	- 	- 	✔</p>
+<p>360 搜索 	- 	- 	- 	- 	✔</p>
+<p>Searxng 	- 	- 	- 	- 	✔ 	(对各大搜索引擎的聚合搜索)</p>
+<p>DuckDuckGo 	- 	- 	- 	- 	✔ 	(以上这几个均支持手机版)</p>
+<p>Startpage 	- 	- 	- 	- 	✔</p>
+<p>Yandex 	- 	- 	- 	- 	✔ 	(俄罗斯的，如果卡住说明弹验证码了，请刷新网页后继续…)</p>
+<p>Yahoo 	- 	- 	- 	- 	✔ 	(包含 Yahoo JP 域名)</p>
+<p>Qwant 	- 	- 	- 	- 	✔</p>
+<p>Ecosia 	- 	- 	- 	- 	✔</p>
+<p>Goobe 	- 	- 	- 	- 	✔ 	(代码相关)</p>
+<p>Magi 	- 	- 	- 	- 	✔</p>
+<p>轻搜 	- 	- 	- 	- 	✔</p>
+<p>ASK 	- 	- 	- 	- 	✔</p>
+<blockquote>
+<p>[社区] &lt;</p>
+</blockquote>
+<p>贴吧 	- 	✔ 	✔ 	- 	✔ 	(如要发帖请点击右侧悬浮 [发帖] 按钮 或 点击左下角页码暂停翻页)</p>
+<p>豆瓣 	- 	✔ 	✔ 	✔ 	- 	(短评、影评、评论、小组帖子 等等…)</p>
+<p>知乎 	- 	✔ 	- 	- 	- 	(用户主页下的回答、文章 与 收藏夹页)</p>
+<p>微博 	- 	- 	- 	✔ 	-</p>
+<p>天涯 	- 	✔ 	✔ 	- 	-</p>
+<p>虎扑 	- 	✔ 	✔ 	- 	-</p>
+<p>NGA 	- 	✔ 	✔ 	- 	- 	(玩家相关)</p>
+<p>V2EX 	✔ 	✔ 	- 	- 	-</p>
+<p>煎蛋网 	✔ 	✔ 	- 	✔ 	-</p>
+<p>水木社区 	- 	✔ 	✔ 	- 	- 	(清华论坛)</p>
+<p>龙的天空 	- 	✔ 	✔ 	- 	- 	(小说相关)</p>
+<p>看雪论坛 	- 	✔ 	- 	- 	- 	(安全相关)</p>
+<p>番组计划 (Bangumi) 	- 	✔ 	- 	- 	- 	(二次元版豆瓣？)</p>
+<p>懂车帝论坛 	- 	✔ 	- 	- 	-</p>
+<p>宽带山论坛 	✔ 	✔ 	✔ 	- 	- 	(上海地方论坛)</p>
+<p>篱笆网论坛 	✔ 	✔ 	✔ 	- 	✔ 	(上海地方论坛)</p>
+<p>淘股吧论坛 	✔ 	✔ 	✔ 	- 	-</p>
+<p>芥子空间论坛 	- 	✔ 	- 	- 	- 	(手游相关)</p>
+<p>LowEndTalk 	✔ 	✔ 	✔ 	- 	- 	(海外服务器相关)</p>
+<p>RuTracker 	- 	✔ 	✔ 	- 	- 	(俄罗斯学习资源论坛)</p>
+<p>A 岛 	- 	✔ 	✔ 	- 	-</p>
+<p>B 站 (Bilibili) 	- 	- 	- 	- 	✔</p>
+<blockquote>
+<p>[设计&#x2F;素材] &lt;</p>
+</blockquote>
+<p>Pixiv 	- 	✔ 	- 	- 	✔ 	(插画)</p>
+<p>Vilipix 	- 	✔ 	- 	- 	✔ 	(内容来自 Pixiv，下同 ⤵)</p>
+<p>Pixivision 	- 	✔ 	- 	- 	✔</p>
+<p>站酷 (ZCOOL) 	✔ 	- 	- 	- 	- 	(图片&#x2F;设计素材，下同 ⤵)</p>
+<p>千图网 	- 	✔ 	- 	- 	✔</p>
+<p>千库网 	- 	✔ 	- 	- 	✔</p>
+<p>昵图网 	- 	✔ 	- 	- 	✔</p>
+<p>众图网 	- 	✔ 	- 	- 	✔</p>
+<p>我图网 	- 	✔ 	- 	- 	✔</p>
+<p>包图网 	- 	✔ 	- 	- 	✔</p>
+<p>图怪兽 	- 	✔ 	- 	- 	✔</p>
+<p>Pixabay 	- 	✔ 	- 	- 	✔</p>
+<p>搜图神器 	✔ 	- 	- 	- 	✔</p>
+<p>素材中国 	- 	✔ 	- 	- 	✔</p>
+<p>iconfont 	- 	- 	- 	- 	✔ 	(图标，下同 ⤵)</p>
+<p>IconArchive 	- 	- 	- 	- 	✔</p>
+<p>Mixkit 	- 	✔ 	- 	- 	✔ 	(视频&#x2F;音乐素材)</p>
+<p>普象网 	✔ 	✔ 	- 	- 	✔ 	(产品设计，下同 ⤵)</p>
+<p>学犀牛 	✔ 	✔ 	✔ 	- 	✔</p>
+<p>欧模网 	- 	✔ 	- 	- 	✔ 	(模型素材，下同 ⤵)</p>
+<p>下得乐 	- 	✔ 	- 	- 	✔</p>
+<blockquote>
+<p>[游戏] &lt;</p>
+</blockquote>
+<p>3DM 	- 	✔ 	✔ 	- 	- 	(包括论坛，下同 ⤵)</p>
+<p>游侠网 	- 	✔ 	✔ 	- 	-</p>
+<p>游民星空 	- 	- 	✔ 	- 	-</p>
+<p>3DM MOD 	- 	✔ 	- 	- 	✔ 	(游戏 MOD，下同 ⤵)</p>
+<p>CurseForge 	- 	✔ 	- 	- 	✔</p>
+<p>NexusMods 	- 	✔ 	- 	- 	✔</p>
+<p>Steam 创意工坊 	✔ 	✔ 	- 	- 	✔ 	(创意工坊 MOD 文件下载1&#x2F;下载2)</p>
+<p>Steam 活动评论 	- 	- 	- 	✔ 	- 	(商家动态&#x2F;活动下的评论区)</p>
+<p>小霸王其乐无穷 	✔ 	✔ 	- 	- 	✔</p>
+<p>Switch520 	✔ 	✔ 	- 	- 	✔</p>
+<p>CS.RIN.RU 	- 	✔ 	✔ 	- 	✔ 	(国外的游戏分享网站，下同 ⤵)</p>
+<p>Byrutor 	✔ 	✔ 	- 	- 	-</p>
+<p>Crackhub213 	✔ 	✔ 	- 	- 	✔</p>
+<p>FitGirl Repacks 	✔ 	✔ 	- 	- 	✔</p>
+<p>Masquerade Repacks 	✔ 	✔ 	- 	- 	✔</p>
+<blockquote>
+<p>[影视&#x2F;在线] &lt;</p>
+</blockquote>
+<p>茶杯狐 	- 	- 	✔ 	- 	✔ 	(以下部分网站同时包含 BT&#x2F;动漫)</p>
+<p>NO 视频 	- 	✔ 	- 	- 	✔</p>
+<p>低端影视 	✔ 	✔ 	- 	- 	✔</p>
+<p>奈菲影视 	- 	✔ 	- 	- 	✔</p>
+<p>在线之家 	- 	✔ 	- 	- 	✔</p>
+<p>片吧影院 	- 	✔ 	- 	- 	✔</p>
+<p>嗯哩嗯哩 	- 	✔ 	- 	- 	✔</p>
+<p>91 美剧网 	- 	✔ 	- 	- 	✔</p>
+<p>真不卡影院 	- 	✔ 	- 	- 	✔</p>
+<p>ZzzFun 动漫 	- 	✔ 	- 	- 	✔ 	(仅动漫，下同 ⤵)</p>
+<p>吐槽弹幕网 	- 	✔ 	- 	- 	✔</p>
+<p>樱花动漫 	- 	✔ 	- 	- 	✔</p>
+<p>怡萱动漫 	- 	✔ 	- 	- 	✔</p>
+<p>妮可动漫 	- 	✔ 	- 	- 	✔</p>
+<p>漫岛动漫 	- 	✔ 	- 	- 	✔</p>
+<p>AGE 动漫 	- 	✔ 	- 	- 	✔</p>
+<p>233 动漫 	- 	✔ 	- 	- 	✔</p>
+<p>Anime1 	✔ 	- 	- 	- 	✔</p>
+<blockquote>
+<p>[BT&#x2F;下载] &lt;</p>
+</blockquote>
+<p>音范丝 	✔ 	✔ 	- 	- 	✔</p>
+<p>片源网 	- 	- 	- 	- 	✔</p>
+<p>磁力狗 	- 	- 	- 	- 	✔</p>
+<p>雨花阁 	- 	- 	- 	- 	✔</p>
+<p>BT 之家 	✔ 	✔ 	- 	- 	✔ 	(匹配所有包含 btbtt 的域名)</p>
+<p>BD 影视 	- 	✔ 	- 	- 	✔</p>
+<p>高清电台 	✔ 	✔ 	- 	- 	✔</p>
+<p>爱恋动漫 	✔ 	✔ 	- 	- 	✔ 	(动漫，下同 ⤵)</p>
+<p>末日动漫 	✔ 	✔ 	- 	- 	✔ 	(包括 国际站)</p>
+<p>动漫花园 	✔ 	✔ 	- 	- 	✔ 	(包括 镜像站)</p>
+<p>简单动漫 	✔ 	✔ 	- 	- 	✔</p>
+<p>零度动漫 	✔ 	✔ 	- 	- 	✔</p>
+<p>ACG.RIP 	✔ 	✔ 	- 	- 	✔</p>
+<p>萌番组 	✔ 	✔ 	- 	- 	✔ 	(包括 Lite 版)</p>
+<p>MioBT 	✔ 	✔ 	- 	- 	✔</p>
+<p>SkrBT 	✔ 	✔ 	- 	- 	✔ 	(匹配所有包含 skrbt 的域名)</p>
+<p>Nyaa 	✔ 	- 	- 	- 	✔</p>
+<p>YTS 	- 	✔ 	- 	- 	✔ 	(这个 + 下面这两个算是我最常用的了~)</p>
+<p>1337x 	✔ 	✔ 	- 	- 	✔ 	(包括 镜像站)</p>
+<p>RARBG 	✔ 	✔ 	- 	- 	✔ 	(包括 镜像站)</p>
+<p>Zooqle 	- 	✔ 	- 	- 	✔</p>
+<p>Kickass 	- 	✔ 	- 	- 	✔</p>
+<p>WebHD 	✔ 	- 	- 	- 	✔ 	(与 SubHD 字幕网站配套)</p>
+<p>MINI4K 	- 	✔ 	- 	- 	✔ 	(与 A4k 字幕网站配套)</p>
+<p>Trackerslist.com 	- 	- 	- 	- 	- 	(分享我自制自用的 Tracker 列表，多少会提高点 BT 下载速度~ 12k+⭐)</p>
+<blockquote>
+<p>[字幕] &lt;</p>
+</blockquote>
+<p>A4k 	✔ 	✔ 	- 	- 	✔</p>
+<p>SubHD 	- 	✔ 	- 	- 	✔</p>
+<p>伪射手网 	- 	✔ 	- 	- 	✔</p>
+<p>点点字幕 	- 	- 	- 	- 	✔</p>
+<p>中文字幕网 	- 	✔ 	- 	- 	✔</p>
+<p>字幕库 	✔ 	✔ 	- 	- 	✔</p>
+<blockquote>
+<p>[漫画] &lt;</p>
+</blockquote>
+<p>漫本 	- 	✔ 	✔ 	- 	-</p>
+<p>好漫 6 	- 	✔ 	✔ 	- 	✔</p>
+<p>6 漫画 	- 	✔ 	✔ 	- 	-</p>
+<p>动漫狂 	- 	✔ 	✔ 	- 	✔ 	(部分早期章节，因网站问题而无法自动衔接下一章)</p>
+<p>动漫啦 	- 	✔ 	✔ 	- 	✔</p>
+<p>漫漫聚 	- 	- 	✔ 	- 	-</p>
+<p>漫画猫 	- 	✔ 	✔ 	- 	✔</p>
+<p>漫画皮 	- 	✔ 	✔ 	- 	-</p>
+<p>漫画人 	- 	- 	✔ 	- 	-</p>
+<p>漫画柜 	- 	✔ 	✔ 	- 	✔</p>
+<p>36漫画 	- 	✔ 	✔ 	- 	✔</p>
+<p>爱漫画 	- 	✔ 	✔ 	- 	✔</p>
+<p>漫画 DB 	- 	✔ 	✔ 	- 	✔</p>
+<p>HiComic (嗨漫画) 	- 	- 	✔ 	- 	-</p>
+<p>动漫之家 (主站) 	- 	✔ 	✔ 	- 	✔ 	(这网站两个域名内容不一样 ⤵)</p>
+<p>动漫之家 (日漫) 	- 	✔ 	✔ 	- 	✔</p>
+<p>阿狸漫画 	- 	✔ 	✔ 	- 	✔</p>
+<p>快岸漫画 	- 	✔ 	✔ 	- 	✔</p>
+<p>动漫之家 	- 	- 	✔ 	- 	-</p>
+<p>动漫戏说 	- 	✔ 	✔ 	- 	-</p>
+<p>优酷漫画 	- 	✔ 	✔ 	- 	✔</p>
+<p>拷贝漫画 	- 	✔ 	✔ 	- 	-</p>
+<p>木马漫画 	- 	✔ 	✔ 	- 	-</p>
+<p>漫画星球 	- 	✔ 	✔ 	- 	-</p>
+<p>风之动漫 	- 	- 	✔ 	- 	-</p>
+<p>包子漫画 	- 	- 	✔ 	- 	-</p>
+<p>乐语漫画 	- 	✔ 	✔ 	- 	✔</p>
+<p>新新漫画 	- 	✔ 	✔ 	- 	✔</p>
+<p>188漫画网 	- 	- 	✔ 	- 	-</p>
+<p>古风漫画网 	- 	✔ 	✔ 	- 	✔</p>
+<p>砂之船动漫家 	- 	✔ 	✔ 	- 	✔</p>
+<p>Mangabz 漫画 	- 	✔ 	✔ 	- 	✔</p>
+<p>Xmanhua 漫画 	- 	✔ 	✔ 	- 	✔</p>
+<p>COCOMANGA 漫画 	- 	✔ 	✔ 	- 	✔</p>
+<blockquote>
+<p>[小说] &lt;</p>
+</blockquote>
+<p>起点中文 	- 	✔ 	✔ 	- 	-</p>
+<p>七猫中文 	- 	- 	✔ 	- 	-</p>
+<p>知轩藏书 	- 	✔ 	- 	- 	- 	(仅下载)</p>
+<p>宝书网 	- 	✔ 	- 	- 	- 	(仅下载)</p>
+<p>御书网 	- 	✔ 	✔ 	- 	-</p>
+<p>owLook 	- 	- 	✔ 	- 	- 	(支持在线阅读的小说搜索引擎)</p>
+<p>铅笔小说 	- 	✔ 	✔ 	- 	-</p>
+<p>无错小说网 	- 	✔ 	✔ 	- 	✔</p>
+<p>读书族小说网 	- 	- 	✔ 	- 	-</p>
+<p>哔哩轻小说 	- 	✔ 	✔ 	- 	- 	(包括 手机版，轻小说，下同 ⤵)</p>
+<p>话本小说网 	- 	- 	✔ 	- 	-</p>
+<p>轻之文库 	- 	✔ 	✔ 	- 	✔</p>
+<p>Archive of OurOwn 	- 	✔ 	✔ 	- 	✔</p>
+<p>精品书源 	- 	- 	- 	- 	- 	(分享我自制自用的「阅读」APP 精品书源 1.6k+⭐)</p>
+<blockquote>
+<p>[软件分享] &lt;</p>
+</blockquote>
+<p>蓝鲨 	✔ 	✔ 	- 	- 	✔</p>
+<p>不死鸟 	✔ 	✔ 	- 	- 	✔</p>
+<p>分享者 	✔ 	✔ 	- 	- 	✔</p>
+<p>扩展迷 	- 	✔ 	- 	- 	- 	(浏览器扩展)</p>
+<p>MacWK 	- 	✔ 	- 	- 	✔ 	(MAC 相关)</p>
+<p>小众软件 	✔ 	✔ 	- 	- 	✔</p>
+<p>乐软博客 	✔ 	✔ 	- 	- 	✔</p>
+<p>果核剥壳 	✔ 	✔ 	- 	- 	✔</p>
+<p>六音软件 	✔ 	✔ 	- 	- 	✔</p>
+<p>反斗软件 	✔ 	✔ 	- 	- 	✔</p>
+<p>微当下载 	✔ 	✔ 	- 	- 	✔</p>
+<p>大眼仔旭 	- 	✔ 	- 	- 	✔</p>
+<p>423Down 	✔ 	✔ 	- 	✔ 	✔</p>
+<p>发烧友绿软 	✔ 	✔ 	- 	- 	✔</p>
+<p>异次元软件 	✔ 	✔ 	- 	✔ 	✔</p>
+<p>悪魔の小站 	✔ 	✔ 	- 	- 	✔</p>
+<p>老殁殁漂遥 	✔ 	✔ 	- 	- 	✔</p>
+<p>腾龙工作室 	✔ 	✔ 	- 	- 	-</p>
+<p>异星软件空间 	✔ 	✔ 	- 	- 	✔</p>
+<p>Nite07 的小窝 	✔ 	- 	- 	- 	-</p>
+<p>Sordum 	✔ 	✔ 	- 	- 	✔ 	(国外的软件分享网站，下同 ⤵)</p>
+<p>Winaero 	- 	✔ 	- 	- 	-</p>
+<p>LRepacks 	✔ 	✔ 	- 	- 	-</p>
+<p>DlAndroid 	- 	✔ 	- 	- 	✔ 	(国外安卓 App 相关)</p>
+<p>Winhelponline 	✔ 	✔ 	- 	- 	-</p>
+<p>WindowsLatest 	✔ 	✔ 	- 	- 	-</p>
+<p>TheWindowsClub 	✔ 	✔ 	- 	- 	-</p>
+<blockquote>
+<p>[学术] &lt;</p>
+</blockquote>
+<p>Wiley Online Library 	- 	- 	- 	- 	✔</p>
+<p>ACS (Publications) 	- 	- 	- 	- 	✔</p>
+<p>Library Genesis 	- 	- 	- 	- 	✔ 	(匹配所有包含 libgen 的域名)</p>
+<p>ScienceDirect 	- 	- 	- 	- 	✔</p>
+<p>Z-Library 	- 	- 	- 	- 	✔ 	(包括 镜像站)</p>
+<p>PubMed 	- 	- 	- 	- 	✔</p>
+<p>X-MOL 	- 	✔ 	- 	- 	✔</p>
+<p>维普网 	- 	- 	- 	- 	✔</p>
+<p>科研通 	- 	✔ 	✔ 	- 	✔</p>
+<p>酷科研 	- 	- 	✔ 	- 	-</p>
+<p>小木虫 	- 	✔ 	✔ 	- 	✔</p>
+<p>百度学术 	- 	✔ 	- 	- 	✔</p>
+<p>必应学术 (Bing) 	- 	- 	- 	- 	✔</p>
+<p>谷歌学术 (Google) 	- 	- 	- 	- 	✔ 	包括 镜像站1 &#x2F; 2</p>
+<p>国家自然科学基金 	- 	- 	✔ 	- 	-</p>
+<blockquote>
+<p>[编程&#x2F;技术] &lt;</p>
+</blockquote>
+<p>StackOverflow 	- 	✔ 	- 	- 	✔ 	技术问答</p>
+<p>SegmentFault 	- 	✔ 	- 	- 	✔</p>
+<p>W3Cschool 	- 	✔ 	- 	- 	- 	编程教程</p>
+<p>W3school 	- 	✔ 	- 	- 	-</p>
+<p>菜鸟教程 	- 	✔ 	- 	- 	-</p>
+<p>博客园 	✔ 	✔ 	- 	- 	✔ 	技术博客</p>
+<p>51CTO 	✔ 	✔ 	- 	- 	✔</p>
+<p>Gitee 	- 	✔ 	✔ 	✔ 	✔ 	开源分享</p>
+<p>Github 	✔ 	✔ 	✔ 	✔ 	✔ 	(建议搭配我另一个 Github 增强 - 高速下载 油猴脚本~)</p>
+<blockquote>
+<p>[资讯&#x2F;科技] &lt;</p>
+</blockquote>
+<p>ScienceAlert 	✔ 	✔ 	- 	- 	-</p>
+<p>果壳网 	✔ 	✔ 	- 	✔ 	-</p>
+<p>蓝点网 	- 	✔ 	- 	- 	-</p>
+<p>可能吧 	✔ 	✔ 	- 	- 	-</p>
+<p>超能网 	✔ 	✔ 	- 	- 	-</p>
+<p>IT之家 	- 	✔ 	- 	- 	-</p>
+<p>36 氪 	- 	✔ 	- 	- 	-</p>
+<blockquote>
+<p>[其他] &lt;</p>
+</blockquote>
+<p>IMDb 	- 	✔ 	- 	- 	✔</p>
+<p>烂番茄 	- 	✔ 	- 	- 	✔</p>
+<p>致美化 	- 	✔ 	- 	- 	- 	系统美化</p>
+<p>蓝奏云 	- 	✔ 	- 	- 	- 	网盘 (后台及分享链接列表)</p>
+<p>新片场 	- 	✔ 	- 	- 	- 	视频短片</p>
+<p>wikiHow 	- 	✔ 	- 	- 	✔ 	指南</p>
+<p>AfreecaTV 	✔ 	✔ 	- 	- 	- 	直播 (大都是韩国人)</p>
+<p>GreasyFork 	✔ 	✔ 	- 	✔ 	✔ 	本站</p>
+<p>UserScript 	- 	- 	- 	- 	✔ 	油猴脚本的聚合搜索 (Tampermonkey 作者做的)</p>
+<p>UserStyles 	✔ 	✔ 	- 	✔ 	✔</p>
+<p>Quicker 	✔ 	✔ 	- 	✔ 	✔</p>
+<p>Xposed 	- 	✔ 	- 	- 	✔</p>
+<p>书签地球 	✔ 	- 	- 	- 	✔</p>
+<p>什么值得买 	- 	✔ 	- 	- 	✔</p>
+<p>没得比导购 	- 	✔ 	- 	- 	✔</p>
+<p>叽哩叽哩日报 	- 	✔ 	- 	- 	-</p>
+<p>彼岸图网 	✔ 	✔ 	- 	- 	- 	壁纸 (下同 ⤵)</p>
+<p>必应壁纸 	✔ 	✔ 	- 	- 	-</p>
+<p>动漫壁纸 	- 	✔ 	- 	- 	✔</p>
+<p>动漫壁纸2 	- 	✔ 	- 	- 	✔</p>
+<p>HDQwalls 	✔ 	✔ 	- 	- 	✔</p>
+<p>Nastol 	✔ 	✔ 	- 	- 	✔</p>
+<p>以上仅为一小部分… 						持续添加中，欢迎申请~</p>
+<p>potential useful websites:</p>
+<p><a target="_blank" rel="noopener" href="https://greasyfork.org/en/users/sign_in?return_to=/en/sc%E2%80%A6%25E6%2597%25A0%25E7%25BC%259D%25E7%25BF%25BB%25E9%25A1%25B5">https://greasyfork.org/en/users/sign_in?return_to=%2Fen%2Fsc…%25E6%2597%25A0%25E7%25BC%259D%25E7%25BF%25BB%25E9%25A1%25B5</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://greasyfork.org/scripts/419215-%E8%87%AA%E5%8A%A8%E6%%E2%80%A68%87%AA%E5%8A%A8%E6%97%A0%E7%BC%9D%E7%BF%BB%E9%A1%B5.user.js">https://greasyfork.org/scripts/419215-%E8%87%AA%E5%8A%A8%E6%…8%87%AA%E5%8A%A8%E6%97%A0%E7%BC%9D%E7%BF%BB%E9%A1%B5.user.js</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://greasyfork.org/en/help/installing-user-scripts">https://greasyfork.org/en/help/installing-user-scripts</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://greasyfork.org/scripts/419081-%E7%9F%A5%E4%B9%8E%E5%%E2%80%A6E%E5%BC%BA/code/%E7%9F%A5%E4%B9%8E%E5%A2%9E%E5%BC%BA.user.js">https://greasyfork.org/scripts/419081-%E7%9F%A5%E4%B9%8E%E5%…E%E5%BC%BA/code/%E7%9F%A5%E4%B9%8E%E5%A2%9E%E5%BC%BA.user.js</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/XIU2/UserScript">https://github.com/XIU2/UserScript</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://greasyfork.org/en/scripts/419215-%E8%87%AA%E5%8A%A8%E6%97%A0%E7%BC%9D%E7%BF%BB%E9%A1%B5/feedback#post-discussion">https://greasyfork.org/en/scripts/419215-%E8%87%AA%E5%8A%A8%E6%97%A0%E7%BC%9D%E7%BF%BB%E9%A1%B5/feedback#post-discussion</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://greasyfork.org/en/reports/new?item_class=script&item_id=419215">https://greasyfork.org/en/reports/new?item_class=script&amp;item_id=419215</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.jsdelivr.com/package/gh/XIU2/UserScript">https://www.jsdelivr.com/package/gh/XIU2/UserScript</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.discuz.net/">https://www.discuz.net/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.phpbb.com/community/">https://www.phpbb.com/community/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://xenforo.com/community/">https://xenforo.com/community/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://demo.nexusphp.org/">https://demo.nexusphp.org/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://discuss.flarum.org/">https://discuss.flarum.org/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.axiuno.com/">https://www.axiuno.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.google.com/">https://www.google.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://cn.bing.com/">https://cn.bing.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.baidu.com/">https://www.baidu.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.sogou.com/">https://www.sogou.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://weixin.sogou.com/">https://weixin.sogou.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.toutiao.com/">https://www.toutiao.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://m.sm.cn/">https://m.sm.cn/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.wuzhuiso.com/">https://www.wuzhuiso.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.so.com/">https://www.so.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://searx.owlook.com.cn/">https://searx.owlook.com.cn/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://duckduckgo.com/">https://duckduckgo.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.startpage.com/">https://www.startpage.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://yandex.com/">https://yandex.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://search.yahoo.com/">https://search.yahoo.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.qwant.com/">https://www.qwant.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.ecosia.org/">https://www.ecosia.org/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://goobe.io/">https://goobe.io/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://magi.com/">https://magi.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.qingsearch.com/">https://www.qingsearch.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.ask.com/">https://www.ask.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://tieba.baidu.com/">https://tieba.baidu.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://movie.douban.com/">https://movie.douban.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/">https://www.zhihu.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://weibo.com/">https://weibo.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://bbs.tianya.cn/">https://bbs.tianya.cn/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://bbs.hupu.com/">https://bbs.hupu.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://bbs.nga.cn/">https://bbs.nga.cn/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://v2ex.com/">https://v2ex.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://jandan.net/">https://jandan.net/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.mysmth.net/">https://www.mysmth.net/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.lkong.com/">https://www.lkong.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://bbs.pediy.com/">https://bbs.pediy.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://bangumi.tv/">https://bangumi.tv/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.dongchedi.com/car_fans_community">https://www.dongchedi.com/car_fans_community</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://club.kdslife.com/">https://club.kdslife.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.libaclub.com/">https://www.libaclub.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.taoguba.com.cn/">https://www.taoguba.com.cn/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://bbs.lieyou888.com/">https://bbs.lieyou888.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://lowendtalk.com/">https://lowendtalk.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://rutracker.org/">https://rutracker.org/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://adnmb3.com/">https://adnmb3.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://search.bilibili.com/">https://search.bilibili.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.pixiv.net/">https://www.pixiv.net/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.vilipix.com/">https://www.vilipix.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.pixivision.net/">https://www.pixivision.net/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.zcool.com.cn/">https://www.zcool.com.cn/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.58pic.com/">https://www.58pic.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://588ku.com/">https://588ku.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.nipic.com/">https://www.nipic.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.ztupic.com/">https://www.ztupic.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.ooopic.com/">https://www.ooopic.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://ibaotu.com/">https://ibaotu.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://818ps.com/">https://818ps.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://pixabay.com/">https://pixabay.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.logosc.cn/so/">https://www.logosc.cn/so/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="http://www.sccnn.com/">http://www.sccnn.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.iconfont.cn/">https://www.iconfont.cn/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://iconarchive.com/">https://iconarchive.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://mixkit.co/">https://mixkit.co/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.puxiang.com/">https://www.puxiang.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.xuexiniu.com/">https://www.xuexiniu.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.om.cn/">https://www.om.cn/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="http://www.xiadele.com/">http://www.xiadele.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.3dmgame.com/">https://www.3dmgame.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.ali213.net/">https://www.ali213.net/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.gamersky.com/">https://www.gamersky.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://mod.3dmgame.com/">https://mod.3dmgame.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.curseforge.com/">https://www.curseforge.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.nexusmods.com/">https://www.nexusmods.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://steamcommunity.com/workshop/browse/?appid=550&browsesort=trend&section=readytouseitems">https://steamcommunity.com/workshop/browse/?appid=550&amp;browsesort=trend&amp;section=readytouseitems</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://steamworkshopdownloader.io/">https://steamworkshopdownloader.io/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="http://steamworkshop.download/">http://steamworkshop.download/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://steamcommunity.com/">https://steamcommunity.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.yikm.net/">https://www.yikm.net/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://switch520.com/">https://switch520.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://cs.rin.ru/forum/viewforum.php?f=10">https://cs.rin.ru/forum/viewforum.php?f=10</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://byrut.org/">https://byrut.org/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://crackhub.site/">https://crackhub.site/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://fitgirl-repacks.site/">https://fitgirl-repacks.site/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://masquerade.site/">https://masquerade.site/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.cupfox.app/">https://www.cupfox.app/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.novipnoad.com/">https://www.novipnoad.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://ddrk.me/">https://ddrk.me/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.nfmovies.com/">https://www.nfmovies.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.zxzjtv.com/">https://www.zxzjtv.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.pianba.tv/">https://www.pianba.tv/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://enlienli.com/">https://enlienli.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://mjw21.com/">https://mjw21.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.zhenbuka3.com/">https://www.zhenbuka3.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="http://www.zzzfun.com/">http://www.zzzfun.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.tucao.one/">https://www.tucao.one/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="http://www.imomoe.live/">http://www.imomoe.live/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="http://www.yxdm.li/">http://www.yxdm.li/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="http://www.nicotv.me/">http://www.nicotv.me/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.mandao.tv/">https://www.mandao.tv/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.agemys.com/">https://www.agemys.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.dm233.cc/">https://www.dm233.cc/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://anime1.me/">https://anime1.me/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.yinfans.me/">https://www.yinfans.me/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://pianyuan.org/">https://pianyuan.org/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="http://clg.im/">http://clg.im/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.yuhuage52.xyz/">https://www.yuhuage52.xyz/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://btbtt20.com/">https://btbtt20.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.bd2020.com/">https://www.bd2020.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://gaoqing.fm/">https://gaoqing.fm/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.kisssub.org/">https://www.kisssub.org/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://share.acgnx.net/">https://share.acgnx.net/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.acgnx.se/">https://www.acgnx.se/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://share.dmhy.org/">https://share.dmhy.org/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://dmhy.anoneko.com/">https://dmhy.anoneko.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.36dm.club/">https://www.36dm.club/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://bt.acgzero.com/">https://bt.acgzero.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://acg.rip/">https://acg.rip/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://bangumi.moe/">https://bangumi.moe/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://banguami.moe/lite">https://banguami.moe/lite</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://miobt.com/">https://miobt.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://skrbtga.xyz/">https://skrbtga.xyz/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://nyaa.si/">https://nyaa.si/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://yts.mx/">https://yts.mx/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://1337x.to/">https://1337x.to/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://rarbg.to/">https://rarbg.to/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://zooqle.com/">https://zooqle.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://kickasss.to/">https://kickasss.to/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://webhd.cc/">https://webhd.cc/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.mini4k.com/">https://www.mini4k.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://trackerslist.com/">https://trackerslist.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.a4k.net/">https://www.a4k.net/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://subhd.tv/">https://subhd.tv/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://assrt.net/">https://assrt.net/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="http://www.ddzimu.com/">http://www.ddzimu.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://cn.zimuzimu.com/">https://cn.zimuzimu.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://zimuku.org/">https://zimuku.org/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.manben.com/">https://www.manben.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.haoman6.com/">https://www.haoman6.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="http://www.sixmh7.com/">http://www.sixmh7.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.cartoonmad.com/">https://www.cartoonmad.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.dongman.la/">https://www.dongman.la/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="http://www.manmanju.com/">http://www.manmanju.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.maofly.com/">https://www.maofly.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.manhuapi.com/">https://www.manhuapi.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.manhuaren.com/">https://www.manhuaren.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.mhgui.com/">https://www.mhgui.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.36manga.com/">https://www.36manga.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.imanhuaw.net/">https://www.imanhuaw.net/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.manhuadb.com/">https://www.manhuadb.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.hicomic.net/">https://www.hicomic.net/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.dmzj.com/">https://www.dmzj.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://manhua.dmzj.com/">https://manhua.dmzj.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="http://www.alimanhua.com/">http://www.alimanhua.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.kanbook.net/">https://www.kanbook.net/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://manhua.dmzj.com/">https://manhua.dmzj.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://comic.acgn.cc/">https://comic.acgn.cc/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.ykmh.com/">https://www.ykmh.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://copymanga.net/">https://copymanga.net/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.omyschool.com/">https://www.omyschool.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="http://www.mhxqiu1.com/">http://www.mhxqiu1.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="http://manhua.fffdm.com/">http://manhua.fffdm.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.webmota.com/">https://www.webmota.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.leyuman.com/">https://www.leyuman.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.77mh.xyz/">https://www.77mh.xyz/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="http://www.ccshwy.com/all/">http://www.ccshwy.com/all/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.gufengmh9.com/">https://www.gufengmh9.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.szcdmj.com/">https://www.szcdmj.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://mangabz.com/">https://mangabz.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.xmanhua.com/">https://www.xmanhua.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.cocomanga.com/">https://www.cocomanga.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.qidian.com/">https://www.qidian.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.qimao.com/">https://www.qimao.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="http://zxcs.me/">http://zxcs.me/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.baoshuu.com/">https://www.baoshuu.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.yushubo.com/">https://www.yushubo.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.owlook.com.cn/">https://www.owlook.com.cn/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.23qb.com/">https://www.23qb.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.xineyby.com/">https://www.xineyby.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://m.xiaoshuo77.net/">https://m.xiaoshuo77.net/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.linovelib.com/">https://www.linovelib.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://w.linovelib.com/">https://w.linovelib.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.ihuaben.com/">https://www.ihuaben.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.linovel.net/">https://www.linovel.net/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://archiveofourown.org/">https://archiveofourown.org/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://yuedu.xiu2.xyz/">https://yuedu.xiu2.xyz/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.lan-sha.com/">https://www.lan-sha.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://iao.su/">https://iao.su/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.sharerw.com/">https://www.sharerw.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.extfans.com/">https://www.extfans.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.macwk.com/">https://www.macwk.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.appinn.com/">https://www.appinn.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.isharepc.com/">https://www.isharepc.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.ghxi.com/">https://www.ghxi.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.6yit.com/">https://www.6yit.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="http://www.apprcn.com/">http://www.apprcn.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.weidown.com/">https://www.weidown.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.dayanzai.me/">https://www.dayanzai.me/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.423down.com/">https://www.423down.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://fsylr.com/">https://fsylr.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.iplaysoft.com/">https://www.iplaysoft.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="http://www.mubolin.cn:99/">http://www.mubolin.cn:99/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.mpyit.com/">https://www.mpyit.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.tenlonstudio.com/">https://www.tenlonstudio.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.yxssp.com/">https://www.yxssp.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.nite07.com/">https://www.nite07.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.sordum.org/">https://www.sordum.org/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://winaero.com/">https://winaero.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://lrepacks.net/">https://lrepacks.net/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://dlandroid.com/">https://dlandroid.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.winhelponline.com/blog/">https://www.winhelponline.com/blog/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.windowslatest.com/">https://www.windowslatest.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.thewindowsclub.com/">https://www.thewindowsclub.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/">https://onlinelibrary.wiley.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://pubs.acs.org/">https://pubs.acs.org/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://libgen.rs/">https://libgen.rs/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/">https://www.sciencedirect.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://z-lib.org/">https://z-lib.org/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://pubmed.ncbi.nlm.nih.gov/">https://pubmed.ncbi.nlm.nih.gov/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.x-mol.com/">https://www.x-mol.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="http://www.cqvip.com/">http://www.cqvip.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.ablesci.com/">https://www.ablesci.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.coolkeyan.com/">https://www.coolkeyan.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="http://muchong.com/bbs">http://muchong.com/bbs</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://xueshu.baidu.com/">https://xueshu.baidu.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://cn.bing.com/academic">https://cn.bing.com/academic</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://scholar.google.com/">https://scholar.google.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://sc.panda321.com/">https://sc.panda321.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://xs2.dailyheadlines.cc/">https://xs2.dailyheadlines.cc/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://output.nsfc.gov.cn/">https://output.nsfc.gov.cn/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/">https://stackoverflow.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/">https://segmentfault.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.w3cschool.cn/">https://www.w3cschool.cn/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/">https://www.w3school.com.cn/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/">https://www.runoob.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/">https://www.cnblogs.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.51cto.com/">https://www.51cto.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://gitee.com/">https://gitee.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.sciencealert.com/">https://www.sciencealert.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.guokr.com/">https://www.guokr.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.landian.vip/">https://www.landian.vip/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://kenengba.com/">https://kenengba.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.expreview.com/">https://www.expreview.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.ithome.com/">https://www.ithome.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://36kr.com/">https://36kr.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.imdb.com/">https://www.imdb.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.rottentomatoes.com/">https://www.rottentomatoes.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://zhutix.com/">https://zhutix.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://lanzou.com/">https://lanzou.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.xinpianchang.com/">https://www.xinpianchang.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://zh.wikihow.com/">https://zh.wikihow.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.afreecatv.com/">https://www.afreecatv.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.userscript.zone/">https://www.userscript.zone/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://userstyles.world/">https://userstyles.world/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://getquicker.net/">https://getquicker.net/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://repo.xposed.info/module-overview">https://repo.xposed.info/module-overview</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.bookmarkearth.com/">https://www.bookmarkearth.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.smzdm.com/">https://www.smzdm.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.meidebi.com/">https://www.meidebi.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.jiligamefun.com/">https://www.jiligamefun.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://pic.netbian.com/">https://pic.netbian.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://bing.ioliu.cn/">https://bing.ioliu.cn/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://konachan.net/">https://konachan.net/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://anime-pictures.net/">https://anime-pictures.net/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://hdqwalls.com/">https://hdqwalls.com/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.nastol.com.ua/">https://www.nastol.com.ua/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://www.snapmail.cc/">https://www.snapmail.cc/</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://pan.lanzouo.com/b073l8d1e">https://pan.lanzouo.com/b073l8d1e</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd?hl=zh-CN">https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd?hl=zh-CN</a> debugger eval code:1:60</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/276027099">https://zhuanlan.zhihu.com/p/276027099</a></p>
 
 	
 	</div>
@@ -244,7 +947,62 @@
   <div class="row">
 	
 	
-		<p>3d 虚拟形象动作生成 视频生成 虚拟偶像 Vtuber:<br><a target="_blank" rel="noopener" href="https://github.com/xianfei/SysMocap">https://github.com/xianfei/SysMocap</a><br>human pose detection:<br><a target="_blank" rel="noopener" href="https://github.com/facebookresearch/VideoPose3D">https://github.com/facebookresearch/VideoPose3D</a><br>opengl recording:<br><a target="_blank" rel="noopener" href="https://lencerf.github.io/post/2019-09-21-save-the-opengl-rendering-to-image-file/">https://lencerf.github.io/post/2019-09-21-save-the-opengl-rendering-to-image-file/</a><br><a target="_blank" rel="noopener" href="http://www.songho.ca/opengl/gl_pbo.html#pack">http://www.songho.ca/opengl/gl_pbo.html#pack</a><br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/7634966/save-opengl-rendering-to-video">https://stackoverflow.com/questions/7634966/save-opengl-rendering-to-video</a><br><a target="_blank" rel="noopener" href="https://www.codeproject.com/articles/15941/recording-directx-and-opengl-rendered-animations">https://www.codeproject.com/articles/15941/recording-directx-and-opengl-rendered-animations</a><br><a target="_blank" rel="noopener" href="https://www.glfw.org/documentation.html">https://www.glfw.org/documentation.html</a><br>download expose models:<br><a target="_blank" rel="noopener" href="https://expose.is.tue.mpg.de/downloads">https://expose.is.tue.mpg.de/downloads</a><br>smpl-x model download:<br><a target="_blank" rel="noopener" href="https://smpl-x.is.tue.mpg.de/download.php">https://smpl-x.is.tue.mpg.de/download.php</a><br>model zoo:<br><a target="_blank" rel="noopener" href="https://github.com/Zhongdao/Towards-Realtime-MOT/blob/master/DATASET_ZOO.md">https://github.com/Zhongdao/Towards-Realtime-MOT/blob/master/DATASET_ZOO.md</a><br>mmd auto tracking:<br><a target="_blank" rel="noopener" href="https://github.com/errno-mmd/mmdmatic/blob/master/setup.bat">https://github.com/errno-mmd/mmdmatic/blob/master/setup.bat</a><br><a target="_blank" rel="noopener" href="https://github.com/miu200521358/expose_mmd">https://github.com/miu200521358/expose_mmd</a><br><a target="_blank" rel="noopener" href="https://github.com/miu200521358/AlphaPose-MMD">https://github.com/miu200521358/AlphaPose-MMD</a><br>smplx expose alternative body tracker:<br><a target="_blank" rel="noopener" href="https://github.com/vchoutas/smplx">https://github.com/vchoutas/smplx</a><br>face tracking:<br><a target="_blank" rel="noopener" href="https://github.com/Aditya-Khadilkar/Face-tracking-with-Anime-characters">https://github.com/Aditya-Khadilkar/Face-tracking-with-Anime-characters</a><br>anime face detector:<br><a target="_blank" rel="noopener" href="https://github.com/nagadomi/lbpcascade_animeface">https://github.com/nagadomi/lbpcascade_animeface</a><br><a target="_blank" rel="noopener" href="https://github.com/qhgz2013/anime-face-detector">https://github.com/qhgz2013/anime-face-detector</a><br>anime facial features:<br><a target="_blank" rel="noopener" href="https://github.com/pranau97/anime-detection">https://github.com/pranau97/anime-detection</a><br>repair anime images:<br><a target="_blank" rel="noopener" href="https://github.com/youyuge34/Anime-InPainting">https://github.com/youyuge34/Anime-InPainting</a><br>paint manga from sketch (with color blocks):<br><a target="_blank" rel="noopener" href="https://github.com/youyuge34/PI-REC">https://github.com/youyuge34/PI-REC</a><br>if we can re-trace the action&#x2F;expression done by vtubers, we can monetize those “highlight cuts”.<br>you can firstly find points in datasets and then generate mmd videos, and then create trainset. you can also generate pose from raw video and then create dataset.<br>found occasionally when browsing MMD, but found this with so many stars, which is an instance detection&#x2F;segmentation library.<br><a target="_blank" rel="noopener" href="https://github.com/open-mmlab/mmdetection">https://github.com/open-mmlab/mmdetection</a><br>while rendering mmd can be done with mmd viewer like <a target="_blank" rel="noopener" href="https://github.com/benikabocha/saba">https://github.com/benikabocha/saba</a> or could use renderer like blender or unity. we must bake physics before dancing.<br>found other dedicated renderer for mmd, with bullet physics:<br><a target="_blank" rel="noopener" href="https://github.com/jinfagang/mmc">https://github.com/jinfagang/mmc</a><br>found interesting repo of poetry composing:<br><a target="_blank" rel="noopener" href="https://github.com/jinfagang/tensorflow_poems">https://github.com/jinfagang/tensorflow_poems</a><br>mediapipe&#x2F;paddlevideo alike:<br><a target="_blank" rel="noopener" href="https://pypi.org/project/alfred-py/">https://pypi.org/project/alfred-py/</a><br>three.js has multiple loaders:<br><a target="_blank" rel="noopener" href="https://github.com/mrdoob/three.js/tree/dev/examples/js/loaders">https://github.com/mrdoob/three.js/tree/dev/examples/js/loaders</a><br><a target="_blank" rel="noopener" href="https://github.com/hanakla/three-mmd-loader">https://github.com/hanakla/three-mmd-loader</a><br>render MMD using saba lib:<br><a target="_blank" rel="noopener" href="https://github.com/WLiangJun/MMD-Desktop-mascot">https://github.com/WLiangJun/MMD-Desktop-mascot</a><br><a target="_blank" rel="noopener" href="https://github.com/miu200521358/expose_mmd/fork">https://github.com/miu200521358/expose_mmd/fork</a><br>music based dance:<br><a target="_blank" rel="noopener" href="https://github.com/DeepVTuber/DanceNet3D">https://github.com/DeepVTuber/DanceNet3D</a><br><a target="_blank" rel="noopener" href="https://github.com/ColbyZhuang/music2dance_DanceNet">https://github.com/ColbyZhuang/music2dance_DanceNet</a><br><a target="_blank" rel="noopener" href="https://github.com/caijianfei/Music2Dance">https://github.com/caijianfei/Music2Dance</a><br>characters:<br><a target="_blank" rel="noopener" href="https://www.mixamo.com/#/?page=1&type=Character">https://www.mixamo.com/#/?page=1&amp;type=Character</a></p>
+		<p>3d 虚拟形象动作生成 视频生成 虚拟偶像 Vtuber:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/xianfei/SysMocap">https://github.com/xianfei/SysMocap</a></p>
+<p>human pose detection:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/facebookresearch/VideoPose3D">https://github.com/facebookresearch/VideoPose3D</a></p>
+<p>opengl recording:</p>
+<p><a target="_blank" rel="noopener" href="https://lencerf.github.io/post/2019-09-21-save-the-opengl-rendering-to-image-file/">https://lencerf.github.io/post/2019-09-21-save-the-opengl-rendering-to-image-file/</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.songho.ca/opengl/gl_pbo.html#pack">http://www.songho.ca/opengl/gl_pbo.html#pack</a></p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/7634966/save-opengl-rendering-to-video">https://stackoverflow.com/questions/7634966/save-opengl-rendering-to-video</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.codeproject.com/articles/15941/recording-directx-and-opengl-rendered-animations">https://www.codeproject.com/articles/15941/recording-directx-and-opengl-rendered-animations</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.glfw.org/documentation.html">https://www.glfw.org/documentation.html</a></p>
+<p>download expose models:</p>
+<p><a target="_blank" rel="noopener" href="https://expose.is.tue.mpg.de/downloads">https://expose.is.tue.mpg.de/downloads</a></p>
+<p>smpl-x model download:</p>
+<p><a target="_blank" rel="noopener" href="https://smpl-x.is.tue.mpg.de/download.php">https://smpl-x.is.tue.mpg.de/download.php</a></p>
+<p>model zoo:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Zhongdao/Towards-Realtime-MOT/blob/master/DATASET_ZOO.md">https://github.com/Zhongdao/Towards-Realtime-MOT/blob/master/DATASET_ZOO.md</a></p>
+<p>mmd auto tracking:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/errno-mmd/mmdmatic/blob/master/setup.bat">https://github.com/errno-mmd/mmdmatic/blob/master/setup.bat</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/miu200521358/expose_mmd">https://github.com/miu200521358/expose_mmd</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/miu200521358/AlphaPose-MMD">https://github.com/miu200521358/AlphaPose-MMD</a></p>
+<p>smplx expose alternative body tracker:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/vchoutas/smplx">https://github.com/vchoutas/smplx</a></p>
+<p>face tracking:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Aditya-Khadilkar/Face-tracking-with-Anime-characters">https://github.com/Aditya-Khadilkar/Face-tracking-with-Anime-characters</a></p>
+<p>anime face detector:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/nagadomi/lbpcascade_animeface">https://github.com/nagadomi/lbpcascade_animeface</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/qhgz2013/anime-face-detector">https://github.com/qhgz2013/anime-face-detector</a></p>
+<p>anime facial features:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/pranau97/anime-detection">https://github.com/pranau97/anime-detection</a></p>
+<p>repair anime images:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/youyuge34/Anime-InPainting">https://github.com/youyuge34/Anime-InPainting</a></p>
+<p>paint manga from sketch (with color blocks):</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/youyuge34/PI-REC">https://github.com/youyuge34/PI-REC</a></p>
+<p>if we can re-trace the action&#x2F;expression done by vtubers, we can monetize those “highlight cuts”.</p>
+<p>you can firstly find points in datasets and then generate mmd videos, and then create trainset. you can also generate pose from raw video and then create dataset.</p>
+<p>found occasionally when browsing MMD, but found this with so many stars, which is an instance detection&#x2F;segmentation library.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/open-mmlab/mmdetection">https://github.com/open-mmlab/mmdetection</a></p>
+<p>while rendering mmd can be done with mmd viewer like <a target="_blank" rel="noopener" href="https://github.com/benikabocha/saba">https://github.com/benikabocha/saba</a> or could use renderer like blender or unity. we must bake physics before dancing.</p>
+<p>found other dedicated renderer for mmd, with bullet physics:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jinfagang/mmc">https://github.com/jinfagang/mmc</a></p>
+<p>found interesting repo of poetry composing:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jinfagang/tensorflow_poems">https://github.com/jinfagang/tensorflow_poems</a></p>
+<p>mediapipe&#x2F;paddlevideo alike:</p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/alfred-py/">https://pypi.org/project/alfred-py/</a></p>
+<p>three.js has multiple loaders:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mrdoob/three.js/tree/dev/examples/js/loaders">https://github.com/mrdoob/three.js/tree/dev/examples/js/loaders</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/hanakla/three-mmd-loader">https://github.com/hanakla/three-mmd-loader</a></p>
+<p>render MMD using saba lib:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/WLiangJun/MMD-Desktop-mascot">https://github.com/WLiangJun/MMD-Desktop-mascot</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/miu200521358/expose_mmd/fork">https://github.com/miu200521358/expose_mmd/fork</a></p>
+<p>music based dance:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/DeepVTuber/DanceNet3D">https://github.com/DeepVTuber/DanceNet3D</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ColbyZhuang/music2dance_DanceNet">https://github.com/ColbyZhuang/music2dance_DanceNet</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/caijianfei/Music2Dance">https://github.com/caijianfei/Music2Dance</a></p>
+<p>characters:</p>
+<p><a target="_blank" rel="noopener" href="https://www.mixamo.com/#/?page=1&type=Character">https://www.mixamo.com/#/?page=1&amp;type=Character</a></p>
 
 	
 	</div>
@@ -270,7 +1028,8 @@
   <div class="row">
 	
 	
-		<p>This one is dead simple. Use real human to talk as you go.<br><a target="_blank" rel="noopener" href="https://github.com/snap-research/articulated-animation">https://github.com/snap-research/articulated-animation</a></p>
+		<p>This one is dead simple. Use real human to talk as you go.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/snap-research/articulated-animation">https://github.com/snap-research/articulated-animation</a></p>
 
 	
 	</div>
@@ -296,8 +1055,23 @@
   <div class="row">
 	
 	
-		<p>Graphcore’s IPU could be cheaper and faster than NVIDIA’s A100, though need sharing on-board RAM.<br>Supports tensorflow, pytorch, paddlepaddle.<br><a target="_blank" rel="noopener" href="https://docs.graphcore.ai/en/latest/">https://docs.graphcore.ai/en/latest/</a><br>pytorch: poptorch, pytorch-lightning(tpu and ipu)<br>tensorflow:<br>from tensorflow.python import ipu</p>
-<h1 id="Create-an-IPU-distribution-strategy"><a href="#Create-an-IPU-distribution-strategy" class="headerlink" title="Create an IPU distribution strategy"></a>Create an IPU distribution strategy</h1><p>strategy &#x3D; ipu.ipu_strategy.IPUStrategy()<br>with strategy.scope():<br>…<br>paddlepaddle:<br><a target="_blank" rel="noopener" href="https://github.com/graphcore/portfolio-examples/tree/master/paddlepaddle/bert-base">https://github.com/graphcore/portfolio-examples/tree/master/paddlepaddle/bert-base</a><br><a target="_blank" rel="noopener" href="https://github.com/graphcore/Paddle.git">https://github.com/graphcore/Paddle.git</a><br>TensorFlow 1 &amp; 2 support with full performant integration with TensorFlow XLA backend<br>PyTorch support for targeting IPU using the PyTorch ATEN backend<br>PopART™ (Poplar Advanced Runtime) for training &amp; inference; supports Python&#x2F;C++ model building plus ONNX model input<br>Full support for PaddlePaddle<br>Other frameworks support coming soon</p>
+		<p>Graphcore’s IPU could be cheaper and faster than NVIDIA’s A100, though need sharing on-board RAM.</p>
+<p>Supports tensorflow, pytorch, paddlepaddle.</p>
+<p><a target="_blank" rel="noopener" href="https://docs.graphcore.ai/en/latest/">https://docs.graphcore.ai/en/latest/</a></p>
+<p>pytorch: poptorch, pytorch-lightning(tpu and ipu)</p>
+<p>tensorflow:</p>
+<p>from tensorflow.python import ipu</p>
+<h1 id="Create-an-IPU-distribution-strategy"><a href="#Create-an-IPU-distribution-strategy" class="headerlink" title="Create an IPU distribution strategy"></a>Create an IPU distribution strategy</h1><p>strategy &#x3D; ipu.ipu_strategy.IPUStrategy()</p>
+<p>with strategy.scope():</p>
+<p>…</p>
+<p>paddlepaddle:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/graphcore/portfolio-examples/tree/master/paddlepaddle/bert-base">https://github.com/graphcore/portfolio-examples/tree/master/paddlepaddle/bert-base</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/graphcore/Paddle.git">https://github.com/graphcore/Paddle.git</a></p>
+<p>TensorFlow 1 &amp; 2 support with full performant integration with TensorFlow XLA backend</p>
+<p>PyTorch support for targeting IPU using the PyTorch ATEN backend</p>
+<p>PopART™ (Poplar Advanced Runtime) for training &amp; inference; supports Python&#x2F;C++ model building plus ONNX model input</p>
+<p>Full support for PaddlePaddle</p>
+<p>Other frameworks support coming soon</p>
 
 	
 	</div>
@@ -323,7 +1097,10 @@
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://github.com/slowmoVideo/slowmoVideo">https://github.com/slowmoVideo/slowmoVideo</a><br>it uses gpu and optical flow to do frame interpolation.<br>able to do instance segmentation if the optical flow boundary is clear and continuous.<br>build opencv with opencv_contrib and -DWITH_CUDA&#x3D;ON to enable cudaoptflow.</p>
+		<p><a target="_blank" rel="noopener" href="https://github.com/slowmoVideo/slowmoVideo">https://github.com/slowmoVideo/slowmoVideo</a></p>
+<p>it uses gpu and optical flow to do frame interpolation.</p>
+<p>able to do instance segmentation if the optical flow boundary is clear and continuous.</p>
+<p>build opencv with opencv_contrib and -DWITH_CUDA&#x3D;ON to enable cudaoptflow.</p>
 
 	
 	</div>
@@ -349,10 +1126,45 @@
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://www.kuxai.com/">kuxai</a> ai related articles, there’s some bot keep posting this shit to qq group<br><a target="_blank" rel="noopener" href="https://github.com/DIYgod/RSSHub">rsshub</a> most extensible rss feeder, can turn bilibili, zhihu, or anything into rss<br>medium.com<br>Searching for existing rss sources. You may want to make your own by means of social media. It could be the feeding source of reviewer or producer.<br><a target="_blank" rel="noopener" href="https://www.baidu.com/ssid=4d994e69636f5f4e69636f6c6532353311dd/from=844b/s?word=rss%E8%AE%A2%E9%98%85%E6%BA%90&ts=7538593&t_kt=0&ie=utf-8&fm_kl=021394be2f&rsv_iqid=4109465110&rsv_t=a02fgTXA5yrpeGBRWrTCqcc9bK%252FKmzIRzII6usvAqgJjawViUjevc88MAg&sa=is_5&ms=1&rsv_pq=4109465110&rsv_sug4=6166&tj=1&ss=110&inputT=3395&sugid=110161509475552&rq=rss">https://www.baidu.com/ssid=4d994e69636f5f4e69636f6c6532353311dd/from=844b/s?word=rss订阅源&amp;ts=7538593&amp;t_kt=0&amp;ie=utf-8&amp;fm_kl=021394be2f&amp;rsv_iqid=4109465110&amp;rsv_t=a02fgTXA5yrpeGBRWrTCqcc9bK%252FKmzIRzII6usvAqgJjawViUjevc88MAg&amp;sa=is_5&amp;ms=1&amp;rsv_pq=4109465110&amp;rsv_sug4=6166&amp;tj=1&amp;ss=110&amp;inputT=3395&amp;sugid=110161509475552&amp;rq=rss</a><br><a target="_blank" rel="noopener" href="https://www.appstoredate.com/iphone/6990.html">https://www.appstoredate.com/iphone/6990.html</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/wangjialiang/article/details/121510405">https://blog.csdn.net/wangjialiang/article/details/121510405</a><br><a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1677152782752706400&wfr=spider&for=pc&searchword=rss%E8%AE%A2%E9%98%85%E6%BA%90">https://baijiahao.baidu.com/s?id=1677152782752706400&amp;wfr=spider&amp;for=pc&amp;searchword=rss订阅源</a><br><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/mobile?id=8961024">https://www.bilibili.com/read/mobile?id=8961024</a><br><a target="_blank" rel="noopener" href="https://m.baidu.com/from=844b/ssid=4d994e69636f5f4e69636f6c6532353311dd/s?word=rss%E6%BA%90%E5%9C%B0%E5%9D%80%E8%AE%A2%E9%98%85%E5%A4%A7%E5%85%A8&sa=brs_7&rq=rss%E8%AE%A2%E9%98%85%E6%BA%90&rsf=100631857&pqid=8915434938561485118&ms=1&rqid=8915434938561485118&params_ssrt=node-san">https://m.baidu.com/from=844b/ssid=4d994e69636f5f4e69636f6c6532353311dd/s?word=rss源地址订阅大全&amp;sa=brs_7&amp;rq=rss订阅源&amp;rsf=100631857&amp;pqid=8915434938561485118&amp;ms=1&amp;rqid=8915434938561485118&amp;params_ssrt=node-san</a><br><a target="_blank" rel="noopener" href="https://m.baidu.com/from=844b/ssid=4d994e69636f5f4e69636f6c6532353311dd/s?word=%E8%AE%A2%E9%98%85%E6%BA%90%E6%95%B4%E5%90%88&sa=brs_6&rq=rss%E8%AE%A2%E9%98%85%E6%BA%90&rsf=100631112&pqid=8915434938561485118&ms=1&rqid=8915434938561485118&params_ssrt=node-san">https://m.baidu.com/from=844b/ssid=4d994e69636f5f4e69636f6c6532353311dd/s?word=订阅源整合&amp;sa=brs_6&amp;rq=rss订阅源&amp;rsf=100631112&amp;pqid=8915434938561485118&amp;ms=1&amp;rqid=8915434938561485118&amp;params_ssrt=node-san</a><br><a target="_blank" rel="noopener" href="https://m.baidu.com/from=844b/ssid=4d994e69636f5f4e69636f6c6532353311dd/s?word=%E7%9F%A5%E4%B9%8E%E6%97%A5%E6%8A%A5rss%E6%BA%90&sa=brs_4&rq=rss%E8%AE%A2%E9%98%85%E6%BA%90&rsf=100631113&pqid=8915434938561485118&ms=1&rqid=8915434938561485118&params_ssrt=node-san">https://m.baidu.com/from=844b/ssid=4d994e69636f5f4e69636f6c6532353311dd/s?word=知乎日报rss源&amp;sa=brs_4&amp;rq=rss订阅源&amp;rsf=100631113&amp;pqid=8915434938561485118&amp;ms=1&amp;rqid=8915434938561485118&amp;params_ssrt=node-san</a><br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/25071126/answer/875901493">https://www.zhihu.com/question/25071126/answer/875901493</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/53989966">https://zhuanlan.zhihu.com/p/53989966</a><br><a target="_blank" rel="noopener" href="https://m.baidu.com/from=844b/ssid=4d994e69636f5f4e69636f6c6532353311dd/s?word=%E5%90%84%E5%A4%A7%E7%BD%91%E7%AB%99RSS%E8%AE%A2%E9%98%85%E6%BA%90%E5%9C%B0%E5%9D%80&sa=re_dl_prs_34689_1&rqid=10035302357898163828&params_ssrt=node-san&rq=%E7%9F%A5%E4%B9%8E%E6%97%A5%E6%8A%A5rss%E6%BA%90&rsf=100631113&asctag=2470">https://m.baidu.com/from=844b/ssid=4d994e69636f5f4e69636f6c6532353311dd/s?word=各大网站RSS订阅源地址&amp;sa=re_dl_prs_34689_1&amp;rqid=10035302357898163828&amp;params_ssrt=node-san&amp;rq=知乎日报rss源&amp;rsf=100631113&amp;asctag=2470</a><br><a target="_blank" rel="noopener" href="https://www.tutorialspoint.com/python_text_processing/python_reading_rss_feed.htm">https://www.tutorialspoint.com/python_text_processing/python_reading_rss_feed.htm</a><br><a target="_blank" rel="noopener" href="https://www.datasciencelearner.com/how-to-read-rss-feed-in-python/">https://www.datasciencelearner.com/how-to-read-rss-feed-in-python/</a><br><a target="_blank" rel="noopener" href="https://wiki.python.org/moin/RssLibraries">https://wiki.python.org/moin/RssLibraries</a><br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/2244836/rss-feed-parser-library-in-python">https://stackoverflow.com/questions/2244836/rss-feed-parser-library-in-python</a><br><a target="_blank" rel="noopener" href="https://pypi.org/project/rss-reader/">https://pypi.org/project/rss-reader/</a><br><a target="_blank" rel="noopener" href="https://github.com/lemon24/reader">https://github.com/lemon24/reader</a><br><a target="_blank" rel="noopener" href="https://reader.readthedocs.io/en/latest/">https://reader.readthedocs.io/en/latest/</a><br>we need cleaner view by using readbility.js, but how to preserve pictures? is it built-in?<br>pictures could be a big fingerprint. better deal them with link extracter and shufflers.<br>you want python version or nodejs version?</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install @mozilla/readability</span><br><span class="line"><span class="comment"># it can be invoked via api, standalone!</span></span><br><span class="line"><span class="comment"># you might want to call javascript from python</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip3 install readability-lxml</span><br><span class="line"><span class="comment"># some lags behind?</span></span><br></pre></td></tr></table></figure>
-<p>this is for the reader mode, make webpage readable<br><a target="_blank" rel="noopener" href="https://github.com/luin/readability">https://github.com/luin/readability</a><br><a target="_blank" rel="noopener" href="https://github.com/phpdocker-io/readability-js-server">https://github.com/phpdocker-io/readability-js-server</a><br><a target="_blank" rel="noopener" href="https://github.com/mozilla/readability">https://github.com/mozilla/readability</a><br><a target="_blank" rel="noopener" href="https://github.com/alan-turing-institute/ReadabiliPy">https://github.com/alan-turing-institute/ReadabiliPy</a><br><a target="_blank" rel="noopener" href="https://github.com/edgartaor/kindleServer">https://github.com/edgartaor/kindleServer</a><br><a target="_blank" rel="noopener" href="https://requests-html.kennethreitz.org/">https://requests-html.kennethreitz.org</a><br><a target="_blank" rel="noopener" href="https://github.com/psf/requests-html">https://github.com/psf/requests-html</a><br><a target="_blank" rel="noopener" href="https://github.com/MHordecki/readability-redux/blob/master/readability/readability.js">https://github.com/MHordecki/readability-redux/blob/master/readability/readability.js</a><br><a target="_blank" rel="noopener" href="https://github.com/buriy/python-readability">https://github.com/buriy/python-readability</a><br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/56857506/how-to-enable-reader-mode-distill-page-with-puppeteer">https://stackoverflow.com/questions/56857506/how-to-enable-reader-mode-distill-page-with-puppeteer</a></p>
+		<p><a target="_blank" rel="noopener" href="https://www.kuxai.com/">kuxai</a> ai related articles, there’s some bot keep posting this shit to qq group</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/DIYgod/RSSHub">rsshub</a> most extensible rss feeder, can turn bilibili, zhihu, or anything into rss</p>
+<p>medium.com</p>
+<p>Searching for existing rss sources. You may want to make your own by means of social media. It could be the feeding source of reviewer or producer.</p>
+<p><a target="_blank" rel="noopener" href="https://www.baidu.com/ssid=4d994e69636f5f4e69636f6c6532353311dd/from=844b/s?word=rss%E8%AE%A2%E9%98%85%E6%BA%90&ts=7538593&t_kt=0&ie=utf-8&fm_kl=021394be2f&rsv_iqid=4109465110&rsv_t=a02fgTXA5yrpeGBRWrTCqcc9bK%252FKmzIRzII6usvAqgJjawViUjevc88MAg&sa=is_5&ms=1&rsv_pq=4109465110&rsv_sug4=6166&tj=1&ss=110&inputT=3395&sugid=110161509475552&rq=rss">https://www.baidu.com/ssid=4d994e69636f5f4e69636f6c6532353311dd/from=844b/s?word=rss订阅源&amp;ts=7538593&amp;t_kt=0&amp;ie=utf-8&amp;fm_kl=021394be2f&amp;rsv_iqid=4109465110&amp;rsv_t=a02fgTXA5yrpeGBRWrTCqcc9bK%252FKmzIRzII6usvAqgJjawViUjevc88MAg&amp;sa=is_5&amp;ms=1&amp;rsv_pq=4109465110&amp;rsv_sug4=6166&amp;tj=1&amp;ss=110&amp;inputT=3395&amp;sugid=110161509475552&amp;rq=rss</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.appstoredate.com/iphone/6990.html">https://www.appstoredate.com/iphone/6990.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wangjialiang/article/details/121510405">https://blog.csdn.net/wangjialiang/article/details/121510405</a></p>
+<p><a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1677152782752706400&wfr=spider&for=pc&searchword=rss%E8%AE%A2%E9%98%85%E6%BA%90">https://baijiahao.baidu.com/s?id=1677152782752706400&amp;wfr=spider&amp;for=pc&amp;searchword=rss订阅源</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/mobile?id=8961024">https://www.bilibili.com/read/mobile?id=8961024</a></p>
+<p><a target="_blank" rel="noopener" href="https://m.baidu.com/from=844b/ssid=4d994e69636f5f4e69636f6c6532353311dd/s?word=rss%E6%BA%90%E5%9C%B0%E5%9D%80%E8%AE%A2%E9%98%85%E5%A4%A7%E5%85%A8&sa=brs_7&rq=rss%E8%AE%A2%E9%98%85%E6%BA%90&rsf=100631857&pqid=8915434938561485118&ms=1&rqid=8915434938561485118&params_ssrt=node-san">https://m.baidu.com/from=844b/ssid=4d994e69636f5f4e69636f6c6532353311dd/s?word=rss源地址订阅大全&amp;sa=brs_7&amp;rq=rss订阅源&amp;rsf=100631857&amp;pqid=8915434938561485118&amp;ms=1&amp;rqid=8915434938561485118&amp;params_ssrt=node-san</a></p>
+<p><a target="_blank" rel="noopener" href="https://m.baidu.com/from=844b/ssid=4d994e69636f5f4e69636f6c6532353311dd/s?word=%E8%AE%A2%E9%98%85%E6%BA%90%E6%95%B4%E5%90%88&sa=brs_6&rq=rss%E8%AE%A2%E9%98%85%E6%BA%90&rsf=100631112&pqid=8915434938561485118&ms=1&rqid=8915434938561485118&params_ssrt=node-san">https://m.baidu.com/from=844b/ssid=4d994e69636f5f4e69636f6c6532353311dd/s?word=订阅源整合&amp;sa=brs_6&amp;rq=rss订阅源&amp;rsf=100631112&amp;pqid=8915434938561485118&amp;ms=1&amp;rqid=8915434938561485118&amp;params_ssrt=node-san</a></p>
+<p><a target="_blank" rel="noopener" href="https://m.baidu.com/from=844b/ssid=4d994e69636f5f4e69636f6c6532353311dd/s?word=%E7%9F%A5%E4%B9%8E%E6%97%A5%E6%8A%A5rss%E6%BA%90&sa=brs_4&rq=rss%E8%AE%A2%E9%98%85%E6%BA%90&rsf=100631113&pqid=8915434938561485118&ms=1&rqid=8915434938561485118&params_ssrt=node-san">https://m.baidu.com/from=844b/ssid=4d994e69636f5f4e69636f6c6532353311dd/s?word=知乎日报rss源&amp;sa=brs_4&amp;rq=rss订阅源&amp;rsf=100631113&amp;pqid=8915434938561485118&amp;ms=1&amp;rqid=8915434938561485118&amp;params_ssrt=node-san</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/25071126/answer/875901493">https://www.zhihu.com/question/25071126/answer/875901493</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/53989966">https://zhuanlan.zhihu.com/p/53989966</a></p>
+<p><a target="_blank" rel="noopener" href="https://m.baidu.com/from=844b/ssid=4d994e69636f5f4e69636f6c6532353311dd/s?word=%E5%90%84%E5%A4%A7%E7%BD%91%E7%AB%99RSS%E8%AE%A2%E9%98%85%E6%BA%90%E5%9C%B0%E5%9D%80&sa=re_dl_prs_34689_1&rqid=10035302357898163828&params_ssrt=node-san&rq=%E7%9F%A5%E4%B9%8E%E6%97%A5%E6%8A%A5rss%E6%BA%90&rsf=100631113&asctag=2470">https://m.baidu.com/from=844b/ssid=4d994e69636f5f4e69636f6c6532353311dd/s?word=各大网站RSS订阅源地址&amp;sa=re_dl_prs_34689_1&amp;rqid=10035302357898163828&amp;params_ssrt=node-san&amp;rq=知乎日报rss源&amp;rsf=100631113&amp;asctag=2470</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.tutorialspoint.com/python_text_processing/python_reading_rss_feed.htm">https://www.tutorialspoint.com/python_text_processing/python_reading_rss_feed.htm</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.datasciencelearner.com/how-to-read-rss-feed-in-python/">https://www.datasciencelearner.com/how-to-read-rss-feed-in-python/</a></p>
+<p><a target="_blank" rel="noopener" href="https://wiki.python.org/moin/RssLibraries">https://wiki.python.org/moin/RssLibraries</a></p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/2244836/rss-feed-parser-library-in-python">https://stackoverflow.com/questions/2244836/rss-feed-parser-library-in-python</a></p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/rss-reader/">https://pypi.org/project/rss-reader/</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lemon24/reader">https://github.com/lemon24/reader</a></p>
+<p><a target="_blank" rel="noopener" href="https://reader.readthedocs.io/en/latest/">https://reader.readthedocs.io/en/latest/</a></p>
+<p>we need cleaner view by using readbility.js, but how to preserve pictures? is it built-in?</p>
+<p>pictures could be a big fingerprint. better deal them with link extracter and shufflers.</p>
+<p>you want python version or nodejs version?</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install @mozilla/readability</span><br><span class="line"><span class="comment"># it can be invoked via api, standalone!</span></span><br><span class="line"><span class="comment"># you might want to call javascript from python</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip3 install readability-lxml</span><br><span class="line"><span class="comment"># some lags behind?</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>this is for the reader mode, make webpage readable</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/luin/readability">https://github.com/luin/readability</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/phpdocker-io/readability-js-server">https://github.com/phpdocker-io/readability-js-server</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mozilla/readability">https://github.com/mozilla/readability</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/alan-turing-institute/ReadabiliPy">https://github.com/alan-turing-institute/ReadabiliPy</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/edgartaor/kindleServer">https://github.com/edgartaor/kindleServer</a></p>
+<p><a target="_blank" rel="noopener" href="https://requests-html.kennethreitz.org/">https://requests-html.kennethreitz.org</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/psf/requests-html">https://github.com/psf/requests-html</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/MHordecki/readability-redux/blob/master/readability/readability.js">https://github.com/MHordecki/readability-redux/blob/master/readability/readability.js</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/buriy/python-readability">https://github.com/buriy/python-readability</a></p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/56857506/how-to-enable-reader-mode-distill-page-with-puppeteer">https://stackoverflow.com/questions/56857506/how-to-enable-reader-mode-distill-page-with-puppeteer</a></p>
 
 	
 	</div>
@@ -378,7 +1190,13 @@
   <div class="row">
 	
 	
-		<p>Predict emotion by means of graphics, motion, text, voice and swap context to achieve desirable effects.<br>Add random swap and funny pictures in addition to simple dictation.<br>You may group different kinds of content for specialized model training.<br>Syncing is hard. With database, it’s not.<br>Analyze the conversation with emotional&#x2F;keyword frequency indicator, do some feature extraction.<br>Accelerate part of the video to be more expressive<br><a target="_blank" rel="noopener" href="https://github.com/maelfabien/Multimodal-Emotion-Recognition">emotion recognization multi modal</a></p>
+		<p>Predict emotion by means of graphics, motion, text, voice and swap context to achieve desirable effects.</p>
+<p>Add random swap and funny pictures in addition to simple dictation.</p>
+<p>You may group different kinds of content for specialized model training.</p>
+<p>Syncing is hard. With database, it’s not.</p>
+<p>Analyze the conversation with emotional&#x2F;keyword frequency indicator, do some feature extraction.</p>
+<p>Accelerate part of the video to be more expressive</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/maelfabien/Multimodal-Emotion-Recognition">emotion recognization multi modal</a></p>
 
 	
 	</div>

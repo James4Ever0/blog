@@ -129,9 +129,38 @@
 	
 	
 		<p>媒体的意义和AI类似 别人知道的就不要发了 有可能出错 别人不知道的就发 有可能有用 在兴趣圈周围探索 拓宽视野</p>
-<h2 id="网页转文章"><a href="#网页转文章" class="headerlink" title="网页转文章"></a>网页转文章</h2><p>readbility.js<br><a target="_blank" rel="noopener" href="https://github.com/Nixes/PageScraper">pagescraper</a> in php<br><code>elinks -dump &lt;url&gt;</code><br>可以把一个文字或者其他类型的内容当成模板 其他文字 视频 图片当作素材 根据模板收集素材 形成内容 注意素材不能是模板本身 素材不能单一 不然被认定为抄袭<br>文章洗稿 基于标题和context生成段落：<br><a target="_blank" rel="noopener" href="https://github.com/yangjianxin1/CPM">https://github.com/yangjianxin1/CPM</a><br>bert mask:<br><a target="_blank" rel="noopener" href="https://huggingface.co/fnlp/bart-base-chinese">https://huggingface.co/fnlp/bart-base-chinese</a><br><a target="_blank" rel="noopener" href="https://huggingface.co/hfl/chinese-macbert-base">https://huggingface.co/hfl/chinese-macbert-base</a><br>chinese paraphrase:<br><a target="_blank" rel="noopener" href="https://github.com/ZhuiyiTechnology/roformer">https://github.com/ZhuiyiTechnology/roformer</a><br><a target="_blank" rel="noopener" href="https://github.com/ZhuiyiTechnology/simbert">https://github.com/ZhuiyiTechnology/simbert</a><br><a target="_blank" rel="noopener" href="https://github.com/ZhuiyiTechnology/WoBERT">可能不是paraphrase模型</a><br><a target="_blank" rel="noopener" href="https://huggingface.co/lijingxin/mt5-for-zh-paraphrase/tree/main">https://huggingface.co/lijingxin/mt5-for-zh-paraphrase/tree/main</a><br><a target="_blank" rel="noopener" href="https://huggingface.co/facebook/m2m100_418M">https://huggingface.co/facebook/m2m100_418M</a><br><a target="_blank" rel="noopener" href="https://github.com/jiangnanboy/chinese_sentence_paraphrase">https://github.com/jiangnanboy/chinese_sentence_paraphrase</a><br>chinese summarize generator:<br>一般抽取式的提取 都需要有gpt生成器在中间插入一些句子<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/Thefreelittle/article/details/121342813">hanlp自带抽取文本方案</a><br><a target="_blank" rel="noopener" href="https://www.bbsmax.com/A/pRdB0nQGJn/">抽取式文本摘要</a><br><a target="_blank" rel="noopener" href="https://github.com/downw/summrization">bart t5 pegasus中文文本摘要 有训练数据集</a> <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43718786/article/details/119741580">训练教程</a><br>一直在想怎么能正确高效的处理seo中，采集的文章怎么去伪原创和洗稿。如果是人工操作的话，那就太麻烦了。采集下来的文章不进行伪原创又害怕被飓风算法命中。<br>1，tr算法提取摘要再人工重组新的文章。<br>正好今天发现了python中的textrank4zh库，依赖于jieba、numpy和networkx库，可以通过tr算法进行文章的摘要提取。然后根据摘要再人工洗稿，整合成一篇全新的文章。<br>测试一篇蚂蜂窝上面的问答，蚂蜂窝问答下面是有很多个答主的内容，通过python爬取所有内容，然后再利用tr算法提取摘要，根据摘要进行重组出一篇新的文章。这样基本上可以成功躲避飓风算法。<br>先安装依赖库，然后再利用tr4进行摘要提取。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> textrank4zh <span class="keyword">import</span> TextRank4Keyword, TextRank4Sentence</span><br><span class="line">content = <span class="string">&quot;&quot;</span> <span class="comment"># 这里是python采集下来的content html内容</span></span><br><span class="line">text = re.sub(<span class="string">&#x27;&lt;.*?&gt;&#x27;</span>,<span class="string">&#x27;&#x27;</span>,content)</span><br><span class="line">text = re.sub(<span class="string">r&#x27;\s&#x27;</span>,<span class="string">&#x27;&#x27;</span>,text)</span><br><span class="line">zy = <span class="string">&#x27;&#x27;</span></span><br><span class="line">tr4s = TextRank4Sentence()</span><br><span class="line">tr4s.analyze(text=text, lower=<span class="literal">True</span>, source = <span class="string">&#x27;all_filters&#x27;</span>)</span><br><span class="line"><span class="comment"># 可修改num值，设置摘要长度。</span></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> tr4s.get_key_sentences(num=<span class="number">10</span>):</span><br><span class="line">zy = zy + item.sentence</span><br></pre></td></tr></table></figure>
-<p>2，利用google翻译双向翻译洗稿<br>之前有接触一个所谓人工智能洗稿的网站小发猫，说的是利用NLP算法进行洗稿，本来我以为洗稿只有同义词替换这个办法。<br>后来研究了一下小发猫，我首先觉得这个绝对不是利用什么所谓的NLP算法来洗稿，研究了一下发现可能是利用google翻译进行双向翻译，就是先中文翻译英文，然后再拿翻译出来的英文再翻译成中文。<br>自己也开发了一个这样的伪原创工具，发现其实并不好用。如果不仔细读，这样双向翻译出来的文章还能读，但是仔细读的话。其实语法习惯还有用词根本不准确，甚至有些情况还改变了这句话原有的语义。</p>
+<h2 id="网页转文章"><a href="#网页转文章" class="headerlink" title="网页转文章"></a>网页转文章</h2><p>readbility.js</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Nixes/PageScraper">pagescraper</a> in php</p>
+<p><code>elinks -dump &lt;url&gt;</code></p>
+<p>可以把一个文字或者其他类型的内容当成模板 其他文字 视频 图片当作素材 根据模板收集素材 形成内容 注意素材不能是模板本身 素材不能单一 不然被认定为抄袭</p>
+<p>文章洗稿 基于标题和context生成段落：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yangjianxin1/CPM">https://github.com/yangjianxin1/CPM</a></p>
+<p>bert mask:</p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/fnlp/bart-base-chinese">https://huggingface.co/fnlp/bart-base-chinese</a></p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/hfl/chinese-macbert-base">https://huggingface.co/hfl/chinese-macbert-base</a></p>
+<p>chinese paraphrase:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ZhuiyiTechnology/roformer">https://github.com/ZhuiyiTechnology/roformer</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ZhuiyiTechnology/simbert">https://github.com/ZhuiyiTechnology/simbert</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ZhuiyiTechnology/WoBERT">可能不是paraphrase模型</a></p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/lijingxin/mt5-for-zh-paraphrase/tree/main">https://huggingface.co/lijingxin/mt5-for-zh-paraphrase/tree/main</a></p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/facebook/m2m100_418M">https://huggingface.co/facebook/m2m100_418M</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jiangnanboy/chinese_sentence_paraphrase">https://github.com/jiangnanboy/chinese_sentence_paraphrase</a></p>
+<p>chinese summarize generator:</p>
+<p>一般抽取式的提取 都需要有gpt生成器在中间插入一些句子</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Thefreelittle/article/details/121342813">hanlp自带抽取文本方案</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bbsmax.com/A/pRdB0nQGJn/">抽取式文本摘要</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/downw/summrization">bart t5 pegasus中文文本摘要 有训练数据集</a> <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43718786/article/details/119741580">训练教程</a></p>
+<p>一直在想怎么能正确高效的处理seo中，采集的文章怎么去伪原创和洗稿。如果是人工操作的话，那就太麻烦了。采集下来的文章不进行伪原创又害怕被飓风算法命中。</p>
+<p>1，tr算法提取摘要再人工重组新的文章。</p>
+<p>正好今天发现了python中的textrank4zh库，依赖于jieba、numpy和networkx库，可以通过tr算法进行文章的摘要提取。然后根据摘要再人工洗稿，整合成一篇全新的文章。</p>
+<p>测试一篇蚂蜂窝上面的问答，蚂蜂窝问答下面是有很多个答主的内容，通过python爬取所有内容，然后再利用tr算法提取摘要，根据摘要进行重组出一篇新的文章。这样基本上可以成功躲避飓风算法。</p>
+<p>先安装依赖库，然后再利用tr4进行摘要提取。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> textrank4zh <span class="keyword">import</span> TextRank4Keyword, TextRank4Sentence</span><br><span class="line">content = <span class="string">&quot;&quot;</span> <span class="comment"># 这里是python采集下来的content html内容</span></span><br><span class="line">text = re.sub(<span class="string">&#x27;&lt;.*?&gt;&#x27;</span>,<span class="string">&#x27;&#x27;</span>,content)</span><br><span class="line">text = re.sub(<span class="string">r&#x27;\s&#x27;</span>,<span class="string">&#x27;&#x27;</span>,text)</span><br><span class="line">zy = <span class="string">&#x27;&#x27;</span></span><br><span class="line">tr4s = TextRank4Sentence()</span><br><span class="line">tr4s.analyze(text=text, lower=<span class="literal">True</span>, source = <span class="string">&#x27;all_filters&#x27;</span>)</span><br><span class="line"><span class="comment"># 可修改num值，设置摘要长度。</span></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> tr4s.get_key_sentences(num=<span class="number">10</span>):</span><br><span class="line">zy = zy + item.sentence</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>2，利用google翻译双向翻译洗稿</p>
+<p>之前有接触一个所谓人工智能洗稿的网站小发猫，说的是利用NLP算法进行洗稿，本来我以为洗稿只有同义词替换这个办法。</p>
+<p>后来研究了一下小发猫，我首先觉得这个绝对不是利用什么所谓的NLP算法来洗稿，研究了一下发现可能是利用google翻译进行双向翻译，就是先中文翻译英文，然后再拿翻译出来的英文再翻译成中文。</p>
+<p>自己也开发了一个这样的伪原创工具，发现其实并不好用。如果不仔细读，这样双向翻译出来的文章还能读，但是仔细读的话。其实语法习惯还有用词根本不准确，甚至有些情况还改变了这句话原有的语义。</p>
 
 	
 	</div>
@@ -155,7 +184,83 @@
   <div class="row">
 	
 	
-		<h1 id="Translators-Paraphraser-for-casual-usage"><a href="#Translators-Paraphraser-for-casual-usage" class="headerlink" title="Translators&#x2F;Paraphraser for casual usage"></a>Translators&#x2F;Paraphraser for casual usage</h1><p><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/PaddleHub/blob/e03d11260b86a2f49f896e733d68e82edb0d9286/modules/text/machine_translation/baidu_translate/module.py">baidu translator</a> (api) provided by paddlehub<br><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/PaddleHub/blob/37fd44e8000e19a61d74cc35ef08af2cdd3d64b4/modules/text/machine_translation/baidu_language_recognition/module.py">baidu language detector</a> (api)<br>text style transfer:<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_27590277/article/details/106991084">https://blog.csdn.net/qq_27590277/article/details/106991084</a><br>python google translate api:<br>pip install googletrans<br>google translate in php:<br><a target="_blank" rel="noopener" href="https://github.com/Stichoza/google-translate-php">https://github.com/Stichoza/google-translate-php</a><br>paraphrase via rephrasing and reordering<br>pegasus paraphrase:<br>increase the num_beams and temperature<br><a target="_blank" rel="noopener" href="https://analyticsindiamag.com/how-to-paraphrase-text-using-pegasus-transformer/">https://analyticsindiamag.com/how-to-paraphrase-text-using-pegasus-transformer/</a><br><a target="_blank" rel="noopener" href="https://www.thepythoncode.com/article/paraphrase-text-using-transformers-in-python">https://www.thepythoncode.com/article/paraphrase-text-using-transformers-in-python</a><br>example paraphrase project using LSTM as decoder and encoder:<br><a target="_blank" rel="noopener" href="https://github.com/vsuthichai/paraphraser">https://github.com/vsuthichai/paraphraser</a><br>paraphrase with t5:<br><a target="_blank" rel="noopener" href="https://github.com/Vamsi995/Paraphrase-Generator">https://github.com/Vamsi995/Paraphrase-Generator</a><br>paraphrase dataset:<br><a target="_blank" rel="noopener" href="https://github.com/Wys997/Chinese-Paraphrase-from-Quora">https://github.com/Wys997/Chinese-Paraphrase-from-Quora</a><br>文本纠错<br><a target="_blank" rel="noopener" href="https://github.com/James4Ever0/pycorrector">https://github.com/James4Ever0/pycorrector</a><br>数据增强 变换句子形式<br><a target="_blank" rel="noopener" href="https://yongzhuo.blog.csdn.net/article/details/89166307">https://yongzhuo.blog.csdn.net/article/details/89166307</a><br><a target="_blank" rel="noopener" href="https://github.com/zhanlaoban/eda_nlp_for_Chinese">https://github.com/zhanlaoban/eda_nlp_for_Chinese</a><br>calculate perplexity:<br><a target="_blank" rel="noopener" href="https://github.com/DUTANGx/Chinese-BERT-as-language-model">https://github.com/DUTANGx/Chinese-BERT-as-language-model</a><br><a target="_blank" rel="noopener" href="https://github.com/James4Ever0/nlp-fluency">https://github.com/James4Ever0/nlp-fluency</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/265677864">https://zhuanlan.zhihu.com/p/265677864</a><br><a target="_blank" rel="noopener" href="https://github.com/mattzheng/py-kenlm-model">https://github.com/mattzheng/py-kenlm-model</a><br>multi-purpose tool for chinese: 偏旁部首 情感分析<br><a target="_blank" rel="noopener" href="https://github.com/SeanLee97/xmnlp">https://github.com/SeanLee97/xmnlp</a><br>敏感词过滤 语言检测 训练语料库<br><a target="_blank" rel="noopener" href="https://github.com/fighting41love/funNLP">https://github.com/fighting41love/funNLP</a><br>paraphraser.io<br>multilingual paraphrase database:<br>paraphrase.org<br>simbert<br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/317540171">https://www.zhihu.com/question/317540171</a><br>BERT：原始版本bertRoberta：哈工大开源的中文wwm roberta模型BERT-SQ：本人在百度知道相似句数据集(Sim-Query)上微调后的bert模型Roberta-SQ：同上BERT-Whitening： @苏剑林 最新博客中提出的白化模型。Roberta-Whitening：同上<br><a target="_blank" rel="noopener" href="https://yongzhuo.blog.csdn.net/article/details/89166307">https://yongzhuo.blog.csdn.net/article/details/89166307</a><br>language fluency test:<br><a target="_blank" rel="noopener" href="https://github.com/baojunshan/nlp-fluency">https://github.com/baojunshan/nlp-fluency</a><br>many paraphraser models for english are on huggingface, but few for chinese.<br><a target="_blank" rel="noopener" href="https://huggingface.co/lijingxin/mt5-for-zh-paraphrase">https://huggingface.co/lijingxin/mt5-for-zh-paraphrase</a><br><a target="_blank" rel="noopener" href="https://pypi.org/project/genienlp/">https://pypi.org/project/genienlp/</a><br><a target="_blank" rel="noopener" href="https://github.com/salesforce/decaNLP">https://github.com/salesforce/decaNLP</a><br>parrot paraphraser with nlu engines for english:<br><a target="_blank" rel="noopener" href="https://github.com/PrithivirajDamodaran/Parrot_Paraphraser">https://github.com/PrithivirajDamodaran/Parrot_Paraphraser</a><br>sentence level paraphraser:<br><a target="_blank" rel="noopener" href="https://github.com/vsuthichai/paraphraser">https://github.com/vsuthichai/paraphraser</a><br>document level paraphraser, with sentence rewriting and reordering(shuffle):<br><a target="_blank" rel="noopener" href="https://github.com/L-Zhe/CoRPG">https://github.com/L-Zhe/CoRPG</a><br><a target="_blank" rel="noopener" href="https://pypi.org/project/lexsub/">https://pypi.org/project/lexsub/</a><br><a target="_blank" rel="noopener" href="https://github.com/hit-joseph/lexical-paraphrase-extraction">https://github.com/hit-joseph/lexical-paraphrase-extraction</a><br>synonyms (python library)<br>you can also train a contextual search tool using fine-tuned repurposed paraphrase model.<br><a target="_blank" rel="noopener" href="https://pypi.org/project/nlp-text-search/">https://pypi.org/project/nlp-text-search/</a><br>文言文<br><a target="_blank" rel="noopener" href="https://github.com/raynardj/yuan">https://github.com/raynardj/yuan</a><br>粤语<br><a target="_blank" rel="noopener" href="https://huggingface.co/x-tech">https://huggingface.co/x-tech</a><br>huggingface有英语翻译到其他语言的模型 没有翻译成中文的模型<br>在线<br><a target="_blank" rel="noopener" href="https://github.com/nidhaloff/deep-translator">https://github.com/nidhaloff/deep-translator</a><br><a target="_blank" rel="noopener" href="https://github.com/UlionTse/translators">https://github.com/UlionTse/translators</a><br>translatepy<br>离线<br><a target="_blank" rel="noopener" href="https://huggingface.co/tasks/translation">https://huggingface.co/tasks/translation</a><br><a target="_blank" rel="noopener" href="https://huggingface.co/Helsinki-NLP/opus-mt-zh-en">https://huggingface.co/Helsinki-NLP/opus-mt-zh-en</a><br><a target="_blank" rel="noopener" href="https://github.com/argosopentech/argos-translate">https://github.com/argosopentech/argos-translate</a><br>libretranslate<br><a target="_blank" rel="noopener" href="https://github.com/Teuze/translate">https://github.com/Teuze/translate</a><br><a target="_blank" rel="noopener" href="https://github.com/xhlulu/dl-translate/">https://github.com/xhlulu/dl-translate/</a><br>facebook&#x2F;mbart-large-50-many-to-many-mmt<br>mbart50<br>m2m100<br>view under <a target="_blank" rel="noopener" href="https://huggingface.co/tasks">https://huggingface.co/tasks</a> to see great models fitting exact needs.</p>
+		<h1 id="Translators-Paraphraser-for-casual-usage"><a href="#Translators-Paraphraser-for-casual-usage" class="headerlink" title="Translators&#x2F;Paraphraser for casual usage"></a>Translators&#x2F;Paraphraser for casual usage</h1><p><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/PaddleHub/blob/e03d11260b86a2f49f896e733d68e82edb0d9286/modules/text/machine_translation/baidu_translate/module.py">baidu translator</a> (api) provided by paddlehub</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/PaddleHub/blob/37fd44e8000e19a61d74cc35ef08af2cdd3d64b4/modules/text/machine_translation/baidu_language_recognition/module.py">baidu language detector</a> (api)</p>
+<p>text style transfer:</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_27590277/article/details/106991084">https://blog.csdn.net/qq_27590277/article/details/106991084</a></p>
+<p>python google translate api:</p>
+<p>pip install googletrans</p>
+<p>google translate in php:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Stichoza/google-translate-php">https://github.com/Stichoza/google-translate-php</a></p>
+<p>paraphrase via rephrasing and reordering</p>
+<p>pegasus paraphrase:</p>
+<p>increase the num_beams and temperature</p>
+<p><a target="_blank" rel="noopener" href="https://analyticsindiamag.com/how-to-paraphrase-text-using-pegasus-transformer/">https://analyticsindiamag.com/how-to-paraphrase-text-using-pegasus-transformer/</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.thepythoncode.com/article/paraphrase-text-using-transformers-in-python">https://www.thepythoncode.com/article/paraphrase-text-using-transformers-in-python</a></p>
+<p>example paraphrase project using LSTM as decoder and encoder:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/vsuthichai/paraphraser">https://github.com/vsuthichai/paraphraser</a></p>
+<p>paraphrase with t5:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Vamsi995/Paraphrase-Generator">https://github.com/Vamsi995/Paraphrase-Generator</a></p>
+<p>paraphrase dataset:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Wys997/Chinese-Paraphrase-from-Quora">https://github.com/Wys997/Chinese-Paraphrase-from-Quora</a></p>
+<p>文本纠错</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/James4Ever0/pycorrector">https://github.com/James4Ever0/pycorrector</a></p>
+<p>数据增强 变换句子形式</p>
+<p><a target="_blank" rel="noopener" href="https://yongzhuo.blog.csdn.net/article/details/89166307">https://yongzhuo.blog.csdn.net/article/details/89166307</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zhanlaoban/eda_nlp_for_Chinese">https://github.com/zhanlaoban/eda_nlp_for_Chinese</a></p>
+<p>calculate perplexity:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/DUTANGx/Chinese-BERT-as-language-model">https://github.com/DUTANGx/Chinese-BERT-as-language-model</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/James4Ever0/nlp-fluency">https://github.com/James4Ever0/nlp-fluency</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/265677864">https://zhuanlan.zhihu.com/p/265677864</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mattzheng/py-kenlm-model">https://github.com/mattzheng/py-kenlm-model</a></p>
+<p>multi-purpose tool for chinese: 偏旁部首 情感分析</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/SeanLee97/xmnlp">https://github.com/SeanLee97/xmnlp</a></p>
+<p>敏感词过滤 语言检测 训练语料库</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/fighting41love/funNLP">https://github.com/fighting41love/funNLP</a></p>
+<p>paraphraser.io</p>
+<p>multilingual paraphrase database:</p>
+<p>paraphrase.org</p>
+<p>simbert</p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/317540171">https://www.zhihu.com/question/317540171</a></p>
+<p>BERT：原始版本bertRoberta：哈工大开源的中文wwm roberta模型BERT-SQ：本人在百度知道相似句数据集(Sim-Query)上微调后的bert模型Roberta-SQ：同上BERT-Whitening： @苏剑林 最新博客中提出的白化模型。Roberta-Whitening：同上</p>
+<p><a target="_blank" rel="noopener" href="https://yongzhuo.blog.csdn.net/article/details/89166307">https://yongzhuo.blog.csdn.net/article/details/89166307</a></p>
+<p>language fluency test:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/baojunshan/nlp-fluency">https://github.com/baojunshan/nlp-fluency</a></p>
+<p>many paraphraser models for english are on huggingface, but few for chinese.</p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/lijingxin/mt5-for-zh-paraphrase">https://huggingface.co/lijingxin/mt5-for-zh-paraphrase</a></p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/genienlp/">https://pypi.org/project/genienlp/</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/salesforce/decaNLP">https://github.com/salesforce/decaNLP</a></p>
+<p>parrot paraphraser with nlu engines for english:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/PrithivirajDamodaran/Parrot_Paraphraser">https://github.com/PrithivirajDamodaran/Parrot_Paraphraser</a></p>
+<p>sentence level paraphraser:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/vsuthichai/paraphraser">https://github.com/vsuthichai/paraphraser</a></p>
+<p>document level paraphraser, with sentence rewriting and reordering(shuffle):</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/L-Zhe/CoRPG">https://github.com/L-Zhe/CoRPG</a></p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/lexsub/">https://pypi.org/project/lexsub/</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/hit-joseph/lexical-paraphrase-extraction">https://github.com/hit-joseph/lexical-paraphrase-extraction</a></p>
+<p>synonyms (python library)</p>
+<p>you can also train a contextual search tool using fine-tuned repurposed paraphrase model.</p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/nlp-text-search/">https://pypi.org/project/nlp-text-search/</a></p>
+<p>文言文</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/raynardj/yuan">https://github.com/raynardj/yuan</a></p>
+<p>粤语</p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/x-tech">https://huggingface.co/x-tech</a></p>
+<p>huggingface有英语翻译到其他语言的模型 没有翻译成中文的模型</p>
+<p>在线</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/nidhaloff/deep-translator">https://github.com/nidhaloff/deep-translator</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/UlionTse/translators">https://github.com/UlionTse/translators</a></p>
+<p>translatepy</p>
+<p>离线</p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/tasks/translation">https://huggingface.co/tasks/translation</a></p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/Helsinki-NLP/opus-mt-zh-en">https://huggingface.co/Helsinki-NLP/opus-mt-zh-en</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/argosopentech/argos-translate">https://github.com/argosopentech/argos-translate</a></p>
+<p>libretranslate</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Teuze/translate">https://github.com/Teuze/translate</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/xhlulu/dl-translate/">https://github.com/xhlulu/dl-translate/</a></p>
+<p>facebook&#x2F;mbart-large-50-many-to-many-mmt</p>
+<p>mbart50</p>
+<p>m2m100</p>
+<p>view under <a target="_blank" rel="noopener" href="https://huggingface.co/tasks">https://huggingface.co/tasks</a> to see great models fitting exact needs.</p>
 
 	
 	</div>

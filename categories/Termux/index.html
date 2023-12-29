@@ -128,7 +128,8 @@
   <div class="row">
 	
 	
-		<p>install <code>openssl-tools</code> then use <code>add-trusted-certificate</code> against the <code>.crt</code> file, so curl will work fine (still not for elinks, i wonder why that works on macos and linux, or maybe not? just use playwright instead.)<br>chromebook is different. you need to export the proxy to <code>0.0.0.0</code> by means of nginx or something, so you can configure proxy to <code>100.115.92.14</code> or <code>100.115.92.2</code> as seen in termux by <code>ifconfig</code></p>
+		<p>install <code>openssl-tools</code> then use <code>add-trusted-certificate</code> against the <code>.crt</code> file, so curl will work fine (still not for elinks, i wonder why that works on macos and linux, or maybe not? just use playwright instead.)</p>
+<p>chromebook is different. you need to export the proxy to <code>0.0.0.0</code> by means of nginx or something, so you can configure proxy to <code>100.115.92.14</code> or <code>100.115.92.2</code> as seen in termux by <code>ifconfig</code></p>
 
 	
 	</div>
@@ -152,7 +153,8 @@
   <div class="row">
 	
 	
-		<h1 id="Termux-Boot-Autostart-Program-Fixes"><a href="#Termux-Boot-Autostart-Program-Fixes" class="headerlink" title="Termux:Boot Autostart Program Fixes"></a>Termux:Boot Autostart Program Fixes</h1><p>according to <a target="_blank" rel="noopener" href="https://github.com/termux/termux-boot/issues/58">this</a>, termux:boot on android 10 and above will not work. instead, change all executables with relative paths in init scripts to their absolute paths. if any referred executable is a script file containing other executable with non-absolute paths(except for those built-in programs like am), change that too.<br>mostly we hold wakelock, start sshd, crond or nginx and other non-blocking, non-interactive apps at start.</p>
+		<h1 id="Termux-Boot-Autostart-Program-Fixes"><a href="#Termux-Boot-Autostart-Program-Fixes" class="headerlink" title="Termux:Boot Autostart Program Fixes"></a>Termux:Boot Autostart Program Fixes</h1><p>according to <a target="_blank" rel="noopener" href="https://github.com/termux/termux-boot/issues/58">this</a>, termux:boot on android 10 and above will not work. instead, change all executables with relative paths in init scripts to their absolute paths. if any referred executable is a script file containing other executable with non-absolute paths(except for those built-in programs like am), change that too.</p>
+<p>mostly we hold wakelock, start sshd, crond or nginx and other non-blocking, non-interactive apps at start.</p>
 
 	
 	</div>
@@ -176,7 +178,13 @@
   <div class="row">
 	
 	
-		<h1 id="Bookmark-Browsing-Directory-Tree-Browsing-History-Collection"><a href="#Bookmark-Browsing-Directory-Tree-Browsing-History-Collection" class="headerlink" title="Bookmark Browsing Directory Tree Browsing History Collection"></a>Bookmark Browsing Directory Tree Browsing History Collection</h1><p>Using Kali forensic tool. (turned out not needed. just some googling for answers)<br>do you need to export your own good old notes? i mean mi notes. 2 phone numbers, 2 accounts. one with physical storage. the other you may want to download the mi note app and extract in the same way.<br>Organized under modifier termux ~&#x2F;works&#x2F;bookmark_dirtree_traverse. search via rg.<br>maybe we can organize directory trees using other methods, like some javascript library with both a search tool and a browsing tool. we can host a search engine via javascript, only static resources and client side computation.<br>this client side search engine usage example can be found at &#x2F;data&#x2F;data&#x2F;com.termux&#x2F;files&#x2F;home&#x2F;storage&#x2F;shared&#x2F;works&#x2F;milkshake_server and .&#x2F;external&#x2F;milkshake_server. the js searching library is called fuse.js.<br>I have made this into meilisearch, and i have backed it up to github&#x2F;james4ever0&#x2F;notes2 and aliyunpan and baiduyunpan. desktop search experience is better. meilisearch consume too much ram. i consider to find alternatives with less ram consumption.<br>using rg will be much faster.</p>
+		<h1 id="Bookmark-Browsing-Directory-Tree-Browsing-History-Collection"><a href="#Bookmark-Browsing-Directory-Tree-Browsing-History-Collection" class="headerlink" title="Bookmark Browsing Directory Tree Browsing History Collection"></a>Bookmark Browsing Directory Tree Browsing History Collection</h1><p>Using Kali forensic tool. (turned out not needed. just some googling for answers)</p>
+<p>do you need to export your own good old notes? i mean mi notes. 2 phone numbers, 2 accounts. one with physical storage. the other you may want to download the mi note app and extract in the same way.</p>
+<p>Organized under modifier termux ~&#x2F;works&#x2F;bookmark_dirtree_traverse. search via rg.</p>
+<p>maybe we can organize directory trees using other methods, like some javascript library with both a search tool and a browsing tool. we can host a search engine via javascript, only static resources and client side computation.</p>
+<p>this client side search engine usage example can be found at &#x2F;data&#x2F;data&#x2F;com.termux&#x2F;files&#x2F;home&#x2F;storage&#x2F;shared&#x2F;works&#x2F;milkshake_server and .&#x2F;external&#x2F;milkshake_server. the js searching library is called fuse.js.</p>
+<p>I have made this into meilisearch, and i have backed it up to github&#x2F;james4ever0&#x2F;notes2 and aliyunpan and baiduyunpan. desktop search experience is better. meilisearch consume too much ram. i consider to find alternatives with less ram consumption.</p>
+<p>using rg will be much faster.</p>
 
 	
 	</div>

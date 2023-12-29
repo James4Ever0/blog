@@ -152,14 +152,21 @@
   <div class="row">
 	
 	
-		<p>everytime the fucking machine restarts, it fails devastatingly.<br>the word: <code>Giving the fans some time to reach full speed...</code><br>the script:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/expect</span></span><br><span class="line">spawn pwmconfig</span><br><span class="line"><span class="comment">#expect &quot;Giving the fans some time to reach full speed...&quot;</span></span><br><span class="line">expect <span class="string">&quot;If you do not want to do this hit control-C now!!!&quot;</span></span><br><span class="line">send <span class="string">&quot;\03&quot;</span></span><br><span class="line">expect eof</span><br></pre></td></tr></table></figure>
+		<p>everytime the fucking machine restarts, it fails devastatingly.</p>
+<p>the word: <code>Giving the fans some time to reach full speed...</code></p>
+<p>the script:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/expect</span></span><br><span class="line">spawn pwmconfig</span><br><span class="line"><span class="comment">#expect &quot;Giving the fans some time to reach full speed...&quot;</span></span><br><span class="line">expect <span class="string">&quot;If you do not want to do this hit control-C now!!!&quot;</span></span><br><span class="line">send <span class="string">&quot;\03&quot;</span></span><br><span class="line">expect eof</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>hope this shit works?</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> 255 | sudo <span class="built_in">tee</span> /sys/class/hwmon/hwmon6/pwm3</span><br><span class="line"><span class="built_in">echo</span> 255 | sudo <span class="built_in">tee</span> /sys/class/hwmon/hwmon6/pwm1</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> 255 | sudo <span class="built_in">tee</span> /sys/class/hwmon/hwmon6/pwm3</span><br><span class="line"><span class="built_in">echo</span> 255 | sudo <span class="built_in">tee</span> /sys/class/hwmon/hwmon6/pwm1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>i have install something other than that. like i8kctl, some thermal controllers by intel (thermald)? but still gpu fan not spinning till now.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt install -y lm-sensors fancontrol</span><br><span class="line">sensors-detect</span><br><span class="line">pwmconfig</span><br></pre></td></tr></table></figure>
-<p>already have cpu frequency under control by running temp_throttle.sh<br>notes: found controllers <code>dell_smm-isa-0000</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Found the following PWM controls:</span><br><span class="line">hwmon6/pwm1           current value: 255</span><br><span class="line">hwmon6/pwm3           current value: 255</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt install -y lm-sensors fancontrol</span><br><span class="line">sensors-detect</span><br><span class="line">pwmconfig</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>already have cpu frequency under control by running temp_throttle.sh</p>
+<p>notes: found controllers <code>dell_smm-isa-0000</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Found the following PWM controls:</span><br><span class="line">hwmon6/pwm1           current value: 255</span><br><span class="line">hwmon6/pwm3           current value: 255</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 	
 	</div>
   <a type="button" href="/blog/2022/08/11/2a69a080-7a45-4b12-aca1-b81c0fd1737c/#more" class="btn btn-default more">Read More</a>
@@ -182,7 +189,11 @@
   <div class="row">
 	
 	
-		<h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><p><a target="_blank" rel="noopener" href="http://kernel.org/pub/linux/utils/kernel/cpufreq/cpufrequtils.html">cpufrequtils</a><br><a target="_blank" rel="noopener" href="https://github.com/Sepero/temp-throttle">throttling cpu frequencies by temperature incrementally</a><br>the desired temperature is 60.<br>usually when one throttles the CPU temperature, the GPU cannot be overheated.<br>it is turning my core i7 into a pentium 3! but not entirely cumbersome.</p>
+		<h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><p><a target="_blank" rel="noopener" href="http://kernel.org/pub/linux/utils/kernel/cpufreq/cpufrequtils.html">cpufrequtils</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Sepero/temp-throttle">throttling cpu frequencies by temperature incrementally</a></p>
+<p>the desired temperature is 60.</p>
+<p>usually when one throttles the CPU temperature, the GPU cannot be overheated.</p>
+<p>it is turning my core i7 into a pentium 3! but not entirely cumbersome.</p>
 
 	
 	</div>
@@ -253,7 +264,11 @@
   <div class="row">
 	
 	
-		<h1 id="智能手表防水-泡温泉-外壳"><a href="#智能手表防水-泡温泉-外壳" class="headerlink" title="智能手表防水 泡温泉 外壳"></a>智能手表防水 泡温泉 外壳</h1><p>智能手表都不能泡温泉 洗澡<br>可以考虑做智能手表的时候添加耐温耐水蒸汽的胶水 也可以考虑做防水汽的外壳 塑料透明保护壳 胶圈要和塑料壳之间用耐温耐水汽的胶水粘连 胶圈之间添加波纹 纹路 增加密封强度 耐压 用铰链链接 卡扣扣住 或者双卡扣<br>如果外壳需要留空间给按钮 用橡胶按钮加耐压防水胶 或者粘贴实体按钮 硬质按钮加橡胶密封层 注意连接处面积要大<br>旋转的按钮就不要旋转了 因为无法密封 比如苹果iwatch 只能点按<br>外壳一般有配套的表带 不用原来的连接装置</p>
+		<h1 id="智能手表防水-泡温泉-外壳"><a href="#智能手表防水-泡温泉-外壳" class="headerlink" title="智能手表防水 泡温泉 外壳"></a>智能手表防水 泡温泉 外壳</h1><p>智能手表都不能泡温泉 洗澡</p>
+<p>可以考虑做智能手表的时候添加耐温耐水蒸汽的胶水 也可以考虑做防水汽的外壳 塑料透明保护壳 胶圈要和塑料壳之间用耐温耐水汽的胶水粘连 胶圈之间添加波纹 纹路 增加密封强度 耐压 用铰链链接 卡扣扣住 或者双卡扣</p>
+<p>如果外壳需要留空间给按钮 用橡胶按钮加耐压防水胶 或者粘贴实体按钮 硬质按钮加橡胶密封层 注意连接处面积要大</p>
+<p>旋转的按钮就不要旋转了 因为无法密封 比如苹果iwatch 只能点按</p>
+<p>外壳一般有配套的表带 不用原来的连接装置</p>
 
 	
 	</div>
@@ -301,7 +316,22 @@
   <div class="row">
 	
 	
-		<p>working on archlinux arm:<br>libwacom 2.1.0-1<br>not working on kali linux:<br>libwacom-bin 2.2.0-1<br>full reference:<br><a target="_blank" rel="noopener" href="https://github.com/DIGImend/digimend-kernel-drivers/issues/514">https://github.com/DIGImend/digimend-kernel-drivers/issues/514</a><br>sudo nano &#x2F;etc&#x2F;X11&#x2F;xorg.conf<br>Section “InputClass”<br>Identifier “Tablet”<br>Driver “wacom”<br>MatchDevicePath “&#x2F;dev&#x2F;input&#x2F;event*”<br>MatchUSBID “6161:4d15”<br>EndSection<br>to debug input problems:<br><a target="_blank" rel="noopener" href="https://wiki.ubuntu.com/DebuggingMouseDetection#:~:text=In%20case%20your%20mouse%20stops%20working%20after%20a,your%20mouse%20stops%20working.%20...%20More%20items...%20">https://wiki.ubuntu.com/DebuggingMouseDetection#:~:text=In%20case%20your%20mouse%20stops%20working%20after%20a,your%20mouse%20stops%20working.%20...%20More%20items...%20</a><br>check &#x2F;etc&#x2F;logs&#x2F;Xorg.0.logs</p>
+		<p>working on archlinux arm:</p>
+<p>libwacom 2.1.0-1</p>
+<p>not working on kali linux:</p>
+<p>libwacom-bin 2.2.0-1</p>
+<p>full reference:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/DIGImend/digimend-kernel-drivers/issues/514">https://github.com/DIGImend/digimend-kernel-drivers/issues/514</a></p>
+<p>sudo nano &#x2F;etc&#x2F;X11&#x2F;xorg.conf</p>
+<p>Section “InputClass”</p>
+<p>Identifier “Tablet”</p>
+<p>Driver “wacom”</p>
+<p>MatchDevicePath “&#x2F;dev&#x2F;input&#x2F;event*”</p>
+<p>MatchUSBID “6161:4d15”</p>
+<p>EndSection</p>
+<p>to debug input problems:</p>
+<p><a target="_blank" rel="noopener" href="https://wiki.ubuntu.com/DebuggingMouseDetection#:~:text=In%20case%20your%20mouse%20stops%20working%20after%20a,your%20mouse%20stops%20working.%20...%20More%20items...%20">https://wiki.ubuntu.com/DebuggingMouseDetection#:~:text=In%20case%20your%20mouse%20stops%20working%20after%20a,your%20mouse%20stops%20working.%20...%20More%20items...%20</a></p>
+<p>check &#x2F;etc&#x2F;logs&#x2F;Xorg.0.logs</p>
 
 	
 	</div>
@@ -325,7 +355,22 @@
   <div class="row">
 	
 	
-		<p>水里加醇类物质可以防止导电<br>软管加弹簧防止弯折<br>液体生料带 ergo 5500陶瓷胶 密封胶 液态密封圈 堵漏 用油管防止老化<br>用水管变径器来改变管径 先用相同大小软管连接目标接头 再用变径器链接变径软管<br>气压计 肥皂水测试是否漏水<br>水泵串联并联增加流量和扬程<br>多水道设计增加导热效率<br>显卡mos管需要水冷散热 建议看显卡发热红外图其他未水冷的地方贴上散热脊片<br>主板本来有热管 风扇散热的地方 例如南北桥 供电 如果要拆除 必须替换成水冷 背面也应该加上水冷<br>氟化液沉浸式散热 可以用潜水泵抽水加冷排<br>压缩机28度以上防止冷凝水聚集<br>用水冷弹性弹簧喉夹来链接软管 有快拧接口的要有快拧头连接硬管或软管<br>用热缩编织管来避免磨损 用阻燃波纹管套住最外面<br>打磨弹簧套管的两端 避免戳穿软管<br>用全开放式机架 铝合金框架 方便主板背面 显卡背面冷却装置的安装<br>工业装甲带缠绕接头部分</p>
+		<p>水里加醇类物质可以防止导电</p>
+<p>软管加弹簧防止弯折</p>
+<p>液体生料带 ergo 5500陶瓷胶 密封胶 液态密封圈 堵漏 用油管防止老化</p>
+<p>用水管变径器来改变管径 先用相同大小软管连接目标接头 再用变径器链接变径软管</p>
+<p>气压计 肥皂水测试是否漏水</p>
+<p>水泵串联并联增加流量和扬程</p>
+<p>多水道设计增加导热效率</p>
+<p>显卡mos管需要水冷散热 建议看显卡发热红外图其他未水冷的地方贴上散热脊片</p>
+<p>主板本来有热管 风扇散热的地方 例如南北桥 供电 如果要拆除 必须替换成水冷 背面也应该加上水冷</p>
+<p>氟化液沉浸式散热 可以用潜水泵抽水加冷排</p>
+<p>压缩机28度以上防止冷凝水聚集</p>
+<p>用水冷弹性弹簧喉夹来链接软管 有快拧接口的要有快拧头连接硬管或软管</p>
+<p>用热缩编织管来避免磨损 用阻燃波纹管套住最外面</p>
+<p>打磨弹簧套管的两端 避免戳穿软管</p>
+<p>用全开放式机架 铝合金框架 方便主板背面 显卡背面冷却装置的安装</p>
+<p>工业装甲带缠绕接头部分</p>
 
 	
 	</div>
@@ -349,8 +394,23 @@
   <div class="row">
 	
 	
-		<p>Graphcore’s IPU could be cheaper and faster than NVIDIA’s A100, though need sharing on-board RAM.<br>Supports tensorflow, pytorch, paddlepaddle.<br><a target="_blank" rel="noopener" href="https://docs.graphcore.ai/en/latest/">https://docs.graphcore.ai/en/latest/</a><br>pytorch: poptorch, pytorch-lightning(tpu and ipu)<br>tensorflow:<br>from tensorflow.python import ipu</p>
-<h1 id="Create-an-IPU-distribution-strategy"><a href="#Create-an-IPU-distribution-strategy" class="headerlink" title="Create an IPU distribution strategy"></a>Create an IPU distribution strategy</h1><p>strategy &#x3D; ipu.ipu_strategy.IPUStrategy()<br>with strategy.scope():<br>…<br>paddlepaddle:<br><a target="_blank" rel="noopener" href="https://github.com/graphcore/portfolio-examples/tree/master/paddlepaddle/bert-base">https://github.com/graphcore/portfolio-examples/tree/master/paddlepaddle/bert-base</a><br><a target="_blank" rel="noopener" href="https://github.com/graphcore/Paddle.git">https://github.com/graphcore/Paddle.git</a><br>TensorFlow 1 &amp; 2 support with full performant integration with TensorFlow XLA backend<br>PyTorch support for targeting IPU using the PyTorch ATEN backend<br>PopART™ (Poplar Advanced Runtime) for training &amp; inference; supports Python&#x2F;C++ model building plus ONNX model input<br>Full support for PaddlePaddle<br>Other frameworks support coming soon</p>
+		<p>Graphcore’s IPU could be cheaper and faster than NVIDIA’s A100, though need sharing on-board RAM.</p>
+<p>Supports tensorflow, pytorch, paddlepaddle.</p>
+<p><a target="_blank" rel="noopener" href="https://docs.graphcore.ai/en/latest/">https://docs.graphcore.ai/en/latest/</a></p>
+<p>pytorch: poptorch, pytorch-lightning(tpu and ipu)</p>
+<p>tensorflow:</p>
+<p>from tensorflow.python import ipu</p>
+<h1 id="Create-an-IPU-distribution-strategy"><a href="#Create-an-IPU-distribution-strategy" class="headerlink" title="Create an IPU distribution strategy"></a>Create an IPU distribution strategy</h1><p>strategy &#x3D; ipu.ipu_strategy.IPUStrategy()</p>
+<p>with strategy.scope():</p>
+<p>…</p>
+<p>paddlepaddle:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/graphcore/portfolio-examples/tree/master/paddlepaddle/bert-base">https://github.com/graphcore/portfolio-examples/tree/master/paddlepaddle/bert-base</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/graphcore/Paddle.git">https://github.com/graphcore/Paddle.git</a></p>
+<p>TensorFlow 1 &amp; 2 support with full performant integration with TensorFlow XLA backend</p>
+<p>PyTorch support for targeting IPU using the PyTorch ATEN backend</p>
+<p>PopART™ (Poplar Advanced Runtime) for training &amp; inference; supports Python&#x2F;C++ model building plus ONNX model input</p>
+<p>Full support for PaddlePaddle</p>
+<p>Other frameworks support coming soon</p>
 
 	
 	</div>

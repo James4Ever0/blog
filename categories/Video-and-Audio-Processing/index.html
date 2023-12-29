@@ -135,41 +135,127 @@
 <li><input disabled="" type="checkbox"> use txtai to do NLU and recommend things to people</li>
 </ul>
 <h2 id="topic-discovery-acquiring"><a href="#topic-discovery-acquiring" class="headerlink" title="topic discovery&#x2F;acquiring"></a>topic discovery&#x2F;acquiring</h2><h3 id="trending-topics"><a href="#trending-topics" class="headerlink" title="trending topics"></a>trending topics</h3><ul>
-<li><input disabled="" type="checkbox"> baidu search trending</li>
-<li><input disabled="" type="checkbox"> sogou trending</li>
-<li><input disabled="" type="checkbox"> bilibili trending</li>
-<li><input disabled="" type="checkbox"> wechat trending</li>
-<li><input disabled="" type="checkbox"> toutiao trending</li>
-<li><input disabled="" type="checkbox"> tencent trending</li>
-<li><input disabled="" type="checkbox"> netease trending</li>
-<li><input disabled="" type="checkbox"> youtube trending</li>
-<li><input disabled="" type="checkbox"> reddit trending</li>
-<li><input disabled="" type="checkbox"> twitch trending</li>
+<li><p><input disabled="" type="checkbox"> 
+baidu search trending</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+sogou trending</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+bilibili trending</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+wechat trending</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+toutiao trending</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+tencent trending</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+netease trending</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+youtube trending</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+reddit trending</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+twitch trending</p>
+</li>
 </ul>
 <h3 id="popular-topics"><a href="#popular-topics" class="headerlink" title="popular topics"></a>popular topics</h3><ul>
-<li><input disabled="" type="checkbox"> baijiahao popular topics</li>
-<li><input disabled="" type="checkbox"> bilibili popular topics</li>
-<li><input disabled="" type="checkbox"> douyin popular topics</li>
+<li><p><input disabled="" type="checkbox"> 
+baijiahao popular topics</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+bilibili popular topics</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+douyin popular topics</p>
+</li>
 </ul>
 <h3 id="personal-customized-topics"><a href="#personal-customized-topics" class="headerlink" title="personal&#x2F;customized topics"></a>personal&#x2F;customized topics</h3><ul>
-<li><input disabled="" type="checkbox"> tencent qq customized (can associate with mail)</li>
-<li><input disabled="" type="checkbox"> wechat customized</li>
-<li><input disabled="" type="checkbox"> bilibili per user customized</li>
+<li><p><input disabled="" type="checkbox"> 
+tencent qq customized (can associate with mail)</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+wechat customized</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+bilibili per user customized</p>
+</li>
 </ul>
-<h2 id="dog-cat-video-generation"><a href="#dog-cat-video-generation" class="headerlink" title="dog&#x2F;cat video generation"></a>dog&#x2F;cat video generation</h2><h3 id="make-render-engine-runnable"><a href="#make-render-engine-runnable" class="headerlink" title="make render engine runnable"></a>make render engine runnable</h3><h2 id="issues-x-video-length-too-long-10-mins-it-was-the-speed-calculation-error-x-bgm-somehow-not-in-sync-too-broad-bpm-clip-ranges-to-analyze-the-peaks-abrupt-changes-in-bgm-and-grab-louder-peaks-using-pyloudnorm-getting-audio-volume-place-video-on-loudest-points-abrupt-changes-detected-by-talib-or-just-take-direvative-and-gaussian-average-video-too-repetitive-small-corpus-x-do-not-remove-subtitle-and-crop-active-region-reviewer’s-resource-not-used-but-i-rather-advise-you-to-do-it-directly-since-it-requires-less-computational-power-do-not-have-minimum-motion-threshold-reviewer’s-fault-also-recommend-you-to-do-this-in-producer"><a href="#issues-x-video-length-too-long-10-mins-it-was-the-speed-calculation-error-x-bgm-somehow-not-in-sync-too-broad-bpm-clip-ranges-to-analyze-the-peaks-abrupt-changes-in-bgm-and-grab-louder-peaks-using-pyloudnorm-getting-audio-volume-place-video-on-loudest-points-abrupt-changes-detected-by-talib-or-just-take-direvative-and-gaussian-average-video-too-repetitive-small-corpus-x-do-not-remove-subtitle-and-crop-active-region-reviewer’s-resource-not-used-but-i-rather-advise-you-to-do-it-directly-since-it-requires-less-computational-power-do-not-have-minimum-motion-threshold-reviewer’s-fault-also-recommend-you-to-do-this-in-producer" class="headerlink" title="issues:- [x] video length too long (10 mins)it was the speed calculation error.- [x] bgm somehow not in sync (too broad bpm&#x2F;clip ranges?)- [ ] to analyze the peaks (abrupt changes) in bgm and grab louder peaks using pyloudnorm (getting audio volume)- [ ] place video on loudest points, abrupt changes detected by talib or just take direvative and gaussian average- [ ] video too repetitive (small corpus?)- [x] do not remove subtitle and crop active region (reviewer’s resource not used? but i rather advise you to do it directly since it requires less computational power)- [ ] do not have minimum motion threshold (reviewer’s fault? also recommend you to do this in producer)"></a>issues:<br>- [x] video length too long (10 mins)<br>it was the speed calculation error.<br>- [x] bgm somehow not in sync (too broad bpm&#x2F;clip ranges?)<br>- [ ] to analyze the peaks (abrupt changes) in bgm and grab louder peaks using <code>pyloudnorm</code> (getting audio volume)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install pyloudnorm</span><br></pre></td></tr></table></figure><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> soundfile <span class="keyword">as</span> sf</span><br><span class="line"><span class="keyword">import</span> pyloudnorm <span class="keyword">as</span> pyln</span><br><span class="line">data, rate = sf.read(<span class="string">&quot;0055014.wav&quot;</span>) <span class="comment"># load audio (with shape (samples, channels))</span></span><br><span class="line"><span class="built_in">print</span>(data.shape)</span><br><span class="line">meter = pyln.Meter(rate) <span class="comment"># create BS.1770 meter</span></span><br><span class="line">loudness = meter.integrated_loudness(data) <span class="comment"># measure loudness</span></span><br><span class="line"><span class="built_in">print</span>(loudness)</span><br></pre></td></tr></table></figure><br>- [ ] place video on loudest points, abrupt changes detected by talib or just take direvative and gaussian average<br>- [ ] video too repetitive (small corpus?)<br>- [x] do not remove subtitle and crop active region (reviewer’s resource not used? but i rather advise you to do it directly since it requires less computational power)<br>- [ ] do not have minimum motion threshold (reviewer’s fault? also recommend you to do this in producer)</h2><ul>
-<li><input checked="" disabled="" type="checkbox"> remove all watermarks, subtitles and crop video boundaries accordingly</li>
-<li><input disabled="" type="checkbox"> source video and audio (infinite, basic test is to find 500 sources at once without duplicate, second test is to find 500 second is to find 500 without duplicate twice), improve highlight algorithm</li>
-<li><input disabled="" type="checkbox"> find 500 songs without duplicate at once</li>
-<li><input disabled="" type="checkbox"> find 500 songs no duplicate twice</li>
-<li><input disabled="" type="checkbox"> find 500 animal videos without duplicate</li>
-<li><input disabled="" type="checkbox"> find 500 animal videos no duplicate twice</li>
-<li><input disabled="" type="checkbox"> generate appropriate title, cover, info and tags</li>
-<li><input disabled="" type="checkbox"> collect feedback after the post</li>
-<li><input disabled="" type="checkbox"> find some shocking fonts for cover and subtitle, english and chinese</li>
-<li><input checked="" disabled="" type="checkbox"> make that karaoke effect</li>
-<li><input checked="" disabled="" type="checkbox"> make ass with karaoke effect with lrc files</li>
-<li><input checked="" disabled="" type="checkbox"> make lyrics sync logic fluent, according to what have learned from karaoke effects</li>
-<li><input disabled="" type="checkbox"> make selected video clips fluent, no abrupt cuts, maybe we need pyscenedetect?</li>
+<h2 id="dog-cat-video-generation"><a href="#dog-cat-video-generation" class="headerlink" title="dog&#x2F;cat video generation"></a>dog&#x2F;cat video generation</h2><h3 id="make-render-engine-runnable"><a href="#make-render-engine-runnable" class="headerlink" title="make render engine runnable"></a>make render engine runnable</h3><p>issues:</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> video length too long (10 mins)</li>
+</ul>
+<p>it was the speed calculation error.</p>
+<ul>
+<li><p><input checked="" disabled="" type="checkbox"> 
+bgm somehow not in sync (too broad bpm&#x2F;clip ranges?)</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+to analyze the peaks (abrupt changes) in bgm and grab louder peaks using <code>pyloudnorm</code> (getting audio volume)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip3 install pyloudnorm</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> soundfile <span class="keyword">as</span> sf</span><br><span class="line"><span class="keyword">import</span> pyloudnorm <span class="keyword">as</span> pyln</span><br><span class="line">data, rate = sf.read(<span class="string">&quot;0055014.wav&quot;</span>) <span class="comment"># load audio (with shape (samples, channels))</span></span><br><span class="line"><span class="built_in">print</span>(data.shape)</span><br><span class="line">meter = pyln.Meter(rate) <span class="comment"># create BS.1770 meter</span></span><br><span class="line">loudness = meter.integrated_loudness(data) <span class="comment"># measure loudness</span></span><br><span class="line"><span class="built_in">print</span>(loudness)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+place video on loudest points, abrupt changes detected by talib or just take direvative and gaussian average</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+video too repetitive (small corpus?)</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+do not remove subtitle and crop active region (reviewer’s resource not used? but i rather advise you to do it directly since it requires less computational power)</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+do not have minimum motion threshold (reviewer’s fault? also recommend you to do this in producer)</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p><input checked="" disabled="" type="checkbox"> 
+remove all watermarks, subtitles and crop video boundaries accordingly</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+source video and audio (infinite, basic test is to find 500 sources at once without duplicate, second test is to find 500 second is to find 500 without duplicate twice), improve highlight algorithm</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+find 500 songs without duplicate at once</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+find 500 songs no duplicate twice</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+find 500 animal videos without duplicate</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+find 500 animal videos no duplicate twice</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+generate appropriate title, cover, info and tags</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+collect feedback after the post</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+find some shocking fonts for cover and subtitle, english and chinese</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+make that karaoke effect</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+make ass with karaoke effect with lrc files</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+make lyrics sync logic fluent, according to what have learned from karaoke effects</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+make selected video clips fluent, no abrupt cuts, maybe we need pyscenedetect?</p>
+</li>
 </ul>
 <h2 id="text-to-video-template-based-video-generator-this-is-perhaps-the-most-complex-video-generator-ever-do-it-with-caution-it-might-also-includes-the-flipcard-narrator-and-slideshow-based-generators"><a href="#text-to-video-template-based-video-generator-this-is-perhaps-the-most-complex-video-generator-ever-do-it-with-caution-it-might-also-includes-the-flipcard-narrator-and-slideshow-based-generators" class="headerlink" title="text to video, template based video generator (this is perhaps the most complex video generator ever. do it with caution, it might also includes the flipcard, narrator and slideshow based generators)"></a>text to video, template based video generator (this is perhaps the most complex video generator ever. do it with caution, it might also includes the flipcard, narrator and slideshow based generators)</h2><h3 id="generator-models-subarchitecture-subcategories-of-template-based-generators"><a href="#generator-models-subarchitecture-subcategories-of-template-based-generators" class="headerlink" title="generator models subarchitecture (subcategories of template based generators)"></a>generator models subarchitecture (subcategories of template based generators)</h3><h4 id="flipcard"><a href="#flipcard" class="headerlink" title="flipcard"></a>flipcard</h4><h4 id="slideshow-video-and-audio-might-also-include-the-dog-cat-video"><a href="#slideshow-video-and-audio-might-also-include-the-dog-cat-video" class="headerlink" title="slideshow (video and audio, might also include the dog&amp;cat video!)"></a>slideshow (video and audio, might also include the dog&amp;cat video!)</h4><h4 id="narrator"><a href="#narrator" class="headerlink" title="narrator"></a>narrator</h4><h4 id="summarized-video"><a href="#summarized-video" class="headerlink" title="summarized video"></a>summarized video</h4><hr>
 <h3 id="policy-evasion-NSFW-filters"><a href="#policy-evasion-NSFW-filters" class="headerlink" title="policy evasion, NSFW filters"></a>policy evasion, NSFW filters</h3><ul>
@@ -177,9 +263,15 @@
 </ul>
 <hr>
 <h3 id="analyze-the-media-content-and-metadata-relationships"><a href="#analyze-the-media-content-and-metadata-relationships" class="headerlink" title="analyze the media content and metadata, relationships"></a>analyze the media content and metadata, relationships</h3><ul>
-<li><input disabled="" type="checkbox"> analyze danmaku</li>
-<li><input disabled="" type="checkbox"> paraphrase the script</li>
-<li><input disabled="" type="checkbox"> cut the crap and understand each clip’s meaning</li>
+<li><p><input disabled="" type="checkbox"> 
+analyze danmaku</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+paraphrase the script</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+cut the crap and understand each clip’s meaning</p>
+</li>
 </ul>
 <hr>
 <h3 id="process-the-video-clips-like-changing-the-human-figure-changing-face-stylish-the-video-adding-2d-to-3d-effects"><a href="#process-the-video-clips-like-changing-the-human-figure-changing-face-stylish-the-video-adding-2d-to-3d-effects" class="headerlink" title="process the video clips, like changing the human figure, changing face, stylish the video, adding 2d to 3d effects"></a>process the video clips, like changing the human figure, changing face, stylish the video, adding 2d to 3d effects</h3><hr>
@@ -187,27 +279,59 @@
 <h3 id="index-retrieve-and-align-video-and-audio-content-according-to-our-collected-database"><a href="#index-retrieve-and-align-video-and-audio-content-according-to-our-collected-database" class="headerlink" title="index, retrieve and align video and audio content according to our collected database"></a>index, retrieve and align video and audio content according to our collected database</h3><hr>
 <h3 id="retrieve-and-align-video-and-audio-according-to-our-smart-search-agent-keyword-extractor-related-words-and-do-live-compilation"><a href="#retrieve-and-align-video-and-audio-according-to-our-smart-search-agent-keyword-extractor-related-words-and-do-live-compilation" class="headerlink" title="retrieve and align video and audio according to our smart search agent (keyword extractor, related words) and do live compilation"></a>retrieve and align video and audio according to our smart search agent (keyword extractor, related words) and do live compilation</h3><hr>
 <h2 id="qq-managing"><a href="#qq-managing" class="headerlink" title="qq managing"></a>qq managing</h2><ul>
-<li><input disabled="" type="checkbox"> mitm chats in friends</li>
-<li><input disabled="" type="checkbox"> mitm chats in groups</li>
-<li><input disabled="" type="checkbox"> source and send pictures to qzone</li>
-<li><input disabled="" type="checkbox"> source and send pictures to chat</li>
-<li><input disabled="" type="checkbox"> reduce posting frequency by group size and feedback</li>
-<li><input disabled="" type="checkbox"> post relative video link relative to group topic</li>
+<li><p><input disabled="" type="checkbox"> 
+mitm chats in friends</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+mitm chats in groups</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+source and send pictures to qzone</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+source and send pictures to chat</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+reduce posting frequency by group size and feedback</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+post relative video link relative to group topic</p>
+</li>
 </ul>
 <h2 id="personal-info-collecting-and-email-sms-bulk-sending"><a href="#personal-info-collecting-and-email-sms-bulk-sending" class="headerlink" title="personal info collecting and email&#x2F;sms bulk sending"></a>personal info collecting and email&#x2F;sms bulk sending</h2><ul>
-<li><input disabled="" type="checkbox"> avoid mail being trashed or turned into junk</li>
-<li><input disabled="" type="checkbox"> collect and make mail templates for mail posting</li>
+<li><p><input disabled="" type="checkbox"> 
+avoid mail being trashed or turned into junk</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+collect and make mail templates for mail posting</p>
+</li>
 </ul>
 <h2 id="voice-changer"><a href="#voice-changer" class="headerlink" title="voice changer"></a>voice changer</h2><ul>
-<li><input disabled="" type="checkbox"> vst based voice changer</li>
-<li><input disabled="" type="checkbox"> train or find a decent voice generator 御姐音语料库 小受音语料库<br>请在b站或者qq群里面寻找 或者什么其他的有关的地方寻找 谢谢</li>
+<li><p><input disabled="" type="checkbox"> 
+vst based voice changer</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+train or find a decent voice generator 御姐音语料库 小受音语料库</p>
+</li>
 </ul>
+<p>请在b站或者qq群里面寻找 或者什么其他的有关的地方寻找 谢谢</p>
 <h2 id="直播-live-streaming"><a href="#直播-live-streaming" class="headerlink" title="直播 live streaming"></a>直播 live streaming</h2><ul>
-<li><input disabled="" type="checkbox"> source the video<br>如果是同一个站的 尽量放一个月以前的视频 半个月以前的音频</li>
-<li><input disabled="" type="checkbox"> prepare some space for storing live streaming data</li>
-<li><input disabled="" type="checkbox"> source the audio</li>
-<li><input disabled="" type="checkbox"> automatic interactions</li>
-<li><input disabled="" type="checkbox"> handle the vtuber model’s actions</li>
+<li><input disabled="" type="checkbox"> source the video</li>
+</ul>
+<p>如果是同一个站的 尽量放一个月以前的视频 半个月以前的音频</p>
+<ul>
+<li><p><input disabled="" type="checkbox"> 
+prepare some space for storing live streaming data</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+source the audio</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+automatic interactions</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+handle the vtuber model’s actions</p>
+</li>
 </ul>
 
 	

@@ -128,10 +128,29 @@
   <div class="row">
 	
 	
-		<h2 id="enable-render-option-trim-blocks-and-lstrip-blocks-with-jinja2-to-avoid-whitespace-and-indentation-nightmare"><a href="#enable-render-option-trim-blocks-and-lstrip-blocks-with-jinja2-to-avoid-whitespace-and-indentation-nightmare" class="headerlink" title="enable render option trim_blocks and lstrip_blocks with jinja2 to avoid whitespace and indentation nightmare."></a>enable render option <code>trim_blocks</code> and <code>lstrip_blocks</code> with <code>jinja2</code> to avoid whitespace and indentation nightmare.</h2><h2 id="always-remember-to-import-uvicorn-if-you-want-to-run-without-the-uvicorn-executable"><a href="#always-remember-to-import-uvicorn-if-you-want-to-run-without-the-uvicorn-executable" class="headerlink" title="always remember to import uvicorn if you want to run without the uvicorn executable"></a>always remember to import <code>uvicorn</code> if you want to run without the <code>uvicorn</code> executable</h2><h2 id="generate-nodejs-client-from-openapi-jsonfastapi-code-generator-to-generate-python-code"><a href="#generate-nodejs-client-from-openapi-jsonfastapi-code-generator-to-generate-python-code" class="headerlink" title="generate nodejs client from openapi.jsonfastapi-code-generator to generate python code"></a>generate <a target="_blank" rel="noopener" href="https://fastapi.tiangolo.com/advanced/generate-clients/">nodejs client</a> from <code>openapi.json</code><br><a target="_blank" rel="noopener" href="https://pypi.org/project/fastapi-code-generator/">fastapi-code-generator</a> to generate python code</h2><h2 id="create-doc-inside-code-adding-metadata"><a href="#create-doc-inside-code-adding-metadata" class="headerlink" title="create doc inside code: adding metadata"></a>create doc inside code: <a target="_blank" rel="noopener" href="https://fastapi.tiangolo.com/tutorial/metadata/">adding metadata</a></h2><h2 id="to-share-lock-across-process-use-redis-lock-or-filelock-to-share-lock-across-forked-process-in-the-same-worker-use-multiprocessing-Lock"><a href="#to-share-lock-across-process-use-redis-lock-or-filelock-to-share-lock-across-forked-process-in-the-same-worker-use-multiprocessing-Lock" class="headerlink" title="to share lock across process, use redis lock or filelock.to share lock across forked process in the same worker, use multiprocessing.Lock()"></a>to share lock across process, use <a target="_blank" rel="noopener" href="https://pypi.org/project/python-redis-lock/">redis lock</a> or filelock.<br>to share lock across forked process in the same worker, use <code>multiprocessing.Lock()</code></h2><p>fastapi can generate openapi json and doc page<br>websockets are async. will it block the server?<br><a target="_blank" rel="noopener" href="https://fastapi.tiangolo.com/zh/advanced/websockets/">using websocket in fastapi</a><br><a target="_blank" rel="noopener" href="https://medium.com/pythonistas/a-complete-guide-to-production-ready-celery-configuration-5777780b3166#:~:text=The%20task%20can%20catch%20this%20to%20clean%20up,try%3A%20return%20do_work%20%28%29%20except%20SoftTimeLimitExceeded%3A%20cleanup_in_a_hurry%20%28%29">celery advance usage</a><br><a target="_blank" rel="noopener" href="https://derlin.github.io/introduction-to-fastapi-and-celery/03-celery/#:~:text=Celery%20doesn%27t%20provide%20an%20obvious%20way%20to%20limit,is%20already%20running%2C%20he%20should%20get%20an%20error.">celery and fastapi</a><br>happen to found akismet (proprietary wordpress spam protection). oss alternatives are:</p>
+		<p>enable render option <code>trim_blocks</code> and <code>lstrip_blocks</code> with <code>jinja2</code> to avoid whitespace and indentation nightmare.</p>
+<hr>
+<p>always remember to import <code>uvicorn</code> if you want to run without the <code>uvicorn</code> executable</p>
+<hr>
+<p>generate <a target="_blank" rel="noopener" href="https://fastapi.tiangolo.com/advanced/generate-clients/">nodejs client</a> from <code>openapi.json</code></p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/fastapi-code-generator/">fastapi-code-generator</a> to generate python code</p>
+<hr>
+<p>create doc inside code: <a target="_blank" rel="noopener" href="https://fastapi.tiangolo.com/tutorial/metadata/">adding metadata</a></p>
+<hr>
+<p>to share lock across process, use <a target="_blank" rel="noopener" href="https://pypi.org/project/python-redis-lock/">redis lock</a> or filelock.</p>
+<p>to share lock across forked process in the same worker, use <code>multiprocessing.Lock()</code></p>
+<hr>
+<p>fastapi can generate openapi json and doc page</p>
+<p>websockets are async. will it block the server?</p>
+<p><a target="_blank" rel="noopener" href="https://fastapi.tiangolo.com/zh/advanced/websockets/">using websocket in fastapi</a></p>
+<p><a target="_blank" rel="noopener" href="https://medium.com/pythonistas/a-complete-guide-to-production-ready-celery-configuration-5777780b3166#:~:text=The%20task%20can%20catch%20this%20to%20clean%20up,try%3A%20return%20do_work%20%28%29%20except%20SoftTimeLimitExceeded%3A%20cleanup_in_a_hurry%20%28%29">celery advance usage</a></p>
+<p><a target="_blank" rel="noopener" href="https://derlin.github.io/introduction-to-fastapi-and-celery/03-celery/#:~:text=Celery%20doesn%27t%20provide%20an%20obvious%20way%20to%20limit,is%20already%20running%2C%20he%20should%20get%20an%20error.">celery and fastapi</a></p>
+<p>happen to found akismet (proprietary wordpress spam protection). oss alternatives are:</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/ThioJoe/YT-Spammer-Purge">Youtube Spammer Purge</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/thegulshankumar/forget-spam-comment/">forget spam comment</a> (js plugin for wordpress)</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/ThioJoe/YT-Spammer-Purge">Youtube Spammer Purge</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/thegulshankumar/forget-spam-comment/">forget spam comment</a> (js plugin for wordpress)</p>
+</li>
 </ul>
 
 	

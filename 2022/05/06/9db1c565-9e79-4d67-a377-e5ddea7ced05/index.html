@@ -125,7 +125,22 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <p>working on archlinux arm:<br>libwacom 2.1.0-1<br>not working on kali linux:<br>libwacom-bin 2.2.0-1<br>full reference:<br><a target="_blank" rel="noopener" href="https://github.com/DIGImend/digimend-kernel-drivers/issues/514">https://github.com/DIGImend/digimend-kernel-drivers/issues/514</a><br>sudo nano &#x2F;etc&#x2F;X11&#x2F;xorg.conf<br>Section “InputClass”<br>Identifier “Tablet”<br>Driver “wacom”<br>MatchDevicePath “&#x2F;dev&#x2F;input&#x2F;event*”<br>MatchUSBID “6161:4d15”<br>EndSection<br>to debug input problems:<br><a target="_blank" rel="noopener" href="https://wiki.ubuntu.com/DebuggingMouseDetection#:~:text=In%20case%20your%20mouse%20stops%20working%20after%20a,your%20mouse%20stops%20working.%20...%20More%20items...%20">https://wiki.ubuntu.com/DebuggingMouseDetection#:~:text=In%20case%20your%20mouse%20stops%20working%20after%20a,your%20mouse%20stops%20working.%20...%20More%20items...%20</a><br>check &#x2F;etc&#x2F;logs&#x2F;Xorg.0.logs</p>
+	  <p>working on archlinux arm:</p>
+<p>libwacom 2.1.0-1</p>
+<p>not working on kali linux:</p>
+<p>libwacom-bin 2.2.0-1</p>
+<p>full reference:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/DIGImend/digimend-kernel-drivers/issues/514">https://github.com/DIGImend/digimend-kernel-drivers/issues/514</a></p>
+<p>sudo nano &#x2F;etc&#x2F;X11&#x2F;xorg.conf</p>
+<p>Section “InputClass”</p>
+<p>Identifier “Tablet”</p>
+<p>Driver “wacom”</p>
+<p>MatchDevicePath “&#x2F;dev&#x2F;input&#x2F;event*”</p>
+<p>MatchUSBID “6161:4d15”</p>
+<p>EndSection</p>
+<p>to debug input problems:</p>
+<p><a target="_blank" rel="noopener" href="https://wiki.ubuntu.com/DebuggingMouseDetection#:~:text=In%20case%20your%20mouse%20stops%20working%20after%20a,your%20mouse%20stops%20working.%20...%20More%20items...%20">https://wiki.ubuntu.com/DebuggingMouseDetection#:~:text=In%20case%20your%20mouse%20stops%20working%20after%20a,your%20mouse%20stops%20working.%20...%20More%20items...%20</a></p>
+<p>check &#x2F;etc&#x2F;logs&#x2F;Xorg.0.logs</p>
 	  
 	</div>
 

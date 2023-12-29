@@ -125,8 +125,10 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <p>this server forbids usage of leftperiod.<br>we can use <a target="_blank" rel="noopener" href="https://rclone.org/overview/#encoding">custom encoding rules</a> in rclone:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rclone <span class="built_in">sync</span> --smb-encoding=Slash,LtGt,DoubleQuote,Colon,Question,Asterisk,Pipe,BackSlash,Ctl,RightSpace,RightPeriod,InvalidUtf8,Dot,LeftPeriod &lt;<span class="built_in">source</span>&gt; &lt;target&gt;</span><br></pre></td></tr></table></figure>	  
+	  <p>this server forbids usage of leftperiod.</p>
+<p>we can use <a target="_blank" rel="noopener" href="https://rclone.org/overview/#encoding">custom encoding rules</a> in rclone:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rclone <span class="built_in">sync</span> --smb-encoding=Slash,LtGt,DoubleQuote,Colon,Question,Asterisk,Pipe,BackSlash,Ctl,RightSpace,RightPeriod,InvalidUtf8,Dot,LeftPeriod &lt;<span class="built_in">source</span>&gt; &lt;target&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+	  
 	</div>
 
 	<!-- recommended posts -->

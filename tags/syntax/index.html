@@ -128,10 +128,81 @@
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://neo4j.com/download">neo4j desktop</a> provide free multi graph databases support, enable you to create and use multiple graph datases at once<br>to query undirected relationships:<br>match () – (p) return p<br>create fulltext index<br>create fulltext index lucene for (n:Person) on each [n.title, n.description]<br>call db.index.fulltext.queryNodes(“titlesAndDescriptions”, “Full Metal Jacket”) yield node, score return node, score<br>calculate customer rating cosine similarity for recommendation:<br><a target="_blank" rel="noopener" href="https://neo4j.com/graphgists/northwind-recommendation-engine">https://neo4j.com/graphgists/northwind-recommendation-engine</a><br>match (c1:customer)-[r1:rated]-(:product)-[r2:rated]-(c2:customer)<br>with sum(r1.score<em>r2.score) as dot_product,<br>sqrt(reduce(x&#x3D;0, a in r1.score | x+a^2)) as r1_length,<br>sqrt(reduce(y&#x3D;0, b in r2.score | y+b^2)) as r2_length<br>merge (c1)-[s:similarity}]-(c2)<br>set s +&#x3D;  {score:dot_product&#x2F;(r1_length</em>r2_length)<br>use collect to turn maps into lists:<br>match (p) return collect(p.names)<br>exist subquery:<br>match (n:Person) where exists {<br>match (n) –(t:Tech)<br>where size((t)-[:likes]-(:Person)) &gt;2<br>}<br>return n.name<br>list comprehension:<br>return [x in range(0,10) where x%3 &#x3D; 0| x&#x2F;2] as list<br>return [x in range(0,10) where not x in range(4,10) |x ] as list<br>to use conditional matches or regular expressions:<br>match () – (p) where p.name in [“helen”] or p.name &#x3D;~ “.<em>chinese.</em>“ return p<br>create index on properties:<br>create index for (n:Category) on (n.categoryName)<br>asterisks:<br>load csv:<br>load csv with headers from “<a target="_blank" rel="noopener" href="http://localhost/person.csv">http://localhost/person.csv</a>“ as line<br>call {with line<br>merge (n:person {id: toInteger(line.id)})<br>set n.name &#x3D; line.name<br>} in transactions of 2 rows<br>count nodes:<br>match (n) return count(n)<br>match relationship patterns:<br>match (n) -[:friend|hater*3]-&gt;(p) return p limit 20<br>node can have multiple labels, while relationship can only have one type, both specified after the colon.<br>simple case expression:<br>match(n)<br>return<br>case n.eyes<br>when “blue” then 1<br>when “brown” then 2<br>else 3<br>end as result<br>generic case expression<br>match (n)<br>return<br>case<br>when n.eyes &#x3D; “blue” then 1<br>when n.age &gt; 40 then 2<br>else 3 &#x2F;&#x2F; if without else then return null<br>end as result<br>inequality symbol: &lt;&gt;<br>mutating updating node properties:<br>match(n)<br>set n+&#x3D;{name:”helen”} &#x2F;&#x2F; if using &#x3D; the properties will be totally replaced instead of update.<br>return n.name<br>merge can only ensure the existance of one node or pattern at a time, no comma<br>plus can concatenate strings<br>tenporal dataformat can be used as numbers to compute.<br>Map operators<br>. for static value access by key, [] for dynamic value access by key<br>List operators</p>
+		<p><a target="_blank" rel="noopener" href="https://neo4j.com/download">neo4j desktop</a> provide free multi graph databases support, enable you to create and use multiple graph datases at once</p>
+<p>to query undirected relationships:</p>
+<p>match () – (p) return p</p>
+<p>create fulltext index</p>
+<p>create fulltext index lucene for (n:Person) on each [n.title, n.description]</p>
+<p>call db.index.fulltext.queryNodes(“titlesAndDescriptions”, “Full Metal Jacket”) yield node, score return node, score</p>
+<p>calculate customer rating cosine similarity for recommendation:</p>
+<p><a target="_blank" rel="noopener" href="https://neo4j.com/graphgists/northwind-recommendation-engine">https://neo4j.com/graphgists/northwind-recommendation-engine</a></p>
+<p>match (c1:customer)-[r1:rated]-(:product)-[r2:rated]-(c2:customer)</p>
+<p>with sum(r1.score*r2.score) as dot_product,</p>
+<p>sqrt(reduce(x&#x3D;0, a in r1.score | x+a^2)) as r1_length,</p>
+<p>sqrt(reduce(y&#x3D;0, b in r2.score | y+b^2)) as r2_length</p>
+<p>merge (c1)-[s:similarity}]-(c2)</p>
+<p>set s +&#x3D;  {score:dot_product&#x2F;(r1_length*r2_length)</p>
+<p>use collect to turn maps into lists:</p>
+<p>match (p) return collect(p.names)</p>
+<p>exist subquery:</p>
+<p>match (n:Person) where exists {</p>
+<p>match (n) –(t:Tech)</p>
+<p>where size((t)-[:likes]-(:Person)) &gt;2</p>
+<p>}</p>
+<p>return n.name</p>
+<p>list comprehension:</p>
+<p>return [x in range(0,10) where x%3 &#x3D; 0| x&#x2F;2] as list</p>
+<p>return [x in range(0,10) where not x in range(4,10) |x ] as list</p>
+<p>to use conditional matches or regular expressions:</p>
+<p>match () – (p) where p.name in [“helen”] or p.name &#x3D;~ “.<em>chinese.</em>“ return p</p>
+<p>create index on properties:</p>
+<p>create index for (n:Category) on (n.categoryName)</p>
+<p>asterisks:</p>
+<p>load csv:</p>
+<p>load csv with headers from “<a target="_blank" rel="noopener" href="http://localhost/person.csv">http://localhost/person.csv</a>“ as line</p>
+<p>call {with line</p>
+<p>merge (n:person {id: toInteger(line.id)})</p>
+<p>set n.name &#x3D; line.name</p>
+<p>} in transactions of 2 rows</p>
+<p>count nodes:</p>
+<p>match (n) return count(n)</p>
+<p>match relationship patterns:</p>
+<p>match (n) -[:friend|hater*3]-&gt;(p) return p limit 20</p>
+<p>node can have multiple labels, while relationship can only have one type, both specified after the colon.</p>
+<p>simple case expression:</p>
+<p>match(n)</p>
+<p>return</p>
+<p>case n.eyes</p>
+<p>when “blue” then 1</p>
+<p>when “brown” then 2</p>
+<p>else 3</p>
+<p>end as result</p>
+<p>generic case expression</p>
+<p>match (n)</p>
+<p>return</p>
+<p>case</p>
+<p>when n.eyes &#x3D; “blue” then 1</p>
+<p>when n.age &gt; 40 then 2</p>
+<p>else 3 &#x2F;&#x2F; if without else then return null</p>
+<p>end as result</p>
+<p>inequality symbol: &lt;&gt;</p>
+<p>mutating updating node properties:</p>
+<p>match(n)</p>
+<p>set n+&#x3D;{name:”helen”} &#x2F;&#x2F; if using &#x3D; the properties will be totally replaced instead of update.</p>
+<p>return n.name</p>
+<p>merge can only ensure the existance of one node or pattern at a time, no comma</p>
+<p>plus can concatenate strings</p>
+<p>tenporal dataformat can be used as numbers to compute.</p>
+<p>Map operators</p>
+<p>. for static value access by key, [] for dynamic value access by key</p>
+<p>List operators</p>
 <ul>
-<li>for concatenation, IN to check existence of an element in a list, [] for accessing element(s) dynamically<br>recommendation steps:<br>first find targets by meta relatonships<br>next sort recommendation by frequency, ratings or occurance<br>third filter items by topics or properties</li>
+<li>for concatenation, IN to check existence of an element in a list, [] for accessing element(s) dynamically</li>
 </ul>
+<p>recommendation steps:</p>
+<p>first find targets by meta relatonships</p>
+<p>next sort recommendation by frequency, ratings or occurance</p>
+<p>third filter items by topics or properties</p>
 
 	
 	</div>

@@ -128,10 +128,20 @@
   <div class="row">
 	
 	
-		<h2 id="debugging"><a href="#debugging" class="headerlink" title="debugging"></a>debugging</h2><p>when kali is off, this mac will go crazy and hang everything.<br>need to scan for kali existance on demand, not all the time.</p>
-<h2 id="developing"><a href="#developing" class="headerlink" title="developing"></a>developing</h2><p>should we use p2p networks to speed up remote connections like <code>n2n</code> or <code>tinc</code>?<br>would it be interesting to run all our kali connectors ranged from vscode-ssh-connect, rclone mount and direct ssh connection via <code>kali</code> command dynamically by our kali discovery service, if we can reload the nginx daemon on demand.<br>using redis to store some daemon reported values.<br>how about we set the workding directory of <code>redis-server</code> to <code>/tmp</code> so that the <code>dump.rdb</code> file will never take space after reboot?<br>we need to know if this will successifully launch after reboot since <code>/tmp</code> may not exist by that time<br>default redis server port: 6379<br>install redis-server service:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">easyd -w /tmp -l redis_server -- /opt/homebrew/bin/redis-server</span><br></pre></td></tr></table></figure>
-<p>first value is <code>online</code>.<br>next value is <code>kali_ip</code>.<br>using both value to determine whether to connect to kali or not, and the exact address.</p>
+		<h2 id="debugging"><a href="#debugging" class="headerlink" title="debugging"></a>debugging</h2><p>when kali is off, this mac will go crazy and hang everything.</p>
+<p>need to scan for kali existance on demand, not all the time.</p>
+<h2 id="developing"><a href="#developing" class="headerlink" title="developing"></a>developing</h2><p>should we use p2p networks to speed up remote connections like <code>n2n</code> or <code>tinc</code>?</p>
+<p>would it be interesting to run all our kali connectors ranged from vscode-ssh-connect, rclone mount and direct ssh connection via <code>kali</code> command dynamically by our kali discovery service, if we can reload the nginx daemon on demand.</p>
+<p>using redis to store some daemon reported values.</p>
+<p>how about we set the workding directory of <code>redis-server</code> to <code>/tmp</code> so that the <code>dump.rdb</code> file will never take space after reboot?</p>
+<p>we need to know if this will successifully launch after reboot since <code>/tmp</code> may not exist by that time</p>
+<p>default redis server port: 6379</p>
+<p>install redis-server service:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">easyd -w /tmp -l redis_server -- /opt/homebrew/bin/redis-server</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>first value is <code>online</code>.</p>
+<p>next value is <code>kali_ip</code>.</p>
+<p>using both value to determine whether to connect to kali or not, and the exact address.</p>
 
 	
 	</div>

@@ -129,7 +129,8 @@
 	
 	
 		<p>To run <code>llama.cpp</code> on Oneplus Ace2V, you need an extra step:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=/vendor/lib64:/vendor/lib64/mt6983:/vendor/lib64/egl/mt6983</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=/vendor/lib64:/vendor/lib64/mt6983:/vendor/lib64/egl/mt6983</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 	
 	</div>
   <a type="button" href="/blog/2023/12/09/749697d9-e205-4f4d-9733-3c7de07ee228/#more" class="btn btn-default more">Read More</a>
@@ -152,7 +153,8 @@
   <div class="row">
 	
 	
-		<p>on non-macos platforms, use zeal instead.<br>the core problem is that after uninstallation of xcode, one cannot launch the <code>Apple Doc Helper</code> or some binary afterwards inside the Apple docset under dash documentation folder. the docset can be copied to this folder automatically by dash but without xcode it cannot be opened.</p>
+		<p>on non-macos platforms, use zeal instead.</p>
+<p>the core problem is that after uninstallation of xcode, one cannot launch the <code>Apple Doc Helper</code> or some binary afterwards inside the Apple docset under dash documentation folder. the docset can be copied to this folder automatically by dash but without xcode it cannot be opened.</p>
 
 	
 	</div>
@@ -177,11 +179,14 @@
 	
 	
 		<h2 id="the-fix"><a href="#the-fix" class="headerlink" title="the fix"></a>the fix</h2><p>to enable the service:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>to update locate db:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/libexec/locate.updatedb</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/libexec/locate.updatedb</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>or, more conveniently:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">ln</span> -s /usr/libexec/locate.updatedb /usr/local/sbin/updatedb</span><br><span class="line">sudo updatedb</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">ln</span> -s /usr/libexec/locate.updatedb /usr/local/sbin/updatedb</span><br><span class="line">sudo updatedb</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <h2 id="alternative"><a href="#alternative" class="headerlink" title="alternative"></a>alternative</h2><p>use <code>mdfind</code></p>
 
 	

@@ -129,20 +129,34 @@
 	
 	
 		<p>cursed by the wall.</p>
-<h2 id="install-waydroid-package-for-ubuntu"><a href="#install-waydroid-package-for-ubuntu" class="headerlink" title="install waydroid package (for ubuntu)"></a>install waydroid package (for ubuntu)</h2><p>visit and save <code>https://repo.waydro.id/</code> as <code>waydroid_init_repo.sh</code>, <code>https://repo.waydro.id/waydroid.gpg</code> as <code>waydroid.gpg</code> (using proxy)<br>comment out the download part in <code>waydroid_init_repo.sh</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># curl --progress-bar --proto &#x27;=https&#x27; --tlsv1.2 -Sf https://repo.waydro.id/waydroid.gpg --output /usr/share/keyrings/waydroid.gpg</span></span><br></pre></td></tr></table></figure>
-<p>move <code>waydroid.gpg</code> to <code>/usr/share/keyrings/waydroid.gpg</code><br>execute <code>sudo bash waydroid_init_repo.sh</code> to setup waydroid repository<br>on ubuntu you need to use proxy during apt mirror syncing.<br>to setup proxy (relay local proxy to host):</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">proxy --port &lt;port&gt; --host &lt;host&gt; \</span><br><span class="line">--plugins proxy.plugin.ProxyPoolPlugin \</span><br><span class="line">--proxy-pool localhost:&lt;local_proxy_port&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="install-waydroid-package-for-ubuntu"><a href="#install-waydroid-package-for-ubuntu" class="headerlink" title="install waydroid package (for ubuntu)"></a>install waydroid package (for ubuntu)</h2><p>visit and save <code>https://repo.waydro.id/</code> as <code>waydroid_init_repo.sh</code>, <code>https://repo.waydro.id/waydroid.gpg</code> as <code>waydroid.gpg</code> (using proxy)</p>
+<p>comment out the download part in <code>waydroid_init_repo.sh</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># curl --progress-bar --proto &#x27;=https&#x27; --tlsv1.2 -Sf https://repo.waydro.id/waydroid.gpg --output /usr/share/keyrings/waydroid.gpg</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>move <code>waydroid.gpg</code> to <code>/usr/share/keyrings/waydroid.gpg</code></p>
+<p>execute <code>sudo bash waydroid_init_repo.sh</code> to setup waydroid repository</p>
+<p>on ubuntu you need to use proxy during apt mirror syncing.</p>
+<p>to setup proxy (relay local proxy to host):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">proxy --port &lt;port&gt; --host &lt;host&gt; \</span><br><span class="line">--plugins proxy.plugin.ProxyPoolPlugin \</span><br><span class="line">--proxy-pool localhost:&lt;local_proxy_port&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>to use proxy:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">env</span> https_proxy=http://&lt;host&gt;:&lt;port&gt; http_proxy=http://&lt;host&gt;:&lt;port&gt; all_proxy=http://&lt;host&gt;:&lt;port&gt; apt update</span><br><span class="line">sudo <span class="built_in">env</span> https_proxy=http://&lt;host&gt;:&lt;port&gt; http_proxy=http://&lt;host&gt;:&lt;port&gt; all_proxy=http://&lt;host&gt;:&lt;port&gt; apt install waydroid -y</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">env</span> https_proxy=http://&lt;host&gt;:&lt;port&gt; http_proxy=http://&lt;host&gt;:&lt;port&gt; all_proxy=http://&lt;host&gt;:&lt;port&gt; apt update</span><br><span class="line">sudo <span class="built_in">env</span> https_proxy=http://&lt;host&gt;:&lt;port&gt; http_proxy=http://&lt;host&gt;:&lt;port&gt; all_proxy=http://&lt;host&gt;:&lt;port&gt; apt install waydroid -y</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>after installation you should comment out the mirror at: <code>/etc/apt/sources.list.d/waydroid.list</code></p>
-<h2 id="initialize-waydroid"><a href="#initialize-waydroid" class="headerlink" title="initialize waydroid"></a>initialize waydroid</h2><p>start waydroid service: <code>sudo systemctl enable --now waydroid-container</code><br>the download speed of sourceforge is very slow, unless you use mirror like <code>liquidtelecom</code><br>modify the file <code>/usr/lib/waydroid/tools/helpers/http.py</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="comment">## added part</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">is_sourceforge_download_url</span>(<span class="params">url: <span class="built_in">str</span></span>):</span><br><span class="line">keywords = [<span class="string">&quot;sourceforge.net&quot;</span>, <span class="string">&quot;download&quot;</span>]</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">all</span>([kw <span class="keyword">in</span> url <span class="keyword">for</span> kw <span class="keyword">in</span> keywords])</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">use_liquidtelecom_mirror</span>(<span class="params">url: <span class="built_in">str</span></span>):</span><br><span class="line"><span class="comment"># example: https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_x86_64/lineage-18.1-20231216-VANILLA-waydroid_x86_64-system.zip/download</span></span><br><span class="line"><span class="comment">#      -&gt;  https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_x86_64/lineage-18.1-20231216-VANILLA-waydroid_x86_64-system.zip/download?use_mirror=liquidtelecom</span></span><br><span class="line">keyword = <span class="string">&quot;use_mirror=liquidtelecom&quot;</span></span><br><span class="line"><span class="keyword">if</span> is_sourceforge_download_url(url):</span><br><span class="line"><span class="keyword">if</span> keyword <span class="keyword">not</span> <span class="keyword">in</span> url:</span><br><span class="line">conn_symbol = <span class="string">&quot;?&quot;</span> <span class="keyword">if</span> <span class="string">&quot;?&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> url <span class="keyword">else</span> <span class="string">&quot;&amp;&quot;</span></span><br><span class="line">url += conn_symbol + keyword</span><br><span class="line"><span class="keyword">return</span> url</span><br><span class="line"><span class="comment">## modified part</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">download</span>(<span class="params">args, url, prefix, cache=<span class="literal">True</span>, loglevel=logging.INFO, allow_404=<span class="literal">False</span></span>):</span><br><span class="line">...</span><br><span class="line">url = use_liquidtelecom_mirror(url)</span><br><span class="line">...</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>restart service: <code>sudo systemctl restart waydroid-container</code><br>run command <code>sudo waydroid init</code></p>
-<h2 id="run-waydroid-in-xorg"><a href="#run-waydroid-in-xorg" class="headerlink" title="run waydroid in xorg"></a>run waydroid in xorg</h2><p>install weston: <code>apt install weston</code><br>configure weston at <code>~/.config/weston.ini</code></p>
-<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[core]</span></span><br><span class="line"><span class="attr">xwayland</span>=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h2 id="initialize-waydroid"><a href="#initialize-waydroid" class="headerlink" title="initialize waydroid"></a>initialize waydroid</h2><p>start waydroid service: <code>sudo systemctl enable --now waydroid-container</code></p>
+<p>the download speed of sourceforge is very slow, unless you use mirror like <code>liquidtelecom</code></p>
+<p>modify the file <code>/usr/lib/waydroid/tools/helpers/http.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="comment">## added part</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">is_sourceforge_download_url</span>(<span class="params">url: <span class="built_in">str</span></span>):</span><br><span class="line">keywords = [<span class="string">&quot;sourceforge.net&quot;</span>, <span class="string">&quot;download&quot;</span>]</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">all</span>([kw <span class="keyword">in</span> url <span class="keyword">for</span> kw <span class="keyword">in</span> keywords])</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">use_liquidtelecom_mirror</span>(<span class="params">url: <span class="built_in">str</span></span>):</span><br><span class="line"><span class="comment"># example: https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_x86_64/lineage-18.1-20231216-VANILLA-waydroid_x86_64-system.zip/download</span></span><br><span class="line"><span class="comment">#      -&gt;  https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_x86_64/lineage-18.1-20231216-VANILLA-waydroid_x86_64-system.zip/download?use_mirror=liquidtelecom</span></span><br><span class="line">keyword = <span class="string">&quot;use_mirror=liquidtelecom&quot;</span></span><br><span class="line"><span class="keyword">if</span> is_sourceforge_download_url(url):</span><br><span class="line"><span class="keyword">if</span> keyword <span class="keyword">not</span> <span class="keyword">in</span> url:</span><br><span class="line">conn_symbol = <span class="string">&quot;?&quot;</span> <span class="keyword">if</span> <span class="string">&quot;?&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> url <span class="keyword">else</span> <span class="string">&quot;&amp;&quot;</span></span><br><span class="line">url += conn_symbol + keyword</span><br><span class="line"><span class="keyword">return</span> url</span><br><span class="line"><span class="comment">## modified part</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">download</span>(<span class="params">args, url, prefix, cache=<span class="literal">True</span>, loglevel=logging.INFO, allow_404=<span class="literal">False</span></span>):</span><br><span class="line">...</span><br><span class="line">url = use_liquidtelecom_mirror(url)</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>restart service: <code>sudo systemctl restart waydroid-container</code></p>
+<p>run command <code>sudo waydroid init</code></p>
+<h2 id="run-waydroid-in-xorg"><a href="#run-waydroid-in-xorg" class="headerlink" title="run waydroid in xorg"></a>run waydroid in xorg</h2><p>install weston: <code>apt install weston</code></p>
+<p>configure weston at <code>~/.config/weston.ini</code></p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[core]</span></span><br><span class="line"><span class="attr">xwayland</span>=<span class="literal">true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>run <code>weston</code>, launch terminal at top left corner, run <code>waydroid</code></p>
-<h2 id="network-issue"><a href="#network-issue" class="headerlink" title="network issue"></a>network issue</h2><p>in addition to the <a target="_blank" rel="noopener" href="https://docs.waydro.id/debugging/networking-issues">official guide</a>, you also need to <a target="_blank" rel="noopener" href="https://github.com/waydroid/waydroid/issues/656#issuecomment-1422650240">enable</a> <code>firewalld</code> or <code>ufw</code> to make it work.<br>the wifi switch is irrelevant to network. it won’t be turned on.</p>
+<h2 id="network-issue"><a href="#network-issue" class="headerlink" title="network issue"></a>network issue</h2><p>in addition to the <a target="_blank" rel="noopener" href="https://docs.waydro.id/debugging/networking-issues">official guide</a>, you also need to <a target="_blank" rel="noopener" href="https://github.com/waydroid/waydroid/issues/656#issuecomment-1422650240">enable</a> <code>firewalld</code> or <code>ufw</code> to make it work.</p>
+<p>the wifi switch is irrelevant to network. it won’t be turned on.</p>
 
 	
 	</div>
@@ -190,7 +204,11 @@
   <div class="row">
 	
 	
-		<p>modified scripts:<br><code>/Users/jamesbrown/Desktop/works/host_discovery_ssh_local_connect/load_tuntap_launch_n2n_kali_root.sh</code><br><code>/Users/jamesbrown/Desktop/works/host_discovery_ssh_local_connect/nginx_with_kali_finder.sh</code><br><code>/Library/Application Support/ZeroTier/One/launch.sh</code><br>seems zerotier one is the main cause!</p>
+		<p>modified scripts:</p>
+<p><code>/Users/jamesbrown/Desktop/works/host_discovery_ssh_local_connect/load_tuntap_launch_n2n_kali_root.sh</code></p>
+<p><code>/Users/jamesbrown/Desktop/works/host_discovery_ssh_local_connect/nginx_with_kali_finder.sh</code></p>
+<p><code>/Library/Application Support/ZeroTier/One/launch.sh</code></p>
+<p>seems zerotier one is the main cause!</p>
 
 	
 	</div>
@@ -214,7 +232,8 @@
   <div class="row">
 	
 	
-		<p>special token like <code>!&lt;str&gt;</code> need to be converted to <code>!!str</code>, while writing back we just do it in reverse.<br>full reference of pyyaml is <a target="_blank" rel="noopener" href="https://pyyaml.org/wiki/PyYAMLDocumentation">here</a></p>
+		<p>special token like <code>!&lt;str&gt;</code> need to be converted to <code>!!str</code>, while writing back we just do it in reverse.</p>
+<p>full reference of pyyaml is <a target="_blank" rel="noopener" href="https://pyyaml.org/wiki/PyYAMLDocumentation">here</a></p>
 
 	
 	</div>
@@ -238,10 +257,20 @@
   <div class="row">
 	
 	
-		<h2 id="debugging"><a href="#debugging" class="headerlink" title="debugging"></a>debugging</h2><p>when kali is off, this mac will go crazy and hang everything.<br>need to scan for kali existance on demand, not all the time.</p>
-<h2 id="developing"><a href="#developing" class="headerlink" title="developing"></a>developing</h2><p>should we use p2p networks to speed up remote connections like <code>n2n</code> or <code>tinc</code>?<br>would it be interesting to run all our kali connectors ranged from vscode-ssh-connect, rclone mount and direct ssh connection via <code>kali</code> command dynamically by our kali discovery service, if we can reload the nginx daemon on demand.<br>using redis to store some daemon reported values.<br>how about we set the workding directory of <code>redis-server</code> to <code>/tmp</code> so that the <code>dump.rdb</code> file will never take space after reboot?<br>we need to know if this will successifully launch after reboot since <code>/tmp</code> may not exist by that time<br>default redis server port: 6379<br>install redis-server service:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">easyd -w /tmp -l redis_server -- /opt/homebrew/bin/redis-server</span><br></pre></td></tr></table></figure>
-<p>first value is <code>online</code>.<br>next value is <code>kali_ip</code>.<br>using both value to determine whether to connect to kali or not, and the exact address.</p>
+		<h2 id="debugging"><a href="#debugging" class="headerlink" title="debugging"></a>debugging</h2><p>when kali is off, this mac will go crazy and hang everything.</p>
+<p>need to scan for kali existance on demand, not all the time.</p>
+<h2 id="developing"><a href="#developing" class="headerlink" title="developing"></a>developing</h2><p>should we use p2p networks to speed up remote connections like <code>n2n</code> or <code>tinc</code>?</p>
+<p>would it be interesting to run all our kali connectors ranged from vscode-ssh-connect, rclone mount and direct ssh connection via <code>kali</code> command dynamically by our kali discovery service, if we can reload the nginx daemon on demand.</p>
+<p>using redis to store some daemon reported values.</p>
+<p>how about we set the workding directory of <code>redis-server</code> to <code>/tmp</code> so that the <code>dump.rdb</code> file will never take space after reboot?</p>
+<p>we need to know if this will successifully launch after reboot since <code>/tmp</code> may not exist by that time</p>
+<p>default redis server port: 6379</p>
+<p>install redis-server service:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">easyd -w /tmp -l redis_server -- /opt/homebrew/bin/redis-server</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>first value is <code>online</code>.</p>
+<p>next value is <code>kali_ip</code>.</p>
+<p>using both value to determine whether to connect to kali or not, and the exact address.</p>
 
 	
 	</div>
@@ -265,17 +294,27 @@
   <div class="row">
 	
 	
-		<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /media/root/parrot</span><br><span class="line"><span class="built_in">cp</span> -R -P /media/root/help1/pyjom .</span><br></pre></td></tr></table></figure>
-<p>because of the qqChatBot task, pyjom on kali may be syncing too often. need to check the watchdog logs.<br>turned out it is the <code>__pycache__</code> dirs to be blamed<br>disable all sync related services on macos for debug:<br>main issue happens after local vscode launched.<br>the issue is such that the proxy setting not right.<br>to debug the service:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl debug gui/501/pyjom_local_syncdog --stdout --stderr</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># to be succint:</span></span><br><span class="line">launchctl list | grep syncdog | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span> | xargs -I abc <span class="built_in">kill</span> -s TERM abc</span><br><span class="line"><span class="comment"># instead of:</span></span><br><span class="line"><span class="comment">#launchctl list | grep pyjom_local_syncdog # to get process pid</span></span><br><span class="line"><span class="comment">#kill -s TERM &lt;service_pid&gt;</span></span><br></pre></td></tr></table></figure>
+		<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /media/root/parrot</span><br><span class="line"><span class="built_in">cp</span> -R -P /media/root/help1/pyjom .</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>because of the qqChatBot task, pyjom on kali may be syncing too often. need to check the watchdog logs.</p>
+<p>turned out it is the <code>__pycache__</code> dirs to be blamed</p>
+<p>disable all sync related services on macos for debug:</p>
+<p>main issue happens after local vscode launched.</p>
+<p>the issue is such that the proxy setting not right.</p>
+<p>to debug the service:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl debug gui/501/pyjom_local_syncdog --stdout --stderr</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># to be succint:</span></span><br><span class="line">launchctl list | grep syncdog | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span> | xargs -I abc <span class="built_in">kill</span> -s TERM abc</span><br><span class="line"><span class="comment"># instead of:</span></span><br><span class="line"><span class="comment">#launchctl list | grep pyjom_local_syncdog # to get process pid</span></span><br><span class="line"><span class="comment">#kill -s TERM &lt;service_pid&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>we need to add some code for it. consider adding something alike to that to kali?</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.environ[<span class="string">&quot;http_proxy&quot;</span>]=<span class="string">&quot;http://localhost:7930&quot;</span></span><br><span class="line">os.environ[<span class="string">&quot;https_proxy&quot;</span>]=<span class="string">&quot;http://localhost:7930&quot;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">launchctl stop gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl <span class="built_in">kill</span> TERM gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl unload gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl <span class="built_in">disable</span> gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl remove gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl stop gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl <span class="built_in">kill</span> TERM gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl unload gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl <span class="built_in">disable</span> gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl remove gui/501/pyjom_local_syncdog</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">os.environ[<span class="string">&quot;http_proxy&quot;</span>]=<span class="string">&quot;http://localhost:7930&quot;</span></span><br><span class="line">os.environ[<span class="string">&quot;https_proxy&quot;</span>]=<span class="string">&quot;http://localhost:7930&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">launchctl stop gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl <span class="built_in">kill</span> TERM gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl unload gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl <span class="built_in">disable</span> gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl remove gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl stop gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl <span class="built_in">kill</span> TERM gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl unload gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl <span class="built_in">disable</span> gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl remove gui/501/pyjom_local_syncdog</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>install macos pyjom watchdog (local):</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">easyd -l pyjom_local_watchdog -w /Users/jamesbrown/Desktop/works/sync_git_repos -- /usr/bin/python3 /Users/jamesbrown/Desktop/works/sync_git_repos/watchdog_macos.py</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">easyd -l pyjom_local_watchdog -w /Users/jamesbrown/Desktop/works/sync_git_repos -- /usr/bin/python3 /Users/jamesbrown/Desktop/works/sync_git_repos/watchdog_macos.py</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>install macos pyjom syncdog (local):</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">easyd -l pyjom_local_syncdog -w /Users/jamesbrown/Desktop/works/sync_git_repos -- /usr/bin/python3 /Users/jamesbrown/Desktop/works/sync_git_repos/syncdog_macos.py</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">easyd -l pyjom_local_syncdog -w /Users/jamesbrown/Desktop/works/sync_git_repos -- /usr/bin/python3 /Users/jamesbrown/Desktop/works/sync_git_repos/syncdog_macos.py</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 	
 	</div>
   <a type="button" href="/blog/2022/08/11/b4aa7c90-7a78-4648-a687-ea9f3f21e207/#more" class="btn btn-default more">Read More</a>
@@ -298,7 +337,22 @@
   <div class="row">
 	
 	
-		<p>working on archlinux arm:<br>libwacom 2.1.0-1<br>not working on kali linux:<br>libwacom-bin 2.2.0-1<br>full reference:<br><a target="_blank" rel="noopener" href="https://github.com/DIGImend/digimend-kernel-drivers/issues/514">https://github.com/DIGImend/digimend-kernel-drivers/issues/514</a><br>sudo nano &#x2F;etc&#x2F;X11&#x2F;xorg.conf<br>Section “InputClass”<br>Identifier “Tablet”<br>Driver “wacom”<br>MatchDevicePath “&#x2F;dev&#x2F;input&#x2F;event*”<br>MatchUSBID “6161:4d15”<br>EndSection<br>to debug input problems:<br><a target="_blank" rel="noopener" href="https://wiki.ubuntu.com/DebuggingMouseDetection#:~:text=In%20case%20your%20mouse%20stops%20working%20after%20a,your%20mouse%20stops%20working.%20...%20More%20items...%20">https://wiki.ubuntu.com/DebuggingMouseDetection#:~:text=In%20case%20your%20mouse%20stops%20working%20after%20a,your%20mouse%20stops%20working.%20...%20More%20items...%20</a><br>check &#x2F;etc&#x2F;logs&#x2F;Xorg.0.logs</p>
+		<p>working on archlinux arm:</p>
+<p>libwacom 2.1.0-1</p>
+<p>not working on kali linux:</p>
+<p>libwacom-bin 2.2.0-1</p>
+<p>full reference:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/DIGImend/digimend-kernel-drivers/issues/514">https://github.com/DIGImend/digimend-kernel-drivers/issues/514</a></p>
+<p>sudo nano &#x2F;etc&#x2F;X11&#x2F;xorg.conf</p>
+<p>Section “InputClass”</p>
+<p>Identifier “Tablet”</p>
+<p>Driver “wacom”</p>
+<p>MatchDevicePath “&#x2F;dev&#x2F;input&#x2F;event*”</p>
+<p>MatchUSBID “6161:4d15”</p>
+<p>EndSection</p>
+<p>to debug input problems:</p>
+<p><a target="_blank" rel="noopener" href="https://wiki.ubuntu.com/DebuggingMouseDetection#:~:text=In%20case%20your%20mouse%20stops%20working%20after%20a,your%20mouse%20stops%20working.%20...%20More%20items...%20">https://wiki.ubuntu.com/DebuggingMouseDetection#:~:text=In%20case%20your%20mouse%20stops%20working%20after%20a,your%20mouse%20stops%20working.%20...%20More%20items...%20</a></p>
+<p>check &#x2F;etc&#x2F;logs&#x2F;Xorg.0.logs</p>
 
 	
 	</div>
@@ -322,8 +376,16 @@
   <div class="row">
 	
 	
-		<p>grant permission for termux:api<br>android.permission.WRITE_SETTINGS can only be granted in settings tab.<br><a target="_blank" rel="noopener" href="https://github.com/TilesOrganization/support/wiki/How-to-use-ADB-to-grant-permissions">https://github.com/TilesOrganization/support/wiki/How-to-use-ADB-to-grant-permissions</a><br>adb shell pm grant com.rascarlo.quick.settings.tiles android.permission.WRITE_SECURE_SETTINGS<br>pm grant com.termux.api android.permission.WRITE_SECURE_SETTINGS<br>pm list packages<br>the brightness bug is solved by uninstalling the unintended settings app. i don’t know if this will cause more problems.<br>to remove termux banner&#x2F; termux welcome message:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> .. &amp;&amp; <span class="built_in">cd</span> usr/etc &amp;&amp; <span class="built_in">rm</span> -rf motd</span><br></pre></td></tr></table></figure>
+		<p>grant permission for termux:api</p>
+<p>android.permission.WRITE_SETTINGS can only be granted in settings tab.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/TilesOrganization/support/wiki/How-to-use-ADB-to-grant-permissions">https://github.com/TilesOrganization/support/wiki/How-to-use-ADB-to-grant-permissions</a></p>
+<p>adb shell pm grant com.rascarlo.quick.settings.tiles android.permission.WRITE_SECURE_SETTINGS</p>
+<p>pm grant com.termux.api android.permission.WRITE_SECURE_SETTINGS</p>
+<p>pm list packages</p>
+<p>the brightness bug is solved by uninstalling the unintended settings app. i don’t know if this will cause more problems.</p>
+<p>to remove termux banner&#x2F; termux welcome message:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> .. &amp;&amp; <span class="built_in">cd</span> usr/etc &amp;&amp; <span class="built_in">rm</span> -rf motd</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 	
 	</div>
   <a type="button" href="/blog/2021/12/20/c0a2ff3b-8a78-4642-bd6d-bd6ad5040bc4/#more" class="btn btn-default more">Read More</a>

@@ -129,13 +129,19 @@
 	
 	
 		<h2 id="setup-tty"><a href="#setup-tty" class="headerlink" title="setup tty"></a>setup tty</h2><p>i don’t think this will work on android, but let’s see?</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ttyd -p &lt;port&gt; -c &lt;username&gt;:&lt;password&gt; &lt;shell_path&gt;</span><br><span class="line"><span class="comment"># don&#x27;t specify interface since that will screw things up</span></span><br></pre></td></tr></table></figure>
-<h2 id="setup-x11vnc-and-novnc"><a href="#setup-x11vnc-and-novnc" class="headerlink" title="setup x11vnc and novnc"></a>setup x11vnc and novnc</h2><p>notice novnc has clipboard function now. share clipboard content across devices via the sidebar menu,<br>in reference of <a target="_blank" rel="noopener" href="https://kali.org/general-use/novnc-kali-in-browser">kali official</a><br>x11vnc is mirroring the current x11 session. i set it without password.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#retrieved from fish history</span></span><br><span class="line">x11vnc -threads -forever</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ttyd -p &lt;port&gt; -c &lt;username&gt;:&lt;password&gt; &lt;shell_path&gt;</span><br><span class="line"><span class="comment"># don&#x27;t specify interface since that will screw things up</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="setup-x11vnc-and-novnc"><a href="#setup-x11vnc-and-novnc" class="headerlink" title="setup x11vnc and novnc"></a>setup x11vnc and novnc</h2><p>notice novnc has clipboard function now. share clipboard content across devices via the sidebar menu,</p>
+<p>in reference of <a target="_blank" rel="noopener" href="https://kali.org/general-use/novnc-kali-in-browser">kali official</a></p>
+<p>x11vnc is mirroring the current x11 session. i set it without password.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#retrieved from fish history</span></span><br><span class="line">x11vnc -threads -forever</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>then launch novnc server</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">novnc  --vnc localhost:5900 --listen 10020</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">novnc  --vnc localhost:5900 --listen 10020</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>use this url to access from chromebook:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://&lt;kali_ip&gt;:10020/vnc.html?host=&lt;kali_ip&gt;&amp;port=10020</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://&lt;kali_ip&gt;:10020/vnc.html?host=&lt;kali_ip&gt;&amp;port=10020</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 	
 	</div>
   <a type="button" href="/blog/2022/12/07/63a0a5d8-cc5f-44eb-b9ee-f5b0692f2b85/#more" class="btn btn-default more">Read More</a>
@@ -158,8 +164,11 @@
   <div class="row">
 	
 	
-		<p>better use nomachine instead, which is based on nx<br>password: 472831<br>commands:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># necessary env for gui target, though may not suitable for xvfb</span></span><br><span class="line"><span class="built_in">export</span> XAUTHORITY=/root/.Xauthority</span><br><span class="line"><span class="built_in">export</span> DISPLAY=:1</span><br><span class="line"><span class="comment"># kill previous running x11vnc, if exists</span></span><br><span class="line">joker list | grep x11vnc | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span> | xargs -iabc <span class="built_in">kill</span> -s KILL abc</span><br><span class="line"><span class="comment"># launch new vnc</span></span><br><span class="line">joker x11vnc -threads -forever -rfbauth /root/.vnc/passwd</span><br></pre></td></tr></table></figure>
+		<p>better use nomachine instead, which is based on nx</p>
+<p>password: 472831</p>
+<p>commands:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># necessary env for gui target, though may not suitable for xvfb</span></span><br><span class="line"><span class="built_in">export</span> XAUTHORITY=/root/.Xauthority</span><br><span class="line"><span class="built_in">export</span> DISPLAY=:1</span><br><span class="line"><span class="comment"># kill previous running x11vnc, if exists</span></span><br><span class="line">joker list | grep x11vnc | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span> | xargs -iabc <span class="built_in">kill</span> -s KILL abc</span><br><span class="line"><span class="comment"># launch new vnc</span></span><br><span class="line">joker x11vnc -threads -forever -rfbauth /root/.vnc/passwd</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 	
 	</div>
   <a type="button" href="/blog/2022/08/09/dceb3026-9060-4172-9ef5-319678c7e104/#more" class="btn btn-default more">Read More</a>

@@ -128,10 +128,28 @@
   <div class="row">
 	
 	
-		<h1 id="爬取-分析视频素材的流程"><a href="#爬取-分析视频素材的流程" class="headerlink" title="爬取 分析视频素材的流程"></a>爬取 分析视频素材的流程</h1><h2 id="聚焦在主流平台"><a href="#聚焦在主流平台" class="headerlink" title="聚焦在主流平台"></a>聚焦在主流平台</h2><p>主流平台就是有现成api搜索的平台<br>如果没有api 就需要用playwright 但是可能耗时更长 也更加偏离找素材的关键<br>目前主流平台都有现成高级api可以对接 如果找不到api则可能说明不是主流的平台<br>主流平台分为主流媒体和搜索引擎两大类<br>如果需要搜索小众的平台 建议对接搜索引擎 加入高级搜索参数 搜出来的链接拿来分析看能不能直接下载</p>
-<h2 id="api应该具有的功能"><a href="#api应该具有的功能" class="headerlink" title="api应该具有的功能"></a>api应该具有的功能</h2><p>搜索 高定制搜索 可以做到不重复<br>视频信息（时长 播放量 简介 封面 字幕 标题 标签 评论）提取<br>相关视频推荐提取 首页推荐提取<br>热榜热搜提取 搜索补全提取<br>下载视频 尽量无水印 字幕<br>如果是要发布内容的平台 则需要有上传功能<br>上传视频 封面 简介 标签 合集信息 字幕<br>上传文章 图片</p>
-<h2 id="用什么关键词"><a href="#用什么关键词" class="headerlink" title="用什么关键词"></a>用什么关键词</h2><p>找到最合适的 适合当前生成框架的素材 需要自己去尝试总结<br>当然也可以用关键字和评论 视频播放量反馈机制寻找合适的关键词 或者是神经网络 机器学习 或者是图数据库 推荐算法<br>标签<br>关键词 -&gt;视频 -&gt; 同类视频<br>某个观众         -&gt; 同个作者</p>
-<h2 id="如何分析视频"><a href="#如何分析视频" class="headerlink" title="如何分析视频"></a>如何分析视频</h2><p>首先要裁剪画中画 再去除水印 去文字 提高画质 提高帧数 如果需要提取识别字幕就需要在指定区域识别 语音识别如果要做就需要分离人声 检测文字流畅度 （对于外文或者歌曲可能不会很流畅）<br>根据一定的标准筛选 裁剪时长和画布 比如时长 音量 光流 文字面积 是否有人像 人物的动作幅度<br>如果要分离人声 一般要配合相应的字幕 还得变声 检测说话人有几个（如果多人说话  语音识别可能不会正常工作 文字流畅度低） 是男是女<br>如果需要音乐 BGM 一般不直接从视频里面提取 而是从简介里面找到关键字 拿到专门的音乐平台去搜索 音乐也可能需要筛选一下 根据类别和播放量 评论反馈筛选</p>
+		<h1 id="爬取-分析视频素材的流程"><a href="#爬取-分析视频素材的流程" class="headerlink" title="爬取 分析视频素材的流程"></a>爬取 分析视频素材的流程</h1><h2 id="聚焦在主流平台"><a href="#聚焦在主流平台" class="headerlink" title="聚焦在主流平台"></a>聚焦在主流平台</h2><p>主流平台就是有现成api搜索的平台</p>
+<p>如果没有api 就需要用playwright 但是可能耗时更长 也更加偏离找素材的关键</p>
+<p>目前主流平台都有现成高级api可以对接 如果找不到api则可能说明不是主流的平台</p>
+<p>主流平台分为主流媒体和搜索引擎两大类</p>
+<p>如果需要搜索小众的平台 建议对接搜索引擎 加入高级搜索参数 搜出来的链接拿来分析看能不能直接下载</p>
+<h2 id="api应该具有的功能"><a href="#api应该具有的功能" class="headerlink" title="api应该具有的功能"></a>api应该具有的功能</h2><p>搜索 高定制搜索 可以做到不重复</p>
+<p>视频信息（时长 播放量 简介 封面 字幕 标题 标签 评论）提取</p>
+<p>相关视频推荐提取 首页推荐提取</p>
+<p>热榜热搜提取 搜索补全提取</p>
+<p>下载视频 尽量无水印 字幕</p>
+<p>如果是要发布内容的平台 则需要有上传功能</p>
+<p>上传视频 封面 简介 标签 合集信息 字幕</p>
+<p>上传文章 图片</p>
+<h2 id="用什么关键词"><a href="#用什么关键词" class="headerlink" title="用什么关键词"></a>用什么关键词</h2><p>找到最合适的 适合当前生成框架的素材 需要自己去尝试总结</p>
+<p>当然也可以用关键字和评论 视频播放量反馈机制寻找合适的关键词 或者是神经网络 机器学习 或者是图数据库 推荐算法</p>
+<p>标签</p>
+<p>关键词 -&gt;视频 -&gt; 同类视频</p>
+<p>某个观众         -&gt; 同个作者</p>
+<h2 id="如何分析视频"><a href="#如何分析视频" class="headerlink" title="如何分析视频"></a>如何分析视频</h2><p>首先要裁剪画中画 再去除水印 去文字 提高画质 提高帧数 如果需要提取识别字幕就需要在指定区域识别 语音识别如果要做就需要分离人声 检测文字流畅度 （对于外文或者歌曲可能不会很流畅）</p>
+<p>根据一定的标准筛选 裁剪时长和画布 比如时长 音量 光流 文字面积 是否有人像 人物的动作幅度</p>
+<p>如果要分离人声 一般要配合相应的字幕 还得变声 检测说话人有几个（如果多人说话  语音识别可能不会正常工作 文字流畅度低） 是男是女</p>
+<p>如果需要音乐 BGM 一般不直接从视频里面提取 而是从简介里面找到关键字 拿到专门的音乐平台去搜索 音乐也可能需要筛选一下 根据类别和播放量 评论反馈筛选</p>
 
 	
 	</div>
@@ -155,8 +173,13 @@
   <div class="row">
 	
 	
-		<p>对于单纯拼接起来的视频 这个算法就如同手术刀一样精准<br>首尾有可能有一两帧看起来不太对 但是可以通过调节start和end来修正<br>警惕频繁转场的视频 它们可能是属于同一个小片段的 但是如果不打乱顺序有可能会触发版权识别问题<br>即使选出来了可以使用的片段 对于同一个视频的制作过程 依旧要隔一段时间采样 <strong>比如两个片段间隔至少5秒</strong> 不要单纯的把所有片段一次性提取出来 避免内容重复和版权问题<br>当然对于有渐变 转场的视频 可能需要用其他的检测方法</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scenedetect <span class="keyword">import</span> open_video, SceneManager, split_video_ffmpeg</span><br><span class="line"><span class="keyword">from</span> scenedetect.detectors <span class="keyword">import</span> ContentDetector</span><br><span class="line"><span class="keyword">from</span> scenedetect.video_splitter <span class="keyword">import</span> split_video_ffmpeg</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">split_video_into_scenes</span>(<span class="params">video_path, threshold=<span class="number">27.0</span></span>):</span><br><span class="line"><span class="comment"># Open our video, create a scene manager, and add a detector.</span></span><br><span class="line">video = open_video(video_path)</span><br><span class="line">scene_manager = SceneManager()</span><br><span class="line">scene_manager.add_detector(</span><br><span class="line">ContentDetector(threshold=threshold))</span><br><span class="line">scene_manager.detect_scenes(video, show_progress=<span class="literal">True</span>)</span><br><span class="line">scene_list = scene_manager.get_scene_list()</span><br><span class="line">split_video_ffmpeg(video_path, scene_list, show_progress=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+		<p>对于单纯拼接起来的视频 这个算法就如同手术刀一样精准</p>
+<p>首尾有可能有一两帧看起来不太对 但是可以通过调节start和end来修正</p>
+<p>警惕频繁转场的视频 它们可能是属于同一个小片段的 但是如果不打乱顺序有可能会触发版权识别问题</p>
+<p>即使选出来了可以使用的片段 对于同一个视频的制作过程 依旧要隔一段时间采样 <strong>比如两个片段间隔至少5秒</strong> 不要单纯的把所有片段一次性提取出来 避免内容重复和版权问题</p>
+<p>当然对于有渐变 转场的视频 可能需要用其他的检测方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scenedetect <span class="keyword">import</span> open_video, SceneManager, split_video_ffmpeg</span><br><span class="line"><span class="keyword">from</span> scenedetect.detectors <span class="keyword">import</span> ContentDetector</span><br><span class="line"><span class="keyword">from</span> scenedetect.video_splitter <span class="keyword">import</span> split_video_ffmpeg</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">split_video_into_scenes</span>(<span class="params">video_path, threshold=<span class="number">27.0</span></span>):</span><br><span class="line"><span class="comment"># Open our video, create a scene manager, and add a detector.</span></span><br><span class="line">video = open_video(video_path)</span><br><span class="line">scene_manager = SceneManager()</span><br><span class="line">scene_manager.add_detector(</span><br><span class="line">ContentDetector(threshold=threshold))</span><br><span class="line">scene_manager.detect_scenes(video, show_progress=<span class="literal">True</span>)</span><br><span class="line">scene_list = scene_manager.get_scene_list()</span><br><span class="line">split_video_ffmpeg(video_path, scene_list, show_progress=<span class="literal">True</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 	
 	</div>
   <a type="button" href="/blog/2022/09/12/2e4b90b1-68e4-4f5c-97f6-c9edf7664594/#more" class="btn btn-default more">Read More</a>
@@ -179,14 +202,16 @@
   <div class="row">
 	
 	
-		<h1 id="ffmpeg-one-liners"><a href="#ffmpeg-one-liners" class="headerlink" title="ffmpeg one liners"></a>ffmpeg one liners</h1><h1 id="For-all-snippets-check-documentation-for-details-and-settings"><a href="#For-all-snippets-check-documentation-for-details-and-settings" class="headerlink" title="For all snippets, check documentation for details and settings."></a>For all snippets, check documentation for details and settings.</h1><h2 id="speed-up-ffmpeg-encoding"><a href="#speed-up-ffmpeg-encoding" class="headerlink" title="speed up ffmpeg encoding"></a>speed up ffmpeg encoding</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39981360/article/details/111807188">ffmpeg speedup cli flags</a><br><code>ffmpeg -threads 4 -crf 28 -preset ultrafast</code></p>
+		<h1 id="ffmpeg-one-liners"><a href="#ffmpeg-one-liners" class="headerlink" title="ffmpeg one liners"></a>ffmpeg one liners</h1><h1 id="For-all-snippets-check-documentation-for-details-and-settings"><a href="#For-all-snippets-check-documentation-for-details-and-settings" class="headerlink" title="For all snippets, check documentation for details and settings."></a>For all snippets, check documentation for details and settings.</h1><h2 id="speed-up-ffmpeg-encoding"><a href="#speed-up-ffmpeg-encoding" class="headerlink" title="speed up ffmpeg encoding"></a>speed up ffmpeg encoding</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39981360/article/details/111807188">ffmpeg speedup cli flags</a></p>
+<p><code>ffmpeg -threads 4 -crf 28 -preset ultrafast</code></p>
 <h1 id="encode-video-from-a-V4L2-device-using-specified-settings"><a href="#encode-video-from-a-V4L2-device-using-specified-settings" class="headerlink" title="encode video from a V4L2 device, using specified settings."></a>encode video from a V4L2 device, using specified settings.</h1><h1 id="x265-worked-somewhat-better-here-and-produced-less-skips-although-uses-10x-CPU-compared-to-x264"><a href="#x265-worked-somewhat-better-here-and-produced-less-skips-although-uses-10x-CPU-compared-to-x264" class="headerlink" title="x265 worked somewhat better here and produced less skips (although uses 10x CPU compared to x264)"></a>x265 worked somewhat better here and produced less skips (although uses 10x CPU compared to x264)</h1><p>ffmpeg -f video4linux2 -framerate 30 -input_format mjpeg -video_size 1920x1080 -i &#x2F;dev&#x2F;video6 -c:v libx265 -preset ultrafast -c:a none -crf 20 out.mp4</p>
 <h1 id="Convert-a-raw-YUYV422-frame-from-my-USB-“microscope”-to-PNG"><a href="#Convert-a-raw-YUYV422-frame-from-my-USB-“microscope”-to-PNG" class="headerlink" title="Convert a raw YUYV422 frame from my USB “microscope” to PNG:"></a>Convert a raw YUYV422 frame from my USB “microscope” to PNG:</h1><h1 id="other-valid-pixel-formats-are-e-g-rgb24-or-yuv420p"><a href="#other-valid-pixel-formats-are-e-g-rgb24-or-yuv420p" class="headerlink" title="other valid pixel formats are e.g. rgb24 or yuv420p"></a>other valid pixel formats are e.g. rgb24 or yuv420p</h1><p>ffmpeg -f rawvideo -video_size 2592x1944 -pixel_format yuyv422 -i input_yuyv422_2592x1944.dat -f image2 output.png</p>
 <h1 id="copy-a-portion-of-a-video-copying-and-not-recoding-Might-need-to-use-the-same-container-as-the-input"><a href="#copy-a-portion-of-a-video-copying-and-not-recoding-Might-need-to-use-the-same-container-as-the-input" class="headerlink" title="copy a portion of a video, copying and not recoding. Might need to use the same container as the input"></a>copy a portion of a video, copying and not recoding. Might need to use the same container as the input</h1><p>ffmpeg -i $input -ss $seek_to_seconds -t $output_length -c:v copy -c:a copy $output</p>
 <h1 id="Export-and-show-h-264-MVs"><a href="#Export-and-show-h-264-MVs" class="headerlink" title="Export and show h.264 MVs"></a>Export and show h.264 MVs</h1><p>ffplay -flags2 +export_mvs input.mkv -vf codecview&#x3D;mv&#x3D;pf+bf+bb</p>
 <h1 id="Show-motion-vector-estimate-on-any-input"><a href="#Show-motion-vector-estimate-on-any-input" class="headerlink" title="Show motion vector estimate on any input:"></a>Show motion vector estimate on any input:</h1><p>ffplay $input -vf mestimate&#x3D;epzs:mb_size&#x3D;16:search_param&#x3D;32,codecview&#x3D;mv&#x3D;pf+bf+bb</p>
 <h1 id="Select-one-frame-every-10-set-presentation-time-stamp-to-10x-0-1-PTS-deshake-do-not-copy-audio"><a href="#Select-one-frame-every-10-set-presentation-time-stamp-to-10x-0-1-PTS-deshake-do-not-copy-audio" class="headerlink" title="Select one frame every 10, set presentation time stamp to 10x (0.1*PTS), deshake, do not copy audio"></a>Select one frame every 10, set presentation time stamp to 10x (0.1*PTS), deshake, do not copy audio</h1><p>ffmpeg -i MOV_3147.mp4 -vf ‘select&#x3D;not(mod(n,10))’,setpts&#x3D;0.1*PTS,deshake&#x3D;edge&#x3D;blank:rx&#x3D;64:ry&#x3D;64:blocksize&#x3D;4:contrast&#x3D;31 -tune grain -crf 17 -an wolken-2-deshake.mkv</p>
-<h1 id="Extreme-high-quality-deshake"><a href="#Extreme-high-quality-deshake" class="headerlink" title="Extreme high quality deshake:"></a>Extreme high quality deshake:</h1><p>ffmpeg -i input.mkv -vf ‘select&#x3D;not(mod(n,20))’,setpts&#x3D;0.05<em>PTS,mestimate&#x3D;hexbs,vidstabdetect&#x3D;shakiness&#x3D;10:result&#x3D;transforms.trf<br>ffmpeg -i input.mkv -vf ‘select&#x3D;not(mod(n,20))’,setpts&#x3D;0.05</em>PTS,mestimate&#x3D;hexbs,vidstabtransform&#x3D;crop&#x3D;black:smoothing&#x3D;0:optzoom&#x3D;0</p>
+<h1 id="Extreme-high-quality-deshake"><a href="#Extreme-high-quality-deshake" class="headerlink" title="Extreme high quality deshake:"></a>Extreme high quality deshake:</h1><p>ffmpeg -i input.mkv -vf ‘select&#x3D;not(mod(n,20))’,setpts&#x3D;0.05*PTS,mestimate&#x3D;hexbs,vidstabdetect&#x3D;shakiness&#x3D;10:result&#x3D;transforms.trf</p>
+<p>ffmpeg -i input.mkv -vf ‘select&#x3D;not(mod(n,20))’,setpts&#x3D;0.05*PTS,mestimate&#x3D;hexbs,vidstabtransform&#x3D;crop&#x3D;black:smoothing&#x3D;0:optzoom&#x3D;0</p>
 <h1 id="or-for-pass-2"><a href="#or-for-pass-2" class="headerlink" title="or for pass 2"></a>or for pass 2</h1><p>ffmpeg -i MOV_3147.mp4 -vf ‘select&#x3D;not(mod(n,20))’,setpts&#x3D;0.05*PTS,vidstabtransform&#x3D;crop&#x3D;black:smoothing&#x3D;180:optzoom&#x3D;0:interpol&#x3D;bicubic -an -vcodec libx265 -crf 16 -tune grain wolken-2-deshake.mkv</p>
 <h1 id="Tonemap-a-ITU-2020-HDR-high-gamut-ususally-4K-video-to-ITU-709-1080p"><a href="#Tonemap-a-ITU-2020-HDR-high-gamut-ususally-4K-video-to-ITU-709-1080p" class="headerlink" title="Tonemap a ITU.2020 (HDR, high gamut, ususally 4K) video to ITU.709 (1080p)"></a>Tonemap a ITU.2020 (HDR, high gamut, ususally 4K) video to ITU.709 (1080p)</h1><h1 id="Also-see-https-stevens-li-guides-video-converting-hdr-to-sdr-with-ffmpeg"><a href="#Also-see-https-stevens-li-guides-video-converting-hdr-to-sdr-with-ffmpeg" class="headerlink" title="Also see: https://stevens.li/guides/video/converting-hdr-to-sdr-with-ffmpeg/"></a>Also see: <a target="_blank" rel="noopener" href="https://stevens.li/guides/video/converting-hdr-to-sdr-with-ffmpeg/">https://stevens.li/guides/video/converting-hdr-to-sdr-with-ffmpeg/</a></h1><p>ffmpeg -i file.mkv -vf zscale&#x3D;t&#x3D;linear:npl&#x3D;100,format&#x3D;gbrpf32le,zscale&#x3D;p&#x3D;bt709,tonemap&#x3D;tonemap&#x3D;hable,zscale&#x3D;t&#x3D;bt709:m&#x3D;bt709:r&#x3D;tv,format&#x3D;yuv420p -crf 20 -acodec copy output.mkv</p>
 <h1 id="Extract-all-frames-as-jpg"><a href="#Extract-all-frames-as-jpg" class="headerlink" title="Extract all frames as .jpg"></a>Extract all frames as <pattern>.jpg</h1><p>ffmpeg -r 1 -i file.mp4 -r 1 frames_%05d.jpg</p>
@@ -221,7 +246,24 @@
   <div class="row">
 	
 	
-		<p>slideshows:<br><a target="_blank" rel="noopener" href="https://github.com/gre/diaporama">https://github.com/gre/diaporama</a><br><a target="_blank" rel="noopener" href="https://github.com/h2non/videoshow">https://github.com/h2non/videoshow</a><br>after effects like video effects<br><a target="_blank" rel="noopener" href="https://github.com/NatronGitHub/Natron">https://github.com/NatronGitHub/Natron</a><br><a target="_blank" rel="noopener" href="https://github.com/brianchirls/Seriously.js">https://github.com/brianchirls/Seriously.js</a><br>video ai transition tool using pose estimation<br><a target="_blank" rel="noopener" href="https://github.com/jungdj/AI-Effects">https://github.com/jungdj/AI-Effects</a><br><a target="_blank" rel="noopener" href="https://github.com/IronSpiderMan/VideoSpecialEffects">https://github.com/IronSpiderMan/VideoSpecialEffects</a><br>video transitions:<br><a target="_blank" rel="noopener" href="https://github.com/advplyr/img2vid">https://github.com/advplyr/img2vid</a><br><a target="_blank" rel="noopener" href="https://github.com/ice45571/video-transition">https://github.com/ice45571/video-transition</a><br><a target="_blank" rel="noopener" href="https://github.com/povdocs/video-transitions">https://github.com/povdocs/video-transitions</a><br><a target="_blank" rel="noopener" href="https://github.com/transitive-bullshit/ffmpeg-concat">https://github.com/transitive-bullshit/ffmpeg-concat</a><br><a target="_blank" rel="noopener" href="https://github.com/transitive-bullshit/ffmpeg-gl-transition">https://github.com/transitive-bullshit/ffmpeg-gl-transition</a><br>shot detect key frame saving:<br><a target="_blank" rel="noopener" href="https://github.com/yu239-zz/shotdetect">https://github.com/yu239-zz/shotdetect</a><br><a target="_blank" rel="noopener" href="https://github.com/AnyiRao/ShotDetection">https://github.com/AnyiRao/ShotDetection</a></p>
+		<p>slideshows:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/gre/diaporama">https://github.com/gre/diaporama</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/h2non/videoshow">https://github.com/h2non/videoshow</a></p>
+<p>after effects like video effects</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/NatronGitHub/Natron">https://github.com/NatronGitHub/Natron</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/brianchirls/Seriously.js">https://github.com/brianchirls/Seriously.js</a></p>
+<p>video ai transition tool using pose estimation</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jungdj/AI-Effects">https://github.com/jungdj/AI-Effects</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/IronSpiderMan/VideoSpecialEffects">https://github.com/IronSpiderMan/VideoSpecialEffects</a></p>
+<p>video transitions:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/advplyr/img2vid">https://github.com/advplyr/img2vid</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ice45571/video-transition">https://github.com/ice45571/video-transition</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/povdocs/video-transitions">https://github.com/povdocs/video-transitions</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/transitive-bullshit/ffmpeg-concat">https://github.com/transitive-bullshit/ffmpeg-concat</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/transitive-bullshit/ffmpeg-gl-transition">https://github.com/transitive-bullshit/ffmpeg-gl-transition</a></p>
+<p>shot detect key frame saving:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yu239-zz/shotdetect">https://github.com/yu239-zz/shotdetect</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/AnyiRao/ShotDetection">https://github.com/AnyiRao/ShotDetection</a></p>
 
 	
 	</div>
@@ -245,7 +287,11 @@
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://github.com/elebumm/RedditVideoMakerBot">https://github.com/elebumm/RedditVideoMakerBot</a><br>付费的解说视频生成器 营销号生成器<br>有激活卡号 有官方网站 是关于自媒体自动化的<br><a target="_blank" rel="noopener" href="https://github.com/suifengqjn/videoWater">https://github.com/suifengqjn/videoWater</a><br><a target="_blank" rel="noopener" href="https://www.51ai.top/">https://www.51ai.top</a></p>
+		<p><a target="_blank" rel="noopener" href="https://github.com/elebumm/RedditVideoMakerBot">https://github.com/elebumm/RedditVideoMakerBot</a></p>
+<p>付费的解说视频生成器 营销号生成器</p>
+<p>有激活卡号 有官方网站 是关于自媒体自动化的</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/suifengqjn/videoWater">https://github.com/suifengqjn/videoWater</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.51ai.top/">https://www.51ai.top</a></p>
 
 	
 	</div>

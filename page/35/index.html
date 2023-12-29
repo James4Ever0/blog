@@ -136,7 +136,10 @@
 	
 	
 		<h2 id="收集别人的帐号然后登录"><a href="#收集别人的帐号然后登录" class="headerlink" title="收集别人的帐号然后登录"></a>收集别人的帐号然后登录</h2><p>kali负责收集网络帐号 然后在一个web页面上面提供一个加密的auth接口 最好是rsa加密的东西 有时间延迟防暴力破解的访问接口 通过验证之后可以获得用户名密码 同时可以访问相应接口进行占用或者解除占用 当然你也可以直接弄个静态的页面谁也破解不了 但是访问的时候就得一个一个的尝试 当然也更安全</p>
-<h2 id="免流卡"><a href="#免流卡" class="headerlink" title="免流卡"></a>免流卡</h2><p>微信小程序 免流帮<br>qq群：857969390<br>搜索github<br>校园网也可以免认证登录</p>
+<h2 id="免流卡"><a href="#免流卡" class="headerlink" title="免流卡"></a>免流卡</h2><p>微信小程序 免流帮</p>
+<p>qq群：857969390</p>
+<p>搜索github</p>
+<p>校园网也可以免认证登录</p>
 
 	
 	</div>
@@ -162,7 +165,11 @@
   <div class="row">
 	
 	
-		<p>[documentation[(<a target="_blank" rel="noopener" href="http://vimdoc.sourceforge.net/htmldoc/syntax.html#:highlight">http://vimdoc.sourceforge.net/htmldoc/syntax.html#:highlight</a>)<br><a target="_blank" rel="noopener" href="https://www.ditig.com/256-colors-cheat-sheet">vim terminal color codes</a><br>keyword for vertical spliters:<br>VertSplit<br>keyword for bottom line:</p>
+		<p>[documentation[(<a target="_blank" rel="noopener" href="http://vimdoc.sourceforge.net/htmldoc/syntax.html#:highlight">http://vimdoc.sourceforge.net/htmldoc/syntax.html#:highlight</a>)</p>
+<p><a target="_blank" rel="noopener" href="https://www.ditig.com/256-colors-cheat-sheet">vim terminal color codes</a></p>
+<p>keyword for vertical spliters:</p>
+<p>VertSplit</p>
+<p>keyword for bottom line:</p>
 
 	
 	</div>
@@ -214,8 +221,26 @@
   <div class="row">
 	
 	
-		<p>solved by gitfs<br>libgit2 sucks.<br><a target="_blank" rel="noopener" href="https://github.com/presslabs/gitfs">most stars</a><br>this gitfs is actually a searchable git history filesystem.<br><a target="_blank" rel="noopener" href="https://github.com/semk/GitFS">tested</a><br><a target="_blank" rel="noopener" href="https://gitee.com/wuyu15255872976/gitee-python-client/tree/master/gitee_client/apis">gitee python api, first step is to get access token by login</a><br><a target="_blank" rel="noopener" href="https://gitee.com/api/v5/swagger#/postV5ReposOwnerRepoContentsPath">gitee apis</a><br>can we mount git&#x2F;github repo as user filesystem(fuse)?<br>usually read-only github&#x2F;git filesystems, but this one is different. <a target="_blank" rel="noopener" href="https://github.com/danishprakash/githubfs">it</a> is backed by <a target="_blank" rel="noopener" href="https://pygithub.readthedocs.io/en/latest/examples/Repository.html#update-a-file-in-the-repository">writable github apis</a> and is written in python, with <a target="_blank" rel="noopener" href="https://github.com/terencehonles/fusepy">python implementation of fuse</a> which is updated <a target="_blank" rel="noopener" href="https://github.com/fusepy/fusepy">here</a>. this pygithub has trending api(maybe?) which is useful for social engineering or propaganda.<br>we could also implement a watchdog like system to check against the files using pygithub.<br>cloud based github ide includes gitpod.io, github.dev, pythonanywhere but these are with serious limitations, most importantly without autocommit or too restricted to write code.<br>browse github repo as remote filesystem(vscode insider):<br><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=github.remotehub">https://marketplace.visualstudio.com/items?itemName=github.remotehub</a><br>the vscode desktop is too resource heavy. though we have found <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=emjio.git-auto-commit">a plugin to auto commit</a> that also has <a target="_blank" rel="noopener" href="https://github.com/emjio/git-auto-commit">a github repo</a> to git repo(only for vscode insider):<br>spacevim with <a target="_blank" rel="noopener" href="https://github.com/jordst/colorscheme">custom color theme</a> and nerdfont installed.<br><a target="_blank" rel="noopener" href="https://spacevim.org/documentation/">spacevim documentation</a><br><a target="_blank" rel="noopener" href="https://vim.fandom.com/wiki">vim wiki by fandom</a><br>run multiple vim commands at once:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:cd / | NERDTree</span><br></pre></td></tr></table></figure>
+		<p>solved by gitfs</p>
+<p>libgit2 sucks.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/presslabs/gitfs">most stars</a></p>
+<p>this gitfs is actually a searchable git history filesystem.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/semk/GitFS">tested</a></p>
+<p><a target="_blank" rel="noopener" href="https://gitee.com/wuyu15255872976/gitee-python-client/tree/master/gitee_client/apis">gitee python api, first step is to get access token by login</a></p>
+<p><a target="_blank" rel="noopener" href="https://gitee.com/api/v5/swagger#/postV5ReposOwnerRepoContentsPath">gitee apis</a></p>
+<p>can we mount git&#x2F;github repo as user filesystem(fuse)?</p>
+<p>usually read-only github&#x2F;git filesystems, but this one is different. <a target="_blank" rel="noopener" href="https://github.com/danishprakash/githubfs">it</a> is backed by <a target="_blank" rel="noopener" href="https://pygithub.readthedocs.io/en/latest/examples/Repository.html#update-a-file-in-the-repository">writable github apis</a> and is written in python, with <a target="_blank" rel="noopener" href="https://github.com/terencehonles/fusepy">python implementation of fuse</a> which is updated <a target="_blank" rel="noopener" href="https://github.com/fusepy/fusepy">here</a>. this pygithub has trending api(maybe?) which is useful for social engineering or propaganda.</p>
+<p>we could also implement a watchdog like system to check against the files using pygithub.</p>
+<p>cloud based github ide includes gitpod.io, github.dev, pythonanywhere but these are with serious limitations, most importantly without autocommit or too restricted to write code.</p>
+<p>browse github repo as remote filesystem(vscode insider):</p>
+<p><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=github.remotehub">https://marketplace.visualstudio.com/items?itemName=github.remotehub</a></p>
+<p>the vscode desktop is too resource heavy. though we have found <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=emjio.git-auto-commit">a plugin to auto commit</a> that also has <a target="_blank" rel="noopener" href="https://github.com/emjio/git-auto-commit">a github repo</a> to git repo(only for vscode insider):</p>
+<p>spacevim with <a target="_blank" rel="noopener" href="https://github.com/jordst/colorscheme">custom color theme</a> and nerdfont installed.</p>
+<p><a target="_blank" rel="noopener" href="https://spacevim.org/documentation/">spacevim documentation</a></p>
+<p><a target="_blank" rel="noopener" href="https://vim.fandom.com/wiki">vim wiki by fandom</a></p>
+<p>run multiple vim commands at once:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:cd / | NERDTree</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 	
 	</div>
   <a type="button" href="/blog/2022/07/21/8d3c7009-875d-4a6a-beea-25fb80b61889/#more" class="btn btn-default more">Read More</a>
@@ -240,7 +265,11 @@
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://github.com/YitingWang25436/Keywords-selection-model">https://github.com/YitingWang25436/Keywords-selection-model</a><br><a target="_blank" rel="noopener" href="https://github.com/ulysseses/tag_recommender">https://github.com/ulysseses/tag_recommender</a><br><a target="_blank" rel="noopener" href="https://github.com/rdowns26/seo_keyword_research_tools">https://github.com/rdowns26/seo_keyword_research_tools</a><br><a target="_blank" rel="noopener" href="https://github.com/coreymcmahon/SeoPy">https://github.com/coreymcmahon/SeoPy</a><br><a target="_blank" rel="noopener" href="https://github.com/teles/awesome-se">https://github.com/teles/awesome-se</a></p>
+		<p><a target="_blank" rel="noopener" href="https://github.com/YitingWang25436/Keywords-selection-model">https://github.com/YitingWang25436/Keywords-selection-model</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ulysseses/tag_recommender">https://github.com/ulysseses/tag_recommender</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/rdowns26/seo_keyword_research_tools">https://github.com/rdowns26/seo_keyword_research_tools</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/coreymcmahon/SeoPy">https://github.com/coreymcmahon/SeoPy</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/teles/awesome-se">https://github.com/teles/awesome-se</a></p>
 
 	
 	</div>
@@ -266,7 +295,9 @@
   <div class="row">
 	
 	
-		<p>design a model to accept fixed length word type sequence and output word order token. the token is used to decode the final word sequence, just like the convolution but different.<br>input can be both misplaced sentences or correct sentences<br>looking for english word order correctifier.(grammar)</p>
+		<p>design a model to accept fixed length word type sequence and output word order token. the token is used to decode the final word sequence, just like the convolution but different.</p>
+<p>input can be both misplaced sentences or correct sentences</p>
+<p>looking for english word order correctifier.(grammar)</p>
 
 	
 	</div>
@@ -292,7 +323,33 @@
   <div class="row">
 	
 	
-		<p>unmount the disk before scanning!<br>ntfsundelete<br>autopsy<br>disk drill<br>recuperabit(good for small files)<br>recoverpy<br>korczis&#x2F;foremost<br>could also try to retrieve from android phones (&#x2F;data&#x2F;data&#x2F;tv.danmaku.bili)<br><a target="_blank" rel="noopener" href="https://roubert.name/joakim/androidfilerecovery/">https://roubert.name/joakim/androidfilerecovery/</a><br>apt-get install testdisk pv extundelete<br>adb shell ls &#x2F;dev&#x2F;block<br>Now let us dump the content of that &#x2F;dev&#x2F;block&#x2F;mmcblk0 that we found to the computer. With adb shell we can become superuser and execute cat to dump the content like this:<br>$ .&#x2F;adb shell su -c “cat &#x2F;dev&#x2F;block&#x2F;mmcblk0” | pv &gt; mmcblk0.raw<br>Pipe Viwer (pv) is optional, but I like to see the transfer progress information it provides.<br>(And of course you can change mmcblk0.raw to some other directory&#x2F;filename if you want to.)<br>Addition: André Paixão wrote to me that he just got an empty file with the command above. He solved it by using adbd insecure.<br>Addition: Daniel Jeliński wrote to me that he ran into issues with LF encoding. The solution that worked for him was:<br>.&#x2F;adb shell su -c “cat &#x2F;dev&#x2F;block&#x2F;mmcblk0” | pv | sed ‘s&#x2F;^M$&#x2F;&#x2F;‘ &gt; mmcblk0.raw<br>…where ^M is what you get by pressing Ctrl+V followed by Ctrl+M.<br>Addition: Marc also ran into the LF problems, but solved it this way:<br>.&#x2F;adb shell “su -c ‘stty raw; cat &#x2F;dev&#x2F;block&#x2F;mmcblk0’” | pv &gt; mmcblk0.raw<br>Addition: Tim de Waal wrote to me that he prefers using netcat&#x2F;gzip instead:<br>On the Android device (adb shell with su), run:<br>dd if&#x3D;&#x2F;dev&#x2F;block&#x2F;mmcblk0 | gzip -9 | nc -l 5555<br>On the computer, run:<br>nc [AndroidIP] 5555 | pv -b &gt; mmcblk0.img.gz<br>testdisk mmcblk0.raw</p>
+		<p>unmount the disk before scanning!</p>
+<p>ntfsundelete</p>
+<p>autopsy</p>
+<p>disk drill</p>
+<p>recuperabit(good for small files)</p>
+<p>recoverpy</p>
+<p>korczis&#x2F;foremost</p>
+<p>could also try to retrieve from android phones (&#x2F;data&#x2F;data&#x2F;tv.danmaku.bili)</p>
+<p><a target="_blank" rel="noopener" href="https://roubert.name/joakim/androidfilerecovery/">https://roubert.name/joakim/androidfilerecovery/</a></p>
+<p>apt-get install testdisk pv extundelete</p>
+<p>adb shell ls &#x2F;dev&#x2F;block</p>
+<p>Now let us dump the content of that &#x2F;dev&#x2F;block&#x2F;mmcblk0 that we found to the computer. With adb shell we can become superuser and execute cat to dump the content like this:</p>
+<p>$ .&#x2F;adb shell su -c “cat &#x2F;dev&#x2F;block&#x2F;mmcblk0” | pv &gt; mmcblk0.raw</p>
+<p>Pipe Viwer (pv) is optional, but I like to see the transfer progress information it provides.</p>
+<p>(And of course you can change mmcblk0.raw to some other directory&#x2F;filename if you want to.)</p>
+<p>Addition: André Paixão wrote to me that he just got an empty file with the command above. He solved it by using adbd insecure.</p>
+<p>Addition: Daniel Jeliński wrote to me that he ran into issues with LF encoding. The solution that worked for him was:</p>
+<p>.&#x2F;adb shell su -c “cat &#x2F;dev&#x2F;block&#x2F;mmcblk0” | pv | sed ‘s&#x2F;^M$&#x2F;&#x2F;‘ &gt; mmcblk0.raw</p>
+<p>…where ^M is what you get by pressing Ctrl+V followed by Ctrl+M.</p>
+<p>Addition: Marc also ran into the LF problems, but solved it this way:</p>
+<p>.&#x2F;adb shell “su -c ‘stty raw; cat &#x2F;dev&#x2F;block&#x2F;mmcblk0’” | pv &gt; mmcblk0.raw</p>
+<p>Addition: Tim de Waal wrote to me that he prefers using netcat&#x2F;gzip instead:</p>
+<p>On the Android device (adb shell with su), run:</p>
+<p>dd if&#x3D;&#x2F;dev&#x2F;block&#x2F;mmcblk0 | gzip -9 | nc -l 5555</p>
+<p>On the computer, run:</p>
+<p>nc [AndroidIP] 5555 | pv -b &gt; mmcblk0.img.gz</p>
+<p>testdisk mmcblk0.raw</p>
 
 	
 	</div>
@@ -318,7 +375,19 @@
   <div class="row">
 	
 	
-		<p>using github&#x2F;gitee apis with watchdog.<br>exclude xonsh yaml(.yml) files<br>if you decide to upload the thing to github privately, and to sync among devices, then you need to deploy and share your ssh key.<br>run git related command after opened the vscode repeatedly, just like notable.<br>before git submodule .git folder deletion you may record the remote origin url to somewhere in the base folder.<br>you could patch the vscode launcher somehow, read the working directory to determine to repeatedly sync or not.<br>git init is a manual process.<br>also you might need five filelocks: one for main loop process running,  one for git sync, one for local sync, two for remote sync.<br>use <code>$@</code> or <code>$*</code> will do to pass arguments to the vscode binary.<br>首先不能follow symlink<br>其次忽略二进制文件 忽略特定后缀以外的文件<br>第一次建立的时候 递归扫描所有文件 去除大文件 append到.gitignore根目录下面<br>下一次 git add .之前 利用git的功能寻找有变化的文件目录 把大文件目录append到.gitignore里面</p>
+		<p>using github&#x2F;gitee apis with watchdog.</p>
+<p>exclude xonsh yaml(.yml) files</p>
+<p>if you decide to upload the thing to github privately, and to sync among devices, then you need to deploy and share your ssh key.</p>
+<p>run git related command after opened the vscode repeatedly, just like notable.</p>
+<p>before git submodule .git folder deletion you may record the remote origin url to somewhere in the base folder.</p>
+<p>you could patch the vscode launcher somehow, read the working directory to determine to repeatedly sync or not.</p>
+<p>git init is a manual process.</p>
+<p>also you might need five filelocks: one for main loop process running,  one for git sync, one for local sync, two for remote sync.</p>
+<p>use <code>$@</code> or <code>$*</code> will do to pass arguments to the vscode binary.</p>
+<p>首先不能follow symlink</p>
+<p>其次忽略二进制文件 忽略特定后缀以外的文件</p>
+<p>第一次建立的时候 递归扫描所有文件 去除大文件 append到.gitignore根目录下面</p>
+<p>下一次 git add .之前 利用git的功能寻找有变化的文件目录 把大文件目录append到.gitignore里面</p>
 
 	
 	</div>
@@ -345,9 +414,38 @@
 	
 	
 		<p>媒体的意义和AI类似 别人知道的就不要发了 有可能出错 别人不知道的就发 有可能有用 在兴趣圈周围探索 拓宽视野</p>
-<h2 id="网页转文章"><a href="#网页转文章" class="headerlink" title="网页转文章"></a>网页转文章</h2><p>readbility.js<br><a target="_blank" rel="noopener" href="https://github.com/Nixes/PageScraper">pagescraper</a> in php<br><code>elinks -dump &lt;url&gt;</code><br>可以把一个文字或者其他类型的内容当成模板 其他文字 视频 图片当作素材 根据模板收集素材 形成内容 注意素材不能是模板本身 素材不能单一 不然被认定为抄袭<br>文章洗稿 基于标题和context生成段落：<br><a target="_blank" rel="noopener" href="https://github.com/yangjianxin1/CPM">https://github.com/yangjianxin1/CPM</a><br>bert mask:<br><a target="_blank" rel="noopener" href="https://huggingface.co/fnlp/bart-base-chinese">https://huggingface.co/fnlp/bart-base-chinese</a><br><a target="_blank" rel="noopener" href="https://huggingface.co/hfl/chinese-macbert-base">https://huggingface.co/hfl/chinese-macbert-base</a><br>chinese paraphrase:<br><a target="_blank" rel="noopener" href="https://github.com/ZhuiyiTechnology/roformer">https://github.com/ZhuiyiTechnology/roformer</a><br><a target="_blank" rel="noopener" href="https://github.com/ZhuiyiTechnology/simbert">https://github.com/ZhuiyiTechnology/simbert</a><br><a target="_blank" rel="noopener" href="https://github.com/ZhuiyiTechnology/WoBERT">可能不是paraphrase模型</a><br><a target="_blank" rel="noopener" href="https://huggingface.co/lijingxin/mt5-for-zh-paraphrase/tree/main">https://huggingface.co/lijingxin/mt5-for-zh-paraphrase/tree/main</a><br><a target="_blank" rel="noopener" href="https://huggingface.co/facebook/m2m100_418M">https://huggingface.co/facebook/m2m100_418M</a><br><a target="_blank" rel="noopener" href="https://github.com/jiangnanboy/chinese_sentence_paraphrase">https://github.com/jiangnanboy/chinese_sentence_paraphrase</a><br>chinese summarize generator:<br>一般抽取式的提取 都需要有gpt生成器在中间插入一些句子<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/Thefreelittle/article/details/121342813">hanlp自带抽取文本方案</a><br><a target="_blank" rel="noopener" href="https://www.bbsmax.com/A/pRdB0nQGJn/">抽取式文本摘要</a><br><a target="_blank" rel="noopener" href="https://github.com/downw/summrization">bart t5 pegasus中文文本摘要 有训练数据集</a> <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43718786/article/details/119741580">训练教程</a><br>一直在想怎么能正确高效的处理seo中，采集的文章怎么去伪原创和洗稿。如果是人工操作的话，那就太麻烦了。采集下来的文章不进行伪原创又害怕被飓风算法命中。<br>1，tr算法提取摘要再人工重组新的文章。<br>正好今天发现了python中的textrank4zh库，依赖于jieba、numpy和networkx库，可以通过tr算法进行文章的摘要提取。然后根据摘要再人工洗稿，整合成一篇全新的文章。<br>测试一篇蚂蜂窝上面的问答，蚂蜂窝问答下面是有很多个答主的内容，通过python爬取所有内容，然后再利用tr算法提取摘要，根据摘要进行重组出一篇新的文章。这样基本上可以成功躲避飓风算法。<br>先安装依赖库，然后再利用tr4进行摘要提取。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> textrank4zh <span class="keyword">import</span> TextRank4Keyword, TextRank4Sentence</span><br><span class="line">content = <span class="string">&quot;&quot;</span> <span class="comment"># 这里是python采集下来的content html内容</span></span><br><span class="line">text = re.sub(<span class="string">&#x27;&lt;.*?&gt;&#x27;</span>,<span class="string">&#x27;&#x27;</span>,content)</span><br><span class="line">text = re.sub(<span class="string">r&#x27;\s&#x27;</span>,<span class="string">&#x27;&#x27;</span>,text)</span><br><span class="line">zy = <span class="string">&#x27;&#x27;</span></span><br><span class="line">tr4s = TextRank4Sentence()</span><br><span class="line">tr4s.analyze(text=text, lower=<span class="literal">True</span>, source = <span class="string">&#x27;all_filters&#x27;</span>)</span><br><span class="line"><span class="comment"># 可修改num值，设置摘要长度。</span></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> tr4s.get_key_sentences(num=<span class="number">10</span>):</span><br><span class="line">zy = zy + item.sentence</span><br></pre></td></tr></table></figure>
-<p>2，利用google翻译双向翻译洗稿<br>之前有接触一个所谓人工智能洗稿的网站小发猫，说的是利用NLP算法进行洗稿，本来我以为洗稿只有同义词替换这个办法。<br>后来研究了一下小发猫，我首先觉得这个绝对不是利用什么所谓的NLP算法来洗稿，研究了一下发现可能是利用google翻译进行双向翻译，就是先中文翻译英文，然后再拿翻译出来的英文再翻译成中文。<br>自己也开发了一个这样的伪原创工具，发现其实并不好用。如果不仔细读，这样双向翻译出来的文章还能读，但是仔细读的话。其实语法习惯还有用词根本不准确，甚至有些情况还改变了这句话原有的语义。</p>
+<h2 id="网页转文章"><a href="#网页转文章" class="headerlink" title="网页转文章"></a>网页转文章</h2><p>readbility.js</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Nixes/PageScraper">pagescraper</a> in php</p>
+<p><code>elinks -dump &lt;url&gt;</code></p>
+<p>可以把一个文字或者其他类型的内容当成模板 其他文字 视频 图片当作素材 根据模板收集素材 形成内容 注意素材不能是模板本身 素材不能单一 不然被认定为抄袭</p>
+<p>文章洗稿 基于标题和context生成段落：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yangjianxin1/CPM">https://github.com/yangjianxin1/CPM</a></p>
+<p>bert mask:</p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/fnlp/bart-base-chinese">https://huggingface.co/fnlp/bart-base-chinese</a></p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/hfl/chinese-macbert-base">https://huggingface.co/hfl/chinese-macbert-base</a></p>
+<p>chinese paraphrase:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ZhuiyiTechnology/roformer">https://github.com/ZhuiyiTechnology/roformer</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ZhuiyiTechnology/simbert">https://github.com/ZhuiyiTechnology/simbert</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ZhuiyiTechnology/WoBERT">可能不是paraphrase模型</a></p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/lijingxin/mt5-for-zh-paraphrase/tree/main">https://huggingface.co/lijingxin/mt5-for-zh-paraphrase/tree/main</a></p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/facebook/m2m100_418M">https://huggingface.co/facebook/m2m100_418M</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jiangnanboy/chinese_sentence_paraphrase">https://github.com/jiangnanboy/chinese_sentence_paraphrase</a></p>
+<p>chinese summarize generator:</p>
+<p>一般抽取式的提取 都需要有gpt生成器在中间插入一些句子</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Thefreelittle/article/details/121342813">hanlp自带抽取文本方案</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bbsmax.com/A/pRdB0nQGJn/">抽取式文本摘要</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/downw/summrization">bart t5 pegasus中文文本摘要 有训练数据集</a> <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43718786/article/details/119741580">训练教程</a></p>
+<p>一直在想怎么能正确高效的处理seo中，采集的文章怎么去伪原创和洗稿。如果是人工操作的话，那就太麻烦了。采集下来的文章不进行伪原创又害怕被飓风算法命中。</p>
+<p>1，tr算法提取摘要再人工重组新的文章。</p>
+<p>正好今天发现了python中的textrank4zh库，依赖于jieba、numpy和networkx库，可以通过tr算法进行文章的摘要提取。然后根据摘要再人工洗稿，整合成一篇全新的文章。</p>
+<p>测试一篇蚂蜂窝上面的问答，蚂蜂窝问答下面是有很多个答主的内容，通过python爬取所有内容，然后再利用tr算法提取摘要，根据摘要进行重组出一篇新的文章。这样基本上可以成功躲避飓风算法。</p>
+<p>先安装依赖库，然后再利用tr4进行摘要提取。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> textrank4zh <span class="keyword">import</span> TextRank4Keyword, TextRank4Sentence</span><br><span class="line">content = <span class="string">&quot;&quot;</span> <span class="comment"># 这里是python采集下来的content html内容</span></span><br><span class="line">text = re.sub(<span class="string">&#x27;&lt;.*?&gt;&#x27;</span>,<span class="string">&#x27;&#x27;</span>,content)</span><br><span class="line">text = re.sub(<span class="string">r&#x27;\s&#x27;</span>,<span class="string">&#x27;&#x27;</span>,text)</span><br><span class="line">zy = <span class="string">&#x27;&#x27;</span></span><br><span class="line">tr4s = TextRank4Sentence()</span><br><span class="line">tr4s.analyze(text=text, lower=<span class="literal">True</span>, source = <span class="string">&#x27;all_filters&#x27;</span>)</span><br><span class="line"><span class="comment"># 可修改num值，设置摘要长度。</span></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> tr4s.get_key_sentences(num=<span class="number">10</span>):</span><br><span class="line">zy = zy + item.sentence</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>2，利用google翻译双向翻译洗稿</p>
+<p>之前有接触一个所谓人工智能洗稿的网站小发猫，说的是利用NLP算法进行洗稿，本来我以为洗稿只有同义词替换这个办法。</p>
+<p>后来研究了一下小发猫，我首先觉得这个绝对不是利用什么所谓的NLP算法来洗稿，研究了一下发现可能是利用google翻译进行双向翻译，就是先中文翻译英文，然后再拿翻译出来的英文再翻译成中文。</p>
+<p>自己也开发了一个这样的伪原创工具，发现其实并不好用。如果不仔细读，这样双向翻译出来的文章还能读，但是仔细读的话。其实语法习惯还有用词根本不准确，甚至有些情况还改变了这句话原有的语义。</p>
 
 	
 	</div>
@@ -373,7 +471,44 @@
   <div class="row">
 	
 	
-		<p>does appium have linux accessibility implementation?<br>windows a11y:<br><a target="_blank" rel="noopener" href="https://github.com/blackrosezy/gui-inspect-tool">https://github.com/blackrosezy/gui-inspect-tool</a><br>pywinauto<br>bookmark_history_search sucks. it does not include webpage summaries, only title, which makes searching the history very hard. the solution is to use readbility.js to visit and summarize these pages, and update these documents in meilisearch.<br>a11y is the general term for accessibility, for web browsers like firefox. however, there’s implementation for gnome internally.<br>linux a11y:<br><a target="_blank" rel="noopener" href="https://github.com/shubhamvasaikar/Auto-GUI-Testing">https://github.com/shubhamvasaikar/Auto-GUI-Testing</a><br>gnome accessibility toolkit(atk)<br><a target="_blank" rel="noopener" href="https://gitlab.gnome.org/GNOME/pyatspi2">https://gitlab.gnome.org/GNOME/pyatspi2</a><br><a target="_blank" rel="noopener" href="https://gitlab.com/dogtail/dogtail">https://gitlab.com/dogtail/dogtail</a><br><a target="_blank" rel="noopener" href="https://www.freedesktop.org/wiki/Accessibility/PyAtSpi2Example/">https://www.freedesktop.org/wiki/Accessibility/PyAtSpi2Example/</a><br>accessibility implementation in different toolkits:<br><a target="_blank" rel="noopener" href="https://github.com/GNOME/at-spi2-core/blob/e83d5558d2fbded5b345b0af254f26865e148e49/devel-docs/toolkits.md">https://github.com/GNOME/at-spi2-core/blob/e83d5558d2fbded5b345b0af254f26865e148e49/devel-docs/toolkits.md</a><br>Toolkits that use the DBus APIs directly<br>GTK4<br>Sources: gtk4&#x2F;gtk&#x2F;a11y<br>Qt5<br>Sources: qtbase&#x2F;src&#x2F;gui&#x2F;accessible&#x2F;linux<br>WebKit<br>Sources: WebKit&#x2F;Source&#x2F;WebCore&#x2F;accessibility&#x2F;atspi<br>Toolkits that use ATK<br>GTK3<br>Sources: gtk3&#x2F;gtk&#x2F;a11y<br>gnome-shell &#x2F; St &#x2F; via clutter’s cally<br>Sources: mutter&#x2F;clutter&#x2F;clutter&#x2F;cally<br>Mozilla Firefox<br>Sources: gecko-dev&#x2F;accessible&#x2F;atk<br>Chromium<br>Uses both ATK and libatspi?<br>Sources:<br>chromium&#x2F;ui&#x2F;accessibility&#x2F;platform&#x2F;<em>auralinux</em> (atk)<br>chromium&#x2F;ui&#x2F;accessibility&#x2F;platform&#x2F;inspect&#x2F;<em>auralinux</em> (atspi)<br>chromium&#x2F;content&#x2F;browser&#x2F;accessibility&#x2F;<em>auralinux</em> (atspi and atk)<br>LibreOffice<br>Sources: LibreOffice&#x2F;core&#x2F;vcl&#x2F;unx&#x2F;gtk3&#x2F;a11y<br>Java Swing - via java-atk-wrapper<br>Sources: java-atk-wrapper</p>
+		<p>does appium have linux accessibility implementation?</p>
+<p>windows a11y:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/blackrosezy/gui-inspect-tool">https://github.com/blackrosezy/gui-inspect-tool</a></p>
+<p>pywinauto</p>
+<p>bookmark_history_search sucks. it does not include webpage summaries, only title, which makes searching the history very hard. the solution is to use readbility.js to visit and summarize these pages, and update these documents in meilisearch.</p>
+<p>a11y is the general term for accessibility, for web browsers like firefox. however, there’s implementation for gnome internally.</p>
+<p>linux a11y:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/shubhamvasaikar/Auto-GUI-Testing">https://github.com/shubhamvasaikar/Auto-GUI-Testing</a></p>
+<p>gnome accessibility toolkit(atk)</p>
+<p><a target="_blank" rel="noopener" href="https://gitlab.gnome.org/GNOME/pyatspi2">https://gitlab.gnome.org/GNOME/pyatspi2</a></p>
+<p><a target="_blank" rel="noopener" href="https://gitlab.com/dogtail/dogtail">https://gitlab.com/dogtail/dogtail</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.freedesktop.org/wiki/Accessibility/PyAtSpi2Example/">https://www.freedesktop.org/wiki/Accessibility/PyAtSpi2Example/</a></p>
+<p>accessibility implementation in different toolkits:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/GNOME/at-spi2-core/blob/e83d5558d2fbded5b345b0af254f26865e148e49/devel-docs/toolkits.md">https://github.com/GNOME/at-spi2-core/blob/e83d5558d2fbded5b345b0af254f26865e148e49/devel-docs/toolkits.md</a></p>
+<p>Toolkits that use the DBus APIs directly</p>
+<p>GTK4</p>
+<p>Sources: gtk4&#x2F;gtk&#x2F;a11y</p>
+<p>Qt5</p>
+<p>Sources: qtbase&#x2F;src&#x2F;gui&#x2F;accessible&#x2F;linux</p>
+<p>WebKit</p>
+<p>Sources: WebKit&#x2F;Source&#x2F;WebCore&#x2F;accessibility&#x2F;atspi</p>
+<p>Toolkits that use ATK</p>
+<p>GTK3</p>
+<p>Sources: gtk3&#x2F;gtk&#x2F;a11y</p>
+<p>gnome-shell &#x2F; St &#x2F; via clutter’s cally</p>
+<p>Sources: mutter&#x2F;clutter&#x2F;clutter&#x2F;cally</p>
+<p>Mozilla Firefox</p>
+<p>Sources: gecko-dev&#x2F;accessible&#x2F;atk</p>
+<p>Chromium</p>
+<p>Uses both ATK and libatspi?</p>
+<p>Sources:</p>
+<p>chromium&#x2F;ui&#x2F;accessibility&#x2F;platform&#x2F;<em>auralinux</em> (atk)</p>
+<p>chromium&#x2F;ui&#x2F;accessibility&#x2F;platform&#x2F;inspect&#x2F;<em>auralinux</em> (atspi)</p>
+<p>chromium&#x2F;content&#x2F;browser&#x2F;accessibility&#x2F;<em>auralinux</em> (atspi and atk)</p>
+<p>LibreOffice</p>
+<p>Sources: LibreOffice&#x2F;core&#x2F;vcl&#x2F;unx&#x2F;gtk3&#x2F;a11y</p>
+<p>Java Swing - via java-atk-wrapper</p>
+<p>Sources: java-atk-wrapper</p>
 
 	
 	</div>

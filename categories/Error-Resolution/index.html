@@ -128,15 +128,20 @@
   <div class="row">
 	
 	
-		<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kali -t tmux attach -t &lt;target_session_name&gt;</span><br></pre></td></tr></table></figure>
+		<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kali -t tmux attach -t &lt;target_session_name&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>or:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kali -o RequestTTY=no tmux attach -t &lt;target_session_name&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kali -o RequestTTY=no tmux attach -t &lt;target_session_name&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>situation:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh 192.0.2.125 tmux attach</span><br><span class="line">open terminal failed: not a terminal</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ssh 192.0.2.125 tmux attach</span><br><span class="line">open terminal failed: not a terminal</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>The solution is to simply force pseudo-terminal allocation.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -t 192.0.2.125 tmux attach</span><br><span class="line">[...]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -t 192.0.2.125 tmux attach</span><br><span class="line">[...]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>Define RequestTTY in OpenSSH SSH client configuration file to make this permanent.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cat</span> ~/.ssh/config</span><br><span class="line">Host 192.0.2.125</span><br><span class="line">RequestTTY <span class="built_in">yes</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cat</span> ~/.ssh/config</span><br><span class="line">Host 192.0.2.125</span><br><span class="line">RequestTTY <span class="built_in">yes</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 	
 	</div>
   <a type="button" href="/blog/2022/08/13/3771a875-295e-4446-b21f-a6373bf79116/#more" class="btn btn-default more">Read More</a>

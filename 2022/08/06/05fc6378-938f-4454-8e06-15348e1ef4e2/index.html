@@ -125,7 +125,8 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="Termux-Boot-Autostart-Program-Fixes"><a href="#Termux-Boot-Autostart-Program-Fixes" class="headerlink" title="Termux:Boot Autostart Program Fixes"></a>Termux:Boot Autostart Program Fixes</h1><p>according to <a target="_blank" rel="noopener" href="https://github.com/termux/termux-boot/issues/58">this</a>, termux:boot on android 10 and above will not work. instead, change all executables with relative paths in init scripts to their absolute paths. if any referred executable is a script file containing other executable with non-absolute paths(except for those built-in programs like am), change that too.<br>mostly we hold wakelock, start sshd, crond or nginx and other non-blocking, non-interactive apps at start.</p>
+	  <h1 id="Termux-Boot-Autostart-Program-Fixes"><a href="#Termux-Boot-Autostart-Program-Fixes" class="headerlink" title="Termux:Boot Autostart Program Fixes"></a>Termux:Boot Autostart Program Fixes</h1><p>according to <a target="_blank" rel="noopener" href="https://github.com/termux/termux-boot/issues/58">this</a>, termux:boot on android 10 and above will not work. instead, change all executables with relative paths in init scripts to their absolute paths. if any referred executable is a script file containing other executable with non-absolute paths(except for those built-in programs like am), change that too.</p>
+<p>mostly we hold wakelock, start sshd, crond or nginx and other non-blocking, non-interactive apps at start.</p>
 	  
 	</div>
 

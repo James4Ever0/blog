@@ -128,7 +128,9 @@
   <div class="row">
 	
 	
-		<p>select targets for scraping. it could be your browsing history, package indexs, social media (dynamic contents, with different accessing methods than web scraping)<br>if not accessible, access it with proxies, cookies.<br>finally store the content into compat and usable formats, categorized and linked</p>
+		<p>select targets for scraping. it could be your browsing history, package indexs, social media (dynamic contents, with different accessing methods than web scraping)</p>
+<p>if not accessible, access it with proxies, cookies.</p>
+<p>finally store the content into compat and usable formats, categorized and linked</p>
 
 	
 	</div>
@@ -152,12 +154,20 @@
   <div class="row">
 	
 	
-		<p>if it only blocks a range of ip, you use proxy to avoid this constraint.<br>some mirror sites serves us poorly and block access from us. we point them out, list alternatives and provide quick fixes.<br>these actions are intentionally done against specific group of people. it does block a whole range of IPs.<br>actors:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://mirrors.aliyun.com</span><br><span class="line">https://mirrors.tuna.tsinghua.edu.cn/</span><br></pre></td></tr></table></figure>
-<p>fixes:<br>currently we use some previously picked up tunnel accounts provided by topsap. may fix this problem?<br>python pip:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 config <span class="built_in">set</span> global.index-url https://mirrors.ustc.edu.cn/pypi/web/simple</span><br></pre></td></tr></table></figure>
+		<p>if it only blocks a range of ip, you use proxy to avoid this constraint.</p>
+<p>some mirror sites serves us poorly and block access from us. we point them out, list alternatives and provide quick fixes.</p>
+<p>these actions are intentionally done against specific group of people. it does block a whole range of IPs.</p>
+<p>actors:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://mirrors.aliyun.com</span><br><span class="line">https://mirrors.tuna.tsinghua.edu.cn/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>fixes:</p>
+<p>currently we use some previously picked up tunnel accounts provided by topsap. may fix this problem?</p>
+<p>python pip:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip3 config <span class="built_in">set</span> global.index-url https://mirrors.ustc.edu.cn/pypi/web/simple</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>taobao npm mirror:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://npm.taobao.org =&gt; http://npmmirror.com</span><br><span class="line">http://registry.npm.taobao.org =&gt; http://registry.npmmirror.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http://npm.taobao.org =&gt; http://npmmirror.com</span><br><span class="line">http://registry.npm.taobao.org =&gt; http://registry.npmmirror.com</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 	
 	</div>
   <a type="button" href="/blog/2022/12/06/26cb109f-bc27-4499-b54f-a74f3ea429fb/#more" class="btn btn-default more">Read More</a>
@@ -180,7 +190,15 @@
   <div class="row">
 	
 	
-		<h2 id="async-client"><a href="#async-client" class="headerlink" title="async client"></a>async client</h2><p><a target="_blank" rel="noopener" href="https://pypi.org/project/aiohttp/">aiohttp</a><br><a target="_blank" rel="noopener" href="https://pypi.org/project/aiohttp-requests/">aiohttp-requests</a><br><a target="_blank" rel="noopener" href="https://pypi.org/project/requests-async/#:~:text=requests-async%201%20Requirements%20Python%203.6%2B%202%20Installation%20%24,5%20Mock%20Requests%20...%206%20Test%20Client%20">requests-async</a><br><a target="_blank" rel="noopener" href="https://pypi.org/project/http3/">http3</a> (requests-async successor)<br><a target="_blank" rel="noopener" href="https://github.com/joshlk/many_requests">many_requests</a><br><a target="_blank" rel="noopener" href="https://github.com/guyskk/curequests">curequests</a><br><a target="_blank" rel="noopener" href="https://github.com/theelous3/asks">asks</a><br><a target="_blank" rel="noopener" href="https://github.com/littlecodersh/trip">trip</a><br><a target="_blank" rel="noopener" href="https://github.com/ross/requests-futures">request-futures</a></p>
+		<h2 id="async-client"><a href="#async-client" class="headerlink" title="async client"></a>async client</h2><p><a target="_blank" rel="noopener" href="https://pypi.org/project/aiohttp/">aiohttp</a></p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/aiohttp-requests/">aiohttp-requests</a></p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/requests-async/#:~:text=requests-async%201%20Requirements%20Python%203.6%2B%202%20Installation%20%24,5%20Mock%20Requests%20...%206%20Test%20Client%20">requests-async</a></p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/http3/">http3</a> (requests-async successor)</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/joshlk/many_requests">many_requests</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/guyskk/curequests">curequests</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/theelous3/asks">asks</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/littlecodersh/trip">trip</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ross/requests-futures">request-futures</a></p>
 <h2 id="async-non-blocking-server"><a href="#async-non-blocking-server" class="headerlink" title="async non-blocking server"></a>async non-blocking server</h2><p><a target="_blank" rel="noopener" href="https://github.com/1stvamp/trequests">trequests</a></p>
 
 	

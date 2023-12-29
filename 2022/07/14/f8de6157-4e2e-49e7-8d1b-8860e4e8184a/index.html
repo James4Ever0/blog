@@ -125,7 +125,38 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <p>mysql path:<br>jdbc:mysql:&#x2F;&#x2F;10.33.163.33:3306&#x2F;HTS_DB?characterEncoding&#x3D;UTF-8<br>root<br>pipeline@123<br>Logs Path:<br>&#x2F;data&#x2F;data&#x2F;Local&#x2F;DeviceTest&#x2F;20220406163617_hts_project&#x2F;resources&#x2F;HTS&#x2F;android-hts&#x2F;logs<br>under logs:<br>%Y.%m.%d_%H.%M.%S_<serial_number><br>select the latest folder<br>under selected folder:<br>device_logcat_test_<serial_number><em><unknownInteger>.txt.gz<br>decompress using: (before that os.chdir to the selected folder)<br>gzip -d <file><br>does the decompression remove the .gz file?<br>it will.<br>log format per line:<br>DfxTestLog: A1<testName></em><testName2_contain_test_serial>_DfxTestTime &#x3D; <value> datai&#x3D;4<br>from 1 to 13:<br>A1test1..4<br>A2test5<br>A3test1..2<br>B1test1<br>B2test4..6<br>D1test1<br>M1test1<br>Tables:<br>Performance_Baseline_Info<br>testValue date(%Y-%m-%d) hmsVersion(HMSCore660319) baselineId_id deviceId_id(1,2,4,3,5) deviceType(phone&lt;-1|wearable&lt;-2|car&lt;-4|tv&lt;-3|ecodevice&lt;-5)<br>Performance_Daily_Data<br>id features indicators baseValue<br>Performance_Device_Info<br>id(to the deviceId_id) model type sn cpu</p>
+	  <p>mysql path:</p>
+<p>jdbc:mysql:&#x2F;&#x2F;10.33.163.33:3306&#x2F;HTS_DB?characterEncoding&#x3D;UTF-8</p>
+<p>root</p>
+<p>pipeline@123</p>
+<p>Logs Path:</p>
+<p>&#x2F;data&#x2F;data&#x2F;Local&#x2F;DeviceTest&#x2F;20220406163617_hts_project&#x2F;resources&#x2F;HTS&#x2F;android-hts&#x2F;logs</p>
+<p>under logs:</p>
+<p>%Y.%m.%d_%H.%M.%S_<serial_number></p>
+<p>select the latest folder</p>
+<p>under selected folder:</p>
+<p>device_logcat_test_<serial_number>_<unknownInteger>.txt.gz</p>
+<p>decompress using: (before that os.chdir to the selected folder)</p>
+<p>gzip -d <file></p>
+<p>does the decompression remove the .gz file?</p>
+<p>it will.</p>
+<p>log format per line:</p>
+<p>DfxTestLog: A1<testName>_<testName2_contain_test_serial>_DfxTestTime &#x3D; <value> datai&#x3D;4</p>
+<p>from 1 to 13:</p>
+<p>A1test1..4</p>
+<p>A2test5</p>
+<p>A3test1..2</p>
+<p>B1test1</p>
+<p>B2test4..6</p>
+<p>D1test1</p>
+<p>M1test1</p>
+<p>Tables:</p>
+<p>Performance_Baseline_Info</p>
+<p>testValue date(%Y-%m-%d) hmsVersion(HMSCore660319) baselineId_id deviceId_id(1,2,4,3,5) deviceType(phone&lt;-1|wearable&lt;-2|car&lt;-4|tv&lt;-3|ecodevice&lt;-5)</p>
+<p>Performance_Daily_Data</p>
+<p>id features indicators baseValue</p>
+<p>Performance_Device_Info</p>
+<p>id(to the deviceId_id) model type sn cpu</p>
 	  
 	</div>
 

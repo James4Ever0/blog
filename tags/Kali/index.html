@@ -128,7 +128,10 @@
   <div class="row">
 	
 	
-		<p>i use this adapter to transfer files (you know that) to kali.<br>read only support. if write then the filesystem will break.<br><a target="_blank" rel="noopener" href="https://github.com/sgan81/apfs-fuse">apfs-fuse</a> read-only, single executable, no kernel module<br><a target="_blank" rel="noopener" href="https://github.com/linux-apfs/linux-apfs-rw">linux-apfs-rw</a> kernel module, read&#x2F;write support</p>
+		<p>i use this adapter to transfer files (you know that) to kali.</p>
+<p>read only support. if write then the filesystem will break.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/sgan81/apfs-fuse">apfs-fuse</a> read-only, single executable, no kernel module</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/linux-apfs/linux-apfs-rw">linux-apfs-rw</a> kernel module, read&#x2F;write support</p>
 
 	
 	</div>
@@ -152,9 +155,15 @@
   <div class="row">
 	
 	
-		<p>when installing global ackages, we do not need to specify NODE_PATH. but it is not configured beforehand thus when you want to import packages from there you will face issue.<br>for zsh&#x2F;bash&#x2F;fish:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> NODE_PATH=&lt;NODE_PATH&gt;</span><br></pre></td></tr></table></figure>
-<p>on windows just use the old school drill (open environment editor)<br>chech the exact path of <code>NODE_PATH</code> after invoking <code>npm install -g &lt;package_name&gt;</code>, then check if the installed package exists in that path you guessed.<br>on termux: <code>/data/data/com.termux/files/usr/lib/node_modules</code><br>on kali: <code>/usr/local/lib/node_modules</code> (may be inaccurate)<br>on macos: <code>/opt/homebrew/lib/node_modules</code> (nodejs installed via brew)</p>
+		<p>when installing global ackages, we do not need to specify NODE_PATH. but it is not configured beforehand thus when you want to import packages from there you will face issue.</p>
+<p>for zsh&#x2F;bash&#x2F;fish:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> NODE_PATH=&lt;NODE_PATH&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>on windows just use the old school drill (open environment editor)</p>
+<p>chech the exact path of <code>NODE_PATH</code> after invoking <code>npm install -g &lt;package_name&gt;</code>, then check if the installed package exists in that path you guessed.</p>
+<p>on termux: <code>/data/data/com.termux/files/usr/lib/node_modules</code></p>
+<p>on kali: <code>/usr/local/lib/node_modules</code> (may be inaccurate)</p>
+<p>on macos: <code>/opt/homebrew/lib/node_modules</code> (nodejs installed via brew)</p>
 
 	
 	</div>

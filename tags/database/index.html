@@ -128,13 +128,182 @@
   <div class="row">
 	
 	
-		<h1 id="MySQL-Reference-CardVersion-0-1Author-ProgM4cAttribute-TypesNumbersNameCoded-onNameCoded-onTINYINT1-byteFLOAT-W-D-4-bytesSMALLINT2-bytesDOUBLE-W-D-8-bytesMEDIUMINT3-bytesW-width-number-of-digits-with-the-‘-’-D-number-of-decimalsINT4-bytesBIGINT8-bytesParameters-•-UNSIGNED•-ZEROFILLCoded-on-•-SIGNED-•-UNSIGNED-Strings-between-‘-‘-NameSizeCHAR-M-String-with-fixed-size-1"><a href="#MySQL-Reference-CardVersion-0-1Author-ProgM4cAttribute-TypesNumbersNameCoded-onNameCoded-onTINYINT1-byteFLOAT-W-D-4-bytesSMALLINT2-bytesDOUBLE-W-D-8-bytesMEDIUMINT3-bytesW-width-number-of-digits-with-the-‘-’-D-number-of-decimalsINT4-bytesBIGINT8-bytesParameters-•-UNSIGNED•-ZEROFILLCoded-on-•-SIGNED-•-UNSIGNED-Strings-between-‘-‘-NameSizeCHAR-M-String-with-fixed-size-1" class="headerlink" title="MySQL Reference CardVersion: 0.1Author: ProgM4cAttribute TypesNumbersNameCoded onNameCoded onTINYINT1 byteFLOAT(W, D)4 bytesSMALLINT2 bytesDOUBLE(W, D)8 bytesMEDIUMINT3 bytesW: width(number of digits with the ‘.’)D: number of decimalsINT4 bytesBIGINT8 bytesParameters:• UNSIGNED• ZEROFILLCoded on:• SIGNED :• UNSIGNED:Strings (between ‘ ‘)NameSizeCHAR(M)String with fixed size, 1 &lt;&#x3D; M &lt;&#x3D; 255VARCHAR(M)String with variable size, 1 &lt;&#x3D; M &lt;&#x3D; 255TINYTEXTMax length &#x3D; 255TEXTMax length &#x3D; 65535MEDIUMTEXTMax length &#x3D; 16777215LONGTEXTMax length &#x3D; 4294967295DECIMAL(M, D)Simulate a floating point number in a string formatDate and TimeNameFormatDATEAAAA-MM-JJDATETIMEAAAA-MM-JJ HH:MM:SSTIMESTAMPAAAAMMJJHHMMSSTIMESTAMP(M)First M characters of a TIMESTAMPTIMEHH:MM:SSYEARAAAAENUM: take one value in the defined list (can be NULL)syntax:attr_name ENUM(‘value1’, ‘value2’, …) {NULL | NOT NULL}Database queriescreate a databaseCREATE DATABASE [IF NOT EXISTS] ;delete  a databaseDROP DATABSE [IF EXISTS] ;rename a databaseALTER DATABASE  RENAME ;list databasesSHOW DATABASES;select a databaseUSE ;Table queriesshow a tableSHOW TABLES;rename a tableALTER TABLE  RENAME ;describe a tableDESCRIBE ;delete a tableDROP TABLE ;type of constraints• NOT NULL• UNIQUE• PRIMARY KEY &#x3D; NOT NULL + UNIQUE• FOREIGN KEY• CHECK• DEFAULT• AUTO_INCREMENTcreate a tableCREATE TABLE  ( (size) , (size) ,…PRIMARY KEY());add &#x2F; delete a constraintsALTER TABLE  ADD CONSTRAINT  TYPEOFCONSTRAINT (, …)ALTER TABLE  DROP [CONSTRAINT  | TYPEOFCONSTRAINT ];Modify table structureadd &#x2F; delete attributeALTER TABLE  ADD   [FIRST|AFTER ];ALTER TABLE  DROP  ;add &#x2F; delete default value to an columnALTER TABLE  ALTER  {SET DEFAULT |DROP DEFAULT};change definition of an attribute without&#x2F;with renaming itALTER TABLE  MODIFY  ;ALTER TABLE  CHANGE   ;Inserting dataINSERT INTO (, , …) VALUES (, , …);Modifying dataUPDATE SET  &#x3D; ,  &#x3D; , …WHERE ;Deleting dataDELETE FROM  WHERE ;Retrieving dataSelect statementSELECT [ DISTINCT ] attributs[ INTO OUTFILE fichier ][ FROM relation ][ WHERE condition ][ GROUP BY attributs [ ASC | DESC ] ][ HAVING condition ][ ORDER BY attributs ][ LIMIT [a,] b ]operators in a where clause"></a>MySQL Reference Card<br>Version: 0.1<br>Author: ProgM4c<br>Attribute Types<br>Numbers<br>Name<br>Coded on<br>Name<br>Coded on<br>TINYINT<br>1 byte<br>FLOAT(W, D)<br>4 bytes<br>SMALLINT<br>2 bytes<br>DOUBLE(W, D)<br>8 bytes<br>MEDIUMINT<br>3 bytes<br>W: width(number of digits with the ‘.’)<br>D: number of decimals<br>INT<br>4 bytes<br>BIGINT<br>8 bytes<br>Parameters:<br>• UNSIGNED<br>• ZEROFILL<br>Coded on:<br>• SIGNED :<br>• UNSIGNED:<br>Strings (between ‘ ‘)<br>Name<br>Size<br>CHAR(M)<br>String with fixed size, 1 &lt;&#x3D; M &lt;&#x3D; 255<br>VARCHAR(M)<br>String with variable size, 1 &lt;&#x3D; M &lt;&#x3D; 255<br>TINYTEXT<br>Max length &#x3D; 255<br>TEXT<br>Max length &#x3D; 65535<br>MEDIUMTEXT<br>Max length &#x3D; 16777215<br>LONGTEXT<br>Max length &#x3D; 4294967295<br>DECIMAL(M, D)<br>Simulate a floating point number in a string format<br>Date and Time<br>Name<br>Format<br>DATE<br>AAAA-MM-JJ<br>DATETIME<br>AAAA-MM-JJ HH:MM:SS<br>TIMESTAMP<br>AAAAMMJJHHMMSS<br>TIMESTAMP(M)<br>First M characters of a TIMESTAMP<br>TIME<br>HH:MM:SS<br>YEAR<br>AAAA<br>ENUM: take one value in the defined list (can be NULL)<br>syntax:<br>attr_name ENUM(‘value1’, ‘value2’, …) {NULL | NOT NULL}<br>Database queries<br>create a database<br>CREATE DATABASE [IF NOT EXISTS] <db_name>;<br>delete  a database<br>DROP DATABSE [IF EXISTS] <db_name>;<br>rename a database<br>ALTER DATABASE <db_name> RENAME <db_new_name>;<br>list databases<br>SHOW DATABASES;<br>select a database<br>USE <db_name>;<br>Table queries<br>show a table<br>SHOW TABLES;<br>rename a table<br>ALTER TABLE <table_name> RENAME <new_name>;<br>describe a table<br>DESCRIBE <table>;<br>delete a table<br>DROP TABLE <table_name>;<br>type of constraints<br>• NOT NULL<br>• UNIQUE<br>• PRIMARY KEY &#x3D; NOT NULL + UNIQUE<br>• FOREIGN KEY<br>• CHECK<br>• DEFAULT<br>• AUTO_INCREMENT<br>create a table<br>CREATE TABLE <table_name> (<br><attr1> <datatype1>(size) <constraints>,<br><attr1> <datatype1>(size) <constraints>,<br>…<br>PRIMARY KEY(<pk>)<br>);<br>add &#x2F; delete a constraints<br>ALTER TABLE <table_name> ADD CONSTRAINT <const_name> TYPEOFCONSTRAINT (<attr1>, …)<br>ALTER TABLE <table_name> DROP [CONSTRAINT <const_name> | TYPEOFCONSTRAINT <const_name>];<br>Modify table structure<br>add &#x2F; delete attribute<br>ALTER TABLE <table_name> ADD <attr> <type> [FIRST|AFTER <other_attr>];<br>ALTER TABLE <table_name> DROP <attr> ;<br>add &#x2F; delete default value to an column<br>ALTER TABLE <table_name> ALTER <attr> {SET DEFAULT <default_value>|DROP DEFAULT};<br>change definition of an attribute without&#x2F;with renaming it<br>ALTER TABLE <table_name> MODIFY <attr_name> <new_type>;<br>ALTER TABLE <table_name> CHANGE <attr_name> <attr_new_name> <new_type>;<br>Inserting data<br>INSERT INTO <table_name>(<col1>, <col2>, …) VALUES (<val1>, <val2>, …);<br>Modifying data<br>UPDATE <table_name><br>SET <field1> &#x3D; <val1>, <field2> &#x3D; <val2>, …<br>WHERE <condition>;<br>Deleting data<br>DELETE FROM <table_name> WHERE <condition>;<br>Retrieving data<br>Select statement<br>SELECT [ DISTINCT ] attributs<br>[ INTO OUTFILE fichier ]<br>[ FROM relation ]<br>[ WHERE condition ]<br>[ GROUP BY attributs [ ASC | DESC ] ]<br>[ HAVING condition ]<br>[ ORDER BY attributs ]<br>[ LIMIT [a,] b ]<br>operators in a where clause</h1><p>Equal<br>&lt;&gt;<br>Not equal. Note: In some versions of SQL this operator may be written as !&#x3D;</p>
+		<p>MySQL Reference Card</p>
+<p>Version: 0.1</p>
+<p>Author: ProgM4c</p>
+<p>Attribute Types</p>
+<p>Numbers</p>
+<p>Name</p>
+<p>Coded on</p>
+<p>Name</p>
+<p>Coded on</p>
+<p>TINYINT</p>
+<p>1 byte</p>
+<p>FLOAT(W, D)</p>
+<p>4 bytes</p>
+<p>SMALLINT</p>
+<p>2 bytes</p>
+<p>DOUBLE(W, D)</p>
+<p>8 bytes</p>
+<p>MEDIUMINT</p>
+<p>3 bytes</p>
+<p>W: width(number of digits with the ‘.’)</p>
+<p>D: number of decimals</p>
+<p>INT</p>
+<p>4 bytes</p>
+<p>BIGINT</p>
+<p>8 bytes</p>
+<p>Parameters:</p>
+<p>• UNSIGNED</p>
+<p>• ZEROFILL</p>
+<p>Coded on:</p>
+<p>• SIGNED :</p>
+<p>• UNSIGNED:</p>
+<p>Strings (between ‘ ‘)</p>
+<p>Name</p>
+<p>Size</p>
+<p>CHAR(M)</p>
+<p>String with fixed size, 1 &lt;&#x3D; M &lt;&#x3D; 255</p>
+<p>VARCHAR(M)</p>
+<p>String with variable size, 1 &lt;&#x3D; M &lt;&#x3D; 255</p>
+<p>TINYTEXT</p>
+<p>Max length &#x3D; 255</p>
+<p>TEXT</p>
+<p>Max length &#x3D; 65535</p>
+<p>MEDIUMTEXT</p>
+<p>Max length &#x3D; 16777215</p>
+<p>LONGTEXT</p>
+<p>Max length &#x3D; 4294967295</p>
+<p>DECIMAL(M, D)</p>
+<p>Simulate a floating point number in a string format</p>
+<p>Date and Time</p>
+<p>Name</p>
+<p>Format</p>
+<p>DATE</p>
+<p>AAAA-MM-JJ</p>
+<p>DATETIME</p>
+<p>AAAA-MM-JJ HH:MM:SS</p>
+<p>TIMESTAMP</p>
+<p>AAAAMMJJHHMMSS</p>
+<p>TIMESTAMP(M)</p>
+<p>First M characters of a TIMESTAMP</p>
+<p>TIME</p>
+<p>HH:MM:SS</p>
+<p>YEAR</p>
+<p>AAAA</p>
+<p>ENUM: take one value in the defined list (can be NULL)</p>
+<p>syntax:</p>
+<p>attr_name ENUM(‘value1’, ‘value2’, …) {NULL | NOT NULL}</p>
+<p>Database queries</p>
+<p>create a database</p>
+<p>CREATE DATABASE [IF NOT EXISTS] <db_name>;</p>
+<p>delete  a database</p>
+<p>DROP DATABSE [IF EXISTS] <db_name>;</p>
+<p>rename a database</p>
+<p>ALTER DATABASE <db_name> RENAME <db_new_name>;</p>
+<p>list databases</p>
+<p>SHOW DATABASES;</p>
+<p>select a database</p>
+<p>USE <db_name>;</p>
+<p>Table queries</p>
+<p>show a table</p>
+<p>SHOW TABLES;</p>
+<p>rename a table</p>
+<p>ALTER TABLE <table_name> RENAME <new_name>;</p>
+<p>describe a table</p>
+<p>DESCRIBE <table>;</p>
+<p>delete a table</p>
+<p>DROP TABLE <table_name>;</p>
+<p>type of constraints</p>
+<p>• NOT NULL</p>
+<p>• UNIQUE</p>
+<p>• PRIMARY KEY &#x3D; NOT NULL + UNIQUE</p>
+<p>• FOREIGN KEY</p>
+<p>• CHECK</p>
+<p>• DEFAULT</p>
+<p>• AUTO_INCREMENT</p>
+<p>create a table</p>
+<p>CREATE TABLE <table_name> (</p>
+<p><attr1> <datatype1>(size) <constraints>,</p>
+<p><attr1> <datatype1>(size) <constraints>,</p>
+<p>…</p>
+<p>PRIMARY KEY(<pk>)</p>
+<p>);</p>
+<p>add &#x2F; delete a constraints</p>
+<p>ALTER TABLE <table_name> ADD CONSTRAINT <const_name> TYPEOFCONSTRAINT (<attr1>, …)</p>
+<p>ALTER TABLE <table_name> DROP [CONSTRAINT <const_name> | TYPEOFCONSTRAINT <const_name>];</p>
+<p>Modify table structure</p>
+<p>add &#x2F; delete attribute</p>
+<p>ALTER TABLE <table_name> ADD <attr> <type> [FIRST|AFTER <other_attr>];</p>
+<p>ALTER TABLE <table_name> DROP <attr> ;</p>
+<p>add &#x2F; delete default value to an column</p>
+<p>ALTER TABLE <table_name> ALTER <attr> {SET DEFAULT <default_value>|DROP DEFAULT};</p>
+<p>change definition of an attribute without&#x2F;with renaming it</p>
+<p>ALTER TABLE <table_name> MODIFY <attr_name> <new_type>;</p>
+<p>ALTER TABLE <table_name> CHANGE <attr_name> <attr_new_name> <new_type>;</p>
+<p>Inserting data</p>
+<p>INSERT INTO <table_name>(<col1>, <col2>, …) VALUES (<val1>, <val2>, …);</p>
+<p>Modifying data</p>
+<p>UPDATE <table_name></p>
+<p>SET <field1> &#x3D; <val1>, <field2> &#x3D; <val2>, …</p>
+<p>WHERE <condition>;</p>
+<p>Deleting data</p>
+<p>DELETE FROM <table_name> WHERE <condition>;</p>
+<p>Retrieving data</p>
+<p>Select statement</p>
+<p>SELECT [ DISTINCT ] attributs</p>
+<p>[ INTO OUTFILE fichier ]</p>
+<p>[ FROM relation ]</p>
+<p>[ WHERE condition ]</p>
+<p>[ GROUP BY attributs [ ASC | DESC ] ]</p>
+<p>[ HAVING condition ]</p>
+<p>[ ORDER BY attributs ]</p>
+<p>[ LIMIT [a,] b ]</p>
+<p>operators in a where clause</p>
+<p>&#x3D;</p>
+<p>Equal</p>
+<p>&lt;&gt;</p>
+<p>Not equal. Note: In some versions of SQL this operator may be written as !&#x3D;</p>
 <blockquote>
 </blockquote>
-<p>Greater than<br>&lt;<br>Less than</p>
+<p>Greater than</p>
+<p>&lt;</p>
+<p>Less than</p>
 <blockquote>
-<p>&#x3D;<br>Greater than or equal<br>&lt;&#x3D;<br>Less than or equal<br>BETWEEN<br>Between an inclusive range<br>LIKE<br>Search for a pattern (‘%’ any sequence of characters ‘_’ any character)<br>[NOT] IN<br>To specify multiple possible values for a column<br>IS [NOT] NULL<br>To check if the value of a column is NULL or not<br>AND OR NOT<br>Filter records based on more than once condition<br>Sub-requests<br>SELECT * FROM <table> WHERE prix &gt; (SELECT MIN(prix) FROM tab2)<br>SELECT * FROM <table> WHERE nom NOT IN (SELECT nom FROM tab2)<br>SELECT * FROM <table> WHERE prix &gt; ALL (SELECT prix FROM tab2) (sup. à ttes les valeurs)<br>SELECT * FROM <table> WHERE prix &gt; ANY (SELECT prix FROM tab2) (sup. à au moins 1)<br>SQL aliases on column &#x2F; table<br>SELECT <column> AS <col_alias> FROM <table>		(alias a result)<br>SELECT <column> FROM <table> AS <new_name>		(alias a table name)<br>SQL functions<br>AVG()		- (moyenne)<br>COUNT()	- (nombre d’élément)<br>MAX()		- (maximum)<br>MIN()		- (minimum)<br>SUM()		- (somme)<br>UCASE()<br>LCASE()<br>LEN()<br>NOW()<br>FORMAT()</p>
+<p>&#x3D;</p>
 </blockquote>
+<p>Greater than or equal</p>
+<p>&lt;&#x3D;</p>
+<p>Less than or equal</p>
+<p>BETWEEN</p>
+<p>Between an inclusive range</p>
+<p>LIKE</p>
+<p>Search for a pattern (‘%’ any sequence of characters ‘_’ any character)</p>
+<p>[NOT] IN</p>
+<p>To specify multiple possible values for a column</p>
+<p>IS [NOT] NULL</p>
+<p>To check if the value of a column is NULL or not</p>
+<p>AND OR NOT</p>
+<p>Filter records based on more than once condition</p>
+<p>Sub-requests</p>
+<p>SELECT * FROM <table> WHERE prix &gt; (SELECT MIN(prix) FROM tab2)</p>
+<p>SELECT * FROM <table> WHERE nom NOT IN (SELECT nom FROM tab2)</p>
+<p>SELECT * FROM <table> WHERE prix &gt; ALL (SELECT prix FROM tab2) (sup. à ttes les valeurs)</p>
+<p>SELECT * FROM <table> WHERE prix &gt; ANY (SELECT prix FROM tab2) (sup. à au moins 1)</p>
+<p>SQL aliases on column &#x2F; table</p>
+<p>SELECT <column> AS <col_alias> FROM <table>		(alias a result)</p>
+<p>SELECT <column> FROM <table> AS <new_name>		(alias a table name)</p>
+<p>SQL functions</p>
+<p>AVG()		- (moyenne)</p>
+<p>COUNT()	- (nombre d’élément)</p>
+<p>MAX()		- (maximum)</p>
+<p>MIN()		- (minimum)</p>
+<p>SUM()		- (somme)</p>
+<p>UCASE()</p>
+<p>LCASE()</p>
+<p>LEN()</p>
+<p>NOW()</p>
+<p>FORMAT()</p>
 
 	
 	</div>
@@ -158,7 +327,8 @@
   <div class="row">
 	
 	
-		<p>use redability.js reader mode or elinks to render this shit:<br><a target="_blank" rel="noopener" href="https://www.mongodb.com/developer/products/mongodb/cheat-sheet/">https://www.mongodb.com/developer/products/mongodb/cheat-sheet/</a></p>
+		<p>use redability.js reader mode or elinks to render this shit:</p>
+<p><a target="_blank" rel="noopener" href="https://www.mongodb.com/developer/products/mongodb/cheat-sheet/">https://www.mongodb.com/developer/products/mongodb/cheat-sheet/</a></p>
 
 	
 	</div>
@@ -182,50 +352,275 @@
   <div class="row">
 	
 	
-		<p>Redis Cheat Sheet<br>When you encounter a Redis instance and you quickly want to learn about the setup you just need a few simple commands to peak into the setup. Of course it doesn’t hurt to look at the official full command documentation, but below is a listing just for sysadmins.<br>Accessing Redis<br>CLI<br>First thing to know is that you can use “telnet” (usually on Redis default port 6379)<br>telnet localhost 6379<br>or the Redis CLI client<br>redis-cli<br>to connect to Redis. The advantage of redis-cli is that you have a help interface and command line history.<br>CLI Queries<br>Here is a short list of some basic data extraction commands:<br>Type	Syntax and Explanation<br>Tracing	monitor Watch current live commands. Use with care when on production. Cancel with Ctrl-C.<br>Slow Queries	slowlog get 25 Print top 25 slow queries<br>slowlog len<br>slowlog reset<br>Search &#x2F; List All Keys	keys &lt;pattern Use with care when on production!<br>keys myprefix*<br>keys *pattern*<br>keys *mysuffix<br>keys [a-c]* Use grep like expressions<br>Generic Key Handling	del <key> Delete key<br>dump <key> Serialize key<br>exists <key> Check for key<br>expire <key> <seconds> Set key TTL<br>Working with scalar types	get <key><br>set <key> <value><br>setnx <key> <value> Set key value only if key does not exist<br>Batch commands:<br>mget <key> <key> …<br>mset <key> <value> <key> <value><br>Working with counters	incr <key><br>decr <key><br>Redis Lists	lrange <key> <start> <stop> Accessing lists<br>lrange mylist 0 -1 Output all elements<br>lindex mylist 5 Get 5th element<br>llen mylist Get list length<br>lpush mylist “value” Push “value” to list<br>lpush mylist 5 Push number 5 to list<br>rpush mylist “value” Push “value” to beginning (unshift)<br>lpushx mylist 6 Only push if mylist exists<br>rpushx mylist 7<br>lpop mylist Remove+return value from list<br>rpop mylist Remove+return value from start (shift)<br>lrem mylist 1 “value” Remove ‘value’ count times<br>lset mylist 2 6 Set 3rd element to value 6<br>ltrim <key> <start> <stop><br>Working with Redis Hashes	hexists myhash field1 Check if hash key exists<br>hget myhash field1 Get key value<br>hdel myhash field2 Delete key<br>hset myhash field1 “value” Set key with “value”<br>hsetnx myhash field1 “value”<br>hgetall myhash Get all hash content<br>hkeys myhash List all keys<br>hlen myhash List number of keys<br>Batch commands:<br>hmget <key> <key> … Get multiple keys<br>hmset <key> <value> <key> <value> … Set multiple keys<br>Counter commands<br>hincrby myhash field1 1<br>hincrby myhash field1 5<br>hincrby myhash field1 -1<br>hincrbrfloat myhash field2 1.123445<br>CLI Scripting<br>For scripting just pass commands to “redis-cli”. For example:<br>$ redis-cli INFO | grep connected<br>connected_clients:2<br>connected_slaves:0<br>$<br>Server Statistics<br>The statistics command is “INFO” and will give you an output as following.<br>$ redis-cli INFO<br>redis_version:2.2.12<br>redis_git_sha1:00000000<br>redis_git_dirty:0<br>arch_bits:64<br>multiplexing_api:epoll<br>process_id:8353<br>uptime_in_seconds:2592232<br>uptime_in_days:30<br>lru_clock:809325<br>used_cpu_sys:199.20<br>used_cpu_user:309.26<br>used_cpu_sys_children:12.04<br>used_cpu_user_children:1.47<br>connected_clients:2         # &lt;—- connection count<br>connected_slaves:0<br>client_longest_output_list:0<br>client_biggest_input_buf:0<br>blocked_clients:0<br>used_memory:6596112<br>used_memory_human:6.29M         # &lt;—- memory usage<br>used_memory_rss:17571840<br>mem_fragmentation_ratio:2.66<br>use_tcmalloc:0<br>loading:0<br>aof_enabled:0<br>changes_since_last_save:0<br>bgsave_in_progress:0<br>last_save_time:1371241671<br>bgrewriteaof_in_progress:0<br>total_connections_received:118<br>total_commands_processed:1091<br>expired_keys:441<br>evicted_keys:0<br>keyspace_hits:6<br>keyspace_misses:1070<br>hash_max_zipmap_entries:512<br>hash_max_zipmap_value:64<br>pubsub_channels:0<br>pubsub_patterns:0<br>vm_enabled:0<br>role:master             # &lt;—- master&#x2F;slave in replication setup<br>db0:keys&#x3D;91,expires&#x3D;88<br>Changing Runtime Configuration<br>The command<br>CONFIG GET *<br>gives you a list of all active configuration variables you can change. The output might look like this:<br>redis 127.0.0.1:6379&gt; CONFIG GET *</p>
+		<p>Redis Cheat Sheet</p>
+<p>When you encounter a Redis instance and you quickly want to learn about the setup you just need a few simple commands to peak into the setup. Of course it doesn’t hurt to look at the official full command documentation, but below is a listing just for sysadmins.</p>
+<p>Accessing Redis</p>
+<p>CLI</p>
+<p>First thing to know is that you can use “telnet” (usually on Redis default port 6379)</p>
+<p>telnet localhost 6379</p>
+<p>or the Redis CLI client</p>
+<p>redis-cli</p>
+<p>to connect to Redis. The advantage of redis-cli is that you have a help interface and command line history.</p>
+<p>CLI Queries</p>
+<p>Here is a short list of some basic data extraction commands:</p>
+<p>Type	Syntax and Explanation</p>
+<p>Tracing	monitor Watch current live commands. Use with care when on production. Cancel with Ctrl-C.</p>
+<p>Slow Queries	slowlog get 25 Print top 25 slow queries</p>
+<p>slowlog len</p>
+<p>slowlog reset</p>
+<p>Search &#x2F; List All Keys	keys &lt;pattern Use with care when on production!</p>
+<p>keys myprefix*</p>
+<p>keys <em>pattern</em></p>
+<p>keys *mysuffix</p>
+<p>keys [a-c]* Use grep like expressions</p>
+<p>Generic Key Handling	del <key> Delete key</p>
+<p>dump <key> Serialize key</p>
+<p>exists <key> Check for key</p>
+<p>expire <key> <seconds> Set key TTL</p>
+<p>Working with scalar types	get <key></p>
+<p>set <key> <value></p>
+<p>setnx <key> <value> Set key value only if key does not exist</p>
+<p>Batch commands:</p>
+<p>mget <key> <key> …</p>
+<p>mset <key> <value> <key> <value></p>
+<p>Working with counters	incr <key></p>
+<p>decr <key></p>
+<p>Redis Lists	lrange <key> <start> <stop> Accessing lists</p>
+<p>lrange mylist 0 -1 Output all elements</p>
+<p>lindex mylist 5 Get 5th element</p>
+<p>llen mylist Get list length</p>
+<p>lpush mylist “value” Push “value” to list</p>
+<p>lpush mylist 5 Push number 5 to list</p>
+<p>rpush mylist “value” Push “value” to beginning (unshift)</p>
+<p>lpushx mylist 6 Only push if mylist exists</p>
+<p>rpushx mylist 7</p>
+<p>lpop mylist Remove+return value from list</p>
+<p>rpop mylist Remove+return value from start (shift)</p>
+<p>lrem mylist 1 “value” Remove ‘value’ count times</p>
+<p>lset mylist 2 6 Set 3rd element to value 6</p>
+<p>ltrim <key> <start> <stop></p>
+<p>Working with Redis Hashes	hexists myhash field1 Check if hash key exists</p>
+<p>hget myhash field1 Get key value</p>
+<p>hdel myhash field2 Delete key</p>
+<p>hset myhash field1 “value” Set key with “value”</p>
+<p>hsetnx myhash field1 “value”</p>
+<p>hgetall myhash Get all hash content</p>
+<p>hkeys myhash List all keys</p>
+<p>hlen myhash List number of keys</p>
+<p>Batch commands:</p>
+<p>hmget <key> <key> … Get multiple keys</p>
+<p>hmset <key> <value> <key> <value> … Set multiple keys</p>
+<p>Counter commands</p>
+<p>hincrby myhash field1 1</p>
+<p>hincrby myhash field1 5</p>
+<p>hincrby myhash field1 -1</p>
+<p>hincrbrfloat myhash field2 1.123445</p>
+<p>CLI Scripting</p>
+<p>For scripting just pass commands to “redis-cli”. For example:</p>
+<p>$ redis-cli INFO | grep connected</p>
+<p>connected_clients:2</p>
+<p>connected_slaves:0</p>
+<p>$</p>
+<p>Server Statistics</p>
+<p>The statistics command is “INFO” and will give you an output as following.</p>
+<p>$ redis-cli INFO</p>
+<p>redis_version:2.2.12</p>
+<p>redis_git_sha1:00000000</p>
+<p>redis_git_dirty:0</p>
+<p>arch_bits:64</p>
+<p>multiplexing_api:epoll</p>
+<p>process_id:8353</p>
+<p>uptime_in_seconds:2592232</p>
+<p>uptime_in_days:30</p>
+<p>lru_clock:809325</p>
+<p>used_cpu_sys:199.20</p>
+<p>used_cpu_user:309.26</p>
+<p>used_cpu_sys_children:12.04</p>
+<p>used_cpu_user_children:1.47</p>
+<p>connected_clients:2         # &lt;—- connection count</p>
+<p>connected_slaves:0</p>
+<p>client_longest_output_list:0</p>
+<p>client_biggest_input_buf:0</p>
+<p>blocked_clients:0</p>
+<p>used_memory:6596112</p>
+<p>used_memory_human:6.29M         # &lt;—- memory usage</p>
+<p>used_memory_rss:17571840</p>
+<p>mem_fragmentation_ratio:2.66</p>
+<p>use_tcmalloc:0</p>
+<p>loading:0</p>
+<p>aof_enabled:0</p>
+<p>changes_since_last_save:0</p>
+<p>bgsave_in_progress:0</p>
+<p>last_save_time:1371241671</p>
+<p>bgrewriteaof_in_progress:0</p>
+<p>total_connections_received:118</p>
+<p>total_commands_processed:1091</p>
+<p>expired_keys:441</p>
+<p>evicted_keys:0</p>
+<p>keyspace_hits:6</p>
+<p>keyspace_misses:1070</p>
+<p>hash_max_zipmap_entries:512</p>
+<p>hash_max_zipmap_value:64</p>
+<p>pubsub_channels:0</p>
+<p>pubsub_patterns:0</p>
+<p>vm_enabled:0</p>
+<p>role:master             # &lt;—- master&#x2F;slave in replication setup</p>
+<p>db0:keys&#x3D;91,expires&#x3D;88</p>
+<p>Changing Runtime Configuration</p>
+<p>The command</p>
+<p>CONFIG GET *</p>
+<p>gives you a list of all active configuration variables you can change. The output might look like this:</p>
+<p>redis 127.0.0.1:6379&gt; CONFIG GET *</p>
 <ol>
-<li>“dir”</li>
-<li>“&#x2F;var&#x2F;lib&#x2F;redis”</li>
-<li>“dbfilename”</li>
-<li>“dump.rdb”</li>
-<li>“requirepass”</li>
-<li>(nil)</li>
-<li>“masterauth”</li>
-<li>(nil)</li>
-<li>“maxmemory”</li>
-<li>“0”</li>
-<li>“maxmemory-policy”</li>
-<li>“volatile-lru”</li>
-<li>“maxmemory-samples”</li>
-<li>“3”</li>
-<li>“timeout”</li>
-<li>“300”</li>
-<li>“appendonly”</li>
-<li>“no”</li>
-<li>“no-appendfsync-on-rewrite”</li>
-<li>“no”</li>
-<li>“appendfsync”</li>
-<li>“everysec”              # &lt;—- how often fsync() is called</li>
-<li>“save”</li>
-<li>“900 1 300 10 60 10000”     # &lt;—- how often Redis dumps in background</li>
-<li>“slave-serve-stale-data”</li>
-<li>“yes”</li>
-<li>“hash-max-zipmap-entries”</li>
-<li>“512”</li>
-<li>“hash-max-zipmap-value”</li>
-<li>“64”</li>
-<li>“list-max-ziplist-entries”</li>
-<li>“512”</li>
-<li>“list-max-ziplist-value”</li>
-<li>“64”</li>
-<li>“set-max-intset-entries”</li>
-<li>“512”</li>
-<li>“slowlog-log-slower-than”</li>
-<li>“10000”</li>
-<li>“slowlog-max-len”</li>
-<li>“64”<br>Note that keys and values are alternating and you can change each key by issuing a “CONFIG SET” command like:<br>CONFIG SET timeout 900<br>Such a change will be effective instantly. When changing values consider also updating the redis configuration file.<br>Databases<br>Multiple Databases<br>Redis has a concept of separated namespaces called “databases”. You can select the database number you want to use with “SELECT”. By default the database with index 0 is used. So issuing<br>redis 127.0.0.1:6379&gt; SELECT 1<br>OK<br>redis 127.0.0.1:6379[1]&gt;<br>switches to the second database. Note how the prompt changed and now has a “[1]” to indicate the database selection. To find out how many databases there are you might want to run redis-cli from the shell:<br>$ redis-cli INFO | grep ^db<br>db0:keys&#x3D;91,expires&#x3D;88<br>db1:keys&#x3D;1,expires&#x3D;0<br>Dropping Databases<br>To drop the currently selected database run<br>FLUSHDB<br>to drop all databases at once run<br>FLUSHALL<br>Replication<br>Checking for Replication<br>To see if the instance is a replication slave or master issue<br>redis 127.0.0.1:6379&gt; INFO<br>[…]<br>role:master<br>and watch for the “role” line which shows either “master” or “slave”. Starting with version 2.8 the “INFO” command also gives you per slave replication status looking like this<br>slave0:ip&#x3D;127.0.0.1,port&#x3D;6380,state&#x3D;online,offset&#x3D;281,lag&#x3D;0<br>Setting up Replication<br>If you quickly need to set up replication just issue<br>SLAVEOF <IP> <port><br>on a machine that you want to become slave of the given IP. It will immediately get values from the master. Note that this instance will still be writable. If you want it to be read-only change the redis config file (only available in most recent version, e.g. not on Debian). To revert the slave setting run<br>SLAVEOF NO ONE<br>Performance Testing<br>Benchmark<br>Install the Redis tools and run the provided benchmarking tool<br>redis-benchmark -h <host> [-p <port>]<br>If you are migrating from&#x2F;to memcached protocol check out how to run the same benchmark for any key value store with memcached protocol.<br>Debugging Latency<br>First measure system latency on your Redis server with<br>redis-cli –intrinsic-latency 100<br>and then sample from your Redis clients with<br>redis-cli –latency -h <host> -p <port><br>If you have problems with high latency check if transparent huge pages are disabled. Disable it with<br>echo never &gt; &#x2F;sys&#x2F;kernel&#x2F;mm&#x2F;transparent_hugepage&#x2F;enabled<br>Dump Database Backup<br>As Redis allows RDB database dumps in background, you can issue a dump at any time. Just run:<br>BGSAVE<br>When running this command Redis will fork and the new process will dump into the “dbfilename” configured in the Redis configuration without the original process being blocked. Of course the fork itself might cause an interruption. Use “LASTSAVE” to check when the dump file was last updated. For a simple backup solution just backup the dump file. If you need a synchronous save run “SAVE” instead of “BGSAVE”.<br>Listing Connections<br>Starting with version 2.4 you can list connections with<br>CLIENT LIST<br>and you can terminate connections with<br>CLIENT KILL <IP>:<port><br>Monitoring Traffic<br>The propably most useful command compared to memcached where you need to trace network traffic is the “MONITOR” command which will dump incoming commands in real time.<br>redis 127.0.0.1:6379&gt; MONITOR<br>OK<br>1371241093.375324 “monitor”<br>1371241109.735725 “keys” “*”<br>1371241152.344504 “set” “testkey” “1”<br>1371241165.169184 “get” “testkey”<br>additionally use “SLOWLOG” to track the slowest queries in an interval. For example<br>SLOWLOG RESET</li>
+<li><p>“dir”</p>
+</li>
+<li><p>“&#x2F;var&#x2F;lib&#x2F;redis”</p>
+</li>
+<li><p>“dbfilename”</p>
+</li>
+<li><p>“dump.rdb”</p>
+</li>
+<li><p>“requirepass”</p>
+</li>
+<li><p>(nil)</p>
+</li>
+<li><p>“masterauth”</p>
+</li>
+<li><p>(nil)</p>
+</li>
+<li><p>“maxmemory”</p>
+</li>
+<li><p>“0”</p>
+</li>
+<li><p>“maxmemory-policy”</p>
+</li>
+<li><p>“volatile-lru”</p>
+</li>
+<li><p>“maxmemory-samples”</p>
+</li>
+<li><p>“3”</p>
+</li>
+<li><p>“timeout”</p>
+</li>
+<li><p>“300”</p>
+</li>
+<li><p>“appendonly”</p>
+</li>
+<li><p>“no”</p>
+</li>
+<li><p>“no-appendfsync-on-rewrite”</p>
+</li>
+<li><p>“no”</p>
+</li>
+<li><p>“appendfsync”</p>
+</li>
+<li><p>“everysec”              # &lt;—- how often fsync() is called</p>
+</li>
+<li><p>“save”</p>
+</li>
+<li><p>“900 1 300 10 60 10000”     # &lt;—- how often Redis dumps in background</p>
+</li>
+<li><p>“slave-serve-stale-data”</p>
+</li>
+<li><p>“yes”</p>
+</li>
+<li><p>“hash-max-zipmap-entries”</p>
+</li>
+<li><p>“512”</p>
+</li>
+<li><p>“hash-max-zipmap-value”</p>
+</li>
+<li><p>“64”</p>
+</li>
+<li><p>“list-max-ziplist-entries”</p>
+</li>
+<li><p>“512”</p>
+</li>
+<li><p>“list-max-ziplist-value”</p>
+</li>
+<li><p>“64”</p>
+</li>
+<li><p>“set-max-intset-entries”</p>
+</li>
+<li><p>“512”</p>
+</li>
+<li><p>“slowlog-log-slower-than”</p>
+</li>
+<li><p>“10000”</p>
+</li>
+<li><p>“slowlog-max-len”</p>
+</li>
+<li><p>“64”</p>
+</li>
 </ol>
-<h1 id="wait-for-some-time"><a href="#wait-for-some-time" class="headerlink" title="wait for some time"></a>wait for some time</h1><p>SLOWLOG GET 25<br>and get the 25 slowest command during this time.<br>Sharding with proxies<br>There are two major proxy solutions<br>Twemproxy (aka nutcracker, by Twitter)<br>Codis</p>
+<p>Note that keys and values are alternating and you can change each key by issuing a “CONFIG SET” command like:</p>
+<p>CONFIG SET timeout 900</p>
+<p>Such a change will be effective instantly. When changing values consider also updating the redis configuration file.</p>
+<p>Databases</p>
+<p>Multiple Databases</p>
+<p>Redis has a concept of separated namespaces called “databases”. You can select the database number you want to use with “SELECT”. By default the database with index 0 is used. So issuing</p>
+<p>redis 127.0.0.1:6379&gt; SELECT 1</p>
+<p>OK</p>
+<p>redis 127.0.0.1:6379[1]&gt;</p>
+<p>switches to the second database. Note how the prompt changed and now has a “[1]” to indicate the database selection. To find out how many databases there are you might want to run redis-cli from the shell:</p>
+<p>$ redis-cli INFO | grep ^db</p>
+<p>db0:keys&#x3D;91,expires&#x3D;88</p>
+<p>db1:keys&#x3D;1,expires&#x3D;0</p>
+<p>Dropping Databases</p>
+<p>To drop the currently selected database run</p>
+<p>FLUSHDB</p>
+<p>to drop all databases at once run</p>
+<p>FLUSHALL</p>
+<p>Replication</p>
+<p>Checking for Replication</p>
+<p>To see if the instance is a replication slave or master issue</p>
+<p>redis 127.0.0.1:6379&gt; INFO</p>
+<p>[…]</p>
+<p>role:master</p>
+<p>and watch for the “role” line which shows either “master” or “slave”. Starting with version 2.8 the “INFO” command also gives you per slave replication status looking like this</p>
+<p>slave0:ip&#x3D;127.0.0.1,port&#x3D;6380,state&#x3D;online,offset&#x3D;281,lag&#x3D;0</p>
+<p>Setting up Replication</p>
+<p>If you quickly need to set up replication just issue</p>
+<p>SLAVEOF <IP> <port></p>
+<p>on a machine that you want to become slave of the given IP. It will immediately get values from the master. Note that this instance will still be writable. If you want it to be read-only change the redis config file (only available in most recent version, e.g. not on Debian). To revert the slave setting run</p>
+<p>SLAVEOF NO ONE</p>
+<p>Performance Testing</p>
+<p>Benchmark</p>
+<p>Install the Redis tools and run the provided benchmarking tool</p>
+<p>redis-benchmark -h <host> [-p <port>]</p>
+<p>If you are migrating from&#x2F;to memcached protocol check out how to run the same benchmark for any key value store with memcached protocol.</p>
+<p>Debugging Latency</p>
+<p>First measure system latency on your Redis server with</p>
+<p>redis-cli –intrinsic-latency 100</p>
+<p>and then sample from your Redis clients with</p>
+<p>redis-cli –latency -h <host> -p <port></p>
+<p>If you have problems with high latency check if transparent huge pages are disabled. Disable it with</p>
+<p>echo never &gt; &#x2F;sys&#x2F;kernel&#x2F;mm&#x2F;transparent_hugepage&#x2F;enabled</p>
+<p>Dump Database Backup</p>
+<p>As Redis allows RDB database dumps in background, you can issue a dump at any time. Just run:</p>
+<p>BGSAVE</p>
+<p>When running this command Redis will fork and the new process will dump into the “dbfilename” configured in the Redis configuration without the original process being blocked. Of course the fork itself might cause an interruption. Use “LASTSAVE” to check when the dump file was last updated. For a simple backup solution just backup the dump file. If you need a synchronous save run “SAVE” instead of “BGSAVE”.</p>
+<p>Listing Connections</p>
+<p>Starting with version 2.4 you can list connections with</p>
+<p>CLIENT LIST</p>
+<p>and you can terminate connections with</p>
+<p>CLIENT KILL <IP>:<port></p>
+<p>Monitoring Traffic</p>
+<p>The propably most useful command compared to memcached where you need to trace network traffic is the “MONITOR” command which will dump incoming commands in real time.</p>
+<p>redis 127.0.0.1:6379&gt; MONITOR</p>
+<p>OK</p>
+<p>1371241093.375324 “monitor”</p>
+<p>1371241109.735725 “keys” “*”</p>
+<p>1371241152.344504 “set” “testkey” “1”</p>
+<p>1371241165.169184 “get” “testkey”</p>
+<p>additionally use “SLOWLOG” to track the slowest queries in an interval. For example</p>
+<p>SLOWLOG RESET</p>
+<h1 id="wait-for-some-time"><a href="#wait-for-some-time" class="headerlink" title="wait for some time"></a>wait for some time</h1><p>SLOWLOG GET 25</p>
+<p>and get the 25 slowest command during this time.</p>
+<p>Sharding with proxies</p>
+<p>There are two major proxy solutions</p>
+<p>Twemproxy (aka nutcracker, by Twitter)</p>
+<p>Codis</p>
 
 	
 	</div>

@@ -128,23 +128,137 @@
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://github.com/davidanastasiu/coen-342-wi22">https://github.com/davidanastasiu/coen-342-wi22</a><br>PR1: Peptide Classification<br>Published Date:<br>Jan. 12, 2020, 5:00 p.m.<br>Deadline Date:<br>Jan. 25, 2020, 11:59 p.m.<br>Description:</p>
+		<p><a target="_blank" rel="noopener" href="https://github.com/davidanastasiu/coen-342-wi22">https://github.com/davidanastasiu/coen-342-wi22</a></p>
+<p>PR1: Peptide Classification</p>
+<p>Published Date:</p>
+<p>Jan. 12, 2020, 5:00 p.m.</p>
+<p>Deadline Date:</p>
+<p>Jan. 25, 2020, 11:59 p.m.</p>
+<p>Description:</p>
 <hr>
 <p>This is an individual assignment.</p>
 <hr>
-<p>Overview and Assignment Goals:<br>The objectives of this assignment are the following:<br><br>Create feed-forward neural networks and train them using your own codes and<br>frameworks.<br><br>Experiment with different feature extraction techniques.<br><br>Think about dealing with imbalanced data.<br>Detailed Description:<br>Develop predictive neural networks that can determine, given an antibacterial peptide,<br>whether it is also an antibiofilm peptide.<br>“Proteins are large biomolecules, or macromolecules, consisting of one or more long<br>chains of amino acid residues. Proteins perform a vast array of functions within organisms,<br>including catalysing metabolic reactions, DNA replication, responding to stimuli, providing<br>structure to cells, and organisms, and transporting molecules from one location to another.<br>Proteins differ from one another primarily in their sequence of amino acids, which is<br>dictated by the nucleotide sequence of their genes, and which usually results in protein<br>folding into a specific three-dimensional structure that determines its activity.<br>A linear chain of amino acid residues is called a polypeptide. A protein contains at least<br>one long polypeptide. Short polypeptides, containing less than 20-30 residues, are rarely<br>considered to be proteins and are commonly called peptides. […] The sequence of amino<br>acid residues in a protein is defined by the sequence of a gene, which is encoded in the<br>genetic code. In general, the genetic code specifies 20 standard amino acids; […] Proteins<br>can also work together to achieve a particular function, and they often associate to form<br>stable protein complexes.” [Wikipedia, Accessed 2020-02-07,<br><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Protein]">https://en.wikipedia.org/wiki/Protein]</a><br>Biofilms are tightly-connected multicellular communities of microorganisms encased in self-<br>secreted extra-cellular matrices. They are currently one of the major causes of disease for<br>two main reasons. First, roughly 75% of all human infections are caused by biofilms.<br>Second, due to the robust multicellular cellular matrix structure, they are resistant both to<br>the host defense mechanisms and to traditional antimicrobial compounds (antibiotics).<br>Thus, it is important to identify peptide sequences that are not only antimicrobial (can<br>destroy or render inert the invading microorganism), but also antibiofilm (can penetrate the<br>extra-cellular matrix so it can get to the microorganism in the first place).<br>You have been provided with a training set (train.dat) and a test set (test.dat) consisting of<br>peptide sequences, one per line in the file. Peptides are encoded as strings with characters<br>from an alphabet of 20 characters, each representing an amino-acid residue. The training<br>set also includes the label for each sequence as 1 (antibiofilm) or -1 (not antibiofilm) as the<br>first character in each line of the training file, separated from the sequence by a tab (\t)<br>character.<br>The input to your classifiers will not be the peptides themselves, but rather features<br>extracted from the peptides. Two simple approaches for feature extraction are the bag-of-<br>words and the k-mer models you should have learned about in Data Mining or Machine<br>Learning, where a word is one of the amino-acids in the peptide. You should not use any<br>additional external data in this assignment.<br>Note that the dataset is imbalanced. We will Matthews’s correlation coefficient (MCC) as<br>evaluation metric for this assignment, which, similar to the F-1 score, combines aspects of<br>the result’s sensitivity and specificity. Given the normal confusion matrix resulting from<br>comparing the predicted and true classes of the test samples, MCC is defined as,<br>Programs:<br>You are required to write two separate programs for the classification. The first may only<br>use basic Python structures (from numpy or scipy) and you should implement your own<br>functions for training the neural network. This is also the program you will use to make CLP<br>submissions. In addition, you should write a second program that uses a deep learning<br>framework of your choice to train the neural network. The structure of the network may be<br>the same or different from the one you created in the first program. You will present results<br>from this program (which should be at least as good as those from the first program) in<br>your report.<br>Considerations:</p>
+<p>Overview and Assignment Goals:</p>
+<p>The objectives of this assignment are the following:</p>
+<p></p>
+<p>Create feed-forward neural networks and train them using your own codes and</p>
+<p>frameworks.</p>
+<p></p>
+<p>Experiment with different feature extraction techniques.</p>
+<p></p>
+<p>Think about dealing with imbalanced data.</p>
+<p>Detailed Description:</p>
+<p>Develop predictive neural networks that can determine, given an antibacterial peptide,</p>
+<p>whether it is also an antibiofilm peptide.</p>
+<p>“Proteins are large biomolecules, or macromolecules, consisting of one or more long</p>
+<p>chains of amino acid residues. Proteins perform a vast array of functions within organisms,</p>
+<p>including catalysing metabolic reactions, DNA replication, responding to stimuli, providing</p>
+<p>structure to cells, and organisms, and transporting molecules from one location to another.</p>
+<p>Proteins differ from one another primarily in their sequence of amino acids, which is</p>
+<p>dictated by the nucleotide sequence of their genes, and which usually results in protein</p>
+<p>folding into a specific three-dimensional structure that determines its activity.</p>
+<p>A linear chain of amino acid residues is called a polypeptide. A protein contains at least</p>
+<p>one long polypeptide. Short polypeptides, containing less than 20-30 residues, are rarely</p>
+<p>considered to be proteins and are commonly called peptides. […] The sequence of amino</p>
+<p>acid residues in a protein is defined by the sequence of a gene, which is encoded in the</p>
+<p>genetic code. In general, the genetic code specifies 20 standard amino acids; […] Proteins</p>
+<p>can also work together to achieve a particular function, and they often associate to form</p>
+<p>stable protein complexes.” [Wikipedia, Accessed 2020-02-07,</p>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Protein]">https://en.wikipedia.org/wiki/Protein]</a></p>
+<p>Biofilms are tightly-connected multicellular communities of microorganisms encased in self-</p>
+<p>secreted extra-cellular matrices. They are currently one of the major causes of disease for</p>
+<p>two main reasons. First, roughly 75% of all human infections are caused by biofilms.</p>
+<p>Second, due to the robust multicellular cellular matrix structure, they are resistant both to</p>
+<p>the host defense mechanisms and to traditional antimicrobial compounds (antibiotics).</p>
+<p>Thus, it is important to identify peptide sequences that are not only antimicrobial (can</p>
+<p>destroy or render inert the invading microorganism), but also antibiofilm (can penetrate the</p>
+<p>extra-cellular matrix so it can get to the microorganism in the first place).</p>
+<p>You have been provided with a training set (train.dat) and a test set (test.dat) consisting of</p>
+<p>peptide sequences, one per line in the file. Peptides are encoded as strings with characters</p>
+<p>from an alphabet of 20 characters, each representing an amino-acid residue. The training</p>
+<p>set also includes the label for each sequence as 1 (antibiofilm) or -1 (not antibiofilm) as the</p>
+<p>first character in each line of the training file, separated from the sequence by a tab (\t)</p>
+<p>character.</p>
+<p>The input to your classifiers will not be the peptides themselves, but rather features</p>
+<p>extracted from the peptides. Two simple approaches for feature extraction are the bag-of-</p>
+<p>words and the k-mer models you should have learned about in Data Mining or Machine</p>
+<p>Learning, where a word is one of the amino-acids in the peptide. You should not use any</p>
+<p>additional external data in this assignment.</p>
+<p>Note that the dataset is imbalanced. We will Matthews’s correlation coefficient (MCC) as</p>
+<p>evaluation metric for this assignment, which, similar to the F-1 score, combines aspects of</p>
+<p>the result’s sensitivity and specificity. Given the normal confusion matrix resulting from</p>
+<p>comparing the predicted and true classes of the test samples, MCC is defined as,</p>
+<p>Programs:</p>
+<p>You are required to write two separate programs for the classification. The first may only</p>
+<p>use basic Python structures (from numpy or scipy) and you should implement your own</p>
+<p>functions for training the neural network. This is also the program you will use to make CLP</p>
+<p>submissions. In addition, you should write a second program that uses a deep learning</p>
+<p>framework of your choice to train the neural network. The structure of the network may be</p>
+<p>the same or different from the one you created in the first program. You will present results</p>
+<p>from this program (which should be at least as good as those from the first program) in</p>
+<p>your report.</p>
+<p>Considerations:</p>
 <ul>
-<li>Try extracting different features from the peptide strings.</li>
-<li>Consider oversampling the negative class to fix the apparent imbalance.</li>
-<li>Try out different network configurations and activation functions.</li>
-<li>Consider regularization as a way to keep weights balanced in the network.<br>Data Description:<br>The training dataset consists of 1566 records and the test dataset consists of 392 records.<br>We provide you with the training class labels and the test labels are held out. Your task is<br>to predict those labels for the peptides in the test set and create a test.txt file containing<br>those labels, which you will submit to CLP. Note that CLP only accepts files with extensions<br>.txt or .dat for your predicted labels, and .py or .ipynb or .zip or .tgz for codes.<br>Rules:<br><br>This is an individual assignment. Discussion of broad level strategies are allowed but<br>any copying of prediction files and source codes will result in an honor code violation.<br><br>You are allowed 5 submissions per day.<br><br>After the submission deadline, only your chosen or last submission is considered for<br>the leaderboard.<br>Deliverables:<br><br>Valid submissions to the Leader Board website: <a target="_blank" rel="noopener" href="https://clp.engr.scu.edu/">https://clp.engr.scu.edu</a> (username is<br>your SCU username and your password is your SCU password).<br>Canvas Submission for the report:<br><br>Include a 2-page, single-spaced report describing details regarding the steps you<br>followed for feature extraction, designing your neural network, and training your model.<br>The report should be in PDF format and the file should be called report.pdf. The report<br>needs to be structured as a technical report (title, abstract, introduction, sections,<br>conclusion), be free from grammatical errors, and use standard page and font sizes (letter<br>size page, 10 or 11 pt font). Be sure to include the following in the report:</li>
+<li><p>Try extracting different features from the peptide strings.</p>
+</li>
+<li><p>Consider oversampling the negative class to fix the apparent imbalance.</p>
+</li>
+<li><p>Try out different network configurations and activation functions.</p>
+</li>
+<li><p>Consider regularization as a way to keep weights balanced in the network.</p>
+</li>
 </ul>
+<p>Data Description:</p>
+<p>The training dataset consists of 1566 records and the test dataset consists of 392 records.</p>
+<p>We provide you with the training class labels and the test labels are held out. Your task is</p>
+<p>to predict those labels for the peptides in the test set and create a test.txt file containing</p>
+<p>those labels, which you will submit to CLP. Note that CLP only accepts files with extensions</p>
+<p>.txt or .dat for your predicted labels, and .py or .ipynb or .zip or .tgz for codes.</p>
+<p>Rules:</p>
+<p></p>
+<p>This is an individual assignment. Discussion of broad level strategies are allowed but</p>
+<p>any copying of prediction files and source codes will result in an honor code violation.</p>
+<p></p>
+<p>You are allowed 5 submissions per day.</p>
+<p></p>
+<p>After the submission deadline, only your chosen or last submission is considered for</p>
+<p>the leaderboard.</p>
+<p>Deliverables:</p>
+<p></p>
+<p>Valid submissions to the Leader Board website: <a target="_blank" rel="noopener" href="https://clp.engr.scu.edu/">https://clp.engr.scu.edu</a> (username is</p>
+<p>your SCU username and your password is your SCU password).</p>
+<p>Canvas Submission for the report:</p>
+<p></p>
+<p>Include a 2-page, single-spaced report describing details regarding the steps you</p>
+<p>followed for feature extraction, designing your neural network, and training your model.</p>
+<p>The report should be in PDF format and the file should be called report.pdf. The report</p>
+<p>needs to be structured as a technical report (title, abstract, introduction, sections,</p>
+<p>conclusion), be free from grammatical errors, and use standard page and font sizes (letter</p>
+<p>size page, 10 or 11 pt font). Be sure to include the following in the report:</p>
 <ol>
-<li>Name and SCU ID.</li>
-<li>Rank &amp; MCC-score for your submission (at the time of writing the report). If<br>you chose not to see the leaderboard, state so.</li>
-<li>Your approach.</li>
-<li>Your methodology of choosing the approach and associated parameters.<br> Ensure you submitted the correct code on CLP that matches your output.<br> Zip up your report and codes for both programs in an archive called <SCU_ID>.zip or<br><SCU_ID>.tgz and submit the archive to Canvas.<br>Grading:<br>Grading for the Assignment will be split on your implementation (70%) and report (30%).<br>Extra credit (1% of final grade) will be awarded to the top-3 performing algorithms. Note<br>that extra credit throughout the semester will be tallied outside of Canvas and will be added<br>to the final grade at the end of the semester.<br>Files: available on Canvas.</li>
+<li><p>Name and SCU ID.</p>
+</li>
+<li><p>Rank &amp; MCC-score for your submission (at the time of writing the report). If</p>
+</li>
 </ol>
+<p>you chose not to see the leaderboard, state so.</p>
+<ol start="3">
+<li></li>
+</ol>
+<p>Your approach.</p>
+<ol start="4">
+<li></li>
+</ol>
+<p>Your methodology of choosing the approach and associated parameters.</p>
+<p> Ensure you submitted the correct code on CLP that matches your output.</p>
+<p> Zip up your report and codes for both programs in an archive called <SCU_ID>.zip or</p>
+<p><SCU_ID>.tgz and submit the archive to Canvas.</p>
+<p>Grading:</p>
+<p>Grading for the Assignment will be split on your implementation (70%) and report (30%).</p>
+<p>Extra credit (1% of final grade) will be awarded to the top-3 performing algorithms. Note</p>
+<p>that extra credit throughout the semester will be tallied outside of Canvas and will be added</p>
+<p>to the final grade at the end of the semester.</p>
+<p>Files: available on Canvas.</p>
 
 	
 	</div>

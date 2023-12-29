@@ -152,8 +152,23 @@
   <div class="row">
 	
 	
-		<p>Graphcore’s IPU could be cheaper and faster than NVIDIA’s A100, though need sharing on-board RAM.<br>Supports tensorflow, pytorch, paddlepaddle.<br><a target="_blank" rel="noopener" href="https://docs.graphcore.ai/en/latest/">https://docs.graphcore.ai/en/latest/</a><br>pytorch: poptorch, pytorch-lightning(tpu and ipu)<br>tensorflow:<br>from tensorflow.python import ipu</p>
-<h1 id="Create-an-IPU-distribution-strategy"><a href="#Create-an-IPU-distribution-strategy" class="headerlink" title="Create an IPU distribution strategy"></a>Create an IPU distribution strategy</h1><p>strategy &#x3D; ipu.ipu_strategy.IPUStrategy()<br>with strategy.scope():<br>…<br>paddlepaddle:<br><a target="_blank" rel="noopener" href="https://github.com/graphcore/portfolio-examples/tree/master/paddlepaddle/bert-base">https://github.com/graphcore/portfolio-examples/tree/master/paddlepaddle/bert-base</a><br><a target="_blank" rel="noopener" href="https://github.com/graphcore/Paddle.git">https://github.com/graphcore/Paddle.git</a><br>TensorFlow 1 &amp; 2 support with full performant integration with TensorFlow XLA backend<br>PyTorch support for targeting IPU using the PyTorch ATEN backend<br>PopART™ (Poplar Advanced Runtime) for training &amp; inference; supports Python&#x2F;C++ model building plus ONNX model input<br>Full support for PaddlePaddle<br>Other frameworks support coming soon</p>
+		<p>Graphcore’s IPU could be cheaper and faster than NVIDIA’s A100, though need sharing on-board RAM.</p>
+<p>Supports tensorflow, pytorch, paddlepaddle.</p>
+<p><a target="_blank" rel="noopener" href="https://docs.graphcore.ai/en/latest/">https://docs.graphcore.ai/en/latest/</a></p>
+<p>pytorch: poptorch, pytorch-lightning(tpu and ipu)</p>
+<p>tensorflow:</p>
+<p>from tensorflow.python import ipu</p>
+<h1 id="Create-an-IPU-distribution-strategy"><a href="#Create-an-IPU-distribution-strategy" class="headerlink" title="Create an IPU distribution strategy"></a>Create an IPU distribution strategy</h1><p>strategy &#x3D; ipu.ipu_strategy.IPUStrategy()</p>
+<p>with strategy.scope():</p>
+<p>…</p>
+<p>paddlepaddle:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/graphcore/portfolio-examples/tree/master/paddlepaddle/bert-base">https://github.com/graphcore/portfolio-examples/tree/master/paddlepaddle/bert-base</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/graphcore/Paddle.git">https://github.com/graphcore/Paddle.git</a></p>
+<p>TensorFlow 1 &amp; 2 support with full performant integration with TensorFlow XLA backend</p>
+<p>PyTorch support for targeting IPU using the PyTorch ATEN backend</p>
+<p>PopART™ (Poplar Advanced Runtime) for training &amp; inference; supports Python&#x2F;C++ model building plus ONNX model input</p>
+<p>Full support for PaddlePaddle</p>
+<p>Other frameworks support coming soon</p>
 
 	
 	</div>

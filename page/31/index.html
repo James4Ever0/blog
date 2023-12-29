@@ -135,15 +135,27 @@
   <div class="row">
 	
 	
-		<h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><p>simply use &#x2F;dev&#x2F;shm<br>the only difference is that <a target="_blank" rel="noopener" href="https://linuxhint.com/create-ramdisk-linux/">ramfs on linux is unbounded while tmpfs is bounded</a><br>create bounded tmpfs:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t tmpfs -o size=2g tmpfs /mnt/tmp</span><br></pre></td></tr></table></figure>
+		<h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><p>simply use &#x2F;dev&#x2F;shm</p>
+<p>the only difference is that <a target="_blank" rel="noopener" href="https://linuxhint.com/create-ramdisk-linux/">ramfs on linux is unbounded while tmpfs is bounded</a></p>
+<p>create bounded tmpfs:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mount -t tmpfs -o size=2g tmpfs /mnt/tmp</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>or yoy labor yourself to mount some additional ramfs:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t ramfs -o size=2g ramfs /mnt/tmp</span><br></pre></td></tr></table></figure>
-<h2 id="macos"><a href="#macos" class="headerlink" title="macos"></a>macos</h2><p>&#x2F;private&#x2F;tmp is not ramdisk. it is just a directory cleared by startup.<br><a target="_blank" rel="noopener" href="https://github.com/KizzyCode/ramfs-shell">ram-shell: A simple script to create a in-memory filesystem on macOS</a><br><a target="_blank" rel="noopener" href="https://github.com/srcshelton/ramfs#:~:text=A%20memory-backed%20filesystem%20mounter%20for%20Mac%20OS%20X,not%20survive%20a%20reboot%20or%20even%20being%20unmounted.">RAM-backed filesystem mounter for Mac OS X</a><br>create and mount ramdisk:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">ramfs_size_mb=2100</span><br><span class="line">mount_point=/tmp/rdisk</span><br><span class="line"><span class="function"><span class="title">mkramdisk</span></span>() &#123;</span><br><span class="line">ramfs_size_sectors=$((<span class="variable">$&#123;ramfs_size_mb&#125;</span>*<span class="number">1024</span>*<span class="number">1024</span>/<span class="number">512</span>))</span><br><span class="line">ramdisk_dev=`hdid -nomount ram://<span class="variable">$&#123;ramfs_size_sectors&#125;</span>`</span><br><span class="line">newfs_hfs -v <span class="string">&#x27;ram disk&#x27;</span> <span class="variable">$&#123;ramdisk_dev&#125;</span></span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="variable">$&#123;mount_point&#125;</span></span><br><span class="line">mount -o noatime -t hfs <span class="variable">$&#123;ramdisk_dev&#125;</span> <span class="variable">$&#123;mount_point&#125;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;remove with:&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;umount <span class="variable">$&#123;mount_point&#125;</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;diskutil eject <span class="variable">$&#123;ramdisk_dev&#125;</span>&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/emitial/p/ramfs-on-mac.html">to replace &#x2F;private&#x2F;tmp with ramfs and registered as launchd service</a><br>calculate sector numbers by hand:<br>disk_size(MiB)* 1024KiB&#x2F;MiB * 1024B&#x2F;KiB &#x2F; 512B&#x2F;sector &#x3D; #sectors</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hdiutil attach -nomount ram://<span class="comment">#sectors</span></span><br><span class="line"><span class="comment">#get returned value afterwards!</span></span><br><span class="line">newfs_hfs -v <span class="string">&#x27;Ramdisk&#x27;</span> &lt;returned_disk_device_id&gt;</span><br><span class="line"><span class="comment"># maybe you should create apfs case sensitive instead?</span></span><br><span class="line"><span class="comment">#mount disk</span></span><br><span class="line"><span class="built_in">mkdir</span> -p ~/Ramdisk</span><br><span class="line"><span class="comment"># may change fs type accordingly when using apfs</span></span><br><span class="line">mount -o noatime -t hfs &lt;returned_disk_device_id&gt; ~/Ramdisk</span><br></pre></td></tr></table></figure>
-<h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><p><a target="_blank" rel="noopener" href="https://www.geckoandfly.com/21507/ramdisk-virtual-disk-memory/#:~:text=RAMDisk%20is%20a%20program%20that%20takes%20a%20portion,default%20%E2%80%98ReadyBoost%E2%80%99%20found%20in%20Microsoft%20Windows%20operating%20system.">a curated ramdisk software list</a><br>use third-party ramdisk tool like <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/imdisk-toolkit/">imdisk</a>, <a target="_blank" rel="noopener" href="https://github.com/Zero3K/ERAM">eram</a> with kernel driver installed, secure boot disabled (no uefi maybe?)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mount -t ramfs -o size=2g ramfs /mnt/tmp</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="macos"><a href="#macos" class="headerlink" title="macos"></a>macos</h2><p>&#x2F;private&#x2F;tmp is not ramdisk. it is just a directory cleared by startup.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/KizzyCode/ramfs-shell">ram-shell: A simple script to create a in-memory filesystem on macOS</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/srcshelton/ramfs#:~:text=A%20memory-backed%20filesystem%20mounter%20for%20Mac%20OS%20X,not%20survive%20a%20reboot%20or%20even%20being%20unmounted.">RAM-backed filesystem mounter for Mac OS X</a></p>
+<p>create and mount ramdisk:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">ramfs_size_mb=2100</span><br><span class="line">mount_point=/tmp/rdisk</span><br><span class="line"><span class="function"><span class="title">mkramdisk</span></span>() &#123;</span><br><span class="line">ramfs_size_sectors=$((<span class="variable">$&#123;ramfs_size_mb&#125;</span>*<span class="number">1024</span>*<span class="number">1024</span>/<span class="number">512</span>))</span><br><span class="line">ramdisk_dev=`hdid -nomount ram://<span class="variable">$&#123;ramfs_size_sectors&#125;</span>`</span><br><span class="line">newfs_hfs -v <span class="string">&#x27;ram disk&#x27;</span> <span class="variable">$&#123;ramdisk_dev&#125;</span></span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="variable">$&#123;mount_point&#125;</span></span><br><span class="line">mount -o noatime -t hfs <span class="variable">$&#123;ramdisk_dev&#125;</span> <span class="variable">$&#123;mount_point&#125;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;remove with:&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;umount <span class="variable">$&#123;mount_point&#125;</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;diskutil eject <span class="variable">$&#123;ramdisk_dev&#125;</span>&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/emitial/p/ramfs-on-mac.html">to replace &#x2F;private&#x2F;tmp with ramfs and registered as launchd service</a></p>
+<p>calculate sector numbers by hand:</p>
+<p>disk_size(MiB)* 1024KiB&#x2F;MiB * 1024B&#x2F;KiB &#x2F; 512B&#x2F;sector &#x3D; #sectors</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">hdiutil attach -nomount ram://<span class="comment">#sectors</span></span><br><span class="line"><span class="comment">#get returned value afterwards!</span></span><br><span class="line">newfs_hfs -v <span class="string">&#x27;Ramdisk&#x27;</span> &lt;returned_disk_device_id&gt;</span><br><span class="line"><span class="comment"># maybe you should create apfs case sensitive instead?</span></span><br><span class="line"><span class="comment">#mount disk</span></span><br><span class="line"><span class="built_in">mkdir</span> -p ~/Ramdisk</span><br><span class="line"><span class="comment"># may change fs type accordingly when using apfs</span></span><br><span class="line">mount -o noatime -t hfs &lt;returned_disk_device_id&gt; ~/Ramdisk</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><p><a target="_blank" rel="noopener" href="https://www.geckoandfly.com/21507/ramdisk-virtual-disk-memory/#:~:text=RAMDisk%20is%20a%20program%20that%20takes%20a%20portion,default%20%E2%80%98ReadyBoost%E2%80%99%20found%20in%20Microsoft%20Windows%20operating%20system.">a curated ramdisk software list</a></p>
+<p>use third-party ramdisk tool like <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/imdisk-toolkit/">imdisk</a>, <a target="_blank" rel="noopener" href="https://github.com/Zero3K/ERAM">eram</a> with kernel driver installed, secure boot disabled (no uefi maybe?)</p>
 
 	
 	</div>
@@ -169,7 +181,8 @@
   <div class="row">
 	
 	
-		<p>no consecutive clip sequences have then same file source.<br>no identical clips in render sequence.</p>
+		<p>no consecutive clip sequences have then same file source.</p>
+<p>no identical clips in render sequence.</p>
 
 	
 	</div>
@@ -195,17 +208,27 @@
   <div class="row">
 	
 	
-		<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /media/root/parrot</span><br><span class="line"><span class="built_in">cp</span> -R -P /media/root/help1/pyjom .</span><br></pre></td></tr></table></figure>
-<p>because of the qqChatBot task, pyjom on kali may be syncing too often. need to check the watchdog logs.<br>turned out it is the <code>__pycache__</code> dirs to be blamed<br>disable all sync related services on macos for debug:<br>main issue happens after local vscode launched.<br>the issue is such that the proxy setting not right.<br>to debug the service:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl debug gui/501/pyjom_local_syncdog --stdout --stderr</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># to be succint:</span></span><br><span class="line">launchctl list | grep syncdog | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span> | xargs -I abc <span class="built_in">kill</span> -s TERM abc</span><br><span class="line"><span class="comment"># instead of:</span></span><br><span class="line"><span class="comment">#launchctl list | grep pyjom_local_syncdog # to get process pid</span></span><br><span class="line"><span class="comment">#kill -s TERM &lt;service_pid&gt;</span></span><br></pre></td></tr></table></figure>
+		<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /media/root/parrot</span><br><span class="line"><span class="built_in">cp</span> -R -P /media/root/help1/pyjom .</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>because of the qqChatBot task, pyjom on kali may be syncing too often. need to check the watchdog logs.</p>
+<p>turned out it is the <code>__pycache__</code> dirs to be blamed</p>
+<p>disable all sync related services on macos for debug:</p>
+<p>main issue happens after local vscode launched.</p>
+<p>the issue is such that the proxy setting not right.</p>
+<p>to debug the service:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl debug gui/501/pyjom_local_syncdog --stdout --stderr</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># to be succint:</span></span><br><span class="line">launchctl list | grep syncdog | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span> | xargs -I abc <span class="built_in">kill</span> -s TERM abc</span><br><span class="line"><span class="comment"># instead of:</span></span><br><span class="line"><span class="comment">#launchctl list | grep pyjom_local_syncdog # to get process pid</span></span><br><span class="line"><span class="comment">#kill -s TERM &lt;service_pid&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>we need to add some code for it. consider adding something alike to that to kali?</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.environ[<span class="string">&quot;http_proxy&quot;</span>]=<span class="string">&quot;http://localhost:7930&quot;</span></span><br><span class="line">os.environ[<span class="string">&quot;https_proxy&quot;</span>]=<span class="string">&quot;http://localhost:7930&quot;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">launchctl stop gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl <span class="built_in">kill</span> TERM gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl unload gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl <span class="built_in">disable</span> gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl remove gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl stop gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl <span class="built_in">kill</span> TERM gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl unload gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl <span class="built_in">disable</span> gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl remove gui/501/pyjom_local_syncdog</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">os.environ[<span class="string">&quot;http_proxy&quot;</span>]=<span class="string">&quot;http://localhost:7930&quot;</span></span><br><span class="line">os.environ[<span class="string">&quot;https_proxy&quot;</span>]=<span class="string">&quot;http://localhost:7930&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">launchctl stop gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl <span class="built_in">kill</span> TERM gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl unload gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl <span class="built_in">disable</span> gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl remove gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl stop gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl <span class="built_in">kill</span> TERM gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl unload gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl <span class="built_in">disable</span> gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl remove gui/501/pyjom_local_syncdog</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>install macos pyjom watchdog (local):</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">easyd -l pyjom_local_watchdog -w /Users/jamesbrown/Desktop/works/sync_git_repos -- /usr/bin/python3 /Users/jamesbrown/Desktop/works/sync_git_repos/watchdog_macos.py</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">easyd -l pyjom_local_watchdog -w /Users/jamesbrown/Desktop/works/sync_git_repos -- /usr/bin/python3 /Users/jamesbrown/Desktop/works/sync_git_repos/watchdog_macos.py</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>install macos pyjom syncdog (local):</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">easyd -l pyjom_local_syncdog -w /Users/jamesbrown/Desktop/works/sync_git_repos -- /usr/bin/python3 /Users/jamesbrown/Desktop/works/sync_git_repos/syncdog_macos.py</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">easyd -l pyjom_local_syncdog -w /Users/jamesbrown/Desktop/works/sync_git_repos -- /usr/bin/python3 /Users/jamesbrown/Desktop/works/sync_git_repos/syncdog_macos.py</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 	
 	</div>
   <a type="button" href="/blog/2022/08/11/b4aa7c90-7a78-4648-a687-ea9f3f21e207/#more" class="btn btn-default more">Read More</a>
@@ -230,14 +253,21 @@
   <div class="row">
 	
 	
-		<p>everytime the fucking machine restarts, it fails devastatingly.<br>the word: <code>Giving the fans some time to reach full speed...</code><br>the script:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/expect</span></span><br><span class="line">spawn pwmconfig</span><br><span class="line"><span class="comment">#expect &quot;Giving the fans some time to reach full speed...&quot;</span></span><br><span class="line">expect <span class="string">&quot;If you do not want to do this hit control-C now!!!&quot;</span></span><br><span class="line">send <span class="string">&quot;\03&quot;</span></span><br><span class="line">expect eof</span><br></pre></td></tr></table></figure>
+		<p>everytime the fucking machine restarts, it fails devastatingly.</p>
+<p>the word: <code>Giving the fans some time to reach full speed...</code></p>
+<p>the script:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/expect</span></span><br><span class="line">spawn pwmconfig</span><br><span class="line"><span class="comment">#expect &quot;Giving the fans some time to reach full speed...&quot;</span></span><br><span class="line">expect <span class="string">&quot;If you do not want to do this hit control-C now!!!&quot;</span></span><br><span class="line">send <span class="string">&quot;\03&quot;</span></span><br><span class="line">expect eof</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>hope this shit works?</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> 255 | sudo <span class="built_in">tee</span> /sys/class/hwmon/hwmon6/pwm3</span><br><span class="line"><span class="built_in">echo</span> 255 | sudo <span class="built_in">tee</span> /sys/class/hwmon/hwmon6/pwm1</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> 255 | sudo <span class="built_in">tee</span> /sys/class/hwmon/hwmon6/pwm3</span><br><span class="line"><span class="built_in">echo</span> 255 | sudo <span class="built_in">tee</span> /sys/class/hwmon/hwmon6/pwm1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>i have install something other than that. like i8kctl, some thermal controllers by intel (thermald)? but still gpu fan not spinning till now.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt install -y lm-sensors fancontrol</span><br><span class="line">sensors-detect</span><br><span class="line">pwmconfig</span><br></pre></td></tr></table></figure>
-<p>already have cpu frequency under control by running temp_throttle.sh<br>notes: found controllers <code>dell_smm-isa-0000</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Found the following PWM controls:</span><br><span class="line">hwmon6/pwm1           current value: 255</span><br><span class="line">hwmon6/pwm3           current value: 255</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt install -y lm-sensors fancontrol</span><br><span class="line">sensors-detect</span><br><span class="line">pwmconfig</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>already have cpu frequency under control by running temp_throttle.sh</p>
+<p>notes: found controllers <code>dell_smm-isa-0000</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Found the following PWM controls:</span><br><span class="line">hwmon6/pwm1           current value: 255</span><br><span class="line">hwmon6/pwm3           current value: 255</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 	
 	</div>
   <a type="button" href="/blog/2022/08/11/2a69a080-7a45-4b12-aca1-b81c0fd1737c/#more" class="btn btn-default more">Read More</a>
@@ -262,7 +292,8 @@
   <div class="row">
 	
 	
-		<h1 id="Detect-media-file-corruption-Python-suggest-binary-file-name-extension"><a href="#Detect-media-file-corruption-Python-suggest-binary-file-name-extension" class="headerlink" title="Detect media file corruption, Python suggest binary file name extension"></a>Detect media file corruption, Python suggest binary file name extension</h1><p>to rule out those corrupted media files, or unplayable files. maybe simply by parsing these files is not enough, we need a dedicated file corruption detector.<br>to truncate these files and see errors produced by media readers. use text file with media file extension to test them.</p>
+		<h1 id="Detect-media-file-corruption-Python-suggest-binary-file-name-extension"><a href="#Detect-media-file-corruption-Python-suggest-binary-file-name-extension" class="headerlink" title="Detect media file corruption, Python suggest binary file name extension"></a>Detect media file corruption, Python suggest binary file name extension</h1><p>to rule out those corrupted media files, or unplayable files. maybe simply by parsing these files is not enough, we need a dedicated file corruption detector.</p>
+<p>to truncate these files and see errors produced by media readers. use text file with media file extension to test them.</p>
 
 	
 	</div>
@@ -288,7 +319,20 @@
   <div class="row">
 	
 	
-		<h2 id="use-test-to-check-existance-some-manual-created-identity-file-to-prove-if-the-endpoint-is-connected-really-does-that-check-work-for-offline-rclone-samba-drives"><a href="#use-test-to-check-existance-some-manual-created-identity-file-to-prove-if-the-endpoint-is-connected-really-does-that-check-work-for-offline-rclone-samba-drives" class="headerlink" title="use test to check existance some manual created identity file to prove if the endpoint is connected(really? does that check work for offline rclone samba drives?)"></a>use <code>test</code> to check existance some manual created identity file to prove if the endpoint is connected<br>(really? does that check work for offline rclone samba drives?)</h2><h2 id="format-the-backup-disk-as-xfs-so-we-can-do-symlink-on-it-linux"><a href="#format-the-backup-disk-as-xfs-so-we-can-do-symlink-on-it-linux" class="headerlink" title="format the backup disk as xfs so we can do symlink on it (linux)."></a>format the backup disk as xfs so we can do symlink on it (linux).</h2><h2 id="use-flock-from-util-linux-to-prevent-multiple-backup-instances-from-running-alternative-run-one"><a href="#use-flock-from-util-linux-to-prevent-multiple-backup-instances-from-running-alternative-run-one" class="headerlink" title="use flock (from util-linux) to prevent multiple backup instances from running.alternative: run-one"></a>use <code>flock</code> (from <code>util-linux</code>) to prevent multiple backup instances from running.<br>alternative: <a target="_blank" rel="noopener" href="https://blog.dustinkirkland.com/2011/02/introducing-run-one-and-run-this-one.html">run-one</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-add-repository ppa:run-one/ppa</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install run-one</span><br></pre></td></tr></table></figure></h2><p><a target="_blank" rel="noopener" href="https://github.com/cytopia/linux-timemachine#star-features">linux-timemachine</a> supports windows, linux, macOS, using rsync as backend, can use hardlink to make backup management very easy. can delete previous backup without losing data. need external controller to make “circular” or to only keep most recent backups on disk.<br><a target="_blank" rel="noopener" href="https://alternativeto.net/software/time-machine/?platform=linux&p=2">curated list of alternative time machine for OSes other than macOS</a><br><a target="_blank" rel="noopener" href="https://alternativeto.net/software/timeshift/about/">timeshift gui backup&#x2F;restore tool for linux</a><br><a target="_blank" rel="noopener" href="https://duplicity.gitlab.io/">duplicity incremental backup</a> can store backup into encrypted tar files and support IMAP protocol as remote file server</p>
+		<p>use <code>test</code> to check existance some manual created identity file to prove if the endpoint is connected</p>
+<p>(really? does that check work for offline rclone samba drives?)</p>
+<hr>
+<p>format the backup disk as xfs so we can do symlink on it (linux).</p>
+<hr>
+<p>use <code>flock</code> (from <code>util-linux</code>) to prevent multiple backup instances from running.</p>
+<p>alternative: <a target="_blank" rel="noopener" href="https://blog.dustinkirkland.com/2011/02/introducing-run-one-and-run-this-one.html">run-one</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-add-repository ppa:run-one/ppa</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install run-one</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><a target="_blank" rel="noopener" href="https://github.com/cytopia/linux-timemachine#star-features">linux-timemachine</a> supports windows, linux, macOS, using rsync as backend, can use hardlink to make backup management very easy. can delete previous backup without losing data. need external controller to make “circular” or to only keep most recent backups on disk.</p>
+<p><a target="_blank" rel="noopener" href="https://alternativeto.net/software/time-machine/?platform=linux&p=2">curated list of alternative time machine for OSes other than macOS</a></p>
+<p><a target="_blank" rel="noopener" href="https://alternativeto.net/software/timeshift/about/">timeshift gui backup&#x2F;restore tool for linux</a></p>
+<p><a target="_blank" rel="noopener" href="https://duplicity.gitlab.io/">duplicity incremental backup</a> can store backup into encrypted tar files and support IMAP protocol as remote file server</p>
 
 	
 	</div>
@@ -314,8 +358,13 @@
   <div class="row">
 	
 	
-		<h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><p><a target="_blank" rel="noopener" href="https://github.com/xolox/vim-session">vim session manager</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/sunyongyue/archive/2011/06/18/vim_session.html">methods to automate :mksession</a><br><a target="_blank" rel="noopener" href="https://github.com/thaerkh/vim-workspace">vim workspace auto save workspace and undo history</a><br><a target="_blank" rel="noopener" href="https://unix.stackexchange.com/questions/644243/save-current-vim-session-state-and-restore-it-later-e-g-buffers-splits-etc">builtin :mksession and more</a></p>
-<h2 id="nvim"><a href="#nvim" class="headerlink" title="nvim"></a>nvim</h2><p><a target="_blank" rel="noopener" href="https://github.com/tmux-plugins/tmux-resurrect/blob/master/docs/restoring_vim_and_neovim_sessions.md">session manager usage for vim and nvim</a><br><a target="_blank" rel="noopener" href="https://github.com/tpope/vim-obsession">session manager for vim and nvim</a><br><a target="_blank" rel="noopener" href="https://github.com/rmagatti/auto-session">nvim auto-session</a></p>
+		<h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><p><a target="_blank" rel="noopener" href="https://github.com/xolox/vim-session">vim session manager</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/sunyongyue/archive/2011/06/18/vim_session.html">methods to automate :mksession</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/thaerkh/vim-workspace">vim workspace auto save workspace and undo history</a></p>
+<p><a target="_blank" rel="noopener" href="https://unix.stackexchange.com/questions/644243/save-current-vim-session-state-and-restore-it-later-e-g-buffers-splits-etc">builtin :mksession and more</a></p>
+<h2 id="nvim"><a href="#nvim" class="headerlink" title="nvim"></a>nvim</h2><p><a target="_blank" rel="noopener" href="https://github.com/tmux-plugins/tmux-resurrect/blob/master/docs/restoring_vim_and_neovim_sessions.md">session manager usage for vim and nvim</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/tpope/vim-obsession">session manager for vim and nvim</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/rmagatti/auto-session">nvim auto-session</a></p>
 
 	
 	</div>
@@ -341,7 +390,8 @@
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://github.com/sienori/Tab-Session-Manager">tab session manager</a> needs google account to operate, while it can still do offline syncing without google cloud.<br>seems that it can only hook up with newly opened tabs instead of existing ones.</p>
+		<p><a target="_blank" rel="noopener" href="https://github.com/sienori/Tab-Session-Manager">tab session manager</a> needs google account to operate, while it can still do offline syncing without google cloud.</p>
+<p>seems that it can only hook up with newly opened tabs instead of existing ones.</p>
 
 	
 	</div>
@@ -367,8 +417,11 @@
   <div class="row">
 	
 	
-		<p>better use nomachine instead, which is based on nx<br>password: 472831<br>commands:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># necessary env for gui target, though may not suitable for xvfb</span></span><br><span class="line"><span class="built_in">export</span> XAUTHORITY=/root/.Xauthority</span><br><span class="line"><span class="built_in">export</span> DISPLAY=:1</span><br><span class="line"><span class="comment"># kill previous running x11vnc, if exists</span></span><br><span class="line">joker list | grep x11vnc | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span> | xargs -iabc <span class="built_in">kill</span> -s KILL abc</span><br><span class="line"><span class="comment"># launch new vnc</span></span><br><span class="line">joker x11vnc -threads -forever -rfbauth /root/.vnc/passwd</span><br></pre></td></tr></table></figure>
+		<p>better use nomachine instead, which is based on nx</p>
+<p>password: 472831</p>
+<p>commands:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># necessary env for gui target, though may not suitable for xvfb</span></span><br><span class="line"><span class="built_in">export</span> XAUTHORITY=/root/.Xauthority</span><br><span class="line"><span class="built_in">export</span> DISPLAY=:1</span><br><span class="line"><span class="comment"># kill previous running x11vnc, if exists</span></span><br><span class="line">joker list | grep x11vnc | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span> | xargs -iabc <span class="built_in">kill</span> -s KILL abc</span><br><span class="line"><span class="comment"># launch new vnc</span></span><br><span class="line">joker x11vnc -threads -forever -rfbauth /root/.vnc/passwd</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 	
 	</div>
   <a type="button" href="/blog/2022/08/09/dceb3026-9060-4172-9ef5-319678c7e104/#more" class="btn btn-default more">Read More</a>
@@ -395,65 +448,109 @@
 	
 		<p>A curated list of awesome data labeling tools</p>
 <h4 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h4><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/tzutalin/labelImg">labelImg</a> - LabelImg is a graphical image annotation tool and label object bounding boxes in images</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/opencv/cvat">CVAT</a> - Powerful and efficient Computer Vision Annotion Tool</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/wkentaro/labelme">labelme</a> - Image Polygonal Annotation with Python</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/microsoft/VoTT">VoTT</a> - An open source annotation and labeling tool for image and video assets</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/NaturalIntelligence/imglab">imglab</a> - A web based tool to label images for objects that can be used to train dlib or other object detectors</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/AlexeyAB/Yolo_mark">Yolo_mark</a> - GUI for marking bounded boxes of objects in images for training neural network Yolo v3 and v2</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/abreheret/PixelAnnotationTool">PixelAnnotationTool</a> - Software that allows you to manually and quickly annotate images in directories</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/Cartucho/OpenLabeling">OpenLabeling</a> - Label images and video for Computer Vision applications</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/bit-bots/imagetagger">imagetagger</a> - An open source online platform for collaborative image labeling</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/AlturosDestinations/Alturos.ImageAnnotation">Alturos.ImageAnnotation</a> - A collaborative tool for labeling image data</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/jveitchmichaelis/deeplabel">deeplabel</a> - A cross-platform image annotation tool for machine learning</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/medtagger/MedTagger">MedTagger</a> - A collaborative framework for annotating medical datasets using crowdsourcing.</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/Labelbox/Labelbox">Labelbox</a> - Labelbox is the fastest way to annotate data to build and ship computer vision applications</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/jaxony/turktool">turktool</a> - A modern React app for scalable bounding box annotation of images</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/buni-rock/Pixie">Pixie</a> - Pixie is a GUI annotation tool which provides the bounding box, polygon, free drawing and semantic segmentation object labelling</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/kinhong/OpenLabeler">OpenLabeler</a> - OpenLabeler is an open source desktop application for annotating objects for AI appplications</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/virajmavani/semi-auto-image-annotation-tool">Anno-Mage</a> - A Semi Automatic Image Annotation Tool which helps you in annotating images by suggesting you annotations for 80 object classes using a pre-trained model</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/catmaid/CATMAID">CATMAID</a> - Collaborative Annotation Toolkit for Massive Amounts of Image Data</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/SkalskiP/make-sense">make-sense</a> - makesense.ai is a free to use online tool for labelling photos</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/l3p-cv/lost">LOST</a> - Design your own smart Image Annotation process in a web-based environment</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/recogito/annotorious">Annotorious</a> - A JavaScript library for image annotation.</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/cvhciKIT/sloth">Sloth</a> - Tool for labeling image and video data for computer vision research.</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/tzutalin/labelImg">labelImg</a> - LabelImg is a graphical image annotation tool and label object bounding boxes in images</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/opencv/cvat">CVAT</a> - Powerful and efficient Computer Vision Annotion Tool</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/wkentaro/labelme">labelme</a> - Image Polygonal Annotation with Python</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/microsoft/VoTT">VoTT</a> - An open source annotation and labeling tool for image and video assets</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/NaturalIntelligence/imglab">imglab</a> - A web based tool to label images for objects that can be used to train dlib or other object detectors</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/AlexeyAB/Yolo_mark">Yolo_mark</a> - GUI for marking bounded boxes of objects in images for training neural network Yolo v3 and v2</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/abreheret/PixelAnnotationTool">PixelAnnotationTool</a> - Software that allows you to manually and quickly annotate images in directories</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/Cartucho/OpenLabeling">OpenLabeling</a> - Label images and video for Computer Vision applications</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/bit-bots/imagetagger">imagetagger</a> - An open source online platform for collaborative image labeling</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/AlturosDestinations/Alturos.ImageAnnotation">Alturos.ImageAnnotation</a> - A collaborative tool for labeling image data</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/jveitchmichaelis/deeplabel">deeplabel</a> - A cross-platform image annotation tool for machine learning</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/medtagger/MedTagger">MedTagger</a> - A collaborative framework for annotating medical datasets using crowdsourcing.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/Labelbox/Labelbox">Labelbox</a> - Labelbox is the fastest way to annotate data to build and ship computer vision applications</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/jaxony/turktool">turktool</a> - A modern React app for scalable bounding box annotation of images</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/buni-rock/Pixie">Pixie</a> - Pixie is a GUI annotation tool which provides the bounding box, polygon, free drawing and semantic segmentation object labelling</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/kinhong/OpenLabeler">OpenLabeler</a> - OpenLabeler is an open source desktop application for annotating objects for AI appplications</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/virajmavani/semi-auto-image-annotation-tool">Anno-Mage</a> - A Semi Automatic Image Annotation Tool which helps you in annotating images by suggesting you annotations for 80 object classes using a pre-trained model</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/catmaid/CATMAID">CATMAID</a> - Collaborative Annotation Toolkit for Massive Amounts of Image Data</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/SkalskiP/make-sense">make-sense</a> - makesense.ai is a free to use online tool for labelling photos</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/l3p-cv/lost">LOST</a> - Design your own smart Image Annotation process in a web-based environment</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/recogito/annotorious">Annotorious</a> - A JavaScript library for image annotation.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/cvhciKIT/sloth">Sloth</a> - Tool for labeling image and video data for computer vision research.</p>
+</li>
 </ul>
 <h4 id="Text"><a href="#Text" class="headerlink" title="Text"></a>Text</h4><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/jiesutd/YEDDA">YEDDA</a> - A Lightweight Collaborative Text Span Annotation Tool (Chunking, NER, etc.). ACL best demo nomination.</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/planbrothers/ml-annotate">ML-Annotate</a> - Label text data for machine learning purposes. ML-Annotate supports binary, multi-label and multi-class labeling.</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/d5555/TagEditor">TagEditor</a> - Annotation tool for spaCy</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/RTIInternational/SMART">SMART</a> - Smarter Manual Annotation for Resource-constrained collection of Training data</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/etalab/piaf">PIAF</a> - A Question-Answering annotation tool</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/jiesutd/YEDDA">YEDDA</a> - A Lightweight Collaborative Text Span Annotation Tool (Chunking, NER, etc.). ACL best demo nomination.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/planbrothers/ml-annotate">ML-Annotate</a> - Label text data for machine learning purposes. ML-Annotate supports binary, multi-label and multi-class labeling.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/d5555/TagEditor">TagEditor</a> - Annotation tool for spaCy</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/RTIInternational/SMART">SMART</a> - Smarter Manual Annotation for Resource-constrained collection of Training data</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/etalab/piaf">PIAF</a> - A Question-Answering annotation tool</p>
+</li>
 </ul>
 <h4 id="Audio"><a href="#Audio" class="headerlink" title="Audio"></a>Audio</h4><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/ritazh/EchoML">EchoML</a> - Play, visualize, and annotate your audio files</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/CrowdCurio/audio-annotator">audio-annotator</a> - A JavaScript interface for annotating and labeling audio files.</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/hipstas/audio-labeler">audio-labeler</a> - An in-browser app for labeling audio clips at random, using Docker and Flask.</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/katspaugh/wavesurfer.js">wavesurfer.js</a> - Simple annotations tool, check the example.</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/bbc/peaks.js">peak.js</a> - Browser-based audio waveform visualisation and UI component for interacting with audio waveforms, developed by BBC UK.</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/praat/praat">Praat</a> - Doing Phonetics By Computer</li>
-<li><a target="_blank" rel="noopener" href="https://aubio.org/">Aubio</a> - Tool designed for the extraction of annotations from audio signals.</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/ritazh/EchoML">EchoML</a> - Play, visualize, and annotate your audio files</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/CrowdCurio/audio-annotator">audio-annotator</a> - A JavaScript interface for annotating and labeling audio files.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/hipstas/audio-labeler">audio-labeler</a> - An in-browser app for labeling audio clips at random, using Docker and Flask.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/katspaugh/wavesurfer.js">wavesurfer.js</a> - Simple annotations tool, check the example.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/bbc/peaks.js">peak.js</a> - Browser-based audio waveform visualisation and UI component for interacting with audio waveforms, developed by BBC UK.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/praat/praat">Praat</a> - Doing Phonetics By Computer</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://aubio.org/">Aubio</a> - Tool designed for the extraction of annotations from audio signals.</p>
+</li>
 </ul>
 <h4 id="Video"><a href="#Video" class="headerlink" title="Video"></a>Video</h4><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/alexandre01/UltimateLabeling">UltimateLabeling</a> - A multi-purpose Video Labeling GUI in Python with integrated SOTA detector and tracker</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/cvondrick/vatic">VATIC</a> - VATIC is an online video annotation tool for computer vision research that crowdsources work to Amazon’s Mechanical Turk.</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/alexandre01/UltimateLabeling">UltimateLabeling</a> - A multi-purpose Video Labeling GUI in Python with integrated SOTA detector and tracker</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/cvondrick/vatic">VATIC</a> - VATIC is an online video annotation tool for computer vision research that crowdsources work to Amazon’s Mechanical Turk.</p>
+</li>
 </ul>
 <h4 id="Time-Series"><a href="#Time-Series" class="headerlink" title="Time Series"></a>Time Series</h4><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/baidu/Curve">Curve</a> - Curve is an open-source tool to help label anomalies on time-series data</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/Microsoft/TagAnomaly">TagAnomaly</a> - Anomaly detection analysis and labeling tool, specifically for multiple time series (one time series per category)</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/CrowdCurio/time-series-annotator">time-series-annotator</a> - The CrowdCurio Time Series Annotation Library implements classification tasks for time series.</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/avenix/WDK">WDK</a> - The Wearables Development Toolkit (WDK) is a set of tools to facilitate the development of activity recognition applications with wearable devices.</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/baidu/Curve">Curve</a> - Curve is an open-source tool to help label anomalies on time-series data</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/Microsoft/TagAnomaly">TagAnomaly</a> - Anomaly detection analysis and labeling tool, specifically for multiple time series (one time series per category)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/CrowdCurio/time-series-annotator">time-series-annotator</a> - The CrowdCurio Time Series Annotation Library implements classification tasks for time series.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/avenix/WDK">WDK</a> - The Wearables Development Toolkit (WDK) is a set of tools to facilitate the development of activity recognition applications with wearable devices.</p>
+</li>
 </ul>
 <h4 id="3D"><a href="#3D" class="headerlink" title="3D"></a>3D</h4><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/scalableminds/webknossos">webKnossos</a> - webKnossos is an open-source web-based tool for visualizing, annotating, and sharing large 3D image datasets. It features fast 3D data browsing, skeleton (line-segment) annotations, segmentation and proof-reading tools, mesh visualization, and collaboration features. The public instance <a target="_blank" rel="noopener" href="https://webknossos.org/">webknossos.org</a> hosts a collection of published datasets and can be used without a local setup.</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/knossos-project/knossos">KNOSSOS</a> - KNOSSOS is a software tool for the visualization and annotation of 3D image data and was developed for the rapid reconstruction of neural morphology and connectivity.</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/scalableminds/webknossos">webKnossos</a> - webKnossos is an open-source web-based tool for visualizing, annotating, and sharing large 3D image datasets. It features fast 3D data browsing, skeleton (line-segment) annotations, segmentation and proof-reading tools, mesh visualization, and collaboration features. The public instance <a target="_blank" rel="noopener" href="https://webknossos.org/">webknossos.org</a> hosts a collection of published datasets and can be used without a local setup.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/knossos-project/knossos">KNOSSOS</a> - KNOSSOS is a software tool for the visualization and annotation of 3D image data and was developed for the rapid reconstruction of neural morphology and connectivity.</p>
+</li>
 </ul>
 <h4 id="Lidar"><a href="#Lidar" class="headerlink" title="Lidar"></a>Lidar</h4><ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/Hitachi-Automotive-And-Industry-Lab/semantic-segmentation-editor">semantic-segmentation-editor</a> - Web labelling tool for camera and LIDAR data</li>
 </ul>
 <h4 id="MultiDomain"><a href="#MultiDomain" class="headerlink" title="MultiDomain"></a>MultiDomain</h4><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/heartexlabs/label-studio">Label Studio</a> - Label Studio is a configurable data annotation tool that works with different data types</li>
-<li><a target="_blank" rel="noopener" href="https://dataturks.com/">Dataturks</a> - Dataturks support E2E tagging of data items like video, images (classification, segmentation and labelling) and text (full length document annotations for PDF, Doc, Text etc) for ML projects.</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/heartexlabs/label-studio">Label Studio</a> - Label Studio is a configurable data annotation tool that works with different data types</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://dataturks.com/">Dataturks</a> - Dataturks support E2E tagging of data items like video, images (classification, segmentation and labelling) and text (full length document annotations for PDF, Doc, Text etc) for ML projects.</p>
+</li>
 </ul>
 
 	

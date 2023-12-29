@@ -128,9 +128,37 @@
   <div class="row">
 	
 	
-		<h1 id="补帧-插帧-提高帧数-黑白相片上色-慢动作视频-照片优化-提高清晰度-模糊变清晰-人像美颜"><a href="#补帧-插帧-提高帧数-黑白相片上色-慢动作视频-照片优化-提高清晰度-模糊变清晰-人像美颜" class="headerlink" title="补帧 插帧 提高帧数 黑白相片上色 慢动作视频 照片优化 提高清晰度 模糊变清晰 人像美颜"></a>补帧 插帧 提高帧数 黑白相片上色 慢动作视频 照片优化 提高清晰度 模糊变清晰 人像美颜</h1><p>超分辨率 super resolution <a target="_blank" rel="noopener" href="https://github.com/nihui/realcugan-ncnn-vulkan">realcugan</a> <a target="_blank" rel="noopener" href="https://github.com/bilibili/ailab/tree/main/Real-CUGAN">bilibili official real cugan</a><br>avisynth的替代品：<a target="_blank" rel="noopener" href="http://vapoursynth.com/doc/pythonreference.html#grammar">vapoursynth</a>（in Python） FrameServer<br>vapoursynth is somehow installed on python 3.10(brew). do not know what depends on that.<br><a target="_blank" rel="noopener" href="https://github.com/dubhater/vapoursynth-mvtools">mvtools for vapoursynth</a> motion compensation<br>效果好 速度慢 <a target="_blank" rel="noopener" href="https://github.com/baowenbo/DAIN">dain</a><br><a target="_blank" rel="noopener" href="https://github.com/MegEngine/ECCV2022-RIFE">rife</a> 速度快 画质会变差 <a target="_blank" rel="noopener" href="https://github.com/megvii-research/ECCV2022-RIFE">another repo link with more stars</a><br><a target="_blank" rel="noopener" href="https://gist.github.com/Mr-Z-2697/5dab5352e078cdde96453216ad7a7f92">vapoursynth rife filter usage</a> just a gist<br><a target="_blank" rel="noopener" href="https://vsdb.top/plugins/rife">vsrife using cuda</a><br><a target="_blank" rel="noopener" href="https://vsdb.top/plugins/rife">rife plugin for vapoursynth using vulkan</a><br><a target="_blank" rel="noopener" href="https://github.com/avinashpaliwal/Super-SloMo/">nvidia super slomo</a> 比较吃显存 需要NVIDIA SDK 速度快<br><a target="_blank" rel="noopener" href="https://github.com/martkartasev/sepconv">sepconv</a> 看起来比较模糊 但是还是比直接overlay要好<br><a target="_blank" rel="noopener" href="https://github.com/sniklaus/sepconv-slomo">pytorch sepconv slomo</a><br><a target="_blank" rel="noopener" href="https://github.com/baowenbo/MEMC-Net">memc-net</a>比较清晰<br>FFmpeg自带插帧的filter：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i input.60fps.hevc -filter <span class="string">&quot;minterpolate=&#x27;fps=120&#x27;&quot;</span> output.120fps.hevc</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/projectdetail/1161285?channelType=0&channel=0">ai黑白上色可以把原视频洗稿</a>：image colorization<br><a target="_blank" rel="noopener" href="https://github.com/emilwallner/Coloring-greyscale-images">coloring grayscale images</a><br>Coloring black and white images with deep learning<br>memc (motion estimation&#x2F;motion compensation)<br>在CSDN上看到的算法名称和内容<br>内置超分辨率算法:<br>Waifu2x &#x2F; SRMD &#x2F; RealSR &#x2F; Real-ESRGAN&#x2F; Real-CUGAN &#x2F; Anime4K &#x2F; ACNet<br>内置超分辨率引擎:<br>Waifu2x-caffe &#x2F; Waifu2x-converter &#x2F; Waifu2x-ncnn-vulkan<br>SRMD-ncnn-vulkan &#x2F; RealSR-ncnn-vulkan &#x2F; Anime4KCPP &#x2F; SRMD-CUDA<br>RealESRGAN-NCNN-Vulkan &#x2F; Real-CUGAN-ncnn-vulkan<br>内置插帧算法:<br>RIFE &#x2F; CAIN &#x2F; DAIN<br>内置插帧引擎:<br>rife-ncnn-vulkan &#x2F; cain-ncnn-vulkan &#x2F; dain-ncnn-vulkan</p>
+		<h1 id="补帧-插帧-提高帧数-黑白相片上色-慢动作视频-照片优化-提高清晰度-模糊变清晰-人像美颜"><a href="#补帧-插帧-提高帧数-黑白相片上色-慢动作视频-照片优化-提高清晰度-模糊变清晰-人像美颜" class="headerlink" title="补帧 插帧 提高帧数 黑白相片上色 慢动作视频 照片优化 提高清晰度 模糊变清晰 人像美颜"></a>补帧 插帧 提高帧数 黑白相片上色 慢动作视频 照片优化 提高清晰度 模糊变清晰 人像美颜</h1><p>超分辨率 super resolution <a target="_blank" rel="noopener" href="https://github.com/nihui/realcugan-ncnn-vulkan">realcugan</a> <a target="_blank" rel="noopener" href="https://github.com/bilibili/ailab/tree/main/Real-CUGAN">bilibili official real cugan</a></p>
+<p>avisynth的替代品：<a target="_blank" rel="noopener" href="http://vapoursynth.com/doc/pythonreference.html#grammar">vapoursynth</a>（in Python） FrameServer</p>
+<p>vapoursynth is somehow installed on python 3.10(brew). do not know what depends on that.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/dubhater/vapoursynth-mvtools">mvtools for vapoursynth</a> motion compensation</p>
+<p>效果好 速度慢 <a target="_blank" rel="noopener" href="https://github.com/baowenbo/DAIN">dain</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/MegEngine/ECCV2022-RIFE">rife</a> 速度快 画质会变差 <a target="_blank" rel="noopener" href="https://github.com/megvii-research/ECCV2022-RIFE">another repo link with more stars</a></p>
+<p><a target="_blank" rel="noopener" href="https://gist.github.com/Mr-Z-2697/5dab5352e078cdde96453216ad7a7f92">vapoursynth rife filter usage</a> just a gist</p>
+<p><a target="_blank" rel="noopener" href="https://vsdb.top/plugins/rife">vsrife using cuda</a></p>
+<p><a target="_blank" rel="noopener" href="https://vsdb.top/plugins/rife">rife plugin for vapoursynth using vulkan</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/avinashpaliwal/Super-SloMo/">nvidia super slomo</a> 比较吃显存 需要NVIDIA SDK 速度快</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/martkartasev/sepconv">sepconv</a> 看起来比较模糊 但是还是比直接overlay要好</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/sniklaus/sepconv-slomo">pytorch sepconv slomo</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/baowenbo/MEMC-Net">memc-net</a>比较清晰</p>
+<p>FFmpeg自带插帧的filter：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i input.60fps.hevc -filter <span class="string">&quot;minterpolate=&#x27;fps=120&#x27;&quot;</span> output.120fps.hevc</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/projectdetail/1161285?channelType=0&channel=0">ai黑白上色可以把原视频洗稿</a>：image colorization</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/emilwallner/Coloring-greyscale-images">coloring grayscale images</a></p>
+<p>Coloring black and white images with deep learning</p>
+<p>memc (motion estimation&#x2F;motion compensation)</p>
+<p>在CSDN上看到的算法名称和内容</p>
+<p>内置超分辨率算法:</p>
+<p>Waifu2x &#x2F; SRMD &#x2F; RealSR &#x2F; Real-ESRGAN&#x2F; Real-CUGAN &#x2F; Anime4K &#x2F; ACNet</p>
+<p>内置超分辨率引擎:</p>
+<p>Waifu2x-caffe &#x2F; Waifu2x-converter &#x2F; Waifu2x-ncnn-vulkan</p>
+<p>SRMD-ncnn-vulkan &#x2F; RealSR-ncnn-vulkan &#x2F; Anime4KCPP &#x2F; SRMD-CUDA</p>
+<p>RealESRGAN-NCNN-Vulkan &#x2F; Real-CUGAN-ncnn-vulkan</p>
+<p>内置插帧算法:</p>
+<p>RIFE &#x2F; CAIN &#x2F; DAIN</p>
+<p>内置插帧引擎:</p>
+<p>rife-ncnn-vulkan &#x2F; cain-ncnn-vulkan &#x2F; dain-ncnn-vulkan</p>
 
 	
 	</div>
@@ -154,7 +182,25 @@
   <div class="row">
 	
 	
-		<h1 id="AI上色-ffmpeg去特定颜色-调色"><a href="#AI上色-ffmpeg去特定颜色-调色" class="headerlink" title="AI上色 ffmpeg去特定颜色 调色"></a>AI上色 ffmpeg去特定颜色 调色</h1><p><a target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/projectdetail/1161285?channelType=0&channel=0">可能和GAN有关</a><br>use paddlegan for coloring<br>可以去掉血腥色情 暴力可能不行 需要剪辑<br>FFmpeg remove color:<br><a target="_blank" rel="noopener" href="https://video.stackexchange.com/questions/33588/using-ffmpeg-can-i-remove-the-color-from-an-area-of-the-video">https://video.stackexchange.com/questions/33588/using-ffmpeg-can-i-remove-the-color-from-an-area-of-the-video</a><br><a target="_blank" rel="noopener" href="http://johnriselvato.com/ffmpeg-how-to-remove-all-colors-except-one-from-a-video/">http://johnriselvato.com/ffmpeg-how-to-remove-all-colors-except-one-from-a-video/</a><br>face coloring:<br><a target="_blank" rel="noopener" href="https://github.com/Xu-Justin/Grayscale-Face-Coloring">https://github.com/Xu-Justin/Grayscale-Face-Coloring</a><br>nvidia coloring:<br><a target="_blank" rel="noopener" href="https://developer.nvidia.com/blog/easily-colorize-black-and-white-photos-with-ai/">https://developer.nvidia.com/blog/easily-colorize-black-and-white-photos-with-ai/</a><br>github topic on image colorization:<br><a target="_blank" rel="noopener" href="https://github.com/topics/image-colorization">https://github.com/topics/image-colorization</a><br>github repos on image colorization:<br><a target="_blank" rel="noopener" href="https://github.com/rrupeshh/Auto-Colorization-Of-GrayScale-Image">https://github.com/rrupeshh/Auto-Colorization-Of-GrayScale-Image</a><br><a target="_blank" rel="noopener" href="https://github.com/aDouladiris/Grayscale-Image-Colorization">https://github.com/aDouladiris/Grayscale-Image-Colorization</a><br><a target="_blank" rel="noopener" href="https://github.com/aakaashjois/Colorizing-Grayscale-Images">https://github.com/aakaashjois/Colorizing-Grayscale-Images</a><br><a target="_blank" rel="noopener" href="https://github.com/emilwallner/Coloring-greyscale-images">https://github.com/emilwallner/Coloring-greyscale-images</a><br>curated list on image colorization:<br><a target="_blank" rel="noopener" href="https://github.com/oskar-j/awesome-image-coloring">https://github.com/oskar-j/awesome-image-coloring</a></p>
+		<h1 id="AI上色-ffmpeg去特定颜色-调色"><a href="#AI上色-ffmpeg去特定颜色-调色" class="headerlink" title="AI上色 ffmpeg去特定颜色 调色"></a>AI上色 ffmpeg去特定颜色 调色</h1><p><a target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/projectdetail/1161285?channelType=0&channel=0">可能和GAN有关</a></p>
+<p>use paddlegan for coloring</p>
+<p>可以去掉血腥色情 暴力可能不行 需要剪辑</p>
+<p>FFmpeg remove color:</p>
+<p><a target="_blank" rel="noopener" href="https://video.stackexchange.com/questions/33588/using-ffmpeg-can-i-remove-the-color-from-an-area-of-the-video">https://video.stackexchange.com/questions/33588/using-ffmpeg-can-i-remove-the-color-from-an-area-of-the-video</a></p>
+<p><a target="_blank" rel="noopener" href="http://johnriselvato.com/ffmpeg-how-to-remove-all-colors-except-one-from-a-video/">http://johnriselvato.com/ffmpeg-how-to-remove-all-colors-except-one-from-a-video/</a></p>
+<p>face coloring:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Xu-Justin/Grayscale-Face-Coloring">https://github.com/Xu-Justin/Grayscale-Face-Coloring</a></p>
+<p>nvidia coloring:</p>
+<p><a target="_blank" rel="noopener" href="https://developer.nvidia.com/blog/easily-colorize-black-and-white-photos-with-ai/">https://developer.nvidia.com/blog/easily-colorize-black-and-white-photos-with-ai/</a></p>
+<p>github topic on image colorization:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/topics/image-colorization">https://github.com/topics/image-colorization</a></p>
+<p>github repos on image colorization:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/rrupeshh/Auto-Colorization-Of-GrayScale-Image">https://github.com/rrupeshh/Auto-Colorization-Of-GrayScale-Image</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/aDouladiris/Grayscale-Image-Colorization">https://github.com/aDouladiris/Grayscale-Image-Colorization</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/aakaashjois/Colorizing-Grayscale-Images">https://github.com/aakaashjois/Colorizing-Grayscale-Images</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/emilwallner/Coloring-greyscale-images">https://github.com/emilwallner/Coloring-greyscale-images</a></p>
+<p>curated list on image colorization:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/oskar-j/awesome-image-coloring">https://github.com/oskar-j/awesome-image-coloring</a></p>
 
 	
 	</div>

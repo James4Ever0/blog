@@ -125,10 +125,14 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <h1 id="Docker-container-storage-quota"><a href="#Docker-container-storage-quota" class="headerlink" title="Docker container storage quota"></a>Docker container storage quota</h1><p><code>--storage-opt</code> is supported only for overlay over xfs with ‘pquota’ mount option.<br>change data-root to somewhere else in <code>/etc/docker/daemon.json</code><br>edit <code>/etc/fstab</code> and add our xfs block on new line (find uuid using blkid)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --storage-opt size=10M --<span class="built_in">rm</span> -it alpine</span><br></pre></td></tr></table></figure>
+	  <h1 id="Docker-container-storage-quota"><a href="#Docker-container-storage-quota" class="headerlink" title="Docker container storage quota"></a>Docker container storage quota</h1><p><code>--storage-opt</code> is supported only for overlay over xfs with ‘pquota’ mount option.</p>
+<p>change data-root to somewhere else in <code>/etc/docker/daemon.json</code></p>
+<p>edit <code>/etc/fstab</code> and add our xfs block on new line (find uuid using blkid)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run --storage-opt size=10M --<span class="built_in">rm</span> -it alpine</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>when using <a target="_blank" rel="noopener" href="https://docs.docker.com/storage/storagedriver/device-mapper-driver">devmapper</a> make sure size is greater than 10G (default)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --storage-opt size=11G --r<span class="string">&#x27;m -it alpine</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run --storage-opt size=11G --r<span class="string">&#x27;m -it alpine</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
+
 <p>zfs, vfs (not a unionfs, but for testing) storage drivers also supports disk quota. you may use it by changing <code>data-root</code> to the related storage device.</p>
 	  
 	</div>

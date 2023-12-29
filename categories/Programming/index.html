@@ -128,12 +128,20 @@
   <div class="row">
 	
 	
-		<p>if it only blocks a range of ip, you use proxy to avoid this constraint.<br>some mirror sites serves us poorly and block access from us. we point them out, list alternatives and provide quick fixes.<br>these actions are intentionally done against specific group of people. it does block a whole range of IPs.<br>actors:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://mirrors.aliyun.com</span><br><span class="line">https://mirrors.tuna.tsinghua.edu.cn/</span><br></pre></td></tr></table></figure>
-<p>fixes:<br>currently we use some previously picked up tunnel accounts provided by topsap. may fix this problem?<br>python pip:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 config <span class="built_in">set</span> global.index-url https://mirrors.ustc.edu.cn/pypi/web/simple</span><br></pre></td></tr></table></figure>
+		<p>if it only blocks a range of ip, you use proxy to avoid this constraint.</p>
+<p>some mirror sites serves us poorly and block access from us. we point them out, list alternatives and provide quick fixes.</p>
+<p>these actions are intentionally done against specific group of people. it does block a whole range of IPs.</p>
+<p>actors:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://mirrors.aliyun.com</span><br><span class="line">https://mirrors.tuna.tsinghua.edu.cn/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>fixes:</p>
+<p>currently we use some previously picked up tunnel accounts provided by topsap. may fix this problem?</p>
+<p>python pip:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip3 config <span class="built_in">set</span> global.index-url https://mirrors.ustc.edu.cn/pypi/web/simple</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>taobao npm mirror:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://npm.taobao.org =&gt; http://npmmirror.com</span><br><span class="line">http://registry.npm.taobao.org =&gt; http://registry.npmmirror.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http://npm.taobao.org =&gt; http://npmmirror.com</span><br><span class="line">http://registry.npm.taobao.org =&gt; http://registry.npmmirror.com</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 	
 	</div>
   <a type="button" href="/blog/2022/12/06/26cb109f-bc27-4499-b54f-a74f3ea429fb/#more" class="btn btn-default more">Read More</a>
@@ -156,7 +164,20 @@
   <div class="row">
 	
 	
-		<p>• You must demonstrate multiple examples of inheritance.<br>You may need to include classes that were not mentioned to demonstrate appropriate inheritance relationships.<br>• You must demonstrate multiple examples of aggregation&#x2F;composition&#x2F;association. You may need to create lists of animals or tiles in the EcoSim class.<br>• You must create methods not mentioned in the text above.<br>• You must include one more type of animal, and one more plant in your program.<br>• You must demonstrate polymorphism by calling overridden methods, or by checking the types of objects.<br>• You must demonstrate good encapsulation by making dangerous variables private or protected and providing getter or setter methods to them.<br>• You must include     str	and  repr	methods for each class. You may print(self) or print(animals) to help you with debugging.<br>• You must update your UML diagram written in part 1 and submit it with your code.<br>• Your code must be documented appropriately using docstrings.<br>• You must make at least 10 commits using git with appropriate comments.<br>You must use git version control to keep track of your progress during implementation. Only a local git repository is required in this assignment. You are not required to use an online repository, but if you choose to, please make sure your online repository is private. You should perform regular commits as you implement features and fix errors. Your commit comments should be short and reflect the changes that were made.<br>• You must write a unit test for the game.Vector2D class.<br>You will find Vector2D in the game.py file. You must create a new file called test_vector2d.py and write a test method for each of the following methods in Vector2D: add, subtract, scale, length, distance, normalize. You may either use the unittest or the pytest modules. Each test method should call those methods two times using different arguments: one safe set of arguments, and one dangerous set of arguments.</p>
+		<p>• You must demonstrate multiple examples of inheritance.</p>
+<p>You may need to include classes that were not mentioned to demonstrate appropriate inheritance relationships.</p>
+<p>• You must demonstrate multiple examples of aggregation&#x2F;composition&#x2F;association. You may need to create lists of animals or tiles in the EcoSim class.</p>
+<p>• You must create methods not mentioned in the text above.</p>
+<p>• You must include one more type of animal, and one more plant in your program.</p>
+<p>• You must demonstrate polymorphism by calling overridden methods, or by checking the types of objects.</p>
+<p>• You must demonstrate good encapsulation by making dangerous variables private or protected and providing getter or setter methods to them.</p>
+<p>• You must include     str	and  repr	methods for each class. You may print(self) or print(animals) to help you with debugging.</p>
+<p>• You must update your UML diagram written in part 1 and submit it with your code.</p>
+<p>• Your code must be documented appropriately using docstrings.</p>
+<p>• You must make at least 10 commits using git with appropriate comments.</p>
+<p>You must use git version control to keep track of your progress during implementation. Only a local git repository is required in this assignment. You are not required to use an online repository, but if you choose to, please make sure your online repository is private. You should perform regular commits as you implement features and fix errors. Your commit comments should be short and reflect the changes that were made.</p>
+<p>• You must write a unit test for the game.Vector2D class.</p>
+<p>You will find Vector2D in the game.py file. You must create a new file called test_vector2d.py and write a test method for each of the following methods in Vector2D: add, subtract, scale, length, distance, normalize. You may either use the unittest or the pytest modules. Each test method should call those methods two times using different arguments: one safe set of arguments, and one dangerous set of arguments.</p>
 
 	
 	</div>

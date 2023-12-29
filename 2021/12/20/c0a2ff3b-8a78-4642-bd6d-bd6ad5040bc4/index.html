@@ -125,8 +125,16 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <p>grant permission for termux:api<br>android.permission.WRITE_SETTINGS can only be granted in settings tab.<br><a target="_blank" rel="noopener" href="https://github.com/TilesOrganization/support/wiki/How-to-use-ADB-to-grant-permissions">https://github.com/TilesOrganization/support/wiki/How-to-use-ADB-to-grant-permissions</a><br>adb shell pm grant com.rascarlo.quick.settings.tiles android.permission.WRITE_SECURE_SETTINGS<br>pm grant com.termux.api android.permission.WRITE_SECURE_SETTINGS<br>pm list packages<br>the brightness bug is solved by uninstalling the unintended settings app. i don’t know if this will cause more problems.<br>to remove termux banner&#x2F; termux welcome message:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> .. &amp;&amp; <span class="built_in">cd</span> usr/etc &amp;&amp; <span class="built_in">rm</span> -rf motd</span><br></pre></td></tr></table></figure>	  
+	  <p>grant permission for termux:api</p>
+<p>android.permission.WRITE_SETTINGS can only be granted in settings tab.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/TilesOrganization/support/wiki/How-to-use-ADB-to-grant-permissions">https://github.com/TilesOrganization/support/wiki/How-to-use-ADB-to-grant-permissions</a></p>
+<p>adb shell pm grant com.rascarlo.quick.settings.tiles android.permission.WRITE_SECURE_SETTINGS</p>
+<p>pm grant com.termux.api android.permission.WRITE_SECURE_SETTINGS</p>
+<p>pm list packages</p>
+<p>the brightness bug is solved by uninstalling the unintended settings app. i don’t know if this will cause more problems.</p>
+<p>to remove termux banner&#x2F; termux welcome message:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> .. &amp;&amp; <span class="built_in">cd</span> usr/etc &amp;&amp; <span class="built_in">rm</span> -rf motd</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+	  
 	</div>
 
 	<!-- recommended posts -->

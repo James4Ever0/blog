@@ -128,7 +128,9 @@
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="http://t.zoukankan.com/shlyd-p-14726850.html">frida主动调用函数</a><br><a target="_blank" rel="noopener" href="https://blog.wuhao13.xin/1540.html">使用Frida框架hook安卓native方法</a><br><a target="_blank" rel="noopener" href="http://www.mchz.com.cn/cn/service/Safety-Lab/info_26_itemid_5132.html">frida主动调用简介</a></p>
+		<p><a target="_blank" rel="noopener" href="http://t.zoukankan.com/shlyd-p-14726850.html">frida主动调用函数</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.wuhao13.xin/1540.html">使用Frida框架hook安卓native方法</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.mchz.com.cn/cn/service/Safety-Lab/info_26_itemid_5132.html">frida主动调用简介</a></p>
 
 	
 	</div>
@@ -153,7 +155,8 @@
 	
 	
 		<h1 id="register-new-file-to-android-gallery"><a href="#register-new-file-to-android-gallery" class="headerlink" title="register new file to android gallery"></a>register new file to android gallery</h1><p>code in beanshell:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> android.net.Uri;</span><br><span class="line"><span class="type">Intent</span> <span class="variable">mediaScanIntent</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Intent</span>(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);</span><br><span class="line"><span class="type">Uri</span> <span class="variable">contentUri</span> <span class="operator">=</span> Uri.parse(<span class="string">&quot;file:///storage/emulated/0/Movies/output0_higher.mp4&quot;</span>);</span><br><span class="line">mediaScanIntent.setData(contentUri);</span><br><span class="line">ctx.sendBroadcast(mediaScanIntent);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> android.net.Uri;</span><br><span class="line"><span class="type">Intent</span> <span class="variable">mediaScanIntent</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Intent</span>(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);</span><br><span class="line"><span class="type">Uri</span> <span class="variable">contentUri</span> <span class="operator">=</span> Uri.parse(<span class="string">&quot;file:///storage/emulated/0/Movies/output0_higher.mp4&quot;</span>);</span><br><span class="line">mediaScanIntent.setData(contentUri);</span><br><span class="line">ctx.sendBroadcast(mediaScanIntent);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 	
 	</div>
   <a type="button" href="/blog/2022/11/04/0307d11f-2de1-4a43-82e5-7ee7476e9fc1/#more" class="btn btn-default more">Read More</a>

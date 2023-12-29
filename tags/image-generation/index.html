@@ -129,8 +129,9 @@
 	
 	
 		<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/15792105/simulating-tv-noise">simulating tv noise</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -f lavfi -i nullsrc=s=1280x720 -filter_complex \</span><br><span class="line"><span class="string">&quot;geq=random(1)*255:128:128;aevalsrc=-2+random(0)&quot;</span> \</span><br><span class="line">-t 5 output.mkv</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -f rawvideo -video_size 1280x720 -pixel_format yuv420p -framerate 25 \</span><br><span class="line">-i /dev/urandom -ar 48000 -ac 2 -f s16le -i /dev/urandom -codec:a copy \</span><br><span class="line">-t 5 output.mkv</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -f lavfi -i nullsrc=s=1280x720 -filter_complex \</span><br><span class="line"><span class="string">&quot;geq=random(1)*255:128:128;aevalsrc=-2+random(0)&quot;</span> \</span><br><span class="line">-t 5 output.mkv</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -f rawvideo -video_size 1280x720 -pixel_format yuv420p -framerate 25 \</span><br><span class="line">-i /dev/urandom -ar 48000 -ac 2 -f s16le -i /dev/urandom -codec:a copy \</span><br><span class="line">-t 5 output.mkv</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 	
 	</div>
   <a type="button" href="/blog/2022/11/09/1210e7f0-68eb-4dbc-9012-9f7bbdb4b730/#more" class="btn btn-default more">Read More</a>
@@ -153,7 +154,11 @@
   <div class="row">
 	
 	
-		<p>magenta studio sketch completion<br>awesome sketch based applications paper and code sketch syntheses inbetweening:<br><a target="_blank" rel="noopener" href="https://github.com/MarkMoHR/Awesome-Sketch-Based-Applications#17-sketch-animationinbetweening">https://github.com/MarkMoHR/Awesome-Sketch-Based-Applications#17-sketch-animationinbetweening</a><br>deep sketch based cartoon inbetweening:<br><a target="_blank" rel="noopener" href="https://github.com/xiaoyu258/Inbetweening">https://github.com/xiaoyu258/Inbetweening</a></p>
+		<p>magenta studio sketch completion</p>
+<p>awesome sketch based applications paper and code sketch syntheses inbetweening:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/MarkMoHR/Awesome-Sketch-Based-Applications#17-sketch-animationinbetweening">https://github.com/MarkMoHR/Awesome-Sketch-Based-Applications#17-sketch-animationinbetweening</a></p>
+<p>deep sketch based cartoon inbetweening:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/xiaoyu258/Inbetweening">https://github.com/xiaoyu258/Inbetweening</a></p>
 
 	
 	</div>
@@ -177,7 +182,14 @@
   <div class="row">
 	
 	
-		<p>open sourced text to image:<br><a target="_blank" rel="noopener" href="https://github.com/lucidrains/DALLE-pytorch">https://github.com/lucidrains/DALLE-pytorch</a><br>dalle_mini:<br><a target="_blank" rel="noopener" href="https://github.com/borisdayma/dalle-mini">https://github.com/borisdayma/dalle-mini</a><br>jina ai human in the loop multi prompt text to image dalle-flow:<br><a target="_blank" rel="noopener" href="https://github.com/jina-ai/dalle-flow">https://github.com/jina-ai/dalle-flow</a><br>dalle playground:<br><a target="_blank" rel="noopener" href="https://github.com/saharmor/dalle-playground">https://github.com/saharmor/dalle-playground</a></p>
+		<p>open sourced text to image:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lucidrains/DALLE-pytorch">https://github.com/lucidrains/DALLE-pytorch</a></p>
+<p>dalle_mini:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/borisdayma/dalle-mini">https://github.com/borisdayma/dalle-mini</a></p>
+<p>jina ai human in the loop multi prompt text to image dalle-flow:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jina-ai/dalle-flow">https://github.com/jina-ai/dalle-flow</a></p>
+<p>dalle playground:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/saharmor/dalle-playground">https://github.com/saharmor/dalle-playground</a></p>
 
 	
 	</div>

@@ -126,11 +126,38 @@
 	  		
 
 	  <h1 id="Advanced-ASS-Subtitle-Karaoke-Effects"><a href="#Advanced-ASS-Subtitle-Karaoke-Effects" class="headerlink" title="Advanced ASS Subtitle Karaoke Effects"></a>Advanced ASS Subtitle Karaoke Effects</h1><p><a target="_blank" rel="noopener" href="https://github.com/arch1t3cht/Aegisub-Scripts/blob/c3cb38ccdea000c708c3abbd2912da2134e61e23/doc/templaters.md">library collection and guide on how to create karakoe effects programmatically</a></p>
-<h2 id="lrc-files"><a href="#lrc-files" class="headerlink" title="lrc files"></a>lrc files</h2><p>crop music that does not sing too early? maybe no need.<br>we need to sort them out by time! prevent serious issues.<br>skip empty lines?<br>lrc files only have start time but no end time.<br>we group parallel lyrics by time, if they are close enough we make it into a group.<br>groups act as time separators. no two group share the same time. <strong>also group have maximum span time, minimum span time calculated by content</strong>, and group should always in bound.<br><strong>should apply the same min-max rule when selecting my video clips</strong><br><a target="_blank" rel="noopener" href="https://web.archive.org/web/20200722050630/http://docs.aegisub.org/3.2/ASS_Tags/">all ass file tags, for custom karaoke effects creation</a><br>my karaoke effect:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;\k-50\K400&#125;</span><br><span class="line">&#123;\k-&lt;initial offset&gt;\K&lt;total duration&gt;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="lrc-files"><a href="#lrc-files" class="headerlink" title="lrc files"></a>lrc files</h2><p>crop music that does not sing too early? maybe no need.</p>
+<p>we need to sort them out by time! prevent serious issues.</p>
+<p>skip empty lines?</p>
+<p>lrc files only have start time but no end time.</p>
+<p>we group parallel lyrics by time, if they are close enough we make it into a group.</p>
+<p>groups act as time separators. no two group share the same time. <strong>also group have maximum span time, minimum span time calculated by content</strong>, and group should always in bound.</p>
+<p><strong>should apply the same min-max rule when selecting my video clips</strong></p>
+<p><a target="_blank" rel="noopener" href="https://web.archive.org/web/20200722050630/http://docs.aegisub.org/3.2/ASS_Tags/">all ass file tags, for custom karaoke effects creation</a></p>
+<p>my karaoke effect:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;\k-50\K400&#125;</span><br><span class="line">&#123;\k-&lt;initial offset&gt;\K&lt;total duration&gt;&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>play ass file with mpv on demo video, full screen, no audio:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rootpath=/Users/jamesbrown/desktop/works/pyjom_remote/</span><br><span class="line">mpv --fs --no-audio --sub-file=<span class="string">&quot;<span class="variable">$rootpath</span>/tests/karaoke_effects/pyonfx_test/examples/2 - Beginner/Output.ass&quot;</span> <span class="string">&quot;<span class="variable">$rootpath</span>/samples/video/karaoke_effects_source.mp4&quot;</span></span><br></pre></td></tr></table></figure>
-<p>create karaoke effects<br><a target="_blank" rel="noopener" href="https://github.com/Kagu-chan/FXSpindle">https://github.com/Kagu-chan/FXSpindle</a><br>karaoke effects<br><a target="_blank" rel="noopener" href="https://github.com/Youka/NyuFX">https://github.com/Youka/NyuFX</a><br><a target="_blank" rel="noopener" href="https://github.com/CoffeeStraw/PyonFX">pyonfx code</a><br>recommend to use effect <code>2 beginners -&gt; 3 variants</code> in examples, while <code>3 advanced -&gt; 2 testing pixels</code> as reference (more advanced but incomplete, and might be very intensive)<br><a target="_blank" rel="noopener" href="https://pyonfx.readthedocs.io/en/latest/quick%20start.html#starting-out">pyonfx documentation</a><br><a target="_blank" rel="noopener" href="https://github.com/logarrhythmic/karaOK">https://github.com/logarrhythmic/karaOK</a><br>aegisub and its plugins<br><a target="_blank" rel="noopener" href="https://github.com/Myaamori/aegisub-cli">https://github.com/Myaamori/aegisub-cli</a><br><a target="_blank" rel="noopener" href="https://github.com/qwe7989199/Lyric-Importer-for-Aegisub">https://github.com/qwe7989199/Lyric-Importer-for-Aegisub</a><br><a target="_blank" rel="noopener" href="https://github.com/qwe7989199/aegisub_scripts">https://github.com/qwe7989199/aegisub_scripts</a><br><a target="_blank" rel="noopener" href="https://github.com/lyger/Aegisub_automation_scripts">https://github.com/lyger/Aegisub_automation_scripts</a><br><a target="_blank" rel="noopener" href="http://www.aegisub.org/">http://www.aegisub.org/</a><br>eyecandy create karaoke ass files:<br><a target="_blank" rel="noopener" href="https://github.com/Alquimista/Eyecandy-py">https://github.com/Alquimista/Eyecandy-py</a><br>create karaoke effects subtitle with lrc file, support chinese<br><a target="_blank" rel="noopener" href="https://github.com/DYY-Studio/lrc2ass_py3">https://github.com/DYY-Studio/lrc2ass_py3</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rootpath=/Users/jamesbrown/desktop/works/pyjom_remote/</span><br><span class="line">mpv --fs --no-audio --sub-file=<span class="string">&quot;<span class="variable">$rootpath</span>/tests/karaoke_effects/pyonfx_test/examples/2 - Beginner/Output.ass&quot;</span> <span class="string">&quot;<span class="variable">$rootpath</span>/samples/video/karaoke_effects_source.mp4&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>create karaoke effects</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Kagu-chan/FXSpindle">https://github.com/Kagu-chan/FXSpindle</a></p>
+<p>karaoke effects</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Youka/NyuFX">https://github.com/Youka/NyuFX</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/CoffeeStraw/PyonFX">pyonfx code</a></p>
+<p>recommend to use effect <code>2 beginners -&gt; 3 variants</code> in examples, while <code>3 advanced -&gt; 2 testing pixels</code> as reference (more advanced but incomplete, and might be very intensive)</p>
+<p><a target="_blank" rel="noopener" href="https://pyonfx.readthedocs.io/en/latest/quick%20start.html#starting-out">pyonfx documentation</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/logarrhythmic/karaOK">https://github.com/logarrhythmic/karaOK</a></p>
+<p>aegisub and its plugins</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Myaamori/aegisub-cli">https://github.com/Myaamori/aegisub-cli</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/qwe7989199/Lyric-Importer-for-Aegisub">https://github.com/qwe7989199/Lyric-Importer-for-Aegisub</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/qwe7989199/aegisub_scripts">https://github.com/qwe7989199/aegisub_scripts</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lyger/Aegisub_automation_scripts">https://github.com/lyger/Aegisub_automation_scripts</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.aegisub.org/">http://www.aegisub.org/</a></p>
+<p>eyecandy create karaoke ass files:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Alquimista/Eyecandy-py">https://github.com/Alquimista/Eyecandy-py</a></p>
+<p>create karaoke effects subtitle with lrc file, support chinese</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/DYY-Studio/lrc2ass_py3">https://github.com/DYY-Studio/lrc2ass_py3</a></p>
 	  
 	</div>
 

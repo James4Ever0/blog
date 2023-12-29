@@ -128,17 +128,48 @@
   <div class="row">
 	
 	
-		<p>qq seems to release mac qq with electron, lot more easier for reverse engineering<br><a target="_blank" rel="noopener" href="https://zu1k.com/posts/security/reverse/golang-reverse/">how to reverse go binary, golang reverse</a><br>opqbot官方已经说了 登陆过程中会用到远程的服务器 这个服务器究竟在干什么不得而知 可能和登陆有关也可能没有关系 但是服务器维护期间是没法扫码登录的 如果有可以正常使用的secdata是可以直接启动服务的 不需要服务器 所以估计这个服务器很可能就是拿来解析cookie的<br>login error:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">2022/08/14 00:01:24.808 [I]  Scan Status 48 Uin 0</span><br><span class="line">2022/08/14 00:01:25.880 [I]  Scan Status 48 Uin 0</span><br><span class="line">2022/08/14 00:01:26.937 [I]  Scan Status 53 Uin 0</span><br><span class="line">2022/08/14 00:01:27.998 [I]  Scan Status 53 Uin 0</span><br><span class="line">2022/08/14 00:01:29.054 [N]  User &lt;userId&gt; 登录中..请勿连续操作,登录成功后或释放连接后在继续操作 登陆成功后请勿频繁扫码再次登陆(除非冻结导致的掉线) 发不出去群消息请挂机几天 TX日常风控</span><br><span class="line">=========本框架 🎈 免费 🎈 使用 谨防 ⚠️ 诈骗 ⚠️ 收费 切勿用于 🈲️ 非 🈲️ 法用途</span><br><span class="line">=========交流群:757360354 TG群组:https://t.me/IOTQQ</span><br><span class="line">=========开源社区 👍 https://github.com/opq-osc 👍</span><br><span class="line">=========项目主页 😄 https://github.com/OPQBOT/OPQ/wiki 😄</span><br><span class="line">=========项目Wiki 📒 https://github.com/OPQBOT/OPQ/wiki 📒</span><br><span class="line">2022/08/14 00:02:30.234 [W]  recvPump session 0D48F5949075DA13D3A9F83838903920</span><br><span class="line">2022/08/14 00:02:30.234 [A]  Default Closed:0D48F5949075DA13D3A9F83838903920</span><br><span class="line">2022/08/14 00:02:30.235 [D]  Unregister In Conn -&gt; 0D48F5949075DA13D3A9F83838903920</span><br></pre></td></tr></table></figure>
-<p>关于自动加群 可以考虑使用安卓手机自启动功能（需要下载<a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=imoblife.startupmanager">startup manager</a> 或者<a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=de.defim.apk.bootmanager&showAllReviews=true">boot manager</a>（有root权限和xposed框架）） 用<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/termux-appium">termux-appium</a> 自动操作手机在联网的情况下自启动加群<br>现在有两个标准<a target="_blank" rel="noopener" href="https://onebot.dev/">onebot</a> <a target="_blank" rel="noopener" href="https://nb2.baka.icu/">nonebot</a><br>这两个协议都不支持主动加好友 加群 还有收红包方法 至少mac qq协议支持这些方法 但是其他的协议比如手表 ipad协议支不支持就不清楚了<br>onebot有大量的<a target="_blank" rel="noopener" href="https://onebot.dev/ecosystem.html#onebot-12">qq适配器</a> 而nonebot有<a target="_blank" rel="noopener" href="https://nb2.baka.icu/store">大量的插件和除了qq以外的连接器</a><br>nonebot可以<a target="_blank" rel="noopener" href="https://onebot.adapters.nonebot.dev/docs/guide/installation">连接onebot</a><br>在onebot的qq适配器中 oicq可以查看qq历史聊天记录（有待验证） 可能对qq的数据爬取有帮助 视频爬取 <a target="_blank" rel="noopener" href="https://github.com/takayama-lily/oicq">oicq</a>这个适配器有在群里面加好友的方法<code>addFriend(gid, uid)</code>可以参考,提供了一些用于逆向qq协议的程序：<br><a target="_blank" rel="noopener" href="https://github.com/fuqiuluo/TXHook">txhook</a> 该软件适合在安卓8.0以上系统运行，理论支持安卓7.0以上，但是很多问题。群号：901422091 702991373</p>
+		<p>qq seems to release mac qq with electron, lot more easier for reverse engineering</p>
+<p><a target="_blank" rel="noopener" href="https://zu1k.com/posts/security/reverse/golang-reverse/">how to reverse go binary, golang reverse</a></p>
+<p>opqbot官方已经说了 登陆过程中会用到远程的服务器 这个服务器究竟在干什么不得而知 可能和登陆有关也可能没有关系 但是服务器维护期间是没法扫码登录的 如果有可以正常使用的secdata是可以直接启动服务的 不需要服务器 所以估计这个服务器很可能就是拿来解析cookie的</p>
+<p>login error:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">2022/08/14 00:01:24.808 [I]  Scan Status 48 Uin 0</span><br><span class="line">2022/08/14 00:01:25.880 [I]  Scan Status 48 Uin 0</span><br><span class="line">2022/08/14 00:01:26.937 [I]  Scan Status 53 Uin 0</span><br><span class="line">2022/08/14 00:01:27.998 [I]  Scan Status 53 Uin 0</span><br><span class="line">2022/08/14 00:01:29.054 [N]  User &lt;userId&gt; 登录中..请勿连续操作,登录成功后或释放连接后在继续操作 登陆成功后请勿频繁扫码再次登陆(除非冻结导致的掉线) 发不出去群消息请挂机几天 TX日常风控</span><br><span class="line">=========本框架 🎈 免费 🎈 使用 谨防 ⚠️ 诈骗 ⚠️ 收费 切勿用于 🈲️ 非 🈲️ 法用途</span><br><span class="line">=========交流群:757360354 TG群组:https://t.me/IOTQQ</span><br><span class="line">=========开源社区 👍 https://github.com/opq-osc 👍</span><br><span class="line">=========项目主页 😄 https://github.com/OPQBOT/OPQ/wiki 😄</span><br><span class="line">=========项目Wiki 📒 https://github.com/OPQBOT/OPQ/wiki 📒</span><br><span class="line">2022/08/14 00:02:30.234 [W]  recvPump session 0D48F5949075DA13D3A9F83838903920</span><br><span class="line">2022/08/14 00:02:30.234 [A]  Default Closed:0D48F5949075DA13D3A9F83838903920</span><br><span class="line">2022/08/14 00:02:30.235 [D]  Unregister In Conn -&gt; 0D48F5949075DA13D3A9F83838903920</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>关于自动加群 可以考虑使用安卓手机自启动功能（需要下载<a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=imoblife.startupmanager">startup manager</a> 或者<a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=de.defim.apk.bootmanager&showAllReviews=true">boot manager</a>（有root权限和xposed框架）） 用<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/termux-appium">termux-appium</a> 自动操作手机在联网的情况下自启动加群</p>
+<p>现在有两个标准<a target="_blank" rel="noopener" href="https://onebot.dev/">onebot</a> <a target="_blank" rel="noopener" href="https://nb2.baka.icu/">nonebot</a></p>
+<p>这两个协议都不支持主动加好友 加群 还有收红包方法 至少mac qq协议支持这些方法 但是其他的协议比如手表 ipad协议支不支持就不清楚了</p>
+<p>onebot有大量的<a target="_blank" rel="noopener" href="https://onebot.dev/ecosystem.html#onebot-12">qq适配器</a> 而nonebot有<a target="_blank" rel="noopener" href="https://nb2.baka.icu/store">大量的插件和除了qq以外的连接器</a></p>
+<p>nonebot可以<a target="_blank" rel="noopener" href="https://onebot.adapters.nonebot.dev/docs/guide/installation">连接onebot</a></p>
+<p>在onebot的qq适配器中 oicq可以查看qq历史聊天记录（有待验证） 可能对qq的数据爬取有帮助 视频爬取 <a target="_blank" rel="noopener" href="https://github.com/takayama-lily/oicq">oicq</a>这个适配器有在群里面加好友的方法<code>addFriend(gid, uid)</code>可以参考,提供了一些用于逆向qq协议的程序：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/fuqiuluo/TXHook">txhook</a> 该软件适合在安卓8.0以上系统运行，理论支持安卓7.0以上，但是很多问题。群号：901422091 702991373</p>
 <ul>
-<li>获取ShareKey\PublicKey\D2\A2…</li>
-<li>主动拦截固定Ecdh密钥及版本</li>
-<li>对Jce\Protobuf的自动分析</li>
-<li>过滤抓包，支持高级过滤（长按抓包页面的搜索栏展示&#x2F;隐藏图标）<br><a target="_blank" rel="noopener" href="https://protobuf-decoder.netlify.app/">protobuf online decode</a><br><a target="_blank" rel="noopener" href="https://github.com/takayama-lily/unpack-tools">protobuf unpack-tools</a><br>也有一些可以进行二次开发的<a target="_blank" rel="noopener" href="https://github.com/takayama-lily/oicq/blob/main/web-api.md">qq web api</a> 搜索QQ号和群号 且有个性签名等更多信息 或许可以搜索关键词？<br>这些适配器中有的提供了qq频道的支持：<br><a target="_blank" rel="noopener" href="https://github.com/takayama-lily/oicq-guild">oicq-guild</a><br>也可以考虑用<a target="_blank" rel="noopener" href="https://frida.re/">frida</a> <a target="_blank" rel="noopener" href="https://github.com/NationalSecurityAgency/ghidra">ghidra</a> <a target="_blank" rel="noopener" href="https://rada.re/n/radare2.html">radare2</a> <a target="_blank" rel="noopener" href="https://cutter.re/">cutter</a>来<a target="_blank" rel="noopener" href="https://cn.bing.com/search?q=reverse+go+binary&form=CHRDEF&sp=-1&pq=reverse+go+binary&sc=0-17&qs=n&sk=&cvid=3A1FCCCF9C2F495DB516CB656D281DCA&ghsh=0&ghacc=0&ghpl=">逆向opqbot的go编译好了的程序</a> 或者逆向分析opqbot的网络请求数据 甚至直接动态调用opqbot里面的方法 直接用其他机器人登陆之后获得的cookie进行操作<br>to get the token, login first, then visit <a target="_blank" rel="noopener" href="https://developer.gitter.im/apps">here</a> or click “sign in” <a target="_blank" rel="noopener" href="https://developer.gitter.im/">here</a><br>据说扫码登录只支持同一个ip下面的登陆 不知道为什么这个opqbot登陆失败 但是其他机器人都提供了账号密码登陆的渠道 将opqbot的协议逆向出来 或许可以提高登陆成功率 实现相同的功能<br>默认(可修改)在 .&#x2F;data&#x2F;your-account&#x2F; 下会自动生成device.json设备文件，登录完成后此设备文件长期有效<br>设备文件的生成并非随机，而是使用固定算法，一个账号会永远生成同一份设备文件<br>如果需要在异地服务器上登录，建议先在常用地通过设备验证并登录挂机一段时间<br>由于会生成相同设备文件，只要不手动修改，只需验证一次，在任何地区都可直接登录<br>it seems the login issue of opqbot is related to the account itself, not gitter token, software version or proxy<br>by the way we could always use go-cqhttp, without the ability to collect red packet and add group&#x2F;friends.<br>qq add group&#x2F;friends may be enabled by our windows virtual machines. without opq, it is very memory intensive.<br>tokens:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">74eb7eb14aa36d1b9c2c663bc49335e8becd5318</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2d391bd7639362032d09abfc5a9cc6368b7664d5</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bdf52599d992665509ee5b0b533d5eed08452def</span><br></pre></td></tr></table></figure></li>
+<li><p>获取ShareKey\PublicKey\D2\A2…</p>
+</li>
+<li><p>主动拦截固定Ecdh密钥及版本</p>
+</li>
+<li><p>对Jce\Protobuf的自动分析</p>
+</li>
+<li><p>过滤抓包，支持高级过滤（长按抓包页面的搜索栏展示&#x2F;隐藏图标）</p>
+</li>
 </ul>
+<p><a target="_blank" rel="noopener" href="https://protobuf-decoder.netlify.app/">protobuf online decode</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/takayama-lily/unpack-tools">protobuf unpack-tools</a></p>
+<p>也有一些可以进行二次开发的<a target="_blank" rel="noopener" href="https://github.com/takayama-lily/oicq/blob/main/web-api.md">qq web api</a> 搜索QQ号和群号 且有个性签名等更多信息 或许可以搜索关键词？</p>
+<p>这些适配器中有的提供了qq频道的支持：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/takayama-lily/oicq-guild">oicq-guild</a></p>
+<p>也可以考虑用<a target="_blank" rel="noopener" href="https://frida.re/">frida</a> <a target="_blank" rel="noopener" href="https://github.com/NationalSecurityAgency/ghidra">ghidra</a> <a target="_blank" rel="noopener" href="https://rada.re/n/radare2.html">radare2</a> <a target="_blank" rel="noopener" href="https://cutter.re/">cutter</a>来<a target="_blank" rel="noopener" href="https://cn.bing.com/search?q=reverse+go+binary&form=CHRDEF&sp=-1&pq=reverse+go+binary&sc=0-17&qs=n&sk=&cvid=3A1FCCCF9C2F495DB516CB656D281DCA&ghsh=0&ghacc=0&ghpl=">逆向opqbot的go编译好了的程序</a> 或者逆向分析opqbot的网络请求数据 甚至直接动态调用opqbot里面的方法 直接用其他机器人登陆之后获得的cookie进行操作</p>
+<p>to get the token, login first, then visit <a target="_blank" rel="noopener" href="https://developer.gitter.im/apps">here</a> or click “sign in” <a target="_blank" rel="noopener" href="https://developer.gitter.im/">here</a></p>
+<p>据说扫码登录只支持同一个ip下面的登陆 不知道为什么这个opqbot登陆失败 但是其他机器人都提供了账号密码登陆的渠道 将opqbot的协议逆向出来 或许可以提高登陆成功率 实现相同的功能</p>
+<p>默认(可修改)在 .&#x2F;data&#x2F;your-account&#x2F; 下会自动生成device.json设备文件，登录完成后此设备文件长期有效</p>
+<p>设备文件的生成并非随机，而是使用固定算法，一个账号会永远生成同一份设备文件</p>
+<p>如果需要在异地服务器上登录，建议先在常用地通过设备验证并登录挂机一段时间</p>
+<p>由于会生成相同设备文件，只要不手动修改，只需验证一次，在任何地区都可直接登录</p>
+<p>it seems the login issue of opqbot is related to the account itself, not gitter token, software version or proxy</p>
+<p>by the way we could always use go-cqhttp, without the ability to collect red packet and add group&#x2F;friends.</p>
+<p>qq add group&#x2F;friends may be enabled by our windows virtual machines. without opq, it is very memory intensive.</p>
+<p>tokens:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">74eb7eb14aa36d1b9c2c663bc49335e8becd5318</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2d391bd7639362032d09abfc5a9cc6368b7664d5</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bdf52599d992665509ee5b0b533d5eed08452def</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 	
 	</div>
@@ -162,49 +193,196 @@
   <div class="row">
 	
 	
-		<p>利用带时间戳的QQ消息 提取和天气有关的内容 根据历史天气预报推断群友位置<br>根据聊天记录推断群友位置<br>测试聊天机器人的方式就是对聊 测试自媒体可以用自动测试 假数据进行测试<br>带二维码的图片 二维码对比度要低 避免被qq管家撤回<br>classify bilibili video which users recommend, then train the model against recent chats and topics with video tags<br>for our potential viewers, you may send them popular&#x2F;hot things, place trackers (短链接统计) on those links, guess their favourites.<br>you may fool bilibili trackers, official parameter-based trackers.<br>对于qq上面聊骚的可以发a片给他们<br>get bilibili user email address by asking them from chat. if they give the email address, send setu as gift (regularly?)<br>of course you need to pass uid to us. either by parameters or by asking.<br>建立用户画像 cache足够多的信息 总结出来足够精确的话题 标签<br>发点啥吸引人的 提供某种服务 不然就会被踢<br>大晚上的不要说话 大家都睡觉 说话容易被踢<br>一般被引用的图片 发图之后被回复 图片下面比较激烈的回复代表着图片质量比较好 要取决于图片具体内容进行分类<br>note: in order to install libraries and dependencies, you need ubuntu inside termux. create shortcuts and alias to launch ubuntu. link files and directories to ububtu proot filesystem. also never attempt to update kali since that will break shit, especially for bumping python versions.</p>
-<h2 id="时序数据库"><a href="#时序数据库" class="headerlink" title="时序数据库"></a>时序数据库</h2><p><a target="_blank" rel="noopener" href="https://docs.tdengine.com/develop/stream/">tdengine stream processing</a><br><a target="_blank" rel="noopener" href="https://docs.influxdata.com/influxdb/v2.3/api-guide/tutorials/python/">influxdb python client</a></p>
+		<p>利用带时间戳的QQ消息 提取和天气有关的内容 根据历史天气预报推断群友位置</p>
+<p>根据聊天记录推断群友位置</p>
+<p>测试聊天机器人的方式就是对聊 测试自媒体可以用自动测试 假数据进行测试</p>
+<p>带二维码的图片 二维码对比度要低 避免被qq管家撤回</p>
+<p>classify bilibili video which users recommend, then train the model against recent chats and topics with video tags</p>
+<p>for our potential viewers, you may send them popular&#x2F;hot things, place trackers (短链接统计) on those links, guess their favourites.</p>
+<p>you may fool bilibili trackers, official parameter-based trackers.</p>
+<p>对于qq上面聊骚的可以发a片给他们</p>
+<p>get bilibili user email address by asking them from chat. if they give the email address, send setu as gift (regularly?)</p>
+<p>of course you need to pass uid to us. either by parameters or by asking.</p>
+<p>建立用户画像 cache足够多的信息 总结出来足够精确的话题 标签</p>
+<p>发点啥吸引人的 提供某种服务 不然就会被踢</p>
+<p>大晚上的不要说话 大家都睡觉 说话容易被踢</p>
+<p>一般被引用的图片 发图之后被回复 图片下面比较激烈的回复代表着图片质量比较好 要取决于图片具体内容进行分类</p>
+<p>note: in order to install libraries and dependencies, you need ubuntu inside termux. create shortcuts and alias to launch ubuntu. link files and directories to ububtu proot filesystem. also never attempt to update kali since that will break shit, especially for bumping python versions.</p>
+<h2 id="时序数据库"><a href="#时序数据库" class="headerlink" title="时序数据库"></a>时序数据库</h2><p><a target="_blank" rel="noopener" href="https://docs.tdengine.com/develop/stream/">tdengine stream processing</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.influxdata.com/influxdb/v2.3/api-guide/tutorials/python/">influxdb python client</a></p>
 <h2 id="智能问答"><a href="#智能问答" class="headerlink" title="智能问答"></a>智能问答</h2><p><a target="_blank" rel="noopener" href="https://github.com/l11x0m7/book-of-qna-code">智能问答与深度学习 附带代码</a></p>
-<h2 id="近义词"><a href="#近义词" class="headerlink" title="近义词"></a>近义词</h2><p><a target="_blank" rel="noopener" href="https://www.tutorialspoint.com/natural_language_toolkit/natural_language_toolkit_looking_up_words_in_wordnet.htm#:~:text=To%20get%20a%20list%20of%20Synsets%2C%20we%20can,follows%20%E2%88%92%20from%20nltk.corpus%20import%20wordnet%20as%20wn">use wordnet to find hyponyms and antonyms</a><br><a target="_blank" rel="noopener" href="https://github.com/nltk/nltk/issues/2972">find antonyms for chinese with wordnet</a><br><a target="_blank" rel="noopener" href="https://github.com/chatopera/Synonyms">中文近义词</a> 以及<a target="_blank" rel="noopener" href="https://github.com/chatopera/Synonyms/issues/5">如何扩充词库</a></p>
-<h2 id="话题建模-句向量"><a href="#话题建模-句向量" class="headerlink" title="话题建模 句向量"></a>话题建模 句向量</h2><p><a target="_blank" rel="noopener" href="https://www.qblocks.cloud/blog/best-nlp-libraries-python">10 nlp libraries</a><br><a target="_blank" rel="noopener" href="https://radimrehurek.com/gensim/models/word2vec.html">gensim word2vec</a><br><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/python-word-embedding-using-word2vec/">word embedding using word2vec</a><br><a target="_blank" rel="noopener" href="https://www.askpython.com/python-modules/gensim-word2vec">gensym word2vec complete guide</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/dbf10744bde0">go-cqhttp 自定义合并转发消息 生成不存在的合并转发消息</a></p>
+<h2 id="近义词"><a href="#近义词" class="headerlink" title="近义词"></a>近义词</h2><p><a target="_blank" rel="noopener" href="https://www.tutorialspoint.com/natural_language_toolkit/natural_language_toolkit_looking_up_words_in_wordnet.htm#:~:text=To%20get%20a%20list%20of%20Synsets%2C%20we%20can,follows%20%E2%88%92%20from%20nltk.corpus%20import%20wordnet%20as%20wn">use wordnet to find hyponyms and antonyms</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/nltk/nltk/issues/2972">find antonyms for chinese with wordnet</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/chatopera/Synonyms">中文近义词</a> 以及<a target="_blank" rel="noopener" href="https://github.com/chatopera/Synonyms/issues/5">如何扩充词库</a></p>
+<h2 id="话题建模-句向量"><a href="#话题建模-句向量" class="headerlink" title="话题建模 句向量"></a>话题建模 句向量</h2><p><a target="_blank" rel="noopener" href="https://www.qblocks.cloud/blog/best-nlp-libraries-python">10 nlp libraries</a></p>
+<p><a target="_blank" rel="noopener" href="https://radimrehurek.com/gensim/models/word2vec.html">gensim word2vec</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/python-word-embedding-using-word2vec/">word embedding using word2vec</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.askpython.com/python-modules/gensim-word2vec">gensym word2vec complete guide</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/dbf10744bde0">go-cqhttp 自定义合并转发消息 生成不存在的合并转发消息</a></p>
 <ul>
-<li><input disabled="" type="checkbox"> 渐进式领红包 对于某个群 先是两分钟（左右）之后领一次 领不到就时间减半下一次再领 如果领到了就不减半 最快6秒领 不能再减了 防止某些群为了检测机器人而发红包</li>
-<li><input disabled="" type="checkbox"> 处理信息不要流水线处理 放在messagepool里面 要有重要度排序 相关性排序</li>
-<li><input disabled="" type="checkbox"> QQ漂流瓶机器人 捡漂流瓶API</li>
-<li><input disabled="" type="checkbox"> 改回群昵称 总有些脑瘫喜欢给我乱起名 一天检查一次 模仿其他人的群昵称 看看有没有能用的马甲</li>
-<li><input disabled="" type="checkbox"> mitm Chatbot<br>chatbot frameworks:<br><a target="_blank" rel="noopener" href="https://github.com/sld/convai-bot-1337">convai-bot 1337</a> the best hybrid convai bot<br><a target="_blank" rel="noopener" href="https://github.com/ash47/OmegleMiddleMan">omeglemiddleman</a><br><a target="_blank" rel="noopener" href="https://github.com/gunthercox/ChatterBot">chatterbot</a> able to learn while having conversation<br><a target="_blank" rel="noopener" href="https://github.com/nlpia/nlpia-bot">qary: nlpia-bot</a> a hybrid framework for developing chatbot by mannings<br><a target="_blank" rel="noopener" href="https://github.com/olegberman/mitm-omegle">mitm-omegle</a> watch strangers talk<br><a target="_blank" rel="noopener" href="https://github.com/alfredfrancis/ai-chatbot-framework">ai chatbot framework</a></li>
-<li><input disabled="" type="checkbox"> 用sentence bert做search based dialog 替代levenshtein 最好是asymetrical semantic search</li>
-<li><input checked="" disabled="" type="checkbox"> 有人有测试红包外挂的红包 可能有“test”、“测试”、“别抢”、“不要”之类的字眼 这种红包不要抢 抢了飞机票</li>
-<li><input disabled="" type="checkbox"> 群聊的下一句话不一定是上一句话的回答 训练模型寻找句子相关性 计算相关度 以及句子顺序</li>
-<li><input checked="" disabled="" type="checkbox"> 对接小冰</li>
-<li><input disabled="" type="checkbox"> <strong>管理员&#x2F;群主在的时候 或者管理员经常出现的群里面 不要冒泡 不然容易被封</strong><br>转发的图片 至少要在之前一小时以内或更长时间内没有被重复发送才行 同一个信息内也不能出现重复图片 否则不发送这个信息（很有可能是广告）<br>有二维码不发送 有网址不发送<br>图片里面的文字要是有广告也是不能要的<br>文字信息不要广告 用简单分类器<br><a target="_blank" rel="noopener" href="https://github.com/mtianyan/FunpySpiderSearchEngine">个性化搜索推荐 elasticsearch</a><br>按照老毛的思想 要一边造谣一边辟谣 一边承认一边否定 同样的话颠三倒四可以说无数遍 也可以选择不说 这样可以和很多的类似故事杂交</li>
-<li><input disabled="" type="checkbox"> 处理私聊信息 每回复一个人就清除他的所有历史发言 每隔一段时间处理其中的一个人 不会相互挤占 只有在不闲聊的时候处理私聊信息 特定的人不能进行私聊</li>
-<li><input checked="" disabled="" type="checkbox"> 白天聊天 收集数据 晚上离线训练 （此逻辑可以推广到任意的机器学习驱动的平台）</li>
-<li><input disabled="" type="checkbox"> 增加训练数据的context 不要只是一问一答 总语句数量要增加</li>
-<li><input disabled="" type="checkbox"> 占用系统显卡训练的时候 需要专门acquire一个filelock 表示大量资源被占用 系统忙</li>
-<li><input disabled="" type="checkbox"> 选取质量好有情感的聊天样本 长短适中 不要广告不要偏激违禁词 去掉表情包 去掉链接 清洗数据 同时模型用于对话的时候不要输入输出一些违禁词 可以通过话题建模进一步细分归类对话数据之间的联系<br>schedule the training on minute basis first for complete test, then schedule it on fixed time per day.<br>for qq client: dump 500 continual sentences when adding one new while holding the filelock, do not block or stop running if GPT not responding<br>for gpt2 server: (where to train? how to prevent maching from burning? for how long?)<br>rename the dataset while holding the filelock<br>always keep the latest 2 models, remove those not readable first, then delete older ones.<br>if train on CPU, still need to limit training time, sleep while doing so. GPU for sure we need sleep during training, and do not use VRAM for other applications.</li>
-<li><input disabled="" type="checkbox"> 把”汪汪”翻译成表情包 同时可以随机添加其他表情</li>
-<li><input checked="" disabled="" type="checkbox"> 根据实时群聊数据训练gpt2</li>
-<li><input disabled="" type="checkbox"> 根据离线群聊数据训练gpt2<br>自动骂人<br><a target="_blank" rel="noopener" href="https://github.com/liuke-wuhan/ZuAnBot">https://github.com/liuke-wuhan/ZuAnBot</a></li>
-<li><input disabled="" type="checkbox"> 添加一个FileLock在gpt2 main server里面 不要让多个对话同时进行处理</li>
-<li><input disabled="" type="checkbox"> 在人多的群里面少说话 具体表现为每次说话的时间间隔变长 次数变少 同时要注意 聊天内容过于严肃 专业的群尽量不要水<br><a target="_blank" rel="noopener" href="https://huggingface.co/docs/transformers/model_doc/dialogpt">dialogpt documentation</a><br>闲聊chitchat dialog bot training framework by facebook:<br><a target="_blank" rel="noopener" href="https://github.com/facebookresearch/ParlAI">https://github.com/facebookresearch/ParlAI</a><br>debug the consecutive group reply thresholding protocol<br>reply according to individual description and group description</li>
-<li><input disabled="" type="checkbox"> 同时推广自己和别人的视频或者内容 收集推荐反馈 同时逐步减小推荐别人视频或者内容的频率</li>
-<li><input disabled="" type="checkbox"> 推广视频的时候可以加入别人的视频高赞评论 动态的GIF 音频 或者是短视频 然后再发送xml</li>
-<li><input disabled="" type="checkbox"> 增加复读图片的功能 增加chatlocal返回图片的功能</li>
-<li><input disabled="" type="checkbox"> 增加反馈功能 根据发言之后群里面的回复来确定发言是否有益</li>
-<li><input disabled="" type="checkbox"> 用txtai或者其他information retrieval (semantic search, smart search)语义查找工具来代替levenshtein的history based reply logic 查找时要包括上下文</li>
-<li><input disabled="" type="checkbox"> 复读机不能使得死群活起来 但是主动推送可以 推送长的 自言自语的对话到群里面 不能是同一个群 主题要相关 filter out too negative ones</li>
-<li><input disabled="" type="checkbox"> 拉人到别的群里面来 最好是多个号不共享群但是话题有交集的人</li>
-<li><input disabled="" type="checkbox"> add <code>involution</code> option, allow to append unqualified replies to input message, separated by space.</li>
-<li><input disabled="" type="checkbox"> add extend conversation option, allow to reply more than one sentence at a time (proper delay needed) -&gt; could be achieved by using GPT2 alike generation model</li>
-<li><input disabled="" type="checkbox"> 可以给群友点赞</li>
-<li><input disabled="" type="checkbox"> 可以发语音<br>每次对话输入的context不能太小 不然看起来假</li>
-<li><input disabled="" type="checkbox"> 添加复读原句子的功能 触发条件为sentiment<br>往群里面发b站视频广告的话 最好和群聊主题相关 和最近接收到的消息相关 同时频率不能太高 要设置全局的counter 群聊每发送一条消息trigger一次counter counter mod period &#x3D;&#x3D; 0 的时候就执行发广告命令 同时可以考虑渲染任务 和发广告的逻辑要解耦合 同时访问一片数据 比如redis 根据最近聊到的内容制作和上传视频 不能在同一个群里面以太快的频率发送相同视频 相同的视频必须间隔一段时间再往其他群发送 最好用schedule库实现 方法内部要实现delay或者放弃schedule的效果<br>如果群聊被踢 可以考虑换头像 换昵称 更改个人资料 然后重新申请 同样可以考虑更改b站的信息 用外网网红信息来填充自己的信息 更改资料频率和申请频率都需要控制 需要单独设置每天的quota quota保存在文件里面 申请的信息最好用ai生成 或者paraphrase一下 或者到网上搜索 收集相关内容 先训练一下 头像可以全网到处爬 可以选择二次元头像（动漫头识别）对比度高的 可以是类似头像 不能是系统默认头像不然太过无聊 可以和群聊主题相关 资料抄别人的 别的群里面的 抄该群群成员的资料 或者别的群的资料 不能是管理员资料</li>
-<li><input disabled="" type="checkbox"> 根据模板生成下一句 不要直接生成 素材可以是群公告 群主题 接收到的信息<br>模板生成要和新词发现结合<br>模板生成 paraphraser可以和chatlocal或者repeater结合<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> re</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.split(<span class="string">r&quot;(abc|acd)&quot;</span>,<span class="string">&quot;aaabcaaacdaaa&quot;</span>)</span><br><span class="line">[<span class="string">&#x27;aa&#x27;</span>, <span class="string">&#x27;abc&#x27;</span>, <span class="string">&#x27;aa&#x27;</span>, <span class="string">&#x27;acd&#x27;</span>, <span class="string">&#x27;aaa&#x27;</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>word=<span class="string">&quot;aaabcaaacdaaa&quot;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>word=<span class="string">&quot;aaabcaaacdaaa&quot;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.escape(<span class="string">&quot;abc&quot;</span>)</span><br><span class="line"><span class="string">&#x27;abc&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.escape(<span class="string">&quot;efgh&quot;</span>)</span><br><span class="line"><span class="string">&#x27;efgh&#x27;</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
-可以拆分句子为列表</li>
-<li><input disabled="" type="checkbox"> 去除经常生成的话语 比如你好之类的<br>挑选levenshtein距离大于0（不能是它本身）的上一句，排序 选择10句 根据情绪激烈程度（正负皆可 去掉过于负面的）排序 输出第一名 选择下一句作为回答 然后记录这个回答在机器人的回答历史中<br>句子如果是取同一个group里面的 不能太recent 起码距离要有50个句子的距离<br>文字 图片 视频 都可以搜索百度 搜狗 中文搜索api 根据相关度和情绪来排序 （语种一致）回答文字或者多媒体<br>拆分大句子为小句子 依次放入 注意要过滤掉广告 一般广告比较长 有链接？</li>
-<li><input disabled="" type="checkbox"> 输入的内容不能有违禁词否则不回答</li>
-<li><input disabled="" type="checkbox"> 输出内容的时候不能有违禁词语 放进来的可以违禁 或者用拼音或者拆字转换这些违禁词语 保证上下文一致性 文本审查<br>bad chinese -&gt; letter(pinyin initials) -&gt; leetspeek<br>下一次挑选的时候自动过滤掉这些下一句在历史回答里面的句子对<br>那个lock 要限制自身的读取&#x2F;删除操作以及新消息的append操作</li>
+<li><p><input disabled="" type="checkbox"> 
+渐进式领红包 对于某个群 先是两分钟（左右）之后领一次 领不到就时间减半下一次再领 如果领到了就不减半 最快6秒领 不能再减了 防止某些群为了检测机器人而发红包</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+处理信息不要流水线处理 放在messagepool里面 要有重要度排序 相关性排序</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+QQ漂流瓶机器人 捡漂流瓶API</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+改回群昵称 总有些脑瘫喜欢给我乱起名 一天检查一次 模仿其他人的群昵称 看看有没有能用的马甲</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+mitm Chatbot</p>
+</li>
+</ul>
+<p>chatbot frameworks:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/sld/convai-bot-1337">convai-bot 1337</a> the best hybrid convai bot</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ash47/OmegleMiddleMan">omeglemiddleman</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/gunthercox/ChatterBot">chatterbot</a> able to learn while having conversation</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/nlpia/nlpia-bot">qary: nlpia-bot</a> a hybrid framework for developing chatbot by mannings</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/olegberman/mitm-omegle">mitm-omegle</a> watch strangers talk</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/alfredfrancis/ai-chatbot-framework">ai chatbot framework</a></p>
+<ul>
+<li><p><input disabled="" type="checkbox"> 
+用sentence bert做search based dialog 替代levenshtein 最好是asymetrical semantic search</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+有人有测试红包外挂的红包 可能有“test”、“测试”、“别抢”、“不要”之类的字眼 这种红包不要抢 抢了飞机票</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+群聊的下一句话不一定是上一句话的回答 训练模型寻找句子相关性 计算相关度 以及句子顺序</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+对接小冰</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+<strong>管理员&#x2F;群主在的时候 或者管理员经常出现的群里面 不要冒泡 不然容易被封</strong></p>
+</li>
+</ul>
+<p>转发的图片 至少要在之前一小时以内或更长时间内没有被重复发送才行 同一个信息内也不能出现重复图片 否则不发送这个信息（很有可能是广告）</p>
+<p>有二维码不发送 有网址不发送</p>
+<p>图片里面的文字要是有广告也是不能要的</p>
+<p>文字信息不要广告 用简单分类器</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mtianyan/FunpySpiderSearchEngine">个性化搜索推荐 elasticsearch</a></p>
+<p>按照老毛的思想 要一边造谣一边辟谣 一边承认一边否定 同样的话颠三倒四可以说无数遍 也可以选择不说 这样可以和很多的类似故事杂交</p>
+<ul>
+<li><p><input disabled="" type="checkbox"> 
+处理私聊信息 每回复一个人就清除他的所有历史发言 每隔一段时间处理其中的一个人 不会相互挤占 只有在不闲聊的时候处理私聊信息 特定的人不能进行私聊</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+白天聊天 收集数据 晚上离线训练 （此逻辑可以推广到任意的机器学习驱动的平台）</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+增加训练数据的context 不要只是一问一答 总语句数量要增加</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+占用系统显卡训练的时候 需要专门acquire一个filelock 表示大量资源被占用 系统忙</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+选取质量好有情感的聊天样本 长短适中 不要广告不要偏激违禁词 去掉表情包 去掉链接 清洗数据 同时模型用于对话的时候不要输入输出一些违禁词 可以通过话题建模进一步细分归类对话数据之间的联系</p>
+</li>
+</ul>
+<p>schedule the training on minute basis first for complete test, then schedule it on fixed time per day.</p>
+<p>for qq client: dump 500 continual sentences when adding one new while holding the filelock, do not block or stop running if GPT not responding</p>
+<p>for gpt2 server: (where to train? how to prevent maching from burning? for how long?)</p>
+<p>rename the dataset while holding the filelock</p>
+<p>always keep the latest 2 models, remove those not readable first, then delete older ones.</p>
+<p>if train on CPU, still need to limit training time, sleep while doing so. GPU for sure we need sleep during training, and do not use VRAM for other applications.</p>
+<ul>
+<li><p><input disabled="" type="checkbox"> 
+把”汪汪”翻译成表情包 同时可以随机添加其他表情</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+根据实时群聊数据训练gpt2</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+根据离线群聊数据训练gpt2</p>
+</li>
+</ul>
+<p>自动骂人</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/liuke-wuhan/ZuAnBot">https://github.com/liuke-wuhan/ZuAnBot</a></p>
+<ul>
+<li><p><input disabled="" type="checkbox"> 
+添加一个FileLock在gpt2 main server里面 不要让多个对话同时进行处理</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+在人多的群里面少说话 具体表现为每次说话的时间间隔变长 次数变少 同时要注意 聊天内容过于严肃 专业的群尽量不要水</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/docs/transformers/model_doc/dialogpt">dialogpt documentation</a></p>
+<p>闲聊chitchat dialog bot training framework by facebook:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/facebookresearch/ParlAI">https://github.com/facebookresearch/ParlAI</a></p>
+<p>debug the consecutive group reply thresholding protocol</p>
+<p>reply according to individual description and group description</p>
+<ul>
+<li><p><input disabled="" type="checkbox"> 
+同时推广自己和别人的视频或者内容 收集推荐反馈 同时逐步减小推荐别人视频或者内容的频率</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+推广视频的时候可以加入别人的视频高赞评论 动态的GIF 音频 或者是短视频 然后再发送xml</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+增加复读图片的功能 增加chatlocal返回图片的功能</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+增加反馈功能 根据发言之后群里面的回复来确定发言是否有益</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+用txtai或者其他information retrieval (semantic search, smart search)语义查找工具来代替levenshtein的history based reply logic 查找时要包括上下文</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+复读机不能使得死群活起来 但是主动推送可以 推送长的 自言自语的对话到群里面 不能是同一个群 主题要相关 filter out too negative ones</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+拉人到别的群里面来 最好是多个号不共享群但是话题有交集的人</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+add <code>involution</code> option, allow to append unqualified replies to input message, separated by space.</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+add extend conversation option, allow to reply more than one sentence at a time (proper delay needed) -&gt; could be achieved by using GPT2 alike generation model</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+可以给群友点赞</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+可以发语音</p>
+</li>
+</ul>
+<p>每次对话输入的context不能太小 不然看起来假</p>
+<ul>
+<li><input disabled="" type="checkbox"> 添加复读原句子的功能 触发条件为sentiment</li>
+</ul>
+<p>往群里面发b站视频广告的话 最好和群聊主题相关 和最近接收到的消息相关 同时频率不能太高 要设置全局的counter 群聊每发送一条消息trigger一次counter counter mod period &#x3D;&#x3D; 0 的时候就执行发广告命令 同时可以考虑渲染任务 和发广告的逻辑要解耦合 同时访问一片数据 比如redis 根据最近聊到的内容制作和上传视频 不能在同一个群里面以太快的频率发送相同视频 相同的视频必须间隔一段时间再往其他群发送 最好用schedule库实现 方法内部要实现delay或者放弃schedule的效果</p>
+<p>如果群聊被踢 可以考虑换头像 换昵称 更改个人资料 然后重新申请 同样可以考虑更改b站的信息 用外网网红信息来填充自己的信息 更改资料频率和申请频率都需要控制 需要单独设置每天的quota quota保存在文件里面 申请的信息最好用ai生成 或者paraphrase一下 或者到网上搜索 收集相关内容 先训练一下 头像可以全网到处爬 可以选择二次元头像（动漫头识别）对比度高的 可以是类似头像 不能是系统默认头像不然太过无聊 可以和群聊主题相关 资料抄别人的 别的群里面的 抄该群群成员的资料 或者别的群的资料 不能是管理员资料</p>
+<ul>
+<li><input disabled="" type="checkbox"> 根据模板生成下一句 不要直接生成 素材可以是群公告 群主题 接收到的信息</li>
+</ul>
+<p>模板生成要和新词发现结合</p>
+<p>模板生成 paraphraser可以和chatlocal或者repeater结合</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> re</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.split(<span class="string">r&quot;(abc|acd)&quot;</span>,<span class="string">&quot;aaabcaaacdaaa&quot;</span>)</span><br><span class="line">[<span class="string">&#x27;aa&#x27;</span>, <span class="string">&#x27;abc&#x27;</span>, <span class="string">&#x27;aa&#x27;</span>, <span class="string">&#x27;acd&#x27;</span>, <span class="string">&#x27;aaa&#x27;</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>word=<span class="string">&quot;aaabcaaacdaaa&quot;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>word=<span class="string">&quot;aaabcaaacdaaa&quot;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.escape(<span class="string">&quot;abc&quot;</span>)</span><br><span class="line"><span class="string">&#x27;abc&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.escape(<span class="string">&quot;efgh&quot;</span>)</span><br><span class="line"><span class="string">&#x27;efgh&#x27;</span></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>可以拆分句子为列表</p>
+<ul>
+<li><input disabled="" type="checkbox"> 去除经常生成的话语 比如你好之类的</li>
+</ul>
+<p>挑选levenshtein距离大于0（不能是它本身）的上一句，排序 选择10句 根据情绪激烈程度（正负皆可 去掉过于负面的）排序 输出第一名 选择下一句作为回答 然后记录这个回答在机器人的回答历史中</p>
+<p>句子如果是取同一个group里面的 不能太recent 起码距离要有50个句子的距离</p>
+<p>文字 图片 视频 都可以搜索百度 搜狗 中文搜索api 根据相关度和情绪来排序 （语种一致）回答文字或者多媒体</p>
+<p>拆分大句子为小句子 依次放入 注意要过滤掉广告 一般广告比较长 有链接？</p>
+<ul>
+<li><p><input disabled="" type="checkbox"> 
+输入的内容不能有违禁词否则不回答</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+输出内容的时候不能有违禁词语 放进来的可以违禁 或者用拼音或者拆字转换这些违禁词语 保证上下文一致性 文本审查</p>
+</li>
+</ul>
+<p>bad chinese -&gt; letter(pinyin initials) -&gt; leetspeek</p>
+<p>下一次挑选的时候自动过滤掉这些下一句在历史回答里面的句子对</p>
+<p>那个lock 要限制自身的读取&#x2F;删除操作以及新消息的append操作</p>
+<ul>
 <li><input disabled="" type="checkbox"> 关于情绪激烈程度 如何提高生成器的情绪激烈度 做一个鉴别器 可以选择性的不去back propagate情绪不激烈的生成结果 或者直接用鉴别器筛选输入的语料</li>
 </ul>
 
@@ -230,7 +408,48 @@
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://vercel.com/">vercel</a> hosts frontend only apps, could be useful if you want.<br>可以提取关键词然后到百度必应上面搜索 获取相关内容 注意语种一致性<br>search huggingface with julia or python:<br>huggingface_hub(python)<br>可以用huggingface的api来翻译 对接英文的chatbot (blenderbot, dialo-gpt)<br>add timeout to these api requests<br>可以把训练好的中文chatbot放到huggingface上面去 用kaggle放<br><a target="_blank" rel="noopener" href="https://github.com/yangjianxin1/GPT2-chitchat">https://github.com/yangjianxin1/GPT2-chitchat</a><br>could use this method to generate title for videos. i mean generally.<br>could host the model on huggingface, or baidu aistudio, heroku or your own machine<br>configure accelerated inference on huggingface (free for cpu, paid gpu):<br><a target="_blank" rel="noopener" href="https://huggingface.co/docs/api-inference/quicktour">https://huggingface.co/docs/api-inference/quicktour</a><br>huggingface inference apis:<br><a target="_blank" rel="noopener" href="https://huggingface.co/inference-api">https://huggingface.co/inference-api</a><br>huggingface conversational (chatbot) models:<br><a target="_blank" rel="noopener" href="https://huggingface.co/models?pipeline_tag=conversational&sort=downloads">https://huggingface.co/models?pipeline_tag=conversational&amp;sort=downloads</a><br>heroku, use fastapi as interface:<br><a target="_blank" rel="noopener" href="https://fastapi.tiangolo.com/">https://fastapi.tiangolo.com</a><br><a target="_blank" rel="noopener" href="https://www.kaggle.com/getting-started/208405">https://www.kaggle.com/getting-started/208405</a><br><a target="_blank" rel="noopener" href="https://signup.heroku.com/">https://signup.heroku.com</a><br>heroku alternatives:<br>back4app, google app engine<br>aistudio api, maybe you need to train or find a paddpepaddle based chatbot:<br><a target="_blank" rel="noopener" href="https://ai.baidu.com/ai-doc/AISTUDIO/bk3e382cq#%E5%88%9B%E5%BB%BA%E5%9C%A8%E7%BA%BFapi%E6%9C%8D%E5%8A%A1">https://ai.baidu.com/ai-doc/AISTUDIO/bk3e382cq#创建在线api服务</a><br>一个项目可以创建至多五个沙盒服务, 并选择其中一个沙盒服务部署为线上服务.<br>沙盒服务如果连续超过24小时无调用将自动调整为暂停状态.<br>线上服务如果连续超过14天无调用将自动调整为暂停状态.<br>paddlenlp<br><a target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/projectdetail/3723144?channelType=0&channel=0">https://aistudio.baidu.com/aistudio/projectdetail/3723144?channelType=0&amp;channel=0</a><br>paddlepaddle chat model:<br>plato2<br><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/Knover">https://github.com/PaddlePaddle/Knover</a><br><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/Knover/tree/develop/projects/PLATO-2">https://github.com/PaddlePaddle/Knover/tree/develop/projects/PLATO-2</a><br><a target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/projectdetail/1886227?channelType=0&channel=0">https://aistudio.baidu.com/aistudio/projectdetail/1886227?channelType=0&amp;channel=0</a><br>中文chatbot:<br><a target="_blank" rel="noopener" href="https://github.com/zhaoyingjun/chatbot">https://github.com/zhaoyingjun/chatbot</a><br><a target="_blank" rel="noopener" href="https://github.com/Dimsmary/Ossas_ChatBot">https://github.com/Dimsmary/Ossas_ChatBot</a><br>教程<br><a target="_blank" rel="noopener" href="https://github.com/lcdevelop/ChatBotCourse">https://github.com/lcdevelop/ChatBotCourse</a><br><a target="_blank" rel="noopener" href="https://github.com/fendouai/Awesome-Chatbot">https://github.com/fendouai/Awesome-Chatbot</a><br>语料库<br><a target="_blank" rel="noopener" href="https://github.com/codemayq/chinese_chatbot_corpus">https://github.com/codemayq/chinese_chatbot_corpus</a></p>
+		<p><a target="_blank" rel="noopener" href="https://vercel.com/">vercel</a> hosts frontend only apps, could be useful if you want.</p>
+<p>可以提取关键词然后到百度必应上面搜索 获取相关内容 注意语种一致性</p>
+<p>search huggingface with julia or python:</p>
+<p>huggingface_hub(python)</p>
+<p>可以用huggingface的api来翻译 对接英文的chatbot (blenderbot, dialo-gpt)</p>
+<p>add timeout to these api requests</p>
+<p>可以把训练好的中文chatbot放到huggingface上面去 用kaggle放</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yangjianxin1/GPT2-chitchat">https://github.com/yangjianxin1/GPT2-chitchat</a></p>
+<p>could use this method to generate title for videos. i mean generally.</p>
+<p>could host the model on huggingface, or baidu aistudio, heroku or your own machine</p>
+<p>configure accelerated inference on huggingface (free for cpu, paid gpu):</p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/docs/api-inference/quicktour">https://huggingface.co/docs/api-inference/quicktour</a></p>
+<p>huggingface inference apis:</p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/inference-api">https://huggingface.co/inference-api</a></p>
+<p>huggingface conversational (chatbot) models:</p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/models?pipeline_tag=conversational&sort=downloads">https://huggingface.co/models?pipeline_tag=conversational&amp;sort=downloads</a></p>
+<p>heroku, use fastapi as interface:</p>
+<p><a target="_blank" rel="noopener" href="https://fastapi.tiangolo.com/">https://fastapi.tiangolo.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.kaggle.com/getting-started/208405">https://www.kaggle.com/getting-started/208405</a></p>
+<p><a target="_blank" rel="noopener" href="https://signup.heroku.com/">https://signup.heroku.com</a></p>
+<p>heroku alternatives:</p>
+<p>back4app, google app engine</p>
+<p>aistudio api, maybe you need to train or find a paddpepaddle based chatbot:</p>
+<p><a target="_blank" rel="noopener" href="https://ai.baidu.com/ai-doc/AISTUDIO/bk3e382cq#%E5%88%9B%E5%BB%BA%E5%9C%A8%E7%BA%BFapi%E6%9C%8D%E5%8A%A1">https://ai.baidu.com/ai-doc/AISTUDIO/bk3e382cq#创建在线api服务</a></p>
+<p>一个项目可以创建至多五个沙盒服务, 并选择其中一个沙盒服务部署为线上服务.</p>
+<p>沙盒服务如果连续超过24小时无调用将自动调整为暂停状态.</p>
+<p>线上服务如果连续超过14天无调用将自动调整为暂停状态.</p>
+<p>paddlenlp</p>
+<p><a target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/projectdetail/3723144?channelType=0&channel=0">https://aistudio.baidu.com/aistudio/projectdetail/3723144?channelType=0&amp;channel=0</a></p>
+<p>paddlepaddle chat model:</p>
+<p>plato2</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/Knover">https://github.com/PaddlePaddle/Knover</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/Knover/tree/develop/projects/PLATO-2">https://github.com/PaddlePaddle/Knover/tree/develop/projects/PLATO-2</a></p>
+<p><a target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/projectdetail/1886227?channelType=0&channel=0">https://aistudio.baidu.com/aistudio/projectdetail/1886227?channelType=0&amp;channel=0</a></p>
+<p>中文chatbot:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zhaoyingjun/chatbot">https://github.com/zhaoyingjun/chatbot</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Dimsmary/Ossas_ChatBot">https://github.com/Dimsmary/Ossas_ChatBot</a></p>
+<p>教程</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lcdevelop/ChatBotCourse">https://github.com/lcdevelop/ChatBotCourse</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/fendouai/Awesome-Chatbot">https://github.com/fendouai/Awesome-Chatbot</a></p>
+<p>语料库</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/codemayq/chinese_chatbot_corpus">https://github.com/codemayq/chinese_chatbot_corpus</a></p>
 
 	
 	</div>
@@ -254,7 +473,75 @@
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://github.com/baolintian/ZhihuQ">zhihuq</a> query zhihu articles by keywords and relevance<br><a target="_blank" rel="noopener" href="http://www.cncsto.com/article/102106">b站前100视频爬取</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/tom197/article/details/119425126">b站爬取首页热门推荐视频</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/449193667?utm_id=0">爬取b站弹幕</a><br><a target="_blank" rel="noopener" href="https://github.com/ctts/TopSearch">trending scraper</a> for bilibili, baidu, zhihu, weibo<br>基于node.js的抓取微博、百度热搜、知乎日报、bilibili等热榜榜爬虫 热搜<br><a target="_blank" rel="noopener" href="https://github.com/zackmawaldi/YouTube-shorts-generator">trending reddit videos scraper and video uploader for youtube</a> with special transition effects<br><a target="_blank" rel="noopener" href="https://awesomeopensource.com/project/01joy/news-search-engine">news search engine 新闻搜索</a><br>通过百度 微视（腾讯小视频）是可以搜索的<br>image search engines sourced from <a target="_blank" rel="noopener" href="https://github.com/dessant/search-by-image">search by image</a> browser plugin:<br>Google, Bing, Yandex, Baidu and TinEye<br>google tts for python:<br>import gtts<br>爬取课程视频 去水印<br>coursera udemy khanacademy icourse163<br>爬取tumblr 知乎 腾讯新闻<br><a target="_blank" rel="noopener" href="https://github.com/zhangslob/awesome_crawl">https://github.com/zhangslob/awesome_crawl</a><br>图片下载api<br><a target="_blank" rel="noopener" href="https://github.com/CharlesPikachu/imagedl">https://github.com/CharlesPikachu/imagedl</a><br>免费聊天api 青云客api 腾讯智能闲聊<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/110785806">https://zhuanlan.zhihu.com/p/110785806</a><br><a target="_blank" rel="noopener" href="http://api.qingyunke.com/api.php?key=free&appid=0&msg=%E4%BD%A0%E5%A5%BD">http://api.qingyunke.com/api.php?key=free&amp;appid=0&amp;msg=你好</a><br>思知对话机器人 语义理解 自然语言转化为结构化数据<br><a target="_blank" rel="noopener" href="https://www.ownthink.com/docs/bot/">https://www.ownthink.com/docs/bot/</a><br><a target="_blank" rel="noopener" href="https://github.com/ownthink/robot/">https://github.com/ownthink/robot/</a><br>流行视频下载api<br><a target="_blank" rel="noopener" href="https://github.com/CharlesPikachu/videodl">https://github.com/CharlesPikachu/videodl</a><br>热搜<br><a target="_blank" rel="noopener" href="https://github.com/Eurkon/weibo-top-api">https://github.com/Eurkon/weibo-top-api</a><br><a target="_blank" rel="noopener" href="https://github.com/ningyuwhut/query_suggestion">https://github.com/ningyuwhut/query_suggestion</a><br><a target="_blank" rel="noopener" href="https://github.com/Arrackisarookie/weibo-hot-search">https://github.com/Arrackisarookie/weibo-hot-search</a><br><a target="_blank" rel="noopener" href="https://github.com/justjavac/zhihu-trending-top-search">https://github.com/justjavac/zhihu-trending-top-search</a><br><a target="_blank" rel="noopener" href="https://github.com/justjavac/weibo-trending-hot-search">https://github.com/justjavac/weibo-trending-hot-search</a><br><a target="_blank" rel="noopener" href="https://github.com/huqi-pr/trending-in-one">https://github.com/huqi-pr/trending-in-one</a><br><a target="_blank" rel="noopener" href="https://github.com/jw-star/weiboPush-go-actions">https://github.com/jw-star/weiboPush-go-actions</a><br>热搜2<br><a target="_blank" rel="noopener" href="https://github.com/wanghuafeng/baidu_spider">https://github.com/wanghuafeng/baidu_spider</a><br><a target="_blank" rel="noopener" href="https://github.com/TauWu/weibo_daily_hotkey">https://github.com/TauWu/weibo_daily_hotkey</a><br><a target="_blank" rel="noopener" href="https://github.com/quarrying/baidu-top-crawler">https://github.com/quarrying/baidu-top-crawler</a><br><a target="_blank" rel="noopener" href="https://github.com/towelong/zhihu-hot-questions">https://github.com/towelong/zhihu-hot-questions</a><br><a target="_blank" rel="noopener" href="https://github.com/gaussic/baidu_hot_words">https://github.com/gaussic/baidu_hot_words</a><br><a target="_blank" rel="noopener" href="https://github.com/ctts/TopSearch">https://github.com/ctts/TopSearch</a><br><a target="_blank" rel="noopener" href="https://github.com/henrylee123/baiduIndexCrawler">https://github.com/henrylee123/baiduIndexCrawler</a><br><a target="_blank" rel="noopener" href="https://github.com/realzhengyiming/Spider_of_keywordRank">https://github.com/realzhengyiming/Spider_of_keywordRank</a><br>登录主流网站<br><a target="_blank" rel="noopener" href="https://github.com/CharlesPikachu/DecryptLogin">https://github.com/CharlesPikachu/DecryptLogin</a><br>微博热搜<br><a target="_blank" rel="noopener" href="https://github.com/Eurkon/weibo-top-api">https://github.com/Eurkon/weibo-top-api</a><br>微博 python api<br><a target="_blank" rel="noopener" href="https://pypi.org/project/weibo/">https://pypi.org/project/weibo/</a><br>github actions抓取微博热搜<br><a target="_blank" rel="noopener" href="https://github.com/xiadd/tg-wb-trending">https://github.com/xiadd/tg-wb-trending</a><br>百度搜索api<br><a target="_blank" rel="noopener" href="https://github.com/wcadaydayup/python-baidusearch">https://github.com/wcadaydayup/python-baidusearch</a><br><a target="_blank" rel="noopener" href="https://github.com/1049451037/MagicBaidu">https://github.com/1049451037/MagicBaidu</a><br><a target="_blank" rel="noopener" href="https://github.com/alkalixin/jsonp">https://github.com/alkalixin/jsonp</a><br>微软小冰api<br><a target="_blank" rel="noopener" href="https://github.com/yanwii/msxiaoiceapi">https://github.com/yanwii/msxiaoiceapi</a><br><a target="_blank" rel="noopener" href="https://github.com/BennyThink/realXiaoice">https://github.com/BennyThink/realXiaoice</a><br>搜狗微信<br><a target="_blank" rel="noopener" href="https://github.com/chyroc/WechatSogou">https://github.com/chyroc/WechatSogou</a><br><a target="_blank" rel="noopener" href="https://github.com/jaryee/wechat_sogou_crawlhttps://github.com/pujinxiao/weixin">https://github.com/jaryee/wechat_sogou_crawlhttps://github.com/pujinxiao/weixin</a><br>知乎爬虫<br><a target="_blank" rel="noopener" href="https://github.com/LiuRoy/zhihu_spider">https://github.com/LiuRoy/zhihu_spider</a><br>搜索引擎爬虫 图片下载<br><a target="_blank" rel="noopener" href="https://github.com/tasos-py/Search-Engines-Scraper">https://github.com/tasos-py/Search-Engines-Scraper</a><br><a target="_blank" rel="noopener" href="https://github.com/ostrolucky/Bulk-Bing-Image-downloader">https://github.com/ostrolucky/Bulk-Bing-Image-downloader</a><br><a target="_blank" rel="noopener" href="https://github.com/NikolaiT/GoogleScraper">https://github.com/NikolaiT/GoogleScraper</a><br><a target="_blank" rel="noopener" href="https://github.com/naqushab/SearchEngineScrapy">https://github.com/naqushab/SearchEngineScrapy</a></p>
+		<p><a target="_blank" rel="noopener" href="https://github.com/baolintian/ZhihuQ">zhihuq</a> query zhihu articles by keywords and relevance</p>
+<p><a target="_blank" rel="noopener" href="http://www.cncsto.com/article/102106">b站前100视频爬取</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/tom197/article/details/119425126">b站爬取首页热门推荐视频</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/449193667?utm_id=0">爬取b站弹幕</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ctts/TopSearch">trending scraper</a> for bilibili, baidu, zhihu, weibo</p>
+<p>基于node.js的抓取微博、百度热搜、知乎日报、bilibili等热榜榜爬虫 热搜</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zackmawaldi/YouTube-shorts-generator">trending reddit videos scraper and video uploader for youtube</a> with special transition effects</p>
+<p><a target="_blank" rel="noopener" href="https://awesomeopensource.com/project/01joy/news-search-engine">news search engine 新闻搜索</a></p>
+<p>通过百度 微视（腾讯小视频）是可以搜索的</p>
+<p>image search engines sourced from <a target="_blank" rel="noopener" href="https://github.com/dessant/search-by-image">search by image</a> browser plugin:</p>
+<p>Google, Bing, Yandex, Baidu and TinEye</p>
+<p>google tts for python:</p>
+<p>import gtts</p>
+<p>爬取课程视频 去水印</p>
+<p>coursera udemy khanacademy icourse163</p>
+<p>爬取tumblr 知乎 腾讯新闻</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zhangslob/awesome_crawl">https://github.com/zhangslob/awesome_crawl</a></p>
+<p>图片下载api</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/CharlesPikachu/imagedl">https://github.com/CharlesPikachu/imagedl</a></p>
+<p>免费聊天api 青云客api 腾讯智能闲聊</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/110785806">https://zhuanlan.zhihu.com/p/110785806</a></p>
+<p><a target="_blank" rel="noopener" href="http://api.qingyunke.com/api.php?key=free&appid=0&msg=%E4%BD%A0%E5%A5%BD">http://api.qingyunke.com/api.php?key=free&amp;appid=0&amp;msg=你好</a></p>
+<p>思知对话机器人 语义理解 自然语言转化为结构化数据</p>
+<p><a target="_blank" rel="noopener" href="https://www.ownthink.com/docs/bot/">https://www.ownthink.com/docs/bot/</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ownthink/robot/">https://github.com/ownthink/robot/</a></p>
+<p>流行视频下载api</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/CharlesPikachu/videodl">https://github.com/CharlesPikachu/videodl</a></p>
+<p>热搜</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Eurkon/weibo-top-api">https://github.com/Eurkon/weibo-top-api</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ningyuwhut/query_suggestion">https://github.com/ningyuwhut/query_suggestion</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Arrackisarookie/weibo-hot-search">https://github.com/Arrackisarookie/weibo-hot-search</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/justjavac/zhihu-trending-top-search">https://github.com/justjavac/zhihu-trending-top-search</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/justjavac/weibo-trending-hot-search">https://github.com/justjavac/weibo-trending-hot-search</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/huqi-pr/trending-in-one">https://github.com/huqi-pr/trending-in-one</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jw-star/weiboPush-go-actions">https://github.com/jw-star/weiboPush-go-actions</a></p>
+<p>热搜2</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/wanghuafeng/baidu_spider">https://github.com/wanghuafeng/baidu_spider</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/TauWu/weibo_daily_hotkey">https://github.com/TauWu/weibo_daily_hotkey</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/quarrying/baidu-top-crawler">https://github.com/quarrying/baidu-top-crawler</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/towelong/zhihu-hot-questions">https://github.com/towelong/zhihu-hot-questions</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/gaussic/baidu_hot_words">https://github.com/gaussic/baidu_hot_words</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ctts/TopSearch">https://github.com/ctts/TopSearch</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/henrylee123/baiduIndexCrawler">https://github.com/henrylee123/baiduIndexCrawler</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/realzhengyiming/Spider_of_keywordRank">https://github.com/realzhengyiming/Spider_of_keywordRank</a></p>
+<p>登录主流网站</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/CharlesPikachu/DecryptLogin">https://github.com/CharlesPikachu/DecryptLogin</a></p>
+<p>微博热搜</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Eurkon/weibo-top-api">https://github.com/Eurkon/weibo-top-api</a></p>
+<p>微博 python api</p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/weibo/">https://pypi.org/project/weibo/</a></p>
+<p>github actions抓取微博热搜</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/xiadd/tg-wb-trending">https://github.com/xiadd/tg-wb-trending</a></p>
+<p>百度搜索api</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/wcadaydayup/python-baidusearch">https://github.com/wcadaydayup/python-baidusearch</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/1049451037/MagicBaidu">https://github.com/1049451037/MagicBaidu</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/alkalixin/jsonp">https://github.com/alkalixin/jsonp</a></p>
+<p>微软小冰api</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yanwii/msxiaoiceapi">https://github.com/yanwii/msxiaoiceapi</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/BennyThink/realXiaoice">https://github.com/BennyThink/realXiaoice</a></p>
+<p>搜狗微信</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/chyroc/WechatSogou">https://github.com/chyroc/WechatSogou</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jaryee/wechat_sogou_crawlhttps://github.com/pujinxiao/weixin">https://github.com/jaryee/wechat_sogou_crawlhttps://github.com/pujinxiao/weixin</a></p>
+<p>知乎爬虫</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/LiuRoy/zhihu_spider">https://github.com/LiuRoy/zhihu_spider</a></p>
+<p>搜索引擎爬虫 图片下载</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/tasos-py/Search-Engines-Scraper">https://github.com/tasos-py/Search-Engines-Scraper</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ostrolucky/Bulk-Bing-Image-downloader">https://github.com/ostrolucky/Bulk-Bing-Image-downloader</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/NikolaiT/GoogleScraper">https://github.com/NikolaiT/GoogleScraper</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/naqushab/SearchEngineScrapy">https://github.com/naqushab/SearchEngineScrapy</a></p>
 
 	
 	</div>
@@ -278,7 +565,48 @@
   <div class="row">
 	
 	
-		<h1 id="IM-MITM-聊天软件-MITM"><a href="#IM-MITM-聊天软件-MITM" class="headerlink" title="IM MITM 聊天软件 MITM"></a>IM MITM 聊天软件 MITM</h1><p>better do this in virtual enviorment without using any real world platform, just your own IM enviorment like a self-hosted IRC or something.<br>is there any existing solution like telegram-mitm or twitter mitm?<br>lua twitter automation, found on luarocks:<br><a target="_blank" rel="noopener" href="https://github.com/leafo/lua-twitter">https://github.com/leafo/lua-twitter</a><br>scraper of tumblr, pinterest, youtube, reddit using api:<br><a target="_blank" rel="noopener" href="https://github.com/ScriptSmith/socialreaper">https://github.com/ScriptSmith/socialreaper</a><br>youtube search and youtube comment scraper<br><a target="_blank" rel="noopener" href="https://github.com/alexmercerind/youtube-search-python">https://github.com/alexmercerind/youtube-search-python</a><br><a target="_blank" rel="noopener" href="https://github.com/egbertbouman/youtube-comment-downloader">https://github.com/egbertbouman/youtube-comment-downloader</a><br>youtube, youtube transcribe and youtube music api<br><a target="_blank" rel="noopener" href="https://github.com/srcecde/python-youtube-api">https://github.com/srcecde/python-youtube-api</a><br><a target="_blank" rel="noopener" href="https://github.com/sigma67/ytmusicapi">https://github.com/sigma67/ytmusicapi</a><br><a target="_blank" rel="noopener" href="https://github.com/jdepoix/youtube-transcript-api">https://github.com/jdepoix/youtube-transcript-api</a><br><a target="_blank" rel="noopener" href="https://github.com/youtube/api-samples">https://github.com/youtube/api-samples</a><br>reddit scraper and analyzer<br><a target="_blank" rel="noopener" href="https://github.com/casperbh96/Web-Scraping-Reddit">https://github.com/casperbh96/Web-Scraping-Reddit</a><br><a target="_blank" rel="noopener" href="https://github.com/umitkaanusta/reddit-detective">https://github.com/umitkaanusta/reddit-detective</a><br>reddit api<br><a target="_blank" rel="noopener" href="https://github.com/praw-dev/praw">https://github.com/praw-dev/praw</a><br>tumblr api<br><a target="_blank" rel="noopener" href="https://github.com/tumblr/pytumblr">https://github.com/tumblr/pytumblr</a><br>tumblr scraper<br><a target="_blank" rel="noopener" href="https://github.com/henan715/tumblrScrapy">https://github.com/henan715/tumblrScrapy</a><br>discord bot api:<br><a target="_blank" rel="noopener" href="https://github.com/discordjs/discord.js">https://github.com/discordjs/discord.js</a><br>twitter api<br><a target="_blank" rel="noopener" href="https://github.com/python-twitter-tools/twitter">https://github.com/python-twitter-tools/twitter</a><br>twitter scraper<br><a target="_blank" rel="noopener" href="https://github.com/bisguzar/twitter-scraper">https://github.com/bisguzar/twitter-scraper</a><br>facebook api:<br><a target="_blank" rel="noopener" href="https://github.com/Schmavery/facebook-chat-api">https://github.com/Schmavery/facebook-chat-api</a><br>facebook scraper:<br><a target="_blank" rel="noopener" href="https://github.com/kevinzg/facebook-scraper">https://github.com/kevinzg/facebook-scraper</a><br>instagram api:<br><a target="_blank" rel="noopener" href="https://github.com/facebookarchive/python-instagram">https://github.com/facebookarchive/python-instagram</a><br>instagram scraper:<br><a target="_blank" rel="noopener" href="https://github.com/huaying/instagram-crawler">https://github.com/huaying/instagram-crawler</a><br>topic analysis among recent frequent conversations<br>procedures:<br>1.add two friends (active) and bridge them<br>2.intercept them, filter insecure data like screenshots, identities and explicit contents, and analyze needs (probably with your generated response)?<br>3.send intentional Ads and fix the conversation in three sentences.</p>
+		<h1 id="IM-MITM-聊天软件-MITM"><a href="#IM-MITM-聊天软件-MITM" class="headerlink" title="IM MITM 聊天软件 MITM"></a>IM MITM 聊天软件 MITM</h1><p>better do this in virtual enviorment without using any real world platform, just your own IM enviorment like a self-hosted IRC or something.</p>
+<p>is there any existing solution like telegram-mitm or twitter mitm?</p>
+<p>lua twitter automation, found on luarocks:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/leafo/lua-twitter">https://github.com/leafo/lua-twitter</a></p>
+<p>scraper of tumblr, pinterest, youtube, reddit using api:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ScriptSmith/socialreaper">https://github.com/ScriptSmith/socialreaper</a></p>
+<p>youtube search and youtube comment scraper</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/alexmercerind/youtube-search-python">https://github.com/alexmercerind/youtube-search-python</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/egbertbouman/youtube-comment-downloader">https://github.com/egbertbouman/youtube-comment-downloader</a></p>
+<p>youtube, youtube transcribe and youtube music api</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/srcecde/python-youtube-api">https://github.com/srcecde/python-youtube-api</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/sigma67/ytmusicapi">https://github.com/sigma67/ytmusicapi</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jdepoix/youtube-transcript-api">https://github.com/jdepoix/youtube-transcript-api</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/youtube/api-samples">https://github.com/youtube/api-samples</a></p>
+<p>reddit scraper and analyzer</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/casperbh96/Web-Scraping-Reddit">https://github.com/casperbh96/Web-Scraping-Reddit</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/umitkaanusta/reddit-detective">https://github.com/umitkaanusta/reddit-detective</a></p>
+<p>reddit api</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/praw-dev/praw">https://github.com/praw-dev/praw</a></p>
+<p>tumblr api</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/tumblr/pytumblr">https://github.com/tumblr/pytumblr</a></p>
+<p>tumblr scraper</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/henan715/tumblrScrapy">https://github.com/henan715/tumblrScrapy</a></p>
+<p>discord bot api:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/discordjs/discord.js">https://github.com/discordjs/discord.js</a></p>
+<p>twitter api</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/python-twitter-tools/twitter">https://github.com/python-twitter-tools/twitter</a></p>
+<p>twitter scraper</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/bisguzar/twitter-scraper">https://github.com/bisguzar/twitter-scraper</a></p>
+<p>facebook api:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Schmavery/facebook-chat-api">https://github.com/Schmavery/facebook-chat-api</a></p>
+<p>facebook scraper:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/kevinzg/facebook-scraper">https://github.com/kevinzg/facebook-scraper</a></p>
+<p>instagram api:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/facebookarchive/python-instagram">https://github.com/facebookarchive/python-instagram</a></p>
+<p>instagram scraper:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/huaying/instagram-crawler">https://github.com/huaying/instagram-crawler</a></p>
+<p>topic analysis among recent frequent conversations</p>
+<p>procedures:</p>
+<p>1.add two friends (active) and bridge them</p>
+<p>2.intercept them, filter insecure data like screenshots, identities and explicit contents, and analyze needs (probably with your generated response)?</p>
+<p>3.send intentional Ads and fix the conversation in three sentences.</p>
 
 	
 	</div>
@@ -302,7 +630,79 @@
   <div class="row">
 	
 	
-		<h2 id="1、muricoca-crabhttps-github-com-muricoca-crab2、ibayer-fastFMhttps-github-com-ibayer-fastFM3、Mendeley-mrechttps-github-com-mendeley-mrec4、MrChrisJohnson-logistic-mfhttps-github-com-MrChrisJohnson-logistic-mf5、jadianes-winerama-recommender-tutorialhttps-github-com-jadianes-winerama-recommender-tutorial6、ocelma-python-recsyshttps-github-com-ocelma-python-recsys7、benfred-implicithttps-github-com-benfred-implicit8、lyst-lightfmhttps-github-com-lyst-lightfm9、python-recsys-crabhttps-github-com-python-recsys-crab10、NicolasHug-Surprisehttps-github-com-NicolasHug-Surprise"><a href="#1、muricoca-crabhttps-github-com-muricoca-crab2、ibayer-fastFMhttps-github-com-ibayer-fastFM3、Mendeley-mrechttps-github-com-mendeley-mrec4、MrChrisJohnson-logistic-mfhttps-github-com-MrChrisJohnson-logistic-mf5、jadianes-winerama-recommender-tutorialhttps-github-com-jadianes-winerama-recommender-tutorial6、ocelma-python-recsyshttps-github-com-ocelma-python-recsys7、benfred-implicithttps-github-com-benfred-implicit8、lyst-lightfmhttps-github-com-lyst-lightfm9、python-recsys-crabhttps-github-com-python-recsys-crab10、NicolasHug-Surprisehttps-github-com-NicolasHug-Surprise" class="headerlink" title="1、muricoca&#x2F;crabhttps://github.com/muricoca/crab2、ibayer&#x2F;fastFMhttps://github.com/ibayer/fastFM3、Mendeley&#x2F;mrechttps://github.com/mendeley/mrec4、MrChrisJohnson&#x2F;logistic-mfhttps://github.com/MrChrisJohnson/logistic-mf5、jadianes&#x2F;winerama-recommender-tutorialhttps://github.com/jadianes/winerama-recommender-tutorial6、ocelma&#x2F;python-recsyshttps://github.com/ocelma/python-recsys7、benfred&#x2F;implicithttps://github.com/benfred/implicit8、lyst&#x2F;lightfmhttps://github.com/lyst/lightfm9、python-recsys&#x2F;crabhttps://github.com/python-recsys/crab10、NicolasHug&#x2F;Surprisehttps://github.com/NicolasHug/Surprise"></a>1、muricoca&#x2F;crab<br><a target="_blank" rel="noopener" href="https://github.com/muricoca/crab">https://github.com/muricoca/crab</a><br>2、ibayer&#x2F;fastFM<br><a target="_blank" rel="noopener" href="https://github.com/ibayer/fastFM">https://github.com/ibayer/fastFM</a><br>3、Mendeley&#x2F;mrec<br><a target="_blank" rel="noopener" href="https://github.com/mendeley/mrec">https://github.com/mendeley/mrec</a><br>4、MrChrisJohnson&#x2F;logistic-mf<br><a target="_blank" rel="noopener" href="https://github.com/MrChrisJohnson/logistic-mf">https://github.com/MrChrisJohnson/logistic-mf</a><br>5、jadianes&#x2F;winerama-recommender-tutorial<br><a target="_blank" rel="noopener" href="https://github.com/jadianes/winerama-recommender-tutorial">https://github.com/jadianes/winerama-recommender-tutorial</a><br>6、ocelma&#x2F;python-recsys<br><a target="_blank" rel="noopener" href="https://github.com/ocelma/python-recsys">https://github.com/ocelma/python-recsys</a><br>7、benfred&#x2F;implicit<br><a target="_blank" rel="noopener" href="https://github.com/benfred/implicit">https://github.com/benfred/implicit</a><br>8、lyst&#x2F;lightfm<br><a target="_blank" rel="noopener" href="https://github.com/lyst/lightfm">https://github.com/lyst/lightfm</a><br>9、python-recsys&#x2F;crab<br><a target="_blank" rel="noopener" href="https://github.com/python-recsys/crab">https://github.com/python-recsys/crab</a><br>10、NicolasHug&#x2F;Surprise<br><a target="_blank" rel="noopener" href="https://github.com/NicolasHug/Surprise">https://github.com/NicolasHug/Surprise</a></h2><p>linkedin <a target="_blank" rel="noopener" href="https://github.com/linkedin/gdmix">gdmix</a> simple and memory effective personalized ranking<br>datawhale <a target="_blank" rel="noopener" href="https://github.com/datawhalechina/fun-rec">fun-rec 推荐系统入门教程</a><br>datawhale <a target="_blank" rel="noopener" href="https://github.com/datawhalechina/torch-rechub">rechub</a><br><a target="_blank" rel="noopener" href="https://github.com/jina-ai/clip-as-service">image to text, text to image, clip as image&#x2F;text embeddings</a><br><a target="_blank" rel="noopener" href="https://awesomeopensource.com/project/alibaba/DeepRec">deep recommendation using tensorflow 1.15</a><br><a target="_blank" rel="noopener" href="https://medium.com/analytics-vidhya/how-create-image-recomendation-system-3dcc5edf1597">image recommendation system</a><br>不同的人有不同喜好<br>不同的人和不同的人说话<br>不同的产品有不同的特征<br>不同的产品和不同的产品被一起推荐<br>人对产品的接受度<br>youzan has an ai platform called trexpark, offering chinese NLP and image models pretrained from e-commerce databases.<br><a target="_blank" rel="noopener" href="https://github.com/youzanai/trexpark">https://github.com/youzanai/trexpark</a><br>session based recommendation system:<br><a target="_blank" rel="noopener" href="https://github.com/CRIPAC-DIG/SR-GNN">https://github.com/CRIPAC-DIG/SR-GNN</a><br>decide the feedback embeddings:<br><a target="_blank" rel="noopener" href="https://huggingface.co/youzanai/bert-product-comment-chinese">https://huggingface.co/youzanai/bert-product-comment-chinese</a><br>conversational embeddings:<br><a target="_blank" rel="noopener" href="https://huggingface.co/youzanai/bert-customer-message-chinese">https://huggingface.co/youzanai/bert-customer-message-chinese</a><br>neo4j developer build a recommendation engine:<br><a target="_blank" rel="noopener" href="https://neo4j.com/developer/cypher/guide-build-a-recommendation-engine/">https://neo4j.com/developer/cypher/guide-build-a-recommendation-engine/</a><br>torch_geometric(PyG) documentation:<br><a target="_blank" rel="noopener" href="https://pytorch-geometric.readthedocs.io/en/latest/modules/nn.html#torch_geometric.nn.conv.GatedGraphConv">https://pytorch-geometric.readthedocs.io/en/latest/modules/nn.html#torch_geometric.nn.conv.GatedGraphConv</a><br>setup GCN using PyG:<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/400078504">https://zhuanlan.zhihu.com/p/400078504</a><br>tagspace text classification via hashtags:<br><a target="_blank" rel="noopener" href="https://paddlerec.readthedocs.io/en/latest/models/contentunderstanding/tagspace.html">https://paddlerec.readthedocs.io/en/latest/models/contentunderstanding/tagspace.html</a><br>gnn is based on basic data&#x2F;label models and provide high-level reasoning and predictions.<br>neo4j graph academy practical usage:<br><a target="_blank" rel="noopener" href="https://graphacademy.neo4j.com/categories/">https://graphacademy.neo4j.com/categories/</a><br><a target="_blank" rel="noopener" href="https://neo4j.com/graphacademy/training-iga-40/12-iga-40-ingredient-analysis/">https://neo4j.com/graphacademy/training-iga-40/12-iga-40-ingredient-analysis/</a><br>video segments have different features and orders. predict missing links. predict categories semi-supervised or unsupervised.<br>video-image-text-music correlation and predict internal relationships, categories.<br>recommendation system:<br>paddlerec(multimodal), torchrec(cuda&#x3D;&#x3D;11.3, build failed due to unable to find ATen from torch&#x2F;include.)<br><a target="_blank" rel="noopener" href="https://neo4j.com/docs/graph-data-science/current/end-to-end-examples/fastrp-knn-example/">https://neo4j.com/docs/graph-data-science/current/end-to-end-examples/fastrp-knn-example/</a><br>link prediction:<br><a target="_blank" rel="noopener" href="https://github.com/Orbifold/pyg-link-prediction/blob/main/run.py">https://github.com/Orbifold/pyg-link-prediction/blob/main/run.py</a><br>how to use pyg for link prediction:<br><a target="_blank" rel="noopener" href="https://github.com/pyg-team/pytorch_geometric/issues/634">https://github.com/pyg-team/pytorch_geometric/issues/634</a><br>dgl, install from source, with link prediction:<br><a target="_blank" rel="noopener" href="https://docs.dgl.ai/tutorials/blitz/4_link_predict.html">https://docs.dgl.ai/tutorials/blitz/4_link_predict.html</a><br><a target="_blank" rel="noopener" href="https://github.com/dmlc/dgl">https://github.com/dmlc/dgl</a><br><a target="_blank" rel="noopener" href="https://docs.dgl.ai/guide_cn/training-link.html#guide-cn-training-link-prediction">https://docs.dgl.ai/guide_cn/training-link.html#guide-cn-training-link-prediction</a><br>gnn intro:<br><a target="_blank" rel="noopener" href="https://cnvrg.io/graph-neural-networks/">https://cnvrg.io/graph-neural-networks/</a><br>gnn applications:<br>Node classification: The objective here is to predict the labels of nodes by considering the labels of their neighbors.<br>Link prediction: In this case, the goal is to predict the relationship between various entities in a graph. This can for example be applied in prediction connections for social networks.<br>Graph clustering: This involves dividing the nodes of a graph into clusters. The partitioning can be done based on edge weights or edge distances or by considering the graphs as objects and grouping similar objects together.<br>Graph classification: This entails classifying a graph into a category. This can be applied in social network analysis and categorizing documents in natural language processing. Other applications in NLP include text classification, extracting semantic relationships between texts, and sequence labeling.<br>Computer vision: In the computer vision world, GNNs can be used to generate regions of interest for object detection. They can also be used in image classification whereby a scene graph is generated. The scene generation model then identifies objects in the image and the semantic relationship between them. Other applications in this field include interaction detection and region classification.</p>
+		<p>1、muricoca&#x2F;crab</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/muricoca/crab">https://github.com/muricoca/crab</a></p>
+<p>2、ibayer&#x2F;fastFM</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ibayer/fastFM">https://github.com/ibayer/fastFM</a></p>
+<p>3、Mendeley&#x2F;mrec</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mendeley/mrec">https://github.com/mendeley/mrec</a></p>
+<p>4、MrChrisJohnson&#x2F;logistic-mf</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/MrChrisJohnson/logistic-mf">https://github.com/MrChrisJohnson/logistic-mf</a></p>
+<p>5、jadianes&#x2F;winerama-recommender-tutorial</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jadianes/winerama-recommender-tutorial">https://github.com/jadianes/winerama-recommender-tutorial</a></p>
+<p>6、ocelma&#x2F;python-recsys</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ocelma/python-recsys">https://github.com/ocelma/python-recsys</a></p>
+<p>7、benfred&#x2F;implicit</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/benfred/implicit">https://github.com/benfred/implicit</a></p>
+<p>8、lyst&#x2F;lightfm</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lyst/lightfm">https://github.com/lyst/lightfm</a></p>
+<p>9、python-recsys&#x2F;crab</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/python-recsys/crab">https://github.com/python-recsys/crab</a></p>
+<p>10、NicolasHug&#x2F;Surprise</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/NicolasHug/Surprise">https://github.com/NicolasHug/Surprise</a></p>
+<hr>
+<p>linkedin <a target="_blank" rel="noopener" href="https://github.com/linkedin/gdmix">gdmix</a> simple and memory effective personalized ranking</p>
+<p>datawhale <a target="_blank" rel="noopener" href="https://github.com/datawhalechina/fun-rec">fun-rec 推荐系统入门教程</a></p>
+<p>datawhale <a target="_blank" rel="noopener" href="https://github.com/datawhalechina/torch-rechub">rechub</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jina-ai/clip-as-service">image to text, text to image, clip as image&#x2F;text embeddings</a></p>
+<p><a target="_blank" rel="noopener" href="https://awesomeopensource.com/project/alibaba/DeepRec">deep recommendation using tensorflow 1.15</a></p>
+<p><a target="_blank" rel="noopener" href="https://medium.com/analytics-vidhya/how-create-image-recomendation-system-3dcc5edf1597">image recommendation system</a></p>
+<p>不同的人有不同喜好</p>
+<p>不同的人和不同的人说话</p>
+<p>不同的产品有不同的特征</p>
+<p>不同的产品和不同的产品被一起推荐</p>
+<p>人对产品的接受度</p>
+<p>youzan has an ai platform called trexpark, offering chinese NLP and image models pretrained from e-commerce databases.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/youzanai/trexpark">https://github.com/youzanai/trexpark</a></p>
+<p>session based recommendation system:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/CRIPAC-DIG/SR-GNN">https://github.com/CRIPAC-DIG/SR-GNN</a></p>
+<p>decide the feedback embeddings:</p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/youzanai/bert-product-comment-chinese">https://huggingface.co/youzanai/bert-product-comment-chinese</a></p>
+<p>conversational embeddings:</p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/youzanai/bert-customer-message-chinese">https://huggingface.co/youzanai/bert-customer-message-chinese</a></p>
+<p>neo4j developer build a recommendation engine:</p>
+<p><a target="_blank" rel="noopener" href="https://neo4j.com/developer/cypher/guide-build-a-recommendation-engine/">https://neo4j.com/developer/cypher/guide-build-a-recommendation-engine/</a></p>
+<p>torch_geometric(PyG) documentation:</p>
+<p><a target="_blank" rel="noopener" href="https://pytorch-geometric.readthedocs.io/en/latest/modules/nn.html#torch_geometric.nn.conv.GatedGraphConv">https://pytorch-geometric.readthedocs.io/en/latest/modules/nn.html#torch_geometric.nn.conv.GatedGraphConv</a></p>
+<p>setup GCN using PyG:</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/400078504">https://zhuanlan.zhihu.com/p/400078504</a></p>
+<p>tagspace text classification via hashtags:</p>
+<p><a target="_blank" rel="noopener" href="https://paddlerec.readthedocs.io/en/latest/models/contentunderstanding/tagspace.html">https://paddlerec.readthedocs.io/en/latest/models/contentunderstanding/tagspace.html</a></p>
+<p>gnn is based on basic data&#x2F;label models and provide high-level reasoning and predictions.</p>
+<p>neo4j graph academy practical usage:</p>
+<p><a target="_blank" rel="noopener" href="https://graphacademy.neo4j.com/categories/">https://graphacademy.neo4j.com/categories/</a></p>
+<p><a target="_blank" rel="noopener" href="https://neo4j.com/graphacademy/training-iga-40/12-iga-40-ingredient-analysis/">https://neo4j.com/graphacademy/training-iga-40/12-iga-40-ingredient-analysis/</a></p>
+<p>video segments have different features and orders. predict missing links. predict categories semi-supervised or unsupervised.</p>
+<p>video-image-text-music correlation and predict internal relationships, categories.</p>
+<p>recommendation system:</p>
+<p>paddlerec(multimodal), torchrec(cuda&#x3D;&#x3D;11.3, build failed due to unable to find ATen from torch&#x2F;include.)</p>
+<p><a target="_blank" rel="noopener" href="https://neo4j.com/docs/graph-data-science/current/end-to-end-examples/fastrp-knn-example/">https://neo4j.com/docs/graph-data-science/current/end-to-end-examples/fastrp-knn-example/</a></p>
+<p>link prediction:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Orbifold/pyg-link-prediction/blob/main/run.py">https://github.com/Orbifold/pyg-link-prediction/blob/main/run.py</a></p>
+<p>how to use pyg for link prediction:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/pyg-team/pytorch_geometric/issues/634">https://github.com/pyg-team/pytorch_geometric/issues/634</a></p>
+<p>dgl, install from source, with link prediction:</p>
+<p><a target="_blank" rel="noopener" href="https://docs.dgl.ai/tutorials/blitz/4_link_predict.html">https://docs.dgl.ai/tutorials/blitz/4_link_predict.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/dmlc/dgl">https://github.com/dmlc/dgl</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.dgl.ai/guide_cn/training-link.html#guide-cn-training-link-prediction">https://docs.dgl.ai/guide_cn/training-link.html#guide-cn-training-link-prediction</a></p>
+<p>gnn intro:</p>
+<p><a target="_blank" rel="noopener" href="https://cnvrg.io/graph-neural-networks/">https://cnvrg.io/graph-neural-networks/</a></p>
+<p>gnn applications:</p>
+<p>Node classification: The objective here is to predict the labels of nodes by considering the labels of their neighbors.</p>
+<p>Link prediction: In this case, the goal is to predict the relationship between various entities in a graph. This can for example be applied in prediction connections for social networks.</p>
+<p>Graph clustering: This involves dividing the nodes of a graph into clusters. The partitioning can be done based on edge weights or edge distances or by considering the graphs as objects and grouping similar objects together.</p>
+<p>Graph classification: This entails classifying a graph into a category. This can be applied in social network analysis and categorizing documents in natural language processing. Other applications in NLP include text classification, extracting semantic relationships between texts, and sequence labeling.</p>
+<p>Computer vision: In the computer vision world, GNNs can be used to generate regions of interest for object detection. They can also be used in image classification whereby a scene graph is generated. The scene generation model then identifies objects in the image and the semantic relationship between them. Other applications in this field include interaction detection and region classification.</p>
 
 	
 	</div>
@@ -326,10 +726,87 @@
   <div class="row">
 	
 	
-		<p>qq聊天记录导出 qq消息导出<br><a target="_blank" rel="noopener" href="https://github.com/ppwwyyxx/wechat-dump">微信聊天记录导出</a><br>聊天记录渲染成图片 render chat record to picture<br>conclusion so far: people like to use vue to recreate popular interfaces, and you may grab some interface from it.<br><a target="_blank" rel="noopener" href="https://github.com/useryangtao/vue-wechat">vue-wechat</a><br><a target="_blank" rel="noopener" href="https://github.com/zhaohaodang/vue-WeChat">🔥 基于Vue2.0高仿微信App的单页应用</a><br><a target="_blank" rel="noopener" href="https://github.com/lensh/vue-qq">vue-qq</a><br><a target="_blank" rel="noopener" href="https://github.com/lensh/vue-qq">一个长得像QQ的demo</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45783387/article/details/121595190">vue qq 聊天界面组件库</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-mchat</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://github.com/likaia/chat-system">vue 本项目是一个在线聊天系统，最大程度的还原了Mac客户端QQ。</a><br><a target="_blank" rel="noopener" href="https://github.com/jiangqizheng/vue-MiniQQ">vue-miniQQ————基于Vue2实现的仿手机QQ单页面应用</a><br><a target="_blank" rel="noopener" href="https://github.com/lvzhenbang/vue2-qq">基于Vue2实现的单页面应用 qq界面模仿</a><br><a target="_blank" rel="noopener" href="http://www.demodashi.com/demo/12539.html">demo大师 qq界面模仿 vuejs 要钱</a><br><a target="_blank" rel="noopener" href="http://www.demodashi.com/demo/17893.html">demo大师 vue3 仿微信&#x2F;qq界面 免费</a><br><a target="_blank" rel="noopener" href="https://github.com/ppwwyyxx/wechat-dump/blob/master/dump-html.py">render chat record to picture 微信聊天记录渲染成图片</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42298415/article/details/117871213">html css渲染</a><br><a target="_blank" rel="noopener" href="https://github.com/zb-tjw/imooc_tuling">仿QQ android的聊天界面</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30745553/article/details/98240195">HTML5手机微信聊天界面代码</a><br><a target="_blank" rel="noopener" href="https://gitee.com/ydq/WebChat?_from=gitee_search">HTML5 WebSocket 仿微信界面的网页群聊演示Demo</a><br><a target="_blank" rel="noopener" href="https://gitee.com/qjx378/wxchat?_from=gitee_search">用html5做的仿微信聊天界面</a><br><a target="_blank" rel="noopener" href="https://github.com/helpcode/chat-room">基于H5技术实现的在线聊天室APP</a><br><a target="_blank" rel="noopener" href="https://github.com/sylviapap/chatbot">Simple chatbot exercise using only JavaScript, HTML, CSS</a><br><a target="_blank" rel="noopener" href="https://github.com/uditalias/chat-nodejs">Multi-Room Chat Application</a><br><a target="_blank" rel="noopener" href="https://github.com/sheila1227/ChatRoom-AngularJS">一个基于AngularJS、NodeJS、Express、socket.io搭建的在线聊天室。</a><br><a target="_blank" rel="noopener" href="https://github.com/shaadomanthra/facebook-like-chat">facebook like chatroom</a><br>qq空间发美女图片把人家的脸要挡住 或者要把脸换了 或者直接使用live2d three.js 甚至3d的渲染模型来把脸给它挡住<br>somehow the wechat web uos protocol is usable again? check it out.<br><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/wechaty-puppet-wechat">https://www.npmjs.com/package/wechaty-puppet-wechat</a><br><a target="_blank" rel="noopener" href="https://github.com/wechaty/puppet-wechat/pull/206">https://github.com/wechaty/puppet-wechat/pull/206</a><br>would it be a lot easier if we can send those article&#x2F;video links to external (out of gfw) social media platforms in their native language? still censorship will be applied.<br>wechat frida hook on macos:<br><a target="_blank" rel="noopener" href="https://github.com/dounine/wechat-frida">https://github.com/dounine/wechat-frida</a><br>WeChat PC Frida hook:<br><a target="_blank" rel="noopener" href="https://github.com/K265/frida-wechat-sticker">https://github.com/K265/frida-wechat-sticker</a><br><a target="_blank" rel="noopener" href="https://github.com/kingking888/frida_wechat_hook">https://github.com/kingking888/frida_wechat_hook</a></p>
-<h2 id="qq号码注册规则"><a href="#qq号码注册规则" class="headerlink" title="qq号码注册规则"></a>qq号码注册规则</h2><p>qq群最多可以添加500个群 1500个好友 其中群可加的数量 &#x3D; max(0,500 - 已加入群数量 - 好友数量)<br>可以退出一些安静的群 不发红包的群 删除好友<br>屏蔽别人加我为好友 允许别人拉我进群 自动退出广告群 退出不活跃的群<br>群一天只能加两三个 或者手机上可以加十个<br>好友一天可以加三十几个<br>一个验证QQ群的Python代码<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/mobile?id=10044756">https://www.bilibili.com/read/mobile?id=10044756</a><br>frida inject mobile android qq and open qzone:<br><a target="_blank" rel="noopener" href="https://github.com/xhtechxposed/fridainjectqq">https://github.com/xhtechxposed/fridainjectqq</a><br>search <a target="_blank" rel="noopener" href="https://qun.qq.com/">https://qun.qq.com</a> in search engines<br>可以考虑截图获取QQ群验证问题 或者手机测试 appium<br>if possible then just use frida&#x2F;radare2 or some reverse engineering to automate the process.<br>radare2 -&gt; rizin.re(radare2 fork) based, ida alike, with ghidra decompiler, reverse engineering tool:<br><a target="_blank" rel="noopener" href="https://cutter.re/">https://cutter.re</a><br>如何获取进群验证问题？记得可以拦截PC端搜索QQ群接收的数据包获取验证问题 或许不行 总之可以获取到一些参数 查看是否包含验证问题 是不是允许任何人进群 也可以考虑拦截opqqq的通信 或者发送一些通用的加群验证信息 比如“加群学习” “小伙伴一起玩” 之类的 或者用ai模型根据群描述 群主题 生成<br>一个手机号码可以申请10个qq号，一个手机号绑定的QQ帐号名额上限为10个，但一天一个手机号只能成功注册两到三个<br>WeChat needs serious reverse engineering like frida.<br><a target="_blank" rel="noopener" href="https://github.com/cixingguangming55555/wechat-bot">https://github.com/cixingguangming55555/wechat-bot</a><br>有webapi的微信机器人 注入dll到pc<br><a target="_blank" rel="noopener" href="https://github.com/mrsanshui/WeChatPYAPI">https://github.com/mrsanshui/WeChatPYAPI</a><br>可以加好友的python wechat pc hook<br><a target="_blank" rel="noopener" href="https://github.com/snlie/WeChat-Hook">https://github.com/snlie/WeChat-Hook</a><br>易语言的wechat hook 功能非常全 搜索 加人 有教程链接 教学代码<br><a target="_blank" rel="noopener" href="https://github.com/TonyChen56/WeChatRobot">https://github.com/TonyChen56/WeChatRobot</a><br>比较老的wechat逆向模块 wechatapis.dll半天获得不了 有教程链接<br><a target="_blank" rel="noopener" href="https://github.com/wechaty/puppet-xp">https://github.com/wechaty/puppet-xp</a><br>frida 驱动的wechat puppet 暂时没有加人 搜索人 在windows上运行<br>wechat reverse engineering tutorials:<br><a target="_blank" rel="noopener" href="https://github.com/hedada-hc/pc_wechat_hook">https://github.com/hedada-hc/pc_wechat_hook</a><br><a target="_blank" rel="noopener" href="https://github.com/zmrbak/PcWeChatHooK">https://github.com/zmrbak/PcWeChatHooK</a><br>wechaty base framework:<br><a target="_blank" rel="noopener" href="https://github.com/Wechaty/python-wechaty/">https://github.com/Wechaty/python-wechaty/</a> (puppet support might be incomplete)<br><a target="_blank" rel="noopener" href="https://github.com/Wechaty/wechaty/">https://github.com/Wechaty/wechaty/</a><br>botoy opqbot api for python<br><a target="_blank" rel="noopener" href="https://botoy.opqbot.com/zh_CN/latest/action/">https://botoy.opqbot.com/zh_CN/latest/action/</a><br>qq opqbot (for wechat it has rstbot) download and install (need gitter.im api token):<br><a target="_blank" rel="noopener" href="https://docs.opqbot.com/guide/manual.html#%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5">https://docs.opqbot.com/guide/manual.html#启动失败</a><br>opqbot needs to be reverse engineered or we won’t know what is going on inside.<br>unofficial opqbot wiki:<br><a target="_blank" rel="noopener" href="https://mcenjoy.cn/opqbotwiki/">https://mcenjoy.cn/opqbotwiki/</a><br>wechat bot(non-free wechat puppets):<br>wechaty<br>quoted content are controversial and highly viral. must be filtered and classified before proceeding.<br>quotes are like comments.</p>
+		<p>qq聊天记录导出 qq消息导出</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ppwwyyxx/wechat-dump">微信聊天记录导出</a></p>
+<p>聊天记录渲染成图片 render chat record to picture</p>
+<p>conclusion so far: people like to use vue to recreate popular interfaces, and you may grab some interface from it.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/useryangtao/vue-wechat">vue-wechat</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zhaohaodang/vue-WeChat">🔥 基于Vue2.0高仿微信App的单页应用</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lensh/vue-qq">vue-qq</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lensh/vue-qq">一个长得像QQ的demo</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45783387/article/details/121595190">vue qq 聊天界面组件库</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-mchat</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/likaia/chat-system">vue 本项目是一个在线聊天系统，最大程度的还原了Mac客户端QQ。</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jiangqizheng/vue-MiniQQ">vue-miniQQ————基于Vue2实现的仿手机QQ单页面应用</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lvzhenbang/vue2-qq">基于Vue2实现的单页面应用 qq界面模仿</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.demodashi.com/demo/12539.html">demo大师 qq界面模仿 vuejs 要钱</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.demodashi.com/demo/17893.html">demo大师 vue3 仿微信&#x2F;qq界面 免费</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ppwwyyxx/wechat-dump/blob/master/dump-html.py">render chat record to picture 微信聊天记录渲染成图片</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42298415/article/details/117871213">html css渲染</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zb-tjw/imooc_tuling">仿QQ android的聊天界面</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30745553/article/details/98240195">HTML5手机微信聊天界面代码</a></p>
+<p><a target="_blank" rel="noopener" href="https://gitee.com/ydq/WebChat?_from=gitee_search">HTML5 WebSocket 仿微信界面的网页群聊演示Demo</a></p>
+<p><a target="_blank" rel="noopener" href="https://gitee.com/qjx378/wxchat?_from=gitee_search">用html5做的仿微信聊天界面</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/helpcode/chat-room">基于H5技术实现的在线聊天室APP</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/sylviapap/chatbot">Simple chatbot exercise using only JavaScript, HTML, CSS</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/uditalias/chat-nodejs">Multi-Room Chat Application</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/sheila1227/ChatRoom-AngularJS">一个基于AngularJS、NodeJS、Express、socket.io搭建的在线聊天室。</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/shaadomanthra/facebook-like-chat">facebook like chatroom</a></p>
+<p>qq空间发美女图片把人家的脸要挡住 或者要把脸换了 或者直接使用live2d three.js 甚至3d的渲染模型来把脸给它挡住</p>
+<p>somehow the wechat web uos protocol is usable again? check it out.</p>
+<p><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/wechaty-puppet-wechat">https://www.npmjs.com/package/wechaty-puppet-wechat</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/wechaty/puppet-wechat/pull/206">https://github.com/wechaty/puppet-wechat/pull/206</a></p>
+<p>would it be a lot easier if we can send those article&#x2F;video links to external (out of gfw) social media platforms in their native language? still censorship will be applied.</p>
+<p>wechat frida hook on macos:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/dounine/wechat-frida">https://github.com/dounine/wechat-frida</a></p>
+<p>WeChat PC Frida hook:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/K265/frida-wechat-sticker">https://github.com/K265/frida-wechat-sticker</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/kingking888/frida_wechat_hook">https://github.com/kingking888/frida_wechat_hook</a></p>
+<h2 id="qq号码注册规则"><a href="#qq号码注册规则" class="headerlink" title="qq号码注册规则"></a>qq号码注册规则</h2><p>qq群最多可以添加500个群 1500个好友 其中群可加的数量 &#x3D; max(0,500 - 已加入群数量 - 好友数量)</p>
+<p>可以退出一些安静的群 不发红包的群 删除好友</p>
+<p>屏蔽别人加我为好友 允许别人拉我进群 自动退出广告群 退出不活跃的群</p>
+<p>群一天只能加两三个 或者手机上可以加十个</p>
+<p>好友一天可以加三十几个</p>
+<p>一个验证QQ群的Python代码</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/mobile?id=10044756">https://www.bilibili.com/read/mobile?id=10044756</a></p>
+<p>frida inject mobile android qq and open qzone:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/xhtechxposed/fridainjectqq">https://github.com/xhtechxposed/fridainjectqq</a></p>
+<p>search <a target="_blank" rel="noopener" href="https://qun.qq.com/">https://qun.qq.com</a> in search engines</p>
+<p>可以考虑截图获取QQ群验证问题 或者手机测试 appium</p>
+<p>if possible then just use frida&#x2F;radare2 or some reverse engineering to automate the process.</p>
+<p>radare2 -&gt; rizin.re(radare2 fork) based, ida alike, with ghidra decompiler, reverse engineering tool:</p>
+<p><a target="_blank" rel="noopener" href="https://cutter.re/">https://cutter.re</a></p>
+<p>如何获取进群验证问题？记得可以拦截PC端搜索QQ群接收的数据包获取验证问题 或许不行 总之可以获取到一些参数 查看是否包含验证问题 是不是允许任何人进群 也可以考虑拦截opqqq的通信 或者发送一些通用的加群验证信息 比如“加群学习” “小伙伴一起玩” 之类的 或者用ai模型根据群描述 群主题 生成</p>
+<p>一个手机号码可以申请10个qq号，一个手机号绑定的QQ帐号名额上限为10个，但一天一个手机号只能成功注册两到三个</p>
+<p>WeChat needs serious reverse engineering like frida.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/cixingguangming55555/wechat-bot">https://github.com/cixingguangming55555/wechat-bot</a></p>
+<p>有webapi的微信机器人 注入dll到pc</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mrsanshui/WeChatPYAPI">https://github.com/mrsanshui/WeChatPYAPI</a></p>
+<p>可以加好友的python wechat pc hook</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/snlie/WeChat-Hook">https://github.com/snlie/WeChat-Hook</a></p>
+<p>易语言的wechat hook 功能非常全 搜索 加人 有教程链接 教学代码</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/TonyChen56/WeChatRobot">https://github.com/TonyChen56/WeChatRobot</a></p>
+<p>比较老的wechat逆向模块 wechatapis.dll半天获得不了 有教程链接</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/wechaty/puppet-xp">https://github.com/wechaty/puppet-xp</a></p>
+<p>frida 驱动的wechat puppet 暂时没有加人 搜索人 在windows上运行</p>
+<p>wechat reverse engineering tutorials:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/hedada-hc/pc_wechat_hook">https://github.com/hedada-hc/pc_wechat_hook</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zmrbak/PcWeChatHooK">https://github.com/zmrbak/PcWeChatHooK</a></p>
+<p>wechaty base framework:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Wechaty/python-wechaty/">https://github.com/Wechaty/python-wechaty/</a> (puppet support might be incomplete)</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Wechaty/wechaty/">https://github.com/Wechaty/wechaty/</a></p>
+<p>botoy opqbot api for python</p>
+<p><a target="_blank" rel="noopener" href="https://botoy.opqbot.com/zh_CN/latest/action/">https://botoy.opqbot.com/zh_CN/latest/action/</a></p>
+<p>qq opqbot (for wechat it has rstbot) download and install (need gitter.im api token):</p>
+<p><a target="_blank" rel="noopener" href="https://docs.opqbot.com/guide/manual.html#%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5">https://docs.opqbot.com/guide/manual.html#启动失败</a></p>
+<p>opqbot needs to be reverse engineered or we won’t know what is going on inside.</p>
+<p>unofficial opqbot wiki:</p>
+<p><a target="_blank" rel="noopener" href="https://mcenjoy.cn/opqbotwiki/">https://mcenjoy.cn/opqbotwiki/</a></p>
+<p>wechat bot(non-free wechat puppets):</p>
+<p>wechaty</p>
+<p>quoted content are controversial and highly viral. must be filtered and classified before proceeding.</p>
+<p>quotes are like comments.</p>
 
 	
 	</div>
@@ -353,7 +830,25 @@
   <div class="row">
 	
 	
-		<p>免费gpt文本生成：彩云小梦 以及小梦海外版<br>小梦的中文文本有涉及政治的检测器 不能把敏感内容塞进小梦<br>对话生成<br><a target="_blank" rel="noopener" href="https://huggingface.co/thu-coai/CDial-GPT_LCCC-large/tree/main">https://huggingface.co/thu-coai/CDial-GPT_LCCC-large/tree/main</a><br>twitter generator inspired by influencers:<br><a target="_blank" rel="noopener" href="https://github.com/gdemos01/TwitterInfluencerAI">https://github.com/gdemos01/TwitterInfluencerAI</a><br>chinese LM<br>清华130b大模型<br>测试地址：<a target="_blank" rel="noopener" href="https://huggingface.co/spaces/THUDM/GLM-130B">https://huggingface.co/spaces/THUDM/GLM-130B</a><br>模型仓库：<a target="_blank" rel="noopener" href="https://github.com/THUDM/GLM-130B">https://github.com/THUDM/GLM-130B</a><br><a target="_blank" rel="noopener" href="https://github.com/Morizeyao/GPT2-Chinese">https://github.com/Morizeyao/GPT2-Chinese</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/352028922">https://zhuanlan.zhihu.com/p/352028922</a><br><a target="_blank" rel="noopener" href="https://github.com/TsinghuaAI/CPM-1-Finetune">https://github.com/TsinghuaAI/CPM-1-Finetune</a><br><a target="_blank" rel="noopener" href="https://github.com/TsinghuaAI/CPM-1-Generate">https://github.com/TsinghuaAI/CPM-1-Generate</a><br><a target="_blank" rel="noopener" href="https://github.com/TsinghuaAI/CPM-2-Pretrain">https://github.com/TsinghuaAI/CPM-2-Pretrain</a><br>gpt2&#x2F;cpm tutorial:<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wwj99/p/12503545.html">https://www.cnblogs.com/wwj99/p/12503545.html</a><br><a target="_blank" rel="noopener" href="https://github.com/OpenBMB/BMInf-demos">https://github.com/OpenBMB/BMInf-demos</a><br><a target="_blank" rel="noopener" href="https://bmtrain.readthedocs.io/en/latest/index.html">https://bmtrain.readthedocs.io/en/latest/index.html</a></p>
+		<p>免费gpt文本生成：彩云小梦 以及小梦海外版</p>
+<p>小梦的中文文本有涉及政治的检测器 不能把敏感内容塞进小梦</p>
+<p>对话生成</p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/thu-coai/CDial-GPT_LCCC-large/tree/main">https://huggingface.co/thu-coai/CDial-GPT_LCCC-large/tree/main</a></p>
+<p>twitter generator inspired by influencers:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/gdemos01/TwitterInfluencerAI">https://github.com/gdemos01/TwitterInfluencerAI</a></p>
+<p>chinese LM</p>
+<p>清华130b大模型</p>
+<p>测试地址：<a target="_blank" rel="noopener" href="https://huggingface.co/spaces/THUDM/GLM-130B">https://huggingface.co/spaces/THUDM/GLM-130B</a></p>
+<p>模型仓库：<a target="_blank" rel="noopener" href="https://github.com/THUDM/GLM-130B">https://github.com/THUDM/GLM-130B</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Morizeyao/GPT2-Chinese">https://github.com/Morizeyao/GPT2-Chinese</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/352028922">https://zhuanlan.zhihu.com/p/352028922</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/TsinghuaAI/CPM-1-Finetune">https://github.com/TsinghuaAI/CPM-1-Finetune</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/TsinghuaAI/CPM-1-Generate">https://github.com/TsinghuaAI/CPM-1-Generate</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/TsinghuaAI/CPM-2-Pretrain">https://github.com/TsinghuaAI/CPM-2-Pretrain</a></p>
+<p>gpt2&#x2F;cpm tutorial:</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wwj99/p/12503545.html">https://www.cnblogs.com/wwj99/p/12503545.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/OpenBMB/BMInf-demos">https://github.com/OpenBMB/BMInf-demos</a></p>
+<p><a target="_blank" rel="noopener" href="https://bmtrain.readthedocs.io/en/latest/index.html">https://bmtrain.readthedocs.io/en/latest/index.html</a></p>
 
 	
 	</div>

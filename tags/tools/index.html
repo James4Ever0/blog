@@ -129,8 +129,11 @@
 	
 	
 		<p>we’ve got <a target="_blank" rel="noopener" href="https://github.com/HorlogeSkynet/archey4">archey4</a>, a cross-platform sysinfo gather tool, with info on temperature monitor tools</p>
-<h2 id="macos"><a href="#macos" class="headerlink" title="macos"></a>macos</h2><p><a target="_blank" rel="noopener" href="https://github.com/lavoiesl/osx-cpu-temp">osx-core-temp</a> for old intel macs<br><a target="_blank" rel="noopener" href="https://github.com/fermion-star/apple_sensors/">apple_sensors</a> and <a target="_blank" rel="noopener" href="https://github.com/narugit/smctemp">smctemp</a> for m1 and newer macs<br>place this under <code>/opt/homebrew/bin/osx-cpu-temp</code> to run archey4 with cpu temperature:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">smctemp -c</span><br></pre></td></tr></table></figure>
+<h2 id="macos"><a href="#macos" class="headerlink" title="macos"></a>macos</h2><p><a target="_blank" rel="noopener" href="https://github.com/lavoiesl/osx-cpu-temp">osx-core-temp</a> for old intel macs</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/fermion-star/apple_sensors/">apple_sensors</a> and <a target="_blank" rel="noopener" href="https://github.com/narugit/smctemp">smctemp</a> for m1 and newer macs</p>
+<p>place this under <code>/opt/homebrew/bin/osx-cpu-temp</code> to run archey4 with cpu temperature:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">smctemp -c</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><p><a target="_blank" rel="noopener" href="https://www.alcpu.com/CoreTemp/">coretemp</a></p>
 <h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><p><a target="_blank" rel="noopener" href="https://github.com/chinf/psensor">psensor</a></p>
 
@@ -157,45 +160,113 @@
 	
 	
 		<p>what to do when chatgpt is not for everyone?</p>
-<h2 id="general-introduction"><a href="#general-introduction" class="headerlink" title="general introduction"></a>general introduction</h2><p>this is about <strong>information gathering</strong>, so you might learn how to scrape AI models, AI notebooks, tutorials, code snippets from websites&#x2F;search engines&#x2F;social media as well.<br>given the name of the hack tool, you may not be able to tell what the tool is (written in python? hosted on github? online tool?) and you want to use search engine to find possible entries. you may take snapshots on these pages and index them.<br>if the hack tool is linked to some website&#x2F;manual, you can index the website. if you find it inside some package index or package manager, you will know how to install the package.<br>you may miss the wiki, forum, tutorials. you know where to get them.<br>here are few sources where you can learn things from:<br><a target="_blank" rel="noopener" href="https://www.darknet.org.uk/">darknet.org.uk</a> where you learn hacking and <a target="_blank" rel="noopener" href="https://www.darknet.org.uk/category/hacking-tools/">hack tools</a><br><a target="_blank" rel="noopener" href="https://null-byte.wonderhowto.com/">null byte</a> in <a target="_blank" rel="noopener" href="https://www.wonderhowto.com/">wonderhowto</a><br>you also have <code>brew</code> <code>sdkman</code> <code>macport</code> <code>pkgsrc</code> <code>chocolatey</code> <code>scoop</code> <code>winget</code>  <code>snap</code> <code>portage</code> <code>conda</code> <code>flatpak</code> <code>rpm</code> <code>urpm</code> <code>yum</code> <code>cargo</code> <code>dnf</code> indexes and more to scrape. maybe it is time to improve your searching skill? (<strong>select few web domains you want to learn things from, then perform the query, still you have to deal with keywords generation and site selection</strong>)<br><a target="_blank" rel="noopener" href="https://launchpad.net/~cyborg-hawk/+archive/ubuntu/stable">cyborg hawx linux</a>, backtrack linux may join the parade.<br>for language specific package indexs, we have <code>hackage</code> <code>CPAN</code> <code>CRAN</code> <code>crates.io</code> and more (where are package indexes for <code>C</code> <code>C++</code> <code>Pascal</code> <code>BASIC</code> <code>assembly</code> <code>lisp</code> <code>prolog</code> <code>lua</code> and more? visit <a target="_blank" rel="noopener" href="https://awesomeopensource.com/">awesomeopensource</a> then use combined topics to find <a target="_blank" rel="noopener" href="https://awesomeopensource.com/projects/c/package-manager">package managers for c</a> and more. you also have <a target="_blank" rel="noopener" href="https://libraries.io/">libraries.io</a> to monitor libraries across all package managers). just check <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/">tuna mirror site</a> and get a view on that. you may want a network directory traversal tool akin to <code>find</code> in local filesystem, without downloading anything “binary” but just logging all possible urls for you to inspect. (with file size)<br>after all these information collecting, you must categorize them (topic modelling), retrieve info when needed (semantic searching? recommendation? dialog based GPT?). you may find many things not obviously a hack tool but in general fit well into specific needs.<br>with all packages being scraped, you need to deduplicate it a little bit, either by name or homepage.</p>
-<h2 id="case-specific"><a href="#case-specific" class="headerlink" title="case specific"></a>case specific</h2><h3 id="github"><a href="#github" class="headerlink" title="github"></a>github</h3><p>repo named with “awesome” means this is a collection of handpicked resources<br>you will find github links on web, social media, instant messaging and forums<br><a target="_blank" rel="noopener" href="https://github.com/henson/Scraper">Scraper</a> scrape popular github repositories every day<br><a target="_blank" rel="noopener" href="https://github.com/csurfer/gitsuggest">gitsuggest</a> recommend github repos<br><a target="_blank" rel="noopener" href="https://fusebit.io/blog/github-api-list-repositories/?utm_source=cn.bing.com&utm_medium=referral&utm_campaign=none">How to Use the GitHub API to List Repositories</a><br><a target="_blank" rel="noopener" href="https://pygithub.readthedocs.io/en/latest/introduction.html">PyGithub</a> use python to automate github api v3<br>if you want all README pages on github, you first need to collect all github repo urls. you may also collect info on github repos (OSINT). you can retrieve all repos link to given user with github api (quota limited). you can search github on github or search engine with some juicy&#x2F;promising keywords then collect repo name, username, keywords, repeat the search.<br>there are few github repo archives avaliable for download. the github archive program packed many repos to arctic, the list is called <a target="_blank" rel="noopener" href="https://archiveprogram.github.com/assets/img/archive-repos.txt">Greatest Hits</a><br><a target="_blank" rel="noopener" href="https://www.gharchive.org/">gharchive</a> provides many websites for monitoring github repos, though stopped archiving since 2016</p>
+<h2 id="general-introduction"><a href="#general-introduction" class="headerlink" title="general introduction"></a>general introduction</h2><p>this is about <strong>information gathering</strong>, so you might learn how to scrape AI models, AI notebooks, tutorials, code snippets from websites&#x2F;search engines&#x2F;social media as well.</p>
+<p>given the name of the hack tool, you may not be able to tell what the tool is (written in python? hosted on github? online tool?) and you want to use search engine to find possible entries. you may take snapshots on these pages and index them.</p>
+<p>if the hack tool is linked to some website&#x2F;manual, you can index the website. if you find it inside some package index or package manager, you will know how to install the package.</p>
+<p>you may miss the wiki, forum, tutorials. you know where to get them.</p>
+<p>here are few sources where you can learn things from:</p>
+<p><a target="_blank" rel="noopener" href="https://www.darknet.org.uk/">darknet.org.uk</a> where you learn hacking and <a target="_blank" rel="noopener" href="https://www.darknet.org.uk/category/hacking-tools/">hack tools</a></p>
+<p><a target="_blank" rel="noopener" href="https://null-byte.wonderhowto.com/">null byte</a> in <a target="_blank" rel="noopener" href="https://www.wonderhowto.com/">wonderhowto</a></p>
+<p>you also have <code>brew</code> <code>sdkman</code> <code>macport</code> <code>pkgsrc</code> <code>chocolatey</code> <code>scoop</code> <code>winget</code>  <code>snap</code> <code>portage</code> <code>conda</code> <code>flatpak</code> <code>rpm</code> <code>urpm</code> <code>yum</code> <code>cargo</code> <code>dnf</code> indexes and more to scrape. maybe it is time to improve your searching skill? (<strong>select few web domains you want to learn things from, then perform the query, still you have to deal with keywords generation and site selection</strong>)</p>
+<p><a target="_blank" rel="noopener" href="https://launchpad.net/~cyborg-hawk/+archive/ubuntu/stable">cyborg hawx linux</a>, backtrack linux may join the parade.</p>
+<p>for language specific package indexs, we have <code>hackage</code> <code>CPAN</code> <code>CRAN</code> <code>crates.io</code> and more (where are package indexes for <code>C</code> <code>C++</code> <code>Pascal</code> <code>BASIC</code> <code>assembly</code> <code>lisp</code> <code>prolog</code> <code>lua</code> and more? visit <a target="_blank" rel="noopener" href="https://awesomeopensource.com/">awesomeopensource</a> then use combined topics to find <a target="_blank" rel="noopener" href="https://awesomeopensource.com/projects/c/package-manager">package managers for c</a> and more. you also have <a target="_blank" rel="noopener" href="https://libraries.io/">libraries.io</a> to monitor libraries across all package managers). just check <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/">tuna mirror site</a> and get a view on that. you may want a network directory traversal tool akin to <code>find</code> in local filesystem, without downloading anything “binary” but just logging all possible urls for you to inspect. (with file size)</p>
+<p>after all these information collecting, you must categorize them (topic modelling), retrieve info when needed (semantic searching? recommendation? dialog based GPT?). you may find many things not obviously a hack tool but in general fit well into specific needs.</p>
+<p>with all packages being scraped, you need to deduplicate it a little bit, either by name or homepage.</p>
+<h2 id="case-specific"><a href="#case-specific" class="headerlink" title="case specific"></a>case specific</h2><h3 id="github"><a href="#github" class="headerlink" title="github"></a>github</h3><p>repo named with “awesome” means this is a collection of handpicked resources</p>
+<p>you will find github links on web, social media, instant messaging and forums</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/henson/Scraper">Scraper</a> scrape popular github repositories every day</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/csurfer/gitsuggest">gitsuggest</a> recommend github repos</p>
+<p><a target="_blank" rel="noopener" href="https://fusebit.io/blog/github-api-list-repositories/?utm_source=cn.bing.com&utm_medium=referral&utm_campaign=none">How to Use the GitHub API to List Repositories</a></p>
+<p><a target="_blank" rel="noopener" href="https://pygithub.readthedocs.io/en/latest/introduction.html">PyGithub</a> use python to automate github api v3</p>
+<p>if you want all README pages on github, you first need to collect all github repo urls. you may also collect info on github repos (OSINT). you can retrieve all repos link to given user with github api (quota limited). you can search github on github or search engine with some juicy&#x2F;promising keywords then collect repo name, username, keywords, repeat the search.</p>
+<p>there are few github repo archives avaliable for download. the github archive program packed many repos to arctic, the list is called <a target="_blank" rel="noopener" href="https://archiveprogram.github.com/assets/img/archive-repos.txt">Greatest Hits</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.gharchive.org/">gharchive</a> provides many websites for monitoring github repos, though stopped archiving since 2016</p>
 <h3 id="kali-parrot"><a href="#kali-parrot" class="headerlink" title="kali, parrot"></a>kali, parrot</h3><p>kali tool list pages</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl https://en.kali.tools/all/ &gt; kali_tools_all.html <span class="comment"># more tags, more categories, the same as blackarch?</span></span><br><span class="line">curl https://www.kali.org/tools/ &gt; kali_official.html</span><br><span class="line">curl https://en.kali.tools/ &gt; pentest_tools_with_name.html</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://www.kali.org/tools/kali-meta/">kali meta page on web</a><br><a target="_blank" rel="noopener" href="http://pkg.kali.org/pkg/kali-meta">kali meta page on package index</a><br><a target="_blank" rel="noopener" href="https://pkg.kali.org/">kali package index</a><br>notice kali official “offsec” provides training courses and materials as apt packages. the list:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">offsec-awae/kali-rolling 2021.1.2 amd64</span><br><span class="line">Resources for OffSec&#x27;s AWAE/WEB-300</span><br><span class="line">offsec-awae-python2/kali-rolling 2021.1.2 amd64</span><br><span class="line">Python 2 resources for OffSec&#x27;s AWAE/WEB-300</span><br><span class="line">offsec-exp301/kali-rolling 2021.1.2 amd64</span><br><span class="line">Resources for OffSec&#x27;s WUMED/EXP-301</span><br><span class="line">offsec-pen300/kali-rolling 2021.1.2 amd64</span><br><span class="line">Resources for OffSec&#x27;s ETBD/PEN-300</span><br><span class="line">offsec-pwk/kali-rolling 2021.1.2 amd64</span><br><span class="line">Resources for OffSec&#x27;s PWK2/PEN-200</span><br></pre></td></tr></table></figure>
-<p>these two OSes are for pentesting, using <code>apt</code> as package manager. but parrot does not provide tool introductions.<br>get all package names:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt list</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl https://en.kali.tools/all/ &gt; kali_tools_all.html <span class="comment"># more tags, more categories, the same as blackarch?</span></span><br><span class="line">curl https://www.kali.org/tools/ &gt; kali_official.html</span><br><span class="line">curl https://en.kali.tools/ &gt; pentest_tools_with_name.html</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://www.kali.org/tools/kali-meta/">kali meta page on web</a></p>
+<p><a target="_blank" rel="noopener" href="http://pkg.kali.org/pkg/kali-meta">kali meta page on package index</a></p>
+<p><a target="_blank" rel="noopener" href="https://pkg.kali.org/">kali package index</a></p>
+<p>notice kali official “offsec” provides training courses and materials as apt packages. the list:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">offsec-awae/kali-rolling 2021.1.2 amd64</span><br><span class="line">Resources for OffSec&#x27;s AWAE/WEB-300</span><br><span class="line">offsec-awae-python2/kali-rolling 2021.1.2 amd64</span><br><span class="line">Python 2 resources for OffSec&#x27;s AWAE/WEB-300</span><br><span class="line">offsec-exp301/kali-rolling 2021.1.2 amd64</span><br><span class="line">Resources for OffSec&#x27;s WUMED/EXP-301</span><br><span class="line">offsec-pen300/kali-rolling 2021.1.2 amd64</span><br><span class="line">Resources for OffSec&#x27;s ETBD/PEN-300</span><br><span class="line">offsec-pwk/kali-rolling 2021.1.2 amd64</span><br><span class="line">Resources for OffSec&#x27;s PWK2/PEN-200</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>these two OSes are for pentesting, using <code>apt</code> as package manager. but parrot does not provide tool introductions.</p>
+<p>get all package names:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt list</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>you can retrieve package information in apt command, like:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt show &lt;package_name&gt;</span><br></pre></td></tr></table></figure>
-<p>you will get homepage link and package description<br>if you want package dependencies you will also have it.<br>using <code>apt</code> one can retrieve package infos with simple command. find main metapackages like <code>parrot-tools-full</code> (parrot) and <code>kali-linux-everything</code> (kali) first, then retrieve dependency trees.<br>parrotos has <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/parrot/index.db">index.db</a> which you can retrieve info from there, or “Packages” for general debian package index, or anything you think is metadata.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt show &lt;package_name&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>you will get homepage link and package description</p>
+<p>if you want package dependencies you will also have it.</p>
+<p>using <code>apt</code> one can retrieve package infos with simple command. find main metapackages like <code>parrot-tools-full</code> (parrot) and <code>kali-linux-everything</code> (kali) first, then retrieve dependency trees.</p>
+<p>parrotos has <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/parrot/index.db">index.db</a> which you can retrieve info from there, or “Packages” for general debian package index, or anything you think is metadata.</p>
 <h3 id="chocolatey"><a href="#chocolatey" class="headerlink" title="chocolatey"></a>chocolatey</h3><p>note: deprecated since v2.0, can only be used to list local packages</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">choco list</span><br></pre></td></tr></table></figure>
-<h3 id="blackarch"><a href="#blackarch" class="headerlink" title="blackarch"></a>blackarch</h3><p>blackarch is based on archlinux, which has both official repo and user provided packages repo (AUR). the syntax is almost the same for <code>pacman</code> and <code>yaourt</code> to retrieve all available info of packages.<br>maybe you want to retrieve package information with pacman.<br>list all package information just like apt, description, dependencies, homepage and more.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Si</span><br></pre></td></tr></table></figure>
-<p>use some parser?<br>for aur repos, use yay or yaourt.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yaourt -Si</span><br></pre></td></tr></table></figure>
-<p>you may use dependencies to deduce relationship between packages, use description, man pages, wiki, manual and tutorials to understand the usage of packages.<br>download main blackarch tool list:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://www.blackarch.org/tools.html &gt; tools.html</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">choco list</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="blackarch"><a href="#blackarch" class="headerlink" title="blackarch"></a>blackarch</h3><p>blackarch is based on archlinux, which has both official repo and user provided packages repo (AUR). the syntax is almost the same for <code>pacman</code> and <code>yaourt</code> to retrieve all available info of packages.</p>
+<p>maybe you want to retrieve package information with pacman.</p>
+<p>list all package information just like apt, description, dependencies, homepage and more.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacman -Si</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>use some parser?</p>
+<p>for aur repos, use yay or yaourt.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yaourt -Si</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>you may use dependencies to deduce relationship between packages, use description, man pages, wiki, manual and tutorials to understand the usage of packages.</p>
+<p>download main blackarch tool list:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl https://www.blackarch.org/tools.html &gt; tools.html</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <h3 id="alpine"><a href="#alpine" class="headerlink" title="alpine"></a>alpine</h3><p>alpine linux is able to <a target="_blank" rel="noopener" href="https://georgegarside.com/blog/technology/alpine-linux-install-all-man-pages/">download man page alone without installing package</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apk list -I | sed -rn <span class="string">&#x27;/-doc/! s/([a-z-]+[a-z]).*/\1/p&#x27;</span> | awk <span class="string">&#x27;&#123; print system(&quot;apk info \&quot;&quot;$1&quot;-doc\&quot; &gt; /dev/null&quot;) == 0 ? $ &quot;-doc&quot; : &quot;&quot; &#125;&#x27;</span> | xargs apk add</span><br></pre></td></tr></table></figure>
-<h3 id="pypi-pip"><a href="#pypi-pip" class="headerlink" title="pypi&#x2F;pip"></a>pypi&#x2F;pip</h3><p>i remember you have scraped tsinghua pypi index, containing many python tools.<br>retrieve python package info as json:<br><code>https://pypi.org/pypi/&lt;package-name&gt;/json</code><br>visit <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple/">pypi simple index</a> to get all package names. but the info is clearly on the other page. you retrieve this from pypi. use the below commandline tool?<br><code>pypi [information|description] &lt;package_name&gt;</code><br>documentation url is provided separately from mainpage.<br><a target="_blank" rel="noopener" href="https://pypi.org/project/pypi-command-line/">commandline tool for searching in pypi</a><br>install it, then run:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pypi search &lt;query&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apk list -I | sed -rn <span class="string">&#x27;/-doc/! s/([a-z-]+[a-z]).*/\1/p&#x27;</span> | awk <span class="string">&#x27;&#123; print system(&quot;apk info \&quot;&quot;$1&quot;-doc\&quot; &gt; /dev/null&quot;) == 0 ? $ &quot;-doc&quot; : &quot;&quot; &#125;&#x27;</span> | xargs apk add</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="pypi-pip"><a href="#pypi-pip" class="headerlink" title="pypi&#x2F;pip"></a>pypi&#x2F;pip</h3><p>i remember you have scraped tsinghua pypi index, containing many python tools.</p>
+<p>retrieve python package info as json:</p>
+<p><code>https://pypi.org/pypi/&lt;package-name&gt;/json</code></p>
+<p>visit <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple/">pypi simple index</a> to get all package names. but the info is clearly on the other page. you retrieve this from pypi. use the below commandline tool?</p>
+<p><code>pypi [information|description] &lt;package_name&gt;</code></p>
+<p>documentation url is provided separately from mainpage.</p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/pypi-command-line/">commandline tool for searching in pypi</a></p>
+<p>install it, then run:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pypi search &lt;query&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>it also provides “read-the-docs” to search in documentation of a package, detailed info</p>
-<h3 id="nuget"><a href="#nuget" class="headerlink" title="nuget"></a>nuget</h3><p>we can search in cli tool (not <code>dotnet nuget</code> (installed with dotnet sdk) but <code>nuget</code> (<a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/nuget/reference/nuget-exe-cli-reference">installation guide</a>)) and <a target="_blank" rel="noopener" href="https://www.nuget.org/">web interface</a>.<br>list all packages:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nuget list</span><br></pre></td></tr></table></figure>
+<h3 id="nuget"><a href="#nuget" class="headerlink" title="nuget"></a>nuget</h3><p>we can search in cli tool (not <code>dotnet nuget</code> (installed with dotnet sdk) but <code>nuget</code> (<a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/nuget/reference/nuget-exe-cli-reference">installation guide</a>)) and <a target="_blank" rel="noopener" href="https://www.nuget.org/">web interface</a>.</p>
+<p>list all packages:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nuget list</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>get package information:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nuget list &lt;packageName&gt; -Verbosity detailed</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/nuget/guides/api/query-for-all-published-packages">query all package information without nuget</a><br>the web interface seems allowing us to do some traversal on the parameter: <code>https://www.nuget.org/packages?page=&lt;pagenum&gt;&amp;sortBy=relevance</code><br>keep in mind the pagenum cannot be too big (like 2000).</p>
-<h3 id="maven"><a href="#maven" class="headerlink" title="maven"></a>maven</h3><p>there are tools for interacting with maven search api.<br>you can retrieve “pom.xml” to get package info like homepage and description.<br>maven central has <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/archetype-catalog.xml">archtype-catalog</a> for retrieving all avaliable artifact names<br>maven search tools:<br><a target="_blank" rel="noopener" href="https://github.com/erosb/mvn-search">mvn-search</a><br><a target="_blank" rel="noopener" href="https://github.com/mthmulders/mcs">mcs</a></p>
-<h3 id="homebrew"><a href="#homebrew" class="headerlink" title="homebrew"></a>homebrew</h3><p>reading the source code and according to <a target="_blank" rel="noopener" href="https://formulae.brew.sh/docs/api/">brew api docs</a> i found <a target="_blank" rel="noopener" href="https://formulae.brew.sh/api/formula.json">this url</a> is for retrieving all formula info on brew index, and <a target="_blank" rel="noopener" href="https://formulae.brew.sh/api/cask.json">this</a> for casks.<br>also run this command for showing local cached package infos:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew info --json --all</span><br></pre></td></tr></table></figure>
-<h3 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h3><p>there’s a <a target="_blank" rel="noopener" href="https://github.com/nice-registry/all-the-package-names">repo</a> storing up-to-date package names on github. after that, use <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/npm-description">npm-description</a> to download description for every package.<br><a target="_blank" rel="noopener" href="https://github.com/nice-registry/all-the-package-repos">all-the-package-repos</a> contains repo information (github, gitlab) of every npm package</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nuget list &lt;packageName&gt; -Verbosity detailed</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/nuget/guides/api/query-for-all-published-packages">query all package information without nuget</a></p>
+<p>the web interface seems allowing us to do some traversal on the parameter: <code>https://www.nuget.org/packages?page=&lt;pagenum&gt;&amp;sortBy=relevance</code></p>
+<p>keep in mind the pagenum cannot be too big (like 2000).</p>
+<h3 id="maven"><a href="#maven" class="headerlink" title="maven"></a>maven</h3><p>there are tools for interacting with maven search api.</p>
+<p>you can retrieve “pom.xml” to get package info like homepage and description.</p>
+<p>maven central has <a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/archetype-catalog.xml">archtype-catalog</a> for retrieving all avaliable artifact names</p>
+<p>maven search tools:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/erosb/mvn-search">mvn-search</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mthmulders/mcs">mcs</a></p>
+<h3 id="homebrew"><a href="#homebrew" class="headerlink" title="homebrew"></a>homebrew</h3><p>reading the source code and according to <a target="_blank" rel="noopener" href="https://formulae.brew.sh/docs/api/">brew api docs</a> i found <a target="_blank" rel="noopener" href="https://formulae.brew.sh/api/formula.json">this url</a> is for retrieving all formula info on brew index, and <a target="_blank" rel="noopener" href="https://formulae.brew.sh/api/cask.json">this</a> for casks.</p>
+<p>also run this command for showing local cached package infos:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew info --json --all</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h3><p>there’s a <a target="_blank" rel="noopener" href="https://github.com/nice-registry/all-the-package-names">repo</a> storing up-to-date package names on github. after that, use <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/npm-description">npm-description</a> to download description for every package.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/nice-registry/all-the-package-repos">all-the-package-repos</a> contains repo information (github, gitlab) of every npm package</p>
 <h3 id="gem"><a href="#gem" class="headerlink" title="gem"></a>gem</h3><p>change gem sources first:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/</span><br></pre></td></tr></table></figure>
-<p><code>gem list -r</code> really works. you just have to wait.<br><code>gem info -r</code> list all remote gem infos, but too slow and not working, use only one package at a time.</p>
-<h3 id="manpages"><a href="#manpages" class="headerlink" title="manpages"></a>manpages</h3><p>you can download man pages before installing package<br>use “dman” by bikeshed (not avaliable on kali, maybe on ubuntu?)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install bikeshed</span><br></pre></td></tr></table></figure>
-<p>or browse manpages on web, <a target="_blank" rel="noopener" href="https://linux.die.net/">tutorials on linux and languages</a><br><a target="_blank" rel="noopener" href="https://linux.die.net/man/">man pages with different sections (categories)</a><br><a target="_blank" rel="noopener" href="https://manpages.ubuntu.com/manpages">hierachical manpages of ubuntu</a><br><a target="_blank" rel="noopener" href="https://manpages.ubuntu.com/dman">dman for ubuntu man pages</a><br>location of locally installed man pages: <code>/usr/share/man</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>gem list -r</code> really works. you just have to wait.</p>
+<p><code>gem info -r</code> list all remote gem infos, but too slow and not working, use only one package at a time.</p>
+<h3 id="manpages"><a href="#manpages" class="headerlink" title="manpages"></a>manpages</h3><p>you can download man pages before installing package</p>
+<p>use “dman” by bikeshed (not avaliable on kali, maybe on ubuntu?)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get install bikeshed</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>or browse manpages on web, <a target="_blank" rel="noopener" href="https://linux.die.net/">tutorials on linux and languages</a></p>
+<p><a target="_blank" rel="noopener" href="https://linux.die.net/man/">man pages with different sections (categories)</a></p>
+<p><a target="_blank" rel="noopener" href="https://manpages.ubuntu.com/manpages">hierachical manpages of ubuntu</a></p>
+<p><a target="_blank" rel="noopener" href="https://manpages.ubuntu.com/dman">dman for ubuntu man pages</a></p>
+<p>location of locally installed man pages: <code>/usr/share/man</code></p>
 <h3 id="vscode-plugin"><a href="#vscode-plugin" class="headerlink" title="vscode plugin"></a>vscode plugin</h3><p><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/VSCode">web interface</a> for searching</p>
 
 	
@@ -220,8 +291,44 @@
   <div class="row">
 	
 	
-		<h2 id="open-source-virus-malware-in-your-arsenal"><a href="#open-source-virus-malware-in-your-arsenal" class="headerlink" title="open source virus&#x2F;malware in your arsenal"></a>open source virus&#x2F;malware in your arsenal</h2><h2 id="powershell-obfuscator-advanced-will-bypass-any-av-post-exploit-framework-evasionthefatrat-is-an-exploiting-tool-which-compiles-a-malware-with-famous-payload-and-then-the-compiled-maware-can-be-executed-on-Linux-Windows-Mac-and-Android-TheFatRat-Provides-An-Easy-way-to-create-Backdoors-and-Payload-which-can-bypass-most-anti-virus-the-author-has-some-tools-to-share-pupy-is-an-opensource-cross-platform-Windows-Linux-OSX-Android-C2-and-post-exploitation-framework-written-in-python-and-Cvenom-C2-shellcode-generator-compiler-handler-virus-samplesthe-malware-repoopen-source-virusthezoo-A-repository-of-LIVE-malwares-for-your-own-joy-and-pleasure-theZoo-is-a-project-created-to-make-the-possibility-of-malware-analysis-open-and-available-to-the-public-malwares-codebase-botnetopen-source-malware-on-github-repo-listvirus-for-win10kafan-virus-samplesvbgooddebugman-reverse-engineering"><a href="#powershell-obfuscator-advanced-will-bypass-any-av-post-exploit-framework-evasionthefatrat-is-an-exploiting-tool-which-compiles-a-malware-with-famous-payload-and-then-the-compiled-maware-can-be-executed-on-Linux-Windows-Mac-and-Android-TheFatRat-Provides-An-Easy-way-to-create-Backdoors-and-Payload-which-can-bypass-most-anti-virus-the-author-has-some-tools-to-share-pupy-is-an-opensource-cross-platform-Windows-Linux-OSX-Android-C2-and-post-exploitation-framework-written-in-python-and-Cvenom-C2-shellcode-generator-compiler-handler-virus-samplesthe-malware-repoopen-source-virusthezoo-A-repository-of-LIVE-malwares-for-your-own-joy-and-pleasure-theZoo-is-a-project-created-to-make-the-possibility-of-malware-analysis-open-and-available-to-the-public-malwares-codebase-botnetopen-source-malware-on-github-repo-listvirus-for-win10kafan-virus-samplesvbgooddebugman-reverse-engineering" class="headerlink" title="powershell obfuscator  advanced, will bypass any av### post-exploit framework, evasionthefatrat is an exploiting tool which compiles a malware with famous payload, and then the compiled maware can be executed on Linux , Windows , Mac and Android. TheFatRat Provides An Easy way to create Backdoors and Payload which can bypass most anti-virus. the author has some tools to share.pupy is an opensource, cross-platform (Windows, Linux, OSX, Android) C2 and post-exploitation framework written in python and Cvenom - C2 shellcode generator&#x2F;compiler&#x2F;handler### virus samplesthe malware repoopen source virusthezoo A repository of LIVE malwares for your own joy and pleasure. theZoo is a project created to make the possibility of malware analysis open and available to the public.malwares codebase, botnetopen source malware on github, repo listvirus for win10kafan virus samplesvbgooddebugman reverse engineering"></a><a target="_blank" rel="noopener" href="https://github.com/H4de5-7/powershell-obfuscation">powershell obfuscator</a>  advanced, will bypass any av<br>### post-exploit framework, evasion<br><a target="_blank" rel="noopener" href="https://github.com/screetsec/TheFatRat">thefatrat</a> is an exploiting tool which compiles a malware with famous payload, and then the compiled maware can be executed on Linux , Windows , Mac and Android. TheFatRat Provides An Easy way to create Backdoors and Payload which can bypass most anti-virus. <a target="_blank" rel="noopener" href="https://github.com/screetsec">the author</a> has some tools to share.<br><a target="_blank" rel="noopener" href="https://github.com/n1nj4sec/pupy">pupy</a> is an opensource, cross-platform (Windows, Linux, OSX, Android) C2 and post-exploitation framework written in python and C<br><a target="_blank" rel="noopener" href="https://github.com/r00t-3xp10it/venom">venom</a> - C2 shellcode generator&#x2F;compiler&#x2F;handler<br>### virus samples<br><a target="_blank" rel="noopener" href="https://github.com/Da2dalus/The-MALWARE-Repo">the malware repo</a><br><a target="_blank" rel="noopener" href="https://github.com/jaredsburrows/open-virus">open source virus</a><br><a target="_blank" rel="noopener" href="https://github.com/ytisf/theZoo">thezoo</a> A repository of LIVE malwares for your own joy and pleasure. theZoo is a project created to make the possibility of malware analysis open and available to the public.<br><a target="_blank" rel="noopener" href="https://github.com/malwares">malwares</a> codebase, botnet<br><a target="_blank" rel="noopener" href="https://github.com/BushidoUK/Open-source-Malware/blob/main/GitHubMalware.csv">open source malware on github, repo list</a><br><a target="_blank" rel="noopener" href="https://github.com/R3YW1N/Virus-for-win-10">virus for win10</a><br><a target="_blank" rel="noopener" href="https://bbs.kafan.cn/forum-31-1.html">kafan virus samples</a><br><a target="_blank" rel="noopener" href="http://www.vbgood.com/">vbgood</a><br><a target="_blank" rel="noopener" href="https://debugmen.dev/">debugman</a> reverse engineering</h2><p><a target="_blank" rel="noopener" href="https://github.com/toolswatch/blackhat-arsenal-tools">official blackhat arsenal</a> under <a target="_blank" rel="noopener" href="https://toolswatch.org/">toolswatch</a> category <a target="_blank" rel="noopener" href="https://www.toolswatch.org/category/arsenal/">arsenal</a><br><a target="_blank" rel="noopener" href="https://github.com/EgeBalci/Mass-Hacker-Arsenal">massive hacking tools collection</a><br><a target="_blank" rel="noopener" href="https://github.com/tristanlatr/burpa">burpa</a> burp suite automation tool<br><a target="_blank" rel="noopener" href="https://github.com/James4Ever0/Twitter-Token-Gen">twitter token generator</a> register twitter in batch, has a large proxy list<br><a target="_blank" rel="noopener" href="https://i0gan.github.io/">i0gan</a> some hacker with automated tools like <a target="_blank" rel="noopener" href="https://github.com/i0gan/awd_script/fork">awd_script</a><br><a target="_blank" rel="noopener" href="https://www.ichunqiu.com/">ichunqiu</a> ctf educational resources<br><a target="_blank" rel="noopener" href="https://gchq.github.io/CyberChef/">cyberchief</a> online ctf interactive tools suite<br><a target="_blank" rel="noopener" href="http://tool.bugku.com/">bugku tools</a><br><a target="_blank" rel="noopener" href="https://www.ctftools.com/">ctftools</a> curated online tool list<br><a target="_blank" rel="noopener" href="http://www.hiencode.com/">ctf online tools</a><br><a target="_blank" rel="noopener" href="https://www.kanxue.com/">kanxue</a> home page, articles<br><a target="_blank" rel="noopener" href="https://down.52pojie.cn/Tools/">52pojie hack tools</a><br><a target="_blank" rel="noopener" href="https://www.kanxue.com/chm.htm">kanxue knowledge base</a><br><a target="_blank" rel="noopener" href="https://ctf.show/">ctfshow</a><br><a target="_blank" rel="noopener" href="https://www.ctfhub.com/#/tools">ctfhub tools</a><br><a target="_blank" rel="noopener" href="https://www.shentoushi.top/">渗透师导航</a><br><a target="_blank" rel="noopener" href="https://ctf-wiki.org/introduction/resources/">resources recommended by ctfwiki</a><br><a target="_blank" rel="noopener" href="http://shell-storm.org/shellcode/index.html">shellcode storm database</a> can be queried via api<br><a target="_blank" rel="noopener" href="https://www.exploit-db.com/">exploitdb</a> find exploits, poc code, <a target="_blank" rel="noopener" href="https://www.exploit-db.com/google-hacking-database">google hacking database</a> for finding juicy information&#x2F;urls, <a target="_blank" rel="noopener" href="https://www.exploit-db.com/shellcodes">shellcodes</a> with an <a target="_blank" rel="noopener" href="https://www.exploit-db.com/search">advanced search interface</a><br><a target="_blank" rel="noopener" href="https://cracking.org/">cracking.org</a><br>OSINT: open source (public source) intelligence is the practice of collecting information from published or otherwise publicly available sources<br><a target="_blank" rel="noopener" href="https://www.csoonline.com/article/3445357/what-is-osint-top-open-source-intelligence-tools.html">osint tools</a>:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Maltego</span><br><span class="line">Google dorks</span><br><span class="line">Mitaka</span><br><span class="line">SpiderFoot</span><br><span class="line">Spyse</span><br><span class="line">BuiltWith</span><br><span class="line">Intelligence X</span><br><span class="line">DarkSearch.io</span><br><span class="line">Grep.app</span><br><span class="line">Recon-ng</span><br><span class="line">theHarvester</span><br><span class="line">Shodan</span><br><span class="line">Metagoofil</span><br><span class="line">Searchcode</span><br><span class="line">SpiderFoot</span><br><span class="line">Babel X</span><br></pre></td></tr></table></figure>
+		<h2 id="open-source-virus-malware-in-your-arsenal"><a href="#open-source-virus-malware-in-your-arsenal" class="headerlink" title="open source virus&#x2F;malware in your arsenal"></a>open source virus&#x2F;malware in your arsenal</h2><p><a target="_blank" rel="noopener" href="https://github.com/H4de5-7/powershell-obfuscation">powershell obfuscator</a>  advanced, will bypass any av</p>
+<h3 id="post-exploit-framework-evasion"><a href="#post-exploit-framework-evasion" class="headerlink" title="post-exploit framework, evasion"></a>post-exploit framework, evasion</h3><p><a target="_blank" rel="noopener" href="https://github.com/screetsec/TheFatRat">thefatrat</a> is an exploiting tool which compiles a malware with famous payload, and then the compiled maware can be executed on Linux , Windows , Mac and Android. TheFatRat Provides An Easy way to create Backdoors and Payload which can bypass most anti-virus. <a target="_blank" rel="noopener" href="https://github.com/screetsec">the author</a> has some tools to share.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/n1nj4sec/pupy">pupy</a> is an opensource, cross-platform (Windows, Linux, OSX, Android) C2 and post-exploitation framework written in python and C</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/r00t-3xp10it/venom">venom</a> - C2 shellcode generator&#x2F;compiler&#x2F;handler</p>
+<h3 id="virus-samples"><a href="#virus-samples" class="headerlink" title="virus samples"></a>virus samples</h3><p><a target="_blank" rel="noopener" href="https://github.com/Da2dalus/The-MALWARE-Repo">the malware repo</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jaredsburrows/open-virus">open source virus</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ytisf/theZoo">thezoo</a> A repository of LIVE malwares for your own joy and pleasure. theZoo is a project created to make the possibility of malware analysis open and available to the public.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/malwares">malwares</a> codebase, botnet</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/BushidoUK/Open-source-Malware/blob/main/GitHubMalware.csv">open source malware on github, repo list</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/R3YW1N/Virus-for-win-10">virus for win10</a></p>
+<p><a target="_blank" rel="noopener" href="https://bbs.kafan.cn/forum-31-1.html">kafan virus samples</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.vbgood.com/">vbgood</a></p>
+<p><a target="_blank" rel="noopener" href="https://debugmen.dev/">debugman</a> reverse engineering</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://github.com/toolswatch/blackhat-arsenal-tools">official blackhat arsenal</a> under <a target="_blank" rel="noopener" href="https://toolswatch.org/">toolswatch</a> category <a target="_blank" rel="noopener" href="https://www.toolswatch.org/category/arsenal/">arsenal</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/EgeBalci/Mass-Hacker-Arsenal">massive hacking tools collection</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/tristanlatr/burpa">burpa</a> burp suite automation tool</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/James4Ever0/Twitter-Token-Gen">twitter token generator</a> register twitter in batch, has a large proxy list</p>
+<p><a target="_blank" rel="noopener" href="https://i0gan.github.io/">i0gan</a> some hacker with automated tools like <a target="_blank" rel="noopener" href="https://github.com/i0gan/awd_script/fork">awd_script</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ichunqiu.com/">ichunqiu</a> ctf educational resources</p>
+<p><a target="_blank" rel="noopener" href="https://gchq.github.io/CyberChef/">cyberchief</a> online ctf interactive tools suite</p>
+<p><a target="_blank" rel="noopener" href="http://tool.bugku.com/">bugku tools</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ctftools.com/">ctftools</a> curated online tool list</p>
+<p><a target="_blank" rel="noopener" href="http://www.hiencode.com/">ctf online tools</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.kanxue.com/">kanxue</a> home page, articles</p>
+<p><a target="_blank" rel="noopener" href="https://down.52pojie.cn/Tools/">52pojie hack tools</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.kanxue.com/chm.htm">kanxue knowledge base</a></p>
+<p><a target="_blank" rel="noopener" href="https://ctf.show/">ctfshow</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ctfhub.com/#/tools">ctfhub tools</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.shentoushi.top/">渗透师导航</a></p>
+<p><a target="_blank" rel="noopener" href="https://ctf-wiki.org/introduction/resources/">resources recommended by ctfwiki</a></p>
+<p><a target="_blank" rel="noopener" href="http://shell-storm.org/shellcode/index.html">shellcode storm database</a> can be queried via api</p>
+<p><a target="_blank" rel="noopener" href="https://www.exploit-db.com/">exploitdb</a> find exploits, poc code, <a target="_blank" rel="noopener" href="https://www.exploit-db.com/google-hacking-database">google hacking database</a> for finding juicy information&#x2F;urls, <a target="_blank" rel="noopener" href="https://www.exploit-db.com/shellcodes">shellcodes</a> with an <a target="_blank" rel="noopener" href="https://www.exploit-db.com/search">advanced search interface</a></p>
+<p><a target="_blank" rel="noopener" href="https://cracking.org/">cracking.org</a></p>
+<p>OSINT: open source (public source) intelligence is the practice of collecting information from published or otherwise publicly available sources</p>
+<p><a target="_blank" rel="noopener" href="https://www.csoonline.com/article/3445357/what-is-osint-top-open-source-intelligence-tools.html">osint tools</a>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Maltego</span><br><span class="line">Google dorks</span><br><span class="line">Mitaka</span><br><span class="line">SpiderFoot</span><br><span class="line">Spyse</span><br><span class="line">BuiltWith</span><br><span class="line">Intelligence X</span><br><span class="line">DarkSearch.io</span><br><span class="line">Grep.app</span><br><span class="line">Recon-ng</span><br><span class="line">theHarvester</span><br><span class="line">Shodan</span><br><span class="line">Metagoofil</span><br><span class="line">Searchcode</span><br><span class="line">SpiderFoot</span><br><span class="line">Babel X</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 	
 	</div>
   <a type="button" href="/blog/2022/12/07/fe91bcb4-5849-446b-a33a-54c44e8f3192/#more" class="btn btn-default more">Read More</a>
@@ -244,7 +351,232 @@
   <div class="row">
 	
 	
-		<h2 id="some-hacker-forums-like-leakbase-has-rss-feedleakbase-has-proxy-section-in-which-you-may-find-fresh-proxy-lists-may-not-work-in-mainland-but-who-knows-search-with-the-name-or-link-of-these-forums-in-github-and-you-will-get-more-info-about-hacking-a-bunch-of-hacker-forums-including-BreachedXssExploit0x00seclolzLeakzoneEnclavedublikatVlmiOmrtNulledCrackedCoockieAltenensBidencash"><a href="#some-hacker-forums-like-leakbase-has-rss-feedleakbase-has-proxy-section-in-which-you-may-find-fresh-proxy-lists-may-not-work-in-mainland-but-who-knows-search-with-the-name-or-link-of-these-forums-in-github-and-you-will-get-more-info-about-hacking-a-bunch-of-hacker-forums-including-BreachedXssExploit0x00seclolzLeakzoneEnclavedublikatVlmiOmrtNulledCrackedCoockieAltenensBidencash" class="headerlink" title="some hacker forums like leakbase has rss feedleakbase has proxy section in which you may find fresh proxy lists (may not work in mainland, but who knows?)search with the name or link of these forums in github and you will get more info about hacking.a bunch of hacker forums, including:BreachedXssExploit0x00seclolzLeakzoneEnclavedublikatVlmiOmrtNulledCrackedCoockieAltenensBidencash"></a>some hacker forums like leakbase has <a target="_blank" rel="noopener" href="https://leakbase.cc/forums/-/index.rss">rss feed</a><br>leakbase has <a target="_blank" rel="noopener" href="https://leakbase.cc/forums/proxy/">proxy section</a> in which you may find fresh proxy lists (may not work in mainland, but who knows?)<br>search with the name or link of these forums in github and you will get more info about hacking.<br><a target="_blank" rel="noopener" href="https://robbing.cash/">a bunch of hacker forums</a>, including:<br><a href="breached.vc">Breached</a><br><a href="xss.is">Xss</a><br><a href="exploit.in">Exploit</a><br><a target="_blank" rel="noopener" href="https://0x00sec.org/">0x00sec</a><br><a target="_blank" rel="noopener" href="https://lolz.guru/">lolz</a><br><a target="_blank" rel="noopener" href="https://leakzone.net/">Leakzone</a><br><a target="_blank" rel="noopener" href="https://enclave.cc/">Enclave</a><br><a target="_blank" rel="noopener" href="https://dublikat.cc/">dublikat</a><br><a target="_blank" rel="noopener" href="https://vlmi.ws/">Vlmi</a><br><a target="_blank" rel="noopener" href="https://omrt.cc/">Omrt</a><br><a href="nulled.to">Nulled</a><br><a target="_blank" rel="noopener" href="https://cracked.to/">Cracked</a><br><a target="_blank" rel="noopener" href="https://coockie.pro/">Coockie</a><br><a target="_blank" rel="noopener" href="https://altenens.is/">Altenens</a><br><a target="_blank" rel="noopener" href="https://bidencash.cc/">Bidencash</a></h2><p><a target="_blank" rel="noopener" href="https://wooyun.hctrah.com/">wooyun.org mirror site</a> wooyun is dead&#x2F;closed since 2016<br>social engineering is just a fancy name for spotting candidates, hooking up, gaining trust and doing shit.<br>in hacking we must be multilingual, as this shit is really hard to get right.<br>you would read them sometime do you? you would collect info from these sites do you? you would search for things when you need it do you?<br>You would like forums for dark web? Forum for hacking?<br>你要的是社工库 提取出来的账号密码库 用来撞库？百度谷歌 QQ 百度云盘 github 磁力种子搜索<br>when not reached, make sure you are in the channel!<br>Offensive Community<br>安全脉搏<br>网络尖刀<br>习科论坛<br>红黑联盟<br>黑客X档案<br>Alternative to ‘raid forum’: visit it in archive.org!<br>看雪论坛<br>乌云论坛（archive里面看吧）<br>吾爱破解<br>3dm<br>freebuf<br>Hack Today<br>GreySec Forums<br>世界中文黑客论坛<br>90Sec<br>T00LS<br><a target="_blank" rel="noopener" href="https://jaq.alibaba.com/community/index">https://jaq.alibaba.com/community/index</a><br><a target="_blank" rel="noopener" href="http://bobao.360.cn/index/index">http://bobao.360.cn/index/index</a><br><a target="_blank" rel="noopener" href="https://www.ichunqiu.com/">https://www.ichunqiu.com/</a><br><a target="_blank" rel="noopener" href="https://pentesterlab.com/">https://pentesterlab.com/</a><br><a target="_blank" rel="noopener" href="https://xianzhi.aliyun.com/forum/">https://xianzhi.aliyun.com/forum/</a><br><a target="_blank" rel="noopener" href="http://lab.seclover.com/">http://lab.seclover.com/</a><br>腾讯玄武实验室<br><a target="_blank" rel="noopener" href="http://xlab.tencent.com/cn/">http://xlab.tencent.com/cn/</a><br><a target="_blank" rel="noopener" href="https://xss.is/">xss.is</a><br><a target="_blank" rel="noopener" href="https://cracked.io/">cracked.io</a><br><a target="_blank" rel="noopener" href="https://breached.vc/">Breached forum</a> and <a target="_blank" rel="noopener" href="http://breached65xqh64s7xbkvqgg7bmj4nj7656hcb7x4g42x753r7zmejqd.onion/">onion</a><br><a target="_blank" rel="noopener" href="https://www.nulled.to/">nulled</a><br><a href="dreadytofatroptsdj6io7l3xptbet6onoyno2yv7jicoxknyazubrad.onion">dread</a> (forum)<br><a target="_blank" rel="noopener" href="https://leakbase.cc/">leakbase</a> forum leaked database<br><a target="_blank" rel="noopener" href="https://exploit.in/">exploit.in</a> in russian<br><a target="_blank" rel="noopener" href="http://hacktownpagdenbb.onion/">hacktown</a> hacking tutorial<br><a target="_blank" rel="noopener" href="https://hackforums.net/">hackforums</a> site offline? another web archive shit?<br><a target="_blank" rel="noopener" href="https://evilzone.org/">evilzone</a><br>cryptbb is dead?<br>freehacks dead?<br>CrackingKing dead?<br><a target="_blank" rel="noopener" href="http://envoys5appps3bin.onion/">envoy</a> dead?<br><a target="_blank" rel="noopener" href="http://fahue6hb7odzns36vfoi2dqfvqvjq4btt7vo52a67jivmyz6a6h3vzqd.onion/">helium</a> dead?<br>HackADay<br>Exploit Database<br>Tinkernut<br>Dark Web Forum<br>Jean Valjean forum<br>Carding Team<br>BiTSHACK<br>SecList<br>0Day<br>HackerPlace<br>0x00sec<br>Hack5 Forums<br>BHF<br>Hack This Site<br>KickAss<br>Breaking Bad<br>Packet Storm<br>OpenSC<br>HackMac<br>Enigma Group<br>Rohitab<br>Ethical Hacker<br>Cracking Forum<br>Crackmes de<br>Binary Revolution Hacking Forums<br>Hack Hound<br>Hellbound Hackers<br><a href="ftp://www.ly2008.com/">ftp://www.ly2008.com</a><br>用户名:ly2008<br>密码:ly2008<br><a target="_blank" rel="noopener" href="http://discovery0.blog.hexun.com/3271892_d.html">http://discovery0.blog.hexun.com/3271892_d.html</a><br><a target="_blank" rel="noopener" href="http://www.hackerxfiles.net/">http://www.hackerxfiles.net/</a><br><a target="_blank" rel="noopener" href="http://www.nohack.cn/">http://www.nohack.cn/</a><br><a target="_blank" rel="noopener" href="http://www.hacker.com.cn/">http://www.hacker.com.cn/</a><br><a href="ftp://fseandxy1@y667.com/">ftp://fseandxy1@y667.com/</a><br><a target="_blank" rel="noopener" href="http://www.mmbest.com/SoftList/Catalog8/SoftList_Time_1.html">http://www.mmbest.com/SoftList/Catalog8/SoftList_Time_1.html</a><br><a target="_blank" rel="noopener" href="http://www.it-is.com.cn/dh/">http://www.it-is.com.cn/dh/</a><br><a target="_blank" rel="noopener" href="http://www.20cn.net/cgi-bin/download/down.cgi?list=passwd">http://www.20cn.net/cgi-bin/download/down.cgi?list=passwd</a><br><a target="_blank" rel="noopener" href="http://www.98919.com/index.html">http://www.98919.com/index.html</a><br><a target="_blank" rel="noopener" href="http://www.muvip119.net/2/index.html">http://www.muvip119.net/2/index.html</a><br><a target="_blank" rel="noopener" href="http://www.anqn.com/">http://www.anqn.com/</a><br><a target="_blank" rel="noopener" href="http://www.hf110.com/">http://www.hf110.com</a><br><a target="_blank" rel="noopener" href="http://down.juntuan.net/index.html">http://down.juntuan.net/index.html</a><br><a target="_blank" rel="noopener" href="http://new.shockhack.net/index.asp">http://new.shockhack.net/index.asp</a><br><a target="_blank" rel="noopener" href="http://dx.hackbase.com/">http://dx.hackbase.com/</a><br><a target="_blank" rel="noopener" href="http://www.chinahonker.com/index.htm">http://www.chinahonker.com/index.htm</a><br><a target="_blank" rel="noopener" href="http://www.cnhacker.com/">http://www.cnhacker.com/</a><br><a target="_blank" rel="noopener" href="http://77169.org/index.html">http://77169.org/index.html</a><br>legionhiden4dqh4.onion - Let’s start with HeLL Reloaded, probably the only one that isn’t just awful. where Tor Carding Forum (TCF) members who weren’t arrested when it was seized are now dwelling! Not operated by the same people behind the original HeLL, but after the original was seized, some of the moderators and members made this site.<br>exoduockgfq3ikf7.onion Ex0du$, Pretty mediocre forum, lots of shitty banking botnets being sold. Also ransomeware is the big thing recently, so of course that’s being sold. The code is HILARIOUS. RansomWare coded in visual basic, Java, C# and AutoIT v3! Great.<br>damagelabraahzcu.onion - DamageLabs primarily russian forum, looks like there’s not much interesting going on here either. They have a good collection of pirated programming books.<br>darkod3eeziu3w5p.onion - looks like a really dead forum.<br>dublik2uqiorycsj.onion - dublik russian forum<br>forohpysho2t5mjs.onion - another random forum<br>1、独自等待：<a target="_blank" rel="noopener" href="https://www.waitalone.cn/">https://www.waitalone.cn/</a><br>2、中国红客联盟：<a target="_blank" rel="noopener" href="https://www.ihonker.org/forum.php">https://www.ihonker.org/forum.php</a><br>3、安全沙漏：<a target="_blank" rel="noopener" href="https://www.secsilo.com/about">https://www.secsilo.com/about</a><br>4、易安在线：<a target="_blank" rel="noopener" href="https://www.e365.info/">https://www.e365.info/</a><br>5、铁匠运维网：<a target="_blank" rel="noopener" href="http://www.tiejiang.org/">http://www.tiejiang.org/</a><br>6、吾爱漏洞：<a target="_blank" rel="noopener" href="http://www.52bug.cn/">http://www.52bug.cn/</a><br>7、破晓团队：<a target="_blank" rel="noopener" href="http://www.secbug.org/">http://www.secbug.org/</a><br>8、黑白网：<a target="_blank" rel="noopener" href="http://www.heibai.org/178.html">http://www.heibai.org/178.html</a><br>9、安全客：<a target="_blank" rel="noopener" href="https://www.anquanke.com/">https://www.anquanke.com/</a><br>10、E安全：<a target="_blank" rel="noopener" href="https://www.easyaq.com/">https://www.easyaq.com/</a><br>11、漏洞时代：<a target="_blank" rel="noopener" href="http://0day5.com/">http://0day5.com/</a><br>12、猫头鹰：<a target="_blank" rel="noopener" href="http://www.mottoin.com/">http://www.mottoin.com/</a><br>13、华域联盟论坛：<a target="_blank" rel="noopener" href="https://www.cnhackhy.com/forum.php">https://www.cnhackhy.com/forum.php</a><br>14、逆向未来：<a target="_blank" rel="noopener" href="https://www.pd521.com/">https://www.pd521.com/</a><br>15、邪恶八进制：<a target="_blank" rel="noopener" href="https://forum.eviloctal.com/">https://forum.eviloctal.com/</a><br>16、飘云阁：<a target="_blank" rel="noopener" href="https://www.chinapyg.com/">https://www.chinapyg.com/</a><br>17、红黑联盟：<a target="_blank" rel="noopener" href="http://bbs.2cto.com/">http://bbs.2cto.com/</a><br>18、技术宅的世界：<a target="_blank" rel="noopener" href="https://www.0xaa55.com/">https://www.0xaa55.com/</a><br>19、安全牛：<a target="_blank" rel="noopener" href="https://www.aqniu.com/">https://www.aqniu.com/</a><br>20、兄弟论坛：<a target="_blank" rel="noopener" href="http://hackxd.com/">http://hackxd.com/</a><br>21、零日安全：<a target="_blank" rel="noopener" href="https://www.jmpoep.com/">https://www.jmpoep.com/</a><br>22、南域剑盟：<a target="_blank" rel="noopener" href="http://www.98exe.net/">http://www.98exe.net/</a><br>23、黑基论坛：<a target="_blank" rel="noopener" href="http://www.safebase.cn/">http://www.safebase.cn/</a><br>24、网络攻防小组（WLGF）：<a target="_blank" rel="noopener" href="http://www.nsoad.com/">http://www.nsoad.com/</a><br>25、黑吧安全网：<a target="_blank" rel="noopener" href="http://www.myhack58.com/">http://www.myhack58.com/</a><br>26、幽灵学院：<a target="_blank" rel="noopener" href="http://www.41443.com/">http://www.41443.com/</a><br>纵观黑客发展史，大可分为三代：<br>第一代：专门从事计算机、网络，其代表组织为“绿色兵团”（1996年—1998年）<br>第二代：网络爱好者和在校学生.其代表组织为“中国黑客联盟”（1998年—2000年）<br>第三代：在校学生，其代表组织为“红客联盟”，“中国鹰派”（2000年—今）<br>以下为几个典型的黑客组织：<br>●安全焦点（代表人：冰河）网址：<a target="_blank" rel="noopener" href="http://www.xfocus.net/">www.xfocus.net</a><br>●绿色兵团（已解散）（代表人：龚蔚）<br>●中国鹰派联盟（代表人：老鹰）网址：<a target="_blank" rel="noopener" href="http://www.chinaeagle.org/">www.chinaeagle.org</a>   博客：blog.sina.com.cn&#x2F;u&#x2F;1262168602<br>●小榕工作室（代表人：小榕）网址：<a target="_blank" rel="noopener" href="http://www.netxeyes.com/">www.netxeyes.com</a><br>●第八军团（代表人：陈三公子）网址：<a target="_blank" rel="noopener" href="http://www.sec520.com/">www.sec520.com</a><br>●邪恶八进制（代表人：冰血封情）网址：forum.eviloctal.com<br>●黑客基地（代表人：孤独剑客）网址：<a target="_blank" rel="noopener" href="http://www.hackbase.com/">www.hackbase.com</a><br>●华夏黑客同盟（代表人:怪狗）网址：<a target="_blank" rel="noopener" href="http://www.77169.com/">www.77169.com</a><br>●牧民网安（代表人：牧民战天）网址：<a target="_blank" rel="noopener" href="http://www.hack006.com/">www.hack006.com</a><br>●黑客防线 网址：<a target="_blank" rel="noopener" href="http://www.hacker.com.cn/">www.hacker.com.cn</a><br>国外黑客组织站点及介绍黑客知识的网站：<br>●<a target="_blank" rel="noopener" href="http://www.security.nnov.ru/%EF%BC%8C%E4%BF%84%E7%BD%97%E6%96%AF%E7%9A%84%E4%B8%80%E4%B8%AA%E5%AE%89%E5%85%A8%E7%AB%99%E7%82%B9">http://www.security.nnov.ru/，俄罗斯的一个安全站点</a><br>●<a target="_blank" rel="noopener" href="http://chess.eecs.berkeley.edu/trust/%E5%8A%A0%E5%B7%9E%E5%A4%A7%E5%AD%A6%E4%BC%AF%E5%85%8B%E5%88%A9%E5%88%86%E6%A0%A1%E2%80%9C%E6%99%AE%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6%E5%B0%8F%E7%BB%84%E2%80%9D%E7%BD%91%E7%AB%99">http://chess.eecs.berkeley.edu/trust/加州大学伯克利分校“普安全技术研究小组”网站</a><br>●<a target="_blank" rel="noopener" href="http://www.io.com/.vkp%E7%9A%84%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%EF%BC%8Clinux%E5%AE%89%E5%85%A8%E6%96%B9%E9%9D%A2%E7%9A%84%E4%B8%93%E4%B8%9A%E4%BA%BA%E5%91%98(%E7%A8%8B%E5%BA%8F%E5%91%98)">http://www.io.com/.vkp的个人主页，linux安全方面的专业人员(程序员)</a>.<br>●<a target="_blank" rel="noopener" href="http://linsec.ca/%E5%8A%A0%E6%8B%BF%E5%A4%A7%E4%B8%80%E4%B8%AA%E4%B8%BB%E8%A6%81%E6%94%B6%E9%9B%86linux%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E6%96%87%E6%A1%A3%E8%B5%84%E6%96%99%E7%9A%84%E7%AB%99%E7%82%B9">http://linsec.ca/加拿大一个主要收集linux安全相关的文档资料的站点</a>, 也包括其它类Unix系统如OpenBSD, Mac OS X等.<br>●<a target="_blank" rel="noopener" href="http://www.rootsecure.net/%E4%B8%80%E4%B8%AA%E4%B8%93%E9%97%A8%E4%B8%BA%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98%E5%92%8C%E9%BB%91%E5%AE%A2%E6%8F%90%E4%BE%9B%E5%AE%89%E5%85%A8%E6%96%B0%E9%97%BB%E7%9A%84%E7%BD%91%E7%AB%99%EF%BC%8C%E6%88%90%E7%AB%8B%E4%BA%8E2002%E5%B9%B49%E6%9C%888%E6%97%A5">http://www.rootsecure.net/一个专门为系统管理员和黑客提供安全新闻的网站，成立于2002年9月8日</a><br>●<a target="_blank" rel="noopener" href="http://astalavista.box.sk.著名的软件破解网站/">http://astalavista.box.sk.著名的软件破解网站</a><br>●auscert.org.au.一个很棒的黑客工具和入侵攻击的搜索网站<br>●<a target="_blank" rel="noopener" href="http://www.elitehackers.info/.%E4%B8%BA%E5%8D%9A%E5%AD%A6%E7%9A%84%E9%BB%91%E5%AE%A2%E6%8F%90%E4%BE%9B%E7%9A%84%E4%BF%A1%E6%81%AF%E5%85%AC%E5%91%8A%E7%89%8C%EF%BC%8C%E6%98%AF%E4%B8%8A%E4%BA%86%E7%AD%89%E7%BA%A7%E7%9A%84%E9%BB%91%E5%AE%A2%E5%8E%BB%E7%9A%84%E5%9C%B0%E6%96%B9%E3%80%82%E5%8F%AF%E6%89%BE%E5%88%B0%E6%9C%80%E6%96%B0%E7%9A%84%E5%85%A5%E4%BE%B5%E6%94%BB%E5%87%BB%E5%8F%8A%E5%AF%B9%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95">http://www.elitehackers.info/.为博学的黑客提供的信息公告牌，是上了等级的黑客去的地方。可找到最新的入侵攻击及对解决办法</a><br>●<a href="ftp://ftp.nec.com/.%E5%9C%A8/pub/securit%E7%9B%AE%E5%BD%95%E4%B8%8B%E9%9D%A2%E5%8C%85%E5%90%AB%E4%B8%80%E4%B8%AA%E5%B7%A8%E5%A4%A7%E7%9A%84%E5%B7%A5%E5%85%B7%E5%BA%93">ftp://ftp.nec.com/.在/pub/securit目录下面包含一个巨大的工具库</a><br>●ftp.win.tue.nl.在&#x2F;pub&#x2F;securit目录下包含巨大的安全工具库<br>国外安全 <a target="_blank" rel="noopener" href="http://www.neohapsis.com/">http://www.neohapsis.com/</a> 内容极为丰富<br>国外安全 <a target="_blank" rel="noopener" href="http://www.deadly.org/">http://www.deadly.org/</a> 大量关于OpenBSD的资料文档教程<br>国外安全 <a target="_blank" rel="noopener" href="http://www.guninski.com/">http://www.guninski.com/</a> 安全专家Guninski的主页，有大量由系统漏洞<br>国外安全 <a target="_blank" rel="noopener" href="http://www.sysinternals.com/">http://www.sysinternals.com</a> 有很好的windows下的工具及源代码<br>国外安全 <a target="_blank" rel="noopener" href="http://www.securityflaw.com/bible/">http://www.securityflaw.com/bible/</a> 入侵检测等文档整理较好的站点<br>国外安全 <a target="_blank" rel="noopener" href="http://www.secinf.net/">http://www.secinf.net/</a> 网络安全方面的大量文档<br>国外安全 <a target="_blank" rel="noopener" href="http://www.incident-response.org/">http://www.incident-response.org</a> 入侵反应，数据恢复工具等<br>国外安全 <a target="_blank" rel="noopener" href="http://www.securityfocus.com/">http://www.securityfocus.com/</a> 安全资料整合最好的站<br>国外安全 <a target="_blank" rel="noopener" href="http://www.project.honeynet.org/">http://www.project.honeynet.org/</a> 由安全界一帮牛人组织的一个project<br>国外安全 <a target="_blank" rel="noopener" href="http://www.packetstormsecurity.com/">http://www.packetstormsecurity.com</a> 资料全面的安全站<br>国外安全 <a target="_blank" rel="noopener" href="http://www.securityportal.com/">http://www.securityportal.com/</a> 还可以看看的安全站<br>国外安全 <a target="_blank" rel="noopener" href="http://www.ussrback.com/">http://www.ussrback.com/</a> 比较活跃的安全站<br>国外安全 <a target="_blank" rel="noopener" href="http://www.attrition.org/">http://www.attrition.org/</a> 内容全面的安全站<br>国外安全 <a target="_blank" rel="noopener" href="http://www.wiretrip.net/rfp/2/index.asp">http://www.wiretrip.net/rfp/2/index.asp</a> rfp的安全主页，提供权威的安全信息<br>国外安全 <a target="_blank" rel="noopener" href="http://www.antionline.com/">http://www.antionline.com/</a> 有些特色栏目的安全站<br>国外安全 <a target="_blank" rel="noopener" href="http://www.eeye.com/">http://www.eeye.com/</a> eeye公司的主页，提供权威性的安全建议和工具<br>国外安全 <a target="_blank" rel="noopener" href="http://www.insecure.org/">http://www.insecure.org/</a> Fyodor的主页，nmap的老家，还有exploit<br>国外安全 <a target="_blank" rel="noopener" href="http://www.atstake.com/">http://www.atstake.com/</a> @stack公司的主页，提供权威的安全建议<br>国外安全 <a target="_blank" rel="noopener" href="http://www.bugnet.com/">http://www.bugnet.com/</a> 提供漏洞修补<br>国外黑客 <a target="_blank" rel="noopener" href="http://lsd-pl.net/">http://lsd-pl.net/</a> LsD的站,最新最有效的exploit<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.s0ftpj.org/">http://www.s0ftpj.org</a> 提供一些水平很高的小工具<br>国外黑客 <a target="_blank" rel="noopener" href="http://phrack.org/">http://phrack.org/</a> Phrack的主页，经典的黑客技术电子杂志<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.w00w00.org/">http://www.w00w00.org/</a> w00w00组织的主页<br>国外黑客 <a target="_blank" rel="noopener" href="http://mixter.void.ru/">http://mixter.void.ru/</a> Mixter的个人主页，不少有用的工具<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.thehackerschoice.com/">http://www.thehackerschoice.com/</a> THC黑客组织的页面，很好的安全文档和工具<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.win2000mag.net/">www.win2000mag.net</a> Windows &amp; .NET Magazine Network 绝对专业的站点，文章都是一流的<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.2600.com/">http://www.2600.com/</a> 2600 Magazine<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.experts-exchange.com/">www.experts-exchange.com</a> 全球有名的社区<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.is-it-true.org/">www.is-it-true.org</a> 类似于FAQ的站点，资源丰富<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.mixter.warrior2k.com/">www.mixter.warrior2k.com</a> mixter security<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.liun.hektik.org/">www.liun.hektik.org</a> Long Island our Underground Networks<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.ussrback.com/">www.ussrback.com</a> ussr is back<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.securiteam.com/">www.securiteam.com</a> 非常好的安全文章漏洞利用工具下载站点<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.lsd-pl.net/">www.lsd-pl.net</a> The Last Stage of Delirium Research Group<br>国外黑客 www. neworder.box.sk Box Network team<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.sysinternals.com/">www.sysinternals.com</a> sysinternals<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.webattack.com/">www.webattack.com</a> WebAttack Inc<br>国外黑客 <a target="_blank" rel="noopener" href="http://www.blackhat.com/">www.blackhat.com</a> Black Hat, Inc<br>国外黑客 <a target="_blank" rel="noopener" href="http://p.ulh.as/">http://p.ulh.as</a> pulhas<br><a target="_blank" rel="noopener" href="http://www.hack.co.za/">http://www.hack.co.za</a> (国外著名黑客站点，较全的Exploit库)<br><a target="_blank" rel="noopener" href="http://www.phrack.org/">http://www.phrack.org</a> (经典的黑客技术电子杂志)<br><a target="_blank" rel="noopener" href="http://www.antionline.com/">http://www.antionline.com</a> (国外经典黑客站点)<br><a target="_blank" rel="noopener" href="http://whitehats.com/">http://whitehats.com</a> (白帽子网站，有最新的规则库下载，关于Snort等)<br><a target="_blank" rel="noopener" href="http://lsd-pl.net/">http://lsd-pl.net</a> (发布最新的Exploit程序)<br><a target="_blank" rel="noopener" href="http://www.nhs8.com/">http://www.nhs8.com/</a> 神刀网<br><a target="_blank" rel="noopener" href="http://packetstormsecurity.com/">http://packetstormsecurity.com</a> (国外著名漏洞库，有大量exploit程序)<br><a target="_blank" rel="noopener" href="http://oliver.efri.hr/~crv/security/bugs/list.html">http://oliver.efri.hr/~crv/security/bugs/list.html</a> (有整理好的最新漏洞库供下载)<br><a target="_blank" rel="noopener" href="http://astalavista.box.sk/">http://astalavista.box.sk</a> (著名的软件破解网站)<br><a target="_blank" rel="noopener" href="http://www.thehackerschoice.com/">http://www.thehackerschoice.com</a> (THC黑客组织的站点，有很多资料和工具)<br><a target="_blank" rel="noopener" href="http://www.insecure.org/">http://www.insecure.org</a> (Fyoderr的个人站点,即Nmap的老家)<br><a target="_blank" rel="noopener" href="http://www.securityfocus.com/">http://www.securityfocus.com/</a><br><a target="_blank" rel="noopener" href="http://www.milw0rm.com/">http://www.milw0rm.com/</a><br><a target="_blank" rel="noopener" href="http://www.metasploit.com/">http://www.metasploit.com/</a></p>
+		<p>some hacker forums like leakbase has <a target="_blank" rel="noopener" href="https://leakbase.cc/forums/-/index.rss">rss feed</a></p>
+<p>leakbase has <a target="_blank" rel="noopener" href="https://leakbase.cc/forums/proxy/">proxy section</a> in which you may find fresh proxy lists (may not work in mainland, but who knows?)</p>
+<p>search with the name or link of these forums in github and you will get more info about hacking.</p>
+<p><a target="_blank" rel="noopener" href="https://robbing.cash/">a bunch of hacker forums</a>, including:</p>
+<p><a href="breached.vc">Breached</a></p>
+<p><a href="xss.is">Xss</a></p>
+<p><a href="exploit.in">Exploit</a></p>
+<p><a target="_blank" rel="noopener" href="https://0x00sec.org/">0x00sec</a></p>
+<p><a target="_blank" rel="noopener" href="https://lolz.guru/">lolz</a></p>
+<p><a target="_blank" rel="noopener" href="https://leakzone.net/">Leakzone</a></p>
+<p><a target="_blank" rel="noopener" href="https://enclave.cc/">Enclave</a></p>
+<p><a target="_blank" rel="noopener" href="https://dublikat.cc/">dublikat</a></p>
+<p><a target="_blank" rel="noopener" href="https://vlmi.ws/">Vlmi</a></p>
+<p><a target="_blank" rel="noopener" href="https://omrt.cc/">Omrt</a></p>
+<p><a href="nulled.to">Nulled</a></p>
+<p><a target="_blank" rel="noopener" href="https://cracked.to/">Cracked</a></p>
+<p><a target="_blank" rel="noopener" href="https://coockie.pro/">Coockie</a></p>
+<p><a target="_blank" rel="noopener" href="https://altenens.is/">Altenens</a></p>
+<p><a target="_blank" rel="noopener" href="https://bidencash.cc/">Bidencash</a></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://wooyun.hctrah.com/">wooyun.org mirror site</a> wooyun is dead&#x2F;closed since 2016</p>
+<p>social engineering is just a fancy name for spotting candidates, hooking up, gaining trust and doing shit.</p>
+<p>in hacking we must be multilingual, as this shit is really hard to get right.</p>
+<p>you would read them sometime do you? you would collect info from these sites do you? you would search for things when you need it do you?</p>
+<p>You would like forums for dark web? Forum for hacking?</p>
+<p>你要的是社工库 提取出来的账号密码库 用来撞库？百度谷歌 QQ 百度云盘 github 磁力种子搜索</p>
+<p>when not reached, make sure you are in the channel!</p>
+<p>Offensive Community</p>
+<p>安全脉搏</p>
+<p>网络尖刀</p>
+<p>习科论坛</p>
+<p>红黑联盟</p>
+<p>黑客X档案</p>
+<p>Alternative to ‘raid forum’: visit it in archive.org!</p>
+<p>看雪论坛</p>
+<p>乌云论坛（archive里面看吧）</p>
+<p>吾爱破解</p>
+<p>3dm</p>
+<p>freebuf</p>
+<p>Hack Today</p>
+<p>GreySec Forums</p>
+<p>世界中文黑客论坛</p>
+<p>90Sec</p>
+<p>T00LS</p>
+<p><a target="_blank" rel="noopener" href="https://jaq.alibaba.com/community/index">https://jaq.alibaba.com/community/index</a></p>
+<p><a target="_blank" rel="noopener" href="http://bobao.360.cn/index/index">http://bobao.360.cn/index/index</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ichunqiu.com/">https://www.ichunqiu.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://pentesterlab.com/">https://pentesterlab.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://xianzhi.aliyun.com/forum/">https://xianzhi.aliyun.com/forum/</a></p>
+<p><a target="_blank" rel="noopener" href="http://lab.seclover.com/">http://lab.seclover.com/</a></p>
+<p>腾讯玄武实验室</p>
+<p><a target="_blank" rel="noopener" href="http://xlab.tencent.com/cn/">http://xlab.tencent.com/cn/</a></p>
+<p><a target="_blank" rel="noopener" href="https://xss.is/">xss.is</a></p>
+<p><a target="_blank" rel="noopener" href="https://cracked.io/">cracked.io</a></p>
+<p><a target="_blank" rel="noopener" href="https://breached.vc/">Breached forum</a> and <a target="_blank" rel="noopener" href="http://breached65xqh64s7xbkvqgg7bmj4nj7656hcb7x4g42x753r7zmejqd.onion/">onion</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.nulled.to/">nulled</a></p>
+<p><a href="dreadytofatroptsdj6io7l3xptbet6onoyno2yv7jicoxknyazubrad.onion">dread</a> (forum)</p>
+<p><a target="_blank" rel="noopener" href="https://leakbase.cc/">leakbase</a> forum leaked database</p>
+<p><a target="_blank" rel="noopener" href="https://exploit.in/">exploit.in</a> in russian</p>
+<p><a target="_blank" rel="noopener" href="http://hacktownpagdenbb.onion/">hacktown</a> hacking tutorial</p>
+<p><a target="_blank" rel="noopener" href="https://hackforums.net/">hackforums</a> site offline? another web archive shit?</p>
+<p><a target="_blank" rel="noopener" href="https://evilzone.org/">evilzone</a></p>
+<p>cryptbb is dead?</p>
+<p>freehacks dead?</p>
+<p>CrackingKing dead?</p>
+<p><a target="_blank" rel="noopener" href="http://envoys5appps3bin.onion/">envoy</a> dead?</p>
+<p><a target="_blank" rel="noopener" href="http://fahue6hb7odzns36vfoi2dqfvqvjq4btt7vo52a67jivmyz6a6h3vzqd.onion/">helium</a> dead?</p>
+<p>HackADay</p>
+<p>Exploit Database</p>
+<p>Tinkernut</p>
+<p>Dark Web Forum</p>
+<p>Jean Valjean forum</p>
+<p>Carding Team</p>
+<p>BiTSHACK</p>
+<p>SecList</p>
+<p>0Day</p>
+<p>HackerPlace</p>
+<p>0x00sec</p>
+<p>Hack5 Forums</p>
+<p>BHF</p>
+<p>Hack This Site</p>
+<p>KickAss</p>
+<p>Breaking Bad</p>
+<p>Packet Storm</p>
+<p>OpenSC</p>
+<p>HackMac</p>
+<p>Enigma Group</p>
+<p>Rohitab</p>
+<p>Ethical Hacker</p>
+<p>Cracking Forum</p>
+<p>Crackmes de</p>
+<p>Binary Revolution Hacking Forums</p>
+<p>Hack Hound</p>
+<p>Hellbound Hackers</p>
+<p><a href="ftp://www.ly2008.com/">ftp://www.ly2008.com</a></p>
+<p>用户名:ly2008</p>
+<p>密码:ly2008</p>
+<p><a target="_blank" rel="noopener" href="http://discovery0.blog.hexun.com/3271892_d.html">http://discovery0.blog.hexun.com/3271892_d.html</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.hackerxfiles.net/">http://www.hackerxfiles.net/</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.nohack.cn/">http://www.nohack.cn/</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.hacker.com.cn/">http://www.hacker.com.cn/</a></p>
+<p><a href="ftp://fseandxy1@y667.com/">ftp://fseandxy1@y667.com/</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.mmbest.com/SoftList/Catalog8/SoftList_Time_1.html">http://www.mmbest.com/SoftList/Catalog8/SoftList_Time_1.html</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.it-is.com.cn/dh/">http://www.it-is.com.cn/dh/</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.20cn.net/cgi-bin/download/down.cgi?list=passwd">http://www.20cn.net/cgi-bin/download/down.cgi?list=passwd</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.98919.com/index.html">http://www.98919.com/index.html</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.muvip119.net/2/index.html">http://www.muvip119.net/2/index.html</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.anqn.com/">http://www.anqn.com/</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.hf110.com/">http://www.hf110.com</a></p>
+<p><a target="_blank" rel="noopener" href="http://down.juntuan.net/index.html">http://down.juntuan.net/index.html</a></p>
+<p><a target="_blank" rel="noopener" href="http://new.shockhack.net/index.asp">http://new.shockhack.net/index.asp</a></p>
+<p><a target="_blank" rel="noopener" href="http://dx.hackbase.com/">http://dx.hackbase.com/</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.chinahonker.com/index.htm">http://www.chinahonker.com/index.htm</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.cnhacker.com/">http://www.cnhacker.com/</a></p>
+<p><a target="_blank" rel="noopener" href="http://77169.org/index.html">http://77169.org/index.html</a></p>
+<p>legionhiden4dqh4.onion - Let’s start with HeLL Reloaded, probably the only one that isn’t just awful. where Tor Carding Forum (TCF) members who weren’t arrested when it was seized are now dwelling! Not operated by the same people behind the original HeLL, but after the original was seized, some of the moderators and members made this site.</p>
+<p>exoduockgfq3ikf7.onion Ex0du$, Pretty mediocre forum, lots of shitty banking botnets being sold. Also ransomeware is the big thing recently, so of course that’s being sold. The code is HILARIOUS. RansomWare coded in visual basic, Java, C# and AutoIT v3! Great.</p>
+<p>damagelabraahzcu.onion - DamageLabs primarily russian forum, looks like there’s not much interesting going on here either. They have a good collection of pirated programming books.</p>
+<p>darkod3eeziu3w5p.onion - looks like a really dead forum.</p>
+<p>dublik2uqiorycsj.onion - dublik russian forum</p>
+<p>forohpysho2t5mjs.onion - another random forum</p>
+<p>1、独自等待：<a target="_blank" rel="noopener" href="https://www.waitalone.cn/">https://www.waitalone.cn/</a></p>
+<p>2、中国红客联盟：<a target="_blank" rel="noopener" href="https://www.ihonker.org/forum.php">https://www.ihonker.org/forum.php</a></p>
+<p>3、安全沙漏：<a target="_blank" rel="noopener" href="https://www.secsilo.com/about">https://www.secsilo.com/about</a></p>
+<p>4、易安在线：<a target="_blank" rel="noopener" href="https://www.e365.info/">https://www.e365.info/</a></p>
+<p>5、铁匠运维网：<a target="_blank" rel="noopener" href="http://www.tiejiang.org/">http://www.tiejiang.org/</a></p>
+<p>6、吾爱漏洞：<a target="_blank" rel="noopener" href="http://www.52bug.cn/">http://www.52bug.cn/</a></p>
+<p>7、破晓团队：<a target="_blank" rel="noopener" href="http://www.secbug.org/">http://www.secbug.org/</a></p>
+<p>8、黑白网：<a target="_blank" rel="noopener" href="http://www.heibai.org/178.html">http://www.heibai.org/178.html</a></p>
+<p>9、安全客：<a target="_blank" rel="noopener" href="https://www.anquanke.com/">https://www.anquanke.com/</a></p>
+<p>10、E安全：<a target="_blank" rel="noopener" href="https://www.easyaq.com/">https://www.easyaq.com/</a></p>
+<p>11、漏洞时代：<a target="_blank" rel="noopener" href="http://0day5.com/">http://0day5.com/</a></p>
+<p>12、猫头鹰：<a target="_blank" rel="noopener" href="http://www.mottoin.com/">http://www.mottoin.com/</a></p>
+<p>13、华域联盟论坛：<a target="_blank" rel="noopener" href="https://www.cnhackhy.com/forum.php">https://www.cnhackhy.com/forum.php</a></p>
+<p>14、逆向未来：<a target="_blank" rel="noopener" href="https://www.pd521.com/">https://www.pd521.com/</a></p>
+<p>15、邪恶八进制：<a target="_blank" rel="noopener" href="https://forum.eviloctal.com/">https://forum.eviloctal.com/</a></p>
+<p>16、飘云阁：<a target="_blank" rel="noopener" href="https://www.chinapyg.com/">https://www.chinapyg.com/</a></p>
+<p>17、红黑联盟：<a target="_blank" rel="noopener" href="http://bbs.2cto.com/">http://bbs.2cto.com/</a></p>
+<p>18、技术宅的世界：<a target="_blank" rel="noopener" href="https://www.0xaa55.com/">https://www.0xaa55.com/</a></p>
+<p>19、安全牛：<a target="_blank" rel="noopener" href="https://www.aqniu.com/">https://www.aqniu.com/</a></p>
+<p>20、兄弟论坛：<a target="_blank" rel="noopener" href="http://hackxd.com/">http://hackxd.com/</a></p>
+<p>21、零日安全：<a target="_blank" rel="noopener" href="https://www.jmpoep.com/">https://www.jmpoep.com/</a></p>
+<p>22、南域剑盟：<a target="_blank" rel="noopener" href="http://www.98exe.net/">http://www.98exe.net/</a></p>
+<p>23、黑基论坛：<a target="_blank" rel="noopener" href="http://www.safebase.cn/">http://www.safebase.cn/</a></p>
+<p>24、网络攻防小组（WLGF）：<a target="_blank" rel="noopener" href="http://www.nsoad.com/">http://www.nsoad.com/</a></p>
+<p>25、黑吧安全网：<a target="_blank" rel="noopener" href="http://www.myhack58.com/">http://www.myhack58.com/</a></p>
+<p>26、幽灵学院：<a target="_blank" rel="noopener" href="http://www.41443.com/">http://www.41443.com/</a></p>
+<p>纵观黑客发展史，大可分为三代：</p>
+<p>第一代：专门从事计算机、网络，其代表组织为“绿色兵团”（1996年—1998年）</p>
+<p>第二代：网络爱好者和在校学生.其代表组织为“中国黑客联盟”（1998年—2000年）</p>
+<p>第三代：在校学生，其代表组织为“红客联盟”，“中国鹰派”（2000年—今）</p>
+<p>以下为几个典型的黑客组织：</p>
+<p>●安全焦点（代表人：冰河）网址：<a target="_blank" rel="noopener" href="http://www.xfocus.net/">www.xfocus.net</a></p>
+<p>●绿色兵团（已解散）（代表人：龚蔚）</p>
+<p>●中国鹰派联盟（代表人：老鹰）网址：<a target="_blank" rel="noopener" href="http://www.chinaeagle.org/">www.chinaeagle.org</a>   博客：blog.sina.com.cn&#x2F;u&#x2F;1262168602</p>
+<p>●小榕工作室（代表人：小榕）网址：<a target="_blank" rel="noopener" href="http://www.netxeyes.com/">www.netxeyes.com</a></p>
+<p>●第八军团（代表人：陈三公子）网址：<a target="_blank" rel="noopener" href="http://www.sec520.com/">www.sec520.com</a></p>
+<p>●邪恶八进制（代表人：冰血封情）网址：forum.eviloctal.com</p>
+<p>●黑客基地（代表人：孤独剑客）网址：<a target="_blank" rel="noopener" href="http://www.hackbase.com/">www.hackbase.com</a></p>
+<p>●华夏黑客同盟（代表人:怪狗）网址：<a target="_blank" rel="noopener" href="http://www.77169.com/">www.77169.com</a></p>
+<p>●牧民网安（代表人：牧民战天）网址：<a target="_blank" rel="noopener" href="http://www.hack006.com/">www.hack006.com</a></p>
+<p>●黑客防线 网址：<a target="_blank" rel="noopener" href="http://www.hacker.com.cn/">www.hacker.com.cn</a></p>
+<p>国外黑客组织站点及介绍黑客知识的网站：</p>
+<p>●<a target="_blank" rel="noopener" href="http://www.security.nnov.ru/%EF%BC%8C%E4%BF%84%E7%BD%97%E6%96%AF%E7%9A%84%E4%B8%80%E4%B8%AA%E5%AE%89%E5%85%A8%E7%AB%99%E7%82%B9">http://www.security.nnov.ru/，俄罗斯的一个安全站点</a></p>
+<p>●<a target="_blank" rel="noopener" href="http://chess.eecs.berkeley.edu/trust/%E5%8A%A0%E5%B7%9E%E5%A4%A7%E5%AD%A6%E4%BC%AF%E5%85%8B%E5%88%A9%E5%88%86%E6%A0%A1%E2%80%9C%E6%99%AE%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6%E5%B0%8F%E7%BB%84%E2%80%9D%E7%BD%91%E7%AB%99">http://chess.eecs.berkeley.edu/trust/加州大学伯克利分校“普安全技术研究小组”网站</a></p>
+<p>●<a target="_blank" rel="noopener" href="http://www.io.com/.vkp%E7%9A%84%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%EF%BC%8Clinux%E5%AE%89%E5%85%A8%E6%96%B9%E9%9D%A2%E7%9A%84%E4%B8%93%E4%B8%9A%E4%BA%BA%E5%91%98(%E7%A8%8B%E5%BA%8F%E5%91%98)">http://www.io.com/.vkp的个人主页，linux安全方面的专业人员(程序员)</a>.</p>
+<p>●<a target="_blank" rel="noopener" href="http://linsec.ca/%E5%8A%A0%E6%8B%BF%E5%A4%A7%E4%B8%80%E4%B8%AA%E4%B8%BB%E8%A6%81%E6%94%B6%E9%9B%86linux%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E6%96%87%E6%A1%A3%E8%B5%84%E6%96%99%E7%9A%84%E7%AB%99%E7%82%B9">http://linsec.ca/加拿大一个主要收集linux安全相关的文档资料的站点</a>, 也包括其它类Unix系统如OpenBSD, Mac OS X等.</p>
+<p>●<a target="_blank" rel="noopener" href="http://www.rootsecure.net/%E4%B8%80%E4%B8%AA%E4%B8%93%E9%97%A8%E4%B8%BA%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98%E5%92%8C%E9%BB%91%E5%AE%A2%E6%8F%90%E4%BE%9B%E5%AE%89%E5%85%A8%E6%96%B0%E9%97%BB%E7%9A%84%E7%BD%91%E7%AB%99%EF%BC%8C%E6%88%90%E7%AB%8B%E4%BA%8E2002%E5%B9%B49%E6%9C%888%E6%97%A5">http://www.rootsecure.net/一个专门为系统管理员和黑客提供安全新闻的网站，成立于2002年9月8日</a></p>
+<p>●<a target="_blank" rel="noopener" href="http://astalavista.box.sk.著名的软件破解网站/">http://astalavista.box.sk.著名的软件破解网站</a></p>
+<p>●auscert.org.au.一个很棒的黑客工具和入侵攻击的搜索网站</p>
+<p>●<a target="_blank" rel="noopener" href="http://www.elitehackers.info/.%E4%B8%BA%E5%8D%9A%E5%AD%A6%E7%9A%84%E9%BB%91%E5%AE%A2%E6%8F%90%E4%BE%9B%E7%9A%84%E4%BF%A1%E6%81%AF%E5%85%AC%E5%91%8A%E7%89%8C%EF%BC%8C%E6%98%AF%E4%B8%8A%E4%BA%86%E7%AD%89%E7%BA%A7%E7%9A%84%E9%BB%91%E5%AE%A2%E5%8E%BB%E7%9A%84%E5%9C%B0%E6%96%B9%E3%80%82%E5%8F%AF%E6%89%BE%E5%88%B0%E6%9C%80%E6%96%B0%E7%9A%84%E5%85%A5%E4%BE%B5%E6%94%BB%E5%87%BB%E5%8F%8A%E5%AF%B9%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95">http://www.elitehackers.info/.为博学的黑客提供的信息公告牌，是上了等级的黑客去的地方。可找到最新的入侵攻击及对解决办法</a></p>
+<p>●<a href="ftp://ftp.nec.com/.%E5%9C%A8/pub/securit%E7%9B%AE%E5%BD%95%E4%B8%8B%E9%9D%A2%E5%8C%85%E5%90%AB%E4%B8%80%E4%B8%AA%E5%B7%A8%E5%A4%A7%E7%9A%84%E5%B7%A5%E5%85%B7%E5%BA%93">ftp://ftp.nec.com/.在/pub/securit目录下面包含一个巨大的工具库</a></p>
+<p>●ftp.win.tue.nl.在&#x2F;pub&#x2F;securit目录下包含巨大的安全工具库</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.neohapsis.com/">http://www.neohapsis.com/</a> 内容极为丰富</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.deadly.org/">http://www.deadly.org/</a> 大量关于OpenBSD的资料文档教程</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.guninski.com/">http://www.guninski.com/</a> 安全专家Guninski的主页，有大量由系统漏洞</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.sysinternals.com/">http://www.sysinternals.com</a> 有很好的windows下的工具及源代码</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.securityflaw.com/bible/">http://www.securityflaw.com/bible/</a> 入侵检测等文档整理较好的站点</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.secinf.net/">http://www.secinf.net/</a> 网络安全方面的大量文档</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.incident-response.org/">http://www.incident-response.org</a> 入侵反应，数据恢复工具等</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.securityfocus.com/">http://www.securityfocus.com/</a> 安全资料整合最好的站</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.project.honeynet.org/">http://www.project.honeynet.org/</a> 由安全界一帮牛人组织的一个project</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.packetstormsecurity.com/">http://www.packetstormsecurity.com</a> 资料全面的安全站</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.securityportal.com/">http://www.securityportal.com/</a> 还可以看看的安全站</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.ussrback.com/">http://www.ussrback.com/</a> 比较活跃的安全站</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.attrition.org/">http://www.attrition.org/</a> 内容全面的安全站</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.wiretrip.net/rfp/2/index.asp">http://www.wiretrip.net/rfp/2/index.asp</a> rfp的安全主页，提供权威的安全信息</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.antionline.com/">http://www.antionline.com/</a> 有些特色栏目的安全站</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.eeye.com/">http://www.eeye.com/</a> eeye公司的主页，提供权威性的安全建议和工具</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.insecure.org/">http://www.insecure.org/</a> Fyodor的主页，nmap的老家，还有exploit</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.atstake.com/">http://www.atstake.com/</a> @stack公司的主页，提供权威的安全建议</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.bugnet.com/">http://www.bugnet.com/</a> 提供漏洞修补</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://lsd-pl.net/">http://lsd-pl.net/</a> LsD的站,最新最有效的exploit</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.s0ftpj.org/">http://www.s0ftpj.org</a> 提供一些水平很高的小工具</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://phrack.org/">http://phrack.org/</a> Phrack的主页，经典的黑客技术电子杂志</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.w00w00.org/">http://www.w00w00.org/</a> w00w00组织的主页</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://mixter.void.ru/">http://mixter.void.ru/</a> Mixter的个人主页，不少有用的工具</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.thehackerschoice.com/">http://www.thehackerschoice.com/</a> THC黑客组织的页面，很好的安全文档和工具</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.win2000mag.net/">www.win2000mag.net</a> Windows &amp; .NET Magazine Network 绝对专业的站点，文章都是一流的</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.2600.com/">http://www.2600.com/</a> 2600 Magazine</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.experts-exchange.com/">www.experts-exchange.com</a> 全球有名的社区</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.is-it-true.org/">www.is-it-true.org</a> 类似于FAQ的站点，资源丰富</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.mixter.warrior2k.com/">www.mixter.warrior2k.com</a> mixter security</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.liun.hektik.org/">www.liun.hektik.org</a> Long Island our Underground Networks</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.ussrback.com/">www.ussrback.com</a> ussr is back</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.securiteam.com/">www.securiteam.com</a> 非常好的安全文章漏洞利用工具下载站点</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.lsd-pl.net/">www.lsd-pl.net</a> The Last Stage of Delirium Research Group</p>
+<p>国外黑客 www. neworder.box.sk Box Network team</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.sysinternals.com/">www.sysinternals.com</a> sysinternals</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.webattack.com/">www.webattack.com</a> WebAttack Inc</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.blackhat.com/">www.blackhat.com</a> Black Hat, Inc</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://p.ulh.as/">http://p.ulh.as</a> pulhas</p>
+<p><a target="_blank" rel="noopener" href="http://www.hack.co.za/">http://www.hack.co.za</a> (国外著名黑客站点，较全的Exploit库)</p>
+<p><a target="_blank" rel="noopener" href="http://www.phrack.org/">http://www.phrack.org</a> (经典的黑客技术电子杂志)</p>
+<p><a target="_blank" rel="noopener" href="http://www.antionline.com/">http://www.antionline.com</a> (国外经典黑客站点)</p>
+<p><a target="_blank" rel="noopener" href="http://whitehats.com/">http://whitehats.com</a> (白帽子网站，有最新的规则库下载，关于Snort等)</p>
+<p><a target="_blank" rel="noopener" href="http://lsd-pl.net/">http://lsd-pl.net</a> (发布最新的Exploit程序)</p>
+<p><a target="_blank" rel="noopener" href="http://www.nhs8.com/">http://www.nhs8.com/</a> 神刀网</p>
+<p><a target="_blank" rel="noopener" href="http://packetstormsecurity.com/">http://packetstormsecurity.com</a> (国外著名漏洞库，有大量exploit程序)</p>
+<p><a target="_blank" rel="noopener" href="http://oliver.efri.hr/~crv/security/bugs/list.html">http://oliver.efri.hr/~crv/security/bugs/list.html</a> (有整理好的最新漏洞库供下载)</p>
+<p><a target="_blank" rel="noopener" href="http://astalavista.box.sk/">http://astalavista.box.sk</a> (著名的软件破解网站)</p>
+<p><a target="_blank" rel="noopener" href="http://www.thehackerschoice.com/">http://www.thehackerschoice.com</a> (THC黑客组织的站点，有很多资料和工具)</p>
+<p><a target="_blank" rel="noopener" href="http://www.insecure.org/">http://www.insecure.org</a> (Fyoderr的个人站点,即Nmap的老家)</p>
+<p><a target="_blank" rel="noopener" href="http://www.securityfocus.com/">http://www.securityfocus.com/</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.milw0rm.com/">http://www.milw0rm.com/</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.metasploit.com/">http://www.metasploit.com/</a></p>
 
 	
 	</div>
@@ -268,7 +600,8 @@
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://github.com/yohm/rb_call">rb_call</a><br><a target="_blank" rel="noopener" href="https://github.com/tomjnixon/puby">puby</a></p>
+		<p><a target="_blank" rel="noopener" href="https://github.com/yohm/rb_call">rb_call</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/tomjnixon/puby">puby</a></p>
 
 	
 	</div>
@@ -292,7 +625,57 @@
   <div class="row">
 	
 	
-		<h2 id="达摩院放出了文本生成视频模型，支持英文输入huggingface-spacemodel-weights-weight-path-weight-size-model-name-author-–-–-–-–-text-to-video-ms-1-7b-unknown-unknown-damo-vilab-modelscope-damo-text-to-video-synthesis-unknown-unknown-damo-vilab-text-to-video-ms-1-7b-legacy-unknown-unknown-damo-vilab-can-also-use-from-modelscope"><a href="#达摩院放出了文本生成视频模型，支持英文输入huggingface-spacemodel-weights-weight-path-weight-size-model-name-author-–-–-–-–-text-to-video-ms-1-7b-unknown-unknown-damo-vilab-modelscope-damo-text-to-video-synthesis-unknown-unknown-damo-vilab-text-to-video-ms-1-7b-legacy-unknown-unknown-damo-vilab-can-also-use-from-modelscope" class="headerlink" title="达摩院放出了文本生成视频模型，支持英文输入huggingface spacemodel weights:| weight path | weight size | model name | author || – | – | – | – || text-to-video-ms-1.7b | unknown | unknown | damo-vilab || modelscope-damo-text-to-video-synthesis | unknown | unknown | damo-vilab || text-to-video-ms-1.7b-legacy | unknown | unknown | damo-vilab |can also use from modelscope:"></a>达摩院放出了<a target="_blank" rel="noopener" href="https://modelscope.cn/models/damo/text-to-video-synthesis/summary">文本生成视频模型</a>，支持英文输入<br><a target="_blank" rel="noopener" href="https://huggingface.co/damo-vilab/modelscope-damo-text-to-video-synthesis">huggingface space</a><br>model weights:<br>| weight path | weight size | model name | author |<br>| – | – | – | – |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/damo-vilab/text-to-video-ms-1.7b">text-to-video-ms-1.7b</a> | unknown | unknown | damo-vilab |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/damo-vilab/modelscope-damo-text-to-video-synthesis">modelscope-damo-text-to-video-synthesis</a> | unknown | unknown | damo-vilab |<br>| <a target="_blank" rel="noopener" href="https://huggingface.co/damo-vilab/text-to-video-ms-1.7b-legacy">text-to-video-ms-1.7b-legacy</a> | unknown | unknown | damo-vilab |<br>can also use from modelscope:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> modelscope.pipelines <span class="keyword">import</span> pipeline</span><br><span class="line"><span class="keyword">from</span> modelscope.utils.constant <span class="keyword">import</span> Tasks</span><br><span class="line">p = pipeline(<span class="string">&#x27;text-to-video-synthesis&#x27;</span>, <span class="string">&#x27;damo/text-to-video-synthesis&#x27;</span>)</span><br></pre></td></tr></table></figure></h2><h2 id="PAIR-now-releases-Text2Video-Zero-which-leverages-existing-stable-diffusion-models-to-generate-video-also-released-a-bunch-of-controlnet-dreambooth-weights"><a href="#PAIR-now-releases-Text2Video-Zero-which-leverages-existing-stable-diffusion-models-to-generate-video-also-released-a-bunch-of-controlnet-dreambooth-weights" class="headerlink" title="PAIR now releases Text2Video-Zero which leverages existing stable diffusion models to generate video. also released a bunch of controlnet dreambooth weights."></a><a target="_blank" rel="noopener" href="https://huggingface.co/spaces/PAIR">PAIR</a> now releases <a target="_blank" rel="noopener" href="https://huggingface.co/spaces/PAIR/Text2Video-Zero">Text2Video-Zero</a> which leverages existing stable diffusion models to generate video. also released a bunch of controlnet dreambooth weights.</h2><h2 id="lucidrains-is-a-workaholic-on-transformer-implementations-we-should-scrape-all-the-repos-and-index-them-there-are-faster-language-models-to-train"><a href="#lucidrains-is-a-workaholic-on-transformer-implementations-we-should-scrape-all-the-repos-and-index-them-there-are-faster-language-models-to-train" class="headerlink" title="lucidrains is a workaholic on transformer implementations. we should scrape all the repos and index them. there are faster language models to train."></a><a target="_blank" rel="noopener" href="https://github.com/lucidrains">lucidrains</a> is a workaholic on transformer implementations. we should scrape all the repos and index them. there are <a target="_blank" rel="noopener" href="https://github.com/lucidrains/memory-efficient-attention-pytorch">faster language models</a> to train.</h2><p><a target="_blank" rel="noopener" href="https://github.com/lucidrains/phenaki-pytorch">Phenaki Video</a>, which uses Mask GIT to produce text guided videos of up to 2 minutes in length, in Pytorch<br><a target="_blank" rel="noopener" href="https://dreamix-video-editing.github.io/">dreamix</a> (not open-source)<br><a target="_blank" rel="noopener" href="https://github.com/timothybrooks/instruct-pix2pix">instruct-pix2pix</a> requires 16GB+ VRAM<br><a target="_blank" rel="noopener" href="https://github.com/omerbt/Text2LIVE">text2live</a> modify video by text prompt (such as add fire in mouth)<br><a target="_blank" rel="noopener" href="https://github.com/lucidrains/recurrent-interface-network-pytorch">recurrent-interface-network-pytorch</a> using diffusion to generate images and video<br>high quality! <a target="_blank" rel="noopener" href="https://github.com/lucidrains/imagen-pytorch/blob/main/imagen_pytorch/imagen_video.py">imagegen-video code</a> with <a target="_blank" rel="noopener" href="https://imagen.research.google/video/">demo</a> and <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2210.02303.pdf">paper</a><br>抄视频 视频的时间要讲究 看看是抄一年前的好还是抄刚刚发布的好<br>在发布的一个视频当中 最多抄某个作者的两三个符合要求的片段<br>use editly smooth&#x2F;slick transitions and subtitles to beat the copy-detection algorithm, also consider color change in ffmpeg<br>动态 专栏也可以抄<br><a target="_blank" rel="noopener" href="https://github.com/lucidrains/make-a-video-pytorch">make-a-video</a><br>谷歌AI歌手震撼来袭！AudioLM简单听几秒，便能谱曲写歌 <a target="_blank" rel="noopener" href="https://www.kuxai.com/article/398">https://www.kuxai.com/article/398</a></p>
+		<p>达摩院放出了<a target="_blank" rel="noopener" href="https://modelscope.cn/models/damo/text-to-video-synthesis/summary">文本生成视频模型</a>，支持英文输入</p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/damo-vilab/modelscope-damo-text-to-video-synthesis">huggingface space</a></p>
+<p>model weights:</p>
+<table>
+<thead>
+<tr>
+<th>weight path</th>
+<th>weight size</th>
+<th>model name</th>
+<th>author</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://huggingface.co/damo-vilab/text-to-video-ms-1.7b">text-to-video-ms-1.7b</a></td>
+<td>unknown</td>
+<td>unknown</td>
+<td>damo-vilab</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://huggingface.co/damo-vilab/modelscope-damo-text-to-video-synthesis">modelscope-damo-text-to-video-synthesis</a></td>
+<td>unknown</td>
+<td>unknown</td>
+<td>damo-vilab</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://huggingface.co/damo-vilab/text-to-video-ms-1.7b-legacy">text-to-video-ms-1.7b-legacy</a></td>
+<td>unknown</td>
+<td>unknown</td>
+<td>damo-vilab</td>
+</tr>
+</tbody></table>
+<p>can also use from modelscope:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> modelscope.pipelines <span class="keyword">import</span> pipeline</span><br><span class="line"><span class="keyword">from</span> modelscope.utils.constant <span class="keyword">import</span> Tasks</span><br><span class="line">p = pipeline(<span class="string">&#x27;text-to-video-synthesis&#x27;</span>, <span class="string">&#x27;damo/text-to-video-synthesis&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/spaces/PAIR">PAIR</a> now releases <a target="_blank" rel="noopener" href="https://huggingface.co/spaces/PAIR/Text2Video-Zero">Text2Video-Zero</a> which leverages existing stable diffusion models to generate video. also released a bunch of controlnet dreambooth weights.</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://github.com/lucidrains">lucidrains</a> is a workaholic on transformer implementations. we should scrape all the repos and index them. there are <a target="_blank" rel="noopener" href="https://github.com/lucidrains/memory-efficient-attention-pytorch">faster language models</a> to train.</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://github.com/lucidrains/phenaki-pytorch">Phenaki Video</a>, which uses Mask GIT to produce text guided videos of up to 2 minutes in length, in Pytorch</p>
+<p><a target="_blank" rel="noopener" href="https://dreamix-video-editing.github.io/">dreamix</a> (not open-source)</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/timothybrooks/instruct-pix2pix">instruct-pix2pix</a> requires 16GB+ VRAM</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/omerbt/Text2LIVE">text2live</a> modify video by text prompt (such as add fire in mouth)</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lucidrains/recurrent-interface-network-pytorch">recurrent-interface-network-pytorch</a> using diffusion to generate images and video</p>
+<p>high quality! <a target="_blank" rel="noopener" href="https://github.com/lucidrains/imagen-pytorch/blob/main/imagen_pytorch/imagen_video.py">imagegen-video code</a> with <a target="_blank" rel="noopener" href="https://imagen.research.google/video/">demo</a> and <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2210.02303.pdf">paper</a></p>
+<p>抄视频 视频的时间要讲究 看看是抄一年前的好还是抄刚刚发布的好</p>
+<p>在发布的一个视频当中 最多抄某个作者的两三个符合要求的片段</p>
+<p>use editly smooth&#x2F;slick transitions and subtitles to beat the copy-detection algorithm, also consider color change in ffmpeg</p>
+<p>动态 专栏也可以抄</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lucidrains/make-a-video-pytorch">make-a-video</a></p>
+<p>谷歌AI歌手震撼来袭！AudioLM简单听几秒，便能谱曲写歌 <a target="_blank" rel="noopener" href="https://www.kuxai.com/article/398">https://www.kuxai.com/article/398</a></p>
 
 	
 	</div>
@@ -316,60 +699,96 @@
   <div class="row">
 	
 	
-		<p>Audio and music processing tools.<br>Related links:<br>🔗 <a href="/app/audio-streaming">Audio, Music, Radio, and Podcast Streaming Apps</a><br>🔗 <a href="/app/audio-tool">Audio and Music Tools</a><br>🔗 <a href="/app/free-audio">Free Audio and Music</a></p>
+		<p>Audio and music processing tools.</p>
+<p>Related links:</p>
+<p>🔗 <a href="/app/audio-streaming">Audio, Music, Radio, and Podcast Streaming Apps</a></p>
+<p>🔗 <a href="/app/audio-tool">Audio and Music Tools</a></p>
+<p>🔗 <a href="/app/free-audio">Free Audio and Music</a></p>
 <h2 id="AI-Apps-for-Audio"><a href="#AI-Apps-for-Audio" class="headerlink" title="AI Apps for Audio"></a>AI Apps for Audio</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://cleanvoice.ai/">Cleanvoice AI - Get rid of filler words from your audio recordings</a></li>
-<li><a target="_blank" rel="noopener" href="https://pytorchvideo.org/">PyTorchVideo · A deep learning library for video understanding research</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.descript.com/">Descript - All-in-one audio&#x2F;video editing, as easy as a doc.</a></li>
-<li><a target="_blank" rel="noopener" href="https://auphonic.com/landing">Auphonic</a></li>
-<li><a target="_blank" rel="noopener" href="https://revoldiv.com/">Revoldiv</a></li>
+<li><p><a target="_blank" rel="noopener" href="https://cleanvoice.ai/">Cleanvoice AI - Get rid of filler words from your audio recordings</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pytorchvideo.org/">PyTorchVideo · A deep learning library for video understanding research</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.descript.com/">Descript - All-in-one audio&#x2F;video editing, as easy as a doc.</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://auphonic.com/landing">Auphonic</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://revoldiv.com/">Revoldiv</a></p>
+</li>
 </ul>
 <ul>
 <li><a target="_blank" rel="noopener" href="http://www.audiostellar.xyz/">AudioStellar</a></li>
 </ul>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://blog.zakjost.com/post/guitarml/">GuitarML - Zak Jost</a> Audio Enhancement Machine Learning</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/tyiannak/pyAudioAnalysis">tyiannak&#x2F;pyAudioAnalysis: Python Audio Analysis Library: Feature Extraction, Classification, Segmentation and Applications</a></li>
-<li><a target="_blank" rel="noopener" href="https://librosa.org/doc/latest/index.html">librosa — librosa 0.8.1 documentation</a> python package for music and audio analysis</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/Yaafe/Yaafe">Yaafe&#x2F;Yaafe: Audio features extraction</a></li>
-<li><a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=31968456">Ask HN: AI-Generated Music? | Hacker News</a></li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.zakjost.com/post/guitarml/">GuitarML - Zak Jost</a> Audio Enhancement Machine Learning</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/tyiannak/pyAudioAnalysis">tyiannak&#x2F;pyAudioAnalysis: Python Audio Analysis Library: Feature Extraction, Classification, Segmentation and Applications</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://librosa.org/doc/latest/index.html">librosa — librosa 0.8.1 documentation</a> python package for music and audio analysis</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/Yaafe/Yaafe">Yaafe&#x2F;Yaafe: Audio features extraction</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=31968456">Ask HN: AI-Generated Music? | Hacker News</a></p>
+</li>
 </ul>
 <h3 id="AI-Music-Separation"><a href="#AI-Music-Separation" class="headerlink" title="AI Music Separation"></a>AI Music Separation</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://source-separation.github.io/tutorial/landing.html">Open Source Tools and Data for Music Source Separation</a> License: CC-BY-NC</li>
-<li>Spleeter, open source music separation library from Deezer, from <a target="_blank" rel="noopener" href="https://www.acapella-extractor.com/">Accapella</a>, <a target="_blank" rel="noopener" href="https://melody.ml/">Melody</a>, <a target="_blank" rel="noopener" href="https://moises.ai/">Moises</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/linuxmao-org/ISSE">ISSE</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/etzinis/sudo_rm_rf">SUDO RM RF</a> : SUccessive DOwnsampling and Resampling of Multi-Resolution Features which enables a more efficient way of separating sources from mixtures</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/adobe/Deep-Audio-Prior">Deep Audio</a> : Audio Source Separation Without Any Training Data</li>
+<li><p><a target="_blank" rel="noopener" href="https://source-separation.github.io/tutorial/landing.html">Open Source Tools and Data for Music Source Separation</a> License: CC-BY-NC</p>
+</li>
+<li><p>Spleeter, open source music separation library from Deezer, from <a target="_blank" rel="noopener" href="https://www.acapella-extractor.com/">Accapella</a>, <a target="_blank" rel="noopener" href="https://melody.ml/">Melody</a>, <a target="_blank" rel="noopener" href="https://moises.ai/">Moises</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/linuxmao-org/ISSE">ISSE</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/etzinis/sudo_rm_rf">SUDO RM RF</a> : SUccessive DOwnsampling and Resampling of Multi-Resolution Features which enables a more efficient way of separating sources from mixtures</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/adobe/Deep-Audio-Prior">Deep Audio</a> : Audio Source Separation Without Any Training Data</p>
+</li>
 </ul>
 <h3 id="AI-Music-Recognition"><a href="#AI-Music-Recognition" class="headerlink" title="AI Music Recognition"></a>AI Music Recognition</h3><ul>
 <li><a target="_blank" rel="noopener" href="https://audiotag.info/">Audio Tag for recognize music</a></li>
 </ul>
 <h2 id="Audio-Creation"><a href="#Audio-Creation" class="headerlink" title="Audio Creation"></a>Audio Creation</h2><h3 id="Audio-and-Music-Programming"><a href="#Audio-and-Music-Programming" class="headerlink" title="Audio and Music Programming"></a>Audio and Music Programming</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=28198641">Alda – Text-Based Programming Language for Music Composition - Hacker News</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/maximecb/noisecraft">maximecb&#x2F;noisecraft: Browser-based visual programming language and platform for sound synthesis.</a></li>
-<li><a target="_blank" rel="noopener" href="https://helio.fm/">helio.fm</a> libre music composition software</li>
-<li><a target="_blank" rel="noopener" href="https://faust.grame.fr/">Faust Programming Language</a></li>
+<li><p><a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=28198641">Alda – Text-Based Programming Language for Music Composition - Hacker News</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/maximecb/noisecraft">maximecb&#x2F;noisecraft: Browser-based visual programming language and platform for sound synthesis.</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://helio.fm/">helio.fm</a> libre music composition software</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://faust.grame.fr/">Faust Programming Language</a></p>
+</li>
 </ul>
 <h3 id="AI-Audio-and-Music-Generator"><a href="#AI-Audio-and-Music-Generator" class="headerlink" title="AI Audio and Music Generator"></a>AI Audio and Music Generator</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://dopeloop.ai/melody-generator/">AI Melody Generator</a></li>
-<li><a target="_blank" rel="noopener" href="http://typedrummer.com/">typedrummer</a></li>
+<li><p><a target="_blank" rel="noopener" href="https://dopeloop.ai/melody-generator/">AI Melody Generator</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://typedrummer.com/">typedrummer</a></p>
+</li>
 </ul>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://openai.com/blog/jukebox/">Jukebox</a></li>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2108.12290">2108.12290 Music Composition with Deep Learning: A Review</a></li>
+<li><p><a target="_blank" rel="noopener" href="https://openai.com/blog/jukebox/">Jukebox</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2108.12290">2108.12290 Music Composition with Deep Learning: A Review</a></p>
+</li>
 </ul>
 <h3 id="Audio-and-Music-Creation-and-Sharing"><a href="#Audio-and-Music-Creation-and-Sharing" class="headerlink" title="Audio and Music Creation and Sharing"></a>Audio and Music Creation and Sharing</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://beepbox.co/">Beepbox</a> : BeepBox is an online tool for sketching and sharing instrumental melodies.</li>
-<li><a target="_blank" rel="noopener" href="https://jummbus.bitbucket.io/">Jummbox</a> : Jummbox is Beepbox modification (online tool for sketching and sharing chip tune melodies).</li>
+<li><p><a target="_blank" rel="noopener" href="https://beepbox.co/">Beepbox</a> : BeepBox is an online tool for sketching and sharing instrumental melodies.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://jummbus.bitbucket.io/">Jummbox</a> : Jummbox is Beepbox modification (online tool for sketching and sharing chip tune melodies).</p>
+</li>
 </ul>
 <h2 id="WASM-Audio-Processing"><a href="#WASM-Audio-Processing" class="headerlink" title="WASM Audio Processing"></a>WASM Audio Processing</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://ampedstudio.com/">Amped Studio</a> : audio processing, need login</li>
-<li><a target="_blank" rel="noopener" href="https://soundation.com/">Soundation</a> : audio processing, need login</li>
-<li><a target="_blank" rel="noopener" href="https://brionv.com/misc/ogv.js/demo/">ogv.js</a> : audio processing</li>
-<li><a target="_blank" rel="noopener" href="https://www.webaudiomodules.org/">Audio Processing</a></li>
-<li><a target="_blank" rel="noopener" href="https://learningsynths.ableton.com/">Learning Syhthesizer and Sound</a></li>
-<li><a target="_blank" rel="noopener" href="https://petersalomonsen.com/webassemblymusic/livecodev1/?gist=ea73551e352440d5f470c6af89d7fe7c">Music Coding</a></li>
-<li><a target="_blank" rel="noopener" href="https://timdaub.github.io/wasm-synth/">WASM Synth</a> WASM Music Synthesizer</li>
+<li><p><a target="_blank" rel="noopener" href="https://ampedstudio.com/">Amped Studio</a> : audio processing, need login</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://soundation.com/">Soundation</a> : audio processing, need login</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://brionv.com/misc/ogv.js/demo/">ogv.js</a> : audio processing</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.webaudiomodules.org/">Audio Processing</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://learningsynths.ableton.com/">Learning Syhthesizer and Sound</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://petersalomonsen.com/webassemblymusic/livecodev1/?gist=ea73551e352440d5f470c6af89d7fe7c">Music Coding</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://timdaub.github.io/wasm-synth/">WASM Synth</a> WASM Music Synthesizer</p>
+</li>
 </ul>
 <h2 id="Audio-Player"><a href="#Audio-Player" class="headerlink" title="Audio Player"></a>Audio Player</h2><h3 id="Online-Audio-Player"><a href="#Online-Audio-Player" class="headerlink" title="Online Audio Player"></a>Online Audio Player</h3><ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/captbaritone/webamp">captbaritone&#x2F;webamp: Winamp 2 reimplemented for the browser</a></li>
@@ -388,29 +807,52 @@
 </ul>
 <h2 id="Working-with-Virtual-Audio-Tools"><a href="#Working-with-Virtual-Audio-Tools" class="headerlink" title="Working with Virtual Audio Tools"></a>Working with Virtual Audio Tools</h2><h3 id="Audio-Recording-Transcription"><a href="#Audio-Recording-Transcription" class="headerlink" title="Audio Recording - Transcription"></a>Audio Recording - Transcription</h3><p>Benefits&#x2F;drawbacks:</p>
 <ul>
-<li>We cannot listen the audio output from playback apps<br><img src="/blog/_v_images/20211023055131420_4883.png" alt="VAC Audio Recording"><br>Use cases:</li>
+<li>We cannot listen the audio output from playback apps</li>
+</ul>
+<p><img src="/blog/_v_images/20211023055131420_4883.png" alt="VAC Audio Recording"></p>
+<p>Use cases:</p>
+<ul>
 <li>Record Zoom Webinar to Speechtexter, Google Docs etc.</li>
 </ul>
-<h3 id="Audio-Input-Mixing"><a href="#Audio-Input-Mixing" class="headerlink" title="Audio Input Mixing"></a>Audio Input Mixing</h3><p><img src="/blog/_v_images/20211023055947660_4903.png" alt="Audio Input Mixing"><br>Use cases:</p>
+<h3 id="Audio-Input-Mixing"><a href="#Audio-Input-Mixing" class="headerlink" title="Audio Input Mixing"></a>Audio Input Mixing</h3><p><img src="/blog/_v_images/20211023055947660_4903.png" alt="Audio Input Mixing"></p>
+<p>Use cases:</p>
 <ul>
-<li>Record with multip<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/irosyadi/vnote.image/master/vnotebook/app/music-audio-tool.md/20211023055947660_4903.pngP">https://raw.githubusercontent.com/irosyadi/vnote.image/master/vnotebook/app/music-audio-tool.md/20211023055947660_4903.pngP</a>) to Audacity</li>
-<li>Broadcast with multiple input (our voice + music from AIMP) to Zoom, Youtube etc.</li>
+<li><p>Record with multip<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/irosyadi/vnote.image/master/vnotebook/app/music-audio-tool.md/20211023055947660_4903.pngP">https://raw.githubusercontent.com/irosyadi/vnote.image/master/vnotebook/app/music-audio-tool.md/20211023055947660_4903.pngP</a>) to Audacity</p>
+</li>
+<li><p>Broadcast with multiple input (our voice + music from AIMP) to Zoom, Youtube etc.</p>
+</li>
 </ul>
-<h3 id="Audio-Output-Mixing"><a href="#Audio-Output-Mixing" class="headerlink" title="Audio Output Mixing"></a>Audio Output Mixing</h3><p><img src="/blog/_v_images/20211023060503358_26770.png" alt="Audio Output Mixing"><br>Setting:</p>
+<h3 id="Audio-Output-Mixing"><a href="#Audio-Output-Mixing" class="headerlink" title="Audio Output Mixing"></a>Audio Output Mixing</h3><p><img src="/blog/_v_images/20211023060503358_26770.png" alt="Audio Output Mixing"></p>
+<p>Setting:</p>
 <ul>
-<li>OS Sound Setting</li>
-<li>Outp<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/irosyadi/vnote.image/master/vnotebook/app/music-audio-tool.md/20211023060503358_26770.pngine">https://raw.githubusercontent.com/irosyadi/vnote.image/master/vnotebook/app/music-audio-tool.md/20211023060503358_26770.pngine</a> 1 VAC Microphone</li>
-<li>VAC Repeater Setting</li>
-<li>Wave in: Line 1 VAC Microphone</li>
-<li>Wave out: Speaker&#x2F;Headphone</li>
-<li>Start<br>Use cases:</li>
-<li>Transcribe (and listen) Zoom Seminar to Speaker and Speechtexter, Google Docs</li>
-<li>Translate Youtube Video using Google Translate</li>
+<li><p>OS Sound Setting</p>
+</li>
+<li><p>Outp<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/irosyadi/vnote.image/master/vnotebook/app/music-audio-tool.md/20211023060503358_26770.pngine">https://raw.githubusercontent.com/irosyadi/vnote.image/master/vnotebook/app/music-audio-tool.md/20211023060503358_26770.pngine</a> 1 VAC Microphone</p>
+</li>
+<li><p>VAC Repeater Setting</p>
+</li>
+<li><p>Wave in: Line 1 VAC Microphone</p>
+</li>
+<li><p>Wave out: Speaker&#x2F;Headphone</p>
+</li>
+<li><p>Start</p>
+</li>
+</ul>
+<p>Use cases:</p>
+<ul>
+<li><p>Transcribe (and listen) Zoom Seminar to Speaker and Speechtexter, Google Docs</p>
+</li>
+<li><p>Translate Youtube Video using Google Translate</p>
+</li>
 </ul>
 <h3 id="Zoom-Audio-Recording-Transcription"><a href="#Zoom-Audio-Recording-Transcription" class="headerlink" title="Zoom Audio Recording&#x2F;Transcription"></a>Zoom Audio Recording&#x2F;Transcription</h3><p><img src="/blog/_v_images/20211023061101034_12558.png" alt="Zoom Recording Transcription"></p>
 <h3 id="Google-Meet-Audio-Transcription"><a href="#Google-Meet-Audio-Transcription" class="headerlink" title="Google Meet Audio Transcription"></a>Google Meet Audio Transcription</h3><ul>
-<li>Open Google Meet, usi<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/irosyadi/vnote.image/master/vnotebook/app/music-audio-tool.md/20211023061101034_12558.pngsing">https://raw.githubusercontent.com/irosyadi/vnote.image/master/vnotebook/app/music-audio-tool.md/20211023061101034_12558.pngsing</a> default Mic<br>But we cannot do both Speechtexter and Google Docs<br>We cannot do both Speechtexter and Voice Note<br>We can do both Google Meet and Speechtexter&#x2F;VoiceNote&#x2F;Dictanote<br>We can do both Zoom and Speechtexter&#x2F;VoiceNote&#x2F;Dictanote</li>
+<li>Open Google Meet, usi<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/irosyadi/vnote.image/master/vnotebook/app/music-audio-tool.md/20211023061101034_12558.pngsing">https://raw.githubusercontent.com/irosyadi/vnote.image/master/vnotebook/app/music-audio-tool.md/20211023061101034_12558.pngsing</a> default Mic</li>
 </ul>
+<p>But we cannot do both Speechtexter and Google Docs</p>
+<p>We cannot do both Speechtexter and Voice Note</p>
+<p>We can do both Google Meet and Speechtexter&#x2F;VoiceNote&#x2F;Dictanote</p>
+<p>We can do both Zoom and Speechtexter&#x2F;VoiceNote&#x2F;Dictanote</p>
 
 	
 	</div>

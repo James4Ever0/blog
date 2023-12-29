@@ -135,41 +135,127 @@
 <li><input disabled="" type="checkbox"> use txtai to do NLU and recommend things to people</li>
 </ul>
 <h2 id="topic-discovery-acquiring"><a href="#topic-discovery-acquiring" class="headerlink" title="topic discovery&#x2F;acquiring"></a>topic discovery&#x2F;acquiring</h2><h3 id="trending-topics"><a href="#trending-topics" class="headerlink" title="trending topics"></a>trending topics</h3><ul>
-<li><input disabled="" type="checkbox"> baidu search trending</li>
-<li><input disabled="" type="checkbox"> sogou trending</li>
-<li><input disabled="" type="checkbox"> bilibili trending</li>
-<li><input disabled="" type="checkbox"> wechat trending</li>
-<li><input disabled="" type="checkbox"> toutiao trending</li>
-<li><input disabled="" type="checkbox"> tencent trending</li>
-<li><input disabled="" type="checkbox"> netease trending</li>
-<li><input disabled="" type="checkbox"> youtube trending</li>
-<li><input disabled="" type="checkbox"> reddit trending</li>
-<li><input disabled="" type="checkbox"> twitch trending</li>
+<li><p><input disabled="" type="checkbox"> 
+baidu search trending</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+sogou trending</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+bilibili trending</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+wechat trending</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+toutiao trending</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+tencent trending</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+netease trending</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+youtube trending</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+reddit trending</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+twitch trending</p>
+</li>
 </ul>
 <h3 id="popular-topics"><a href="#popular-topics" class="headerlink" title="popular topics"></a>popular topics</h3><ul>
-<li><input disabled="" type="checkbox"> baijiahao popular topics</li>
-<li><input disabled="" type="checkbox"> bilibili popular topics</li>
-<li><input disabled="" type="checkbox"> douyin popular topics</li>
+<li><p><input disabled="" type="checkbox"> 
+baijiahao popular topics</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+bilibili popular topics</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+douyin popular topics</p>
+</li>
 </ul>
 <h3 id="personal-customized-topics"><a href="#personal-customized-topics" class="headerlink" title="personal&#x2F;customized topics"></a>personal&#x2F;customized topics</h3><ul>
-<li><input disabled="" type="checkbox"> tencent qq customized (can associate with mail)</li>
-<li><input disabled="" type="checkbox"> wechat customized</li>
-<li><input disabled="" type="checkbox"> bilibili per user customized</li>
+<li><p><input disabled="" type="checkbox"> 
+tencent qq customized (can associate with mail)</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+wechat customized</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+bilibili per user customized</p>
+</li>
 </ul>
-<h2 id="dog-cat-video-generation"><a href="#dog-cat-video-generation" class="headerlink" title="dog&#x2F;cat video generation"></a>dog&#x2F;cat video generation</h2><h3 id="make-render-engine-runnable"><a href="#make-render-engine-runnable" class="headerlink" title="make render engine runnable"></a>make render engine runnable</h3><h2 id="issues-x-video-length-too-long-10-mins-it-was-the-speed-calculation-error-x-bgm-somehow-not-in-sync-too-broad-bpm-clip-ranges-to-analyze-the-peaks-abrupt-changes-in-bgm-and-grab-louder-peaks-using-pyloudnorm-getting-audio-volume-place-video-on-loudest-points-abrupt-changes-detected-by-talib-or-just-take-direvative-and-gaussian-average-video-too-repetitive-small-corpus-x-do-not-remove-subtitle-and-crop-active-region-reviewer’s-resource-not-used-but-i-rather-advise-you-to-do-it-directly-since-it-requires-less-computational-power-do-not-have-minimum-motion-threshold-reviewer’s-fault-also-recommend-you-to-do-this-in-producer"><a href="#issues-x-video-length-too-long-10-mins-it-was-the-speed-calculation-error-x-bgm-somehow-not-in-sync-too-broad-bpm-clip-ranges-to-analyze-the-peaks-abrupt-changes-in-bgm-and-grab-louder-peaks-using-pyloudnorm-getting-audio-volume-place-video-on-loudest-points-abrupt-changes-detected-by-talib-or-just-take-direvative-and-gaussian-average-video-too-repetitive-small-corpus-x-do-not-remove-subtitle-and-crop-active-region-reviewer’s-resource-not-used-but-i-rather-advise-you-to-do-it-directly-since-it-requires-less-computational-power-do-not-have-minimum-motion-threshold-reviewer’s-fault-also-recommend-you-to-do-this-in-producer" class="headerlink" title="issues:- [x] video length too long (10 mins)it was the speed calculation error.- [x] bgm somehow not in sync (too broad bpm&#x2F;clip ranges?)- [ ] to analyze the peaks (abrupt changes) in bgm and grab louder peaks using pyloudnorm (getting audio volume)- [ ] place video on loudest points, abrupt changes detected by talib or just take direvative and gaussian average- [ ] video too repetitive (small corpus?)- [x] do not remove subtitle and crop active region (reviewer’s resource not used? but i rather advise you to do it directly since it requires less computational power)- [ ] do not have minimum motion threshold (reviewer’s fault? also recommend you to do this in producer)"></a>issues:<br>- [x] video length too long (10 mins)<br>it was the speed calculation error.<br>- [x] bgm somehow not in sync (too broad bpm&#x2F;clip ranges?)<br>- [ ] to analyze the peaks (abrupt changes) in bgm and grab louder peaks using <code>pyloudnorm</code> (getting audio volume)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install pyloudnorm</span><br></pre></td></tr></table></figure><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> soundfile <span class="keyword">as</span> sf</span><br><span class="line"><span class="keyword">import</span> pyloudnorm <span class="keyword">as</span> pyln</span><br><span class="line">data, rate = sf.read(<span class="string">&quot;0055014.wav&quot;</span>) <span class="comment"># load audio (with shape (samples, channels))</span></span><br><span class="line"><span class="built_in">print</span>(data.shape)</span><br><span class="line">meter = pyln.Meter(rate) <span class="comment"># create BS.1770 meter</span></span><br><span class="line">loudness = meter.integrated_loudness(data) <span class="comment"># measure loudness</span></span><br><span class="line"><span class="built_in">print</span>(loudness)</span><br></pre></td></tr></table></figure><br>- [ ] place video on loudest points, abrupt changes detected by talib or just take direvative and gaussian average<br>- [ ] video too repetitive (small corpus?)<br>- [x] do not remove subtitle and crop active region (reviewer’s resource not used? but i rather advise you to do it directly since it requires less computational power)<br>- [ ] do not have minimum motion threshold (reviewer’s fault? also recommend you to do this in producer)</h2><ul>
-<li><input checked="" disabled="" type="checkbox"> remove all watermarks, subtitles and crop video boundaries accordingly</li>
-<li><input disabled="" type="checkbox"> source video and audio (infinite, basic test is to find 500 sources at once without duplicate, second test is to find 500 second is to find 500 without duplicate twice), improve highlight algorithm</li>
-<li><input disabled="" type="checkbox"> find 500 songs without duplicate at once</li>
-<li><input disabled="" type="checkbox"> find 500 songs no duplicate twice</li>
-<li><input disabled="" type="checkbox"> find 500 animal videos without duplicate</li>
-<li><input disabled="" type="checkbox"> find 500 animal videos no duplicate twice</li>
-<li><input disabled="" type="checkbox"> generate appropriate title, cover, info and tags</li>
-<li><input disabled="" type="checkbox"> collect feedback after the post</li>
-<li><input disabled="" type="checkbox"> find some shocking fonts for cover and subtitle, english and chinese</li>
-<li><input checked="" disabled="" type="checkbox"> make that karaoke effect</li>
-<li><input checked="" disabled="" type="checkbox"> make ass with karaoke effect with lrc files</li>
-<li><input checked="" disabled="" type="checkbox"> make lyrics sync logic fluent, according to what have learned from karaoke effects</li>
-<li><input disabled="" type="checkbox"> make selected video clips fluent, no abrupt cuts, maybe we need pyscenedetect?</li>
+<h2 id="dog-cat-video-generation"><a href="#dog-cat-video-generation" class="headerlink" title="dog&#x2F;cat video generation"></a>dog&#x2F;cat video generation</h2><h3 id="make-render-engine-runnable"><a href="#make-render-engine-runnable" class="headerlink" title="make render engine runnable"></a>make render engine runnable</h3><p>issues:</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> video length too long (10 mins)</li>
+</ul>
+<p>it was the speed calculation error.</p>
+<ul>
+<li><p><input checked="" disabled="" type="checkbox"> 
+bgm somehow not in sync (too broad bpm&#x2F;clip ranges?)</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+to analyze the peaks (abrupt changes) in bgm and grab louder peaks using <code>pyloudnorm</code> (getting audio volume)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip3 install pyloudnorm</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> soundfile <span class="keyword">as</span> sf</span><br><span class="line"><span class="keyword">import</span> pyloudnorm <span class="keyword">as</span> pyln</span><br><span class="line">data, rate = sf.read(<span class="string">&quot;0055014.wav&quot;</span>) <span class="comment"># load audio (with shape (samples, channels))</span></span><br><span class="line"><span class="built_in">print</span>(data.shape)</span><br><span class="line">meter = pyln.Meter(rate) <span class="comment"># create BS.1770 meter</span></span><br><span class="line">loudness = meter.integrated_loudness(data) <span class="comment"># measure loudness</span></span><br><span class="line"><span class="built_in">print</span>(loudness)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+place video on loudest points, abrupt changes detected by talib or just take direvative and gaussian average</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+video too repetitive (small corpus?)</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+do not remove subtitle and crop active region (reviewer’s resource not used? but i rather advise you to do it directly since it requires less computational power)</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+do not have minimum motion threshold (reviewer’s fault? also recommend you to do this in producer)</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p><input checked="" disabled="" type="checkbox"> 
+remove all watermarks, subtitles and crop video boundaries accordingly</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+source video and audio (infinite, basic test is to find 500 sources at once without duplicate, second test is to find 500 second is to find 500 without duplicate twice), improve highlight algorithm</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+find 500 songs without duplicate at once</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+find 500 songs no duplicate twice</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+find 500 animal videos without duplicate</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+find 500 animal videos no duplicate twice</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+generate appropriate title, cover, info and tags</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+collect feedback after the post</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+find some shocking fonts for cover and subtitle, english and chinese</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+make that karaoke effect</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+make ass with karaoke effect with lrc files</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+make lyrics sync logic fluent, according to what have learned from karaoke effects</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+make selected video clips fluent, no abrupt cuts, maybe we need pyscenedetect?</p>
+</li>
 </ul>
 <h2 id="text-to-video-template-based-video-generator-this-is-perhaps-the-most-complex-video-generator-ever-do-it-with-caution-it-might-also-includes-the-flipcard-narrator-and-slideshow-based-generators"><a href="#text-to-video-template-based-video-generator-this-is-perhaps-the-most-complex-video-generator-ever-do-it-with-caution-it-might-also-includes-the-flipcard-narrator-and-slideshow-based-generators" class="headerlink" title="text to video, template based video generator (this is perhaps the most complex video generator ever. do it with caution, it might also includes the flipcard, narrator and slideshow based generators)"></a>text to video, template based video generator (this is perhaps the most complex video generator ever. do it with caution, it might also includes the flipcard, narrator and slideshow based generators)</h2><h3 id="generator-models-subarchitecture-subcategories-of-template-based-generators"><a href="#generator-models-subarchitecture-subcategories-of-template-based-generators" class="headerlink" title="generator models subarchitecture (subcategories of template based generators)"></a>generator models subarchitecture (subcategories of template based generators)</h3><h4 id="flipcard"><a href="#flipcard" class="headerlink" title="flipcard"></a>flipcard</h4><h4 id="slideshow-video-and-audio-might-also-include-the-dog-cat-video"><a href="#slideshow-video-and-audio-might-also-include-the-dog-cat-video" class="headerlink" title="slideshow (video and audio, might also include the dog&amp;cat video!)"></a>slideshow (video and audio, might also include the dog&amp;cat video!)</h4><h4 id="narrator"><a href="#narrator" class="headerlink" title="narrator"></a>narrator</h4><h4 id="summarized-video"><a href="#summarized-video" class="headerlink" title="summarized video"></a>summarized video</h4><hr>
 <h3 id="policy-evasion-NSFW-filters"><a href="#policy-evasion-NSFW-filters" class="headerlink" title="policy evasion, NSFW filters"></a>policy evasion, NSFW filters</h3><ul>
@@ -177,9 +263,15 @@
 </ul>
 <hr>
 <h3 id="analyze-the-media-content-and-metadata-relationships"><a href="#analyze-the-media-content-and-metadata-relationships" class="headerlink" title="analyze the media content and metadata, relationships"></a>analyze the media content and metadata, relationships</h3><ul>
-<li><input disabled="" type="checkbox"> analyze danmaku</li>
-<li><input disabled="" type="checkbox"> paraphrase the script</li>
-<li><input disabled="" type="checkbox"> cut the crap and understand each clip’s meaning</li>
+<li><p><input disabled="" type="checkbox"> 
+analyze danmaku</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+paraphrase the script</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+cut the crap and understand each clip’s meaning</p>
+</li>
 </ul>
 <hr>
 <h3 id="process-the-video-clips-like-changing-the-human-figure-changing-face-stylish-the-video-adding-2d-to-3d-effects"><a href="#process-the-video-clips-like-changing-the-human-figure-changing-face-stylish-the-video-adding-2d-to-3d-effects" class="headerlink" title="process the video clips, like changing the human figure, changing face, stylish the video, adding 2d to 3d effects"></a>process the video clips, like changing the human figure, changing face, stylish the video, adding 2d to 3d effects</h3><hr>
@@ -187,27 +279,59 @@
 <h3 id="index-retrieve-and-align-video-and-audio-content-according-to-our-collected-database"><a href="#index-retrieve-and-align-video-and-audio-content-according-to-our-collected-database" class="headerlink" title="index, retrieve and align video and audio content according to our collected database"></a>index, retrieve and align video and audio content according to our collected database</h3><hr>
 <h3 id="retrieve-and-align-video-and-audio-according-to-our-smart-search-agent-keyword-extractor-related-words-and-do-live-compilation"><a href="#retrieve-and-align-video-and-audio-according-to-our-smart-search-agent-keyword-extractor-related-words-and-do-live-compilation" class="headerlink" title="retrieve and align video and audio according to our smart search agent (keyword extractor, related words) and do live compilation"></a>retrieve and align video and audio according to our smart search agent (keyword extractor, related words) and do live compilation</h3><hr>
 <h2 id="qq-managing"><a href="#qq-managing" class="headerlink" title="qq managing"></a>qq managing</h2><ul>
-<li><input disabled="" type="checkbox"> mitm chats in friends</li>
-<li><input disabled="" type="checkbox"> mitm chats in groups</li>
-<li><input disabled="" type="checkbox"> source and send pictures to qzone</li>
-<li><input disabled="" type="checkbox"> source and send pictures to chat</li>
-<li><input disabled="" type="checkbox"> reduce posting frequency by group size and feedback</li>
-<li><input disabled="" type="checkbox"> post relative video link relative to group topic</li>
+<li><p><input disabled="" type="checkbox"> 
+mitm chats in friends</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+mitm chats in groups</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+source and send pictures to qzone</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+source and send pictures to chat</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+reduce posting frequency by group size and feedback</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+post relative video link relative to group topic</p>
+</li>
 </ul>
 <h2 id="personal-info-collecting-and-email-sms-bulk-sending"><a href="#personal-info-collecting-and-email-sms-bulk-sending" class="headerlink" title="personal info collecting and email&#x2F;sms bulk sending"></a>personal info collecting and email&#x2F;sms bulk sending</h2><ul>
-<li><input disabled="" type="checkbox"> avoid mail being trashed or turned into junk</li>
-<li><input disabled="" type="checkbox"> collect and make mail templates for mail posting</li>
+<li><p><input disabled="" type="checkbox"> 
+avoid mail being trashed or turned into junk</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+collect and make mail templates for mail posting</p>
+</li>
 </ul>
 <h2 id="voice-changer"><a href="#voice-changer" class="headerlink" title="voice changer"></a>voice changer</h2><ul>
-<li><input disabled="" type="checkbox"> vst based voice changer</li>
-<li><input disabled="" type="checkbox"> train or find a decent voice generator 御姐音语料库 小受音语料库<br>请在b站或者qq群里面寻找 或者什么其他的有关的地方寻找 谢谢</li>
+<li><p><input disabled="" type="checkbox"> 
+vst based voice changer</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+train or find a decent voice generator 御姐音语料库 小受音语料库</p>
+</li>
 </ul>
+<p>请在b站或者qq群里面寻找 或者什么其他的有关的地方寻找 谢谢</p>
 <h2 id="直播-live-streaming"><a href="#直播-live-streaming" class="headerlink" title="直播 live streaming"></a>直播 live streaming</h2><ul>
-<li><input disabled="" type="checkbox"> source the video<br>如果是同一个站的 尽量放一个月以前的视频 半个月以前的音频</li>
-<li><input disabled="" type="checkbox"> prepare some space for storing live streaming data</li>
-<li><input disabled="" type="checkbox"> source the audio</li>
-<li><input disabled="" type="checkbox"> automatic interactions</li>
-<li><input disabled="" type="checkbox"> handle the vtuber model’s actions</li>
+<li><input disabled="" type="checkbox"> source the video</li>
+</ul>
+<p>如果是同一个站的 尽量放一个月以前的视频 半个月以前的音频</p>
+<ul>
+<li><p><input disabled="" type="checkbox"> 
+prepare some space for storing live streaming data</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+source the audio</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+automatic interactions</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+handle the vtuber model’s actions</p>
+</li>
 </ul>
 
 	
@@ -232,7 +356,24 @@
   <div class="row">
 	
 	
-		<p>find things in colab, kaggle, aistudio, bilibili, youtube.<br>see in <a target="_blank" rel="noopener" href="https://huggingface.co/tasks">huggingface tasks</a> to find task-specific models, also <a target="_blank" rel="noopener" href="https://huggingface.co/spaces">huggingface spaces</a> for demo on models<br><a target="_blank" rel="noopener" href="https://modelscope.cn/home">modelscope</a> by alibaba supports tensorflow and pytorch<br><a target="_blank" rel="noopener" href="https://gitee.com/mindspore/models">mindspore model zoo</a><br><a target="_blank" rel="noopener" href="https://www.mindspore.cn/resources/hub/">mindspore hub</a><br><a target="_blank" rel="noopener" href="https://github.com/IntelAI/models">intel model zoo</a><br>run models from intel model zoo in docker container, like <a target="_blank" rel="noopener" href="https://hub.docker.com/r/intel/recommendation">recommendation</a><br><a target="_blank" rel="noopener" href="https://github.com/openvinotoolkit/open_model_zoo">openvino model zoo</a><br><a target="_blank" rel="noopener" href="https://github.com/datawhalechina/awesome-DeepLearning">百度总结的 比较全面的深度学习应用</a> deeplearning applications<br><a target="_blank" rel="noopener" href="https://hub.jina.ai/">jina hub</a><br><a target="_blank" rel="noopener" href="https://modelscope.cn/#/models">阿里巴巴模型库</a> 具有许多适用于商业 自媒体的模型供选择<br>huggingface<br>苹果官方CoreML模型库<br>CoreML第三方模型库<br>paddle模型库 <a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/PaddleHub">paddlehub</a><br>pytorch模型库<br>TensorFlow模型库<br><a target="_blank" rel="noopener" href="https://www.graphcore.ai/resources/model-garden">graphcore model zoo for IPU</a></p>
+		<p>find things in colab, kaggle, aistudio, bilibili, youtube.</p>
+<p>see in <a target="_blank" rel="noopener" href="https://huggingface.co/tasks">huggingface tasks</a> to find task-specific models, also <a target="_blank" rel="noopener" href="https://huggingface.co/spaces">huggingface spaces</a> for demo on models</p>
+<p><a target="_blank" rel="noopener" href="https://modelscope.cn/home">modelscope</a> by alibaba supports tensorflow and pytorch</p>
+<p><a target="_blank" rel="noopener" href="https://gitee.com/mindspore/models">mindspore model zoo</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.mindspore.cn/resources/hub/">mindspore hub</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/IntelAI/models">intel model zoo</a></p>
+<p>run models from intel model zoo in docker container, like <a target="_blank" rel="noopener" href="https://hub.docker.com/r/intel/recommendation">recommendation</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/openvinotoolkit/open_model_zoo">openvino model zoo</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/datawhalechina/awesome-DeepLearning">百度总结的 比较全面的深度学习应用</a> deeplearning applications</p>
+<p><a target="_blank" rel="noopener" href="https://hub.jina.ai/">jina hub</a></p>
+<p><a target="_blank" rel="noopener" href="https://modelscope.cn/#/models">阿里巴巴模型库</a> 具有许多适用于商业 自媒体的模型供选择</p>
+<p>huggingface</p>
+<p>苹果官方CoreML模型库</p>
+<p>CoreML第三方模型库</p>
+<p>paddle模型库 <a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/PaddleHub">paddlehub</a></p>
+<p>pytorch模型库</p>
+<p>TensorFlow模型库</p>
+<p><a target="_blank" rel="noopener" href="https://www.graphcore.ai/resources/model-garden">graphcore model zoo for IPU</a></p>
 
 	
 	</div>
@@ -281,19 +422,47 @@
 	
 	
 		<h2 id="3d-pose-tracker"><a href="#3d-pose-tracker" class="headerlink" title="3d pose tracker"></a><a target="_blank" rel="noopener" href="https://github.com/digital-standard/ThreeDPoseTracker">3d pose tracker</a></h2><p>rendered on unity. needs GPU.</p>
-<h2 id="Sysmocap"><a href="#Sysmocap" class="headerlink" title="Sysmocap"></a><a target="_blank" rel="noopener" href="https://github.com/xianfei/SysMocap">Sysmocap</a></h2><p><strong>WHAT I WANT FOR</strong> (or nearly) requires real 3d models, written in javascript<br>cannot output video?<br>A cross-platform real-time video-driven motion capture and 3D virtual character rendering system for VTuber&#x2F;Live&#x2F;AR&#x2F;VR.<br>Does not require a discrete graphics card and runs smoothly even on eight-year-old computers</p>
-<h2 id="Vtuber-python-unity"><a href="#Vtuber-python-unity" class="headerlink" title="Vtuber python unity"></a><a target="_blank" rel="noopener" href="https://github.com/mmmmmm44/VTuber-Python-Unity">Vtuber python unity</a></h2><p>search for “vtuber” along with “motion capture” you will get many head-only trackers and renderers for windows but not linux, also some “broadcast templates&#x2F;frameworks”. many support one single image (anime head + remove background) as input instead of 2d&#x2F;3d models<br>face tracking only, showing face, mouth and eyes, head directions, bind to live2d models</p>
+<h2 id="Sysmocap"><a href="#Sysmocap" class="headerlink" title="Sysmocap"></a><a target="_blank" rel="noopener" href="https://github.com/xianfei/SysMocap">Sysmocap</a></h2><p><strong>WHAT I WANT FOR</strong> (or nearly) requires real 3d models, written in javascript</p>
+<p>cannot output video?</p>
+<p>A cross-platform real-time video-driven motion capture and 3D virtual character rendering system for VTuber&#x2F;Live&#x2F;AR&#x2F;VR.</p>
+<p>Does not require a discrete graphics card and runs smoothly even on eight-year-old computers</p>
+<h2 id="Vtuber-python-unity"><a href="#Vtuber-python-unity" class="headerlink" title="Vtuber python unity"></a><a target="_blank" rel="noopener" href="https://github.com/mmmmmm44/VTuber-Python-Unity">Vtuber python unity</a></h2><p>search for “vtuber” along with “motion capture” you will get many head-only trackers and renderers for windows but not linux, also some “broadcast templates&#x2F;frameworks”. many support one single image (anime head + remove background) as input instead of 2d&#x2F;3d models</p>
+<p>face tracking only, showing face, mouth and eyes, head directions, bind to live2d models</p>
 <h2 id="虚拟数字人-metahuman"><a href="#虚拟数字人-metahuman" class="headerlink" title="虚拟数字人 metahuman"></a>虚拟数字人 metahuman</h2><p>NextHuman Beta0.9上线公测，5分钟高品质讲解，带你进入数字人“零门槛”创作新时代，体验直通车 -&gt; <a target="_blank" rel="noopener" href="https://nexthuman.cn/">https://nexthuman.cn</a> 免费版是Windows上面跑的 需要高端1070显卡</p>
-<h2 id="anime-character-segmentation"><a href="#anime-character-segmentation" class="headerlink" title="anime character segmentation"></a>anime character segmentation</h2><p>to remove false positives, make sure we have anime face in view, otherwise mark it as a false positive.<br>you can use anime character recognition like <a target="_blank" rel="noopener" href="https://github.com/freedomofkeima/MoeFlow">moeflow</a> or <a target="_blank" rel="noopener" href="https://github.com/nagadomi/lbpcascade_animeface">opencv anime face detector</a> <strong>along with</strong> some <a target="_blank" rel="noopener" href="http://phash.org/">phash</a> or perceptual hash library to group similar characters, compare perceptual image similarity and line them up in a series.<br><a target="_blank" rel="noopener" href="https://github.com/jerryli27/AniSeg">aniseg, able to segment anime character and head, using mask-rcnn</a><br><a target="_blank" rel="noopener" href="https://github.com/zymk9/Yet-Another-Anime-Segmenter">yet another anime character segmentation model using solov2 and condinst</a><br><a target="_blank" rel="noopener" href="https://github.com/Neihtq/waifu-segmentation">waifu segmentation</a><br><a target="_blank" rel="noopener" href="https://github.com/SkyTNT/anime-segmentation">high accuracy anime character segmentation</a><br>自动画漫画 画几笔就成某个人像 动漫头像<br><a target="_blank" rel="noopener" href="https://menyifang.github.io/projects/DCTNet/DCTNet.html">https://menyifang.github.io/projects/DCTNet/DCTNet.html</a><br>自动捏脸 gan给人脸戴口罩<br><a target="_blank" rel="noopener" href="https://github.com/futscdav/Chunkmogrify">https://github.com/futscdav/Chunkmogrify</a></p>
-<h2 id="selfie-to-anime-picture-to-anime-photos"><a href="#selfie-to-anime-picture-to-anime-photos" class="headerlink" title="selfie to anime, picture to anime photos"></a>selfie to anime, picture to anime photos</h2><p><a target="_blank" rel="noopener" href="https://github.com/XingruiWang/Animefy">selfie2anime with trained models</a><br>##原神mmd下载模型<br>模之屋（需要注册）：<br><a target="_blank" rel="noopener" href="https://www.aplaybox.com/u/680828836">https://www.aplaybox.com/u/680828836</a><br>夕蓝资源网（可直接下载） 也有其他的3d模型可以下载：<br><a target="_blank" rel="noopener" href="https://www.seoliye.com/tags/53.html">https://www.seoliye.com/tags/53.html</a></p>
+<h2 id="anime-character-segmentation"><a href="#anime-character-segmentation" class="headerlink" title="anime character segmentation"></a>anime character segmentation</h2><p>to remove false positives, make sure we have anime face in view, otherwise mark it as a false positive.</p>
+<p>you can use anime character recognition like <a target="_blank" rel="noopener" href="https://github.com/freedomofkeima/MoeFlow">moeflow</a> or <a target="_blank" rel="noopener" href="https://github.com/nagadomi/lbpcascade_animeface">opencv anime face detector</a> <strong>along with</strong> some <a target="_blank" rel="noopener" href="http://phash.org/">phash</a> or perceptual hash library to group similar characters, compare perceptual image similarity and line them up in a series.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jerryli27/AniSeg">aniseg, able to segment anime character and head, using mask-rcnn</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zymk9/Yet-Another-Anime-Segmenter">yet another anime character segmentation model using solov2 and condinst</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Neihtq/waifu-segmentation">waifu segmentation</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/SkyTNT/anime-segmentation">high accuracy anime character segmentation</a></p>
+<p>自动画漫画 画几笔就成某个人像 动漫头像</p>
+<p><a target="_blank" rel="noopener" href="https://menyifang.github.io/projects/DCTNet/DCTNet.html">https://menyifang.github.io/projects/DCTNet/DCTNet.html</a></p>
+<p>自动捏脸 gan给人脸戴口罩</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/futscdav/Chunkmogrify">https://github.com/futscdav/Chunkmogrify</a></p>
+<h2 id="selfie-to-anime-picture-to-anime-photos"><a href="#selfie-to-anime-picture-to-anime-photos" class="headerlink" title="selfie to anime, picture to anime photos"></a>selfie to anime, picture to anime photos</h2><p><a target="_blank" rel="noopener" href="https://github.com/XingruiWang/Animefy">selfie2anime with trained models</a></p>
+<p>##原神mmd下载模型</p>
+<p>模之屋（需要注册）：</p>
+<p><a target="_blank" rel="noopener" href="https://www.aplaybox.com/u/680828836">https://www.aplaybox.com/u/680828836</a></p>
+<p>夕蓝资源网（可直接下载） 也有其他的3d模型可以下载：</p>
+<p><a target="_blank" rel="noopener" href="https://www.seoliye.com/tags/53.html">https://www.seoliye.com/tags/53.html</a></p>
 <h2 id="use-voice-to-power-up-static-images"><a href="#use-voice-to-power-up-static-images" class="headerlink" title="use voice to power up static images"></a>use voice to power up static images</h2><p><a target="_blank" rel="noopener" href="https://github.com/AnimatePortrait/AnimatePortrait">voice powered animated cartoon figure</a></p>
-<h2 id="jeeliz-some-web-deep-learning-runtime-like-tensorflow-js-powered"><a href="#jeeliz-some-web-deep-learning-runtime-like-tensorflow-js-powered" class="headerlink" title="jeeliz (some web deep learning runtime, like tensorflow.js) powered"></a>jeeliz (some web deep learning runtime, like tensorflow.js) powered</h2><p><a target="_blank" rel="noopener" href="https://github.com/jeeliz/jeelizWeboji">weboji, highly similar to animoji, with three.js and cute fox avatar</a><br><a target="_blank" rel="noopener" href="https://github.com/jeeliz/jeelizFaceFilter">face filter, alter the face like putting glass, minor changes to avoid privacy&#x2F;copyright concerns?</a></p>
+<h2 id="jeeliz-some-web-deep-learning-runtime-like-tensorflow-js-powered"><a href="#jeeliz-some-web-deep-learning-runtime-like-tensorflow-js-powered" class="headerlink" title="jeeliz (some web deep learning runtime, like tensorflow.js) powered"></a>jeeliz (some web deep learning runtime, like tensorflow.js) powered</h2><p><a target="_blank" rel="noopener" href="https://github.com/jeeliz/jeelizWeboji">weboji, highly similar to animoji, with three.js and cute fox avatar</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jeeliz/jeelizFaceFilter">face filter, alter the face like putting glass, minor changes to avoid privacy&#x2F;copyright concerns?</a></p>
 <h2 id="openface"><a href="#openface" class="headerlink" title="openface"></a>openface</h2><p><a target="_blank" rel="noopener" href="https://github.com/TadasBaltrusaitis/OpenFace">facial features extraction</a></p>
-<h2 id="facerig"><a href="#facerig" class="headerlink" title="facerig"></a>facerig</h2><p>facerig location: <code>/Software/Program Files (x86)/FaceRig</code><br>i’ve seen python code inside facerig.<br>facerig does not offer head-only rendering, but that could be changed i suppose?</p>
-<h2 id="avatarify-python"><a href="#avatarify-python" class="headerlink" title="avatarify python"></a>avatarify python</h2><p><a target="_blank" rel="noopener" href="https://github.com/alievk/avatarify-python">infinite avatars by using style gan, first order motion model</a><br><a target="_blank" rel="noopener" href="https://pypi.org/project/python-avatars/">create static portrait avatar (svg?)</a></p>
-<h2 id="animoji-from-apple"><a href="#animoji-from-apple" class="headerlink" title="animoji from apple"></a>animoji from apple</h2><p><a target="_blank" rel="noopener" href="https://github.com/thevarunsharma/Animoji-Animate">facial landmark detection in python, animoji-animate</a><br><a target="_blank" rel="noopener" href="https://github.com/efremidze/Animoji">animoji apple private framework</a> 实际上这个就是之前看到的会动的狗屎的视频来源</p>
-<h2 id="2d模型-皮套-可动-虚拟Vtuber-talking-head"><a href="#2d模型-皮套-可动-虚拟Vtuber-talking-head" class="headerlink" title="2d模型 皮套 可动 虚拟Vtuber talking head"></a>2d模型 皮套 可动 虚拟Vtuber talking head</h2><p><a target="_blank" rel="noopener" href="https://github.com/yuyuyzl/EasyVtuber">https://github.com/yuyuyzl/EasyVtuber</a><br><a target="_blank" rel="noopener" href="https://github.com/pkhungurn/talking-head-anime-3-demo">https://github.com/pkhungurn/talking-head-anime-3-demo</a><br><a target="_blank" rel="noopener" href="https://github.com/GunwooHan/EasyVtuber">https://github.com/GunwooHan/EasyVtuber</a></p>
-<h2 id="b站官方"><a href="#b站官方" class="headerlink" title="b站官方"></a>b站官方</h2><p>直播姬现在支持2d面部捕捉 3d模型动作捕捉<br>直播姬版本有windows macos(m1) Android版本<br>2d模型是live2d的模型<br>有待研究</p>
+<h2 id="facerig"><a href="#facerig" class="headerlink" title="facerig"></a>facerig</h2><p>facerig location: <code>/Software/Program Files (x86)/FaceRig</code></p>
+<p>i’ve seen python code inside facerig.</p>
+<p>facerig does not offer head-only rendering, but that could be changed i suppose?</p>
+<h2 id="avatarify-python"><a href="#avatarify-python" class="headerlink" title="avatarify python"></a>avatarify python</h2><p><a target="_blank" rel="noopener" href="https://github.com/alievk/avatarify-python">infinite avatars by using style gan, first order motion model</a></p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/python-avatars/">create static portrait avatar (svg?)</a></p>
+<h2 id="animoji-from-apple"><a href="#animoji-from-apple" class="headerlink" title="animoji from apple"></a>animoji from apple</h2><p><a target="_blank" rel="noopener" href="https://github.com/thevarunsharma/Animoji-Animate">facial landmark detection in python, animoji-animate</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/efremidze/Animoji">animoji apple private framework</a> 实际上这个就是之前看到的会动的狗屎的视频来源</p>
+<h2 id="2d模型-皮套-可动-虚拟Vtuber-talking-head"><a href="#2d模型-皮套-可动-虚拟Vtuber-talking-head" class="headerlink" title="2d模型 皮套 可动 虚拟Vtuber talking head"></a>2d模型 皮套 可动 虚拟Vtuber talking head</h2><p><a target="_blank" rel="noopener" href="https://github.com/yuyuyzl/EasyVtuber">https://github.com/yuyuyzl/EasyVtuber</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/pkhungurn/talking-head-anime-3-demo">https://github.com/pkhungurn/talking-head-anime-3-demo</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/GunwooHan/EasyVtuber">https://github.com/GunwooHan/EasyVtuber</a></p>
+<h2 id="b站官方"><a href="#b站官方" class="headerlink" title="b站官方"></a>b站官方</h2><p>直播姬现在支持2d面部捕捉 3d模型动作捕捉</p>
+<p>直播姬版本有windows macos(m1) Android版本</p>
+<p>2d模型是live2d的模型</p>
+<p>有待研究</p>
 
 	
 	</div>
@@ -317,17 +486,48 @@
   <div class="row">
 	
 	
-		<p>qq seems to release mac qq with electron, lot more easier for reverse engineering<br><a target="_blank" rel="noopener" href="https://zu1k.com/posts/security/reverse/golang-reverse/">how to reverse go binary, golang reverse</a><br>opqbot官方已经说了 登陆过程中会用到远程的服务器 这个服务器究竟在干什么不得而知 可能和登陆有关也可能没有关系 但是服务器维护期间是没法扫码登录的 如果有可以正常使用的secdata是可以直接启动服务的 不需要服务器 所以估计这个服务器很可能就是拿来解析cookie的<br>login error:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">2022/08/14 00:01:24.808 [I]  Scan Status 48 Uin 0</span><br><span class="line">2022/08/14 00:01:25.880 [I]  Scan Status 48 Uin 0</span><br><span class="line">2022/08/14 00:01:26.937 [I]  Scan Status 53 Uin 0</span><br><span class="line">2022/08/14 00:01:27.998 [I]  Scan Status 53 Uin 0</span><br><span class="line">2022/08/14 00:01:29.054 [N]  User &lt;userId&gt; 登录中..请勿连续操作,登录成功后或释放连接后在继续操作 登陆成功后请勿频繁扫码再次登陆(除非冻结导致的掉线) 发不出去群消息请挂机几天 TX日常风控</span><br><span class="line">=========本框架 🎈 免费 🎈 使用 谨防 ⚠️ 诈骗 ⚠️ 收费 切勿用于 🈲️ 非 🈲️ 法用途</span><br><span class="line">=========交流群:757360354 TG群组:https://t.me/IOTQQ</span><br><span class="line">=========开源社区 👍 https://github.com/opq-osc 👍</span><br><span class="line">=========项目主页 😄 https://github.com/OPQBOT/OPQ/wiki 😄</span><br><span class="line">=========项目Wiki 📒 https://github.com/OPQBOT/OPQ/wiki 📒</span><br><span class="line">2022/08/14 00:02:30.234 [W]  recvPump session 0D48F5949075DA13D3A9F83838903920</span><br><span class="line">2022/08/14 00:02:30.234 [A]  Default Closed:0D48F5949075DA13D3A9F83838903920</span><br><span class="line">2022/08/14 00:02:30.235 [D]  Unregister In Conn -&gt; 0D48F5949075DA13D3A9F83838903920</span><br></pre></td></tr></table></figure>
-<p>关于自动加群 可以考虑使用安卓手机自启动功能（需要下载<a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=imoblife.startupmanager">startup manager</a> 或者<a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=de.defim.apk.bootmanager&showAllReviews=true">boot manager</a>（有root权限和xposed框架）） 用<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/termux-appium">termux-appium</a> 自动操作手机在联网的情况下自启动加群<br>现在有两个标准<a target="_blank" rel="noopener" href="https://onebot.dev/">onebot</a> <a target="_blank" rel="noopener" href="https://nb2.baka.icu/">nonebot</a><br>这两个协议都不支持主动加好友 加群 还有收红包方法 至少mac qq协议支持这些方法 但是其他的协议比如手表 ipad协议支不支持就不清楚了<br>onebot有大量的<a target="_blank" rel="noopener" href="https://onebot.dev/ecosystem.html#onebot-12">qq适配器</a> 而nonebot有<a target="_blank" rel="noopener" href="https://nb2.baka.icu/store">大量的插件和除了qq以外的连接器</a><br>nonebot可以<a target="_blank" rel="noopener" href="https://onebot.adapters.nonebot.dev/docs/guide/installation">连接onebot</a><br>在onebot的qq适配器中 oicq可以查看qq历史聊天记录（有待验证） 可能对qq的数据爬取有帮助 视频爬取 <a target="_blank" rel="noopener" href="https://github.com/takayama-lily/oicq">oicq</a>这个适配器有在群里面加好友的方法<code>addFriend(gid, uid)</code>可以参考,提供了一些用于逆向qq协议的程序：<br><a target="_blank" rel="noopener" href="https://github.com/fuqiuluo/TXHook">txhook</a> 该软件适合在安卓8.0以上系统运行，理论支持安卓7.0以上，但是很多问题。群号：901422091 702991373</p>
+		<p>qq seems to release mac qq with electron, lot more easier for reverse engineering</p>
+<p><a target="_blank" rel="noopener" href="https://zu1k.com/posts/security/reverse/golang-reverse/">how to reverse go binary, golang reverse</a></p>
+<p>opqbot官方已经说了 登陆过程中会用到远程的服务器 这个服务器究竟在干什么不得而知 可能和登陆有关也可能没有关系 但是服务器维护期间是没法扫码登录的 如果有可以正常使用的secdata是可以直接启动服务的 不需要服务器 所以估计这个服务器很可能就是拿来解析cookie的</p>
+<p>login error:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">2022/08/14 00:01:24.808 [I]  Scan Status 48 Uin 0</span><br><span class="line">2022/08/14 00:01:25.880 [I]  Scan Status 48 Uin 0</span><br><span class="line">2022/08/14 00:01:26.937 [I]  Scan Status 53 Uin 0</span><br><span class="line">2022/08/14 00:01:27.998 [I]  Scan Status 53 Uin 0</span><br><span class="line">2022/08/14 00:01:29.054 [N]  User &lt;userId&gt; 登录中..请勿连续操作,登录成功后或释放连接后在继续操作 登陆成功后请勿频繁扫码再次登陆(除非冻结导致的掉线) 发不出去群消息请挂机几天 TX日常风控</span><br><span class="line">=========本框架 🎈 免费 🎈 使用 谨防 ⚠️ 诈骗 ⚠️ 收费 切勿用于 🈲️ 非 🈲️ 法用途</span><br><span class="line">=========交流群:757360354 TG群组:https://t.me/IOTQQ</span><br><span class="line">=========开源社区 👍 https://github.com/opq-osc 👍</span><br><span class="line">=========项目主页 😄 https://github.com/OPQBOT/OPQ/wiki 😄</span><br><span class="line">=========项目Wiki 📒 https://github.com/OPQBOT/OPQ/wiki 📒</span><br><span class="line">2022/08/14 00:02:30.234 [W]  recvPump session 0D48F5949075DA13D3A9F83838903920</span><br><span class="line">2022/08/14 00:02:30.234 [A]  Default Closed:0D48F5949075DA13D3A9F83838903920</span><br><span class="line">2022/08/14 00:02:30.235 [D]  Unregister In Conn -&gt; 0D48F5949075DA13D3A9F83838903920</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>关于自动加群 可以考虑使用安卓手机自启动功能（需要下载<a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=imoblife.startupmanager">startup manager</a> 或者<a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=de.defim.apk.bootmanager&showAllReviews=true">boot manager</a>（有root权限和xposed框架）） 用<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/termux-appium">termux-appium</a> 自动操作手机在联网的情况下自启动加群</p>
+<p>现在有两个标准<a target="_blank" rel="noopener" href="https://onebot.dev/">onebot</a> <a target="_blank" rel="noopener" href="https://nb2.baka.icu/">nonebot</a></p>
+<p>这两个协议都不支持主动加好友 加群 还有收红包方法 至少mac qq协议支持这些方法 但是其他的协议比如手表 ipad协议支不支持就不清楚了</p>
+<p>onebot有大量的<a target="_blank" rel="noopener" href="https://onebot.dev/ecosystem.html#onebot-12">qq适配器</a> 而nonebot有<a target="_blank" rel="noopener" href="https://nb2.baka.icu/store">大量的插件和除了qq以外的连接器</a></p>
+<p>nonebot可以<a target="_blank" rel="noopener" href="https://onebot.adapters.nonebot.dev/docs/guide/installation">连接onebot</a></p>
+<p>在onebot的qq适配器中 oicq可以查看qq历史聊天记录（有待验证） 可能对qq的数据爬取有帮助 视频爬取 <a target="_blank" rel="noopener" href="https://github.com/takayama-lily/oicq">oicq</a>这个适配器有在群里面加好友的方法<code>addFriend(gid, uid)</code>可以参考,提供了一些用于逆向qq协议的程序：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/fuqiuluo/TXHook">txhook</a> 该软件适合在安卓8.0以上系统运行，理论支持安卓7.0以上，但是很多问题。群号：901422091 702991373</p>
 <ul>
-<li>获取ShareKey\PublicKey\D2\A2…</li>
-<li>主动拦截固定Ecdh密钥及版本</li>
-<li>对Jce\Protobuf的自动分析</li>
-<li>过滤抓包，支持高级过滤（长按抓包页面的搜索栏展示&#x2F;隐藏图标）<br><a target="_blank" rel="noopener" href="https://protobuf-decoder.netlify.app/">protobuf online decode</a><br><a target="_blank" rel="noopener" href="https://github.com/takayama-lily/unpack-tools">protobuf unpack-tools</a><br>也有一些可以进行二次开发的<a target="_blank" rel="noopener" href="https://github.com/takayama-lily/oicq/blob/main/web-api.md">qq web api</a> 搜索QQ号和群号 且有个性签名等更多信息 或许可以搜索关键词？<br>这些适配器中有的提供了qq频道的支持：<br><a target="_blank" rel="noopener" href="https://github.com/takayama-lily/oicq-guild">oicq-guild</a><br>也可以考虑用<a target="_blank" rel="noopener" href="https://frida.re/">frida</a> <a target="_blank" rel="noopener" href="https://github.com/NationalSecurityAgency/ghidra">ghidra</a> <a target="_blank" rel="noopener" href="https://rada.re/n/radare2.html">radare2</a> <a target="_blank" rel="noopener" href="https://cutter.re/">cutter</a>来<a target="_blank" rel="noopener" href="https://cn.bing.com/search?q=reverse+go+binary&form=CHRDEF&sp=-1&pq=reverse+go+binary&sc=0-17&qs=n&sk=&cvid=3A1FCCCF9C2F495DB516CB656D281DCA&ghsh=0&ghacc=0&ghpl=">逆向opqbot的go编译好了的程序</a> 或者逆向分析opqbot的网络请求数据 甚至直接动态调用opqbot里面的方法 直接用其他机器人登陆之后获得的cookie进行操作<br>to get the token, login first, then visit <a target="_blank" rel="noopener" href="https://developer.gitter.im/apps">here</a> or click “sign in” <a target="_blank" rel="noopener" href="https://developer.gitter.im/">here</a><br>据说扫码登录只支持同一个ip下面的登陆 不知道为什么这个opqbot登陆失败 但是其他机器人都提供了账号密码登陆的渠道 将opqbot的协议逆向出来 或许可以提高登陆成功率 实现相同的功能<br>默认(可修改)在 .&#x2F;data&#x2F;your-account&#x2F; 下会自动生成device.json设备文件，登录完成后此设备文件长期有效<br>设备文件的生成并非随机，而是使用固定算法，一个账号会永远生成同一份设备文件<br>如果需要在异地服务器上登录，建议先在常用地通过设备验证并登录挂机一段时间<br>由于会生成相同设备文件，只要不手动修改，只需验证一次，在任何地区都可直接登录<br>it seems the login issue of opqbot is related to the account itself, not gitter token, software version or proxy<br>by the way we could always use go-cqhttp, without the ability to collect red packet and add group&#x2F;friends.<br>qq add group&#x2F;friends may be enabled by our windows virtual machines. without opq, it is very memory intensive.<br>tokens:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">74eb7eb14aa36d1b9c2c663bc49335e8becd5318</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2d391bd7639362032d09abfc5a9cc6368b7664d5</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bdf52599d992665509ee5b0b533d5eed08452def</span><br></pre></td></tr></table></figure></li>
+<li><p>获取ShareKey\PublicKey\D2\A2…</p>
+</li>
+<li><p>主动拦截固定Ecdh密钥及版本</p>
+</li>
+<li><p>对Jce\Protobuf的自动分析</p>
+</li>
+<li><p>过滤抓包，支持高级过滤（长按抓包页面的搜索栏展示&#x2F;隐藏图标）</p>
+</li>
 </ul>
+<p><a target="_blank" rel="noopener" href="https://protobuf-decoder.netlify.app/">protobuf online decode</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/takayama-lily/unpack-tools">protobuf unpack-tools</a></p>
+<p>也有一些可以进行二次开发的<a target="_blank" rel="noopener" href="https://github.com/takayama-lily/oicq/blob/main/web-api.md">qq web api</a> 搜索QQ号和群号 且有个性签名等更多信息 或许可以搜索关键词？</p>
+<p>这些适配器中有的提供了qq频道的支持：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/takayama-lily/oicq-guild">oicq-guild</a></p>
+<p>也可以考虑用<a target="_blank" rel="noopener" href="https://frida.re/">frida</a> <a target="_blank" rel="noopener" href="https://github.com/NationalSecurityAgency/ghidra">ghidra</a> <a target="_blank" rel="noopener" href="https://rada.re/n/radare2.html">radare2</a> <a target="_blank" rel="noopener" href="https://cutter.re/">cutter</a>来<a target="_blank" rel="noopener" href="https://cn.bing.com/search?q=reverse+go+binary&form=CHRDEF&sp=-1&pq=reverse+go+binary&sc=0-17&qs=n&sk=&cvid=3A1FCCCF9C2F495DB516CB656D281DCA&ghsh=0&ghacc=0&ghpl=">逆向opqbot的go编译好了的程序</a> 或者逆向分析opqbot的网络请求数据 甚至直接动态调用opqbot里面的方法 直接用其他机器人登陆之后获得的cookie进行操作</p>
+<p>to get the token, login first, then visit <a target="_blank" rel="noopener" href="https://developer.gitter.im/apps">here</a> or click “sign in” <a target="_blank" rel="noopener" href="https://developer.gitter.im/">here</a></p>
+<p>据说扫码登录只支持同一个ip下面的登陆 不知道为什么这个opqbot登陆失败 但是其他机器人都提供了账号密码登陆的渠道 将opqbot的协议逆向出来 或许可以提高登陆成功率 实现相同的功能</p>
+<p>默认(可修改)在 .&#x2F;data&#x2F;your-account&#x2F; 下会自动生成device.json设备文件，登录完成后此设备文件长期有效</p>
+<p>设备文件的生成并非随机，而是使用固定算法，一个账号会永远生成同一份设备文件</p>
+<p>如果需要在异地服务器上登录，建议先在常用地通过设备验证并登录挂机一段时间</p>
+<p>由于会生成相同设备文件，只要不手动修改，只需验证一次，在任何地区都可直接登录</p>
+<p>it seems the login issue of opqbot is related to the account itself, not gitter token, software version or proxy</p>
+<p>by the way we could always use go-cqhttp, without the ability to collect red packet and add group&#x2F;friends.</p>
+<p>qq add group&#x2F;friends may be enabled by our windows virtual machines. without opq, it is very memory intensive.</p>
+<p>tokens:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">74eb7eb14aa36d1b9c2c663bc49335e8becd5318</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2d391bd7639362032d09abfc5a9cc6368b7664d5</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bdf52599d992665509ee5b0b533d5eed08452def</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 	
 	</div>
@@ -351,7 +551,8 @@
   <div class="row">
 	
 	
-		<p>no consecutive clip sequences have then same file source.<br>no identical clips in render sequence.</p>
+		<p>no consecutive clip sequences have then same file source.</p>
+<p>no identical clips in render sequence.</p>
 
 	
 	</div>
@@ -375,7 +576,8 @@
   <div class="row">
 	
 	
-		<h1 id="Detect-media-file-corruption-Python-suggest-binary-file-name-extension"><a href="#Detect-media-file-corruption-Python-suggest-binary-file-name-extension" class="headerlink" title="Detect media file corruption, Python suggest binary file name extension"></a>Detect media file corruption, Python suggest binary file name extension</h1><p>to rule out those corrupted media files, or unplayable files. maybe simply by parsing these files is not enough, we need a dedicated file corruption detector.<br>to truncate these files and see errors produced by media readers. use text file with media file extension to test them.</p>
+		<h1 id="Detect-media-file-corruption-Python-suggest-binary-file-name-extension"><a href="#Detect-media-file-corruption-Python-suggest-binary-file-name-extension" class="headerlink" title="Detect media file corruption, Python suggest binary file name extension"></a>Detect media file corruption, Python suggest binary file name extension</h1><p>to rule out those corrupted media files, or unplayable files. maybe simply by parsing these files is not enough, we need a dedicated file corruption detector.</p>
+<p>to truncate these files and see errors produced by media readers. use text file with media file extension to test them.</p>
 
 	
 	</div>
@@ -401,65 +603,109 @@
 	
 		<p>A curated list of awesome data labeling tools</p>
 <h4 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h4><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/tzutalin/labelImg">labelImg</a> - LabelImg is a graphical image annotation tool and label object bounding boxes in images</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/opencv/cvat">CVAT</a> - Powerful and efficient Computer Vision Annotion Tool</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/wkentaro/labelme">labelme</a> - Image Polygonal Annotation with Python</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/microsoft/VoTT">VoTT</a> - An open source annotation and labeling tool for image and video assets</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/NaturalIntelligence/imglab">imglab</a> - A web based tool to label images for objects that can be used to train dlib or other object detectors</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/AlexeyAB/Yolo_mark">Yolo_mark</a> - GUI for marking bounded boxes of objects in images for training neural network Yolo v3 and v2</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/abreheret/PixelAnnotationTool">PixelAnnotationTool</a> - Software that allows you to manually and quickly annotate images in directories</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/Cartucho/OpenLabeling">OpenLabeling</a> - Label images and video for Computer Vision applications</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/bit-bots/imagetagger">imagetagger</a> - An open source online platform for collaborative image labeling</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/AlturosDestinations/Alturos.ImageAnnotation">Alturos.ImageAnnotation</a> - A collaborative tool for labeling image data</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/jveitchmichaelis/deeplabel">deeplabel</a> - A cross-platform image annotation tool for machine learning</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/medtagger/MedTagger">MedTagger</a> - A collaborative framework for annotating medical datasets using crowdsourcing.</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/Labelbox/Labelbox">Labelbox</a> - Labelbox is the fastest way to annotate data to build and ship computer vision applications</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/jaxony/turktool">turktool</a> - A modern React app for scalable bounding box annotation of images</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/buni-rock/Pixie">Pixie</a> - Pixie is a GUI annotation tool which provides the bounding box, polygon, free drawing and semantic segmentation object labelling</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/kinhong/OpenLabeler">OpenLabeler</a> - OpenLabeler is an open source desktop application for annotating objects for AI appplications</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/virajmavani/semi-auto-image-annotation-tool">Anno-Mage</a> - A Semi Automatic Image Annotation Tool which helps you in annotating images by suggesting you annotations for 80 object classes using a pre-trained model</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/catmaid/CATMAID">CATMAID</a> - Collaborative Annotation Toolkit for Massive Amounts of Image Data</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/SkalskiP/make-sense">make-sense</a> - makesense.ai is a free to use online tool for labelling photos</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/l3p-cv/lost">LOST</a> - Design your own smart Image Annotation process in a web-based environment</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/recogito/annotorious">Annotorious</a> - A JavaScript library for image annotation.</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/cvhciKIT/sloth">Sloth</a> - Tool for labeling image and video data for computer vision research.</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/tzutalin/labelImg">labelImg</a> - LabelImg is a graphical image annotation tool and label object bounding boxes in images</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/opencv/cvat">CVAT</a> - Powerful and efficient Computer Vision Annotion Tool</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/wkentaro/labelme">labelme</a> - Image Polygonal Annotation with Python</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/microsoft/VoTT">VoTT</a> - An open source annotation and labeling tool for image and video assets</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/NaturalIntelligence/imglab">imglab</a> - A web based tool to label images for objects that can be used to train dlib or other object detectors</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/AlexeyAB/Yolo_mark">Yolo_mark</a> - GUI for marking bounded boxes of objects in images for training neural network Yolo v3 and v2</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/abreheret/PixelAnnotationTool">PixelAnnotationTool</a> - Software that allows you to manually and quickly annotate images in directories</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/Cartucho/OpenLabeling">OpenLabeling</a> - Label images and video for Computer Vision applications</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/bit-bots/imagetagger">imagetagger</a> - An open source online platform for collaborative image labeling</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/AlturosDestinations/Alturos.ImageAnnotation">Alturos.ImageAnnotation</a> - A collaborative tool for labeling image data</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/jveitchmichaelis/deeplabel">deeplabel</a> - A cross-platform image annotation tool for machine learning</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/medtagger/MedTagger">MedTagger</a> - A collaborative framework for annotating medical datasets using crowdsourcing.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/Labelbox/Labelbox">Labelbox</a> - Labelbox is the fastest way to annotate data to build and ship computer vision applications</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/jaxony/turktool">turktool</a> - A modern React app for scalable bounding box annotation of images</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/buni-rock/Pixie">Pixie</a> - Pixie is a GUI annotation tool which provides the bounding box, polygon, free drawing and semantic segmentation object labelling</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/kinhong/OpenLabeler">OpenLabeler</a> - OpenLabeler is an open source desktop application for annotating objects for AI appplications</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/virajmavani/semi-auto-image-annotation-tool">Anno-Mage</a> - A Semi Automatic Image Annotation Tool which helps you in annotating images by suggesting you annotations for 80 object classes using a pre-trained model</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/catmaid/CATMAID">CATMAID</a> - Collaborative Annotation Toolkit for Massive Amounts of Image Data</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/SkalskiP/make-sense">make-sense</a> - makesense.ai is a free to use online tool for labelling photos</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/l3p-cv/lost">LOST</a> - Design your own smart Image Annotation process in a web-based environment</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/recogito/annotorious">Annotorious</a> - A JavaScript library for image annotation.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/cvhciKIT/sloth">Sloth</a> - Tool for labeling image and video data for computer vision research.</p>
+</li>
 </ul>
 <h4 id="Text"><a href="#Text" class="headerlink" title="Text"></a>Text</h4><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/jiesutd/YEDDA">YEDDA</a> - A Lightweight Collaborative Text Span Annotation Tool (Chunking, NER, etc.). ACL best demo nomination.</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/planbrothers/ml-annotate">ML-Annotate</a> - Label text data for machine learning purposes. ML-Annotate supports binary, multi-label and multi-class labeling.</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/d5555/TagEditor">TagEditor</a> - Annotation tool for spaCy</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/RTIInternational/SMART">SMART</a> - Smarter Manual Annotation for Resource-constrained collection of Training data</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/etalab/piaf">PIAF</a> - A Question-Answering annotation tool</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/jiesutd/YEDDA">YEDDA</a> - A Lightweight Collaborative Text Span Annotation Tool (Chunking, NER, etc.). ACL best demo nomination.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/planbrothers/ml-annotate">ML-Annotate</a> - Label text data for machine learning purposes. ML-Annotate supports binary, multi-label and multi-class labeling.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/d5555/TagEditor">TagEditor</a> - Annotation tool for spaCy</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/RTIInternational/SMART">SMART</a> - Smarter Manual Annotation for Resource-constrained collection of Training data</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/etalab/piaf">PIAF</a> - A Question-Answering annotation tool</p>
+</li>
 </ul>
 <h4 id="Audio"><a href="#Audio" class="headerlink" title="Audio"></a>Audio</h4><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/ritazh/EchoML">EchoML</a> - Play, visualize, and annotate your audio files</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/CrowdCurio/audio-annotator">audio-annotator</a> - A JavaScript interface for annotating and labeling audio files.</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/hipstas/audio-labeler">audio-labeler</a> - An in-browser app for labeling audio clips at random, using Docker and Flask.</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/katspaugh/wavesurfer.js">wavesurfer.js</a> - Simple annotations tool, check the example.</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/bbc/peaks.js">peak.js</a> - Browser-based audio waveform visualisation and UI component for interacting with audio waveforms, developed by BBC UK.</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/praat/praat">Praat</a> - Doing Phonetics By Computer</li>
-<li><a target="_blank" rel="noopener" href="https://aubio.org/">Aubio</a> - Tool designed for the extraction of annotations from audio signals.</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/ritazh/EchoML">EchoML</a> - Play, visualize, and annotate your audio files</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/CrowdCurio/audio-annotator">audio-annotator</a> - A JavaScript interface for annotating and labeling audio files.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/hipstas/audio-labeler">audio-labeler</a> - An in-browser app for labeling audio clips at random, using Docker and Flask.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/katspaugh/wavesurfer.js">wavesurfer.js</a> - Simple annotations tool, check the example.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/bbc/peaks.js">peak.js</a> - Browser-based audio waveform visualisation and UI component for interacting with audio waveforms, developed by BBC UK.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/praat/praat">Praat</a> - Doing Phonetics By Computer</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://aubio.org/">Aubio</a> - Tool designed for the extraction of annotations from audio signals.</p>
+</li>
 </ul>
 <h4 id="Video"><a href="#Video" class="headerlink" title="Video"></a>Video</h4><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/alexandre01/UltimateLabeling">UltimateLabeling</a> - A multi-purpose Video Labeling GUI in Python with integrated SOTA detector and tracker</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/cvondrick/vatic">VATIC</a> - VATIC is an online video annotation tool for computer vision research that crowdsources work to Amazon’s Mechanical Turk.</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/alexandre01/UltimateLabeling">UltimateLabeling</a> - A multi-purpose Video Labeling GUI in Python with integrated SOTA detector and tracker</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/cvondrick/vatic">VATIC</a> - VATIC is an online video annotation tool for computer vision research that crowdsources work to Amazon’s Mechanical Turk.</p>
+</li>
 </ul>
 <h4 id="Time-Series"><a href="#Time-Series" class="headerlink" title="Time Series"></a>Time Series</h4><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/baidu/Curve">Curve</a> - Curve is an open-source tool to help label anomalies on time-series data</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/Microsoft/TagAnomaly">TagAnomaly</a> - Anomaly detection analysis and labeling tool, specifically for multiple time series (one time series per category)</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/CrowdCurio/time-series-annotator">time-series-annotator</a> - The CrowdCurio Time Series Annotation Library implements classification tasks for time series.</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/avenix/WDK">WDK</a> - The Wearables Development Toolkit (WDK) is a set of tools to facilitate the development of activity recognition applications with wearable devices.</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/baidu/Curve">Curve</a> - Curve is an open-source tool to help label anomalies on time-series data</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/Microsoft/TagAnomaly">TagAnomaly</a> - Anomaly detection analysis and labeling tool, specifically for multiple time series (one time series per category)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/CrowdCurio/time-series-annotator">time-series-annotator</a> - The CrowdCurio Time Series Annotation Library implements classification tasks for time series.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/avenix/WDK">WDK</a> - The Wearables Development Toolkit (WDK) is a set of tools to facilitate the development of activity recognition applications with wearable devices.</p>
+</li>
 </ul>
 <h4 id="3D"><a href="#3D" class="headerlink" title="3D"></a>3D</h4><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/scalableminds/webknossos">webKnossos</a> - webKnossos is an open-source web-based tool for visualizing, annotating, and sharing large 3D image datasets. It features fast 3D data browsing, skeleton (line-segment) annotations, segmentation and proof-reading tools, mesh visualization, and collaboration features. The public instance <a target="_blank" rel="noopener" href="https://webknossos.org/">webknossos.org</a> hosts a collection of published datasets and can be used without a local setup.</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/knossos-project/knossos">KNOSSOS</a> - KNOSSOS is a software tool for the visualization and annotation of 3D image data and was developed for the rapid reconstruction of neural morphology and connectivity.</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/scalableminds/webknossos">webKnossos</a> - webKnossos is an open-source web-based tool for visualizing, annotating, and sharing large 3D image datasets. It features fast 3D data browsing, skeleton (line-segment) annotations, segmentation and proof-reading tools, mesh visualization, and collaboration features. The public instance <a target="_blank" rel="noopener" href="https://webknossos.org/">webknossos.org</a> hosts a collection of published datasets and can be used without a local setup.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/knossos-project/knossos">KNOSSOS</a> - KNOSSOS is a software tool for the visualization and annotation of 3D image data and was developed for the rapid reconstruction of neural morphology and connectivity.</p>
+</li>
 </ul>
 <h4 id="Lidar"><a href="#Lidar" class="headerlink" title="Lidar"></a>Lidar</h4><ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/Hitachi-Automotive-And-Industry-Lab/semantic-segmentation-editor">semantic-segmentation-editor</a> - Web labelling tool for camera and LIDAR data</li>
 </ul>
 <h4 id="MultiDomain"><a href="#MultiDomain" class="headerlink" title="MultiDomain"></a>MultiDomain</h4><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/heartexlabs/label-studio">Label Studio</a> - Label Studio is a configurable data annotation tool that works with different data types</li>
-<li><a target="_blank" rel="noopener" href="https://dataturks.com/">Dataturks</a> - Dataturks support E2E tagging of data items like video, images (classification, segmentation and labelling) and text (full length document annotations for PDF, Doc, Text etc) for ML projects.</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/heartexlabs/label-studio">Label Studio</a> - Label Studio is a configurable data annotation tool that works with different data types</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://dataturks.com/">Dataturks</a> - Dataturks support E2E tagging of data items like video, images (classification, segmentation and labelling) and text (full length document annotations for PDF, Doc, Text etc) for ML projects.</p>
+</li>
 </ul>
 
 	
@@ -484,7 +730,13 @@
   <div class="row">
 	
 	
-		<p>这个人的空间链接目前可以访问@2022 september 4<br>可以在被拉黑了之后快速点击右上角的分享链接 分享到其他人 其他群里面 或者点击生成链接 即可<a target="_blank" rel="noopener" href="https://w12.soulsmile.cn/activity/#/web/user?targetUserIdEcpt=V2tDVVBvMVVuQlBWVlgvZUh1NEExdz09&userIdEcpt=V2tDVVBvMVVuQlBWVlgvZUh1NEExdz09&shareUserId=dlh1V3ZDbVBsQ2JWVlgvZUh1NEExdz09&titleNum=2&sec=B6QhUWMfVN9d1gb0vEoLCLaY7UPvMN5m">在浏览器里面查看这个人的动态</a> 但是不知道这个链接有没有时效性 现在看起来就是一堆乱码 app里面的分享也不知道有没有时效性<br>不知道能不能搜索或者遍历 如果不能的话只能黑进去了 不过那样的话出来的数据肯定更多<br>要知道被拉黑，本地肯定有用户的ID， 有了ID就可以拿过去到其他新注册的Soul账号上面使用 通过底层api访问<br>可以考虑用Frida或者网上的一些脚本来分析破解SoulAPP 单独使用Frida估计不能利用Python遍历 还是需要破解协议证书才可以自由访问<br><a target="_blank" rel="noopener" href="https://frida.re/docs/examples/windows/">frida usage, code examples for windows</a><br><a target="_blank" rel="noopener" href="https://github.com/ifding/radare2-tutorial">radare2 tutorial with code</a></p>
+		<p>这个人的空间链接目前可以访问@2022 september 4</p>
+<p>可以在被拉黑了之后快速点击右上角的分享链接 分享到其他人 其他群里面 或者点击生成链接 即可<a target="_blank" rel="noopener" href="https://w12.soulsmile.cn/activity/#/web/user?targetUserIdEcpt=V2tDVVBvMVVuQlBWVlgvZUh1NEExdz09&userIdEcpt=V2tDVVBvMVVuQlBWVlgvZUh1NEExdz09&shareUserId=dlh1V3ZDbVBsQ2JWVlgvZUh1NEExdz09&titleNum=2&sec=B6QhUWMfVN9d1gb0vEoLCLaY7UPvMN5m">在浏览器里面查看这个人的动态</a> 但是不知道这个链接有没有时效性 现在看起来就是一堆乱码 app里面的分享也不知道有没有时效性</p>
+<p>不知道能不能搜索或者遍历 如果不能的话只能黑进去了 不过那样的话出来的数据肯定更多</p>
+<p>要知道被拉黑，本地肯定有用户的ID， 有了ID就可以拿过去到其他新注册的Soul账号上面使用 通过底层api访问</p>
+<p>可以考虑用Frida或者网上的一些脚本来分析破解SoulAPP 单独使用Frida估计不能利用Python遍历 还是需要破解协议证书才可以自由访问</p>
+<p><a target="_blank" rel="noopener" href="https://frida.re/docs/examples/windows/">frida usage, code examples for windows</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ifding/radare2-tutorial">radare2 tutorial with code</a></p>
 
 	
 	</div>
@@ -509,14 +761,43 @@
 	
 	
 		<p><a target="_blank" rel="noopener" href="https://speechbrain.github.io/">speechbrain</a> has features of Speech Recognition, Speaker Recognition, Speech Enhancement, Speech Processing, Multi Microphone Processing, Text-to-Speech, and also supports Spoken Language Understanding, Language Modeling, Diarization, Speech Translation, Language Identification, Voice Activity Detection, Sound classification, Grapheme-to-Phoneme, and many others.</p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>视频里面的语言分为图片上面打出来的字幕以及人说的话<br>涉及到的问题分别为： 图片文字的语言分类 以及音频语言分类</p>
-<h2 id="音频识别"><a href="#音频识别" class="headerlink" title="音频识别"></a>音频识别</h2><p>online speech recognition<br>pip install SpeechRecognition<br>offline, need to provide language id:<br><a target="_blank" rel="noopener" href="https://pypi.org/project/automatic-speech-recognition/">https://pypi.org/project/automatic-speech-recognition/</a><br>use paddlespeech if possible, for chinese and english</p>
-<h2 id="图片语言识别"><a href="#图片语言识别" class="headerlink" title="图片语言识别"></a>图片语言识别</h2><p>use google cloud to detect language type in image:<br><a target="_blank" rel="noopener" href="https://github.com/deduced/ml-ocr-lang-detection">https://github.com/deduced/ml-ocr-lang-detection</a><br>Detects and Recognizes text and font language in an image<br><a target="_blank" rel="noopener" href="https://github.com/JAIJANYANI/Language-Detection-in-Image">https://github.com/JAIJANYANI/Language-Detection-in-Image</a><br>图片语言文字分类 可以用easyocr实现 加载多个模型 比如 中文加英文加日语 b站其他语言的可能也不怎么受欢迎 最多再加韩语<br>可以从视频简介 标题 链接里面提取出句子 每个句子进行语言分类 确定要使用的OCR模型 也有可能出现描述语言和视频图片文字语言不一致的情况<br>wolfram language提供了一个图片分类器 分类出来的结果可能很有意思 可以结合苹果的图片关注区域生成器来结合使用<br>ImageIdentify[pictureObj]<br>这个方法还支持subcategory分类 支持多输出 具体看文档<br><a target="_blank" rel="noopener" href="https://www.imageidentify.com/about/how-it-works">https://www.imageidentify.com/about/how-it-works</a><br>wolfram支持cloud deploy 到wolfram cloud不过那样可能不行</p>
-<h2 id="文本语言识别分类"><a href="#文本语言识别分类" class="headerlink" title="文本语言识别分类"></a>文本语言识别分类</h2><p><a target="_blank" rel="noopener" href="https://github.com/pemistahl/lingua">lingua</a> performs good in short text, can be used in java or kotlin<br>supporting detecting different languages:<br><a target="_blank" rel="noopener" href="https://github.com/ropensci/cld2">cld2</a> containing useful vectors containing text spans <a target="_blank" rel="noopener" href="https://pypi.org/project/pycld2/">python binding</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pycld2 <span class="keyword">as</span> cld2</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>text_content = <span class="string">&quot;&quot;&quot; A accès aux chiens et aux frontaux qui lui ont été il peut consulter et modifier ses collections et exporter Cet article concerne le pays européen aujourd’hui appelé République française.</span></span><br><span class="line"><span class="string">Pour d’autres usages du nom France, Pour une aide rapide et effective, veuiller trouver votre aide dans le menu ci-dessus.</span></span><br><span class="line"><span class="string">Welcome, to this world of Data Scientist. Today is a lovely day.&quot;&quot;&quot;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_, _, _, detected_language = cld2.detect(text_content,  returnVectors=<span class="literal">True</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(detected_language)</span><br><span class="line">((<span class="number">0</span>, <span class="number">323</span>, <span class="string">&#x27;FRENCH&#x27;</span>, <span class="string">&#x27;fr&#x27;</span>), (<span class="number">323</span>, <span class="number">64</span>, <span class="string">&#x27;ENGLISH&#x27;</span>, <span class="string">&#x27;en&#x27;</span>))</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://github.com/google/cld3">original cld3</a> is designed for chromium and it relies on chromium code to run<br><a target="_blank" rel="noopener" href="https://pypi.org/project/gcld3/">official cld3 python bindings</a><br>additional Python language related library from geeksforgeeks:<br><a target="_blank" rel="noopener" href="https://textblob.readthedocs.io/en/dev/">textblob</a> is a natural language processing toolkit</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> textblob <span class="keyword">import</span> TextBlob</span><br><span class="line">text = <span class="string">&quot;это компьютерный портал для гиков. It was a beautiful day .&quot;</span></span><br><span class="line">lang = TextBlob(text)</span><br><span class="line"><span class="built_in">print</span>(lang.detect_language())</span><br><span class="line"><span class="comment"># ru</span></span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://github.com/saffsd/langid.py">langid</a> performs good in short text<br><a target="_blank" rel="noopener" href="https://cran.r-project.org/package=textcat">textcat (r package)</a><br>google language detection library in python: langdetect<br>javascript:<br><a target="_blank" rel="noopener" href="https://github.com/wooorm/franc">https://github.com/wooorm/franc</a><br>python version of franc:<br>pyfranc<br>wlatlang.org provides whatlang-rs as rust package, also whatlang-py as python bindings</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>视频里面的语言分为图片上面打出来的字幕以及人说的话</p>
+<p>涉及到的问题分别为： 图片文字的语言分类 以及音频语言分类</p>
+<h2 id="音频识别"><a href="#音频识别" class="headerlink" title="音频识别"></a>音频识别</h2><p>online speech recognition</p>
+<p>pip install SpeechRecognition</p>
+<p>offline, need to provide language id:</p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/automatic-speech-recognition/">https://pypi.org/project/automatic-speech-recognition/</a></p>
+<p>use paddlespeech if possible, for chinese and english</p>
+<h2 id="图片语言识别"><a href="#图片语言识别" class="headerlink" title="图片语言识别"></a>图片语言识别</h2><p>use google cloud to detect language type in image:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/deduced/ml-ocr-lang-detection">https://github.com/deduced/ml-ocr-lang-detection</a></p>
+<p>Detects and Recognizes text and font language in an image</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/JAIJANYANI/Language-Detection-in-Image">https://github.com/JAIJANYANI/Language-Detection-in-Image</a></p>
+<p>图片语言文字分类 可以用easyocr实现 加载多个模型 比如 中文加英文加日语 b站其他语言的可能也不怎么受欢迎 最多再加韩语</p>
+<p>可以从视频简介 标题 链接里面提取出句子 每个句子进行语言分类 确定要使用的OCR模型 也有可能出现描述语言和视频图片文字语言不一致的情况</p>
+<p>wolfram language提供了一个图片分类器 分类出来的结果可能很有意思 可以结合苹果的图片关注区域生成器来结合使用</p>
+<p>ImageIdentify[pictureObj]</p>
+<p>这个方法还支持subcategory分类 支持多输出 具体看文档</p>
+<p><a target="_blank" rel="noopener" href="https://www.imageidentify.com/about/how-it-works">https://www.imageidentify.com/about/how-it-works</a></p>
+<p>wolfram支持cloud deploy 到wolfram cloud不过那样可能不行</p>
+<h2 id="文本语言识别分类"><a href="#文本语言识别分类" class="headerlink" title="文本语言识别分类"></a>文本语言识别分类</h2><p><a target="_blank" rel="noopener" href="https://github.com/pemistahl/lingua">lingua</a> performs good in short text, can be used in java or kotlin</p>
+<p>supporting detecting different languages:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ropensci/cld2">cld2</a> containing useful vectors containing text spans <a target="_blank" rel="noopener" href="https://pypi.org/project/pycld2/">python binding</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pycld2 <span class="keyword">as</span> cld2</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>text_content = <span class="string">&quot;&quot;&quot; A accès aux chiens et aux frontaux qui lui ont été il peut consulter et modifier ses collections et exporter Cet article concerne le pays européen aujourd’hui appelé République française.</span></span><br><span class="line"><span class="string">Pour d’autres usages du nom France, Pour une aide rapide et effective, veuiller trouver votre aide dans le menu ci-dessus.</span></span><br><span class="line"><span class="string">Welcome, to this world of Data Scientist. Today is a lovely day.&quot;&quot;&quot;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_, _, _, detected_language = cld2.detect(text_content,  returnVectors=<span class="literal">True</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(detected_language)</span><br><span class="line">((<span class="number">0</span>, <span class="number">323</span>, <span class="string">&#x27;FRENCH&#x27;</span>, <span class="string">&#x27;fr&#x27;</span>), (<span class="number">323</span>, <span class="number">64</span>, <span class="string">&#x27;ENGLISH&#x27;</span>, <span class="string">&#x27;en&#x27;</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/google/cld3">original cld3</a> is designed for chromium and it relies on chromium code to run</p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/gcld3/">official cld3 python bindings</a></p>
+<p>additional Python language related library from geeksforgeeks:</p>
+<p><a target="_blank" rel="noopener" href="https://textblob.readthedocs.io/en/dev/">textblob</a> is a natural language processing toolkit</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> textblob <span class="keyword">import</span> TextBlob</span><br><span class="line">text = <span class="string">&quot;это компьютерный портал для гиков. It was a beautiful day .&quot;</span></span><br><span class="line">lang = TextBlob(text)</span><br><span class="line"><span class="built_in">print</span>(lang.detect_language())</span><br><span class="line"><span class="comment"># ru</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/saffsd/langid.py">langid</a> performs good in short text</p>
+<p><a target="_blank" rel="noopener" href="https://cran.r-project.org/package=textcat">textcat (r package)</a></p>
+<p>google language detection library in python: langdetect</p>
+<p>javascript:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/wooorm/franc">https://github.com/wooorm/franc</a></p>
+<p>python version of franc:</p>
+<p>pyfranc</p>
+<p>wlatlang.org provides whatlang-rs as rust package, also whatlang-py as python bindings</p>
 
 	
 	</div>

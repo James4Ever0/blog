@@ -128,7 +128,20 @@
   <div class="row">
 	
 	
-		<h2 id="use-test-to-check-existance-some-manual-created-identity-file-to-prove-if-the-endpoint-is-connected-really-does-that-check-work-for-offline-rclone-samba-drives"><a href="#use-test-to-check-existance-some-manual-created-identity-file-to-prove-if-the-endpoint-is-connected-really-does-that-check-work-for-offline-rclone-samba-drives" class="headerlink" title="use test to check existance some manual created identity file to prove if the endpoint is connected(really? does that check work for offline rclone samba drives?)"></a>use <code>test</code> to check existance some manual created identity file to prove if the endpoint is connected<br>(really? does that check work for offline rclone samba drives?)</h2><h2 id="format-the-backup-disk-as-xfs-so-we-can-do-symlink-on-it-linux"><a href="#format-the-backup-disk-as-xfs-so-we-can-do-symlink-on-it-linux" class="headerlink" title="format the backup disk as xfs so we can do symlink on it (linux)."></a>format the backup disk as xfs so we can do symlink on it (linux).</h2><h2 id="use-flock-from-util-linux-to-prevent-multiple-backup-instances-from-running-alternative-run-one"><a href="#use-flock-from-util-linux-to-prevent-multiple-backup-instances-from-running-alternative-run-one" class="headerlink" title="use flock (from util-linux) to prevent multiple backup instances from running.alternative: run-one"></a>use <code>flock</code> (from <code>util-linux</code>) to prevent multiple backup instances from running.<br>alternative: <a target="_blank" rel="noopener" href="https://blog.dustinkirkland.com/2011/02/introducing-run-one-and-run-this-one.html">run-one</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-add-repository ppa:run-one/ppa</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install run-one</span><br></pre></td></tr></table></figure></h2><p><a target="_blank" rel="noopener" href="https://github.com/cytopia/linux-timemachine#star-features">linux-timemachine</a> supports windows, linux, macOS, using rsync as backend, can use hardlink to make backup management very easy. can delete previous backup without losing data. need external controller to make “circular” or to only keep most recent backups on disk.<br><a target="_blank" rel="noopener" href="https://alternativeto.net/software/time-machine/?platform=linux&p=2">curated list of alternative time machine for OSes other than macOS</a><br><a target="_blank" rel="noopener" href="https://alternativeto.net/software/timeshift/about/">timeshift gui backup&#x2F;restore tool for linux</a><br><a target="_blank" rel="noopener" href="https://duplicity.gitlab.io/">duplicity incremental backup</a> can store backup into encrypted tar files and support IMAP protocol as remote file server</p>
+		<p>use <code>test</code> to check existance some manual created identity file to prove if the endpoint is connected</p>
+<p>(really? does that check work for offline rclone samba drives?)</p>
+<hr>
+<p>format the backup disk as xfs so we can do symlink on it (linux).</p>
+<hr>
+<p>use <code>flock</code> (from <code>util-linux</code>) to prevent multiple backup instances from running.</p>
+<p>alternative: <a target="_blank" rel="noopener" href="https://blog.dustinkirkland.com/2011/02/introducing-run-one-and-run-this-one.html">run-one</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-add-repository ppa:run-one/ppa</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install run-one</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><a target="_blank" rel="noopener" href="https://github.com/cytopia/linux-timemachine#star-features">linux-timemachine</a> supports windows, linux, macOS, using rsync as backend, can use hardlink to make backup management very easy. can delete previous backup without losing data. need external controller to make “circular” or to only keep most recent backups on disk.</p>
+<p><a target="_blank" rel="noopener" href="https://alternativeto.net/software/time-machine/?platform=linux&p=2">curated list of alternative time machine for OSes other than macOS</a></p>
+<p><a target="_blank" rel="noopener" href="https://alternativeto.net/software/timeshift/about/">timeshift gui backup&#x2F;restore tool for linux</a></p>
+<p><a target="_blank" rel="noopener" href="https://duplicity.gitlab.io/">duplicity incremental backup</a> can store backup into encrypted tar files and support IMAP protocol as remote file server</p>
 
 	
 	</div>
@@ -152,7 +165,20 @@
   <div class="row">
 	
 	
-		<h2 id="use-rclone-to-periodically-commit-files-to-NAS-incremental-only-do-not-delete-things-or-use-rclone-to-copy-files-to-external-SSDbuy-airport-extreme-as-wireless-router-and-backup-device"><a href="#use-rclone-to-periodically-commit-files-to-NAS-incremental-only-do-not-delete-things-or-use-rclone-to-copy-files-to-external-SSDbuy-airport-extreme-as-wireless-router-and-backup-device" class="headerlink" title="use rclone to periodically commit files to NAS (incremental only, do not delete things), or use rclone to copy files to external SSDbuy airport extreme as wireless router and backup device"></a>use rclone to periodically commit files to NAS (incremental only, do not delete things), or use rclone to copy files to external SSD<br>buy airport extreme as wireless router and backup device</h2><h2 id="when-in-doubt-delete-files-under-GUI-instead-of-terminalcheck-out-commands-for-moving-files-into-trash-bin-instead-of-direct-removal-on-different-OSes"><a href="#when-in-doubt-delete-files-under-GUI-instead-of-terminalcheck-out-commands-for-moving-files-into-trash-bin-instead-of-direct-removal-on-different-OSes" class="headerlink" title="when in doubt, delete files under GUI instead of terminalcheck out commands for moving files into trash bin instead of direct removal on different OSes"></a>when in doubt, delete files under GUI instead of terminal<br>check out commands for moving files into trash bin instead of direct removal on different OSes</h2><h2 id="my-data-under-works-is-lost-fuck-buy-me-some-ssd-512GB-at-least-to-do-time-machine-backup-buy-m-2-ssd-to-reduce-the-size-use-usb-c-cables-to-prevent-inconvenience"><a href="#my-data-under-works-is-lost-fuck-buy-me-some-ssd-512GB-at-least-to-do-time-machine-backup-buy-m-2-ssd-to-reduce-the-size-use-usb-c-cables-to-prevent-inconvenience" class="headerlink" title="my data under ~/works is lost. fuck.buy me some ssd 512GB at least to do time machine backup.buy m.2 ssd to reduce the size.use usb-c cables to prevent inconvenience."></a>my data under <code>~/works</code> is lost. fuck.<br>buy me some ssd 512GB at least to do time machine backup.<br>buy m.2 ssd to reduce the size.<br>use usb-c cables to prevent inconvenience.</h2><p>the filesystem will be formatted as APFS.<br>need a dedicated usb storage for it.<br>do not know if it is incremental backup.</p>
+		<p>use rclone to periodically commit files to NAS (incremental only, do not delete things), or use rclone to copy files to external SSD</p>
+<p>buy airport extreme as wireless router and backup device</p>
+<hr>
+<p>when in doubt, delete files under GUI instead of terminal</p>
+<p>check out commands for moving files into trash bin instead of direct removal on different OSes</p>
+<hr>
+<p>my data under <code>~/works</code> is lost. fuck.</p>
+<p>buy me some ssd 512GB at least to do time machine backup.</p>
+<p>buy m.2 ssd to reduce the size.</p>
+<p>use usb-c cables to prevent inconvenience.</p>
+<hr>
+<p>the filesystem will be formatted as APFS.</p>
+<p>need a dedicated usb storage for it.</p>
+<p>do not know if it is incremental backup.</p>
 
 	
 	</div>
@@ -176,7 +202,14 @@
   <div class="row">
 	
 	
-		<p>via code:<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/390826470">https://zhuanlan.zhihu.com/p/390826470</a><br>from transformers import AutoModelForMaskedLM, AutoTokenizer<br>checkpoint &#x3D; “camembert-base”<br>model &#x3D; AutoModelForMaskedLM.from_pretrained(checkpoint)<br>tokenizer &#x3D; AutoTokenizer.from_pretrained(checkpoint)<br>model.push_to_hub(“dummy-model”)<br>tokenizer.push_to_hub(“dummy-model”)</p>
+		<p>via code:</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/390826470">https://zhuanlan.zhihu.com/p/390826470</a></p>
+<p>from transformers import AutoModelForMaskedLM, AutoTokenizer</p>
+<p>checkpoint &#x3D; “camembert-base”</p>
+<p>model &#x3D; AutoModelForMaskedLM.from_pretrained(checkpoint)</p>
+<p>tokenizer &#x3D; AutoTokenizer.from_pretrained(checkpoint)</p>
+<p>model.push_to_hub(“dummy-model”)</p>
+<p>tokenizer.push_to_hub(“dummy-model”)</p>
 <h1 id="config-push-to-hub-““"><a href="#config-push-to-hub-““" class="headerlink" title="config.push_to_hub(““)"></a>config.push_to_hub(“<model_name>“)</h1>
 	
 	</div>

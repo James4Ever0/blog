@@ -129,11 +129,49 @@
 	
 	
 		<h1 id="标题生成-封面生成"><a href="#标题生成-封面生成" class="headerlink" title="标题生成 封面生成"></a>标题生成 封面生成</h1><p><a target="_blank" rel="noopener" href="https://huggingface.co/spaces/nielsr/comparing-captioning-models">comparing different image caption models</a> in which you have a bunch of models ready to use</p>
-<h2 id="template-extraction-neural-template-generation"><a href="#template-extraction-neural-template-generation" class="headerlink" title="template extraction, neural template generation"></a>template extraction, neural template generation</h2><p>封面来源：<br>利用标题进行图片搜索 其实只能站内搜索 因为站外没有这种图片与文字的对应关系<br>截取视频截图<br>b站原图 histogram match 20% 去掉文字 镜像反转 加入随机噪声 旋转1度<br>利用封面进行图片反向搜索 效果其实不好 并没有想要的照片 只能找到原图 有可能起到去水印的效果 但是有限</p>
-<h3 id="reverse-image-search-engine"><a href="#reverse-image-search-engine" class="headerlink" title="reverse image search engine"></a>reverse image search engine</h3><p><a target="_blank" rel="noopener" href="https://github.com/kitUIN/PicImageSearch">reverse image search engine</a><br><a target="_blank" rel="noopener" href="https://github.com/vivithemage/mrisa">meta image search engine</a><br><a target="_blank" rel="noopener" href="https://github.com/Nachtalb/reverse_image_search_bot">telegram reverse image search bot</a></p>
+<h2 id="template-extraction-neural-template-generation"><a href="#template-extraction-neural-template-generation" class="headerlink" title="template extraction, neural template generation"></a>template extraction, neural template generation</h2><p>封面来源：</p>
+<p>利用标题进行图片搜索 其实只能站内搜索 因为站外没有这种图片与文字的对应关系</p>
+<p>截取视频截图</p>
+<p>b站原图 histogram match 20% 去掉文字 镜像反转 加入随机噪声 旋转1度</p>
+<p>利用封面进行图片反向搜索 效果其实不好 并没有想要的照片 只能找到原图 有可能起到去水印的效果 但是有限</p>
+<h3 id="reverse-image-search-engine"><a href="#reverse-image-search-engine" class="headerlink" title="reverse image search engine"></a>reverse image search engine</h3><p><a target="_blank" rel="noopener" href="https://github.com/kitUIN/PicImageSearch">reverse image search engine</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/vivithemage/mrisa">meta image search engine</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Nachtalb/reverse_image_search_bot">telegram reverse image search bot</a></p>
 <hr>
 <p><a target="_blank" rel="noopener" href="https://github.com/harvardnlp/neural-template-gen">neural template gen</a> is a natural language generator based on templates from harvard nlp, can be used for title generation</p>
-<h2 id="根据标签生成广告-同样可以根据标签生成视频标题（推荐）-在千言数据集上训练过"><a href="#根据标签生成广告-同样可以根据标签生成视频标题（推荐）-在千言数据集上训练过" class="headerlink" title="根据标签生成广告 同样可以根据标签生成视频标题（推荐） 在千言数据集上训练过"></a>根据标签生成广告 同样可以根据标签生成视频标题（推荐） 在千言数据集上训练过</h2><p><a target="_blank" rel="noopener" href="https://huggingface.co/cocoshe/gpt2-chinese-gen-ads-by-keywords?text=My+name+is+Clara+and+I+am">https://huggingface.co/cocoshe/gpt2-chinese-gen-ads-by-keywords?text=My+name+is+Clara+and+I+am</a><br>title generator(from description):<br><a target="_blank" rel="noopener" href="https://github.com/harveyaot/DianJing/blob/master/scripts/title_generation_lm.py">https://github.com/harveyaot/DianJing/blob/master/scripts/title_generation_lm.py</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/stay_foolish12/article/details/111661358">https://blog.csdn.net/stay_foolish12/article/details/111661358</a><br>cover generation<br>rectangle packing allow overlapping<br>when solution is not found, decrease the size of rectangles.<br>youtube title generator using AI:<br><a target="_blank" rel="noopener" href="https://github.com/gdemos01/YoutubeVideoIdeasGeneratorAI">https://github.com/gdemos01/YoutubeVideoIdeasGeneratorAI</a><br>ai thumbnail generator using pyscenedetect:<br><a target="_blank" rel="noopener" href="https://github.com/yoonhero/ai-thumbnail-generator">https://github.com/yoonhero/ai-thumbnail-generator</a><br>image captioning:<br><a target="_blank" rel="noopener" href="https://github.com/ruotianluo/ImageCaptioning.pytorch">https://github.com/ruotianluo/ImageCaptioning.pytorch</a><br>youzan clip product title generation:<br><a target="_blank" rel="noopener" href="https://huggingface.co/youzanai/clip-product-title-chinese">https://huggingface.co/youzanai/clip-product-title-chinese</a><br>paper title generator without description:<br><a target="_blank" rel="noopener" href="https://github.com/csinva/gpt2-paper-title-generator">https://github.com/csinva/gpt2-paper-title-generator</a><br>image captioning using cnn and rnn:<br><a target="_blank" rel="noopener" href="https://github.com/SCK22/image_and_video">https://github.com/SCK22/image_and_video</a><br>image captioning can also be used for video captioning. but that will suffice the accuracy.<br>keras.io image captioning<br><a target="_blank" rel="noopener" href="https://keras.io/examples/vision/image_captioning/">https://keras.io/examples/vision/image_captioning/</a><br>generate image captions using CLIP and GPT(on medium, click continue reading)<br><a target="_blank" rel="noopener" href="https://towardsai.net/p/l/image-captioning-with-clip-and-gpt">https://towardsai.net/p/l/image-captioning-with-clip-and-gpt</a><br>gpt3demo.com has provided a lot of interesting tasks that gpt3 can do. including image captioning. may find video captioning, video classification.<br>gpt3demo.com provided image captioning libs:<br><a target="_blank" rel="noopener" href="https://gpt3demo.com/category/image-captioning">https://gpt3demo.com/category/image-captioning</a><br>clipclap<br>gpt-3 x image captions<br>visualgpt: generate image captions<br><a target="_blank" rel="noopener" href="https://github.com/Vision-CAIR/VisualGPT">https://github.com/Vision-CAIR/VisualGPT</a><br>generate stories from pictures, using image transformers and gpt-2, just intro no code<br><a target="_blank" rel="noopener" href="https://www.dataversity.net/image-captioning-generating-stories-from-unstructured-data-using-applied-nlg/">https://www.dataversity.net/image-captioning-generating-stories-from-unstructured-data-using-applied-nlg/</a></p>
+<h2 id="根据标签生成广告-同样可以根据标签生成视频标题（推荐）-在千言数据集上训练过"><a href="#根据标签生成广告-同样可以根据标签生成视频标题（推荐）-在千言数据集上训练过" class="headerlink" title="根据标签生成广告 同样可以根据标签生成视频标题（推荐） 在千言数据集上训练过"></a>根据标签生成广告 同样可以根据标签生成视频标题（推荐） 在千言数据集上训练过</h2><p><a target="_blank" rel="noopener" href="https://huggingface.co/cocoshe/gpt2-chinese-gen-ads-by-keywords?text=My+name+is+Clara+and+I+am">https://huggingface.co/cocoshe/gpt2-chinese-gen-ads-by-keywords?text=My+name+is+Clara+and+I+am</a></p>
+<p>title generator(from description):</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/harveyaot/DianJing/blob/master/scripts/title_generation_lm.py">https://github.com/harveyaot/DianJing/blob/master/scripts/title_generation_lm.py</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/stay_foolish12/article/details/111661358">https://blog.csdn.net/stay_foolish12/article/details/111661358</a></p>
+<p>cover generation</p>
+<p>rectangle packing allow overlapping</p>
+<p>when solution is not found, decrease the size of rectangles.</p>
+<p>youtube title generator using AI:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/gdemos01/YoutubeVideoIdeasGeneratorAI">https://github.com/gdemos01/YoutubeVideoIdeasGeneratorAI</a></p>
+<p>ai thumbnail generator using pyscenedetect:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yoonhero/ai-thumbnail-generator">https://github.com/yoonhero/ai-thumbnail-generator</a></p>
+<p>image captioning:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ruotianluo/ImageCaptioning.pytorch">https://github.com/ruotianluo/ImageCaptioning.pytorch</a></p>
+<p>youzan clip product title generation:</p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/youzanai/clip-product-title-chinese">https://huggingface.co/youzanai/clip-product-title-chinese</a></p>
+<p>paper title generator without description:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/csinva/gpt2-paper-title-generator">https://github.com/csinva/gpt2-paper-title-generator</a></p>
+<p>image captioning using cnn and rnn:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/SCK22/image_and_video">https://github.com/SCK22/image_and_video</a></p>
+<p>image captioning can also be used for video captioning. but that will suffice the accuracy.</p>
+<p>keras.io image captioning</p>
+<p><a target="_blank" rel="noopener" href="https://keras.io/examples/vision/image_captioning/">https://keras.io/examples/vision/image_captioning/</a></p>
+<p>generate image captions using CLIP and GPT(on medium, click continue reading)</p>
+<p><a target="_blank" rel="noopener" href="https://towardsai.net/p/l/image-captioning-with-clip-and-gpt">https://towardsai.net/p/l/image-captioning-with-clip-and-gpt</a></p>
+<p>gpt3demo.com has provided a lot of interesting tasks that gpt3 can do. including image captioning. may find video captioning, video classification.</p>
+<p>gpt3demo.com provided image captioning libs:</p>
+<p><a target="_blank" rel="noopener" href="https://gpt3demo.com/category/image-captioning">https://gpt3demo.com/category/image-captioning</a></p>
+<p>clipclap</p>
+<p>gpt-3 x image captions</p>
+<p>visualgpt: generate image captions</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Vision-CAIR/VisualGPT">https://github.com/Vision-CAIR/VisualGPT</a></p>
+<p>generate stories from pictures, using image transformers and gpt-2, just intro no code</p>
+<p><a target="_blank" rel="noopener" href="https://www.dataversity.net/image-captioning-generating-stories-from-unstructured-data-using-applied-nlg/">https://www.dataversity.net/image-captioning-generating-stories-from-unstructured-data-using-applied-nlg/</a></p>
 
 	
 	</div>

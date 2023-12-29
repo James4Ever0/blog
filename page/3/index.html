@@ -135,7 +135,8 @@
   <div class="row">
 	
 	
-		<p>visit: <a target="_blank" rel="noopener" href="https://massgrave.dev/">massgrave</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44323306/article/details/122009436">steps before installing windows to virtualbox</a></p>
+		<p>visit: <a target="_blank" rel="noopener" href="https://massgrave.dev/">massgrave</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44323306/article/details/122009436">steps before installing windows to virtualbox</a></p>
 
 	
 	</div>
@@ -162,9 +163,11 @@
 	
 	
 		<p>even if you configure <code>/etc/docker/daemon.json</code> like this (note: you still need to do this):</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span> <span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span></span><br><span class="line"><span class="punctuation">[</span><span class="string">&quot;https://mirror.baidubce.com&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span> <span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span></span><br><span class="line"><span class="punctuation">[</span><span class="string">&quot;https://mirror.baidubce.com&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>it is not fully working until:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -E docker pull mirror.baidubce.com/significantgravitas/auto-gpt</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo -E docker pull mirror.baidubce.com/significantgravitas/auto-gpt</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 	
 	</div>
   <a type="button" href="/blog/2023/10/05/4df79ade-d538-4df2-9a6e-7840343648e1/#more" class="btn btn-default more">Read More</a>
@@ -190,8 +193,11 @@
 	
 	
 		<p>we’ve got <a target="_blank" rel="noopener" href="https://github.com/HorlogeSkynet/archey4">archey4</a>, a cross-platform sysinfo gather tool, with info on temperature monitor tools</p>
-<h2 id="macos"><a href="#macos" class="headerlink" title="macos"></a>macos</h2><p><a target="_blank" rel="noopener" href="https://github.com/lavoiesl/osx-cpu-temp">osx-core-temp</a> for old intel macs<br><a target="_blank" rel="noopener" href="https://github.com/fermion-star/apple_sensors/">apple_sensors</a> and <a target="_blank" rel="noopener" href="https://github.com/narugit/smctemp">smctemp</a> for m1 and newer macs<br>place this under <code>/opt/homebrew/bin/osx-cpu-temp</code> to run archey4 with cpu temperature:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">smctemp -c</span><br></pre></td></tr></table></figure>
+<h2 id="macos"><a href="#macos" class="headerlink" title="macos"></a>macos</h2><p><a target="_blank" rel="noopener" href="https://github.com/lavoiesl/osx-cpu-temp">osx-core-temp</a> for old intel macs</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/fermion-star/apple_sensors/">apple_sensors</a> and <a target="_blank" rel="noopener" href="https://github.com/narugit/smctemp">smctemp</a> for m1 and newer macs</p>
+<p>place this under <code>/opt/homebrew/bin/osx-cpu-temp</code> to run archey4 with cpu temperature:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">smctemp -c</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><p><a target="_blank" rel="noopener" href="https://www.alcpu.com/CoreTemp/">coretemp</a></p>
 <h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><p><a target="_blank" rel="noopener" href="https://github.com/chinf/psensor">psensor</a></p>
 
@@ -219,7 +225,8 @@
   <div class="row">
 	
 	
-		<p>不管什么单子 必须在虚拟机里面跑<br>不得物理机运行未知应用程序 否则就会出事</p>
+		<p>不管什么单子 必须在虚拟机里面跑</p>
+<p>不得物理机运行未知应用程序 否则就会出事</p>
 
 	
 	</div>
@@ -246,9 +253,14 @@
 	
 	
 		<p><a target="_blank" rel="noopener" href="https://github.com/kyegomez/Kosmos2.5">kosmos-2.5</a></p>
-<h2 id="prerequisites"><a href="#prerequisites" class="headerlink" title="prerequisites"></a>prerequisites</h2><p>run these things under virtual machine or docker, with a fixed size mountpoint. keep all ports of your local machine isolated from the agent.<br>when you need it to process anything, just use the mountpoint as the only data exchange location. do not let anything executable spit out from it. do not run anything generated by it programmatically.</p>
-<h2 id="targets"><a href="#targets" class="headerlink" title="targets"></a>targets</h2><p>contracts shall be based on crypto exchange. self-contract shall be introduced, and for those don’t do self-contract or external contracts often their currency could inflate.<br>self-training: in the form of task &amp; proof<br>multi-agent training: (contract) similar to self-training, with cross-validation</p>
-<h2 id="projects"><a href="#projects" class="headerlink" title="projects"></a>projects</h2><p><a target="_blank" rel="noopener" href="https://github.com/Significant-Gravitas/AutoGPT">autogpt</a><br><a target="_blank" rel="noopener" href="https://github.com/KillianLucas/open-interpreter">open-interpreter</a><br><a target="_blank" rel="noopener" href="https://github.com/James4Ever0/agi_computer_control">cybergod</a></p>
+<h2 id="prerequisites"><a href="#prerequisites" class="headerlink" title="prerequisites"></a>prerequisites</h2><p>run these things under virtual machine or docker, with a fixed size mountpoint. keep all ports of your local machine isolated from the agent.</p>
+<p>when you need it to process anything, just use the mountpoint as the only data exchange location. do not let anything executable spit out from it. do not run anything generated by it programmatically.</p>
+<h2 id="targets"><a href="#targets" class="headerlink" title="targets"></a>targets</h2><p>contracts shall be based on crypto exchange. self-contract shall be introduced, and for those don’t do self-contract or external contracts often their currency could inflate.</p>
+<p>self-training: in the form of task &amp; proof</p>
+<p>multi-agent training: (contract) similar to self-training, with cross-validation</p>
+<h2 id="projects"><a href="#projects" class="headerlink" title="projects"></a>projects</h2><p><a target="_blank" rel="noopener" href="https://github.com/Significant-Gravitas/AutoGPT">autogpt</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/KillianLucas/open-interpreter">open-interpreter</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/James4Ever0/agi_computer_control">cybergod</a></p>
 
 	
 	</div>
@@ -274,7 +286,8 @@
   <div class="row">
 	
 	
-		<p>maybe toggle the filter mode triggers will help?<br>or stylus? other modding tools?</p>
+		<p>maybe toggle the filter mode triggers will help?</p>
+<p>or stylus? other modding tools?</p>
 
 	
 	</div>
@@ -300,9 +313,25 @@
   <div class="row">
 	
 	
-		<h1 id="process-monitor-supervise-notification-pusher-dashboard"><a href="#process-monitor-supervise-notification-pusher-dashboard" class="headerlink" title="process monitor&#x2F;supervise &amp; notification pusher &amp; dashboard"></a>process monitor&#x2F;supervise &amp; notification pusher &amp; dashboard</h1><h2 id="process-monitor"><a href="#process-monitor" class="headerlink" title="process monitor"></a>process monitor</h2><p><a target="_blank" rel="noopener" href="https://github.com/troglobit/watchdogd">https://github.com/troglobit/watchdogd</a><br><a target="_blank" rel="noopener" href="https://github.com/ochinchina/supervisord">https://github.com/ochinchina/supervisord</a><br><a target="_blank" rel="noopener" href="https://github.com/codeskyblue/gosuv">https://github.com/codeskyblue/gosuv</a><br><a target="_blank" rel="noopener" href="https://github.com/Supervisor/superlance">https://github.com/Supervisor/superlance</a><br><a target="_blank" rel="noopener" href="https://github.com/immortal/immortal">https://github.com/immortal/immortal</a><br><a target="_blank" rel="noopener" href="https://github.com/catern/supervise">https://github.com/catern/supervise</a><br><a target="_blank" rel="noopener" href="https://github.com/ihaiker/sudis">https://github.com/ihaiker/sudis</a><br><a target="_blank" rel="noopener" href="https://github.com/rahiel/supervisor-alert">https://github.com/rahiel/supervisor-alert</a></p>
-<h2 id="notification-pusher"><a href="#notification-pusher" class="headerlink" title="notification pusher"></a>notification pusher</h2><p><a target="_blank" rel="noopener" href="https://github.com/Nickersoft/push.js">https://github.com/Nickersoft/push.js</a><br><a target="_blank" rel="noopener" href="https://github.com/caronc/apprise">https://github.com/caronc/apprise</a><br><a target="_blank" rel="noopener" href="https://github.com/Thibauth/python-pushover">https://github.com/Thibauth/python-pushover</a><br><a target="_blank" rel="noopener" href="https://github.com/liiight/notifiers">https://github.com/liiight/notifiers</a><br><a target="_blank" rel="noopener" href="https://github.com/YuriyLisovskiy/pynotifier">https://github.com/YuriyLisovskiy/pynotifier</a><br><a target="_blank" rel="noopener" href="https://github.com/SeTeM/pync">https://github.com/SeTeM/pync</a></p>
-<h2 id="dashboard"><a href="#dashboard" class="headerlink" title="dashboard"></a>dashboard</h2><p><a target="_blank" rel="noopener" href="https://github.com/Reportr/dashboard">https://github.com/Reportr/dashboard</a><br><a target="_blank" rel="noopener" href="https://github.com/d2-projects/d2-admin">https://github.com/d2-projects/d2-admin</a><br><a target="_blank" rel="noopener" href="https://github.com/gizak/termui">https://github.com/gizak/termui</a><br><a target="_blank" rel="noopener" href="https://github.com/plotly/dash">https://github.com/plotly/dash</a><br><a target="_blank" rel="noopener" href="https://github.com/Parallels/rq-dashboard">https://github.com/Parallels/rq-dashboard</a></p>
+		<h1 id="process-monitor-supervise-notification-pusher-dashboard"><a href="#process-monitor-supervise-notification-pusher-dashboard" class="headerlink" title="process monitor&#x2F;supervise &amp; notification pusher &amp; dashboard"></a>process monitor&#x2F;supervise &amp; notification pusher &amp; dashboard</h1><h2 id="process-monitor"><a href="#process-monitor" class="headerlink" title="process monitor"></a>process monitor</h2><p><a target="_blank" rel="noopener" href="https://github.com/troglobit/watchdogd">https://github.com/troglobit/watchdogd</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ochinchina/supervisord">https://github.com/ochinchina/supervisord</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/codeskyblue/gosuv">https://github.com/codeskyblue/gosuv</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Supervisor/superlance">https://github.com/Supervisor/superlance</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/immortal/immortal">https://github.com/immortal/immortal</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/catern/supervise">https://github.com/catern/supervise</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ihaiker/sudis">https://github.com/ihaiker/sudis</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/rahiel/supervisor-alert">https://github.com/rahiel/supervisor-alert</a></p>
+<h2 id="notification-pusher"><a href="#notification-pusher" class="headerlink" title="notification pusher"></a>notification pusher</h2><p><a target="_blank" rel="noopener" href="https://github.com/Nickersoft/push.js">https://github.com/Nickersoft/push.js</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/caronc/apprise">https://github.com/caronc/apprise</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Thibauth/python-pushover">https://github.com/Thibauth/python-pushover</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/liiight/notifiers">https://github.com/liiight/notifiers</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/YuriyLisovskiy/pynotifier">https://github.com/YuriyLisovskiy/pynotifier</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/SeTeM/pync">https://github.com/SeTeM/pync</a></p>
+<h2 id="dashboard"><a href="#dashboard" class="headerlink" title="dashboard"></a>dashboard</h2><p><a target="_blank" rel="noopener" href="https://github.com/Reportr/dashboard">https://github.com/Reportr/dashboard</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/d2-projects/d2-admin">https://github.com/d2-projects/d2-admin</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/gizak/termui">https://github.com/gizak/termui</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/plotly/dash">https://github.com/plotly/dash</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Parallels/rq-dashboard">https://github.com/Parallels/rq-dashboard</a></p>
 
 	
 	</div>
@@ -380,7 +409,16 @@
   <div class="row">
 	
 	
-		<h2 id="shall-we-design-the-agent-system-based-on-‘distance’-instead-of-‘role’-in-that-case-only-words-that-make-sense-and-continue-more-often-will-appear-together-and-vice-versa"><a href="#shall-we-design-the-agent-system-based-on-‘distance’-instead-of-‘role’-in-that-case-only-words-that-make-sense-and-continue-more-often-will-appear-together-and-vice-versa" class="headerlink" title="shall we design the agent system based on ‘distance’ instead of ‘role’? in that case, only words that make sense and continue more often will appear together, and vice versa."></a>shall we design the agent system based on ‘distance’ instead of ‘role’? in that case, only words that make sense and continue more often will appear together, and vice versa.</h2><h2 id="multi-agent-orchestration-langchainautogenagentlyModelScope-Agent"><a href="#multi-agent-orchestration-langchainautogenagentlyModelScope-Agent" class="headerlink" title="multi-agent orchestration:langchainautogenagentlyModelScope-Agent"></a>multi-agent orchestration:<br><a target="_blank" rel="noopener" href="https://github.com/langchain-ai/langchain">langchain</a><br><a target="_blank" rel="noopener" href="https://github.com/microsoft/autogen">autogen</a><br><a target="_blank" rel="noopener" href="https://github.com/Maplemx/Agently">agently</a><br><a target="_blank" rel="noopener" href="https://github.com/modelscope/modelscope-agent">ModelScope-Agent</a></h2><p>you must think like an expert and show some example or direction as reasonable goals if you want it to perform specific task.<br>you must give it enough degree of freedom if you want it to self-improve and become conscious.</p>
+		<p>shall we design the agent system based on ‘distance’ instead of ‘role’? in that case, only words that make sense and continue more often will appear together, and vice versa.</p>
+<hr>
+<p>multi-agent orchestration:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/langchain-ai/langchain">langchain</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/microsoft/autogen">autogen</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Maplemx/Agently">agently</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/modelscope/modelscope-agent">ModelScope-Agent</a></p>
+<hr>
+<p>you must think like an expert and show some example or direction as reasonable goals if you want it to perform specific task.</p>
+<p>you must give it enough degree of freedom if you want it to self-improve and become conscious.</p>
 
 	
 	</div>

@@ -130,19 +130,92 @@
 	
 		<p>dirbuster has found something over  “<a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn//test/">http://oa.lixin.edu.cn//test/</a>“</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn//admin">http://oa.lixin.edu.cn//admin</a> (CODE:301|SIZE:237)</li>
-<li><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn//css">http://oa.lixin.edu.cn//css</a> (CODE:301|SIZE:235)</li>
-<li><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn//help">http://oa.lixin.edu.cn//help</a> (CODE:301|SIZE:236)</li>
-<li><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn//images">http://oa.lixin.edu.cn//images</a> (CODE:301|SIZE:238)</li>
-<li><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn//js">http://oa.lixin.edu.cn//js</a> (CODE:301|SIZE:234)</li>
-<li><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn//setup">http://oa.lixin.edu.cn//setup</a> (CODE:301|SIZE:237)</li>
-<li><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn//template">http://oa.lixin.edu.cn//template</a> (CODE:301|SIZE:240)</li>
-<li><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn//test">http://oa.lixin.edu.cn//test</a> (CODE:301|SIZE:236)</li>
-<li><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn///admin">http://oa.lixin.edu.cn///admin</a> (CODE:301|SIZE:237)</li>
-<li><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn///help">http://oa.lixin.edu.cn///help</a> (CODE:301|SIZE:236)</li>
-<li><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn///images">http://oa.lixin.edu.cn///images</a> (CODE:301|SIZE:238)</li>
-<li><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn///script">http://oa.lixin.edu.cn///script</a> (CODE:301|SIZE:238)<br>suspicious:<br><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn/oanew/sys/taskcenterapp/*default/index.do">http://oa.lixin.edu.cn/oanew/sys/taskcenterapp/*default/index.do</a><br>portal (even in the internet):<br><a target="_blank" rel="noopener" href="http://202.121.255.3:8080/portal">http://202.121.255.3:8080/portal</a><br>Scan this website with kali linux.<br>The Intranet Gateway For Campus: (maybe less hops?)<br><a target="_blank" rel="noopener" href="https://app.topsec.com.cn/">https://app.topsec.com.cn</a><br>mitmdump –mode socks5 –listen-port 8050 -w logs.log –flow-detail 3 –set stream_websocket&#x3D;true<br>pdvpn.lixin.edu.cn<br>pdvpn2.lixin.edu.cn<br>vpn.lixin.edu.cn<br>vpn2.lixin.edu.cn<br>xxb.lixin.edu.cn&#x2F;jszl&#x2F;57078.htm<br>201960630:CHENweiyi0519<br><a target="_blank" rel="noopener" href="https://cas.paas.lixin.edu.cn/cas/login?service=https://lxjw.lixin.edu.cn/cas/login">https://cas.paas.lixin.edu.cn/cas/login?service=https%3A%2F%2Flxjw.lixin.edu.cn%2Fcas%2Flogin</a><br><a target="_blank" rel="noopener" href="https://security-center.paas.lixin.edu.cn/find-pwd">https://security-center.paas.lixin.edu.cn/find-pwd</a><br>20039370<br>missing puzzle for changing password:<br>trial user:<br>201960249<br>found russia hacker’s kali tool site: <a target="_blank" rel="noopener" href="https://en.kali.tools/all/">https://en.kali.tools/all/</a><br>apparently we have some issue with log4j and this could be our way in, the damn server.<br>sniffing the whole damn campus is only possible if we know how to get into the same subnet of all people.<br>have searched related websites with site:lixin.edu.cn, could get more if keep doing so, using dnsenum.<br>to get all site links with proper titles, we need to use playwright.<br>nessus scanner has that 16 ips limitation, we need to crack&#x2F;patch it first.<br>to master kali linux, recommend to scrape kali_tools (<a target="_blank" rel="noopener" href="https://tools.kali.org/">https://tools.kali.org/</a>) and tutorialspoint (<a target="_blank" rel="noopener" href="https://www.tutorialspoint.com/kali_linux/index.htm">https://www.tutorialspoint.com/kali_linux/index.htm</a>) for kali, or just simply using manpage.<br>cisco router is untouched till now. need we to scan it?<br>(intermediate ip addresses)<br>curl ‘<a target="_blank" rel="noopener" href="https://personal-security-center.paas.lixin.edu.cn/api/v1/personal/open/passwordStrategy/verify">https://personal-security-center.paas.lixin.edu.cn/api/v1/personal/open/passwordStrategy/verify</a>‘ <br>-H ‘Connection: keep-alive’ <br>-H ‘sec-ch-ua: “(Not(A:Brand”;v&#x3D;”8”, “Chromium”;v&#x3D;”98”, “Google Chrome”;v&#x3D;”98”‘ <br>-H ‘Accept: application&#x2F;json, text&#x2F;plain, <em>&#x2F;</em>‘ <br>-H ‘Content-Type: application&#x2F;json;charset&#x3D;UTF-8’ <br>-H ‘sec-ch-ua-mobile: ?0’ <br>-H ‘User-Agent: Mozilla&#x2F;5.0 (X11; CrOS aarch64 14371.0.0) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;98.0.4729.0 Safari&#x2F;537.36’ <br>-H ‘sec-ch-ua-platform: “Chrome OS”‘ <br>-H ‘Origin: <a target="_blank" rel="noopener" href="https://security-center.paas.lixin.edu.cn/">https://security-center.paas.lixin.edu.cn</a>‘ <br>-H ‘Sec-Fetch-Site: same-site’ <br>-H ‘Sec-Fetch-Mode: cors’ <br>-H ‘Sec-Fetch-Dest: empty’ <br>-H ‘Referer: <a target="_blank" rel="noopener" href="https://security-center.paas.lixin.edu.cn/">https://security-center.paas.lixin.edu.cn/</a>‘ <br>-H ‘Accept-Language: en-US,en;q&#x3D;0.9’ <br>–data-raw ‘{“password”:”abcdefABC”,”userId”:””}’ <br>–compressed<br>curl ‘<a target="_blank" rel="noopener" href="https://personal-security-center.paas.lixin.edu.cn/api/v1/personal/open/forgotPassword/changePassword">https://personal-security-center.paas.lixin.edu.cn/api/v1/personal/open/forgotPassword/changePassword</a>‘ <br>-H ‘Connection: keep-alive’ <br>-H ‘sec-ch-ua: “(Not(A:Brand”;v&#x3D;”8”, “Chromium”;v&#x3D;”98”, “Google Chrome”;v&#x3D;”98”‘ <br>-H ‘Accept: application&#x2F;json, text&#x2F;plain, <em>&#x2F;</em>‘ <br>-H ‘Content-Type: application&#x2F;json;charset&#x3D;UTF-8’ <br>-H ‘sec-ch-ua-mobile: ?0’ <br>-H ‘User-Agent: Mozilla&#x2F;5.0 (X11; CrOS aarch64 14371.0.0) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;98.0.4729.0 Safari&#x2F;537.36’ <br>-H ‘sec-ch-ua-platform: “Chrome OS”‘ <br>-H ‘Origin: <a target="_blank" rel="noopener" href="https://security-center.paas.lixin.edu.cn/">https://security-center.paas.lixin.edu.cn</a>‘ <br>-H ‘Sec-Fetch-Site: same-site’ <br>-H ‘Sec-Fetch-Mode: cors’ <br>-H ‘Sec-Fetch-Dest: empty’ <br>-H ‘Referer: <a target="_blank" rel="noopener" href="https://security-center.paas.lixin.edu.cn/">https://security-center.paas.lixin.edu.cn/</a>‘ <br>-H ‘Accept-Language: en-US,en;q&#x3D;0.9’ <br>–data-raw ‘{“confirmPassword”:”abc123ABC”,”newPassword”:”abc123ABC”,”nonce”:”YzhhZmZjYzktNWQ3Ny00MGU1LTg0ODgtYTYzZTMzMDZkMjU0XzE2NDAyNjg5MzcyNTY”}’ <br>–compressed</li>
+<li><p><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn//admin">http://oa.lixin.edu.cn//admin</a> (CODE:301|SIZE:237)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn//css">http://oa.lixin.edu.cn//css</a> (CODE:301|SIZE:235)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn//help">http://oa.lixin.edu.cn//help</a> (CODE:301|SIZE:236)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn//images">http://oa.lixin.edu.cn//images</a> (CODE:301|SIZE:238)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn//js">http://oa.lixin.edu.cn//js</a> (CODE:301|SIZE:234)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn//setup">http://oa.lixin.edu.cn//setup</a> (CODE:301|SIZE:237)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn//template">http://oa.lixin.edu.cn//template</a> (CODE:301|SIZE:240)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn//test">http://oa.lixin.edu.cn//test</a> (CODE:301|SIZE:236)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn///admin">http://oa.lixin.edu.cn///admin</a> (CODE:301|SIZE:237)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn///help">http://oa.lixin.edu.cn///help</a> (CODE:301|SIZE:236)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn///images">http://oa.lixin.edu.cn///images</a> (CODE:301|SIZE:238)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn///script">http://oa.lixin.edu.cn///script</a> (CODE:301|SIZE:238)</p>
+</li>
 </ul>
+<p>suspicious:</p>
+<p><a target="_blank" rel="noopener" href="http://oa.lixin.edu.cn/oanew/sys/taskcenterapp/*default/index.do">http://oa.lixin.edu.cn/oanew/sys/taskcenterapp/*default/index.do</a></p>
+<p>portal (even in the internet):</p>
+<p><a target="_blank" rel="noopener" href="http://202.121.255.3:8080/portal">http://202.121.255.3:8080/portal</a></p>
+<p>Scan this website with kali linux.</p>
+<p>The Intranet Gateway For Campus: (maybe less hops?)</p>
+<p><a target="_blank" rel="noopener" href="https://app.topsec.com.cn/">https://app.topsec.com.cn</a></p>
+<p>mitmdump –mode socks5 –listen-port 8050 -w logs.log –flow-detail 3 –set stream_websocket&#x3D;true</p>
+<p>pdvpn.lixin.edu.cn</p>
+<p>pdvpn2.lixin.edu.cn</p>
+<p>vpn.lixin.edu.cn</p>
+<p>vpn2.lixin.edu.cn</p>
+<p>xxb.lixin.edu.cn&#x2F;jszl&#x2F;57078.htm</p>
+<p>201960630:CHENweiyi0519</p>
+<p><a target="_blank" rel="noopener" href="https://cas.paas.lixin.edu.cn/cas/login?service=https://lxjw.lixin.edu.cn/cas/login">https://cas.paas.lixin.edu.cn/cas/login?service=https%3A%2F%2Flxjw.lixin.edu.cn%2Fcas%2Flogin</a></p>
+<p><a target="_blank" rel="noopener" href="https://security-center.paas.lixin.edu.cn/find-pwd">https://security-center.paas.lixin.edu.cn/find-pwd</a></p>
+<p>20039370</p>
+<p>missing puzzle for changing password:</p>
+<p>trial user:</p>
+<p>201960249</p>
+<p>found russia hacker’s kali tool site: <a target="_blank" rel="noopener" href="https://en.kali.tools/all/">https://en.kali.tools/all/</a></p>
+<p>apparently we have some issue with log4j and this could be our way in, the damn server.</p>
+<p>sniffing the whole damn campus is only possible if we know how to get into the same subnet of all people.</p>
+<p>have searched related websites with site:lixin.edu.cn, could get more if keep doing so, using dnsenum.</p>
+<p>to get all site links with proper titles, we need to use playwright.</p>
+<p>nessus scanner has that 16 ips limitation, we need to crack&#x2F;patch it first.</p>
+<p>to master kali linux, recommend to scrape kali_tools (<a target="_blank" rel="noopener" href="https://tools.kali.org/">https://tools.kali.org/</a>) and tutorialspoint (<a target="_blank" rel="noopener" href="https://www.tutorialspoint.com/kali_linux/index.htm">https://www.tutorialspoint.com/kali_linux/index.htm</a>) for kali, or just simply using manpage.</p>
+<p>cisco router is untouched till now. need we to scan it?</p>
+<p>(intermediate ip addresses)</p>
+<p>curl ‘<a target="_blank" rel="noopener" href="https://personal-security-center.paas.lixin.edu.cn/api/v1/personal/open/passwordStrategy/verify">https://personal-security-center.paas.lixin.edu.cn/api/v1/personal/open/passwordStrategy/verify</a>‘ \</p>
+<p>-H ‘Connection: keep-alive’ \</p>
+<p>-H ‘sec-ch-ua: “(Not(A:Brand”;v&#x3D;”8”, “Chromium”;v&#x3D;”98”, “Google Chrome”;v&#x3D;”98”‘ \</p>
+<p>-H ‘Accept: application&#x2F;json, text&#x2F;plain, <em>&#x2F;</em>‘ \</p>
+<p>-H ‘Content-Type: application&#x2F;json;charset&#x3D;UTF-8’ \</p>
+<p>-H ‘sec-ch-ua-mobile: ?0’ \</p>
+<p>-H ‘User-Agent: Mozilla&#x2F;5.0 (X11; CrOS aarch64 14371.0.0) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;98.0.4729.0 Safari&#x2F;537.36’ \</p>
+<p>-H ‘sec-ch-ua-platform: “Chrome OS”‘ \</p>
+<p>-H ‘Origin: <a target="_blank" rel="noopener" href="https://security-center.paas.lixin.edu.cn/">https://security-center.paas.lixin.edu.cn</a>‘ \</p>
+<p>-H ‘Sec-Fetch-Site: same-site’ \</p>
+<p>-H ‘Sec-Fetch-Mode: cors’ \</p>
+<p>-H ‘Sec-Fetch-Dest: empty’ \</p>
+<p>-H ‘Referer: <a target="_blank" rel="noopener" href="https://security-center.paas.lixin.edu.cn/">https://security-center.paas.lixin.edu.cn/</a>‘ \</p>
+<p>-H ‘Accept-Language: en-US,en;q&#x3D;0.9’ \</p>
+<p>–data-raw ‘{“password”:”abcdefABC”,”userId”:””}’ \</p>
+<p>–compressed</p>
+<p>curl ‘<a target="_blank" rel="noopener" href="https://personal-security-center.paas.lixin.edu.cn/api/v1/personal/open/forgotPassword/changePassword">https://personal-security-center.paas.lixin.edu.cn/api/v1/personal/open/forgotPassword/changePassword</a>‘ \</p>
+<p>-H ‘Connection: keep-alive’ \</p>
+<p>-H ‘sec-ch-ua: “(Not(A:Brand”;v&#x3D;”8”, “Chromium”;v&#x3D;”98”, “Google Chrome”;v&#x3D;”98”‘ \</p>
+<p>-H ‘Accept: application&#x2F;json, text&#x2F;plain, <em>&#x2F;</em>‘ \</p>
+<p>-H ‘Content-Type: application&#x2F;json;charset&#x3D;UTF-8’ \</p>
+<p>-H ‘sec-ch-ua-mobile: ?0’ \</p>
+<p>-H ‘User-Agent: Mozilla&#x2F;5.0 (X11; CrOS aarch64 14371.0.0) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;98.0.4729.0 Safari&#x2F;537.36’ \</p>
+<p>-H ‘sec-ch-ua-platform: “Chrome OS”‘ \</p>
+<p>-H ‘Origin: <a target="_blank" rel="noopener" href="https://security-center.paas.lixin.edu.cn/">https://security-center.paas.lixin.edu.cn</a>‘ \</p>
+<p>-H ‘Sec-Fetch-Site: same-site’ \</p>
+<p>-H ‘Sec-Fetch-Mode: cors’ \</p>
+<p>-H ‘Sec-Fetch-Dest: empty’ \</p>
+<p>-H ‘Referer: <a target="_blank" rel="noopener" href="https://security-center.paas.lixin.edu.cn/">https://security-center.paas.lixin.edu.cn/</a>‘ \</p>
+<p>-H ‘Accept-Language: en-US,en;q&#x3D;0.9’ \</p>
+<p>–data-raw ‘{“confirmPassword”:”abc123ABC”,”newPassword”:”abc123ABC”,”nonce”:”YzhhZmZjYzktNWQ3Ny00MGU1LTg0ODgtYTYzZTMzMDZkMjU0XzE2NDAyNjg5MzcyNTY”}’ \</p>
+<p>–compressed</p>
 
 	
 	</div>

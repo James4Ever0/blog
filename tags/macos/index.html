@@ -128,12 +128,18 @@
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://github.com/sindresorhus/trash">trash-cli</a> (with <a target="_blank" rel="noopener" href="https://github.com/sindresorhus/trash-cli">python binding</a>) may work cross-platform, but manage its own recycle bin instead of the system if using windows or macos.<br><a target="_blank" rel="noopener" href="https://github.com/sindresorhus/empty-trash-cli">empty-trash-cli</a></p>
-<h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><p><a target="_blank" rel="noopener" href="http://www.maddogsw.com/cmdutils/">cmdutils</a> which has <code>recycle</code> and <code>bin</code> commands<br><a target="_blank" rel="noopener" href="https://github.com/kizzx2/cmd-recycle/">cmd-recycle</a><br><a target="_blank" rel="noopener" href="http://www.nirsoft.net/utils/nircmd.html">nircmd</a></p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nircmd moverecyclebin *.tmp</span><br></pre></td></tr></table></figure>
+		<p><a target="_blank" rel="noopener" href="https://github.com/sindresorhus/trash">trash-cli</a> (with <a target="_blank" rel="noopener" href="https://github.com/sindresorhus/trash-cli">python binding</a>) may work cross-platform, but manage its own recycle bin instead of the system if using windows or macos.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/sindresorhus/empty-trash-cli">empty-trash-cli</a></p>
+<h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><p><a target="_blank" rel="noopener" href="http://www.maddogsw.com/cmdutils/">cmdutils</a> which has <code>recycle</code> and <code>bin</code> commands</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/kizzx2/cmd-recycle/">cmd-recycle</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.nirsoft.net/utils/nircmd.html">nircmd</a></p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nircmd moverecyclebin *.tmp</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <h2 id="macos"><a href="#macos" class="headerlink" title="macos"></a>macos</h2><p>do this manually:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># i don&#x27;t trust this.</span></span><br><span class="line"><span class="comment">#rm -rf ~/.Trash/*</span></span><br><span class="line">osascript -e <span class="string">&#x27;tell app &quot;Finder&quot; to empty&#x27;</span></span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://hasseg.org/trash/">trash</a><br>rmtrash in <a target="_blank" rel="noopener" href="http://www.nightproductions.net/cli.htm">nightproductions’s cli tools</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># i don&#x27;t trust this.</span></span><br><span class="line"><span class="comment">#rm -rf ~/.Trash/*</span></span><br><span class="line">osascript -e <span class="string">&#x27;tell app &quot;Finder&quot; to empty&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://hasseg.org/trash/">trash</a></p>
+<p>rmtrash in <a target="_blank" rel="noopener" href="http://www.nightproductions.net/cli.htm">nightproductions’s cli tools</a></p>
 
 	
 	</div>
@@ -157,17 +163,27 @@
   <div class="row">
 	
 	
-		<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /media/root/parrot</span><br><span class="line"><span class="built_in">cp</span> -R -P /media/root/help1/pyjom .</span><br></pre></td></tr></table></figure>
-<p>because of the qqChatBot task, pyjom on kali may be syncing too often. need to check the watchdog logs.<br>turned out it is the <code>__pycache__</code> dirs to be blamed<br>disable all sync related services on macos for debug:<br>main issue happens after local vscode launched.<br>the issue is such that the proxy setting not right.<br>to debug the service:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl debug gui/501/pyjom_local_syncdog --stdout --stderr</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># to be succint:</span></span><br><span class="line">launchctl list | grep syncdog | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span> | xargs -I abc <span class="built_in">kill</span> -s TERM abc</span><br><span class="line"><span class="comment"># instead of:</span></span><br><span class="line"><span class="comment">#launchctl list | grep pyjom_local_syncdog # to get process pid</span></span><br><span class="line"><span class="comment">#kill -s TERM &lt;service_pid&gt;</span></span><br></pre></td></tr></table></figure>
+		<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /media/root/parrot</span><br><span class="line"><span class="built_in">cp</span> -R -P /media/root/help1/pyjom .</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>because of the qqChatBot task, pyjom on kali may be syncing too often. need to check the watchdog logs.</p>
+<p>turned out it is the <code>__pycache__</code> dirs to be blamed</p>
+<p>disable all sync related services on macos for debug:</p>
+<p>main issue happens after local vscode launched.</p>
+<p>the issue is such that the proxy setting not right.</p>
+<p>to debug the service:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl debug gui/501/pyjom_local_syncdog --stdout --stderr</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># to be succint:</span></span><br><span class="line">launchctl list | grep syncdog | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span> | xargs -I abc <span class="built_in">kill</span> -s TERM abc</span><br><span class="line"><span class="comment"># instead of:</span></span><br><span class="line"><span class="comment">#launchctl list | grep pyjom_local_syncdog # to get process pid</span></span><br><span class="line"><span class="comment">#kill -s TERM &lt;service_pid&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>we need to add some code for it. consider adding something alike to that to kali?</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.environ[<span class="string">&quot;http_proxy&quot;</span>]=<span class="string">&quot;http://localhost:7930&quot;</span></span><br><span class="line">os.environ[<span class="string">&quot;https_proxy&quot;</span>]=<span class="string">&quot;http://localhost:7930&quot;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">launchctl stop gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl <span class="built_in">kill</span> TERM gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl unload gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl <span class="built_in">disable</span> gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl remove gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl stop gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl <span class="built_in">kill</span> TERM gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl unload gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl <span class="built_in">disable</span> gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl remove gui/501/pyjom_local_syncdog</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">os.environ[<span class="string">&quot;http_proxy&quot;</span>]=<span class="string">&quot;http://localhost:7930&quot;</span></span><br><span class="line">os.environ[<span class="string">&quot;https_proxy&quot;</span>]=<span class="string">&quot;http://localhost:7930&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">launchctl stop gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl <span class="built_in">kill</span> TERM gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl unload gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl <span class="built_in">disable</span> gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl remove gui/501/pyjom_local_watchdog;</span><br><span class="line">launchctl stop gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl <span class="built_in">kill</span> TERM gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl unload gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl <span class="built_in">disable</span> gui/501/pyjom_local_syncdog;</span><br><span class="line">launchctl remove gui/501/pyjom_local_syncdog</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>install macos pyjom watchdog (local):</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">easyd -l pyjom_local_watchdog -w /Users/jamesbrown/Desktop/works/sync_git_repos -- /usr/bin/python3 /Users/jamesbrown/Desktop/works/sync_git_repos/watchdog_macos.py</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">easyd -l pyjom_local_watchdog -w /Users/jamesbrown/Desktop/works/sync_git_repos -- /usr/bin/python3 /Users/jamesbrown/Desktop/works/sync_git_repos/watchdog_macos.py</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>install macos pyjom syncdog (local):</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">easyd -l pyjom_local_syncdog -w /Users/jamesbrown/Desktop/works/sync_git_repos -- /usr/bin/python3 /Users/jamesbrown/Desktop/works/sync_git_repos/syncdog_macos.py</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">easyd -l pyjom_local_syncdog -w /Users/jamesbrown/Desktop/works/sync_git_repos -- /usr/bin/python3 /Users/jamesbrown/Desktop/works/sync_git_repos/syncdog_macos.py</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 	
 	</div>
   <a type="button" href="/blog/2022/08/11/b4aa7c90-7a78-4648-a687-ea9f3f21e207/#more" class="btn btn-default more">Read More</a>
@@ -190,8 +206,12 @@
   <div class="row">
 	
 	
-		<p>macos mount ntfs read-only by default.<br>code from <a target="_blank" rel="noopener" href="https://mounty.app/">mounty.app</a><br>mounty is somehow not working so manual remount is needed.<br>one needs to click the remount button to mount it again under <code>/Users/jamesbrown/.mounty/Toshiba3000</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo umount /Volumes/Toshiba3000</span><br><span class="line">sudo <span class="built_in">mkdir</span> /Volumes/Toshiba3000; sudo mount -t ntfs -o rw,auto,nobrowse /dev/&lt;diskIdentifier&gt; /Volumes/Toshiba3000</span><br></pre></td></tr></table></figure>
+		<p>macos mount ntfs read-only by default.</p>
+<p>code from <a target="_blank" rel="noopener" href="https://mounty.app/">mounty.app</a></p>
+<p>mounty is somehow not working so manual remount is needed.</p>
+<p>one needs to click the remount button to mount it again under <code>/Users/jamesbrown/.mounty/Toshiba3000</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo umount /Volumes/Toshiba3000</span><br><span class="line">sudo <span class="built_in">mkdir</span> /Volumes/Toshiba3000; sudo mount -t ntfs -o rw,auto,nobrowse /dev/&lt;diskIdentifier&gt; /Volumes/Toshiba3000</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 	
 	</div>
   <a type="button" href="/blog/2022/08/08/5902663e-ca51-4206-8344-b9b6e7aa8d6b/#more" class="btn btn-default more">Read More</a>
@@ -215,11 +235,14 @@
 	
 	
 		<h2 id="the-fix"><a href="#the-fix" class="headerlink" title="the fix"></a>the fix</h2><p>to enable the service:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>to update locate db:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/libexec/locate.updatedb</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/libexec/locate.updatedb</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>or, more conveniently:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">ln</span> -s /usr/libexec/locate.updatedb /usr/local/sbin/updatedb</span><br><span class="line">sudo updatedb</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">ln</span> -s /usr/libexec/locate.updatedb /usr/local/sbin/updatedb</span><br><span class="line">sudo updatedb</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <h2 id="alternative"><a href="#alternative" class="headerlink" title="alternative"></a>alternative</h2><p>use <code>mdfind</code></p>
 
 	
@@ -244,7 +267,20 @@
   <div class="row">
 	
 	
-		<h2 id="use-rclone-to-periodically-commit-files-to-NAS-incremental-only-do-not-delete-things-or-use-rclone-to-copy-files-to-external-SSDbuy-airport-extreme-as-wireless-router-and-backup-device"><a href="#use-rclone-to-periodically-commit-files-to-NAS-incremental-only-do-not-delete-things-or-use-rclone-to-copy-files-to-external-SSDbuy-airport-extreme-as-wireless-router-and-backup-device" class="headerlink" title="use rclone to periodically commit files to NAS (incremental only, do not delete things), or use rclone to copy files to external SSDbuy airport extreme as wireless router and backup device"></a>use rclone to periodically commit files to NAS (incremental only, do not delete things), or use rclone to copy files to external SSD<br>buy airport extreme as wireless router and backup device</h2><h2 id="when-in-doubt-delete-files-under-GUI-instead-of-terminalcheck-out-commands-for-moving-files-into-trash-bin-instead-of-direct-removal-on-different-OSes"><a href="#when-in-doubt-delete-files-under-GUI-instead-of-terminalcheck-out-commands-for-moving-files-into-trash-bin-instead-of-direct-removal-on-different-OSes" class="headerlink" title="when in doubt, delete files under GUI instead of terminalcheck out commands for moving files into trash bin instead of direct removal on different OSes"></a>when in doubt, delete files under GUI instead of terminal<br>check out commands for moving files into trash bin instead of direct removal on different OSes</h2><h2 id="my-data-under-works-is-lost-fuck-buy-me-some-ssd-512GB-at-least-to-do-time-machine-backup-buy-m-2-ssd-to-reduce-the-size-use-usb-c-cables-to-prevent-inconvenience"><a href="#my-data-under-works-is-lost-fuck-buy-me-some-ssd-512GB-at-least-to-do-time-machine-backup-buy-m-2-ssd-to-reduce-the-size-use-usb-c-cables-to-prevent-inconvenience" class="headerlink" title="my data under ~/works is lost. fuck.buy me some ssd 512GB at least to do time machine backup.buy m.2 ssd to reduce the size.use usb-c cables to prevent inconvenience."></a>my data under <code>~/works</code> is lost. fuck.<br>buy me some ssd 512GB at least to do time machine backup.<br>buy m.2 ssd to reduce the size.<br>use usb-c cables to prevent inconvenience.</h2><p>the filesystem will be formatted as APFS.<br>need a dedicated usb storage for it.<br>do not know if it is incremental backup.</p>
+		<p>use rclone to periodically commit files to NAS (incremental only, do not delete things), or use rclone to copy files to external SSD</p>
+<p>buy airport extreme as wireless router and backup device</p>
+<hr>
+<p>when in doubt, delete files under GUI instead of terminal</p>
+<p>check out commands for moving files into trash bin instead of direct removal on different OSes</p>
+<hr>
+<p>my data under <code>~/works</code> is lost. fuck.</p>
+<p>buy me some ssd 512GB at least to do time machine backup.</p>
+<p>buy m.2 ssd to reduce the size.</p>
+<p>use usb-c cables to prevent inconvenience.</p>
+<hr>
+<p>the filesystem will be formatted as APFS.</p>
+<p>need a dedicated usb storage for it.</p>
+<p>do not know if it is incremental backup.</p>
 
 	
 	</div>
@@ -268,7 +304,8 @@
   <div class="row">
 	
 	
-		<p>use cmd-click to operate the inactive window without activating it.<br>linux&#x2F;windows not having this feature. might need custom hot key for this.</p>
+		<p>use cmd-click to operate the inactive window without activating it.</p>
+<p>linux&#x2F;windows not having this feature. might need custom hot key for this.</p>
 
 	
 	</div>

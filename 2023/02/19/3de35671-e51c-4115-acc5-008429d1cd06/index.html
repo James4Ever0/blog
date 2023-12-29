@@ -126,13 +126,19 @@
 	  		
 
 	  <p>install and use <code>pdoc3</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install pdoc3</span><br><span class="line">pdoc --html [-o &lt;output_dir&gt;] &lt;python_script_or_module_path&gt; <span class="comment"># default output directory of &quot;html&quot; is `./html`</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install pdoc3</span><br><span class="line">pdoc --html [-o &lt;output_dir&gt;] &lt;python_script_or_module_path&gt; <span class="comment"># default output directory of &quot;html&quot; is `./html`</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>install and use <code>pandoc</code>, on its <a target="_blank" rel="noopener" href="https://pandoc.org/">homepage</a> we find some slideshow backends like <a target="_blank" rel="noopener" href="https://revealjs.com/">reveal.js</a>, <a target="_blank" rel="noopener" href="https://github.com/paulrouget/dzslides">dzslides</a>, <a target="_blank" rel="noopener" href="https://meyerweb.com/eric/tools/s5/">s5</a>, <a target="_blank" rel="noopener" href="https://goessner.net/articles/slideous/">slideous</a> and <a target="_blank" rel="noopener" href="https://www.w3.org/Talks/Tools/Slidy">slidy</a> (alternative to microsoft powerpoint, may help rendering video, or let’s use libreoffice instead? or some dedicated video editing library like moviepy)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># let&#x27;s convert the html version of</span></span><br><span class="line">pandoc -o &lt;output_docx_filename&gt; &lt;input_html_path&gt;</span><br></pre></td></tr></table></figure>
-<p>remove unwanted parts from html (<code>beautifulsoup</code>), and split index from main content (split and concat with <a target="_blank" rel="noopener" href="https://github.com/4teamwork/docxcompose">docxcompose</a>)<br>for composing docx from hand, use <a target="_blank" rel="noopener" href="https://python-docx.readthedocs.io/en/latest/index.html">python-docx</a>. for template based docx generating, use <a target="_blank" rel="noopener" href="https://docxtpl.readthedocs.io/en/latest/">docxtpl</a><br>to insert page break into converted docx, there are two ways (maybe):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># let&#x27;s convert the html version of</span></span><br><span class="line">pandoc -o &lt;output_docx_filename&gt; &lt;input_html_path&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>remove unwanted parts from html (<code>beautifulsoup</code>), and split index from main content (split and concat with <a target="_blank" rel="noopener" href="https://github.com/4teamwork/docxcompose">docxcompose</a>)</p>
+<p>for composing docx from hand, use <a target="_blank" rel="noopener" href="https://python-docx.readthedocs.io/en/latest/index.html">python-docx</a>. for template based docx generating, use <a target="_blank" rel="noopener" href="https://docxtpl.readthedocs.io/en/latest/">docxtpl</a></p>
+<p>to insert page break into converted docx, there are two ways (maybe):</p>
 <ol>
-<li><a target="_blank" rel="noopener" href="https://www.techjunkie.com/how-to-use-page-breaks-in-html">change css</a> in the original html code</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/4teamwork/docxcompose/issues/89">insert page break</a> while concatenating</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.techjunkie.com/how-to-use-page-breaks-in-html">change css</a> in the original html code</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/4teamwork/docxcompose/issues/89">insert page break</a> while concatenating</p>
+</li>
 </ol>
 	  
 	</div>

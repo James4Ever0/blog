@@ -125,50 +125,275 @@
 		 </div> <!-- alert -->
 	  		
 
-	  <p>Redis Cheat Sheet<br>When you encounter a Redis instance and you quickly want to learn about the setup you just need a few simple commands to peak into the setup. Of course it doesn’t hurt to look at the official full command documentation, but below is a listing just for sysadmins.<br>Accessing Redis<br>CLI<br>First thing to know is that you can use “telnet” (usually on Redis default port 6379)<br>telnet localhost 6379<br>or the Redis CLI client<br>redis-cli<br>to connect to Redis. The advantage of redis-cli is that you have a help interface and command line history.<br>CLI Queries<br>Here is a short list of some basic data extraction commands:<br>Type	Syntax and Explanation<br>Tracing	monitor Watch current live commands. Use with care when on production. Cancel with Ctrl-C.<br>Slow Queries	slowlog get 25 Print top 25 slow queries<br>slowlog len<br>slowlog reset<br>Search &#x2F; List All Keys	keys &lt;pattern Use with care when on production!<br>keys myprefix*<br>keys *pattern*<br>keys *mysuffix<br>keys [a-c]* Use grep like expressions<br>Generic Key Handling	del <key> Delete key<br>dump <key> Serialize key<br>exists <key> Check for key<br>expire <key> <seconds> Set key TTL<br>Working with scalar types	get <key><br>set <key> <value><br>setnx <key> <value> Set key value only if key does not exist<br>Batch commands:<br>mget <key> <key> …<br>mset <key> <value> <key> <value><br>Working with counters	incr <key><br>decr <key><br>Redis Lists	lrange <key> <start> <stop> Accessing lists<br>lrange mylist 0 -1 Output all elements<br>lindex mylist 5 Get 5th element<br>llen mylist Get list length<br>lpush mylist “value” Push “value” to list<br>lpush mylist 5 Push number 5 to list<br>rpush mylist “value” Push “value” to beginning (unshift)<br>lpushx mylist 6 Only push if mylist exists<br>rpushx mylist 7<br>lpop mylist Remove+return value from list<br>rpop mylist Remove+return value from start (shift)<br>lrem mylist 1 “value” Remove ‘value’ count times<br>lset mylist 2 6 Set 3rd element to value 6<br>ltrim <key> <start> <stop><br>Working with Redis Hashes	hexists myhash field1 Check if hash key exists<br>hget myhash field1 Get key value<br>hdel myhash field2 Delete key<br>hset myhash field1 “value” Set key with “value”<br>hsetnx myhash field1 “value”<br>hgetall myhash Get all hash content<br>hkeys myhash List all keys<br>hlen myhash List number of keys<br>Batch commands:<br>hmget <key> <key> … Get multiple keys<br>hmset <key> <value> <key> <value> … Set multiple keys<br>Counter commands<br>hincrby myhash field1 1<br>hincrby myhash field1 5<br>hincrby myhash field1 -1<br>hincrbrfloat myhash field2 1.123445<br>CLI Scripting<br>For scripting just pass commands to “redis-cli”. For example:<br>$ redis-cli INFO | grep connected<br>connected_clients:2<br>connected_slaves:0<br>$<br>Server Statistics<br>The statistics command is “INFO” and will give you an output as following.<br>$ redis-cli INFO<br>redis_version:2.2.12<br>redis_git_sha1:00000000<br>redis_git_dirty:0<br>arch_bits:64<br>multiplexing_api:epoll<br>process_id:8353<br>uptime_in_seconds:2592232<br>uptime_in_days:30<br>lru_clock:809325<br>used_cpu_sys:199.20<br>used_cpu_user:309.26<br>used_cpu_sys_children:12.04<br>used_cpu_user_children:1.47<br>connected_clients:2         # &lt;—- connection count<br>connected_slaves:0<br>client_longest_output_list:0<br>client_biggest_input_buf:0<br>blocked_clients:0<br>used_memory:6596112<br>used_memory_human:6.29M         # &lt;—- memory usage<br>used_memory_rss:17571840<br>mem_fragmentation_ratio:2.66<br>use_tcmalloc:0<br>loading:0<br>aof_enabled:0<br>changes_since_last_save:0<br>bgsave_in_progress:0<br>last_save_time:1371241671<br>bgrewriteaof_in_progress:0<br>total_connections_received:118<br>total_commands_processed:1091<br>expired_keys:441<br>evicted_keys:0<br>keyspace_hits:6<br>keyspace_misses:1070<br>hash_max_zipmap_entries:512<br>hash_max_zipmap_value:64<br>pubsub_channels:0<br>pubsub_patterns:0<br>vm_enabled:0<br>role:master             # &lt;—- master&#x2F;slave in replication setup<br>db0:keys&#x3D;91,expires&#x3D;88<br>Changing Runtime Configuration<br>The command<br>CONFIG GET *<br>gives you a list of all active configuration variables you can change. The output might look like this:<br>redis 127.0.0.1:6379&gt; CONFIG GET *</p>
+	  <p>Redis Cheat Sheet</p>
+<p>When you encounter a Redis instance and you quickly want to learn about the setup you just need a few simple commands to peak into the setup. Of course it doesn’t hurt to look at the official full command documentation, but below is a listing just for sysadmins.</p>
+<p>Accessing Redis</p>
+<p>CLI</p>
+<p>First thing to know is that you can use “telnet” (usually on Redis default port 6379)</p>
+<p>telnet localhost 6379</p>
+<p>or the Redis CLI client</p>
+<p>redis-cli</p>
+<p>to connect to Redis. The advantage of redis-cli is that you have a help interface and command line history.</p>
+<p>CLI Queries</p>
+<p>Here is a short list of some basic data extraction commands:</p>
+<p>Type	Syntax and Explanation</p>
+<p>Tracing	monitor Watch current live commands. Use with care when on production. Cancel with Ctrl-C.</p>
+<p>Slow Queries	slowlog get 25 Print top 25 slow queries</p>
+<p>slowlog len</p>
+<p>slowlog reset</p>
+<p>Search &#x2F; List All Keys	keys &lt;pattern Use with care when on production!</p>
+<p>keys myprefix*</p>
+<p>keys <em>pattern</em></p>
+<p>keys *mysuffix</p>
+<p>keys [a-c]* Use grep like expressions</p>
+<p>Generic Key Handling	del <key> Delete key</p>
+<p>dump <key> Serialize key</p>
+<p>exists <key> Check for key</p>
+<p>expire <key> <seconds> Set key TTL</p>
+<p>Working with scalar types	get <key></p>
+<p>set <key> <value></p>
+<p>setnx <key> <value> Set key value only if key does not exist</p>
+<p>Batch commands:</p>
+<p>mget <key> <key> …</p>
+<p>mset <key> <value> <key> <value></p>
+<p>Working with counters	incr <key></p>
+<p>decr <key></p>
+<p>Redis Lists	lrange <key> <start> <stop> Accessing lists</p>
+<p>lrange mylist 0 -1 Output all elements</p>
+<p>lindex mylist 5 Get 5th element</p>
+<p>llen mylist Get list length</p>
+<p>lpush mylist “value” Push “value” to list</p>
+<p>lpush mylist 5 Push number 5 to list</p>
+<p>rpush mylist “value” Push “value” to beginning (unshift)</p>
+<p>lpushx mylist 6 Only push if mylist exists</p>
+<p>rpushx mylist 7</p>
+<p>lpop mylist Remove+return value from list</p>
+<p>rpop mylist Remove+return value from start (shift)</p>
+<p>lrem mylist 1 “value” Remove ‘value’ count times</p>
+<p>lset mylist 2 6 Set 3rd element to value 6</p>
+<p>ltrim <key> <start> <stop></p>
+<p>Working with Redis Hashes	hexists myhash field1 Check if hash key exists</p>
+<p>hget myhash field1 Get key value</p>
+<p>hdel myhash field2 Delete key</p>
+<p>hset myhash field1 “value” Set key with “value”</p>
+<p>hsetnx myhash field1 “value”</p>
+<p>hgetall myhash Get all hash content</p>
+<p>hkeys myhash List all keys</p>
+<p>hlen myhash List number of keys</p>
+<p>Batch commands:</p>
+<p>hmget <key> <key> … Get multiple keys</p>
+<p>hmset <key> <value> <key> <value> … Set multiple keys</p>
+<p>Counter commands</p>
+<p>hincrby myhash field1 1</p>
+<p>hincrby myhash field1 5</p>
+<p>hincrby myhash field1 -1</p>
+<p>hincrbrfloat myhash field2 1.123445</p>
+<p>CLI Scripting</p>
+<p>For scripting just pass commands to “redis-cli”. For example:</p>
+<p>$ redis-cli INFO | grep connected</p>
+<p>connected_clients:2</p>
+<p>connected_slaves:0</p>
+<p>$</p>
+<p>Server Statistics</p>
+<p>The statistics command is “INFO” and will give you an output as following.</p>
+<p>$ redis-cli INFO</p>
+<p>redis_version:2.2.12</p>
+<p>redis_git_sha1:00000000</p>
+<p>redis_git_dirty:0</p>
+<p>arch_bits:64</p>
+<p>multiplexing_api:epoll</p>
+<p>process_id:8353</p>
+<p>uptime_in_seconds:2592232</p>
+<p>uptime_in_days:30</p>
+<p>lru_clock:809325</p>
+<p>used_cpu_sys:199.20</p>
+<p>used_cpu_user:309.26</p>
+<p>used_cpu_sys_children:12.04</p>
+<p>used_cpu_user_children:1.47</p>
+<p>connected_clients:2         # &lt;—- connection count</p>
+<p>connected_slaves:0</p>
+<p>client_longest_output_list:0</p>
+<p>client_biggest_input_buf:0</p>
+<p>blocked_clients:0</p>
+<p>used_memory:6596112</p>
+<p>used_memory_human:6.29M         # &lt;—- memory usage</p>
+<p>used_memory_rss:17571840</p>
+<p>mem_fragmentation_ratio:2.66</p>
+<p>use_tcmalloc:0</p>
+<p>loading:0</p>
+<p>aof_enabled:0</p>
+<p>changes_since_last_save:0</p>
+<p>bgsave_in_progress:0</p>
+<p>last_save_time:1371241671</p>
+<p>bgrewriteaof_in_progress:0</p>
+<p>total_connections_received:118</p>
+<p>total_commands_processed:1091</p>
+<p>expired_keys:441</p>
+<p>evicted_keys:0</p>
+<p>keyspace_hits:6</p>
+<p>keyspace_misses:1070</p>
+<p>hash_max_zipmap_entries:512</p>
+<p>hash_max_zipmap_value:64</p>
+<p>pubsub_channels:0</p>
+<p>pubsub_patterns:0</p>
+<p>vm_enabled:0</p>
+<p>role:master             # &lt;—- master&#x2F;slave in replication setup</p>
+<p>db0:keys&#x3D;91,expires&#x3D;88</p>
+<p>Changing Runtime Configuration</p>
+<p>The command</p>
+<p>CONFIG GET *</p>
+<p>gives you a list of all active configuration variables you can change. The output might look like this:</p>
+<p>redis 127.0.0.1:6379&gt; CONFIG GET *</p>
 <ol>
-<li>“dir”</li>
-<li>“&#x2F;var&#x2F;lib&#x2F;redis”</li>
-<li>“dbfilename”</li>
-<li>“dump.rdb”</li>
-<li>“requirepass”</li>
-<li>(nil)</li>
-<li>“masterauth”</li>
-<li>(nil)</li>
-<li>“maxmemory”</li>
-<li>“0”</li>
-<li>“maxmemory-policy”</li>
-<li>“volatile-lru”</li>
-<li>“maxmemory-samples”</li>
-<li>“3”</li>
-<li>“timeout”</li>
-<li>“300”</li>
-<li>“appendonly”</li>
-<li>“no”</li>
-<li>“no-appendfsync-on-rewrite”</li>
-<li>“no”</li>
-<li>“appendfsync”</li>
-<li>“everysec”              # &lt;—- how often fsync() is called</li>
-<li>“save”</li>
-<li>“900 1 300 10 60 10000”     # &lt;—- how often Redis dumps in background</li>
-<li>“slave-serve-stale-data”</li>
-<li>“yes”</li>
-<li>“hash-max-zipmap-entries”</li>
-<li>“512”</li>
-<li>“hash-max-zipmap-value”</li>
-<li>“64”</li>
-<li>“list-max-ziplist-entries”</li>
-<li>“512”</li>
-<li>“list-max-ziplist-value”</li>
-<li>“64”</li>
-<li>“set-max-intset-entries”</li>
-<li>“512”</li>
-<li>“slowlog-log-slower-than”</li>
-<li>“10000”</li>
-<li>“slowlog-max-len”</li>
-<li>“64”<br>Note that keys and values are alternating and you can change each key by issuing a “CONFIG SET” command like:<br>CONFIG SET timeout 900<br>Such a change will be effective instantly. When changing values consider also updating the redis configuration file.<br>Databases<br>Multiple Databases<br>Redis has a concept of separated namespaces called “databases”. You can select the database number you want to use with “SELECT”. By default the database with index 0 is used. So issuing<br>redis 127.0.0.1:6379&gt; SELECT 1<br>OK<br>redis 127.0.0.1:6379[1]&gt;<br>switches to the second database. Note how the prompt changed and now has a “[1]” to indicate the database selection. To find out how many databases there are you might want to run redis-cli from the shell:<br>$ redis-cli INFO | grep ^db<br>db0:keys&#x3D;91,expires&#x3D;88<br>db1:keys&#x3D;1,expires&#x3D;0<br>Dropping Databases<br>To drop the currently selected database run<br>FLUSHDB<br>to drop all databases at once run<br>FLUSHALL<br>Replication<br>Checking for Replication<br>To see if the instance is a replication slave or master issue<br>redis 127.0.0.1:6379&gt; INFO<br>[…]<br>role:master<br>and watch for the “role” line which shows either “master” or “slave”. Starting with version 2.8 the “INFO” command also gives you per slave replication status looking like this<br>slave0:ip&#x3D;127.0.0.1,port&#x3D;6380,state&#x3D;online,offset&#x3D;281,lag&#x3D;0<br>Setting up Replication<br>If you quickly need to set up replication just issue<br>SLAVEOF <IP> <port><br>on a machine that you want to become slave of the given IP. It will immediately get values from the master. Note that this instance will still be writable. If you want it to be read-only change the redis config file (only available in most recent version, e.g. not on Debian). To revert the slave setting run<br>SLAVEOF NO ONE<br>Performance Testing<br>Benchmark<br>Install the Redis tools and run the provided benchmarking tool<br>redis-benchmark -h <host> [-p <port>]<br>If you are migrating from&#x2F;to memcached protocol check out how to run the same benchmark for any key value store with memcached protocol.<br>Debugging Latency<br>First measure system latency on your Redis server with<br>redis-cli –intrinsic-latency 100<br>and then sample from your Redis clients with<br>redis-cli –latency -h <host> -p <port><br>If you have problems with high latency check if transparent huge pages are disabled. Disable it with<br>echo never &gt; &#x2F;sys&#x2F;kernel&#x2F;mm&#x2F;transparent_hugepage&#x2F;enabled<br>Dump Database Backup<br>As Redis allows RDB database dumps in background, you can issue a dump at any time. Just run:<br>BGSAVE<br>When running this command Redis will fork and the new process will dump into the “dbfilename” configured in the Redis configuration without the original process being blocked. Of course the fork itself might cause an interruption. Use “LASTSAVE” to check when the dump file was last updated. For a simple backup solution just backup the dump file. If you need a synchronous save run “SAVE” instead of “BGSAVE”.<br>Listing Connections<br>Starting with version 2.4 you can list connections with<br>CLIENT LIST<br>and you can terminate connections with<br>CLIENT KILL <IP>:<port><br>Monitoring Traffic<br>The propably most useful command compared to memcached where you need to trace network traffic is the “MONITOR” command which will dump incoming commands in real time.<br>redis 127.0.0.1:6379&gt; MONITOR<br>OK<br>1371241093.375324 “monitor”<br>1371241109.735725 “keys” “*”<br>1371241152.344504 “set” “testkey” “1”<br>1371241165.169184 “get” “testkey”<br>additionally use “SLOWLOG” to track the slowest queries in an interval. For example<br>SLOWLOG RESET</li>
+<li><p>“dir”</p>
+</li>
+<li><p>“&#x2F;var&#x2F;lib&#x2F;redis”</p>
+</li>
+<li><p>“dbfilename”</p>
+</li>
+<li><p>“dump.rdb”</p>
+</li>
+<li><p>“requirepass”</p>
+</li>
+<li><p>(nil)</p>
+</li>
+<li><p>“masterauth”</p>
+</li>
+<li><p>(nil)</p>
+</li>
+<li><p>“maxmemory”</p>
+</li>
+<li><p>“0”</p>
+</li>
+<li><p>“maxmemory-policy”</p>
+</li>
+<li><p>“volatile-lru”</p>
+</li>
+<li><p>“maxmemory-samples”</p>
+</li>
+<li><p>“3”</p>
+</li>
+<li><p>“timeout”</p>
+</li>
+<li><p>“300”</p>
+</li>
+<li><p>“appendonly”</p>
+</li>
+<li><p>“no”</p>
+</li>
+<li><p>“no-appendfsync-on-rewrite”</p>
+</li>
+<li><p>“no”</p>
+</li>
+<li><p>“appendfsync”</p>
+</li>
+<li><p>“everysec”              # &lt;—- how often fsync() is called</p>
+</li>
+<li><p>“save”</p>
+</li>
+<li><p>“900 1 300 10 60 10000”     # &lt;—- how often Redis dumps in background</p>
+</li>
+<li><p>“slave-serve-stale-data”</p>
+</li>
+<li><p>“yes”</p>
+</li>
+<li><p>“hash-max-zipmap-entries”</p>
+</li>
+<li><p>“512”</p>
+</li>
+<li><p>“hash-max-zipmap-value”</p>
+</li>
+<li><p>“64”</p>
+</li>
+<li><p>“list-max-ziplist-entries”</p>
+</li>
+<li><p>“512”</p>
+</li>
+<li><p>“list-max-ziplist-value”</p>
+</li>
+<li><p>“64”</p>
+</li>
+<li><p>“set-max-intset-entries”</p>
+</li>
+<li><p>“512”</p>
+</li>
+<li><p>“slowlog-log-slower-than”</p>
+</li>
+<li><p>“10000”</p>
+</li>
+<li><p>“slowlog-max-len”</p>
+</li>
+<li><p>“64”</p>
+</li>
 </ol>
-<h1 id="wait-for-some-time"><a href="#wait-for-some-time" class="headerlink" title="wait for some time"></a>wait for some time</h1><p>SLOWLOG GET 25<br>and get the 25 slowest command during this time.<br>Sharding with proxies<br>There are two major proxy solutions<br>Twemproxy (aka nutcracker, by Twitter)<br>Codis</p>
+<p>Note that keys and values are alternating and you can change each key by issuing a “CONFIG SET” command like:</p>
+<p>CONFIG SET timeout 900</p>
+<p>Such a change will be effective instantly. When changing values consider also updating the redis configuration file.</p>
+<p>Databases</p>
+<p>Multiple Databases</p>
+<p>Redis has a concept of separated namespaces called “databases”. You can select the database number you want to use with “SELECT”. By default the database with index 0 is used. So issuing</p>
+<p>redis 127.0.0.1:6379&gt; SELECT 1</p>
+<p>OK</p>
+<p>redis 127.0.0.1:6379[1]&gt;</p>
+<p>switches to the second database. Note how the prompt changed and now has a “[1]” to indicate the database selection. To find out how many databases there are you might want to run redis-cli from the shell:</p>
+<p>$ redis-cli INFO | grep ^db</p>
+<p>db0:keys&#x3D;91,expires&#x3D;88</p>
+<p>db1:keys&#x3D;1,expires&#x3D;0</p>
+<p>Dropping Databases</p>
+<p>To drop the currently selected database run</p>
+<p>FLUSHDB</p>
+<p>to drop all databases at once run</p>
+<p>FLUSHALL</p>
+<p>Replication</p>
+<p>Checking for Replication</p>
+<p>To see if the instance is a replication slave or master issue</p>
+<p>redis 127.0.0.1:6379&gt; INFO</p>
+<p>[…]</p>
+<p>role:master</p>
+<p>and watch for the “role” line which shows either “master” or “slave”. Starting with version 2.8 the “INFO” command also gives you per slave replication status looking like this</p>
+<p>slave0:ip&#x3D;127.0.0.1,port&#x3D;6380,state&#x3D;online,offset&#x3D;281,lag&#x3D;0</p>
+<p>Setting up Replication</p>
+<p>If you quickly need to set up replication just issue</p>
+<p>SLAVEOF <IP> <port></p>
+<p>on a machine that you want to become slave of the given IP. It will immediately get values from the master. Note that this instance will still be writable. If you want it to be read-only change the redis config file (only available in most recent version, e.g. not on Debian). To revert the slave setting run</p>
+<p>SLAVEOF NO ONE</p>
+<p>Performance Testing</p>
+<p>Benchmark</p>
+<p>Install the Redis tools and run the provided benchmarking tool</p>
+<p>redis-benchmark -h <host> [-p <port>]</p>
+<p>If you are migrating from&#x2F;to memcached protocol check out how to run the same benchmark for any key value store with memcached protocol.</p>
+<p>Debugging Latency</p>
+<p>First measure system latency on your Redis server with</p>
+<p>redis-cli –intrinsic-latency 100</p>
+<p>and then sample from your Redis clients with</p>
+<p>redis-cli –latency -h <host> -p <port></p>
+<p>If you have problems with high latency check if transparent huge pages are disabled. Disable it with</p>
+<p>echo never &gt; &#x2F;sys&#x2F;kernel&#x2F;mm&#x2F;transparent_hugepage&#x2F;enabled</p>
+<p>Dump Database Backup</p>
+<p>As Redis allows RDB database dumps in background, you can issue a dump at any time. Just run:</p>
+<p>BGSAVE</p>
+<p>When running this command Redis will fork and the new process will dump into the “dbfilename” configured in the Redis configuration without the original process being blocked. Of course the fork itself might cause an interruption. Use “LASTSAVE” to check when the dump file was last updated. For a simple backup solution just backup the dump file. If you need a synchronous save run “SAVE” instead of “BGSAVE”.</p>
+<p>Listing Connections</p>
+<p>Starting with version 2.4 you can list connections with</p>
+<p>CLIENT LIST</p>
+<p>and you can terminate connections with</p>
+<p>CLIENT KILL <IP>:<port></p>
+<p>Monitoring Traffic</p>
+<p>The propably most useful command compared to memcached where you need to trace network traffic is the “MONITOR” command which will dump incoming commands in real time.</p>
+<p>redis 127.0.0.1:6379&gt; MONITOR</p>
+<p>OK</p>
+<p>1371241093.375324 “monitor”</p>
+<p>1371241109.735725 “keys” “*”</p>
+<p>1371241152.344504 “set” “testkey” “1”</p>
+<p>1371241165.169184 “get” “testkey”</p>
+<p>additionally use “SLOWLOG” to track the slowest queries in an interval. For example</p>
+<p>SLOWLOG RESET</p>
+<h1 id="wait-for-some-time"><a href="#wait-for-some-time" class="headerlink" title="wait for some time"></a>wait for some time</h1><p>SLOWLOG GET 25</p>
+<p>and get the 25 slowest command during this time.</p>
+<p>Sharding with proxies</p>
+<p>There are two major proxy solutions</p>
+<p>Twemproxy (aka nutcracker, by Twitter)</p>
+<p>Codis</p>
 	  
 	</div>
 

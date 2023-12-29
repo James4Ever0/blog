@@ -135,62 +135,62 @@
   <div class="row">
 	
 	
-		<h2 id="jax"><a href="#jax" class="headerlink" title="jax"></a><a target="_blank" rel="noopener" href="https://github.com/google/jax">jax</a></h2><p><a target="_blank" rel="noopener" href="https://jax.readthedocs.io/en/latest/">docs</a><br>autograd and xla (Accelerated Linear Algebra)</p>
+		<h2 id="jax"><a href="#jax" class="headerlink" title="jax"></a><a target="_blank" rel="noopener" href="https://github.com/google/jax">jax</a></h2><p><a target="_blank" rel="noopener" href="https://jax.readthedocs.io/en/latest/">docs</a></p>
+<p>autograd and xla (Accelerated Linear Algebra)</p>
 <details>
-With its updated version of Autograd, JAX can automatically differentiate native Python and NumPy functions. It can differentiate through loops, branches, recursion, and closures, and it can take derivatives of derivatives of derivatives. It supports reverse-mode differentiation (a.k.a. backpropagation) via grad as well as forward-mode differentiation, and the two can be composed arbitrarily to any order.
-XLA (Accelerated Linear Algebra) is a domain-specific compiler for linear algebra that can accelerate TensorFlow models with potentially no source code changes.
+
+<p>With its updated version of Autograd, JAX can automatically differentiate native Python and NumPy functions. It can differentiate through loops, branches, recursion, and closures, and it can take derivatives of derivatives of derivatives. It supports reverse-mode differentiation (a.k.a. backpropagation) via grad as well as forward-mode differentiation, and the two can be composed arbitrarily to any order.</p>
+<p>XLA (Accelerated Linear Algebra) is a domain-specific compiler for linear algebra that can accelerate TensorFlow models with potentially no source code changes.</p>
 </details>
-## [pyro](http://pyro.ai/#install)
-probabilistic programming
-[getting started](https://docs.pyro.ai/en/stable/getting_started.html)
-[examples](http://pyro.ai/examples/)
-[sample code](https://github.com/pyro-ppl/pyro/tree/dev/examples)
-## [numpyro](https://num.pyro.ai/)
-[getting started](https://num.pyro.ai/en/stable/getting_started.html)
-pyro implementation in numpy, alpha stage
-## [scikit-learn](https://scikit-learn.org/stable/index.html)
-machine learning in python
-## [libsvm](https://github.com/cjlin1/libsvm)
-install official python bindings:
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -U libsvm-official</span><br></pre></td></tr></table></figure>
-[third-party python libsvm package](https://github.com/ocampor/libsvm) installed by:
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install libsvm</span><br></pre></td></tr></table></figure>
-## [opennlp](https://opennlp.apache.org/)
-[hands-on docs](https://opennlp.apache.org/docs/2.0.0/manual/opennlp.html)
-[model zoo](https://opennlp.apache.org/models.html)
-opennlp uses onnx runtime(maybe?), may support m1 inference.
-opennlp is written in java. after installing openjdk on macos with homebrew, run this to ensure openjdk is detected:
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">ln</span> -sfn $(brew --prefix)/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk</span><br></pre></td></tr></table></figure>
-opennlp has a language detector for 103 languages, including chinese. opennlp has a sentence detector (separator) which could be trained on chinese (maybe?)
-in order to use opennlp with less code written, here's how to [invoke java from kotlin](https://kotlinlang.org/docs/java-interop.html)
-## [dl4j](https://deeplearning4j.konduit.ai/)
-found on [mannings article about better search engine suggestions](https://manningbooks.medium.com/more-sensitive-suggestions-1c1c39cbdc12). in this example it is used with lucene, which has image retrieval (LIRE) capability. lucene is also avaliable as [lucene.net](https://lucenenet.apache.org/) in dotnet/c#.
-to install lucene.net:
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dotnet add package Lucene.Net --prerelease</span><br></pre></td></tr></table></figure>
-deep learning library for java
-## [xgboost](https://xgboost.readthedocs.io/en/stable/)
-gradient boost is used to train decision trees and classification models.
-## [lightgbm](https://lightgbm.readthedocs.io/en/v3.3.2/)
-Light Gradient Boosting Machine
-have official commandline tools. installation on macos:
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install lightgbm</span><br></pre></td></tr></table></figure>
-install python package on macos:
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install cmake</span><br><span class="line">pip3 install lightgbm</span><br></pre></td></tr></table></figure>
-## [pymc](https://www.pymc.io/welcome.html)
-[examples](https://www.pymc.io/projects/examples/en/latest/gallery.html)
-if want to enable jax sampling, install  `numpyro` or `blackjax` via `pip`
-difference between pymc3 (old) and pymc (pymc4):
-pymc is optimized and faster than pymc3
-pymc3 use theano as backend while pymc use aesara (forked theano)
-[docs](https://www.pymc.io/projects/docs/en/stable/learn.html) with live demo of pymc
-PyMC is a probabilistic programming library for Python that allows users to build Bayesian models with a simple Python API and fit them using Markov chain Monte Carlo (MCMC) methods.
-## [fastai](https://github.com/fastai/fastai)
-a high level torch wrapper including “out of the box” support for vision, text, tabular, and collab (collaborative filtering) models.
-[docs](https://docs.fast.ai/)
-[courses](https://course.fast.ai/)
-on the twitter list related to opennlp shown up on its official website, fastai has been spotted.
-fastai does not support macos. or is it? fastai is on top of pytorch. initial support starts with 2.7.8 and now it is currently 2.7.9
-searching 'samoyed' like [this](https://github.com/search?q=org%3Afastai+samoyed&type=code) in github we get a [dataset for pets classification called imagewoof](https://s3.amazonaws.com/fast-ai-imageclas/imagewoof.tgz) from [fastai 2020 tutorial series](https://github.com/fastai/course20/blob/master/index.ipynb). more image classes like subcategories of cats may be found in [imagenet](https://image-net.org/index).
+
+<h2 id="pyro"><a href="#pyro" class="headerlink" title="pyro"></a><a target="_blank" rel="noopener" href="http://pyro.ai/#install">pyro</a></h2><p>probabilistic programming</p>
+<p><a target="_blank" rel="noopener" href="https://docs.pyro.ai/en/stable/getting_started.html">getting started</a></p>
+<p><a target="_blank" rel="noopener" href="http://pyro.ai/examples/">examples</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/pyro-ppl/pyro/tree/dev/examples">sample code</a></p>
+<h2 id="numpyro"><a href="#numpyro" class="headerlink" title="numpyro"></a><a target="_blank" rel="noopener" href="https://num.pyro.ai/">numpyro</a></h2><p><a target="_blank" rel="noopener" href="https://num.pyro.ai/en/stable/getting_started.html">getting started</a></p>
+<p>pyro implementation in numpy, alpha stage</p>
+<h2 id="scikit-learn"><a href="#scikit-learn" class="headerlink" title="scikit-learn"></a><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/index.html">scikit-learn</a></h2><p>machine learning in python</p>
+<h2 id="libsvm"><a href="#libsvm" class="headerlink" title="libsvm"></a><a target="_blank" rel="noopener" href="https://github.com/cjlin1/libsvm">libsvm</a></h2><p>install official python bindings:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install -U libsvm-official</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/ocampor/libsvm">third-party python libsvm package</a> installed by:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install libsvm</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="opennlp"><a href="#opennlp" class="headerlink" title="opennlp"></a><a target="_blank" rel="noopener" href="https://opennlp.apache.org/">opennlp</a></h2><p><a target="_blank" rel="noopener" href="https://opennlp.apache.org/docs/2.0.0/manual/opennlp.html">hands-on docs</a></p>
+<p><a target="_blank" rel="noopener" href="https://opennlp.apache.org/models.html">model zoo</a></p>
+<p>opennlp uses onnx runtime(maybe?), may support m1 inference.</p>
+<p>opennlp is written in java. after installing openjdk on macos with homebrew, run this to ensure openjdk is detected:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">ln</span> -sfn $(brew --prefix)/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>opennlp has a language detector for 103 languages, including chinese. opennlp has a sentence detector (separator) which could be trained on chinese (maybe?)</p>
+<p>in order to use opennlp with less code written, here’s how to <a target="_blank" rel="noopener" href="https://kotlinlang.org/docs/java-interop.html">invoke java from kotlin</a></p>
+<h2 id="dl4j"><a href="#dl4j" class="headerlink" title="dl4j"></a><a target="_blank" rel="noopener" href="https://deeplearning4j.konduit.ai/">dl4j</a></h2><p>found on <a target="_blank" rel="noopener" href="https://manningbooks.medium.com/more-sensitive-suggestions-1c1c39cbdc12">mannings article about better search engine suggestions</a>. in this example it is used with lucene, which has image retrieval (LIRE) capability. lucene is also avaliable as <a target="_blank" rel="noopener" href="https://lucenenet.apache.org/">lucene.net</a> in dotnet&#x2F;c#.</p>
+<p>to install lucene.net:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dotnet add package Lucene.Net --prerelease</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>deep learning library for java</p>
+<h2 id="xgboost"><a href="#xgboost" class="headerlink" title="xgboost"></a><a target="_blank" rel="noopener" href="https://xgboost.readthedocs.io/en/stable/">xgboost</a></h2><p>gradient boost is used to train decision trees and classification models.</p>
+<h2 id="lightgbm"><a href="#lightgbm" class="headerlink" title="lightgbm"></a><a target="_blank" rel="noopener" href="https://lightgbm.readthedocs.io/en/v3.3.2/">lightgbm</a></h2><p>Light Gradient Boosting Machine</p>
+<p>have official commandline tools. installation on macos:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install lightgbm</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>install python package on macos:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">brew install cmake</span><br><span class="line">pip3 install lightgbm</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="pymc"><a href="#pymc" class="headerlink" title="pymc"></a><a target="_blank" rel="noopener" href="https://www.pymc.io/welcome.html">pymc</a></h2><p><a target="_blank" rel="noopener" href="https://www.pymc.io/projects/examples/en/latest/gallery.html">examples</a></p>
+<p>if want to enable jax sampling, install  <code>numpyro</code> or <code>blackjax</code> via <code>pip</code></p>
+<p>difference between pymc3 (old) and pymc (pymc4):</p>
+<p>pymc is optimized and faster than pymc3</p>
+<p>pymc3 use theano as backend while pymc use aesara (forked theano)</p>
+<p><a target="_blank" rel="noopener" href="https://www.pymc.io/projects/docs/en/stable/learn.html">docs</a> with live demo of pymc</p>
+<p>PyMC is a probabilistic programming library for Python that allows users to build Bayesian models with a simple Python API and fit them using Markov chain Monte Carlo (MCMC) methods.</p>
+<h2 id="fastai"><a href="#fastai" class="headerlink" title="fastai"></a><a target="_blank" rel="noopener" href="https://github.com/fastai/fastai">fastai</a></h2><p>a high level torch wrapper including “out of the box” support for vision, text, tabular, and collab (collaborative filtering) models.</p>
+<p><a target="_blank" rel="noopener" href="https://docs.fast.ai/">docs</a></p>
+<p><a target="_blank" rel="noopener" href="https://course.fast.ai/">courses</a></p>
+<p>on the twitter list related to opennlp shown up on its official website, fastai has been spotted.</p>
+<p>fastai does not support macos. or is it? fastai is on top of pytorch. initial support starts with 2.7.8 and now it is currently 2.7.9</p>
+<p>searching ‘samoyed’ like <a target="_blank" rel="noopener" href="https://github.com/search?q=org:fastai+samoyed&type=code">this</a> in github we get a <a target="_blank" rel="noopener" href="https://s3.amazonaws.com/fast-ai-imageclas/imagewoof.tgz">dataset for pets classification called imagewoof</a> from <a target="_blank" rel="noopener" href="https://github.com/fastai/course20/blob/master/index.ipynb">fastai 2020 tutorial series</a>. more image classes like subcategories of cats may be found in <a target="_blank" rel="noopener" href="https://image-net.org/index">imagenet</a>.</p>
+
 	
 	</div>
   <a type="button" href="/blog/2022/08/07/c3ccee20-ebeb-41f0-8cc6-21161e88abc6/#more" class="btn btn-default more">Read More</a>
@@ -216,11 +216,14 @@ searching 'samoyed' like [this](https://github.com/search?q=org%3Afastai+samoyed
 	
 	
 		<h2 id="the-fix"><a href="#the-fix" class="headerlink" title="the fix"></a>the fix</h2><p>to enable the service:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>to update locate db:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/libexec/locate.updatedb</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/libexec/locate.updatedb</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>or, more conveniently:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">ln</span> -s /usr/libexec/locate.updatedb /usr/local/sbin/updatedb</span><br><span class="line">sudo updatedb</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">ln</span> -s /usr/libexec/locate.updatedb /usr/local/sbin/updatedb</span><br><span class="line">sudo updatedb</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <h2 id="alternative"><a href="#alternative" class="headerlink" title="alternative"></a>alternative</h2><p>use <code>mdfind</code></p>
 
 	
@@ -247,7 +250,8 @@ searching 'samoyed' like [this](https://github.com/search?q=org%3Afastai+samoyed
   <div class="row">
 	
 	
-		<h1 id="Termux-Boot-Autostart-Program-Fixes"><a href="#Termux-Boot-Autostart-Program-Fixes" class="headerlink" title="Termux:Boot Autostart Program Fixes"></a>Termux:Boot Autostart Program Fixes</h1><p>according to <a target="_blank" rel="noopener" href="https://github.com/termux/termux-boot/issues/58">this</a>, termux:boot on android 10 and above will not work. instead, change all executables with relative paths in init scripts to their absolute paths. if any referred executable is a script file containing other executable with non-absolute paths(except for those built-in programs like am), change that too.<br>mostly we hold wakelock, start sshd, crond or nginx and other non-blocking, non-interactive apps at start.</p>
+		<h1 id="Termux-Boot-Autostart-Program-Fixes"><a href="#Termux-Boot-Autostart-Program-Fixes" class="headerlink" title="Termux:Boot Autostart Program Fixes"></a>Termux:Boot Autostart Program Fixes</h1><p>according to <a target="_blank" rel="noopener" href="https://github.com/termux/termux-boot/issues/58">this</a>, termux:boot on android 10 and above will not work. instead, change all executables with relative paths in init scripts to their absolute paths. if any referred executable is a script file containing other executable with non-absolute paths(except for those built-in programs like am), change that too.</p>
+<p>mostly we hold wakelock, start sshd, crond or nginx and other non-blocking, non-interactive apps at start.</p>
 
 	
 	</div>
@@ -273,220 +277,242 @@ searching 'samoyed' like [this](https://github.com/search?q=org%3Afastai+samoyed
   <div class="row">
 	
 	
-		<h2 id="it-is-funny-that-macOS-still-supports-AMD-GPUs-means-any-intel-Mac-not-M-series-can-now-utilize-internal-external-AMD-GPUs-as-long-as-frameworks-like-jax-and-pytorch-support-MPS-Metal"><a href="#it-is-funny-that-macOS-still-supports-AMD-GPUs-means-any-intel-Mac-not-M-series-can-now-utilize-internal-external-AMD-GPUs-as-long-as-frameworks-like-jax-and-pytorch-support-MPS-Metal" class="headerlink" title="it is funny that macOS still supports AMD GPUs, means any intel Mac (not M-series!) can now utilize internal&#x2F;external AMD GPUs as long as frameworks like jax and pytorch support MPS&#x2F;Metal."></a>it is funny that macOS still supports AMD GPUs, means any intel Mac (not M-series!) can now utilize internal&#x2F;external AMD GPUs as long as frameworks like <a target="_blank" rel="noopener" href="https://developer.apple.com/metal/jax/">jax</a> and <a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/notes/mps.html">pytorch</a> support MPS&#x2F;Metal.</h2><p>calling python code from swift using pythonkit:</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">downloadVideo</span>(<span class="params">link</span>: <span class="type">String</span>)&#123;</span><br><span class="line"><span class="keyword">let</span> sys <span class="operator">=</span> <span class="type">Python</span>.import(<span class="string">&quot;sys&quot;</span>)</span><br><span class="line">sys.path.append(dirPath)</span><br><span class="line"><span class="keyword">let</span> example <span class="operator">=</span> <span class="type">Python</span>.import(<span class="string">&quot;sample&quot;</span>)</span><br><span class="line"><span class="keyword">let</span> response <span class="operator">=</span> example.downloadVideo(link, dirPath)</span><br><span class="line">videoPath <span class="operator">=</span> <span class="type">String</span>(response)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+		<p>it is funny that macOS still supports AMD GPUs, means any intel Mac (not M-series!) can now utilize internal&#x2F;external AMD GPUs as long as frameworks like <a target="_blank" rel="noopener" href="https://developer.apple.com/metal/jax/">jax</a> and <a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/notes/mps.html">pytorch</a> support MPS&#x2F;Metal.</p>
+<hr>
+<p>calling python code from swift using pythonkit:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">downloadVideo</span>(<span class="params">link</span>: <span class="type">String</span>)&#123;</span><br><span class="line"><span class="keyword">let</span> sys <span class="operator">=</span> <span class="type">Python</span>.import(<span class="string">&quot;sys&quot;</span>)</span><br><span class="line">sys.path.append(dirPath)</span><br><span class="line"><span class="keyword">let</span> example <span class="operator">=</span> <span class="type">Python</span>.import(<span class="string">&quot;sample&quot;</span>)</span><br><span class="line"><span class="keyword">let</span> response <span class="operator">=</span> example.downloadVideo(link, dirPath)</span><br><span class="line">videoPath <span class="operator">=</span> <span class="type">String</span>(response)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p><a target="_blank" rel="noopener" href="https://github.com/sickcodes/Docker-OSX">run macos in docker</a> with kvm</p>
 <h2 id="neural-engine"><a href="#neural-engine" class="headerlink" title="neural engine"></a>neural engine</h2><p>it is used for coreml inference, not training</p>
-<h2 id="run-coreml-on-hackintosh"><a href="#run-coreml-on-hackintosh" class="headerlink" title="run coreml on hackintosh"></a>run coreml on hackintosh</h2><p>first, download macos montery using the mac.<br>then, install it on hackintosh, with associated nvidia drivers.<br>next test gpu avalibility via system info panel.<br>then install xcode commandline tools and check coreml avalibility</p>
-<h2 id="run-coreml-with-swift-on-linux"><a href="#run-coreml-with-swift-on-linux" class="headerlink" title="run coreml with swift on linux"></a>run coreml with swift on linux</h2><p>darling is at its very premature stage, just like the wine. now it is testing something called “darlingserver” which is a full userspace implementation and is prone to tons of problems. swift repl is not working and installing xcode commandline tools 14 will hang this thing. i suggest you to do light model training on macbook air and convert it to onnx if want to use it everywhere.<br>before reinstallation of darling, make sure you have removed all darling related files by checking <code>updatedb; locate darling | grep -v &lt;compile directory&gt;</code><br>visit <a target="_blank" rel="noopener" href="https://docs.darlinghq.org/build-instructions.html">here</a> to install darling from source (maybe that’s the only way)<br>if want to install darling on kali, you must outsource all deeplearning models to other disks, and collect all other big files to somewhere else or trash them. use systemwide user broadcast method to warn me if any of the disk is missing. use automatic symlink change method to adapt the external disk mountpoint changes.<br>darling can <a target="_blank" rel="noopener" href="https://github.com/darlinghq/darling-docs/blob/master/src/installing-software.md#:~:text=To%20install%20command-line%20developer%20tools%20such%20as%20the,install%20only%20command-line%20tools%20from%20Apple%20by%20running">install xcode commandline tools with macos sdk</a>, so maybe it can run coreml models with swift using cpu. gpu support is currently not known. maybe that requires metal support.</p>
-<h2 id="thermal-and-battery-life-concerns-and-more"><a href="#thermal-and-battery-life-concerns-and-more" class="headerlink" title="thermal and battery life concerns, and more"></a>thermal and battery life concerns, and more</h2><p>consider <a target="_blank" rel="noopener" href="https://support.apple.com/en-us/HT208544">using external gpus (eGPUs) with thunderbolt 3 and AMD GPUs</a> to avoid overheating. currently that can only be done with intel Macs.<br>battery life is currently bad for intel&#x2F;amd notebooks of x86&#x2F;64 architecture.<br>heavy lifting jobs are likely to be run on Mac Studio with M1 Ultra and 128GB RAM. Macbook Air M1 with 8GB RAM is simply not feasible.<br>aside of Apple platforms, these APIs are virtually useless.<br>to run these on other non-apple machines, you need to tweak and install macOS on x86-64 platforms with macOS supported GPUs(may have low performance), which will definitely not taking any advantage of huge shared RAM with CPU, and may run poorly on CoreML&#x2F;CreateML, may not support deepspeed stage 2&#x2F;3 or BMI(big model inference)</p>
+<h2 id="run-coreml-on-hackintosh"><a href="#run-coreml-on-hackintosh" class="headerlink" title="run coreml on hackintosh"></a>run coreml on hackintosh</h2><p>first, download macos montery using the mac.</p>
+<p>then, install it on hackintosh, with associated nvidia drivers.</p>
+<p>next test gpu avalibility via system info panel.</p>
+<p>then install xcode commandline tools and check coreml avalibility</p>
+<h2 id="run-coreml-with-swift-on-linux"><a href="#run-coreml-with-swift-on-linux" class="headerlink" title="run coreml with swift on linux"></a>run coreml with swift on linux</h2><p>darling is at its very premature stage, just like the wine. now it is testing something called “darlingserver” which is a full userspace implementation and is prone to tons of problems. swift repl is not working and installing xcode commandline tools 14 will hang this thing. i suggest you to do light model training on macbook air and convert it to onnx if want to use it everywhere.</p>
+<p>before reinstallation of darling, make sure you have removed all darling related files by checking <code>updatedb; locate darling | grep -v &lt;compile directory&gt;</code></p>
+<p>visit <a target="_blank" rel="noopener" href="https://docs.darlinghq.org/build-instructions.html">here</a> to install darling from source (maybe that’s the only way)</p>
+<p>if want to install darling on kali, you must outsource all deeplearning models to other disks, and collect all other big files to somewhere else or trash them. use systemwide user broadcast method to warn me if any of the disk is missing. use automatic symlink change method to adapt the external disk mountpoint changes.</p>
+<p>darling can <a target="_blank" rel="noopener" href="https://github.com/darlinghq/darling-docs/blob/master/src/installing-software.md#:~:text=To%20install%20command-line%20developer%20tools%20such%20as%20the,install%20only%20command-line%20tools%20from%20Apple%20by%20running">install xcode commandline tools with macos sdk</a>, so maybe it can run coreml models with swift using cpu. gpu support is currently not known. maybe that requires metal support.</p>
+<h2 id="thermal-and-battery-life-concerns-and-more"><a href="#thermal-and-battery-life-concerns-and-more" class="headerlink" title="thermal and battery life concerns, and more"></a>thermal and battery life concerns, and more</h2><p>consider <a target="_blank" rel="noopener" href="https://support.apple.com/en-us/HT208544">using external gpus (eGPUs) with thunderbolt 3 and AMD GPUs</a> to avoid overheating. currently that can only be done with intel Macs.</p>
+<p>battery life is currently bad for intel&#x2F;amd notebooks of x86&#x2F;64 architecture.</p>
+<p>heavy lifting jobs are likely to be run on Mac Studio with M1 Ultra and 128GB RAM. Macbook Air M1 with 8GB RAM is simply not feasible.</p>
+<p>aside of Apple platforms, these APIs are virtually useless.</p>
+<p>to run these on other non-apple machines, you need to tweak and install macOS on x86-64 platforms with macOS supported GPUs(may have low performance), which will definitely not taking any advantage of huge shared RAM with CPU, and may run poorly on CoreML&#x2F;CreateML, may not support deepspeed stage 2&#x2F;3 or BMI(big model inference)</p>
 <details><summary>Non-Supported NVIDIA Cards, use AMD GPU instead</summary>
-High Sierra no longer supports NVIDIA Mac.
-Mojave – Catalina – BigSur only works with AMD graphics and Intel onboard graphics and only a very small number of old NVIDIA products. Suppose you have GTX 1070, 1080, and the like, you can not use High Sierra onwards because Nvidia does not provide any updates for Mac and can not be used in any other way.
-In general, the graphics of the Turing, Pascal, and Maxwell series will never be supported again. The latest Mac version that can use this series of graphics is High Sierra.
+
+<p>High Sierra no longer supports NVIDIA Mac.</p>
+<p>Mojave – Catalina – BigSur only works with AMD graphics and Intel onboard graphics and only a very small number of old NVIDIA products. Suppose you have GTX 1070, 1080, and the like, you can not use High Sierra onwards because Nvidia does not provide any updates for Mac and can not be used in any other way.</p>
+<p>In general, the graphics of the Turing, Pascal, and Maxwell series will never be supported again. The latest Mac version that can use this series of graphics is High Sierra.</p>
 </details>
-## tensorflow with m1 support
-using [tensorflow metal plugin](https://developer.apple.com/metal/tensorflow-plugin/), which sets up miniforge and install tensorflow-metal within.
-install without miniforge(works!)
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install tensorflow-macos tensorflow-metal</span><br></pre></td></tr></table></figure>
-validation:
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -c <span class="string">&quot;import tensorflow as tf; physical_devices = tf.config.list_physical_devices(&#x27;GPU&#x27;); print(&#x27;Num GPUs:&#x27;, len(physical_devices)); print(physical_devices)&quot;</span></span><br></pre></td></tr></table></figure>
-## pytorch with m1 support, using MPS (Metal performance shader)
-install from nightly release channel, with minimum system version requirements 12.3 (which this machine had been qualified after system update, now 12.5)
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># MPS acceleration is available on MacOS 12.3+</span></span><br><span class="line">pip3 install --pre torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/nightly/cpu</span><br></pre></td></tr></table></figure>
-validation
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -c <span class="string">&quot;import torch; print(&#x27;MPS avaliable:&#x27;,torch.backends.mps.is_available()); print(&#x27;Built with MPS:&#x27;,torch.backends.mps.is_built())&quot;</span></span><br></pre></td></tr></table></figure>
-## run python inside swift
-use [pythonkit](https://github.com/pvieito/PythonKit.git)
-## automatic machine learning using CreateML
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> CreateML</span><br></pre></td></tr></table></figure>
-CreateML is similar to any other [AutoML](https://www.automl.org/automl/) tools, like [AutoKeras](https://autokeras.com/), [AutoTrain by Huggingface](https://huggingface.co/autotrain) (works by training against a selected set of user-provided models)
-## using CoreML
-[curated, largest coreml models collection](https://github.com/likedan/Awesome-CoreML-Models)
-CoreML models can be created by CreateML and some customization can be done via `protocol MLCustomLayer`.
-[onnxruntime](https://onnxruntime.ai/) can run onnx models on CoreML, via c#, since that library is maintained by microsoft.
-to install c# on macos:
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install dotnet-sdk</span><br></pre></td></tr></table></figure>
-to install and launch [dotnet repl](https://github.com/jonsequitur/dotnet-repl):
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dotnet tool install -g dotnet-repl</span><br><span class="line">dotnet repl</span><br></pre></td></tr></table></figure>
-## paddlepaddle support
-convert into onnx first, then run on onnxruntime.
-paddlepaddle itself currently only supports running on M1 CPU only via rosetta 2.
-## Links
-[Swift Core ML 3 implementations of GPT-2, DistilGPT-2, BERT, and DistilBERT for Question answering.](https://github.com/huggingface/swift-coreml-transformers)
-[train image classifier and text classifier](https://www.appcoda.com/create-ml/) in which `CreateMLUI` is deprecated (gone)
-[train source code classifier](https://flight.school/articles/classifying-programming-languages-with-createml/) with [flightschool](https://flight.school/) which is a free swift tutorial books provider
-[classifying sounds with coreml](https://developer.apple.com/documentation/soundanalysis/classifying_sounds_in_an_audio_file) return sound type along with timestamp
-[detect human pose using coreml](https://developer.apple.com/documentation/coreml/model_integration_samples/detecting_human_body_poses_in_an_image)
-[apple speech recognization api request](https://developer.apple.com/documentation/speech/sfspeechrecognitionrequest)
-[pytorch mps backend](https://pytorch.org/docs/stable/notes/mps.html)
-[text classification using createml](https://heartbeat.comet.ml/text-classification-on-ios-using-create-ml-f71d7191404a)
-[onnx model zoo](https://github.com/onnx/models)
-[Getting CoreML Models](https://developer.apple.com/documentation/coreml/getting_a_core_ml_model)
-[CoreML Model Zoo](https://developer.apple.com/machine-learning/models/)
+
+<h2 id="tensorflow-with-m1-support"><a href="#tensorflow-with-m1-support" class="headerlink" title="tensorflow with m1 support"></a>tensorflow with m1 support</h2><p>using <a target="_blank" rel="noopener" href="https://developer.apple.com/metal/tensorflow-plugin/">tensorflow metal plugin</a>, which sets up miniforge and install tensorflow-metal within.</p>
+<p>install without miniforge(works!)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip3 install tensorflow-macos tensorflow-metal</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>validation:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python3 -c <span class="string">&quot;import tensorflow as tf; physical_devices = tf.config.list_physical_devices(&#x27;GPU&#x27;); print(&#x27;Num GPUs:&#x27;, len(physical_devices)); print(physical_devices)&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="pytorch-with-m1-support-using-MPS-Metal-performance-shader"><a href="#pytorch-with-m1-support-using-MPS-Metal-performance-shader" class="headerlink" title="pytorch with m1 support, using MPS (Metal performance shader)"></a>pytorch with m1 support, using MPS (Metal performance shader)</h2><p>install from nightly release channel, with minimum system version requirements 12.3 (which this machine had been qualified after system update, now 12.5)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># MPS acceleration is available on MacOS 12.3+</span></span><br><span class="line">pip3 install --pre torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/nightly/cpu</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>validation</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python3 -c <span class="string">&quot;import torch; print(&#x27;MPS avaliable:&#x27;,torch.backends.mps.is_available()); print(&#x27;Built with MPS:&#x27;,torch.backends.mps.is_built())&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="run-python-inside-swift"><a href="#run-python-inside-swift" class="headerlink" title="run python inside swift"></a>run python inside swift</h2><p>use <a target="_blank" rel="noopener" href="https://github.com/pvieito/PythonKit.git">pythonkit</a></p>
+<h2 id="automatic-machine-learning-using-CreateML"><a href="#automatic-machine-learning-using-CreateML" class="headerlink" title="automatic machine learning using CreateML"></a>automatic machine learning using CreateML</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> CreateML</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>CreateML is similar to any other <a target="_blank" rel="noopener" href="https://www.automl.org/automl/">AutoML</a> tools, like <a target="_blank" rel="noopener" href="https://autokeras.com/">AutoKeras</a>, <a target="_blank" rel="noopener" href="https://huggingface.co/autotrain">AutoTrain by Huggingface</a> (works by training against a selected set of user-provided models)</p>
+<h2 id="using-CoreML"><a href="#using-CoreML" class="headerlink" title="using CoreML"></a>using CoreML</h2><p><a target="_blank" rel="noopener" href="https://github.com/likedan/Awesome-CoreML-Models">curated, largest coreml models collection</a></p>
+<p>CoreML models can be created by CreateML and some customization can be done via <code>protocol MLCustomLayer</code>.</p>
+<p><a target="_blank" rel="noopener" href="https://onnxruntime.ai/">onnxruntime</a> can run onnx models on CoreML, via c#, since that library is maintained by microsoft.</p>
+<p>to install c# on macos:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install dotnet-sdk</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>to install and launch <a target="_blank" rel="noopener" href="https://github.com/jonsequitur/dotnet-repl">dotnet repl</a>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dotnet tool install -g dotnet-repl</span><br><span class="line">dotnet repl</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="paddlepaddle-support"><a href="#paddlepaddle-support" class="headerlink" title="paddlepaddle support"></a>paddlepaddle support</h2><p>convert into onnx first, then run on onnxruntime.</p>
+<p>paddlepaddle itself currently only supports running on M1 CPU only via rosetta 2.</p>
+<h2 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h2><p><a target="_blank" rel="noopener" href="https://github.com/huggingface/swift-coreml-transformers">Swift Core ML 3 implementations of GPT-2, DistilGPT-2, BERT, and DistilBERT for Question answering.</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.appcoda.com/create-ml/">train image classifier and text classifier</a> in which <code>CreateMLUI</code> is deprecated (gone)</p>
+<p><a target="_blank" rel="noopener" href="https://flight.school/articles/classifying-programming-languages-with-createml/">train source code classifier</a> with <a target="_blank" rel="noopener" href="https://flight.school/">flightschool</a> which is a free swift tutorial books provider</p>
+<p><a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/soundanalysis/classifying_sounds_in_an_audio_file">classifying sounds with coreml</a> return sound type along with timestamp</p>
+<p><a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/coreml/model_integration_samples/detecting_human_body_poses_in_an_image">detect human pose using coreml</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/speech/sfspeechrecognitionrequest">apple speech recognization api request</a></p>
+<p><a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/notes/mps.html">pytorch mps backend</a></p>
+<p><a target="_blank" rel="noopener" href="https://heartbeat.comet.ml/text-classification-on-ios-using-create-ml-f71d7191404a">text classification using createml</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/onnx/models">onnx model zoo</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/coreml/getting_a_core_ml_model">Getting CoreML Models</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.apple.com/machine-learning/models/">CoreML Model Zoo</a></p>
 <details>
+
 <p>
-FCRN-DepthPrediction
-Depth Estimation
-Predict the depth from a single image.
-View Models
-MNIST
-Drawing Classification
-Classify a single handwritten digit (supports digits 0-9).
-View Model
-UpdatableDrawingClassifier
-Drawing Classification
-Drawing classifier that learns to recognize new drawings based on a K-Nearest Neighbors model (KNN).
-View Model and Code Sample
-MobileNetV2
-Image Classification
-The MobileNetv2 architecture trained to classify the dominant object in a camera frame or image.
-View Models and Code Sample
-Resnet50
-Image Classification
-A Residual Neural Network that will classify the dominant object in a camera frame or image.
-View Models and Code Sample
-SqueezeNet
-Image Classification
-A small Deep Neural Network architecture that classifies the dominant object in a camera frame or image.
-View Models and Code Sample
-DeeplabV3
-Image Segmentation
-Segment the pixels of a camera frame or image into a predefined set of classes.
-View Models
-YOLOv3
-Object Detection
-Locate and classify 80 different types of objects present in a camera frame or image.
-View Models and Code Sample
-YOLOv3-Tiny
-Object Detection
-Locate and classify 80 different types of objects present in a camera frame or image.
-View Models and Code Sample
-PoseNet
-Pose Estimation
-Estimates up to 17 joint positions for each person in an image.
-View Models and Code Sample
-Text
-BERT-SQuAD
-Question Answering
-Find answers to questions about paragraphs of text.
-View Model and Code Sample
+
+<p>FCRN-DepthPrediction</p>
+<p>Depth Estimation</p>
+<p>Predict the depth from a single image.</p>
+<p>View Models</p>
+<p>MNIST</p>
+<p>Drawing Classification</p>
+<p>Classify a single handwritten digit (supports digits 0-9).</p>
+<p>View Model</p>
+<p>UpdatableDrawingClassifier</p>
+<p>Drawing Classification</p>
+<p>Drawing classifier that learns to recognize new drawings based on a K-Nearest Neighbors model (KNN).</p>
+<p>View Model and Code Sample</p>
+<p>MobileNetV2</p>
+<p>Image Classification</p>
+<p>The MobileNetv2 architecture trained to classify the dominant object in a camera frame or image.</p>
+<p>View Models and Code Sample</p>
+<p>Resnet50</p>
+<p>Image Classification</p>
+<p>A Residual Neural Network that will classify the dominant object in a camera frame or image.</p>
+<p>View Models and Code Sample</p>
+<p>SqueezeNet</p>
+<p>Image Classification</p>
+<p>A small Deep Neural Network architecture that classifies the dominant object in a camera frame or image.</p>
+<p>View Models and Code Sample</p>
+<p>DeeplabV3</p>
+<p>Image Segmentation</p>
+<p>Segment the pixels of a camera frame or image into a predefined set of classes.</p>
+<p>View Models</p>
+<p>YOLOv3</p>
+<p>Object Detection</p>
+<p>Locate and classify 80 different types of objects present in a camera frame or image.</p>
+<p>View Models and Code Sample</p>
+<p>YOLOv3-Tiny</p>
+<p>Object Detection</p>
+<p>Locate and classify 80 different types of objects present in a camera frame or image.</p>
+<p>View Models and Code Sample</p>
+<p>PoseNet</p>
+<p>Pose Estimation</p>
+<p>Estimates up to 17 joint positions for each person in an image.</p>
+<p>View Models and Code Sample</p>
+<p>Text</p>
+<p>BERT-SQuAD</p>
+<p>Question Answering</p>
+<p>Find answers to questions about paragraphs of text.</p>
+<p>View Model and Code Sample</p>
 </p></details>
-[Apple Machine Learning Related APIs](https://developer.apple.com/machine-learning/api/) (may need user permission within or without xcode by means of Info.plist or something)
+
+<p><a target="_blank" rel="noopener" href="https://developer.apple.com/machine-learning/api/">Apple Machine Learning Related APIs</a> (may need user permission within or without xcode by means of Info.plist or something)</p>
 <details>
+
 <p>
-Vision
-Build features that can process and analyze images and video using computer vision.
-View Vision framework
-Image Classification
-Automatically identify the content in images.
-View API
-Image Saliency
-Quantify and visualize the key part of an image or where in the image people are likely to look.
-View API
-Image Alignment
-Analyze and manage the alignment of images.
-View API
-Image Similarity
-Generate a feature print to compute distance between images.
-View API
-Object Detection
-Find and label objects in images.
-View API
-Object Tracking
-Track moving objects in video.
-View API
-Trajectory Detection
-Detect the trajectory of objects in motion in video.
-View API
-Contour Detection
-Trace the edges of objects and features in images and video.
-View API
-Text Detection
-Detect regions of visible text in images.
-View API
-Text Recognition
-Find, recognize, and extract text from images.
-View API
-Face Detection
-Detect human faces in images.
-View API
-Face Tracking
-Track faces from a camera feed in real time.
-View API
-Face Landmarks
-Find facial features in images by detecting landmarks on faces.
-View API
-Face Capture Quality
-Compare face capture quality in a set of images.
-View API
-Human Body Detection
-Find regions that contain human bodies in images.
-View API
-Body Pose
-Detect landmarks on people in images and video.
-View API
-Hand Pose
-Detect landmarks on human hands in images and video.
-View API
-Animal Recognition
-Find cats and dogs in images.
-View API
-Barcode Detection
-Detect and analyze barcodes in images.
-View API
-Rectangle Detection
-Find rectangular regions in images.
-View API
-Horizon Detection
-Determine the horizon angle in images.
-View API
-Optical Flow
-Analyze the pattern of motion of objects between consecutive video frames.
-View API
-Person Segmentation New
-Produce a matte image for a person in an image.
-View API
-Document Detection New
-Detect rectangular regions in images that contain text.
-View API
-Natural Language
-Analyze natural language text and deduce its language-specific metadata.
-View Natural Language framework
-Tokenization
-Enumerate the words in text strings.
-View API
-Language Identification
-Recognize the language of bodies of text.
-View API
-Named Entity Recognition
-Use a linguistic tagger to name entities in a string.
-View API
-Part of Speech Tagging
-Classify nouns, verbs, adjectives, and other parts of speech in a string.
-View API
-Word Embedding
-Get a vector representation for any word and find similarity between two words or nearest neighbors for a word.
-View API
-Sentence Embedding
-Get a vector representation for any string and find similarity between two strings.
-View API
-Sentiment Analysis
-Score text as positive, negative, or neutral based on the sentiment.
-View API
-Speech
-Take advantage of speech recognition and saliency features for a variety of languages.
-View Speech framework
-Speech Recognition
-Recognize and analyze speech in audio and get back data like transcripts.
-View API
-Sound Analysis
-Analyze audio and recognize it as a particular type, such as laughter or applause.
-View Sound Analysis framework
-Sound Classification
-Analyze sounds in audio using the built-in sound classifier or a custom Core ML sound classification model.
-View API
+
+<p>Vision</p>
+<p>Build features that can process and analyze images and video using computer vision.</p>
+<p>View Vision framework</p>
+<p>Image Classification</p>
+<p>Automatically identify the content in images.</p>
+<p>View API</p>
+<p>Image Saliency</p>
+<p>Quantify and visualize the key part of an image or where in the image people are likely to look.</p>
+<p>View API</p>
+<p>Image Alignment</p>
+<p>Analyze and manage the alignment of images.</p>
+<p>View API</p>
+<p>Image Similarity</p>
+<p>Generate a feature print to compute distance between images.</p>
+<p>View API</p>
+<p>Object Detection</p>
+<p>Find and label objects in images.</p>
+<p>View API</p>
+<p>Object Tracking</p>
+<p>Track moving objects in video.</p>
+<p>View API</p>
+<p>Trajectory Detection</p>
+<p>Detect the trajectory of objects in motion in video.</p>
+<p>View API</p>
+<p>Contour Detection</p>
+<p>Trace the edges of objects and features in images and video.</p>
+<p>View API</p>
+<p>Text Detection</p>
+<p>Detect regions of visible text in images.</p>
+<p>View API</p>
+<p>Text Recognition</p>
+<p>Find, recognize, and extract text from images.</p>
+<p>View API</p>
+<p>Face Detection</p>
+<p>Detect human faces in images.</p>
+<p>View API</p>
+<p>Face Tracking</p>
+<p>Track faces from a camera feed in real time.</p>
+<p>View API</p>
+<p>Face Landmarks</p>
+<p>Find facial features in images by detecting landmarks on faces.</p>
+<p>View API</p>
+<p>Face Capture Quality</p>
+<p>Compare face capture quality in a set of images.</p>
+<p>View API</p>
+<p>Human Body Detection</p>
+<p>Find regions that contain human bodies in images.</p>
+<p>View API</p>
+<p>Body Pose</p>
+<p>Detect landmarks on people in images and video.</p>
+<p>View API</p>
+<p>Hand Pose</p>
+<p>Detect landmarks on human hands in images and video.</p>
+<p>View API</p>
+<p>Animal Recognition</p>
+<p>Find cats and dogs in images.</p>
+<p>View API</p>
+<p>Barcode Detection</p>
+<p>Detect and analyze barcodes in images.</p>
+<p>View API</p>
+<p>Rectangle Detection</p>
+<p>Find rectangular regions in images.</p>
+<p>View API</p>
+<p>Horizon Detection</p>
+<p>Determine the horizon angle in images.</p>
+<p>View API</p>
+<p>Optical Flow</p>
+<p>Analyze the pattern of motion of objects between consecutive video frames.</p>
+<p>View API</p>
+<p>Person Segmentation New</p>
+<p>Produce a matte image for a person in an image.</p>
+<p>View API</p>
+<p>Document Detection New</p>
+<p>Detect rectangular regions in images that contain text.</p>
+<p>View API</p>
+<p>Natural Language</p>
+<p>Analyze natural language text and deduce its language-specific metadata.</p>
+<p>View Natural Language framework</p>
+<p>Tokenization</p>
+<p>Enumerate the words in text strings.</p>
+<p>View API</p>
+<p>Language Identification</p>
+<p>Recognize the language of bodies of text.</p>
+<p>View API</p>
+<p>Named Entity Recognition</p>
+<p>Use a linguistic tagger to name entities in a string.</p>
+<p>View API</p>
+<p>Part of Speech Tagging</p>
+<p>Classify nouns, verbs, adjectives, and other parts of speech in a string.</p>
+<p>View API</p>
+<p>Word Embedding</p>
+<p>Get a vector representation for any word and find similarity between two words or nearest neighbors for a word.</p>
+<p>View API</p>
+<p>Sentence Embedding</p>
+<p>Get a vector representation for any string and find similarity between two strings.</p>
+<p>View API</p>
+<p>Sentiment Analysis</p>
+<p>Score text as positive, negative, or neutral based on the sentiment.</p>
+<p>View API</p>
+<p>Speech</p>
+<p>Take advantage of speech recognition and saliency features for a variety of languages.</p>
+<p>View Speech framework</p>
+<p>Speech Recognition</p>
+<p>Recognize and analyze speech in audio and get back data like transcripts.</p>
+<p>View API</p>
+<p>Sound Analysis</p>
+<p>Analyze audio and recognize it as a particular type, such as laughter or applause.</p>
+<p>View Sound Analysis framework</p>
+<p>Sound Classification</p>
+<p>Analyze sounds in audio using the built-in sound classifier or a custom Core ML sound classification model.</p>
+<p>View API</p>
 </p></details>
+
 	
 	</div>
   <a type="button" href="/blog/2022/08/06/2973b65b-d8fa-4967-9d49-758a3b55ad61/#more" class="btn btn-default more">Read More</a>
@@ -538,31 +564,70 @@ View API
 	
 	
 		<p>if you install p2p server nodes on primary server (with hard-to-crack password and proper configs (no brute-forcing)?) you might want to add that (n2n) server node at home.</p>
-<h2 id="p2p-network"><a href="#p2p-network" class="headerlink" title="p2p network"></a>p2p network</h2><p><a target="_blank" rel="noopener" href="https://github.com/ehang-io/nps/">nps</a> also supports p2p<br>(deprecated! does not pass the connectivity test) <a target="_blank" rel="noopener" href="https://github.com/gnbdev/opengnb">opengnb</a> p2p network, faster than n2n v3, can run without public ip<br><a target="_blank" rel="noopener" href="https://github.com/ginuerzh/gost">gost</a> as an frp alternative<br>turned out n2n is necessary, since the speed comparasion strongly disencourage the usage of frp directly.<br>n2n test commands, using compatible v3 protocol to communicate:<br>supernode v3: n2n.laiyx.win:10090<br>warning: it is useless to add multiple supernodes.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-l nton.eu.org:10090 -l n2n.lu8.win:10090 -l n2n.haoren.eu.org:10090 -l</span><br><span class="line">supernode.ntop.org:7777 -l 47.102.102.77:10090 -l n2n.myan.cc:10090 -l n2n.sfcs.eu.org:10090 -l n2n.eriol.cn:10090 -l n2n.x0x.cn:10090 -l n2n.vvcd.win:10090</span><br></pre></td></tr></table></figure>
+<h2 id="p2p-network"><a href="#p2p-network" class="headerlink" title="p2p network"></a>p2p network</h2><p><a target="_blank" rel="noopener" href="https://github.com/ehang-io/nps/">nps</a> also supports p2p</p>
+<p>(deprecated! does not pass the connectivity test) <a target="_blank" rel="noopener" href="https://github.com/gnbdev/opengnb">opengnb</a> p2p network, faster than n2n v3, can run without public ip</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ginuerzh/gost">gost</a> as an frp alternative</p>
+<p>turned out n2n is necessary, since the speed comparasion strongly disencourage the usage of frp directly.</p>
+<p>n2n test commands, using compatible v3 protocol to communicate:</p>
+<p>supernode v3: n2n.laiyx.win:10090</p>
+<p>warning: it is useless to add multiple supernodes.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-l nton.eu.org:10090 -l n2n.lu8.win:10090 -l n2n.haoren.eu.org:10090 -l</span><br><span class="line">supernode.ntop.org:7777 -l 47.102.102.77:10090 -l n2n.myan.cc:10090 -l n2n.sfcs.eu.org:10090 -l n2n.eriol.cn:10090 -l n2n.x0x.cn:10090 -l n2n.vvcd.win:10090</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>kali:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo edge -c &lt;name&gt; -k &lt;password&gt; -a 192.168.100.1 -f -l n2n.laiyx.win:10090 -Er -A3 -e auto</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo edge -c &lt;name&gt; -k &lt;password&gt; -a 192.168.100.1 -f -l n2n.laiyx.win:10090 -Er -A3 -e auto</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>macos, since we use sudo you might consider doing it with system service:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo edge -c &lt;name&gt; -k &lt;password&gt; -a 192.168.100.2 -f -l n2n.laiyx.win:10090 -Er -A3 -e auto</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="http://www.supernode.ml/">public shared n2n supernodes</a><br>you could test the speed and decide to use it or not.<br>in kali discovery service, when local connection is not avaliable, usually the p2p network is preferred than direct frp tunneling.<br>brew has <a target="_blank" rel="noopener" href="https://www.xmodulo.com/how-to-install-and-configure-tinc-vpn.html">tinc</a> as a package!<br><a target="_blank" rel="noopener" href="https://tinc-vpn.org/documentation/tinc.conf.5">tinc conf</a><br><a target="_blank" rel="noopener" href="https://chanix.github.io/TincCookbook/examples/1-HowToInstallTincOnUbuntu1604.html">tinc setup with core server</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/419173153">remote access with vps using tinc</a><br><a target="_blank" rel="noopener" href="https://www.xmodulo.com/how-to-install-and-configure-tinc-vpn.html">install and config tinc on linux</a><br>tinc is somehow complex and it may requires some tinkering on <code>tinc-up</code> or using docker.<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/559c1e582724">install n2n without macports</a><br>use <a target="_blank" rel="noopener" href="https://github.com/ntop/n2n">n2n</a> to send udp packages among clients, try to create direct link between devices which will speed up ssh connection speed. supernode creation could be used along with frpc<br>somehow brew does not have n2n as a package. macports has it, which requires xcode (huge!) to be installed.<br><a target="_blank" rel="noopener" href="https://peervpn.net/">peervpn tutorial</a></p>
-<h2 id="daemonize-launch-at-startup"><a href="#daemonize-launch-at-startup" class="headerlink" title="daemonize (launch at startup)"></a>daemonize (launch at startup)</h2><p>on macos, when crontab is created, cron will be automatically launched by launchd.<br>cronjobs may need to launch with the <code>$(which env)</code> prefix.<br>the problem of internet disconnetion will most not likely to interfere with the server since frpc has auto reconnection and the update hook is the filesystem watchdog, which will not run when no changes made (including the offline period)<br>the watchdog may be replaced by some mirror fuse system, which will report every access request to our dedicated server.<br>we have seen this behavior (filesystem mirroring) in our gitfuse code. but does that support symlink? should we really take care of that? or should we forget that and just use inotify instead?<br>maybe it will affect the client when mounting the remote filesystem using sshfs or rclone, but that has to be verified.</p>
-<h2 id="serve-and-mount-remote-filesystem"><a href="#serve-and-mount-remote-filesystem" class="headerlink" title="serve and mount remote filesystem"></a>serve and mount remote filesystem</h2><p>before serving, make sure the path <code>/media/root/help/pyjom</code> exists by running our mount script<br>create htpasswd file:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">htpasswd -bc webdav_htpasswd &lt;username&gt; &lt;password&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo edge -c &lt;name&gt; -k &lt;password&gt; -a 192.168.100.2 -f -l n2n.laiyx.win:10090 -Er -A3 -e auto</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="http://www.supernode.ml/">public shared n2n supernodes</a></p>
+<p>you could test the speed and decide to use it or not.</p>
+<p>in kali discovery service, when local connection is not avaliable, usually the p2p network is preferred than direct frp tunneling.</p>
+<p>brew has <a target="_blank" rel="noopener" href="https://www.xmodulo.com/how-to-install-and-configure-tinc-vpn.html">tinc</a> as a package!</p>
+<p><a target="_blank" rel="noopener" href="https://tinc-vpn.org/documentation/tinc.conf.5">tinc conf</a></p>
+<p><a target="_blank" rel="noopener" href="https://chanix.github.io/TincCookbook/examples/1-HowToInstallTincOnUbuntu1604.html">tinc setup with core server</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/419173153">remote access with vps using tinc</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.xmodulo.com/how-to-install-and-configure-tinc-vpn.html">install and config tinc on linux</a></p>
+<p>tinc is somehow complex and it may requires some tinkering on <code>tinc-up</code> or using docker.</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/559c1e582724">install n2n without macports</a></p>
+<p>use <a target="_blank" rel="noopener" href="https://github.com/ntop/n2n">n2n</a> to send udp packages among clients, try to create direct link between devices which will speed up ssh connection speed. supernode creation could be used along with frpc</p>
+<p>somehow brew does not have n2n as a package. macports has it, which requires xcode (huge!) to be installed.</p>
+<p><a target="_blank" rel="noopener" href="https://peervpn.net/">peervpn tutorial</a></p>
+<h2 id="daemonize-launch-at-startup"><a href="#daemonize-launch-at-startup" class="headerlink" title="daemonize (launch at startup)"></a>daemonize (launch at startup)</h2><p>on macos, when crontab is created, cron will be automatically launched by launchd.</p>
+<p>cronjobs may need to launch with the <code>$(which env)</code> prefix.</p>
+<p>the problem of internet disconnetion will most not likely to interfere with the server since frpc has auto reconnection and the update hook is the filesystem watchdog, which will not run when no changes made (including the offline period)</p>
+<p>the watchdog may be replaced by some mirror fuse system, which will report every access request to our dedicated server.</p>
+<p>we have seen this behavior (filesystem mirroring) in our gitfuse code. but does that support symlink? should we really take care of that? or should we forget that and just use inotify instead?</p>
+<p>maybe it will affect the client when mounting the remote filesystem using sshfs or rclone, but that has to be verified.</p>
+<h2 id="serve-and-mount-remote-filesystem"><a href="#serve-and-mount-remote-filesystem" class="headerlink" title="serve and mount remote filesystem"></a>serve and mount remote filesystem</h2><p>before serving, make sure the path <code>/media/root/help/pyjom</code> exists by running our mount script</p>
+<p>create htpasswd file:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">htpasswd -bc webdav_htpasswd &lt;username&gt; &lt;password&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>use rclone:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rclone serve webdav /media/root/help/pyjom --addr 0.0.0.0:8468 --key /root/.local/share/code-server/localhost.key --cert /root/.local/share/code-server/localhost.crt --htpasswd /root/Desktop/works/sync_git_repos/remote_deploys/webdav_htpasswd -L</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rclone serve webdav /media/root/help/pyjom --addr 0.0.0.0:8468 --key /root/.local/share/code-server/localhost.key --cert /root/.local/share/code-server/localhost.crt --htpasswd /root/Desktop/works/sync_git_repos/remote_deploys/webdav_htpasswd -L</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>before mounting, use <code>rclone config</code> to setup remote associated with a name. make sure the hostname is <code>localhost</code> instead of ip address to avoid certificate issues. do not install rclone from brew since it does not support fuse. instead, install from <a target="_blank" rel="noopener" href="https://rclone.org/downloads/">here</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rclone mount webdav_local_nginx:/ /Volume/CaseSensitive/pyjom_remote_mountpoint --ca-cert /Users/jamesbrown/Desktop/works/host_discovery_ssh_local_connect/certificates/localhost.crt</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rclone mount webdav_local_nginx:/ /Volume/CaseSensitive/pyjom_remote_mountpoint --ca-cert /Users/jamesbrown/Desktop/works/host_discovery_ssh_local_connect/certificates/localhost.crt</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>after mounting, seems zsh on macos is not working very well with macfuse. bash works. does bash&#x2F;fish works with sshfs as well? maybe that will save efforts.</p>
 <h2 id="encryption-and-invalid-HTTPS-certificates"><a href="#encryption-and-invalid-HTTPS-certificates" class="headerlink" title="encryption and invalid HTTPS certificates"></a>encryption and invalid HTTPS certificates</h2><p>use <code>nginx</code> to redirect remote server as localhost, since the host name on the certificate is localhost we cannot let chrome to trust anything other than that</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">worker_processes <span class="keyword">auto</span>;</span><br><span class="line">error_log error.<span class="built_in">log</span>;</span><br><span class="line">events &#123; &#125;</span><br><span class="line">stream &#123;</span><br><span class="line">server &#123;</span><br><span class="line">listen <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">7576</span>;</span><br><span class="line">proxy_pass REMOTE_HOST:<span class="number">7576</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="code-server-browser-color-fixes"><a href="#code-server-browser-color-fixes" class="headerlink" title="code-server(browser) color fixes"></a>code-server(browser) color fixes</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.cursor</span>&#123;</span><br><span class="line"><span class="attribute">background</span>: white;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span><span class="selector-class">.web</span>&#123;</span><br><span class="line"><span class="attribute">caret-color</span>: white;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.monaco-editor</span> <span class="selector-class">.view-line</span> <span class="selector-tag">span</span><span class="selector-class">.inline-selected-text</span>&#123;</span><br><span class="line"><span class="attribute">background</span>: blue;</span><br><span class="line"><span class="attribute">color</span>: white;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">worker_processes <span class="keyword">auto</span>;</span><br><span class="line">error_log error.<span class="built_in">log</span>;</span><br><span class="line">events &#123; &#125;</span><br><span class="line">stream &#123;</span><br><span class="line">server &#123;</span><br><span class="line">listen <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">7576</span>;</span><br><span class="line">proxy_pass REMOTE_HOST:<span class="number">7576</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="code-server-browser-color-fixes"><a href="#code-server-browser-color-fixes" class="headerlink" title="code-server(browser) color fixes"></a>code-server(browser) color fixes</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.cursor</span>&#123;</span><br><span class="line"><span class="attribute">background</span>: white;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span><span class="selector-class">.web</span>&#123;</span><br><span class="line"><span class="attribute">caret-color</span>: white;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.monaco-editor</span> <span class="selector-class">.view-line</span> <span class="selector-tag">span</span><span class="selector-class">.inline-selected-text</span>&#123;</span><br><span class="line"><span class="attribute">background</span>: blue;</span><br><span class="line"><span class="attribute">color</span>: white;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <h2 id="connectors-other-than-frp"><a href="#connectors-other-than-frp" class="headerlink" title="connectors other than frp"></a>connectors other than frp</h2><p>code-server recommends <a target="_blank" rel="noopener" href="https://coder.com/docs/code-server/latest/guide#external-authentication">some other methods</a> like <a target="_blank" rel="noopener" href="https://github.com/cloudflare/cloudflared#installing-cloudflared">cloudflared</a> and <a target="_blank" rel="noopener" href="https://dashboard.ngrok.com/login">ngrok</a>. 花生壳可能也有用 但是可能不好用</p>
-<h2 id="methods"><a href="#methods" class="headerlink" title="methods"></a>methods</h2><p>try out <a target="_blank" rel="noopener" href="https://github.com/coder/code-server">code-server</a> by <a target="_blank" rel="noopener" href="https://coder.com/">coder</a>, might work?<br>also we use builtin vscode connectors, using ssh.<br>currently we only have <a target="_blank" rel="noopener" href="https://www.idonglei.com/free-frp">one</a>, which uses direct ip address instead of a hijacked domain. maybe it is time to consider some faster server providers.<br>use a universal ssh as workspace extension called <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=Kelvin.vscode-sshfs">SSH FS</a></p>
+<h2 id="methods"><a href="#methods" class="headerlink" title="methods"></a>methods</h2><p>try out <a target="_blank" rel="noopener" href="https://github.com/coder/code-server">code-server</a> by <a target="_blank" rel="noopener" href="https://coder.com/">coder</a>, might work?</p>
+<p>also we use builtin vscode connectors, using ssh.</p>
+<p>currently we only have <a target="_blank" rel="noopener" href="https://www.idonglei.com/free-frp">one</a>, which uses direct ip address instead of a hijacked domain. maybe it is time to consider some faster server providers.</p>
+<p>use a universal ssh as workspace extension called <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=Kelvin.vscode-sshfs">SSH FS</a></p>
 <h2 id="drawbacks-of-SSH-FS-extension"><a href="#drawbacks-of-SSH-FS-extension" class="headerlink" title="drawbacks of SSH FS extension"></a>drawbacks of SSH FS extension</h2><p>some drawbacks of this SSH FS plugin is that it cannot use the plugins from remote machine, also having issue whe jumping to remote files from terminal output. to run code-insider instead of code-oss, maybe we could spin up the official ssh connector, which can only be automated by publickey authentication.</p>
 <h2 id="syncing-updating-and-viewing-using-watchdog-and-sshfs-deprecated-since-it-shares-connection-with-vscode-remote-and-maybe-slower-than-rclone-serve-webdav"><a href="#syncing-updating-and-viewing-using-watchdog-and-sshfs-deprecated-since-it-shares-connection-with-vscode-remote-and-maybe-slower-than-rclone-serve-webdav" class="headerlink" title="syncing, updating and viewing using watchdog and sshfs(deprecated since it shares connection with vscode remote and maybe slower than rclone serve webdav?)"></a>syncing, updating and viewing using watchdog and sshfs(deprecated since it shares connection with vscode remote and maybe slower than rclone serve webdav?)</h2><p>to mount the filesystem via sshfs:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sshfs root@192.168.10.4:/media/root/help/pyjom /Volumes/CaseSensitive/pyjom_remote_mountpoint -o follow_symlinks</span><br></pre></td></tr></table></figure>
-<p>to make sure the changes are updated regularly, we need a filesystem watchdog on kali, which will trigger the action of syncing, utilizing inotify. shall that be adopted on macos? maybe. but my extra editors can be vim or nvim, so it is not so hard to predict. but if it can monitor the file read events, we don’t need those legacy editor program hooks.<br>at least we need to see the output, so we need to mount the remote filesystem as sshfs, then use ffplay to view it.</p>
-<h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><p>for now, two viable ways:<br>one using code-server, the other using code-server-insider provided by code-insider. when using builtin code-server-insider, remember it will not share the plugins installed by code-insider. the remote executable location is at <code>/root/.vscode-server-insiders/bin/12b08be500f8a307f30e92cbc3ee39ba115eab69/bin/code-server-insider</code> or something. must set the local setting <code>remote.SSH.useLocalServer</code> to false.<br>when using code-server, one can connect to the workspace using browser, instead of vscode builtin remote connector.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sshfs root@192.168.10.4:/media/root/help/pyjom /Volumes/CaseSensitive/pyjom_remote_mountpoint -o follow_symlinks</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>to make sure the changes are updated regularly, we need a filesystem watchdog on kali, which will trigger the action of syncing, utilizing inotify. shall that be adopted on macos? maybe. but my extra editors can be vim or nvim, so it is not so hard to predict. but if it can monitor the file read events, we don’t need those legacy editor program hooks.</p>
+<p>at least we need to see the output, so we need to mount the remote filesystem as sshfs, then use ffplay to view it.</p>
+<h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><p>for now, two viable ways:</p>
+<p>one using code-server, the other using code-server-insider provided by code-insider. when using builtin code-server-insider, remember it will not share the plugins installed by code-insider. the remote executable location is at <code>/root/.vscode-server-insiders/bin/12b08be500f8a307f30e92cbc3ee39ba115eab69/bin/code-server-insider</code> or something. must set the local setting <code>remote.SSH.useLocalServer</code> to false.</p>
+<p>when using code-server, one can connect to the workspace using browser, instead of vscode builtin remote connector.</p>
 
 	
 	</div>
@@ -588,7 +653,9 @@ View API
   <div class="row">
 	
 	
-		<p>sometimes we install a single package which brings about tons of dependencies in python, <code>pip-autoremove</code> comes in handy.<br>install it by <code>pip3 install pip-autoremove</code><br>though be careful these dependencies might not be used in other existing packages, they are sometimes still being used in your code!</p>
+		<p>sometimes we install a single package which brings about tons of dependencies in python, <code>pip-autoremove</code> comes in handy.</p>
+<p>install it by <code>pip3 install pip-autoremove</code></p>
+<p>though be careful these dependencies might not be used in other existing packages, they are sometimes still being used in your code!</p>
 
 	
 	</div>
@@ -614,7 +681,17 @@ View API
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://github.com/wxy2077/video_spider">download video without watermark</a> 😛 源视频mp4链接获取: toutiao今日头条app视频;🍉xigua西瓜视频; 🐧tencent腾讯视频; 🎼douyin抖音分享短链接解析，获取无水印播放链接<br>目标追踪使用<a target="_blank" rel="noopener" href="https://github.com/ifzhang/ByteTrack">bytetrack</a><br>如果有动态水印 实际上就是一个目标追踪的任务 识别出来水印的位置 以及里面的文字 确定可信度 然后用目标跟踪算法套上去 一直跟踪直到目标消失为止<br>类似的策略也可以应用于游戏 选出来所有的过场动画 过滤掉游戏画面<br>静态的就用<a target="_blank" rel="noopener" href="https://github.com/rohitrango/automatic-watermark-detection">dewatermark算法</a>就好了<br>视频素材 影视素材 音频素材 图片素材 无水印获取<br>use bing wallpaper<br>gettyimages scraped by github provided scrapers<br><a target="_blank" rel="noopener" href="https://github.com/chuanenlin/shutterscrape">https://github.com/chuanenlin/shutterscrape</a><br><a target="_blank" rel="noopener" href="https://github.com/m-rots/getty/blob/master/getty.go">https://github.com/m-rots/getty/blob/master/getty.go</a><br>视觉中国 无水印爬虫</p>
+		<p><a target="_blank" rel="noopener" href="https://github.com/wxy2077/video_spider">download video without watermark</a> 😛 源视频mp4链接获取: toutiao今日头条app视频;🍉xigua西瓜视频; 🐧tencent腾讯视频; 🎼douyin抖音分享短链接解析，获取无水印播放链接</p>
+<p>目标追踪使用<a target="_blank" rel="noopener" href="https://github.com/ifzhang/ByteTrack">bytetrack</a></p>
+<p>如果有动态水印 实际上就是一个目标追踪的任务 识别出来水印的位置 以及里面的文字 确定可信度 然后用目标跟踪算法套上去 一直跟踪直到目标消失为止</p>
+<p>类似的策略也可以应用于游戏 选出来所有的过场动画 过滤掉游戏画面</p>
+<p>静态的就用<a target="_blank" rel="noopener" href="https://github.com/rohitrango/automatic-watermark-detection">dewatermark算法</a>就好了</p>
+<p>视频素材 影视素材 音频素材 图片素材 无水印获取</p>
+<p>use bing wallpaper</p>
+<p>gettyimages scraped by github provided scrapers</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/chuanenlin/shutterscrape">https://github.com/chuanenlin/shutterscrape</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/m-rots/getty/blob/master/getty.go">https://github.com/m-rots/getty/blob/master/getty.go</a></p>
+<p>视觉中国 无水印爬虫</p>
 
 	
 	</div>
@@ -640,7 +717,24 @@ View API
   <div class="row">
 	
 	
-		<p>twitch<br><a target="_blank" rel="noopener" href="https://netflix.com/">https://netflix.com</a><br><a target="_blank" rel="noopener" href="https://www.ted.com/">https://www.ted.com</a><br><a target="_blank" rel="noopener" href="https://www.youtube.com/">https://www.youtube.com</a><br><a target="_blank" rel="noopener" href="https://www.instagram.com/">https://www.instagram.com</a><br><a target="_blank" rel="noopener" href="https://twitter.com/">https://twitter.com</a><br><a target="_blank" rel="noopener" href="https://www.pornhub.com/">https://www.pornhub.com</a><br><a target="_blank" rel="noopener" href="https://www.bilibili.com/">https://www.bilibili.com</a><br><a target="_blank" rel="noopener" href="https://www.douyu.com/">https://www.douyu.com</a><br><a target="_blank" rel="noopener" href="https://www.huya.com/">https://www.huya.com</a><br><a target="_blank" rel="noopener" href="https://www.iqiyi.com/">https://www.iqiyi.com</a><br><a target="_blank" rel="noopener" href="https://www.youku.com/">https://www.youku.com</a><br><a target="_blank" rel="noopener" href="https://weibo.com/tv">https://weibo.com/tv</a><br><a target="_blank" rel="noopener" href="https://krcom.cn/">https://krcom.cn</a><br><a target="_blank" rel="noopener" href="https://tv.sohu.com/">https://tv.sohu.com</a><br><a target="_blank" rel="noopener" href="https://v.qq.com/">https://v.qq.com</a><br><a target="_blank" rel="noopener" href="https://open.163.com/ted">NetEase Public Class</a><br>[QQ Music-MV](QQ Music-MV)</p>
+		<p>twitch</p>
+<p><a target="_blank" rel="noopener" href="https://netflix.com/">https://netflix.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ted.com/">https://www.ted.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/">https://www.youtube.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.instagram.com/">https://www.instagram.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://twitter.com/">https://twitter.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.pornhub.com/">https://www.pornhub.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/">https://www.bilibili.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.douyu.com/">https://www.douyu.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.huya.com/">https://www.huya.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.iqiyi.com/">https://www.iqiyi.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.youku.com/">https://www.youku.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://weibo.com/tv">https://weibo.com/tv</a></p>
+<p><a target="_blank" rel="noopener" href="https://krcom.cn/">https://krcom.cn</a></p>
+<p><a target="_blank" rel="noopener" href="https://tv.sohu.com/">https://tv.sohu.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://v.qq.com/">https://v.qq.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://open.163.com/ted">NetEase Public Class</a></p>
+<p>[QQ Music-MV](QQ Music-MV)</p>
 
 	
 	</div>
@@ -666,7 +760,13 @@ View API
   <div class="row">
 	
 	
-		<p>visit <a target="_blank" rel="noopener" href="https://ibug.io/blog/2019/05/mathematica-keygen/">online activation code generator</a>, which recommends a paid global internet service provider.<br>first generate MathID using a free wolfram account, login through it.<br>next find the location of <code>mathpass</code>. follow the format and create a new line above all lines, with the obtained activation code.<br>for macos, we can find it here:<br><code>/Users/&lt;userName&gt;/Library/WolframEngine/Licensing/mathpass</code><br>for linux:<br><code>/root/.WolframEngine/Licensing/mathpass</code> or something else.</p>
+		<p>visit <a target="_blank" rel="noopener" href="https://ibug.io/blog/2019/05/mathematica-keygen/">online activation code generator</a>, which recommends a paid global internet service provider.</p>
+<p>first generate MathID using a free wolfram account, login through it.</p>
+<p>next find the location of <code>mathpass</code>. follow the format and create a new line above all lines, with the obtained activation code.</p>
+<p>for macos, we can find it here:</p>
+<p><code>/Users/&lt;userName&gt;/Library/WolframEngine/Licensing/mathpass</code></p>
+<p>for linux:</p>
+<p><code>/root/.WolframEngine/Licensing/mathpass</code> or something else.</p>
 
 	
 	</div>
