@@ -199,9 +199,13 @@ bgm somehow not in sync (too broad bpm&#x2F;clip ranges?)</p>
 </li>
 <li><p><input disabled="" type="checkbox"> 
 to analyze the peaks (abrupt changes) in bgm and grab louder peaks using <code>pyloudnorm</code> (getting audio volume)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip3 install pyloudnorm</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> soundfile <span class="keyword">as</span> sf</span><br><span class="line"><span class="keyword">import</span> pyloudnorm <span class="keyword">as</span> pyln</span><br><span class="line">data, rate = sf.read(<span class="string">&quot;0055014.wav&quot;</span>) <span class="comment"># load audio (with shape (samples, channels))</span></span><br><span class="line"><span class="built_in">print</span>(data.shape)</span><br><span class="line">meter = pyln.Meter(rate) <span class="comment"># create BS.1770 meter</span></span><br><span class="line">loudness = meter.integrated_loudness(data) <span class="comment"># measure loudness</span></span><br><span class="line"><span class="built_in">print</span>(loudness)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 </li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip3 install pyloudnorm</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> soundfile <span class="keyword">as</span> sf</span><br><span class="line"><span class="keyword">import</span> pyloudnorm <span class="keyword">as</span> pyln</span><br><span class="line">data, rate = sf.read(<span class="string">&quot;0055014.wav&quot;</span>) <span class="comment"># load audio (with shape (samples, channels))</span></span><br><span class="line"><span class="built_in">print</span>(data.shape)</span><br><span class="line">meter = pyln.Meter(rate) <span class="comment"># create BS.1770 meter</span></span><br><span class="line">loudness = meter.integrated_loudness(data) <span class="comment"># measure loudness</span></span><br><span class="line"><span class="built_in">print</span>(loudness)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
 <li><p><input disabled="" type="checkbox"> 
 place video on loudest points, abrupt changes detected by talib or just take direvative and gaussian average</p>
 </li>
@@ -526,7 +530,9 @@ handle the vtuber model’s actions</p>
 <p>qq add group&#x2F;friends may be enabled by our windows virtual machines. without opq, it is very memory intensive.</p>
 <p>tokens:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">74eb7eb14aa36d1b9c2c663bc49335e8becd5318</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2d391bd7639362032d09abfc5a9cc6368b7664d5</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bdf52599d992665509ee5b0b533d5eed08452def</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 	

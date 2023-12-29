@@ -146,6 +146,7 @@
 <h2 id="autojs-autox-js"><a href="#autojs-autox-js" class="headerlink" title="autojs autox.js"></a>autojs autox.js</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/snailuncle2/article/details/115278704">autojs code collection</a></p>
 <p>set up accessibility servicr for autox either by the switch inside settings (with root) or run this command:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb shell settings put secure enabled_accessibility_services packagname/servicename</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">am start -n org.autojs.autoxjs.v6/org.autojs.autojs.external.shortcut.ShortcutActivity -a android.intent.action.MAIN -e path <span class="string">&quot;/storage/emulated/0/脚本/show_toast.js&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>现在autojs是付费的 但这两个都不能替代appium或者airtest</p>

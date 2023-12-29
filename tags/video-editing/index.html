@@ -130,6 +130,7 @@
 	
 		<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/15792105/simulating-tv-noise">simulating tv noise</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -f lavfi -i nullsrc=s=1280x720 -filter_complex \</span><br><span class="line"><span class="string">&quot;geq=random(1)*255:128:128;aevalsrc=-2+random(0)&quot;</span> \</span><br><span class="line">-t 5 output.mkv</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -f rawvideo -video_size 1280x720 -pixel_format yuv420p -framerate 25 \</span><br><span class="line">-i /dev/urandom -ar 48000 -ac 2 -f s16le -i /dev/urandom -codec:a copy \</span><br><span class="line">-t 5 output.mkv</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 	
