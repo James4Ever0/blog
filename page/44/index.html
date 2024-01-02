@@ -124,66 +124,6 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2022-05-29 </div>
-			<div class="article-title"><a href="/blog/2022/05/29/5b67ca35-100a-4073-a21b-86d2d1ef86a0/" title="This article provides a step-by-step guide on how to upload a model to Hugging Face&#39;s Hub using code. It includes a link for detailed instructions and demonstrates the process with the Camembert language model, utilizing AutoModelForMaskedLM and AutoTokenizer from Transformers library. The model and tokenizer are then pushed to the Hub under the name &#39;dummy-model&#39;.">Upload Model To Huggingface</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p>via code:</p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/390826470">https://zhuanlan.zhihu.com/p/390826470</a></p>
-<p>from transformers import AutoModelForMaskedLM, AutoTokenizer</p>
-<p>checkpoint &#x3D; “camembert-base”</p>
-<p>model &#x3D; AutoModelForMaskedLM.from_pretrained(checkpoint)</p>
-<p>tokenizer &#x3D; AutoTokenizer.from_pretrained(checkpoint)</p>
-<p>model.push_to_hub(“dummy-model”)</p>
-<p>tokenizer.push_to_hub(“dummy-model”)</p>
-<h1 id="config-push-to-hub-““"><a href="#config-push-to-hub-““" class="headerlink" title="config.push_to_hub(““)"></a>config.push_to_hub(“<model_name>“)</h1>
-	
-	</div>
-  <a type="button" href="/blog/2022/05/29/5b67ca35-100a-4073-a21b-86d2d1ef86a0/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2022-05-29 </div>
-			<div class="article-title"><a href="/blog/2022/05/29/7b23fe43-2d0f-44ae-9480-f20fdaaf3a2f/" title="This article discusses image and cloth classification using advanced models such as vit-pytorch and a feed forward neural network. The vit-pytorch model employs multiple attention heads for efficient image classification, while the feed forward neural network is specifically designed for cloth classification. Both models can be found on their respective GitHub repositories.">Image Classification, Cloth Classification</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p><a target="_blank" rel="noopener" href="https://github.com/lucidrains/vit-pytorch">vit-pytorch</a> state of the art image classifier with multiple attention heads</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/arnab39/Cloth_Classification_DeepLearning">feed forward neural network</a></p>
-
-	
-	</div>
-  <a type="button" href="/blog/2022/05/29/7b23fe43-2d0f-44ae-9480-f20fdaaf3a2f/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2022-05-29 </div>
 			<div class="article-title"><a href="/blog/2022/05/29/ae5d6b8e-7aaa-45ba-b1c3-5598a9b498a9/" title="This article explores various video search methods, including Yandex&#39;s reverse image search for videos, Python libraries for YouTube searches, and self-hosted AI engines like Jina. It also provides additional resources on search engines with video functionality.">Video Search Engines</a></div>
 		</h3>
 	
@@ -556,6 +496,82 @@
 
            
 		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2022-05-29 </div>
+			<div class="article-title"><a href="/blog/2022/05/29/5fadf8ac-83f2-4fe0-9bf8-9fdd8a43f5ac/" title="This article delves into various methods and tools, including CoNR, digan, MoCoGAN, TRPG Replay Generator, Montage.ai, and TikTok montages, that employ techniques such as GANs and thin-plate spline motion models to create videos from images or portraits.">Gan Generating Video Motion Driven Still Image To Video</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p><a target="_blank" rel="noopener" href="https://github.com/yoyo-nb/thin-plate-spline-motion-model">thin plate spline motion model</a></p>
+<p>video animation generation only using few character portraits: 根据角色设定图画出人物动画（有动画驱动器）</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/megvii-research/CoNR">https://github.com/megvii-research/CoNR</a></p>
+<p>galgame video generator using pygame（自动化类galgame动画生成器）:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/w4123/TRPG-Replay-Generator">https://github.com/w4123/TRPG-Replay-Generator</a></p>
+<p>digan, could generate taichi videos</p>
+<p>suggest you to segment video first and then use this to do the freaking work.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/sihyun-yu/digan?ref=pythonawesome.com">https://github.com/sihyun-yu/digan?ref=pythonawesome.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://sihyun-yu.github.io/digan/">https://sihyun-yu.github.io/digan/</a></p>
+<p><a target="_blank" rel="noopener" href="https://pythonawesome.com/official-pytorch-implementation-of-generating-videos-with-dynamics-aware-implicit-generative-adversarial-networks/">https://pythonawesome.com/official-pytorch-implementation-of-generating-videos-with-dynamics-aware-implicit-generative-adversarial-networks/</a></p>
+<p>MoCoGAN can generate the same object performing different actions, as well as the same action performed by different objects:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/sergeytulyakov/mocogan">https://github.com/sergeytulyakov/mocogan</a></p>
+<p>still image to talking with hands moving video generation compared to FOMM, can even animate non-human objects:</p>
+<p><a target="_blank" rel="noopener" href="https://snap-research.github.io/articulated-animation/">https://snap-research.github.io/articulated-animation/</a></p>
+<p>montage.ai generate video by music with deep analyzer:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Tartar-san/montage.ai">https://github.com/Tartar-san/montage.ai</a></p>
+<p>tiktok hashtag montage:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/andreabenedetti/tiktok-montage">https://github.com/andreabenedetti/tiktok-montage</a></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2022/05/29/5fadf8ac-83f2-4fe0-9bf8-9fdd8a43f5ac/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2022-05-29 </div>
+			<div class="article-title"><a href="/blog/2022/05/29/5143f988-6ee1-41d3-b04b-1261934000e9/" title="This article highlights several open-source projects that enable image generation from text using models similar to DALL-E. Mentioned projects include DALLE-pytorch, dalle_mini, dalle-flow by Jina AI (a human-in-the-loop multi-prompt tool), and a playground for experimentation called dalle-playground.">Dall_E Text To Image</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>open sourced text to image:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lucidrains/DALLE-pytorch">https://github.com/lucidrains/DALLE-pytorch</a></p>
+<p>dalle_mini:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/borisdayma/dalle-mini">https://github.com/borisdayma/dalle-mini</a></p>
+<p>jina ai human in the loop multi prompt text to image dalle-flow:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jina-ai/dalle-flow">https://github.com/jina-ai/dalle-flow</a></p>
+<p>dalle playground:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/saharmor/dalle-playground">https://github.com/saharmor/dalle-playground</a></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2022/05/29/5143f988-6ee1-41d3-b04b-1261934000e9/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
 
 		</div>
 
@@ -622,6 +638,8 @@
 	
 		<li><i class="fa fa-book"></i><a href="https://www.gregoryuan.com/" title="Gregoryuan's Blog" target="_blank"]);">Gregoryuan&#39;s Blog</a></li>
 	
+		<li><i class="fa fa-book"></i><a href="https://yubingtao.netlify.app/" title="Yubingtao's Blog" target="_blank"]);">Yubingtao&#39;s Blog</a></li>
+	
 	</ul>
 </div>
 
@@ -639,7 +657,7 @@
   </div>
   <div class="container-narrow">
     <footer> <p>
-  &copy; 2023 James Brown
+  &copy; 2024 James Brown
   
       with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
 </p> </footer>
