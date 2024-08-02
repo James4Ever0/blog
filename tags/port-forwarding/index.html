@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>port forwarding | Blog of James Brown</title>
+  <title>port-forwarding | Blog of James Brown</title>
   <meta name="author" content="James Brown">
   
   
@@ -97,7 +97,7 @@
 
 <!-- title -->
 <div class="page-header page-header-inverse ">
-  <h1 class="archive-title-tag title title-inverse ">port forwarding</h1>
+  <h1 class="archive-title-tag title title-inverse ">port-forwarding</h1>
 </div>
 
 <div class="row page">
@@ -116,8 +116,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-02-13 </div>
-			<div class="article-title"><a href="/blog/2023/02/13/34a8ad30-9c23-4162-9ec9-1c8094d13f77/" title="This article provides instructions on utilizing proxy.py to establish a localhost proxy that redirects traffic to a publicly accessible IP address, enabling users to expose their sole localhost proxy without modifying router configurations. The process involves specifying the public proxy&#39;s port and IP address, incorporating the ProxyPoolPlugin plugin, and supplying the necessary localhost:8981 proxy pool information.">Proxy.Py Forward Localhost Proxy To Public Ip Address</a></div>
+			<div class="date"> 2024-06-24 </div>
+			<div class="article-title"><a href="/blog/2024/06/24/a12cdd5f-a603-4f55-af21-467e0c6decf5/" title="The article provides a list of 16 free port-forwarding services and introduces &#39;greenhouse,&#39; which is a self-hosted reverse SSH service that allows access to localhost publicly by utilizing tunneling and supporting various protocols such as HTTPS, TCP, UDP, and SSH for port forwarding.">List Of Free Local Service Port Forwarder</a></div>
 		</h3>
 	
 
@@ -128,13 +128,51 @@
   <div class="row">
 	
 	
-		<p>say if you only have one such proxy on localhost, not exposed on router: <code>localhost:8981</code></p>
-<p>you execute the command, using <a target="_blank" rel="noopener" href="https://pypi.org/project/proxy.py/">proxy.py</a>:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">proxy --port &lt;public_proxy_port&gt; --host &lt;public_proxy_ip_address&gt; \</span><br><span class="line">--plugins proxy.plugin.ProxyPoolPlugin \</span><br><span class="line">--proxy-pool localhost:8981</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+		<p>[List of freemium port-forwarding services](</p>
+<p><a target="_blank" rel="noopener" href="https://gist.github.com/SomajitDey/efd8f449a349bcd918c120f37e67ac00">https://gist.github.com/SomajitDey/efd8f449a349bcd918c120f37e67ac00</a>)</p>
+<p>Useful for accessing a computer that does not have a public IP address, over the internet. The machine can be behind multiple firewalls and NATs.</p>
+<ol>
+<li><p><a target="_blank" rel="noopener" href="https://www.gsocket.io/">Global socket or gsocket</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://localhost.run/">localhost.run</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pipeto.me/">github.com&#x2F;jpschroeder&#x2F;pipe-to-me</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://getuplink.de/">getuplink.de</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://localtunnel.github.io/www/">localtunnel.me</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://localxpose.io/">localXpose.io</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://telebit.cloud/">telebit.cloud</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://ngrok.com/">ngrok.com</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pagekite.net/">pagekite.net</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://openport.io/">openport.io</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://portmap.io/">portmap.io</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://packetriot.com/">packetriot.com</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://sshreach.me/">sshreach.me</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://burrow.io/">burrow.io</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/beame-insta-ssl">beame-insta-ssl</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://tunnelto.dev/">tunnelto.dev</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://greenhouse.server.garden/">greenhouse</a></p>
+</li>
+</ol>
+<p><strong>Self-hosted</strong>: <a target="_blank" rel="noopener" href="https://github.com/antoniomika/sish">https://github.com/antoniomika/sish</a></p>
+<p><strong>Keywords</strong>: <em>public localhost</em>; <em>reverse ssh service</em>; <em>expose localhost</em>; <em>tunnelling</em>; <em>https&#x2F;tcp&#x2F;udp&#x2F;ssh</em> <em>port forwarding</em></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2023/02/13/34a8ad30-9c23-4162-9ec9-1c8094d13f77/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2024/06/24/a12cdd5f-a603-4f55-af21-467e0c6decf5/#more" class="btn btn-default more">Read More</a>
 </div>
 
 	       

@@ -116,6 +116,40 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2024-07-27 </div>
+			<div class="article-title"><a href="/blog/2024/07/27/ce4340d8-86c1-4ffe-a0e5-27a77e83bd8f/" title="This article explains how to change the data storage path of K3S, a lightweight and minimal Kubernetes distribution, by utilizing the `K3S_DATA_DIR` environment variable. It also guides users through stopping services, copying data, modifying service files with the new path, and restarting k3s using a daemon reload.">K3S Change Data Storage Path</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>you can configure <code>K3S_DATA_DIR</code> environment variable during installation</p>
+<hr>
+<p>first, stop all k3s services</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># run with root</span></span><br><span class="line">systemctl stop k3s <span class="comment"># k3s-agent otherwise</span></span><br><span class="line">k3s-killall.sh</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>copy the data to new location</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rsync -avh --progress /var/lib/rancher/k3s &lt;path_to_store_data&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>then modify the service file under <code>/etc/systemd/system/k3s.service</code> or <code>/etc/systemd/system/k3s-agent.service</code>, add one additional flag <code>--data-dir &lt;path_to_store_data&gt;</code> to the commandline</p>
+<p>restart the service after done</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl start k3s</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/07/27/ce4340d8-86c1-4ffe-a0e5-27a77e83bd8f/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2022-11-29 </div>
 			<div class="article-title"><a href="/blog/2022/11/29/80ecad66-1b58-4a5e-ba26-d351c54dbaa6/" title="This article highlights various Hacker Forums and cybersecurity websites that offer valuable resources and tools to professionals in the field, including but not limited to: Leakbase, Breached, Xss, phrack.org, whitehats.com, nhs8.com, packetstormsecurity.com, and securityfocus.com.">hacker forums</a></div>
 		</h3>

@@ -116,6 +116,138 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2024-07-21 </div>
+			<div class="article-title"><a href="/blog/2024/07/21/a69fab8e-7e2a-4fac-a632-dc730f339eca/" title="This article focuses on Kubernetes (k8s) security, offering resources for understanding how to secure a Kubernetes cluster. It references the Snyk IoT guide and official Kubernetes documentation as valuable learning materials.">K8S Security</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p><a target="_blank" rel="noopener" href="https://snyk.io/learn/kubernetes-security/">https://snyk.io/learn/kubernetes-security/</a></p>
+<p><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/tasks/administer-cluster/securing-a-cluster/">https://kubernetes.io/docs/tasks/administer-cluster/securing-a-cluster/</a></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/07/21/a69fab8e-7e2a-4fac-a632-dc730f339eca/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-07-20 </div>
+			<div class="article-title"><a href="/blog/2024/07/20/5f4542dd-3492-4971-86e0-43210ce66510/" title="This article discusses the importance of securing Kubernetes and managing resources using distribution-specific methods. It also covers preventing intranet access through network policies, and considering manual/automatic cleanup for storage limits. Hardening guidelines are followed, and additional resources are provided for further information on available tools.">K8S Deny Intranet Access From All Containers</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>constrain pod resources:</p>
+<p><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/">https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/</a></p>
+<hr>
+<p>to manually exceed the ephermal storage limit run:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fallocate -l 10G /bigfile</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>the pod will be evicted, volume and container will be purged, but the record is not automatically removed.</p>
+<p>to cleanup the mess one may run a scheduled job like:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">microk8s kubectl delete pods --field-selector=status.phase=Failed</span><br><span class="line">microk8s kubectl delete pods --field-selector=status.phase=Unknown</span><br><span class="line"><span class="built_in">sleep</span> 60</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>or configure implementation dependent <code>kube-controller-manager</code> startup argument <code>terminated-pod-gc-threshold=1</code>.</p>
+<p>for <code>k3s</code> edit <code>/etc/rancher/k3s/config.yaml</code> like:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">kube-controller-manager-arg:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">&#x27;terminated-pod-gc-threshold=1&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>for <code>microk8s</code>, edit <code>/var/snap/microk8s/current/args/kube-controller-manager</code></p>
+<p>references:</p>
+<p><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/reference/command-line-tools-reference/kube-controller-manager/">https://kubernetes.io/docs/reference/command-line-tools-reference/kube-controller-manager/</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.k3s.io/security/hardening-guide">https://docs.k3s.io/security/hardening-guide</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/k3s-io/k3s/issues/10448">https://github.com/k3s-io/k3s/issues/10448</a></p>
+<hr>
+<p>make sure you have a networkpolicy enabled cni first. usually included but be careful with minikube since that is a different story</p>
+<p>apply these configs with <code>kubectl apply -f &lt;config_path&gt;</code></p>
+<p>interact with <code>kubectl exec &lt;pod_name&gt; -it -- /bin/sh</code></p>
+<p>deployment config:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Deployment</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">hello-world</span></span><br><span class="line"><span class="attr">labels:</span></span><br><span class="line"><span class="attr">app:</span> <span class="string">hello-world</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">replicas:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">selector:</span></span><br><span class="line"><span class="attr">matchLabels:</span></span><br><span class="line"><span class="attr">app:</span> <span class="string">hello-world</span></span><br><span class="line"><span class="attr">template:</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">labels:</span></span><br><span class="line"><span class="attr">app:</span> <span class="string">hello-world</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">containers:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">alpine-container</span></span><br><span class="line"><span class="attr">image:</span> <span class="string">alpine:3.7</span></span><br><span class="line"><span class="attr">command:</span> [<span class="string">&quot;tail&quot;</span>, <span class="string">&quot;-f&quot;</span>, <span class="string">&quot;/dev/null&quot;</span>]</span><br><span class="line"><span class="attr">resources:</span></span><br><span class="line"><span class="attr">limits:</span></span><br><span class="line"><span class="attr">ephemeral-storage:</span> <span class="string">&quot;4Gi&quot;</span></span><br><span class="line"><span class="attr">dnsPolicy:</span> <span class="string">None</span></span><br><span class="line"><span class="attr">dnsConfig:</span></span><br><span class="line"><span class="attr">nameservers:</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">8.8</span><span class="number">.8</span><span class="number">.8</span></span><br><span class="line"><span class="attr">terminationGracePeriodSeconds:</span> <span class="number">0</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>network policy config:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">networking.k8s.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">NetworkPolicy</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">deny-intranet-egress</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">podSelector:</span></span><br><span class="line"><span class="attr">matchLabels:</span></span><br><span class="line"><span class="attr">app:</span> <span class="string">hello-world</span></span><br><span class="line"><span class="attr">policyTypes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">Egress</span></span><br><span class="line"><span class="attr">egress:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">to:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">ipBlock:</span></span><br><span class="line"><span class="attr">cidr:</span> <span class="string">::/0</span></span><br><span class="line"><span class="attr">except:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">fc00::/7</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">fe80::/10</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">ipBlock:</span></span><br><span class="line"><span class="attr">cidr:</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span><span class="string">/0</span></span><br><span class="line"><span class="attr">except:</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span><span class="string">/8</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">10.0</span><span class="number">.0</span><span class="number">.0</span><span class="string">/8</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">100.64</span><span class="number">.0</span><span class="number">.0</span><span class="string">/10</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">169.254</span><span class="number">.0</span><span class="number">.0</span><span class="string">/16</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">172.16</span><span class="number">.0</span><span class="number">.0</span><span class="string">/12</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">192.168</span><span class="number">.0</span><span class="number">.0</span><span class="string">/16</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/07/20/5f4542dd-3492-4971-86e0-43210ce66510/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-06-13 </div>
+			<div class="article-title"><a href="/blog/2024/06/13/84b2ccda-a800-4949-bc8b-dba2af12d6f7/" title="This article provides detailed instructions on securing SSH with public key authentication, and suggests using free FRP providers. It includes a TOML configuration example for &#39;ssh_service&#39; type, recommends Masscan for discovering open ports, and proposes potential candidates to consider.">Frp Usage</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>ssh port must be secured with pubkey only authentication</p>
+<p>search for <code>free frp</code> or <code>frp 免费</code> to get free frp providers</p>
+<p>use <code>masscan</code> over these servers to find open ports and candidates</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">serverAddr</span> = <span class="string">&quot;frp.freefrp.net&quot;</span></span><br><span class="line"><span class="attr">serverPort</span> = <span class="number">7000</span></span><br><span class="line"><span class="attr">auth.method</span> = <span class="string">&quot;token&quot;</span></span><br><span class="line"><span class="attr">auth.token</span> = <span class="string">&quot;freefrp.net&quot;</span></span><br><span class="line"><span class="section">[[proxies]]</span></span><br><span class="line"><span class="attr">name</span> = <span class="string">&quot;ssh_service&quot;</span></span><br><span class="line"><span class="attr">type</span> = <span class="string">&quot;tcp&quot;</span></span><br><span class="line"><span class="attr">localIP</span> = <span class="string">&quot;127.0.0.1&quot;</span></span><br><span class="line"><span class="attr">localPort</span> = <span class="number">22</span></span><br><span class="line"><span class="attr">remotePort</span> = &lt;remote_port&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/06/13/84b2ccda-a800-4949-bc8b-dba2af12d6f7/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-05-29 </div>
+			<div class="article-title"><a href="/blog/2024/05/29/5d443ff2-665d-42a0-a3d1-8cf09c27035d/" title="This article discusses a problem with the ParrotSec security image in Docker, where executing `msfconsole` is not possible. The solution provided involves changing directories and running the binary from its correct location.">Strange Behavior Within Docker Containers</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>The default directory after starting parrotsec container is the filesystem root directory, which cannot run <code>msfconsole</code>. Change to home directory using <code>cd</code> and run metasploit afterwards.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run --<span class="built_in">rm</span> -it -w /root parrotsec/security</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>Symlinked files are not working properly from the start. Taking <code>msfconsole</code> for example, when running container from image <code>parrotsec/security</code>, it will get stuck if we immediately execute <code>msfconsole</code> once logged in, but we can mitigate the problem by first change into the directory where <code>msfconsole</code> really locates, then execute it from there.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">docker run --<span class="built_in">rm</span> -it parrotsec/security</span><br><span class="line"><span class="comment"># it will stuck</span></span><br><span class="line">msfconsole</span><br><span class="line"><span class="comment"># note the following will also stuck</span></span><br><span class="line">/usr/share/metasploit-framework/msfconsole</span><br><span class="line"><span class="comment"># instead let&#x27;s first change directory</span></span><br><span class="line"><span class="built_in">cd</span> /usr/share/metasploit-framework</span><br><span class="line"><span class="comment"># then invoke the binary</span></span><br><span class="line">./msfconsole</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/05/29/5d443ff2-665d-42a0-a3d1-8cf09c27035d/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2023-09-04 </div>
 			<div class="article-title"><a href="/blog/2023/09/04/ba2db5d8-fc28-4ced-adb6-4755613fdc24/" title="Captchas, designed as public automated Turing tests, serve the purpose of evaluating capabilities rather than behaviors.">Understanding Captchas: Assessing Capabilities, Not Behaviors</a></div>
 		</h3>

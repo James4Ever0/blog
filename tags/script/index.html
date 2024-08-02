@@ -116,6 +116,76 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2024-03-31 </div>
+			<div class="article-title"><a href="/blog/2024/03/31/6353e9ac-d204-48d1-a699-d84d9c43717f/" title="The article delves into exporting and visualizing command history in Xonsh, a Python-like programming language. It explores various methods for achieving this, including using the script command, %history magic, nbterm, jpterm, recording on *nix platforms, and more. Additionally, it discusses session details such as exit codes, timestamps, environment variables, and general terminal recording.">Export Repl Command History To Script File</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>xonsh has rich history per session which includes session id, command exit code, timestamp, environment variables etc.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># view input history</span></span><br><span class="line"><span class="built_in">history</span></span><br><span class="line"><span class="comment"># view history file save path</span></span><br><span class="line"><span class="built_in">history</span> file</span><br><span class="line"><span class="comment"># commit history to file</span></span><br><span class="line"><span class="built_in">history</span> flush</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>To view the commands:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &lt;history_json_file&gt; | jq .data.cmds</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>general purpose terminal recorder, available in most *nix platforms:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">script &lt;record_filename&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>to render the recorded file as plain text, run the following python script:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyte</span><br><span class="line">typescript_path = <span class="string">&quot;mytypescript.log&quot;</span></span><br><span class="line">output_path = <span class="string">&quot;typescript_plain.log&quot;</span></span><br><span class="line"><span class="comment"># Specify the desired screen dimensions (columns x rows)</span></span><br><span class="line">columns = <span class="number">80</span> <span class="comment"># please remember the columns for godsake.</span></span><br><span class="line"><span class="comment"># if you think it would be slow, use pypy instead.</span></span><br><span class="line">rows = <span class="number">100000</span> <span class="comment"># what could go wrong now?</span></span><br><span class="line"><span class="comment"># Create a Screen object with the specified dimensions</span></span><br><span class="line">screen = pyte.Screen(columns, rows)</span><br><span class="line"><span class="comment"># Create a ByteStream to handle ANSI control codes</span></span><br><span class="line">stream = pyte.ByteStream(screen)</span><br><span class="line">typescript_bytes = <span class="built_in">open</span>(typescript_path,<span class="string">&#x27;rb&#x27;</span>).read()</span><br><span class="line"><span class="comment"># Insert ANSI control codes</span></span><br><span class="line">stream.feed(typescript_bytes)</span><br><span class="line"><span class="comment"># Get the content with ANSI control codes</span></span><br><span class="line">content = screen.display</span><br><span class="line">plain_content =<span class="string">&quot;\n&quot;</span>.join(content).strip()</span><br><span class="line"><span class="comment"># Write the content to a file</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(output_path, <span class="string">&quot;w+&quot;</span>) <span class="keyword">as</span> file:</span><br><span class="line">file.write(plain_content)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>for ipython one use <code>%history</code> for viewing history.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># view current session history</span></span><br><span class="line">%history</span><br><span class="line"><span class="comment"># write to file</span></span><br><span class="line">%history -f ipython_output.log</span><br><span class="line"><span class="comment"># view all history across all sessions</span></span><br><span class="line">%history -g</span><br><span class="line"><span class="comment"># view specific session history, like session 1</span></span><br><span class="line">%history <span class="number">1</span>/</span><br><span class="line"><span class="comment"># -o for showing output, -p for appending &quot;&gt;&gt;&gt;&quot; in front of input lines, -t for translating magic functions into valid python code</span></span><br><span class="line">%history -opt</span><br><span class="line"><span class="comment"># for more, type the %quickref command and type /hist&lt;Enter&gt;</span></span><br><span class="line"><span class="comment"># detailed reference can be found in %magic</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>terminal jupyter notebook</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/davidbrochart/nbterm">nbterm</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/davidbrochart/jpterm">jpterm</a> original rewrite of nbterm, with textualize</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://davidbrochart.github.io/jpterm/plugins/notebook_editor/#keybindings">keybindings</a></p>
+</li>
+</ul>
+<hr>
+<p>运行py的交互式命令行 如果想输出最近的操作 可以运行下面的代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># please define &quot;history_output_path&quot; beforehand</span></span><br><span class="line"><span class="keyword">import</span> readline</span><br><span class="line"><span class="comment"># Get the total number of history items in the current session</span></span><br><span class="line">history_length = readline.get_current_history_length()</span><br><span class="line"><span class="comment"># Iterate over each history item and print the command</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(history_output_path, <span class="string">&#x27;w+&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, history_length + <span class="number">1</span>):</span><br><span class="line">item = readline.get_history_item(i)</span><br><span class="line"><span class="built_in">print</span>(item)</span><br><span class="line">f.write(item+<span class="string">&quot;\n&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在pdb中 或者在breakpoint断点中 只能获取到当前会话的历史</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> readline; <span class="built_in">print</span>([readline.get_history_item(i+<span class="number">1</span>) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(readline.get_current_history_length())])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>Hackers are good at converting arbitrary actions into scripts.</p>
+<p>At every step below we need file records.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Thoughs -&gt; Actions -&gt; Scripts -&gt; Programs -&gt; Systems</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Human learn from trial and error, which is the origin of every good program, and REPL can be a better place than web based jupyter notebook. So we might want to find some command line alternative to jupyter.</p>
+<p>Typically we need history, command output, filter out those errorneous commands, and save the output.</p>
+<hr>
+<p>R has that functionality.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># only current session history is keeped.</span></span><br><span class="line">saveHistory<span class="punctuation">(</span><span class="string">&quot;history.R&quot;</span><span class="punctuation">)</span></span><br><span class="line"><span class="comment"># view history in popup</span></span><br><span class="line">history<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>metasploit history file location: <code>~/.msf4/history</code></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/03/31/6353e9ac-d204-48d1-a699-d84d9c43717f/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2023-11-06 </div>
 			<div class="article-title"><a href="/blog/2023/11/06/c8579cd8-805b-43db-bd7d-9b6e9a642bf5/" title="This text provides instructions on how to clean up Chocolatey&#39;s cache by running a PowerShell script called &#39;choco-cleaner.ps1&#39;.">How To Clean Up Chocolatey&#39;S Cache With The Choco-Cleaner.Ps1 Script</a></div>
 		</h3>

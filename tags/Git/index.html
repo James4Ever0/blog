@@ -116,6 +116,32 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2024-01-11 </div>
+			<div class="article-title"><a href="/blog/2024/01/11/d70e0d41-0eab-4a7b-9fe3-2c689e87baa4/" title="This article provides a detailed explanation on how to clone a Git repository without pulling down large binary files using Git LFS, by utilizing the command `git clone --filter=blob:none &lt;repo_url&gt;`.">Git Clone Without Lfs</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>lfs download is mandatory while doing <code>git clone</code></p>
+<p>skip with:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">env</span> GIT_LFS_SKIP_SMUDGE=1 git <span class="built_in">clone</span> --filter=blob:none &lt;repo_url&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/01/11/d70e0d41-0eab-4a7b-9fe3-2c689e87baa4/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2023-09-16 </div>
 			<div class="article-title"><a href="/blog/2023/09/16/ad1e6f73-c43f-4c35-bf4f-97376e326ee8/" title="This article explores the challenges of syncing notes across multiple platforms and devices. It proposes using webhooks or comparing Git&#39;s latest HEAD hash at regular intervals as potential solutions for achieving efficient synchronization.">Sync Notes Between Multiple Platforms/Devices</a></div>
 		</h3>

@@ -1,0 +1,306 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>networking | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/blog/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/blog/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+<!-- title -->
+<div class="page-header page-header-inverse ">
+  <h1 class="archive-title-tag title title-inverse ">networking</h1>
+</div>
+
+<div class="row page">
+  <!-- cols -->
+  
+  <div class="col-md-9">
+	
+
+	  <div id="top_search"></div>
+
+      
+         <!-- display as entry -->
+	     <div class="mypage">
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-07-26 </div>
+			<div class="article-title"><a href="/blog/2024/07/26/68fcab1a-fa65-4560-af60-2b04c10d6317/" title="This article provides a solution to avoid conflicts with k8s routing tables by adjusting Ubuntu&#39;s default IP range for network sharing. It explains how to use `nmcli` to modify the device&#39;s IPv4 address and describes the process of unplugging and replugging the cable from the client side.">Configure Ubuntu&#39;S Ip Range For Network Sharing With Kubernetes</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="Change-default-IP-range-settings-for-network-sharing"><a href="#Change-default-IP-range-settings-for-network-sharing" class="headerlink" title="Change default IP range settings for network sharing"></a>Change default IP range settings for network sharing</h1><p>When use network sharing along with k8s things could go wrong. Ubuntu uses <code>10.42.0.1/24</code> which interferes with k8s routing table. It has a larger <code>metric</code> value so the network will be shadowed.</p>
+<p>To fix it you do not use <code>ip route</code> or <code>ip addr</code>. You use <code>nmcli</code>.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nmcli <span class="comment"># check all connections</span></span><br><span class="line">nmcli device modify &lt;shared_device&gt; ipv4.addr &lt;non_conflict_ip_range&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Remember to unplug and replug the cable from client side.</p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/07/26/68fcab1a-fa65-4560-af60-2b04c10d6317/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-06-03 </div>
+			<div class="article-title"><a href="/blog/2024/06/03/8ff9b102-8c68-44a7-8ce7-d09ce877842a/" title="Discover how to route network interfaces to specific apps using Firejail or Dante and Proxychains-ng, while preventing dual WiFi connections. The guide offers step-by-step instructions for installation, configuration, and usage.">Route Network Interface To Specific Application</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>It is not advised to do so with dual WiFi connections, which is a pain in the ass in daily usage (only one of them will be used at a time).</p>
+<p>Ethernet and WiFi dual connections seem fine with <code>firejail</code> but failed with <code>dante</code>.</p>
+<hr>
+<p>Use <code>firejail</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo firejail --net=wlan0 --ip=dhcp --noprofile &lt;program cmd&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>Use <code>dante</code> and <code>proxychains-ng</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install dante-server proxychains-ng</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Now edit the <code>dante</code> config file at <code>/etc/dante.conf</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">internal: eth0 port = 1080</span><br><span class="line">external: wlan0</span><br><span class="line">socksmethod: username</span><br><span class="line">user.privileged: root</span><br><span class="line">user.unprivileged: nobody</span><br><span class="line">user.libwrap: nobody</span><br><span class="line">client pass &#123;</span><br><span class="line">from: 0/0 to: 0/0</span><br><span class="line">&#125;</span><br><span class="line">socks pass &#123;</span><br><span class="line">from: 0/0 to: 0/0</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Run the daemon by:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">danted</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Find the <code>[ProxyList]</code> section and add the following line in <code>/etc/proxychains.conf</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">socks5 127.0.0.1 1080 root &lt;root_password&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Run the program with proxychains-ng:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">proxychains &lt;program cmd&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>You can test your configuration like:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -x socks5://root:root@127.0.0.1:1080 https://www.baidu.com</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>If you run <code>danted</code> like <code>systemctl start danted</code>, you can configure a separate user for authentication. You have to change <code>/etc/danted.conf</code> and <code>/etc/proxychains.conf</code> accordingly.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo useradd -r -s /bin/false your_dante_user</span><br><span class="line">sudo passwd your_dante_user</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/06/03/8ff9b102-8c68-44a7-8ce7-d09ce877842a/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+	     </div>
+	     <div>
+	       <center>
+	         <div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+	       </center>
+	     </div>	
+      
+
+</div> <!-- col-md-9/col-md-12 -->
+
+
+<div class="col-md-3">
+	<div id="sidebar">
+	
+			
+  <div id="site_search">
+   <div class="form-group">
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="Search" class="st-search-input st-default-search-input form-control"/>
+   </div>  
+  <div id="local-search-result"></div>
+  </div>
+
+
+		
+			
+<div class="widget">
+	<h4>Links</h4>
+	<ul class="blogroll list-unstyled">
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/agi_computer_control/" title="Autonomous computer agent" target="_blank"]);">Project Cybergod</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/pyjom/" title="Media content automation" target="_blank"]);">Project Pyjom</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/prometheous/" title="Automated documentation, AI+IR(RAG)" target="_blank"]);">Project Prometheus</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/pyjom/" title="Media Content Automation" target="_blank"]);">Project Pyjom</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/my_blog_source/" title="Source code of my blog"" target="_blank"]);">Blog Source Code</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="http://www.github.com/james4ever0" title="My Github account" target="_blank"]);">My Github</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="https://samoyedsun.github.io/" title="Samoyedsun's Blog" target="_blank"]);">Samoyedsun&#39;s Blog</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="http://atlant1c.cn/" title="Atlant1c's Blog" target="_blank"]);">Atlant1c&#39;s Blog</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="https://www.gregoryuan.com/" title="Gregoryuan's Blog" target="_blank"]);">Gregoryuan&#39;s Blog</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="https://yubingtao.netlify.app/" title="Yubingtao's Blog" target="_blank"]);">Yubingtao&#39;s Blog</a></li>
+	
+	</ul>
+</div>
+
+
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2024 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/blog/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+
+</body>
+</html>

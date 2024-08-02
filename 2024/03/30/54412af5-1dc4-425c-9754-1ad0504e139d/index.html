@@ -1,0 +1,316 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hacker Virtual Machines, Containers | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="This article explains how to use Proot-Distro on Termux to install Kali and Blackarch Linux. It compares Podman with Docker for faster image pulling speed, discusses granting container permissions for network scanning commands, and suggests using Github searches for finding relevant Docker images. Additionally, it provides guidance on utilizing Kali and Blackarch Linux Docker images on Ubuntu with Docker and recommends updating installed Blackarch for better performance.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Hacker Virtual Machines, Containers"/>
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/blog/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/blog/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> Hacker Virtual Machines, Containers</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>This article explains how to use Proot-Distro on Termux to install Kali and Blackarch Linux. It compares Podman with Docker for faster image pulling speed, discusses granting container permissions for network scanning commands, and suggests using Github searches for finding relevant Docker images. Additionally, it provides guidance on utilizing Kali and Blackarch Linux Docker images on Ubuntu with Docker and recommends updating installed Blackarch for better performance.</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <p>on termux you use <a target="_blank" rel="noopener" href="https://github.com/termux/proot-distro"><code>proot-distro</code></a> for installing kali and blackarch linux.</p>
+<p>install via  <code>apt install proot-distro</code></p>
+<hr>
+<p>use podman over docker, since we do not need gpu here, and want faster pulling speed.</p>
+<p>recent version of podman requires extra layer of domain&#x2F;index specification before searching and pulling images.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">podman search docker.io/kali</span><br><span class="line">podman pull docker.io/kalilinux/kali-rolling</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>if you want to run network scanning commands like <code>nmap</code>, you would grant the container sufficient permissions:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">podman run --cap-add=NET_RAW --cap-add=NET_ADMIN --<span class="built_in">rm</span> -it docker.io/parrotsec/security</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><a target="_blank" rel="noopener" href="https://docs.rapid7.com/metasploit/metasploitable-2-exploitability-guide/">metasploitable2</a>, <a target="_blank" rel="noopener" href="https://parrotsec.org/docs/cloud/parrot-on-docker/">parrot linux</a> also have docker images. more cybersecurity&#x2F;ctf related images to be found.</p>
+<p>run this query in search engines:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">site:github.com cybersecurity docker images</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/VaultSEC/osint">https://github.com/VaultSEC/osint</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/PberAcademy/Dockerimages">https://github.com/PberAcademy/Dockerimages</a></p>
+<hr>
+<p>on ubuntu you use docker for pulling <a target="_blank" rel="noopener" href="https://www.kali.org/docs/containers/official-kalilinux-docker-images/">kali</a> and <a target="_blank" rel="noopener" href="https://github.com/BlackArch/blackarch-docker">blackarch</a> linux images. latest images are pushed to docker hub.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo docker pull kalilinux/kali-rolling</span><br><span class="line"><span class="comment"># kali-rolling does not contain all packages</span></span><br><span class="line"><span class="comment"># run inside container: apt update &amp;&amp; apt install -y kali-linux-headless</span></span><br><span class="line">sudo docker pull blackarchlinux/blackarch</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>it is always recommend to update and upgrade the blackarch you installed.</p>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/blog/2024/03/31/94f55109-1d31-4bef-b2e7-c770e5ca9662/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/blog/2024/03/25/8907029d-6164-4ceb-99b6-69adacfd6ba8/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2024-03-30 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/blog/categories/Docker/">Docker<span>6</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/blog/tags/Docker/">Docker<span>6</span></a></li> <li><a href="/blog/tags/Proot-Distro/">Proot-Distro<span>1</span></a></li> <li><a href="/blog/tags/Termux/">Termux<span>3</span></a></li> <li><a href="/blog/tags/Kali-Linux/">Kali Linux<span>4</span></a></li> <li><a href="/blog/tags/Blackarch-Linux/">Blackarch Linux<span>1</span></a></li> <li><a href="/blog/tags/Podman/">Podman<span>1</span></a></li> <li><a href="/blog/tags/Network-Scanning/">Network Scanning<span>4</span></a></li>
+
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2024 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/blog/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+
+</body>
+</html>

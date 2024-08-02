@@ -123,8 +123,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-07-14 </div>
-			<div class="article-title"><a href="/blog/2022/07/14/4887de13-b333-4e89-b106-dcf7ddcef5cf/" title="This article dives into various techniques for optimizing chatbot performance, including extending synonym dictionaries, managing training data, and utilizing GPT-2 for server optimization, feedback mechanisms, content promotion, CPU usage, backpropagation, and filters. The comments provide valuable insights on how to improve the efficiency of chatbots.">复读机 Chatbot</a></div>
+			<div class="date"> 2022-09-09 </div>
+			<div class="article-title"><a href="/blog/2022/09/09/91b05803-40c8-47ad-ab8a-c323e236195b/" title="This article highlights the significance of adhering to copyright laws and avoiding circumvention while drawing content from large fan communities. It emphasizes the importance of properly citing sources and specifying the background music used, ensuring compliance with legal guidelines.">Copyright Issues Circumvention</a></div>
 		</h3>
 	
 
@@ -135,202 +135,12 @@
   <div class="row">
 	
 	
-		<p>利用带时间戳的QQ消息 提取和天气有关的内容 根据历史天气预报推断群友位置</p>
-<p>根据聊天记录推断群友位置</p>
-<p>测试聊天机器人的方式就是对聊 测试自媒体可以用自动测试 假数据进行测试</p>
-<p>带二维码的图片 二维码对比度要低 避免被qq管家撤回</p>
-<p>classify bilibili video which users recommend, then train the model against recent chats and topics with video tags</p>
-<p>for our potential viewers, you may send them popular&#x2F;hot things, place trackers (短链接统计) on those links, guess their favourites.</p>
-<p>you may fool bilibili trackers, official parameter-based trackers.</p>
-<p>对于qq上面聊骚的可以发a片给他们</p>
-<p>get bilibili user email address by asking them from chat. if they give the email address, send setu as gift (regularly?)</p>
-<p>of course you need to pass uid to us. either by parameters or by asking.</p>
-<p>建立用户画像 cache足够多的信息 总结出来足够精确的话题 标签</p>
-<p>发点啥吸引人的 提供某种服务 不然就会被踢</p>
-<p>大晚上的不要说话 大家都睡觉 说话容易被踢</p>
-<p>一般被引用的图片 发图之后被回复 图片下面比较激烈的回复代表着图片质量比较好 要取决于图片具体内容进行分类</p>
-<p>note: in order to install libraries and dependencies, you need ubuntu inside termux. create shortcuts and alias to launch ubuntu. link files and directories to ububtu proot filesystem. also never attempt to update kali since that will break shit, especially for bumping python versions.</p>
-<h2 id="时序数据库"><a href="#时序数据库" class="headerlink" title="时序数据库"></a>时序数据库</h2><p><a target="_blank" rel="noopener" href="https://docs.tdengine.com/develop/stream/">tdengine stream processing</a></p>
-<p><a target="_blank" rel="noopener" href="https://docs.influxdata.com/influxdb/v2.3/api-guide/tutorials/python/">influxdb python client</a></p>
-<h2 id="智能问答"><a href="#智能问答" class="headerlink" title="智能问答"></a>智能问答</h2><p><a target="_blank" rel="noopener" href="https://github.com/l11x0m7/book-of-qna-code">智能问答与深度学习 附带代码</a></p>
-<h2 id="近义词"><a href="#近义词" class="headerlink" title="近义词"></a>近义词</h2><p><a target="_blank" rel="noopener" href="https://www.tutorialspoint.com/natural_language_toolkit/natural_language_toolkit_looking_up_words_in_wordnet.htm#:~:text=To%20get%20a%20list%20of%20Synsets%2C%20we%20can,follows%20%E2%88%92%20from%20nltk.corpus%20import%20wordnet%20as%20wn">use wordnet to find hyponyms and antonyms</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/nltk/nltk/issues/2972">find antonyms for chinese with wordnet</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/chatopera/Synonyms">中文近义词</a> 以及<a target="_blank" rel="noopener" href="https://github.com/chatopera/Synonyms/issues/5">如何扩充词库</a></p>
-<h2 id="话题建模-句向量"><a href="#话题建模-句向量" class="headerlink" title="话题建模 句向量"></a>话题建模 句向量</h2><p><a target="_blank" rel="noopener" href="https://www.qblocks.cloud/blog/best-nlp-libraries-python">10 nlp libraries</a></p>
-<p><a target="_blank" rel="noopener" href="https://radimrehurek.com/gensim/models/word2vec.html">gensim word2vec</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/python-word-embedding-using-word2vec/">word embedding using word2vec</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.askpython.com/python-modules/gensim-word2vec">gensym word2vec complete guide</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/dbf10744bde0">go-cqhttp 自定义合并转发消息 生成不存在的合并转发消息</a></p>
-<ul>
-<li><p><input disabled="" type="checkbox"> 
-渐进式领红包 对于某个群 先是两分钟（左右）之后领一次 领不到就时间减半下一次再领 如果领到了就不减半 最快6秒领 不能再减了 防止某些群为了检测机器人而发红包</p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-处理信息不要流水线处理 放在messagepool里面 要有重要度排序 相关性排序</p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-QQ漂流瓶机器人 捡漂流瓶API</p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-改回群昵称 总有些脑瘫喜欢给我乱起名 一天检查一次 模仿其他人的群昵称 看看有没有能用的马甲</p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-mitm Chatbot</p>
-</li>
-</ul>
-<p>chatbot frameworks:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/sld/convai-bot-1337">convai-bot 1337</a> the best hybrid convai bot</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/ash47/OmegleMiddleMan">omeglemiddleman</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/gunthercox/ChatterBot">chatterbot</a> able to learn while having conversation</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/nlpia/nlpia-bot">qary: nlpia-bot</a> a hybrid framework for developing chatbot by mannings</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/olegberman/mitm-omegle">mitm-omegle</a> watch strangers talk</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/alfredfrancis/ai-chatbot-framework">ai chatbot framework</a></p>
-<ul>
-<li><p><input disabled="" type="checkbox"> 
-用sentence bert做search based dialog 替代levenshtein 最好是asymetrical semantic search</p>
-</li>
-<li><p><input checked="" disabled="" type="checkbox"> 
-有人有测试红包外挂的红包 可能有“test”、“测试”、“别抢”、“不要”之类的字眼 这种红包不要抢 抢了飞机票</p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-群聊的下一句话不一定是上一句话的回答 训练模型寻找句子相关性 计算相关度 以及句子顺序</p>
-</li>
-<li><p><input checked="" disabled="" type="checkbox"> 
-对接小冰</p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-<strong>管理员&#x2F;群主在的时候 或者管理员经常出现的群里面 不要冒泡 不然容易被封</strong></p>
-</li>
-</ul>
-<p>转发的图片 至少要在之前一小时以内或更长时间内没有被重复发送才行 同一个信息内也不能出现重复图片 否则不发送这个信息（很有可能是广告）</p>
-<p>有二维码不发送 有网址不发送</p>
-<p>图片里面的文字要是有广告也是不能要的</p>
-<p>文字信息不要广告 用简单分类器</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/mtianyan/FunpySpiderSearchEngine">个性化搜索推荐 elasticsearch</a></p>
-<p>按照老毛的思想 要一边造谣一边辟谣 一边承认一边否定 同样的话颠三倒四可以说无数遍 也可以选择不说 这样可以和很多的类似故事杂交</p>
-<ul>
-<li><p><input disabled="" type="checkbox"> 
-处理私聊信息 每回复一个人就清除他的所有历史发言 每隔一段时间处理其中的一个人 不会相互挤占 只有在不闲聊的时候处理私聊信息 特定的人不能进行私聊</p>
-</li>
-<li><p><input checked="" disabled="" type="checkbox"> 
-白天聊天 收集数据 晚上离线训练 （此逻辑可以推广到任意的机器学习驱动的平台）</p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-增加训练数据的context 不要只是一问一答 总语句数量要增加</p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-占用系统显卡训练的时候 需要专门acquire一个filelock 表示大量资源被占用 系统忙</p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-选取质量好有情感的聊天样本 长短适中 不要广告不要偏激违禁词 去掉表情包 去掉链接 清洗数据 同时模型用于对话的时候不要输入输出一些违禁词 可以通过话题建模进一步细分归类对话数据之间的联系</p>
-</li>
-</ul>
-<p>schedule the training on minute basis first for complete test, then schedule it on fixed time per day.</p>
-<p>for qq client: dump 500 continual sentences when adding one new while holding the filelock, do not block or stop running if GPT not responding</p>
-<p>for gpt2 server: (where to train? how to prevent maching from burning? for how long?)</p>
-<p>rename the dataset while holding the filelock</p>
-<p>always keep the latest 2 models, remove those not readable first, then delete older ones.</p>
-<p>if train on CPU, still need to limit training time, sleep while doing so. GPU for sure we need sleep during training, and do not use VRAM for other applications.</p>
-<ul>
-<li><p><input disabled="" type="checkbox"> 
-把”汪汪”翻译成表情包 同时可以随机添加其他表情</p>
-</li>
-<li><p><input checked="" disabled="" type="checkbox"> 
-根据实时群聊数据训练gpt2</p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-根据离线群聊数据训练gpt2</p>
-</li>
-</ul>
-<p>自动骂人</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/liuke-wuhan/ZuAnBot">https://github.com/liuke-wuhan/ZuAnBot</a></p>
-<ul>
-<li><p><input disabled="" type="checkbox"> 
-添加一个FileLock在gpt2 main server里面 不要让多个对话同时进行处理</p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-在人多的群里面少说话 具体表现为每次说话的时间间隔变长 次数变少 同时要注意 聊天内容过于严肃 专业的群尽量不要水</p>
-</li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://huggingface.co/docs/transformers/model_doc/dialogpt">dialogpt documentation</a></p>
-<p>闲聊chitchat dialog bot training framework by facebook:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/facebookresearch/ParlAI">https://github.com/facebookresearch/ParlAI</a></p>
-<p>debug the consecutive group reply thresholding protocol</p>
-<p>reply according to individual description and group description</p>
-<ul>
-<li><p><input disabled="" type="checkbox"> 
-同时推广自己和别人的视频或者内容 收集推荐反馈 同时逐步减小推荐别人视频或者内容的频率</p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-推广视频的时候可以加入别人的视频高赞评论 动态的GIF 音频 或者是短视频 然后再发送xml</p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-增加复读图片的功能 增加chatlocal返回图片的功能</p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-增加反馈功能 根据发言之后群里面的回复来确定发言是否有益</p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-用txtai或者其他information retrieval (semantic search, smart search)语义查找工具来代替levenshtein的history based reply logic 查找时要包括上下文</p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-复读机不能使得死群活起来 但是主动推送可以 推送长的 自言自语的对话到群里面 不能是同一个群 主题要相关 filter out too negative ones</p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-拉人到别的群里面来 最好是多个号不共享群但是话题有交集的人</p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-add <code>involution</code> option, allow to append unqualified replies to input message, separated by space.</p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-add extend conversation option, allow to reply more than one sentence at a time (proper delay needed) -&gt; could be achieved by using GPT2 alike generation model</p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-可以给群友点赞</p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-可以发语音</p>
-</li>
-</ul>
-<p>每次对话输入的context不能太小 不然看起来假</p>
-<ul>
-<li><input disabled="" type="checkbox"> 添加复读原句子的功能 触发条件为sentiment</li>
-</ul>
-<p>往群里面发b站视频广告的话 最好和群聊主题相关 和最近接收到的消息相关 同时频率不能太高 要设置全局的counter 群聊每发送一条消息trigger一次counter counter mod period &#x3D;&#x3D; 0 的时候就执行发广告命令 同时可以考虑渲染任务 和发广告的逻辑要解耦合 同时访问一片数据 比如redis 根据最近聊到的内容制作和上传视频 不能在同一个群里面以太快的频率发送相同视频 相同的视频必须间隔一段时间再往其他群发送 最好用schedule库实现 方法内部要实现delay或者放弃schedule的效果</p>
-<p>如果群聊被踢 可以考虑换头像 换昵称 更改个人资料 然后重新申请 同样可以考虑更改b站的信息 用外网网红信息来填充自己的信息 更改资料频率和申请频率都需要控制 需要单独设置每天的quota quota保存在文件里面 申请的信息最好用ai生成 或者paraphrase一下 或者到网上搜索 收集相关内容 先训练一下 头像可以全网到处爬 可以选择二次元头像（动漫头识别）对比度高的 可以是类似头像 不能是系统默认头像不然太过无聊 可以和群聊主题相关 资料抄别人的 别的群里面的 抄该群群成员的资料 或者别的群的资料 不能是管理员资料</p>
-<ul>
-<li><input disabled="" type="checkbox"> 根据模板生成下一句 不要直接生成 素材可以是群公告 群主题 接收到的信息</li>
-</ul>
-<p>模板生成要和新词发现结合</p>
-<p>模板生成 paraphraser可以和chatlocal或者repeater结合</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> re</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.split(<span class="string">r&quot;(abc|acd)&quot;</span>,<span class="string">&quot;aaabcaaacdaaa&quot;</span>)</span><br><span class="line">[<span class="string">&#x27;aa&#x27;</span>, <span class="string">&#x27;abc&#x27;</span>, <span class="string">&#x27;aa&#x27;</span>, <span class="string">&#x27;acd&#x27;</span>, <span class="string">&#x27;aaa&#x27;</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>word=<span class="string">&quot;aaabcaaacdaaa&quot;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>word=<span class="string">&quot;aaabcaaacdaaa&quot;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.escape(<span class="string">&quot;abc&quot;</span>)</span><br><span class="line"><span class="string">&#x27;abc&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.escape(<span class="string">&quot;efgh&quot;</span>)</span><br><span class="line"><span class="string">&#x27;efgh&#x27;</span></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>可以拆分句子为列表</p>
-<ul>
-<li><input disabled="" type="checkbox"> 去除经常生成的话语 比如你好之类的</li>
-</ul>
-<p>挑选levenshtein距离大于0（不能是它本身）的上一句，排序 选择10句 根据情绪激烈程度（正负皆可 去掉过于负面的）排序 输出第一名 选择下一句作为回答 然后记录这个回答在机器人的回答历史中</p>
-<p>句子如果是取同一个group里面的 不能太recent 起码距离要有50个句子的距离</p>
-<p>文字 图片 视频 都可以搜索百度 搜狗 中文搜索api 根据相关度和情绪来排序 （语种一致）回答文字或者多媒体</p>
-<p>拆分大句子为小句子 依次放入 注意要过滤掉广告 一般广告比较长 有链接？</p>
-<ul>
-<li><p><input disabled="" type="checkbox"> 
-输入的内容不能有违禁词否则不回答</p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-输出内容的时候不能有违禁词语 放进来的可以违禁 或者用拼音或者拆字转换这些违禁词语 保证上下文一致性 文本审查</p>
-</li>
-</ul>
-<p>bad chinese -&gt; letter(pinyin initials) -&gt; leetspeek</p>
-<p>下一次挑选的时候自动过滤掉这些下一句在历史回答里面的句子对</p>
-<p>那个lock 要限制自身的读取&#x2F;删除操作以及新消息的append操作</p>
-<ul>
-<li><input disabled="" type="checkbox"> 关于情绪激烈程度 如何提高生成器的情绪激烈度 做一个鉴别器 可以选择性的不去back propagate情绪不激烈的生成结果 或者直接用鉴别器筛选输入的语料</li>
-</ul>
+		<p>only mention sources from major leagues (#fans &gt; 5k)</p>
+<p>mention the bgm you are using</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/07/14/4887de13-b333-4e89-b106-dcf7ddcef5cf/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/09/09/91b05803-40c8-47ad-ab8a-c323e236195b/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -340,8 +150,8 @@ add extend conversation option, allow to reply more than one sentence at a time 
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-07-14 </div>
-			<div class="article-title"><a href="/blog/2022/07/14/b77b6a03-11cb-401c-86bf-cd72715aaa70/" title="This article delves into the world of AI chatbot development and deployment, exploring popular platforms like Heroku and Google App Engine. Additionally, it highlights useful API tools such as Hugging Face and PaddlePaddle to enhance your chatbot&#39;s functionality.">Chatbot, Self-Hosted Model, Cloud Deploy, Cloud Services, Free Website Hosting Service</a></div>
+			<div class="date"> 2022-09-08 </div>
+			<div class="article-title"><a href="/blog/2022/09/08/997dc98a-8883-482a-9b93-d3cff49e984f/" title="This article explores the use of special control characters in conjunction with &#39;expect send&#39; commands, providing a deeper understanding of their functionality and purpose. For more detailed information, refer to the accompanying blog post.">Expect Send Special Control Chars</a></div>
 		</h3>
 	
 
@@ -352,52 +162,11 @@ add extend conversation option, allow to reply more than one sentence at a time 
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://vercel.com/">vercel</a> hosts frontend only apps, could be useful if you want.</p>
-<p>可以提取关键词然后到百度必应上面搜索 获取相关内容 注意语种一致性</p>
-<p>search huggingface with julia or python:</p>
-<p>huggingface_hub(python)</p>
-<p>可以用huggingface的api来翻译 对接英文的chatbot (blenderbot, dialo-gpt)</p>
-<p>add timeout to these api requests</p>
-<p>可以把训练好的中文chatbot放到huggingface上面去 用kaggle放</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/yangjianxin1/GPT2-chitchat">https://github.com/yangjianxin1/GPT2-chitchat</a></p>
-<p>could use this method to generate title for videos. i mean generally.</p>
-<p>could host the model on huggingface, or baidu aistudio, heroku or your own machine</p>
-<p>configure accelerated inference on huggingface (free for cpu, paid gpu):</p>
-<p><a target="_blank" rel="noopener" href="https://huggingface.co/docs/api-inference/quicktour">https://huggingface.co/docs/api-inference/quicktour</a></p>
-<p>huggingface inference apis:</p>
-<p><a target="_blank" rel="noopener" href="https://huggingface.co/inference-api">https://huggingface.co/inference-api</a></p>
-<p>huggingface conversational (chatbot) models:</p>
-<p><a target="_blank" rel="noopener" href="https://huggingface.co/models?pipeline_tag=conversational&sort=downloads">https://huggingface.co/models?pipeline_tag=conversational&amp;sort=downloads</a></p>
-<p>heroku, use fastapi as interface:</p>
-<p><a target="_blank" rel="noopener" href="https://fastapi.tiangolo.com/">https://fastapi.tiangolo.com</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.kaggle.com/getting-started/208405">https://www.kaggle.com/getting-started/208405</a></p>
-<p><a target="_blank" rel="noopener" href="https://signup.heroku.com/">https://signup.heroku.com</a></p>
-<p>heroku alternatives:</p>
-<p>back4app, google app engine</p>
-<p>aistudio api, maybe you need to train or find a paddpepaddle based chatbot:</p>
-<p><a target="_blank" rel="noopener" href="https://ai.baidu.com/ai-doc/AISTUDIO/bk3e382cq#%E5%88%9B%E5%BB%BA%E5%9C%A8%E7%BA%BFapi%E6%9C%8D%E5%8A%A1">https://ai.baidu.com/ai-doc/AISTUDIO/bk3e382cq#创建在线api服务</a></p>
-<p>一个项目可以创建至多五个沙盒服务, 并选择其中一个沙盒服务部署为线上服务.</p>
-<p>沙盒服务如果连续超过24小时无调用将自动调整为暂停状态.</p>
-<p>线上服务如果连续超过14天无调用将自动调整为暂停状态.</p>
-<p>paddlenlp</p>
-<p><a target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/projectdetail/3723144?channelType=0&channel=0">https://aistudio.baidu.com/aistudio/projectdetail/3723144?channelType=0&amp;channel=0</a></p>
-<p>paddlepaddle chat model:</p>
-<p>plato2</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/Knover">https://github.com/PaddlePaddle/Knover</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/Knover/tree/develop/projects/PLATO-2">https://github.com/PaddlePaddle/Knover/tree/develop/projects/PLATO-2</a></p>
-<p><a target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/projectdetail/1886227?channelType=0&channel=0">https://aistudio.baidu.com/aistudio/projectdetail/1886227?channelType=0&amp;channel=0</a></p>
-<p>中文chatbot:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/zhaoyingjun/chatbot">https://github.com/zhaoyingjun/chatbot</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Dimsmary/Ossas_ChatBot">https://github.com/Dimsmary/Ossas_ChatBot</a></p>
-<p>教程</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/lcdevelop/ChatBotCourse">https://github.com/lcdevelop/ChatBotCourse</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/fendouai/Awesome-Chatbot">https://github.com/fendouai/Awesome-Chatbot</a></p>
-<p>语料库</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/codemayq/chinese_chatbot_corpus">https://github.com/codemayq/chinese_chatbot_corpus</a></p>
+		<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34114823/article/details/91765887?spm=1001.2101.3001.6650.4&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-4-91765887-blog-49175707.pc_relevant_multi_platform_whitelistv5&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-4-91765887-blog-49175707.pc_relevant_multi_platform_whitelistv5&utm_relevant_index=9">reference blog</a></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/07/14/b77b6a03-11cb-401c-86bf-cd72715aaa70/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/09/08/997dc98a-8883-482a-9b93-d3cff49e984f/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -407,8 +176,8 @@ add extend conversation option, allow to reply more than one sentence at a time 
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-07-14 </div>
-			<div class="article-title"><a href="/blog/2022/07/14/f8de6157-4e2e-49e7-8d1b-8860e4e8184a/" title="This article explains how to connect a HarmonyOS device&#39;s logs to MySQL, providing the necessary login credentials and log file structure. It also provides guidance on decompressing .gz files and understanding their format for analysis.">Harmonyos Device Log To Mysql</a></div>
+			<div class="date"> 2022-09-08 </div>
+			<div class="article-title"><a href="/blog/2022/09/08/7246fc7e-4d68-4e59-9c24-593920bedc40/" title="This article discusses the process of calling Java code from Python using jpype or pyjnius libraries, allowing for seamless integration between the two languages. Additionally, it covers the usage of the com.github.pemistahl.lingua.api library to detect the language within a given text.">Calling Java From Python</a></div>
 		</h3>
 	
 
@@ -419,42 +188,16 @@ add extend conversation option, allow to reply more than one sentence at a time 
   <div class="row">
 	
 	
-		<p>mysql path:</p>
-<p>jdbc:mysql:&#x2F;&#x2F;10.33.163.33:3306&#x2F;HTS_DB?characterEncoding&#x3D;UTF-8</p>
-<p>root</p>
-<p>pipeline@123</p>
-<p>Logs Path:</p>
-<p>&#x2F;data&#x2F;data&#x2F;Local&#x2F;DeviceTest&#x2F;20220406163617_hts_project&#x2F;resources&#x2F;HTS&#x2F;android-hts&#x2F;logs</p>
-<p>under logs:</p>
-<p>%Y.%m.%d_%H.%M.%S_<serial_number></p>
-<p>select the latest folder</p>
-<p>under selected folder:</p>
-<p>device_logcat_test_<serial_number>_<unknownInteger>.txt.gz</p>
-<p>decompress using: (before that os.chdir to the selected folder)</p>
-<p>gzip -d <file></p>
-<p>does the decompression remove the .gz file?</p>
-<p>it will.</p>
-<p>log format per line:</p>
-<p>DfxTestLog: A1<testName>_<testName2_contain_test_serial>_DfxTestTime &#x3D; <value> datai&#x3D;4</p>
-<p>from 1 to 13:</p>
-<p>A1test1..4</p>
-<p>A2test5</p>
-<p>A3test1..2</p>
-<p>B1test1</p>
-<p>B2test4..6</p>
-<p>D1test1</p>
-<p>M1test1</p>
-<p>Tables:</p>
-<p>Performance_Baseline_Info</p>
-<p>testValue date(%Y-%m-%d) hmsVersion(HMSCore660319) baselineId_id deviceId_id(1,2,4,3,5) deviceType(phone&lt;-1|wearable&lt;-2|car&lt;-4|tv&lt;-3|ecodevice&lt;-5)</p>
-<p>Performance_Daily_Data</p>
-<p>id features indicators baseValue</p>
-<p>Performance_Device_Info</p>
-<p>id(to the deviceId_id) model type sn cpu</p>
+		<p>using <a target="_blank" rel="noopener" href="https://jpype.readthedocs.io/en/latest/userguide.html?highlight=jar#class-paths">jpype</a> or <a target="_blank" rel="noopener" href="https://github.com/kivy/pyjnius">pyjnius</a></p>
+<p>sample code for jpype:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> jpype <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> jpype.imports <span class="comment"># this is needed! shit.</span></span><br><span class="line">addClassPath(<span class="string">&quot;/root/Desktop/works/pyjom/tests/karaoke_effects/classpath/lingua.jar&quot;</span>)</span><br><span class="line">startJVM(getDefaultJVMPath())</span><br><span class="line">java.lang.System.out.println(<span class="string">&quot;Calling Java Print from Python using Jpype!&quot;</span>)</span><br><span class="line"><span class="keyword">from</span> com.github.pemistahl.lingua.api <span class="keyword">import</span> *</span><br><span class="line"><span class="comment"># detector = LanguageDetectorBuilder.fromAllLanguages().withLowAccuracyMode().build()</span></span><br><span class="line">detector = LanguageDetectorBuilder.fromAllLanguages().build() <span class="comment"># 3.5GB just for detecting language! it is somehow crazy.</span></span><br><span class="line">sample = <span class="string">&#x27;hello world&#x27;</span></span><br><span class="line">result = detector.detectLanguageOf(sample)</span><br><span class="line"><span class="built_in">print</span>(result, <span class="built_in">type</span>(result)) <span class="comment"># &lt;java class &#x27;com.github.pemistahl.lingua.api.Language&#x27;&gt;</span></span><br><span class="line"><span class="comment"># but we can convert it into string.</span></span><br><span class="line">strResult = <span class="built_in">str</span>(result)</span><br><span class="line"><span class="built_in">print</span>(strResult, <span class="built_in">type</span>(strResult))</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;CALLING MATH: %d&quot;</span> % math.sqrt(<span class="number">4</span>))</span><br><span class="line">shutdownJVM()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>sample for pyjnius:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> jnius_config</span><br><span class="line"><span class="comment"># jnius_config.add_options(&#x27;-Xrs&#x27;, &#x27;-Xmx4096&#x27;)</span></span><br><span class="line">jnius_config.set_classpath(<span class="string">&#x27;.&#x27;</span>, <span class="string">&quot;/root/Desktop/works/pyjom/tests/karaoke_effects/classpath/lingua.jar&quot;</span>)</span><br><span class="line"><span class="keyword">import</span> jnius</span><br><span class="line">jnius.autoclass(<span class="string">&#x27;java.lang.System&#x27;</span>).out.println(<span class="string">&#x27;Hello world&#x27;</span>)</span><br><span class="line">detector = jnius.autoclass(<span class="string">&#x27;com.github.pemistahl.lingua.api.LanguageDetectorBuilder&#x27;</span>).fromAllLanguages().build()</span><br><span class="line">sample = <span class="string">&#x27;hello world&#x27;</span></span><br><span class="line">result = detector.detectLanguageOf(sample)</span><br><span class="line"><span class="built_in">print</span>(result, <span class="built_in">type</span>(result))</span><br><span class="line"><span class="comment"># breakpoint()</span></span><br><span class="line">strResult = result.toString()</span><br><span class="line"><span class="built_in">print</span>(strResult, <span class="built_in">type</span>(strResult))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/07/14/f8de6157-4e2e-49e7-8d1b-8860e4e8184a/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/09/08/7246fc7e-4d68-4e59-9c24-593920bedc40/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -464,8 +207,8 @@ add extend conversation option, allow to reply more than one sentence at a time 
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-07-14 </div>
-			<div class="article-title"><a href="/blog/2022/07/14/7407631d-b486-4c90-9577-45486922b9b1/" title="This article explores SEO strategies for targeting low competition keywords, maximizing conversion rates and trade-off prices. It also covers black hat practices and alternative methods without a website. Additionally, the article delves into utilizing n-gram analysis in Python to cluster keywords for video content optimization by analyzing click rates and play counts.">Seo 蓝海词 竞争度</a></div>
+			<div class="date"> 2022-09-07 </div>
+			<div class="article-title"><a href="/blog/2022/09/07/9acf6581-da75-4e76-a79a-5c55eb87ae7a/" title="This article discusses two types of logo finders, stationary and moving. The stationary logo finder is a command-line tool, while the overall logo finding repository may be outdated. To find related information, one can refer to a &#39;Watermark Removal, Deep Image Prior, Inpainting, Generate Watermark Mask&#39; bookmark folder on a MacBook Chrome browser.">Stationary Logo Finders And Moving Logo Finders</a></div>
 		</h3>
 	
 
@@ -476,38 +219,12 @@ add extend conversation option, allow to reply more than one sentence at a time 
   <div class="row">
 	
 	
-		<h1 id="SEO-蓝海词-飙升词-竞争度-搜索人气-转化率-成交价（视频长度）"><a href="#SEO-蓝海词-飙升词-竞争度-搜索人气-转化率-成交价（视频长度）" class="headerlink" title="SEO 蓝海词 飙升词 竞争度 搜索人气 转化率 成交价（视频长度）"></a>SEO 蓝海词 飙升词 竞争度 搜索人气 转化率 成交价（视频长度）</h1><p>we need suggestion, related topics, also search results.</p>
-<p>can be used in title generation.</p>
-<p>title&#x2F;message as query (-&gt; keyword -&gt; suggested query) -&gt; search results -&gt; extract response&#x2F;title</p>
-<p>suggestion, trending topics&#x2F;keywords</p>
-<p>black hat seo, <a target="_blank" rel="noopener" href="https://www.blackhatworld.com/forums/black-hat-seo.28/">https://www.blackhatworld.com/forums/black-hat-seo.28/</a></p>
-<p>paste your link ‘elsewhere’, submit your link to search engine somehow, visit your link from search engine somehow</p>
-<h2 id="seo-without-website"><a href="#seo-without-website" class="headerlink" title="seo without website"></a>seo without website</h2><p>write a blog on github?</p>
-<p>create short links and submit them to search engine</p>
-<p>get query count, perform n-gram analysis</p>
-<p><a target="_blank" rel="noopener" href="https://www.aeripret.com/ngrams-analysis-seo/">https://www.aeripret.com/ngrams-analysis-seo/</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.pemavor.com/seo-keyword-clustering-with-python/">https://www.pemavor.com/seo-keyword-clustering-with-python/</a></p>
-<p>i have bookmarked links for further use on macbook chrome.</p>
-<p><a target="_blank" rel="noopener" href="https://advertools.readthedocs.io/en/master/readme.html">advertools</a> is a professional SEO library, productivity &amp; analysis tools to scale your online marketing</p>
-<p>可以用分析股价的方法分析搜索关键词 其中股价对应搜索频率（实时） 播放量对应成交量（实时）也可能不对 反正这个模型肯定要先收集数据然后再建模 画k线 当然也不必完全拘泥于全盘还原 收集到的数据能反映实际情况 得到最优解 也就是发个视频预估播放量最大就行 用深度学习模型</p>
-<p>寻找潜在爆款话题 标签</p>
-<p>快排参数 上首页</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/sopify-bot/seo">https://github.com/sopify-bot/seo</a></p>
-<p>分为主动点击 换IP点击</p>
-<p>以及优化自身关键词 被动优化两种方式</p>
-<p>蓝海词可以从零开始做 可以由现有词语延伸 可以寻找已有的蓝海词</p>
-<p>蓝海词是产品关键词的一种，又被称为“零少词”、“长尾词”。具体是指前台具备一定买家搜索热度，但供应商发布产品较少，通常该词下对应的精确匹配产品数量不超过3页，因而同行竞争度较低的关键词。一旦供应商能准确使用这些词语，并能结合信息质量发布一条合格的产品信息，将获得曝光和点击的快速提升</p>
-<p>红海泛指竞争相当激烈的市场。在红海中，产业边界是明晰和确定的，游戏的竞争规则是已知的。身处红海的企业试图表现得超过竞争对手，以攫取已知需求下的更大市场份额</p>
-<p>淘宝标题撰写技巧：标题流量的3架马车，飙升词+蓝海词+销量卡位词</p>
-<p>什么是飙升词？就是在短时间内热度迅速攀升，并且持续上升的词！</p>
-<p>蓝海词就是那些搜索热度非常高，但这个词下面的在线产品却很少的词。</p>
-<p>这种词可以让我们避免和红海大词竞争，获取很多隐藏流量！</p>
-<p>淘宝界面除了能够综合排序之外，我们还能通过销量来排序。</p>
-<p>关键词卡位就是 寻找点击量和你差不多的视频 商品所拥有的关键词语 标签 这样按照播放量排序的时候就会排到这些视频中间</p>
+		<p>for stationary logo, we have a commandline tool called <a target="_blank" rel="noopener" href="https://github.com/wernerturing/multi-delogo/blob/master/src/opencv-logo-finder/logo-finder.cpp">logo finder</a> which can find multple stationary logos with different timespan. we also have <a target="_blank" rel="noopener" href="https://github.com/rohitrango/automatic-watermark-detection">a repo for overall logo finding</a>, which might be deprecated.</p>
+<p>for more, check out “Watermark Removal, Deep Image Prior, Inpainting, Generate Watermark Mask” bookmark folder in macbook chrome</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/07/14/7407631d-b486-4c90-9577-45486922b9b1/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/09/07/9acf6581-da75-4e76-a79a-5c55eb87ae7a/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -517,8 +234,8 @@ add extend conversation option, allow to reply more than one sentence at a time 
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-07-13 </div>
-			<div class="article-title"><a href="/blog/2022/07/13/626df2db-8eab-47d9-852d-5f8dfc3d3319/" title="The text discusses various GitHub repositories focused on face recognition technology, offering different implementations and resources for creating facial recognition systems using diverse programming languages and frameworks.">人脸识别 Face Recognition</a></div>
+			<div class="date"> 2022-09-07 </div>
+			<div class="article-title"><a href="/blog/2022/09/07/66e5e939-68ce-4179-a972-f2de82505f07/" title="The article delves into a Mac freezing issue that occurs when Kali is offline. Suspecting modified scripts, the user pinpoints ZeroTier One as the primary culprit, specifically mentioning `load_tuntap_launch_n2n_kali_root.sh`, `nginx_with_kali_finder.sh`, and `launch.sh` as potential problem areas.">What Is Causing My Mac To Freeze When Kali Is Offline</a></div>
 		</h3>
 	
 
@@ -529,18 +246,15 @@ add extend conversation option, allow to reply more than one sentence at a time 
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://github.com/ZhaoJ9014/face.evoLVe">https://github.com/ZhaoJ9014/face.evoLVe</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/timesler/facenet-pytorch">https://github.com/timesler/facenet-pytorch</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/JDAI-CV/FaceX-Zoo">https://github.com/JDAI-CV/FaceX-Zoo</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/justadudewhohacks/face-api.js">https://github.com/justadudewhohacks/face-api.js</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/cmusatyalab/openface">https://github.com/cmusatyalab/openface</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/davidsandberg/facenet">https://github.com/davidsandberg/facenet</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/ageitgey/face_recognition">https://github.com/ageitgey/face_recognition</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/jerry1900/faceRecognition">https://github.com/jerry1900/faceRecognition</a></p>
+		<p>modified scripts:</p>
+<p><code>/Users/jamesbrown/Desktop/works/host_discovery_ssh_local_connect/load_tuntap_launch_n2n_kali_root.sh</code></p>
+<p><code>/Users/jamesbrown/Desktop/works/host_discovery_ssh_local_connect/nginx_with_kali_finder.sh</code></p>
+<p><code>/Library/Application Support/ZeroTier/One/launch.sh</code></p>
+<p>seems zerotier one is the main cause!</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/07/13/626df2db-8eab-47d9-852d-5f8dfc3d3319/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/09/07/66e5e939-68ce-4179-a972-f2de82505f07/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -550,8 +264,8 @@ add extend conversation option, allow to reply more than one sentence at a time 
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-07-13 </div>
-			<div class="article-title"><a href="/blog/2022/07/13/1c5d0334-defa-4c85-8fc4-11f67ce8b29b/" title="The text provides resources for generating topics, discovering trends, and detecting new words using tools like BERT documentation, Chinese segment augmentation Github repositories, and a Naive Bayes classifier.">Topic Generation 话题发现 趋势发现 热点发现</a></div>
+			<div class="date"> 2022-09-07 </div>
+			<div class="article-title"><a href="/blog/2022/09/07/c8439b3e-7642-4f70-89db-33a18544be1a/" title="This article explores the techniques of transforming polygons into rectangles using tools like rectirization, extractrect, and rectlinear polygon decomposition. These methods are useful in various applications such as computer vision, robotics, and digital mapping.">Rectangle Related Calculation</a></div>
 		</h3>
 	
 
@@ -562,33 +276,14 @@ add extend conversation option, allow to reply more than one sentence at a time 
   <div class="row">
 	
 	
-		<h1 id="Topic-Generation-话题发现-趋势发现-热点发现-文本分类"><a href="#Topic-Generation-话题发现-趋势发现-热点发现-文本分类" class="headerlink" title="Topic Generation 话题发现 趋势发现 热点发现 文本分类"></a>Topic Generation 话题发现 趋势发现 热点发现 文本分类</h1><p><a target="_blank" rel="noopener" href="https://huggingface.co/docs/transformers/model_doc/bert">bert documentation</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/MaartenGr/BERTopic">https://github.com/MaartenGr/BERTopic</a></p>
-<p>新词发现（可用于挖掘热点 热词 蓝海词）</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/zhanzecheng/Chinese_segment_augment">https://github.com/zhanzecheng/Chinese_segment_augment</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/bojone/word-discovery">https://github.com/bojone/word-discovery</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/blmoistawinde/HarvestText">https://github.com/blmoistawinde/HarvestText</a></p>
-<p>文本分类 文本匹配 文本检索</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/lining0806/Naive-Bayes-Classifier">https://github.com/lining0806/Naive-Bayes-Classifier</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/649453932/Bert-Chinese-Text-Classification-Pytorch">https://github.com/649453932/Bert-Chinese-Text-Classification-Pytorch</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/gaussic/text-classification-cnn-rnn">https://github.com/gaussic/text-classification-cnn-rnn</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/yongzhuo/Keras-TextClassification">https://github.com/yongzhuo/Keras-TextClassification</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/youthpasses/bayes_classifier">https://github.com/youthpasses/bayes_classifier</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Roshanson/TextInfoExp">https://github.com/Roshanson/TextInfoExp</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/aceimnorstuvwxz/toutiao-multilevel-text-classfication-dataset">https://github.com/aceimnorstuvwxz/toutiao-multilevel-text-classfication-dataset</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/CementMaker/cnn_lstm_for_text_classify">https://github.com/CementMaker/cnn_lstm_for_text_classify</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/hellonlp/classifier_multi_label_textcnn">https://github.com/hellonlp/classifier_multi_label_textcnn</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/cjymz886/text-cnn">https://github.com/cjymz886/text-cnn</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/terrifyzhao/bert-utils">https://github.com/terrifyzhao/bert-utils</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/649453932/Chinese-Text-Classification-Pytorch">https://github.com/649453932/Chinese-Text-Classification-Pytorch</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/HappyShadowWalker/ChineseTextClassify">https://github.com/HappyShadowWalker/ChineseTextClassify</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/XqFeng-Josie/TextCNN">https://github.com/XqFeng-Josie/TextCNN</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/tensorlayer/text-antispam">https://github.com/tensorlayer/text-antispam</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/MachineLP/TextMatch">https://github.com/MachineLP/TextMatch</a></p>
+		<p>better make polygon into blocks first (pixelize) and then decompose it into rectangles</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/shininglion/rectirization">rectirization</a> A polygon to rectangle conversion tool, written in cpp</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/pogam/ExtractRect">extractrect</a> find the largest rectangle inscribed in a non-convex polygon</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mikolalysenko/rectangle-decomposition">decompose rectlinear polygon</a> in nodejs</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/07/13/1c5d0334-defa-4c85-8fc4-11f67ce8b29b/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/09/07/c8439b3e-7642-4f70-89db-33a18544be1a/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -598,8 +293,8 @@ add extend conversation option, allow to reply more than one sentence at a time 
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-07-13 </div>
-			<div class="article-title"><a href="/blog/2022/07/13/2a7bee76-2907-44b8-b8bf-618d474e061e/" title="The comments provide insights on different video creation methods, tools, and open-source software options for Linux and JavaScript libraries like three.js and anime.js. Additionally, they discuss the use of LibreOffice Impress in combination with synfig, blender, or three.js for animations and suggest collecting search terms from Bing and Daojia for effective query formation.">Powerpoint 比较视频制作方法 Animation Software Oss Scriptable Flipcard</a></div>
+			<div class="date"> 2022-09-07 </div>
+			<div class="article-title"><a href="/blog/2022/09/07/097a59b9-2109-4a81-8f9f-390bfe3714c5/" title="VapourSynth is a powerful video processing tool that utilizes optical flow algorithms, frame interpolation, and denoising. It seamlessly integrates with other tools like nazobase, DBmbk, and ffmpeg to enhance video quality. With support for Python scripting, users can customize the tool according to their specific requirements. VapourSynth also leverages techniques such as nazorip Bezier curve, gamma curve, convolution, and flowpy for advanced image processing capabilities.">Vapoursynth 光流算法 补帧 画面优化 Denoising</a></div>
 		</h3>
 	
 
@@ -610,106 +305,220 @@ add extend conversation option, allow to reply more than one sentence at a time 
   <div class="row">
 	
 	
-		<ul>
-<li><input disabled="" type="checkbox"> 看看别人的数据来源是什么</li>
+		<p><a target="_blank" rel="noopener" href="https://github.com/GoodManWEN/nazobase">nazobase</a> NAZOrip basement, with cython dll <a target="_blank" rel="noopener" href="https://www.nazorip.site/archives/37/">docs</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/kewenyu/DBmbk">DBmbk</a> a debanding toolkit, for easier bezier curve generation</p>
+<p><a target="_blank" rel="noopener" href="https://ffmpeg.org/ffmpeg-filters.html#sr">ffmpeg super resolution filter</a> could get faster if run on gpu with <a target="_blank" rel="noopener" href="https://www.tensorflow.org/install/lang_c">libtensorflow</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/HighVoltageRocknRoll/sr">VESPCN: real-time super resolution</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/stax76/mpv.net">mpv</a> is a media player with VapourSynth built-in, and that’s probably how vapoursynth gets in my mac via brew dependency manager</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/UniversalAl/view">view.py</a> is Python module for vapoursynth scripts that previews clips</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/WolframRhodium/muvsfunc/wiki/OpenCV-Python-for-VapourSynth">to use opencv functions with vapoursynth</a></p>
+<p>svp is <a target="_blank" rel="noopener" href="https://www.svp-team.com/zh/get/#">free on linux</a>, offering <a target="_blank" rel="noopener" href="https://www.svp-team.com/wiki/SVP:VLC#Using_SVP_in_VLC">plugin for vlc</a> while vlc cannot be run as root</p>
+<p>you might harvest some prebuilt binaries of vapoursynth plugins for linux</p>
+<p>补帧算法可适用于我们的动态水印追踪系统 但是可能需要优化 才能做到比较快速的补帧 因为水印所在位置的区间实际上只是白色的 不需要过于复杂的网络 同时这种补出来的水印需要逐帧处理 或者两帧一处理 生成的区间数量会非常的多</p>
+<p>it is much easier to do this on windows since we need quick evaluation. might run this on virtualbox?</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Bl4Cc4t/homebrew-vsplugins/tree/master/Formula">build scripts</a> on how to build plugins for macos, including how to configure the installation prefix.</p>
+<p>brew compatible, macos compatible vapoursynth plugin build script provider: <a target="_blank" rel="noopener" href="https://github.com/Bl4Cc4t/homebrew-vsplugins">homebrew-vsplugins</a> does not provide build scripts for all plugins avaliable for windows, and it requires <a target="_blank" rel="noopener" href="https://github.com/Bl4Cc4t/homebrew-vsplugins/blob/master/linkvsp.sh">additional linking</a></p>
+<p><a target="_blank" rel="noopener" href="https://forum.doom9.org/showthread.php?t=175522">tutorial</a> on how to configure it: (is it intel only?)</p>
+<p>Alternative VapourSynth Install Method (Brew):</p>
+<p>IMPORTANT: Brew users will need to create and set the autoload folder prior to installing VapourSynth! Simply run the following commands:</p>
+<p>Code:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /usr/local/lib/vapoursynth</span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$HOME</span>/Library/Application Support/VapourSynth&quot;</span></span><br><span class="line"><span class="built_in">touch</span> <span class="string">&quot;<span class="variable">$HOME</span>/Library/Application Support/VapourSynth/vapoursynth.conf&quot;</span></span><br><span class="line"><span class="built_in">echo</span> UserPluginDir=/usr/local/lib/vapoursynth &gt;&gt; <span class="string">&quot;<span class="variable">$HOME</span>/Library/Application Support/VapourSynth/vapoursynth.conf&quot;</span></span><br><span class="line"><span class="built_in">echo</span> SystemPluginDir=/usr/local/lib/vapoursynth &gt;&gt; <span class="string">&quot;<span class="variable">$HOME</span>/Library/Application Support/VapourSynth/vapoursynth.conf&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>(Optional) Create desktop shortcuts for the plugins and scripts folders. Run the following commands in terminal:</p>
+<p>Code:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> <span class="variable">$HOME</span>/Desktop/VapourSynth</span><br><span class="line"><span class="built_in">ln</span> -s /usr/local/lib/vapoursynth <span class="variable">$HOME</span>/Desktop/VapourSynth/Plugins</span><br><span class="line"><span class="built_in">ln</span> -s /usr/local/lib/python3.9/site-packages <span class="variable">$HOME</span>/Desktop/VapourSynth/Scripts</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Use brew command:</p>
+<p>Code:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install vapoursynth</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/WolframRhodium/VapourSynth-BM3DCUDA">bm3d denoising using cuda</a></p>
+<p><a target="_blank" rel="noopener" href="https://vsdb.top/plugins/fft3dfilter">fft3d denoising</a></p>
+<p><a target="_blank" rel="noopener" href="https://learnopencv.com/optical-flow-in-opencv/">python opencv 光流算法详解</a> 分为sparse和dense两种 某种程度上都可以计算场景的变换激烈程度</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/vineeths96/Video-Interpolation-using-Deep-Optical-Flow">frame interpolation using deep optical flow</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/open-mmlab/mmflow">openmmlab mmflow</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/google-research/frame-interpolation">google research: FILM (frame interpolation for large motion)</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.vapoursynth.com/doc/gettingstarted.html">vapoursynth get started (official doc)</a></p>
+<p><a target="_blank" rel="noopener" href="http://vsdb.top/">vapoursynth plugin database</a> only provide prebuilt binaries for windows while the plugin source code might work with linux and macos (if it has the source code)</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/vapoursynth/vsrepo">VSRepo plugin manager</a> installing vapoursynth plugin via commandline tool and vsrepo is only supported on windows, for other platforms we need to compile plugins manually.</p>
+<p><a target="_blank" rel="noopener" href="https://www.nazorip.site/category/Tutorials/">nazorip vapoursynth blogs</a></p>
+<p><a target="_blank" rel="noopener" href="https://nazorip.site/archives/32/">nazorip bezier curve</a></p>
+<p><a target="_blank" rel="noopener" href="https://nazorip.site/archives/56/">nazorip gamma curve and convolution</a></p>
+<p><a target="_blank" rel="noopener" href="https://nazorip.site/archives/56/">flowpy: tool for visualizing and processing image with optical flow</a></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2022/09/07/097a59b9-2109-4a81-8f9f-390bfe3714c5/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2022-09-06 </div>
+			<div class="article-title"><a href="/blog/2022/09/06/ac4e3e75-c9bc-483e-9396-bf1408629e63/" title="This article delves into the world of MakeHuman, a popular software for model making. It covers various techniques and tools used in Blender to achieve lip sync and mocap effects. Additionally, it highlights several libraries useful for real-time human body tracking and VRM file import/export.">Metahuman Makehuman Blender Lipsync 动捕 视频转动画 人物模型 捏脸 Vroid模型 Vrm</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h2 id="3d-models-live2d-models-and-model-makers"><a href="#3d-models-live2d-models-and-model-makers" class="headerlink" title="3d models, live2d models and model makers"></a>3d models, live2d models and model makers</h2><p><a target="_blank" rel="noopener" href="https://github.com/makehumancommunity/makehuman">makehuman</a> as model maker</p>
+<p><a target="_blank" rel="noopener" href="https://vroid.pixiv.help/hc/en-us/articles/360014900273-AvatarSample-E">avatar sample e</a> a cute girl</p>
+<p>live2d models from facerig</p>
+<h2 id="blender-adapters"><a href="#blender-adapters" class="headerlink" title="blender adapters"></a>blender adapters</h2><p><a target="_blank" rel="noopener" href="https://github.com/saturday06/VRM_Addon_for_Blender">blender vrm importer, exporter and utilities</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/MakotoIchinose/VRoid2UE4_BlenderScripts/">blender script: vrm to ue4 compatible</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/cmd410/VRoidBones">blender’s ‘make it pretty’ button for vrm models</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/makehumancommunity/makehuman-plugin-for-blender">makehuman plugin for blender</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/scaredyfish/blender-rhubarb-lipsync">blender addon for rhubarb lip sync</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/cgtinker/BlendArMocap">BlendArMocap</a> by <a target="_blank" rel="noopener" href="https://cgtinker.com/">cgtinker</a> is a Blender add-on to preform Hand, Face and Pose Detection in Blender using just a Webcam built upon Google’s Mediapipe. The detected data can be easily transferred to rifigy rigs.</p>
+<h2 id="lipsync-libraries"><a href="#lipsync-libraries" class="headerlink" title="lipsync libraries"></a>lipsync libraries</h2><p><a target="_blank" rel="noopener" href="https://github.com/DanielSWolf/rhubarb-lip-sync">rhubarb lip sync</a> is a command-line tool that automatically creates 2D mouth animation from voice recordings</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Rudrabha/Wav2Lip">wav2lip</a></p>
+<h2 id="mocap-libraries"><a href="#mocap-libraries" class="headerlink" title="mocap libraries"></a>mocap libraries</h2><p><a target="_blank" rel="noopener" href="https://github.com/CMU-Perceptual-Computing-Lab/openpose">openpose</a> is the first real-time multi-person system to jointly detect human body, hand, facial, and foot key-points</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/facebookresearch/frankmocap">FrankMocap</a> A Strong and Easy-to-use Single View 3D Hand+Body Pose Estimator</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zju3dv/EasyMocap">EasyMocap</a> is an open-source toolbox for markerless human motion capture.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/freemocap/freemocap#readme">freemocap</a> and its <a target="_blank" rel="noopener" href="https://github.com/freemocap/freemocap/wiki/FAQ#does-freemocap-work-on-pre-recorded-videos">FAQ wiki</a></p>
+<p>FreeMoCap on pre-recorded videos:</p>
+<p>Start the RunMe() pipeline at Stage 2, and specify the folder containing the videos you wish to process.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mkocabas/PARE">PARE: Part Attention Regressor for 3D Human Body Estimation</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/emilianavt/OpenSeeFace">openseeface: face landmark tracking</a></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2022/09/06/ac4e3e75-c9bc-483e-9396-bf1408629e63/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2022-09-06 </div>
+			<div class="article-title"><a href="/blog/2022/09/06/75aff48c-0376-4b96-9561-2f129b948608/" title="The text discusses several websites, such as Nafidramovies, Tzfile, Ddrk, Telegram&#39;s lovesource, and Netflixstar.top, that offer unauthorized access to pirated movies and TV shows.">盗版影视站</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>奈菲影视</p>
+<p><a target="_blank" rel="noopener" href="https://www.nfmovies.com/">https://www.nfmovies.com/</a></p>
+<p>团长资源</p>
+<p><a target="_blank" rel="noopener" href="https://tzfile.com/">https://tzfile.com/</a></p>
+<p>低端影视</p>
+<p><a target="_blank" rel="noopener" href="http://ddrk.me/">http://ddrk.me/</a></p>
+<p>人人影视</p>
+<p><a target="_blank" rel="noopener" href="http://www.zmz2019.com/">http://www.zmz2019.com/</a></p>
+<p>远鉴字幕组</p>
+<p><a target="_blank" rel="noopener" href="https://yj.apkgm.top/">https://yj.apkgm.top/</a></p>
+<p>tg帮找资源频道</p>
+<p><a target="_blank" rel="noopener" href="https://t.me/s/lovesource">https://t.me/s/lovesource</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.netflixstar.top/">https://www.netflixstar.top/</a></p>
+<p><a target="_blank" rel="noopener" href="https://1090ys.com/">https://1090ys.com/</a></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2022/09/06/75aff48c-0376-4b96-9561-2f129b948608/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2022-09-06 </div>
+			<div class="article-title"><a href="/blog/2022/09/06/9580f46a-f225-4ad4-bea5-6f3ec07c2399/" title="The comments discuss efforts to circumvent DeepL API&#39;s anti-scraping mechanisms by examining request structures and identifying consistent naming conventions. Despite these potential vulnerabilities, the commenters ultimately decide against abusing the system due to its complexity.">Deepl免费翻译 免费白嫖</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>heroku no longer provides free tiers (dyno)</p>
+<p>change ip frequently by using proxychains and clash</p>
+<p>RELEASES STILL VISIBLE <a target="_blank" rel="noopener" href="https://github.com/zu1k/removed-2022-07-12/releases/tag/0.1.2">HERE</a></p>
+<p>you can google for it. maybe the internet archive has it.</p>
+<p><code>https://github.com/zu1k/deepl-api-rs/releases/download/0.1.2/deepl-aarch64-unknown-linux-musl-0.1.2.gz</code></p>
+<p><code>https://github.com/zu1k/deepl-api-rs/releases/download/0.1.2/deepl-x86_64-unknown-linux-musl-0.1.2.gz</code></p>
+<p>for other triplets i am not so familiar so i cannot guess that out.</p>
+<p>从<a target="_blank" rel="noopener" href="https://zu1k.com/posts/">zu1k的文章</a>来看 应该是搞安全的</p>
+<p>为了更准确的翻译， deepl的API是很重要的</p>
+<p>但是这个deepl却不让免费用 网页端的js复杂的要死</p>
+<p>deepl的客户端的现在分为3类：</p>
+<ul>
+<li><p>免费 自动操控浏览器</p>
+</li>
+<li><p>付费 申请api</p>
+</li>
+<li><p>免费 破解交互协议</p>
+</li>
 </ul>
-<p>知乎神回答 知乎同类回答 排行榜 github排行榜 同类内容</p>
-<p>比较视频可以用段落总结关键词来做</p>
-<p><a target="_blank" rel="noopener" href="https://sourceforge.net/directory/graphics/graphics/animation/os%3Alinux/">free open source animation software for linux, by sourceforge.net</a></p>
-<p><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/three-js.mirror/">three.js</a> javascript 3d library</p>
-<p><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/typed-js.mirror/">typed.js</a> imitate typing animation</p>
-<p><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/anime-js.mirror/">anime.js</a> javascript animation engine</p>
-<p>synfig 2d vector based animation library</p>
-<p><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/countup-js.mirror/">countup.js</a> animate counting up to a number</p>
-<p><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/vivus-js.mirror/">vivus.js</a> drawing animation imitator</p>
-<p>Libreoffice Impress或者其他的动画工具 制作视频 比如synfig blender three.js</p>
-<p><a target="_blank" rel="noopener" href="https://ask.libreoffice.org/t/convert-impress-presentation-to-video/33952">https://ask.libreoffice.org/t/convert-impress-presentation-to-video/33952</a></p>
-<p><a target="_blank" rel="noopener" href="https://ask.libreoffice.org/t/how-to-turn-libreoffice-impress-into-video-mp4-format/20589">https://ask.libreoffice.org/t/how-to-turn-libreoffice-impress-into-video-mp4-format/20589</a></p>
-<p>同样的 可以制作冷知识问答的动画视频 通过收集百度 bing搜索相关词语 如果是问句 问题 就拿来搜索 如果出现了放大版本的句子就收集下来 就是回答</p>
+<p>为了连续使用deepl以及其他可能会封ip的翻译软件 使用clash做代理是很关键的 如何找到好的代理 zu1k有<a target="_blank" rel="noopener" href="https://github.com/zu1k/proxypool">proxypool</a>可以自动爬取代理 同时推荐大佬的<a target="_blank" rel="noopener" href="https://github.com/Python3WebSpider/ProxyPool">proxypool</a> 据说是专业爬虫架构</p>
+<p>zu1k本人下架了deepl的docker镜像 但是release现在居然还可以下载 只不过不可以直接访问页面罢了</p>
+<p>zu1k的<a target="_blank" rel="noopener" href="https://github.com/zu1k/copy-translator">copy translator</a>连接的应该就是他自己写的<a target="_blank" rel="noopener" href="https://deepl.zu1k.com/translate">deepl-rust服务器</a> 只不过现在没法访问了 (话说大佬没事翻译个啥又不是看不懂 hhh) 历史的release版本中有连接本地的版本 估计也没有开源原来的docker破解deepl的二进制</p>
+<p><a target="_blank" rel="noopener" href="https://deeplx.herokuapp.com/">deeplx</a>在 heroku上面运行 目前应该不能正常运行 它的ip感觉是被封了 <a target="_blank" rel="noopener" href="https://github.com/devockr/deeplx">它的仓库</a>用的是现在没法访问的deepl的docker镜像</p>
+<p>有人（很可能就是zu1k）破解了deepl客户端的交互逻辑 应该是windows的deepl协议（c#好破解 没加壳） 现在可以<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzI3NTEwOTA4OQ==&mid=2649181781&idx=1&sn=3591257c389292ed139692637181e70a&chksm=f31a2bdbc46da2cdf4e01b9f663eae934b53fcdb256193b8db0662a41522a31c8af6bca034d3&scene=126&&sessionid=0">看看是如何破解的</a></p>
+<hr>
+<p>安全不仅仅是一门朴素的学问，更是一门权衡的艺术。有时一个简单的设计可以规避掉大多数攻击问题，下面分享一篇在网上看到的DeepL API的反爬设计。</p>
+<p>这篇博文本应该在去年完成 DeepL 客户端逆向的时候发布，但考虑到相关细节一旦公开，恐怕会被广泛采用而被 DeepL 官方封杀，因此迟迟未开始。前段时间我发布了 DeepL Free Api 的 Docker 镜像，也在 GitHub 上公开了相关二进制程序，就下载量来看已经有不少人在使用了，相信 DeepL 不久就会有动作，因此我认为现在已经可以公开相关细节。</p>
+<p>我逆向的是 DeepL 的 Windows 客户端，因为是 C# 开发依附于 .net，也未进行任何混淆和加壳，可以轻松逆出源码。通过前段时间与一些其他研究者交流，我认为已经有不少感兴趣的同学也进行了逆向，也许是一种默契，都害怕 DeepL 在发觉后进行修改，所以大家也都没有对外公开，目前网络中搜不到任何相关的内容。本文的目的是给相关小伙伴一点思路，不过希望大家还是不要直接公开代码，以继续欺骗 DeepL，让其相信还没有人发现他们的把戏。</p>
+<p>在我实现 DeepL Free Api 的过程中，我发现 DeepL 并没有像之前见到的一些接口设计那样，通过签名等手段来避免接口滥用，相反，他们使用了一些欺骗战术来混淆视听，从而尝试让抓包分析者放弃，本文将围绕此进行讨论。</p>
+<p>过程</p>
+<p>进入研究生阶段，为了方便阅读论文，为自己开发了划词翻译工具，在众多翻译引擎中 DeepL 的效果尤为出色。DeepL 官方的 Api 需要绑定信用卡进行认证，但其并未在中国大陆经营业务，所以并不支持国内的信用卡。我也尝试过从淘宝购买别人用国外信用卡认证过的帐号，价格贵不说，在没有滥用的情况下，DeepL 在两个月内封禁了我的帐号，因此我决定用一些其他手段。</p>
+<p>考虑到 DeepL 有提供免费版本的翻译服务，支持 Web，Windows、Android 和 iOS 都有相应的客户端，我便想使用这些客户端使用的免费接口。不出所料，在广泛使用打包和混淆技术的当下，DeepL 的 Web 端 js 代码也不是人看的东西，但通过简单的抓包，我发现其接口参数非常清晰，根本没有额外的签名、token等认证技术，我觉得自己又行了，几行 Python 代码便完成了接口对接工作。</p>
+<p>但测试下来，我发现当修改翻译内容，有极大概率遇到 429 Too many requests，并且一旦出现 429，后续的所有请求便都是 429 了。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line"><span class="attr">&quot;jsonrpc&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2.0&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;error&quot;</span><span class="punctuation">:</span><span class="punctuation">&#123;</span></span><br><span class="line"><span class="attr">&quot;code&quot;</span><span class="punctuation">:</span><span class="number">1042902</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;message&quot;</span><span class="punctuation">:</span><span class="string">&quot;Too many requests.&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在 GitHub 搜索之后，我发现已经有前人尝试利用过 DeepL 的免费接口了，早在 2018 年他们就已经遇到了这个 429 问题，并且到现在都没有解决。</p>
+<p>我尝试转向客户端的免费接口，苹果设备可以轻松 MITM，于是我便在 iPad 上对 DeepL 客户端进行抓包，让我意想不到的是，客户端的请求竟然比 Web 端的简单不少，接口参数数量仅有必须的几个，非常有利于利用。于是我又觉得自己行了，两三行 Python 代码完成接口对接。</p>
+<p>简单测试，我又傻眼了。伪造的请求明明跟客户端发起的完全相同，但只要一更换翻译的内容，返回马上就变成 429。干！我都开始怀疑自己了。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line"><span class="attr">&quot;jsonrpc&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2.0&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;method&quot;</span><span class="punctuation">:</span> <span class="string">&quot;LMT_handle_texts&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;params&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line"><span class="attr">&quot;texts&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">&#123;</span></span><br><span class="line"><span class="attr">&quot;text&quot;</span><span class="punctuation">:</span> <span class="string">&quot;translate this, my friend&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;lang&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line"><span class="attr">&quot;target_lang&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ZH&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;source_lang_user_selected&quot;</span><span class="punctuation">:</span> <span class="string">&quot;EN&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;timestamp&quot;</span><span class="punctuation">:</span> <span class="number">1648877491942</span></span><br><span class="line"><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">12345</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>你自己看看，这个接口多么清楚明白，但怎么就伪造不了呢？</p>
+<p>我想了又想，这里面也就 id 比较可疑，因为这个参数我不知道它是怎么生成的，是随机的还是根据某种规则计算出来的，我们无从知道。但从目前结果来看，随机的 id 无法被服务器认可。</p>
+<p>当然，我也考虑过其他的服务端判断滥用的方法，例如某些 http 头、ssl 层面的方法（例如之前 Go 实现中 SSL 协商过程中加密算法的顺序等），我也想办法进行了伪造，可就是不行。疲惫了，不想搞了。</p>
+<p>第二天，突然想起他的 Windows 客户端，稍微一分析惊喜的发现是 C#，还没加壳，果断扔进 dnSpy，发现也没混淆，真是柳暗花明又一村啊。分析之后，也就一切都清楚明白了，原来 DeepL 根本一开始就在想方设法让你觉得你行啊。</p>
+<p>看前面那个接口的参数，我之所以觉得我行，就是因为这个接口它太简单了。接口的参数少，参数含义又非常明确，它并不像某些厂那样用一些不知所以然的缩写，这里的每一个参数，它的名称都在告诉我它的含义、它是干什么的以及它是怎么生成的。</p>
+<p>jsonrpc 是版本号，method 是方法，一个固定的字符串。params 里面 texts 是多段待翻译的文本，lang 里面是翻译的语言选项，是枚举类型。timestamp 是 UNIX 风格的时间戳，id 就是序号。大眼一看，这里面只有 id 是最可疑的，这也确实是我最初犯的错误。</p>
+<p>真相 现在我来告诉你，DeepL 到底是怎么认证的。（下面并不是 DeepL 客户端的代码，是我写的 Rust 利用代码，但逻辑不变）</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fn</span> <span class="title function_">gen_fake_timestamp</span>(texts: &amp;<span class="type">Vec</span>&lt;<span class="type">String</span>&gt;) <span class="punctuation">-&gt;</span> <span class="type">u128</span> &#123;</span><br><span class="line"><span class="keyword">let</span> <span class="variable">ts</span> = tool::<span class="title function_ invoke__">get_epoch_ms</span>();</span><br><span class="line"><span class="keyword">let</span> <span class="variable">i_count</span> = texts</span><br><span class="line">.<span class="title function_ invoke__">iter</span>()</span><br><span class="line">.<span class="title function_ invoke__">fold</span>(</span><br><span class="line"><span class="number">1</span>,</span><br><span class="line">|s, t| s + t.text.<span class="title function_ invoke__">matches</span>(<span class="string">&#x27;i&#x27;</span>).<span class="title function_ invoke__">count</span>()</span><br><span class="line">) <span class="keyword">as</span> <span class="type">u128</span>;</span><br><span class="line">ts - ts % i_count + i_count</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>哈哈！没想到吧！人家的时间戳不是真的！</p>
+<p>DeepL 先计算了文本中所有 i 的数量，然后对真正的时间戳进行一个小小的运算 ts - ts % i_count + i_count，这个运算差不多仅会改变时间戳的毫秒部分，这个改变如果用人眼来验证根本无法发现，人类看来就是一个普通的时间戳，不会在意毫秒级的差别。</p>
+<p>但是 DeepL 拿到这个修改后的时间戳，既可以与真实时间对比(误差毫秒级)，又可以通过简单的运算（是否是 i_count 的整倍数）判断是否是伪造的请求。真是精妙啊！</p>
+<p>还有更绝的！你接着看：</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">req</span> = req.<span class="title function_ invoke__">replace</span>(</span><br><span class="line"><span class="string">&quot;\&quot;method\&quot;:\&quot;&quot;</span>,</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">self</span>.id + <span class="number">3</span>) % <span class="number">13</span> == <span class="number">0</span> || (<span class="keyword">self</span>.id + <span class="number">5</span>) % <span class="number">29</span> == <span class="number">0</span> &#123;</span><br><span class="line"><span class="string">&quot;\&quot;method\&quot; : \&quot;&quot;</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="string">&quot;\&quot;method\&quot;: \&quot;&quot;</span></span><br><span class="line">&#125;,</span><br><span class="line">);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>怎么样？我觉得我一开始就被玩弄了，人家的 id 就是纯粹的随机数，只不过后续的请求会在第一次的随机 id 基础上加一，但是这个 id 还决定了文本中一个小小的、微不足道的空格。</p>
+<p>按照正常的思路，为了方便人类阅读和分析，拿到请求的第一时间，我都会先扔编辑器里格式化一下 Json，我怎么会想到，这恰恰会破坏掉人家用来认证的特征，因此无论我如何努力都难以发现。</p>
+<p>总结</p>
+<p>在我以往的经验中，接口防滥用，要不就是用户专属的 token，要不就是对请求进行签名或者加密，这些对抗滥用的方法都是明面上的，就是明白告诉你我有一个签名，怎么签的，你去分析去吧，但是我代码混淆了，你看看你是要头发还是要算法。</p>
+<p>要不就是高级点的，更具技术性的，利用某些客户端特有的实现造成的特征进行认证，我印象中最深刻的就是 Go 的 SSL 协商过程中的算法顺序。这类方法要求更高的技术，当然分析起来也肯定更加困难，并且找到这样一种方法本身也不容易。</p>
+<p>从 DeepL 的方法中，我找到了另外一种思路。利用人心理的弱点，一开始让其感觉非常简单，但是无论如何都无法得到想要的结果，给分析者造成心理上的打击和自我怀疑，让其浅尝辄止自行放弃分析。同时利用人行为上的惯式，使其自行破坏掉某些关键信息，从而给分析造成难以发现的阻碍。</p>
+<p>原来，除了技术以外，还有这样一条道路啊，真是有趣！</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/07/13/2a7bee76-2907-44b8-b8bf-618d474e061e/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2022-07-13 </div>
-			<div class="article-title"><a href="/blog/2022/07/13/3847fe1f-d317-4656-b73c-0721888fa4cc/" title="This article discusses a Repl (Read-Eval-Print Loop) for Assembly code with processor flags output, developed by yrp604 and available on the GitHub repository named &#39;rappel&#39;. Moreover, it introduces an msf provided Repl called &#39;msf-nasm_shell&#39;.">Repl For Assembly Code</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<h2 id="with-processor-flags-output"><a href="#with-processor-flags-output" class="headerlink" title="with processor flags output"></a>with processor flags output</h2><p><a target="_blank" rel="noopener" href="https://github.com/yrp604/rappel">https://github.com/yrp604/rappel</a></p>
-<h2 id="msf-provided-repl"><a href="#msf-provided-repl" class="headerlink" title="msf provided repl"></a>msf provided repl</h2><p>msf-nasm_shell</p>
-
-	
-	</div>
-  <a type="button" href="/blog/2022/07/13/3847fe1f-d317-4656-b73c-0721888fa4cc/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2022-07-11 </div>
-			<div class="article-title"><a href="/blog/2022/07/11/1870da8d-eaf6-4728-bb7f-4e94259f8dbc/" title="This article provides a step-by-step guide on how to create and import backups in StandardNotes, an application designed for secure note-taking. The article emphasizes the importance of data security and offers detailed instructions on creating backups and importing them into StandardNotes. By following this guide, users can ensure their important information is safeguarded against potential data loss or unforeseen circumstances.">Create And Import Backups In Standardnotes</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p><a target="_blank" rel="noopener" href="https://standardnotes.com/help/14/how-do-i-create-and-import-backups-of-my-standard-notes-data#:~:text=%20How%20to%20create%20backups%20of%20your%20data%3A,This%20file%20%20may%20be%20imported...%20More%20">https://standardnotes.com/help/14/how-do-i-create-and-import-backups-of-my-standard-notes-data#:~:text=%20How%20to%20create%20backups%20of%20your%20data%3A,This%20file%20%20may%20be%20imported...%20More%20</a></p>
-
-	
-	</div>
-  <a type="button" href="/blog/2022/07/11/1870da8d-eaf6-4728-bb7f-4e94259f8dbc/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2022-07-11 </div>
-			<div class="article-title"><a href="/blog/2022/07/11/2c68b78c-f26a-4827-aad1-8650a6a619b1/" title="This article delves into the world of self-hosted web applications, offering a comprehensive list of open-source options like search engines. It empowers readers to explore and choose from various alternatives that suit their needs and preferences.">Self Hosted Web Applications</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p>common web applications could be big, like search engines. this is a list of open-sourced self hosted services:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/awesome-selfhosted/awesome-selfhosted">https://github.com/awesome-selfhosted/awesome-selfhosted</a></p>
-
-	
-	</div>
-  <a type="button" href="/blog/2022/07/11/2c68b78c-f26a-4827-aad1-8650a6a619b1/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/09/06/9580f46a-f225-4ad4-bea5-6f3ec07c2399/#more" class="btn btn-default more">Read More</a>
 </div>
 
            

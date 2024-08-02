@@ -1,0 +1,319 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>volumes | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/blog/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/blog/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+<!-- title -->
+<div class="page-header page-header-inverse ">
+  <h1 class="archive-title-tag title title-inverse ">volumes</h1>
+</div>
+
+<div class="row page">
+  <!-- cols -->
+  
+  <div class="col-md-9">
+	
+
+	  <div id="top_search"></div>
+
+      
+         <!-- display as entry -->
+	     <div class="mypage">
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2022-12-11 </div>
+			<div class="article-title"><a href="/blog/2022/12/11/ac63ba4a-94ee-4d29-8569-f773120915fc/" title="This article offers solutions for various Docker-related problems, including reducing image size, diagnosing and resolving connectivity issues, managing volumes effectively, and assigning IP addresses to containers. It further explains how to determine the IP address of a container using the `docker inspect` command, which can be useful when communicating without port mappings.">Docker Usage Issues</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>use slim toolkit to shrink docker image size</p>
+<hr>
+<p>with iptable, you can constrain docker container network</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo iptables -I DOCKER-USER -d &lt;ip_range&gt; -j DROP</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>it does not work if you block all local ip ranges.</p>
+<hr>
+<p>to use host provided proxy servers, one can set environment variables before running containers.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -e http_proxy=&lt;proxy_addr&gt; -e https_proxy=&lt;proxy_addr&gt; -e all_proxy=&lt;proxy_addr&gt; -e no_proxy=&lt;bypass_addrs&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>or better, use <a target="_blank" rel="noopener" href="https://github.com/tun2proxy/tun2proxy"><code>tun2proxy</code></a> (linux only)</p>
+<p>run server:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -v /dev/net/tun:/dev/net/tun --sysctl net.ipv6.conf.default.disable_ipv6=0 --cap-add NET_ADMIN --name tun2proxy tun2proxy --proxy &lt;proto&gt;://[username[:password]@]host:port</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>container forced to use proxy:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --network <span class="string">&quot;container:tun2proxy&quot;</span> &lt;image_name&gt;[:tag]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>with docker for mac, you can use the following domain name to get host and gateway ip:</p>
+<ul>
+<li><p>host.docker.internal</p>
+</li>
+<li><p>gateway.docker.internal</p>
+</li>
+</ul>
+<p>for podman:</p>
+<ul>
+<li><p>host.containers.internal</p>
+</li>
+<li><p>gateway.containers.internal</p>
+</li>
+</ul>
+<hr>
+<p>latest docker mirror:</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/704011584">https://zhuanlan.zhihu.com/p/704011584</a></p>
+<hr>
+<p>login mysql with empty password then execute command to make it remotely available:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot --password= -e <span class="string">&quot;grant all privileges on *.* to root@&#x27;%&#x27; identified by &#x27;&#x27; with grant option; commit;&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>create volume and attach volume to container, since containers will be reset after system restarts.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker volume create &lt;volume_name&gt;</span><br><span class="line">docker run -it -d --<span class="built_in">rm</span> -v &lt;volume_name&gt;:&lt;container_mountpoint&gt; --name &lt;container_name&gt; &lt;image_name&gt;</span><br><span class="line">docker volume inspect &lt;volume_name&gt; <span class="comment"># get info on created volume</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>when using mindsdb, it sucks because having bad pypi mirrors.</p>
+<p>set pip index url globally:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip config <span class="built_in">set</span> global.index-url https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>or pass it as environment variable:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -d -e PIP_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple -n &lt;container_name&gt; &lt;image_name&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>if you want to save container states into images, use <code>docker commit &lt;container_name&gt; &lt;image_name&gt;[:image_tag]</code></p>
+<p>Keep in mind that the <code>docker commit</code> command only saves the changes made to a container’s file system. It does not save any changes made to the container’s settings or network configurations. To save all changes made to a container, including settings and network configurations, you can use the <code>docker export</code> and <code>docker import</code> commands instead.</p>
+<p>when exporting ports, if not specifying host ip, you cannot reach the service inside the container. do this instead: <code>docker run -p 0.0.0.0:&lt;host_port&gt;:&lt;container_port&gt; &lt;rest_commands&gt;</code></p>
+<p>it seems to be the proxy (fastgithub). disable http proxy so we can connect to container again, or use clash to make rules to let “localhost” or subnet requests passing through.</p>
+<p>if you want to change ip routings or some other configurations passed when <code>docker run</code>, you need to change the file called <code>hostconfig.json</code> located in <code>/var/lib/docker/containers/&lt;container_id&gt;</code> with <code>PortBindings</code> sections. you stop the container first. find and change the config file then start it. <a target="_blank" rel="noopener" href="https://ahelpme.com/software/docker/docker-change-the-port-mapping-of-an-existing-container/#:~:text=Here%20is%20the%20whole%20procedure%3A%201%20Stop%20the,Docker%20container%20service.%205%20Start%20the%20docker%20container.">tutorial</a></p>
+<p>seems not working. fuck.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&quot;PortBindings&quot;: &#123;</span><br><span class="line">&quot;80/tcp&quot;: [</span><br><span class="line">&#123;</span><br><span class="line">&quot;HostPort&quot;: &quot;8080&quot;</span><br><span class="line">&#125;</span><br><span class="line">],</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>containers can only contact each other if they share the same network. better give unique ip for each container within same network. it can also use container name as host name instead of static ip. <a target="_blank" rel="noopener" href="https://maximorlov.com/4-reasons-why-your-docker-containers-cant-talk-to-each-other/">tutorial</a></p>
+<p>create a network (not overlapping with anything shown in <code>ifconfig</code>, notice the subnet mask):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker network create --subnet=172.18.0.0/16 &lt;network_name&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>start container with given network (again not overlapping with addresses in <code>ifconfig</code>, not the starting address):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run --<span class="built_in">rm</span> -d -it --net &lt;network_name&gt; --ip &lt;ipaddress&gt; --name &lt;container_name&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>to check what ip the container is at:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker inspect &lt;container_id/container_name&gt; | grep IPAddress</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>now you might can talk to the container without port mappings.</p>
+
+	
+	</div>
+  <a type="button" href="/blog/2022/12/11/ac63ba4a-94ee-4d29-8569-f773120915fc/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+	     </div>
+	     <div>
+	       <center>
+	         <div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+	       </center>
+	     </div>	
+      
+
+</div> <!-- col-md-9/col-md-12 -->
+
+
+<div class="col-md-3">
+	<div id="sidebar">
+	
+			
+  <div id="site_search">
+   <div class="form-group">
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="Search" class="st-search-input st-default-search-input form-control"/>
+   </div>  
+  <div id="local-search-result"></div>
+  </div>
+
+
+		
+			
+<div class="widget">
+	<h4>Links</h4>
+	<ul class="blogroll list-unstyled">
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/agi_computer_control/" title="Autonomous computer agent" target="_blank"]);">Project Cybergod</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/pyjom/" title="Media content automation" target="_blank"]);">Project Pyjom</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/prometheous/" title="Automated documentation, AI+IR(RAG)" target="_blank"]);">Project Prometheus</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/pyjom/" title="Media Content Automation" target="_blank"]);">Project Pyjom</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/my_blog_source/" title="Source code of my blog"" target="_blank"]);">Blog Source Code</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="http://www.github.com/james4ever0" title="My Github account" target="_blank"]);">My Github</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="https://samoyedsun.github.io/" title="Samoyedsun's Blog" target="_blank"]);">Samoyedsun&#39;s Blog</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="http://atlant1c.cn/" title="Atlant1c's Blog" target="_blank"]);">Atlant1c&#39;s Blog</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="https://www.gregoryuan.com/" title="Gregoryuan's Blog" target="_blank"]);">Gregoryuan&#39;s Blog</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="https://yubingtao.netlify.app/" title="Yubingtao's Blog" target="_blank"]);">Yubingtao&#39;s Blog</a></li>
+	
+	</ul>
+</div>
+
+
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2024 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/blog/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+
+</body>
+</html>

@@ -123,8 +123,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-01-13 </div>
-			<div class="article-title"><a href="/blog/2023/01/13/7ea1cd57-3ec4-421c-9f75-e5b552d52489/" title="Scribe.rip is a website that offers an unblocked version of restricted Medium articles without additional features like &#39;trending&#39;, &#39;user homepage&#39;, or &#39;most read&#39; sections. Instead of using `medium.com` links, it recommends replacing them with `scribe.rip`. The source code for hosting your own Scribe instance is also available on Sourcehunt.">Medium Subscription Bypass</a></div>
+			<div class="date"> 2024-01-03 </div>
+			<div class="article-title"><a href="/blog/2024/01/03/85b5fb2f-a983-47d8-8231-6632c8e454e7/" title="The code showcases a secure expression evaluation function called `simple_eval` which utilizes Jinja2&#39;s Environment and StrictUndefined. This ensures safer execution by preventing undefined variable errors. The NeverUndefined class offers personalized error messages for undefined variables.">Safe Eval In Jinja</a></div>
 		</h3>
 	
 
@@ -135,15 +135,13 @@
   <div class="row">
 	
 	
-		<p>this site only unblock “restricted” articles. it does not offer “trending” “user homepage” “most read” “recommendation” things which you can get from official medium website.</p>
-<p>map <code>*.medium.com/[URL]</code> to <code>scribe.rip/[URL]</code></p>
-<p>or try to host <code>scribe.rip</code> yourself.</p>
-<p><a target="_blank" rel="noopener" href="https://git.sr.ht/~edwardloveall/scribe">source code</a> hosted on <a target="_blank" rel="noopener" href="https://sr.ht/">sourcehunt</a>.</p>
-<p><a target="_blank" rel="noopener" href="https://git.sr.ht/~edwardloveall/scribe/tree/main/item/docs/instances.md">alternative scribe instances</a> seems all blocked (in mainland)</p>
+		<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> jinja2 <span class="keyword">import</span> Environment</span><br><span class="line"><span class="keyword">from</span> jinja2 <span class="keyword">import</span> StrictUndefined</span><br><span class="line"><span class="keyword">from</span> jinja2.nativetypes <span class="keyword">import</span> NativeEnvironment</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">simple_eval</span>(<span class="params">expr: <span class="built_in">str</span>, globals_dict: <span class="built_in">dict</span> = <span class="literal">None</span></span>):</span><br><span class="line">globals_dict = globals_dict <span class="keyword">or</span> &#123;&#125;</span><br><span class="line">env = Environment(variable_start_string=<span class="string">&#x27;$&#123;&#x27;</span>, variable_end_string=<span class="string">&#x27;&#125;&#x27;</span>, undefined=StrictUndefined)</span><br><span class="line">template = env.from_string(expr).render(**<span class="built_in">dict</span>(<span class="built_in">zip</span>(globals_dict.keys(), globals_dict.keys())))</span><br><span class="line">native_env = NativeEnvironment(undefined=StrictUndefined)</span><br><span class="line"><span class="keyword">return</span> native_env.from_string(<span class="string">&#x27;&#123;&#123;&#x27;</span> + template + <span class="string">&#x27;&#125;&#125;&#x27;</span>).render(**globals_dict)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line"><span class="built_in">print</span>(simple_eval(<span class="string">&#x27;$&#123;a&#125;+1&#x27;</span>, &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>&#125;) == <span class="number">2</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">NeverUndefined</span>(jinja2.StrictUndefined):</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, *args, **kwargs</span>):</span><br><span class="line"><span class="comment"># ARGS: (&quot;parameter &#x27;myvar2&#x27; was not provided&quot;,)</span></span><br><span class="line"><span class="comment"># KWARGS: &#123;&#x27;name&#x27;: &#x27;myvar2&#x27;&#125;</span></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(args) == <span class="number">1</span>:</span><br><span class="line">info = args[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">elif</span> <span class="string">&quot;name&quot;</span> <span class="keyword">in</span> kwargs.keys():</span><br><span class="line">info = <span class="string">f&quot;Undefined variable &#x27;<span class="subst">&#123;kwargs[<span class="string">&#x27;name&#x27;</span>]&#125;</span>&quot;</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">infoList = [<span class="string">&quot;Not allowing any undefined variable.&quot;</span>]</span><br><span class="line">infoList.append(<span class="string">f&quot;ARGS: <span class="subst">&#123;args&#125;</span>&quot;</span>)</span><br><span class="line">infoList.append(<span class="string">f&quot;KWARGS: <span class="subst">&#123;kwargs&#125;</span>&quot;</span>)</span><br><span class="line">info = <span class="string">&quot;\n&quot;</span>.join(infoList)</span><br><span class="line"><span class="keyword">raise</span> Exception(info)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 	
 	</div>
-  <a type="button" href="/blog/2023/01/13/7ea1cd57-3ec4-421c-9f75-e5b552d52489/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2024/01/03/85b5fb2f-a983-47d8-8231-6632c8e454e7/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -153,8 +151,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-01-11 </div>
-			<div class="article-title"><a href="/blog/2023/01/11/1c7b1977-d706-4c3d-9763-c467e44bce8a/" title="This text presents a practical solution for typing comfortably on a keyboard while using thick blankets in cold weather. By placing two pillows on either side of the legs, it helps create enough space to type without being restricted by the blanket&#39;s pressure on hands and feet.">床上用键盘的技巧：垫枕头</a></div>
+			<div class="date"> 2024-01-01 </div>
+			<div class="article-title"><a href="/blog/2024/01/01/caac5921-ef7b-4280-95d9-4e7e42a543dd/" title="This article discusses an individual&#39;s personal motto which emphasizes on great love without bounds, and striving for technical excellence to lead trends.">Personal Motto: Unconditional Love And Technical Excellence</a></div>
 		</h3>
 	
 
@@ -165,11 +163,13 @@
   <div class="row">
 	
 	
-		<p>通过在腿的两侧添加两个枕头 成功解决因为天气寒冷被子加厚导致被子压手 没有空间在键盘上面打字的问题 一定程度上也解决了被子压脚的问题</p>
+		<h1 id="我的座右铭"><a href="#我的座右铭" class="headerlink" title="我的座右铭"></a>我的座右铭</h1><p>大挚大拿</p>
+<p>​真挚热爱 大爱无疆</p>
+<p>​技术过人 引领潮流</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2023/01/11/1c7b1977-d706-4c3d-9763-c467e44bce8a/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2024/01/01/caac5921-ef7b-4280-95d9-4e7e42a543dd/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -179,8 +179,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-01-11 </div>
-			<div class="article-title"><a href="/blog/2023/01/11/298068ec-fe34-44a4-84e1-439cdb04efa0/" title="The &#39;pyttsx3&#39; library is a cross-platform Text to Speech generator, offering language-specific voice options, adjustable speech rate, and file saving capabilities for playback. It utilizes default engines on Windows and macOS, and requires espeak for Linux.">Pyttsx3 Cross Platform Tts Generator</a></div>
+			<div class="date"> 2023-12-27 </div>
+			<div class="article-title"><a href="/blog/2023/12/27/c4cbb9ef-385e-4d6a-bbcb-359d3d41cc32/" title="This text provides an explanation on utilizing Python&#39;s `defaultdict` and `Counter` for efficient dictionary usage. It demonstrates how to set a default value if a key is not found, count the occurrences of items in a collection, initialize and update `defaultdict`, making it convenient for managing such tasks efficiently.">Defaultdict And Counter</a></div>
 		</h3>
 	
 
@@ -191,13 +191,15 @@
   <div class="row">
 	
 	
-		<p>By looking into the <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/naturallanguage?preferredLanguage=occ">NaturalLanguage Framework</a> on macOS, I find text classifier and embeddings inside.</p>
-<p>It will leverage default TTS engine on Windows and macOS, but for linux you must install espeak.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyttsx3</span><br><span class="line">engine = pyttsx3.init()</span><br><span class="line"><span class="comment"># dir(engine.getProperty(&quot;voices&quot;)[0]) -&gt; [&#x27;age&#x27;, &#x27;gender&#x27;, &#x27;id&#x27;, &#x27;languages&#x27;, &#x27;name&#x27;]</span></span><br><span class="line"><span class="comment"># The voices are related to languages. Set it properly.</span></span><br><span class="line"><span class="comment"># you want &quot;en_US&quot; and &quot;zh_CN&quot;</span></span><br><span class="line"><span class="comment"># [[&#x27;en_US&#x27;], [&#x27;it_IT&#x27;], [&#x27;sv_SE&#x27;], [&#x27;fr_CA&#x27;], [&#x27;de_DE&#x27;], [&#x27;he_IL&#x27;], [&#x27;id_ID&#x27;], [&#x27;en_GB&#x27;], [&#x27;es_AR&#x27;], [&#x27;nl_BE&#x27;], [&#x27;en-scotland&#x27;], [&#x27;en_US&#x27;], [&#x27;ro_RO&#x27;], [&#x27;pt_PT&#x27;], [&#x27;es_ES&#x27;], [&#x27;es_MX&#x27;], [&#x27;th_TH&#x27;], [&#x27;en_AU&#x27;], [&#x27;ja_JP&#x27;], [&#x27;sk_SK&#x27;], [&#x27;hi_IN&#x27;], [&#x27;it_IT&#x27;], [&#x27;pt_BR&#x27;], [&#x27;ar_SA&#x27;], [&#x27;hu_HU&#x27;], [&#x27;zh_TW&#x27;], [&#x27;el_GR&#x27;], [&#x27;ru_RU&#x27;], [&#x27;en_IE&#x27;], [&#x27;es_ES&#x27;], [&#x27;nb_NO&#x27;], [&#x27;es_MX&#x27;], [&#x27;en_IN&#x27;], [&#x27;en_US&#x27;], [&#x27;da_DK&#x27;], [&#x27;fi_FI&#x27;], [&#x27;zh_HK&#x27;], [&#x27;en_ZA&#x27;], [&#x27;fr_FR&#x27;], [&#x27;zh_CN&#x27;], [&#x27;en_IN&#x27;], [&#x27;en_US&#x27;], [&#x27;nl_NL&#x27;], [&#x27;tr_TR&#x27;], [&#x27;ko_KR&#x27;], [&#x27;ru_RU&#x27;], [&#x27;pl_PL&#x27;], [&#x27;cs_CZ&#x27;]]</span></span><br><span class="line">engine.setProperty(<span class="string">&#x27;voice&#x27;</span>, engine.getProperty(<span class="string">&quot;voices&quot;</span>)[<span class="number">39</span>].<span class="built_in">id</span>)</span><br><span class="line">engine.save_to_file(<span class="string">&quot;你好 世界&quot;</span>, <span class="string">&#x27;output.wav&#x27;</span>)</span><br><span class="line">engine.runAndWait()</span><br><span class="line">engine.setProperty(<span class="string">&#x27;rate&#x27;</span>, <span class="number">125</span>) <span class="comment"># setting up new voice rate</span></span><br><span class="line"><span class="comment"># The punctuals make the bot to pause for some time. Maybe you should control that yourself.</span></span><br><span class="line">engine.save_to_file(<span class="string">&quot;你好，世界&quot;</span>, <span class="string">&#x27;output.wav&#x27;</span>)</span><br><span class="line">engine.runAndWait()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+		<pre><code class="python">from collections import defaultdict, Counter
+mydict = defaultdict(Counter) # remember to put callable or none as argument of defaultdict
+mydict = defaultdict(lambda: defaultdict(lambda: 0)) # alternative
+mydict[&#39;k1&#39;][&#39;k2&#39;] += 1 # two is ok, but not one or three
+</code></pre>
 
 	
 	</div>
-  <a type="button" href="/blog/2023/01/11/298068ec-fe34-44a4-84e1-439cdb04efa0/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2023/12/27/c4cbb9ef-385e-4d6a-bbcb-359d3d41cc32/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -207,8 +209,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-01-10 </div>
-			<div class="article-title"><a href="/blog/2023/01/10/c06d566c-5d1c-474e-9239-4acd4b560923/" title="The article discusses a command-line approach to stopping background jobs by listing the running job numbers and utilizing the &#39;kill&#39; command to terminate the associated processes.">Stop Background Jobs</a></div>
+			<div class="date"> 2023-12-25 </div>
+			<div class="article-title"><a href="/blog/2023/12/25/dbfdb1c3-4b6e-416e-bfd9-efe320153bb7/" title="This article discusses the utilization of Large Language Models (LLMs) and neural networks in various AI and autonomous agent projects, including smartphone apps, web tasks, and research papers. It highlights notable projects such as AgentLLM, rci-agent, gpt-computer-agent, etc., and mentions that some lack official documentation. Additionally, cloned repositories of these projects are also mentioned in the article.">Cybergod Related Projects</a></div>
 		</h3>
 	
 
@@ -219,11 +221,92 @@
   <div class="row">
 	
 	
-		<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">jobs</span> | grep -Eo <span class="string">&quot;[0-9][0-9][0-9]+&quot;</span> | xargs -iabc <span class="built_in">kill</span> -s KILL abc</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+		<p><a target="_blank" rel="noopener" href="https://github.com/frdel/agent-zero">https://github.com/frdel/agent-zero</a></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://digirl-agent.github.io/">https://digirl-agent.github.io/</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/opendilab/awesome-ui-agents">https://github.com/opendilab/awesome-ui-agents</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/hyp1231/awesome-llm-powered-agent">https://github.com/hyp1231/awesome-llm-powered-agent</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/skyvern-ai/skyvern">https://github.com/skyvern-ai/skyvern</a></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://github.com/Envedity/DAIA">https://github.com/Envedity/DAIA</a></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://github.com/mem0ai/mem0">https://github.com/mem0ai/mem0</a></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://qinghonglin.github.io/">https://qinghonglin.github.io/</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/showlab/Awesome-GUI-Agent">https://github.com/showlab/Awesome-GUI-Agent</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/waterhorse1/LLM_Tree_Search">https://github.com/waterhorse1/LLM_Tree_Search</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/evilsocket/nerve">https://github.com/evilsocket/nerve</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.superjoin.ai/">https://www.superjoin.ai</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/test-time-training/ttt-lm-pytorch">https://github.com/test-time-training/ttt-lm-pytorch</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/stanfordnlp/dspy">https://github.com/stanfordnlp/dspy</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.builder.io/blog/micro-agent">https://www.builder.io/blog/micro-agent</a></p>
+<hr>
+<p>search for <code>site:github.com &lt;computer agent benchmark name&gt; agent</code> and get a bunch of new computer agent frameworks</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/posgnu/rci-agent">https://github.com/posgnu/rci-agent</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/stanfordnlp/wge">https://github.com/stanfordnlp/wge</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ServiceNow/BrowserGym">https://github.com/ServiceNow/BrowserGym</a></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://lmql.ai/">https://lmql.ai</a> llm query language</p>
+<hr>
+<p>neural network generation&#x2F;neural developmental programs</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2406.09787">https://arxiv.org/abs/2406.09787</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/James4Ever0/agi_computer_control">James4Ever0&#x2F;agi_computer_control: Autonomous computer program that can do anything without human operators.</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/niuzaisheng/ScreenAgent">niuzaisheng&#x2F;ScreenAgent: ScreenAgent: A Computer Control Agent Driven by Visual Language Large Model</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/tmgthb/Autonomous-Agents">tmgthb&#x2F;Autonomous-Agents: Autonomous Agents (LLMs) research papers. Updated Daily.</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ltzheng/Synapse">ltzheng&#x2F;Synapse: [ICLR 2024] Trajectory-as-Exemplar Prompting with Memory for Computer Control</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/SkyworkAI/agent-studio">SkyworkAI&#x2F;agent-studio: Benchmarks, environments, and toolkits for general computer agents</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/OS-Copilot/OS-Copilot">OS-Copilot&#x2F;OS-Copilot: An self-improving embodied conversational agent seamlessly integrated into the operating system to automate our daily tasks.</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/landing-ai/vision-agent">landing-ai&#x2F;vision-agent: Vision agent</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/smartcomputer-ai/agent-os">smartcomputer-ai&#x2F;agent-os: Build autonomous AI agents! 🌞</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/idosal/AgentLLM">idosal&#x2F;AgentLLM: AgentLLM is a PoC for browser-native autonomous agents</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/posgnu/rci-agent">posgnu&#x2F;rci-agent: A codebase for “Language Models can Solve Computer Tasks”</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/khulnasoft/gpt-computer-agent">khulnasoft&#x2F;gpt-computer-agent: GPT4 for windows, macos and ubuntu</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/TheDuckAI/DuckTrack">TheDuckAI&#x2F;DuckTrack: Multimodal computer agent data collection program</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/X-PLUG/MobileAgent">X-PLUG&#x2F;MobileAgent: Mobile-Agent: The Powerful Mobile Device Operation Assistant Family</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mnotgod96/AppAgent">mnotgod96&#x2F;AppAgent: AppAgent: Multimodal Agents as Smartphone Users, an LLM-based multimodal agent framework designed to operate smartphone apps.</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/stableagents/stableagents">stableagents&#x2F;stableagents: Stable, Semi-Autonomous, Reliable and Steerable LLM Agents for production use cases.</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/OSU-NLP-Group/Mind2Web">OSU-NLP-Group&#x2F;Mind2Web: [NeurIPS’23 Spotlight] “Mind2Web: Towards a Generalist Agent for the Web”</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/microsoft/autogen">microsoft&#x2F;autogen: A programming framework for agentic AI.</a> Discord: <a target="_blank" rel="noopener" href="https://aka.ms/autogen-dc">https://aka.ms/autogen-dc</a>. Roadmap: <a target="_blank" rel="noopener" href="https://aka.ms/autogen-roadmap">https://aka.ms/autogen-roadmap</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/geekan/MetaGPT">geekan&#x2F;MetaGPT: 🌟 The Multi-Agent Framework: First AI Software Company, Towards Natural Language Programming</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/richardyc/Chrome-GPT">richardyc&#x2F;Chrome-GPT: An AutoGPT agent that controls Chrome on your desktop</a></p>
+<p><a target="_blank" rel="noopener" href="https://chromewebstore.google.com/detail/mass-copy-urls-%E2%88%92-copy-all/gfclnkijfmhhhjnpmdlicdfoibjnppih">Mass Copy URLs − copy all URLs on all tabs</a></p>
+<hr>
+<p>openeqa: embodied agent question answering benchmark</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/facebookresearch/open-eqa">https://github.com/facebookresearch/open-eqa</a></p>
+<hr>
+<p>GUI Automation agent and dataset:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/OpenGVLab/GUI-Odyssey">https://github.com/OpenGVLab/GUI-Odyssey</a> (cross-app tasks)</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/TransformerOptimus/AutoNode">https://github.com/TransformerOptimus/AutoNode</a></p>
+<p><a target="_blank" rel="noopener" href="https://superagi.com/">https://superagi.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/SuperAGI/GUIDE/">https://huggingface.co/datasets/SuperAGI/GUIDE/</a></p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/SuperAGI/SAM">https://huggingface.co/SuperAGI/SAM</a></p>
+<hr>
+<p>AI pipeline orchestration:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/instill-ai/instill-core">https://github.com/instill-ai/instill-core</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ComposioHQ/composio/">https://github.com/ComposioHQ/composio/</a> (with GUI agent)</p>
+<hr>
+<p>GUI dataset annotation can be done manually or using multimodal LLM.</p>
+<p>It matters to validate the answer of questions requiring code execution with code.</p>
+<hr>
+<p>YOLO GUI element identification:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/rahulkundelwalll/YOLOv8-Web-Element-Recognition-Model">https://github.com/rahulkundelwalll/YOLOv8-Web-Element-Recognition-Model</a></p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/foduucom/web-form-ui-field-detection">https://huggingface.co/foduucom/web-form-ui-field-detection</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/js0nwu/webui">https://github.com/js0nwu/webui</a></p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/docs/transformers/model_doc/pix2struct">https://huggingface.co/docs/transformers/model_doc/pix2struct</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/google-research/pix2struct">https://github.com/google-research/pix2struct</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/M3SOulu/WinGUICrawler">https://github.com/M3SOulu/WinGUICrawler</a></p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/yiye2023/GUIEnv">https://huggingface.co/datasets/yiye2023/GUIEnv</a></p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/yiye2023/GUIAct">https://huggingface.co/datasets/yiye2023/GUIAct</a></p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/SiyuanH/GUIAgent">https://huggingface.co/SiyuanH/GUIAgent</a></p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/SiyuanH/GUIAgent">https://huggingface.co/datasets/SiyuanH/GUIAgent</a></p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/SiyuanH/GUIAgent-InternLM7B">https://huggingface.co/SiyuanH/GUIAgent-InternLM7B</a></p>
+<hr>
+<p>Not every repo has official documentation.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/opendilab/LightZero</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/ruvnet/q-star</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/tairov/QStarLearning.mojo</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/estill01/open_qstar</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/openai/Video-Pre-Training</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/abhiprojectz/SingularGPT</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/ddupont808/GPT-4V-Act</span><br><span class="line"><span class="comment"># preload-view.js:markPage is the html-to-boundingbox tool.</span></span><br><span class="line"><span class="comment"># the author wants to create a coco dataset</span></span><br><span class="line"><span class="comment"># specialized in UIED-like functionality</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/Charmve/gpt-eyes</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/OthersideAI/self-operating-computer</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/unconv/gpt4v-browsing</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/THUDM/CogVLM</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/mnotgod96/AppAgent</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 	
 	</div>
-  <a type="button" href="/blog/2023/01/10/c06d566c-5d1c-474e-9239-4acd4b560923/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2023/12/25/dbfdb1c3-4b6e-416e-bfd9-efe320153bb7/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -233,8 +316,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-01-09 </div>
-			<div class="article-title"><a href="/blog/2023/01/09/b78c6699-f152-48c2-a57d-8d17f64c55f1/" title="This article highlights the importance of using effective video editing tools and analyzing social media data to create, improve, and predict the success of viral videos and live streaming content. It delves into various methods and techniques that can help enhance the impact of such content, ultimately leading to increased engagement and visibility on social media platforms.">Everything You Need To Startup Your Media Project: Viral Video Generator, Viral Video Analyzer, Trend Analyzer, Automated Email Account Registration, Download Only A Portion Of Video, Peek Video Screenshots</a></div>
+			<div class="date"> 2023-12-21 </div>
+			<div class="article-title"><a href="/blog/2023/12/21/2cbfa8d5-63ac-4696-bb14-58f5385ceb27/" title="This article provides step-by-step instructions for installing Waydroid on Ubuntu and offers troubleshooting tips for network issues. It explains how to enable firewalld or ufw to resolve connectivity problems, while also clarifying the difference between the wifi switch and its effect on connectivity.">Waydroid Installation Steps</a></div>
 		</h3>
 	
 
@@ -245,288 +328,39 @@
   <div class="row">
 	
 	
-		<p>use grammar or state machine to constraint how llm generate tokens, in order to perform actions and call tools correctly</p>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://github.com/facebookresearch/seamless_communication">voice auto translation</a> by meta</p>
-<hr>
-<p>use attention visualization to create pan effects, focus on different parts and illustrate separately</p>
-<hr>
-<p>to get response fast, you need to create content fast. sometimes it is important to degrade aspects like resolution and more.</p>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://github.com/audio-agi/audiosep">https://github.com/audio-agi/audiosep</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/dgtlmoon/changedetection.io">changedetection</a> get website updates</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/dvlab-research/LongLoRA">longlora</a></p>
-<p>自动删评机器人：</p>
-<p>根据对类似内容的评论预期（结合大模型）进行删除</p>
-<p>根据情感分析删除不利评论</p>
-<hr>
-<p>根据视频内容 标题调整封面人物表情</p>
-<hr>
-<p>造仿制b站 收集用户点击数据</p>
-<hr>
-<p>b站禁用了手机端搜索接口的页面数目，但没有限制电脑端搜索页面数目，估计是为了避免二创素材收集不受影响。</p>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://dambooru.donmai.us/">deep danbooru</a> for anime comprehension, scene understanding etc</p>
-<hr>
-<p>Do not use removable drives (NAS?) as scratch&#x2F;data disk for long-term programs. Instead, use internal drives.</p>
-<p>If possible, first sync all necessary files from removable drives to internal disk, then run the long-running program from there, or first run from rootfs, then jump to removable drives. When error occurs, check if disk is unmounted, try different methods to reload them and rerun the program.</p>
-<p>Another possible cause is insufficient current. Check for similar issues online.</p>
-<hr>
-<p>短视频内部模拟不同视频上下翻页效果</p>
-<hr>
-<p>如果封面提取关键词进行训练并更换 尝试自己生成配图和文字的方法难以实现 可以考虑更换字体和色彩 文字内容不变</p>
-<p>封面文字遵循一定的阅读顺序 从上到下 从左到右 可以设立排版以及合并（用于训练）规则</p>
-<hr>
-<p>youtube now can auto generate video chapters, which might be part of text&#x2F;video summarization.</p>
-<p>multinational, multilingual, subtitles, localizations</p>
-<hr>
-<p>models for content generation:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/OFA-Sys/OFA">one-for-all</a> multi-modal generation</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Aleph-Alpha/magma">magma</a>: a GPT-style multimodal model that can understand any combination of images and language</p>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://www.aewz.com/">视频创作导航</a> 可以用来找自动化创作视频的思路</p>
-<p><a target="_blank" rel="noopener" href="https://www.hellofont.cn/font-list">字由</a> 识别字体 下载免费字体</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/alexanderisora/startuptoolbox/blob/master/README.md">Startup Toolbox</a></p>
-<p>tools for startup companies, including:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[Website]</span><br><span class="line">[Design]</span><br><span class="line">[Support and customer communication]</span><br><span class="line">[Payments, billing and distribution]</span><br><span class="line">[User Analytics and Reporting]</span><br><span class="line">[Business Analytics]</span><br><span class="line">[Automation]</span><br><span class="line">[HR and Payroll]</span><br><span class="line">[Forms and Surveys]</span><br><span class="line">[Tech]</span><br><span class="line">[Product building]</span><br><span class="line">[Marketing and growth]</span><br><span class="line">[Collaboration]</span><br><span class="line">[Build a chatbot]</span><br><span class="line">[Domains and naming]</span><br><span class="line">[Legal, Account and Invoicing]</span><br><span class="line">[Funding]</span><br><span class="line">[Sales]</span><br><span class="line">[Communities]</span><br><span class="line">[Learn]</span><br><span class="line">[A/B testing]</span><br><span class="line">[Launch]</span><br><span class="line">[Other]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+		<p>cursed by the wall.</p>
+<h2 id="install-waydroid-package-for-ubuntu"><a href="#install-waydroid-package-for-ubuntu" class="headerlink" title="install waydroid package (for ubuntu)"></a>install waydroid package (for ubuntu)</h2><p>visit and save <code>https://repo.waydro.id/</code> as <code>waydroid_init_repo.sh</code>, <code>https://repo.waydro.id/waydroid.gpg</code> as <code>waydroid.gpg</code> (using proxy)</p>
+<p>comment out the download part in <code>waydroid_init_repo.sh</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># curl --progress-bar --proto &#x27;=https&#x27; --tlsv1.2 -Sf https://repo.waydro.id/waydroid.gpg --output /usr/share/keyrings/waydroid.gpg</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p><a target="_blank" rel="noopener" href="https://github.com/VertioseLabs/Awesome-Streaming">Awesome Streaming</a></p>
-<p>a list of live streaming and content creation tools:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[Content Creation]</span><br><span class="line">[Sponsors And Affiliate]</span><br><span class="line">[Setup Guides]</span><br><span class="line">[Branding]</span><br><span class="line">[Discord Creation]</span><br><span class="line">[Brand Website]</span><br><span class="line">[Uncopyrighted Music]</span><br><span class="line">[FPS Accuracy]</span><br><span class="line">[Subathon Framework]</span><br><span class="line">[Video Editing]</span><br><span class="line">[OpSec]</span><br><span class="line">[Stat Tracking]</span><br><span class="line">[Game Development]</span><br><span class="line">[V-Tubing]</span><br><span class="line">[How To Start An LLC]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>move <code>waydroid.gpg</code> to <code>/usr/share/keyrings/waydroid.gpg</code></p>
+<p>execute <code>sudo bash waydroid_init_repo.sh</code> to setup waydroid repository</p>
+<p>on ubuntu you need to use proxy during apt mirror syncing.</p>
+<p>to setup proxy (relay local proxy to host):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">proxy --port &lt;port&gt; --host &lt;host&gt; \</span><br><span class="line">--plugins proxy.plugin.ProxyPoolPlugin \</span><br><span class="line">--proxy-pool localhost:&lt;local_proxy_port&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>收集大up主的名字 根据提取出来的名词 清除文案中的含有名字的句子</p>
-<p>for information cascade, treat recommendation system as your target data, and fit your content into the prediction of “to-view” video of popular videos</p>
-<p>分析弹幕关键词是否与大量其他视频标题相重合</p>
-<p>B站撞车搬运检测：</p>
-<p>油管有带有英文番剧名称的AMV&#x2F;MAD剪辑</p>
-<p>通过B站搜索Weibo Tumblr Tiktok Youtube的视频ID 或者名称，可以找出视频是否被转载</p>
-<p>通过搜索其他网站的前缀 比如<code>https://www.youtube.com</code> 可以得到被转载视频的链接 但是感觉数据不是很靠谱 不是很火的那种 要看大流量的还是得爬首页推荐链接 根据话题搜索</p>
-<h2 id="video-highlights-extraction"><a href="#video-highlights-extraction" class="headerlink" title="video highlights extraction"></a>video highlights extraction</h2><p>although you may want to train&#x2F;extract that manually, it would sure be tedious and not self-updating (unless using reinforcement learning).</p>
-<p>often we determine highlights by sound, visual and voice together. highlights often can be identified without too much context, so it can be chunk based.</p>
-<h3 id="bilibili"><a href="#bilibili" class="headerlink" title="bilibili"></a>bilibili</h3><p><a target="_blank" rel="noopener" href="https://github.com/SocialSIsterYi/bilibili-API-collect/blob/master/video/pbp.md">b站的高能进度条</a> 在油管被叫做”most replayed”</p>
-<p>b站有弹幕 所以可以根据弹幕找到精彩片段 <a target="_blank" rel="noopener" href="https://github.com/baolintian/VClimax">VClimax</a>是一个浏览器插件 可以通过弹幕单位时间增长速率，设置相关的阈值，来定位最精彩的内容 (弹幕密度怕还是得要分析) 跳转部分番剧OP 视频搞笑片段精准定位 (怕还得是要机器学习)</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/ZhangEliot/bilibiliDanmuSkip">bilibili Danmaku Skip</a> is another browser plugin which will identify highlights by analyzing danmaku with parameters like threshold, interval and bias</p>
-<h3 id="youtube"><a href="#youtube" class="headerlink" title="youtube"></a>youtube</h3><p>youtube’s most played data can be extracted by:</p>
-<p><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/youtube-heatmap">youtube-heatmap</a> (nodejs, using puppeteer (bad!))</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Benjamin-Loison/YouTube-operational-API">youtube operational api</a>‘s (powered by shared API keys and info extractors without key), while apparantly <a target="_blank" rel="noopener" href="https://github.com/Woojin-Choi/youtube-most-replayed/blob/master/src/App.js">youtube-most-replayed</a> is using this service to retrieve the data from <a target="_blank" rel="noopener" href="https://yt.lemnoslife.com/">yt.lemonslife.com</a> powered by this library</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Benjamin-Loison/YouTube-operational-API/blob/main/videos.php">heatmap extractor</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/LuanRT/YouTube.js">youtube.js</a> (reverse engineered innertube api) added <a target="_blank" rel="noopener" href="https://github.com/LuanRT/YouTube.js/pull/263">support for chapters and video heatmap</a></p>
-<h2 id="youtube-dl-search-youtube-video"><a href="#youtube-dl-search-youtube-video" class="headerlink" title="youtube-dl search youtube video"></a>youtube-dl search youtube video</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">youtube-dl <span class="string">&quot;ytsearch[optional_result_limit]:[query]&quot;</span></span><br><span class="line"><span class="comment"># pass query url directly to allow pagination or filters</span></span><br><span class="line">youtube-dl <span class="string">&quot;https://www.youtube.com/results?search_query=how+to+create+android+app+in+android+studio&amp;page=1&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>to use proxy:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">env</span> https_proxy=http://&lt;host&gt;:&lt;port&gt; http_proxy=http://&lt;host&gt;:&lt;port&gt; all_proxy=http://&lt;host&gt;:&lt;port&gt; apt update</span><br><span class="line">sudo <span class="built_in">env</span> https_proxy=http://&lt;host&gt;:&lt;port&gt; http_proxy=http://&lt;host&gt;:&lt;port&gt; all_proxy=http://&lt;host&gt;:&lt;port&gt; apt install waydroid -y</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h2 id="record-live-streaming-video-upload-video"><a href="#record-live-streaming-video-upload-video" class="headerlink" title="record live streaming video, upload video"></a>record live streaming video, upload video</h2><h3 id="biliup-biliup-rs-commandline-program"><a href="#biliup-biliup-rs-commandline-program" class="headerlink" title="biliup &amp; biliup-rs (commandline program)"></a><a target="_blank" rel="noopener" href="https://github.com/biliup/biliup/">biliup</a> &amp; <a target="_blank" rel="noopener" href="https://github.com/ForgQi/biliup-rs">biliup-rs</a> (commandline program)</h3><p>全自动录播、投稿工具，也支持twitch、ytb频道搬运。提供分p上传b站接口</p>
-<p>其实直播回放没有什么好看的 很单调 另外b站上传之后可以获得视频预测标签</p>
-<h3 id="youtube-automation-toolkit-post-same-content-to-multiple-platforms-bilibili-douyin-douyu-instagram-reddit-spotify-tiktok-twitch"><a href="#youtube-automation-toolkit-post-same-content-to-multiple-platforms-bilibili-douyin-douyu-instagram-reddit-spotify-tiktok-twitch" class="headerlink" title="youtube automation toolkit post same content to multiple platforms: bilibili, douyin, douyu, instagram, reddit, spotify, tiktok, twitch"></a><a target="_blank" rel="noopener" href="https://github.com/wanghaisheng/youtube-automation-toolkit">youtube automation toolkit</a> post same content to multiple platforms: bilibili, douyin, douyu, instagram, reddit, spotify, tiktok, twitch</h3><p>though the idea is correct by posting original content to multiple platforms to prevent pirating, but the description&#x2F;title generation is a vital part of the process, which must be done intelligibly (AI or human). as for now the repo is just full of links. if you want tools you click given link.</p>
-<h2 id="Download-a-portion-of-video"><a href="#Download-a-portion-of-video" class="headerlink" title="Download a portion of video"></a>Download a portion of video</h2><h3 id="yt-dlp-latest"><a href="#yt-dlp-latest" class="headerlink" title="yt-dlp (latest)"></a>yt-dlp (latest)</h3><p>check <code>pyjom/tests/download_sections_video_portion_partial_download_youtube_yt_dlp_bilibili/test_bilibili.sh</code> for advanced usage of yt-dlp and more on bilibili parsing.</p>
-<p><strong>SINCE YT-DLP IS UPDATED YOU CAN USE <code>--download-sections</code> ARGUMENT FOR YOUTUBE</strong></p>
-<p>If you want to download multiple sections of same video, you must specify video output format string via <code>-o</code></p>
-<p>But when using that without “–force-keyframes-at-cuts” (skip re-encoding which can speed up thing but not ensuring quality of video at tail), you better keep margin at tail for 10 seconds (could glitch at last 5 seconds) and head for 5 seconds (maybe head margin is not needed?).</p>
-<h3 id="youtube-dl"><a href="#youtube-dl" class="headerlink" title="youtube-dl"></a>youtube-dl</h3><p>first acquire download url: <code>youtube-dl [--youtube-skip-dash-manifest] [-f 18] -g &quot;https://www.youtube.com/watch?v=V_f2QkBdbRI&quot;</code> (you need to force the format.)</p>
-<p>then use ffmpeg with the url to chop the slice: <code>ffmpeg -ss 00:00:15.00 -i &quot;OUTPUT-OF-FIRST URL&quot; -t 00:00:10.00 -c copy out.mp4</code></p>
-<h3 id="RangeDownloader-by-A-Soul-Database"><a href="#RangeDownloader-by-A-Soul-Database" class="headerlink" title="RangeDownloader by A-Soul-Database"></a><a target="_blank" rel="noopener" href="https://github.com/A-Soul-Database/RangeDownloader">RangeDownloader</a> by A-Soul-Database</h3><p>A-Soul-Database is a live-streaming replay record database designed for vtubers, organized in some way for easy information retrieval.</p>
-<p>RangeDownloader is acting like a server, though sometimes we are not sure how fast(er) it can really be.</p>
-<h2 id="Viral-videos"><a href="#Viral-videos" class="headerlink" title="Viral videos"></a>Viral videos</h2><h3 id="Data-sources-and-monitors"><a href="#Data-sources-and-monitors" class="headerlink" title="Data sources and monitors"></a>Data sources and monitors</h3><h4 id="Rebang-today"><a href="#Rebang-today" class="headerlink" title="Rebang.today"></a><a target="_blank" rel="noopener" href="https://www.rebang.today/">Rebang.today</a></h4><p>通过B站推荐标签接口可以得到观众的实时需求</p>
-<p>提供全站 知乎 微博 IT之家 百度 虎扑 直播吧 少数派 36氪 吾爱破解 天涯 小众软件 反斗限免 哔哩哔哩 抖音 技术期刊 v2ex GitHub的热榜</p>
-<p>API：<code>https://api.rebang.today/v1/items?tab=&lt;TAB_NAME&gt;&amp;page=&lt;PAGE_NUM&gt;</code> (potential parameters: sub_tab, date_type (default:now))</p>
-<p>知乎有个专门的热榜，地址：<code>https://www.zhihu.com/billboard</code></p>
-<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/roundtable">知乎圆桌</a> <a target="_blank" rel="noopener" href="https://www.zhihu.com/explore">知乎发现</a></p>
-<table>
-<thead>
-<tr>
-<th>name</th>
-<th>tab</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>全站热榜</td>
-<td>top-all</td>
-</tr>
-<tr>
-<td>微博</td>
-<td>weibo</td>
-</tr>
-<tr>
-<td>V2EX</td>
-<td>v2ex</td>
-</tr>
-<tr>
-<td>知乎</td>
-<td>zhihu</td>
-</tr>
-<tr>
-<td>哔哩哔哩</td>
-<td>bilibili</td>
-</tr>
-<tr>
-<td>GitHub</td>
-<td>github</td>
-</tr>
-<tr>
-<td>抖音</td>
-<td>douyin</td>
-</tr>
-<tr>
-<td>技术期刊</td>
-<td>journal-tech</td>
-</tr>
-<tr>
-<td>虎扑</td>
-<td>hupu</td>
-</tr>
-<tr>
-<td>少数派</td>
-<td>sspai</td>
-</tr>
-<tr>
-<td>百度</td>
-<td>baidu</td>
-</tr>
-<tr>
-<td>36氪</td>
-<td>36kr</td>
-</tr>
-<tr>
-<td>天涯</td>
-<td>tianya</td>
-</tr>
-<tr>
-<td>吾爱破解</td>
-<td>52pojie</td>
-</tr>
-<tr>
-<td>IT之家</td>
-<td>ithome</td>
-</tr>
-<tr>
-<td>全站24小时</td>
-<td>top-daylong</td>
-</tr>
-<tr>
-<td>直播吧</td>
-<td>zhibo8</td>
-</tr>
-<tr>
-<td>小众软件</td>
-<td>appinn</td>
-</tr>
-<tr>
-<td>反斗限免</td>
-<td>apprcn</td>
-</tr>
-</tbody></table>
-<h4 id="番茄数据"><a href="#番茄数据" class="headerlink" title="番茄数据"></a><a target="_blank" rel="noopener" href="https://www.tomatodata.cn/news/1355.html">番茄数据</a></h4><p>番茄数据提供了从近24小时–近90天B站的最新热门视频，你既可以通过“搜索标题、简介、标签、评论出现关键词”，也可以通过行业分类、播放数、点赞数、投币数、视频时长、观众画像等高级条件，精准定位想要查找领域的热门视频。传播指数的计算方法有待研究。传播指数是根据UP主的粉丝数、视频点赞数、播放数、投币数、分析数等分析出来的综合得分。根据评论热词分析视频观众热点，根据评论用户分析用户画像。</p>
-<p>对于各大数据网站 都存在一个收录的接口 如果up主从来没有上过首页 大概率不会被收录 需要手动提交 间接说明大up主是如何被找到的</p>
-<h3 id="Image-recognizers"><a href="#Image-recognizers" class="headerlink" title="Image recognizers"></a>Image recognizers</h3><h4 id="Baidu-Image-recognizer-百度识图"><a href="#Baidu-Image-recognizer-百度识图" class="headerlink" title="Baidu Image recognizer 百度识图"></a><a target="_blank" rel="noopener" href="https://github.com/chenguanyou/BaiduSerchImgApi">Baidu Image recognizer</a> 百度识图</h4><p>与此相关的识图项目位置：<code>pyjom/tests/search_engine_suggestion_based_qa_bot</code></p>
-<p>可以获取关键字，标签，同样的图，秒懂百科视频，百度百科数据，包含图片的信息，颜值信息</p>
-<p>通过把上传接口修改 以及http改成https 现在可以继续使用</p>
-<p>位置：<code>pyjom/tests/viral_video_experiments/BaiduSerchImgApi</code></p>
-<p>通过http改成https 修改好了<a target="_blank" rel="noopener" href="https://github.com/chenguanyou/360ImageSearch">360识图的接口</a></p>
-<p>位置：<code>tests/viral_video_experiments/360ImageSearch</code></p>
-<h3 id="Video-collectors"><a href="#Video-collectors" class="headerlink" title="Video collectors"></a>Video collectors</h3><h4 id="tiktok-compilation-video-generator"><a href="#tiktok-compilation-video-generator" class="headerlink" title="tiktok compilation video generator"></a><a target="_blank" rel="noopener" href="https://github.com/HA6Bots/TikTok-Compilation-Video-Generator">tiktok compilation video generator</a></h4><p>collect popular video on tiktok by multiple filters such as hashtags, categories , popularities and search queries</p>
-<h4 id="WeiboSpider"><a href="#WeiboSpider" class="headerlink" title="WeiboSpider"></a><a target="_blank" rel="noopener" href="https://github.com/nghuyong/WeiboSpider">WeiboSpider</a></h4><p>需要cookie 收集用户信息 用户粉丝列表 用户关注列表 微博采集 微博评论采集 微博转发采集 基于关键词的微博检索</p>
-<h4 id="botTuber-a-instagram-compilation-reposter-to-youtube"><a href="#botTuber-a-instagram-compilation-reposter-to-youtube" class="headerlink" title="botTuber: a instagram compilation reposter to youtube"></a><a target="_blank" rel="noopener" href="https://github.com/sam5epi0l/BotTuber">botTuber: a instagram compilation reposter to youtube</a></h4><p>Using <code>instaloader</code> and <code>instalooter</code>, it can download videos from instagram. It merges a series of video and add intro and outro. It only contains one default title starts with “TRY NOT TO LAUGH” in its “auto” mode.</p>
-<h4 id="reddit-hot-videos-to-youtube"><a href="#reddit-hot-videos-to-youtube" class="headerlink" title="reddit hot videos to youtube"></a><a target="_blank" rel="noopener" href="https://github.com/spantheslayer/yt-upload-automation">reddit hot videos to youtube</a></h4><p>In “TiktokCringe” reddit channel, we are able to get hot posts and video links prefixed by <code>https://v.redd.it</code> (from tiktok to reddit) in json format: <code>https://www.reddit.com/r/TikTokCringe/hot.json?limit=12</code>. This link looks like some API or subscription. Maybe Bilibili and other sites have similar “hot” json urls. The way to extract video links is in <a target="_blank" rel="noopener" href="https://github.com/spantheslayer/yt-upload-automation/blob/main/atmt.sh">atmt.sh</a>. It adds transitions to every video clip.</p>
-<h3 id="Video-editors"><a href="#Video-editors" class="headerlink" title="Video editors"></a>Video editors</h3><h4 id="vced"><a href="#vced" class="headerlink" title="vced"></a><a target="_blank" rel="noopener" href="https://github.com/datawhalechina/vced">vced</a></h4><p>i think it needs to be fine-tuned on large diversive training data.</p>
-<p>VCED 可以通过你的文字描述来自动识别视频中相符合的片段进行视频剪辑。该项目基于跨模态搜索与向量检索技术搭建，通过前后端分离的模式，帮助你快速的接触新一代搜索技术。</p>
-<h4 id="videofy"><a href="#videofy" class="headerlink" title="videofy"></a><a target="_blank" rel="noopener" href="https://github.com/mohtamohit/Videofy">videofy</a></h4><p>it is a self-hosted service, summarize article, get relevant text and image, determine mood to select BGM. try for yourself!</p>
-<h4 id="meme-video-maker"><a href="#meme-video-maker" class="headerlink" title="meme video maker"></a><a target="_blank" rel="noopener" href="https://github.com/FOLLGAD/meme-video-maker/blob/a9bc7bc3f804da05353faa23fde56cff410f16bb/server/src/video.ts">meme video maker</a></h4><p>It uses google cloud to select “English” words on image, enable the user to edit the “stage” to show meme step by step.</p>
-<p>It requires amazon cloud services and google cloud services.</p>
-<h4 id="回声工坊-TRPG-Replay-Generator"><a href="#回声工坊-TRPG-Replay-Generator" class="headerlink" title="回声工坊 TRPG Replay Generator"></a><a target="_blank" rel="noopener" href="https://github.com/DanDDXuanX/TRPG-Replay-Generator">回声工坊 TRPG Replay Generator</a></h4><p>TRPG：桌上角色扮演游戏 有丢骰子（随机元素）的RPG</p>
-<p>角色立绘可以是动态的 但是是多个png文件</p>
-<p>背景可以设定为 <code>&#123;&#39;black&#39;,&#39;white&#39;,&#39;greenscreen&#39;&#125;</code> 中的一个，以建立纯色背景</p>
-<p>Has special requirements to media sources. Use <code>.ogg</code> format for BGM. Use <code>.wav</code> format for AFX and voices. Use <code>.png</code> for image. Cannot get background video layers working so you might consider some “green screen” effects.</p>
-<p>Use <code>--ExportVideo</code> flag to export video without GUI.</p>
-<h4 id="openshot-and-libopenshot-for-python-bindings"><a href="#openshot-and-libopenshot-for-python-bindings" class="headerlink" title="openshot and libopenshot (for python bindings)"></a>openshot and libopenshot (for python bindings)</h4><p><a target="_blank" rel="noopener" href="https://github.com/thomashuss/nightcoreify/blob/545265c054c0d127b6dd81d4038f56c8c092a739/nightcorei.py#L38">Nightcorify</a> is accelerating audio and raising pitch (<code>asetrate</code> strenches the timeline to change sample rate, <code>atempo</code> (not used in here) change the timeline but not the pitch, while <code>aresample</code> changes the sample rate but not timeline), also showing audio wave shape with <code>showwaves</code>.</p>
-<p>This library is complex <strong>AND WITHOUT PROPER DOC FOR PYTHON</strong> thus not recommend for using</p>
-<h4 id="keybert-and-summarization-transformer-pipeline"><a href="#keybert-and-summarization-transformer-pipeline" class="headerlink" title="keybert and summarization transformer pipeline"></a><a target="_blank" rel="noopener" href="https://github.com/pawanreddy-u/videocreation/blob/main/generateVideo.py">keybert and summarization transformer pipeline</a></h4><p>Check <a target="_blank" rel="noopener" href="https://huggingface.co/transformers/v4.10.1/_modules/transformers/pipelines.html">docs on transformers pipelines</a> for default and fine-tuned task-specific models for each pipeline.</p>
-<p><a target="_blank" rel="noopener" href="https://pypi.org/project/keybert/">Keybert</a> uses “sentence-transformers”. The author would advise either “all-MiniLM-L6-v2” for English documents or “paraphrase-multilingual-MiniLM-L12-v2” for multi-lingual documents or any other language. <a target="_blank" rel="noopener" href="https://huggingface.co/models?pipeline_tag=summarization&sort=downloads&search=multi">Search</a> for “multi” with tag “summarization in huggingface, then you would get huge models. A <a target="_blank" rel="noopener" href="https://huggingface.co/csebuetnlp/mT5_multilingual_XLSum">mT5</a> model is very large, size upto 2.33GB</p>
-<p>Keywords-image pairs can be used for CLIP model training.</p>
-<h4 id="watson-based-video-maker"><a href="#watson-based-video-maker" class="headerlink" title="watson based video maker"></a><a target="_blank" rel="noopener" href="https://github.com/talesdsp/video-maker">watson based video maker</a></h4><p>It first downloads wikipedia content from algorithmia, then uses regex to filter out unwanted parts, uses watson AI for sentence cutting, set a limit for max sentences (notice: not summarization), then search image with keywords, finally create video.</p>
-<p>In <a target="_blank" rel="noopener" href="https://github.com/maykbrito/automatic-video-creator/blob/b37d93651e016ac3f8a0731289d84764802c7afc/robots/input/trends.js">another similar project</a> IMDB (Popular Film&#x2F;TV series) and Google search trends (as RSS) are included.</p>
-<h4 id="Auto-Editor"><a href="#Auto-Editor" class="headerlink" title="Auto-Editor"></a><a target="_blank" rel="noopener" href="https://github.com/WyattBlue/auto-editor">Auto-Editor</a></h4><p>By passing <code>--edit</code> option, you can remove unwanted parts identified by motion or audio (can be combined). It can import clip with manual “cut-out”. It can export as json.</p>
-<h4 id="Pictory"><a href="#Pictory" class="headerlink" title="Pictory"></a><a target="_blank" rel="noopener" href="https://pictory.ai/">Pictory</a></h4><p>Leveraging 3 millions of tagged video clips and audio, choosing most semantically similar clip to current scene (by extracting keyword -&gt; search images -&gt; compare images to video sources with all embedding things going under the hood (CLIP)), map video word by word to the timeline (to create extractive highlights and remove unwanted words like “um”)</p>
-<h4 id="Wisecut"><a href="#Wisecut" class="headerlink" title="Wisecut"></a><a target="_blank" rel="noopener" href="https://www.wisecut.video/">Wisecut</a></h4><p>Short videos can attract your viewers and converting them into followers (to view more of your long videos). <a target="_blank" rel="noopener" href="https://www.wisecut.video/post/leverage-short-videos-to-grow-your-audience">Make short videos</a> with music, subtitles and facial recognition auto-reframe (detect main speaker). It match the right BGM with the type of content, with audio ducking, which can be achieved with ffmpeg or editly.</p>
-<p>It is listed among an <a target="_blank" rel="noopener" href="https://github.com/mhmmyu/awesomeAI">AI marketing tools list</a>, which mentions copywriting, social media&#x2F;email&#x2F;blog marketing text&#x2F;content generation (like <a target="_blank" rel="noopener" href="https://copy.ai/">copy.ai</a>), text to video</p>
-<h4 id="Jumpcutter"><a href="#Jumpcutter" class="headerlink" title="Jumpcutter"></a><a target="_blank" rel="noopener" href="https://github.com/potato3d/jumpcutter">Jumpcutter</a></h4><p>An audio-slience based video cutter. In <code>jumpcut_file.py</code> it chops audio into chunks and decide if it is slience or not. The core logic is to first compare max volume of each chunk against threshold, then check in neighbors of every chunk if all of them are slient and cut them out. It has audio speed changing methods from <a target="_blank" rel="noopener" href="https://pypi.org/project/audiotsm/">audiotsm</a>.</p>
-<p>In <a target="_blank" rel="noopener" href="https://github.com/madsbacha/jumpcut/blob/master/jumpcut.py">another implementation</a>, it uses ring buffer by <code>collections.deque</code> and applies VAD (Voice Activity Detetion) by <a target="_blank" rel="noopener" href="https://pypi.org/project/webrtcvad/">webrtcvad</a> to every chunk of audio.</p>
-<h4 id="Gifcurry"><a href="#Gifcurry" class="headerlink" title="Gifcurry"></a><a target="_blank" rel="noopener" href="https://github.com/lettier/gifcurry">Gifcurry</a></h4><p>Adding text to video, has typing effects, written in haskell. You can add <code>-m</code> flag to export video instead of GIF.</p>
-<h4 id="Backgroundremover"><a href="#Backgroundremover" class="headerlink" title="Backgroundremover"></a><a target="_blank" rel="noopener" href="https://github.com/nadermx/backgroundremover">Backgroundremover</a></h4><p>A commandline tool powered by torch, removing background from images and video</p>
-<h4 id="Moviepy-most-loved-commandline-video-editor"><a href="#Moviepy-most-loved-commandline-video-editor" class="headerlink" title="Moviepy most loved commandline video editor?"></a><a target="_blank" rel="noopener" href="https://github.com/Zulko/moviepy">Moviepy</a> most loved commandline video editor?</h4><p>There are some <a target="_blank" rel="noopener" href="https://zulko.github.io/moviepy/examples/moving_letters.html">cool text effects</a> called “Text with moving letters” (PPT-like), and a <a target="_blank" rel="noopener" href="https://zulko.github.io/moviepy/examples/dancing_knights.html">dancing video generator</a> based on tempo finder and video loop maker, which can help you adjust video speed according to video period and music bpm. The <a target="_blank" rel="noopener" href="https://zulko.github.io/moviepy/examples/star_worms.html">Star-Wars Text Effect</a> reminds me of easing functions used with page scrolling.</p>
-<h3 id="Data-collect-analyze"><a href="#Data-collect-analyze" class="headerlink" title="Data collect&#x2F;analyze"></a>Data collect&#x2F;analyze</h3><p>Social media statistics are time series data which should be collected regularly and predictable with time forcasting models.</p>
-<h4 id="open-sir"><a href="#open-sir" class="headerlink" title="open-sir"></a><a target="_blank" rel="noopener" href="https://github.com/open-sir/open-sir">open-sir</a></h4><p>Use sirx over sir.</p>
-<p>I think it is hard to use. Many “presumed” parameters are out there. It can fit “reproduction rate” but no individual “alpha” and “beta” values.</p>
-<p>In tradirional SIR models, beta is infection rate, gamma is recovery rate. While in open-sir it is different. alpha now is beta, beta now is gamma.</p>
-<h4 id="Youtube-Viral-Video-Machine-Learning-Analysis"><a href="#Youtube-Viral-Video-Machine-Learning-Analysis" class="headerlink" title="Youtube Viral Video Machine Learning Analysis"></a><a target="_blank" rel="noopener" href="https://github.com/gdemos01/yttresearch-machine-learning-algorithms-analysis">Youtube Viral Video Machine Learning Analysis</a></h4><p>Refer to this <a target="_blank" rel="noopener" href="https://github.com/gdemos01/yttresearch-machine-learning-algorithms-analysis/blob/master/Documentation/Thesis.pdf">document</a> for details in data collection and machine learning methods.</p>
-<p>Usage:</p>
-<p>You can decide whether to copy a video or not when it is posted for only a few days.</p>
-<p>Dataset creation:</p>
-<p>Monitoring video right at the time it is posted, monitor for a few days, calculate features, then wait for a month or two (it must stablize then), judge the video is viral or not by view counts.</p>
-<p>Using multiple machine learning techniques, there are some top features matters the most for viral video forecasting (though you can derive your own by collecting more data (like the follower-view theory if applied), and beware if your video all sucks, you may not get an accurate model out of your data alone):</p>
-<table>
-<thead>
-<tr>
-<th>Rank</th>
-<th>Feature Name</th>
-<th>Importance</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>views_acc</td>
-<td>12%</td>
-</tr>
-<tr>
-<td>2</td>
-<td>views_1</td>
-<td>11%</td>
-</tr>
-<tr>
-<td>3</td>
-<td>ageRatioReviews_1</td>
-<td>9%</td>
-</tr>
-<tr>
-<td>4</td>
-<td>video_duration</td>
-<td>9%</td>
-</tr>
-<tr>
-<td>5</td>
-<td>comments_1</td>
-<td>5%</td>
-</tr>
-<tr>
-<td>6</td>
-<td>channel_uploads</td>
-<td>5%</td>
-</tr>
-<tr>
-<td>7</td>
-<td>ageRatioLikes_1</td>
-<td>4%</td>
-</tr>
-<tr>
-<td>8</td>
-<td>comments_acc</td>
-<td>4%</td>
-</tr>
-<tr>
-<td>9</td>
-<td>channel_views</td>
-<td>4%</td>
-</tr>
-<tr>
-<td>10</td>
-<td>comments_sentiment_compound</td>
-<td>3%</td>
-</tr>
-</tbody></table>
-<h4 id="ViralCaster"><a href="#ViralCaster" class="headerlink" title="ViralCaster"></a><a target="_blank" rel="noopener" href="https://github.com/jjbreen/ViralCaster">ViralCaster</a></h4><p><a target="_blank" rel="noopener" href="https://github.com/jjbreen/ViralCaster/blob/master/TitleParser.py">TitleParser.py</a> analyses views along with words, getting the most “popular” word or word combinations. It has demo data. It generates “max” “min” “mean” views related to single word or word combinations.</p>
-<h4 id="Predictube"><a href="#Predictube" class="headerlink" title="Predictube"></a><a target="_blank" rel="noopener" href="https://github.com/dubstack/Predictube">Predictube</a></h4><p><a target="_blank" rel="noopener" href="https://github.com/dubstack/Predictube/blob/master/predictube/analyze/peak_detection/peak_detection.py">peak_detection.py</a> use daily view count to categorize and identify trends. “MonoIncr” might be our desired category.</p>
-<h4 id="Video-Viralization-Tool"><a href="#Video-Viralization-Tool" class="headerlink" title="Video Viralization Tool"></a><a target="_blank" rel="noopener" href="https://github.com/FilipePires98/VideoViralizationTool">Video Viralization Tool</a></h4><p>It uses relative infection ratio instead of absolute to predict the trend. By “information cascade” it means statistics can be used to predict future view counts. It considers individuals and viewers as nodes. It suggests different relationships between parameters in SIR model and data (likes, shares, comments, new subscribers, subscribers, length, quality, tag keywords, description keywords).</p>
+<p>after installation you should comment out the mirror at: <code>/etc/apt/sources.list.d/waydroid.list</code></p>
+<h2 id="initialize-waydroid"><a href="#initialize-waydroid" class="headerlink" title="initialize waydroid"></a>initialize waydroid</h2><p>start waydroid service: <code>sudo systemctl enable --now waydroid-container</code></p>
+<p>the download speed of sourceforge is very slow, unless you use mirror like <code>liquidtelecom</code></p>
+<p>modify the file <code>/usr/lib/waydroid/tools/helpers/http.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="comment">## added part</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">is_sourceforge_download_url</span>(<span class="params">url: <span class="built_in">str</span></span>):</span><br><span class="line">keywords = [<span class="string">&quot;sourceforge.net&quot;</span>, <span class="string">&quot;download&quot;</span>]</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">all</span>([kw <span class="keyword">in</span> url <span class="keyword">for</span> kw <span class="keyword">in</span> keywords])</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">use_liquidtelecom_mirror</span>(<span class="params">url: <span class="built_in">str</span></span>):</span><br><span class="line"><span class="comment"># example: https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_x86_64/lineage-18.1-20231216-VANILLA-waydroid_x86_64-system.zip/download</span></span><br><span class="line"><span class="comment">#      -&gt;  https://sourceforge.net/projects/waydroid/files/images/system/lineage/waydroid_x86_64/lineage-18.1-20231216-VANILLA-waydroid_x86_64-system.zip/download?use_mirror=liquidtelecom</span></span><br><span class="line">keyword = <span class="string">&quot;use_mirror=liquidtelecom&quot;</span></span><br><span class="line"><span class="keyword">if</span> is_sourceforge_download_url(url):</span><br><span class="line"><span class="keyword">if</span> keyword <span class="keyword">not</span> <span class="keyword">in</span> url:</span><br><span class="line">conn_symbol = <span class="string">&quot;?&quot;</span> <span class="keyword">if</span> <span class="string">&quot;?&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> url <span class="keyword">else</span> <span class="string">&quot;&amp;&quot;</span></span><br><span class="line">url += conn_symbol + keyword</span><br><span class="line"><span class="keyword">return</span> url</span><br><span class="line"><span class="comment">## modified part</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">download</span>(<span class="params">args, url, prefix, cache=<span class="literal">True</span>, loglevel=logging.INFO, allow_404=<span class="literal">False</span></span>):</span><br><span class="line">...</span><br><span class="line">url = use_liquidtelecom_mirror(url)</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>restart service: <code>sudo systemctl restart waydroid-container</code></p>
+<p>run command <code>sudo waydroid init</code></p>
+<h2 id="run-waydroid-in-xorg"><a href="#run-waydroid-in-xorg" class="headerlink" title="run waydroid in xorg"></a>run waydroid in xorg</h2><p>install weston: <code>apt install weston</code></p>
+<p>configure weston at <code>~/.config/weston.ini</code></p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[core]</span></span><br><span class="line"><span class="attr">xwayland</span>=<span class="literal">true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>run <code>weston</code>, launch terminal at top left corner, run <code>waydroid</code></p>
+<h2 id="network-issue"><a href="#network-issue" class="headerlink" title="network issue"></a>network issue</h2><p>in addition to the <a target="_blank" rel="noopener" href="https://docs.waydro.id/debugging/networking-issues">official guide</a>, you also need to <a target="_blank" rel="noopener" href="https://github.com/waydroid/waydroid/issues/656#issuecomment-1422650240">enable</a> <code>firewalld</code> or <code>ufw</code> to make it work.</p>
+<p>the wifi switch is irrelevant to network. it won’t be turned on.</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2023/01/09/b78c6699-f152-48c2-a57d-8d17f64c55f1/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2023/12/21/2cbfa8d5-63ac-4696-bb14-58f5385ceb27/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -536,8 +370,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-01-05 </div>
-			<div class="article-title"><a href="/blog/2023/01/05/0d16361d-d53b-4d9f-ad0e-7321f5c428fa/" title="This instruction offers a configuration file to simplify the installation and management of Neo4j, a graph database, as a systemd service on Linux-based systems.">Install Neo4J As Systemd Service</a></div>
+			<div class="date"> 2023-12-20 </div>
+			<div class="article-title"><a href="/blog/2023/12/20/f67ffbfe-0b54-4bb1-ae13-7d79a3b6abc5/" title="This article explores RAG-related projects and resources, such as the tools &#39;rankrag&#39; and &#39;stanford storm 2.0 writer&#39;. It also covers the use of LLMs for generating content, images, and audio queries while updating performance metrics.">Rag In My Mind</a></div>
 		</h3>
 	
 
@@ -548,12 +382,31 @@
   <div class="row">
 	
 	
-		<p>save this under <code>/lib/systemd/system/neo4j.service</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Neo4j Graph Database</span><br><span class="line">Documentation=http://docs.neo4j.org</span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">ExecStart=/usr/bin/neo4j console</span><br><span class="line">ExecStop=/usr/bin/neo4j stop</span><br><span class="line">Restart=on-failure</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+		<p>rankrag</p>
+<p>standford storm 2.0 writer</p>
+<p>togethercomputer moa</p>
+<p>starrag</p>
+<p>hipporag</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/microsoft/graphrag">https://github.com/microsoft/graphrag</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/danielmiessler/fabric">https://github.com/danielmiessler/fabric</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/infiniflow/ragflow">https://github.com/infiniflow/ragflow</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Jenqyang/LLM-Powered-RAG-System">https://github.com/Jenqyang/LLM-Powered-RAG-System</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lamini-ai/Lamini-Memory-Tuning">https://github.com/lamini-ai/Lamini-Memory-Tuning</a></p>
+<hr>
+<p>llm generate images for content</p>
+<p>llm generate tags &amp; categories for content</p>
+<p>llm generate embedding for content</p>
+<p>llm generate query words</p>
+<p>llm generate query image&#x2F;audio</p>
+<p>system perform full text search</p>
+<p>system perform vector search</p>
+<p>llm generate relevance or preference</p>
+<p>llm generate potential query for content</p>
+<p>system update relevance based on llm preference</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2023/01/05/0d16361d-d53b-4d9f-ad0e-7321f5c428fa/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2023/12/20/f67ffbfe-0b54-4bb1-ae13-7d79a3b6abc5/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -563,8 +416,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-01-02 </div>
-			<div class="article-title"><a href="/blog/2023/01/02/9356c462-5cca-4d41-a624-ba5c39190469/" title="This text explores the concept of autonomous robot control through natural language and advanced multimodal models such as Magma and Versatile-Diffusion. Additionally, it delves into AI-driven reinforcement learning for GUI testing using projects like RT-1, SayCan, VIMA, Glider Tasklet Crawler, and Sadam&#39;s RL-based bug detection in GUIs.">Autonomous Lazero Bot, Controlling Computer Using Natural Language Instructions</a></div>
+			<div class="date"> 2023-12-18 </div>
+			<div class="article-title"><a href="/blog/2023/12/18/8a6267a2-bda4-4d09-a577-49dbf47fb6d3/" title="This text provides guidance on utilizing the Python utility &#39;pylint&#39; to identify unspecified exceptions in a Python file and proposes constructing microservices and tracking failures for enhanced error management.">Exception Phobia In Python</a></div>
 		</h3>
 	
 
@@ -575,16 +428,13 @@
   <div class="row">
 	
 	
-		<h2 id="robotics"><a href="#robotics" class="headerlink" title="robotics"></a>robotics</h2><p>RT-1 <a target="_blank" rel="noopener" href="https://github.com/google-research/robotics_transformer">robotics transformer</a> and <a target="_blank" rel="noopener" href="https://github.com/google-research/google-research/blob/master/saycan/README.md">SayCan</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/vimalabs/VIMA">VIMA</a> General Robot Manipulation with Multimodal Prompts</p>
-<h2 id="multimodal-model"><a href="#multimodal-model" class="headerlink" title="multimodal model"></a>multimodal model</h2><p><a target="_blank" rel="noopener" href="https://github.com/Aleph-Alpha/magma">magma</a> a GPT-style multimodal model that can understand any combination of images and language</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/SHI-Labs/Versatile-Diffusion">Versatile-Diffusion</a> Text, Images and Variations All in One Diffusion Model</p>
-<h2 id="AI-based-reinforcement-GUI-testing"><a href="#AI-based-reinforcement-GUI-testing" class="headerlink" title="AI based reinforcement GUI testing"></a>AI based reinforcement GUI testing</h2><p><a target="_blank" rel="noopener" href="https://github.com/microsoft/glider_tasklet_crawler">glider tasklet crawler</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/sadam-99/GUI-Based-Bug-Detection-using-Reinforcement-Learning">GUI based bug detection using RL</a></p>
+		<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pylint --<span class="built_in">enable</span>=unspecified-exception your_python_file.py</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>However it is recommend to build microservices and log failures</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2023/01/02/9356c462-5cca-4d41-a624-ba5c39190469/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2023/12/18/8a6267a2-bda4-4d09-a577-49dbf47fb6d3/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -594,8 +444,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-12-30 </div>
-			<div class="article-title"><a href="/blog/2022/12/30/349492fe-5f38-4cb2-8f15-4876dae24ea2/" title="This article highlights various AI tools collections, including Futurepedia, Creatives, and Futuretools. It also refers to a Zhihu post and Getinference.">AI tools collections</a></div>
+			<div class="date"> 2023-12-09 </div>
+			<div class="article-title"><a href="/blog/2023/12/09/41134802-1add-49b5-9c07-aa111fa98070/" title="This article discusses the use of an AMD RX580 16g GPU for AI acceleration with SYCL/oneAPI, comparing it to Mac Studio. It provides step-by-step instructions on installing drivers, building Torch, and configuring the system for optimal GPU utilization. The article also explores ROCm 6 and its VRAM limitations, offering insights into the performance differences between the two systems.">Rx580 16G Used As Ai Accelerator</a></div>
 		</h3>
 	
 
@@ -606,15 +456,50 @@
   <div class="row">
 	
 	
-		<h2 id="tool-repository"><a href="#tool-repository" class="headerlink" title="tool repository"></a>tool repository</h2><p>i was informed by a post on zhihu.</p>
-<p><a target="_blank" rel="noopener" href="https://www.futurepedia.io/">futurepedia</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.creaitives.com/tools">creatives</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.futuretools.io/">futuretools</a></p>
-<p><a target="_blank" rel="noopener" href="https://airadar.getinference.com/">getinference</a></p>
+		<p>Intel uses SYCL and oneAPI for acceleration. These also target NVIDIA GPUs and AMD GPUs.</p>
+<p>Unlike AMD GPUs, Intel does not separate iGPU VRAM from system RAM, which means iGPU can make full use of it.</p>
+<p>Still cheaper than Mac Studio, though overall memory is smaller.</p>
+<hr>
+<p>Disable power feature in case multi-GPU program does not work expectedly. More info <a target="_blank" rel="noopener" href="https://github.com/ROCm/ROCm/issues/2418">here</a>.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/default/grub</span><br><span class="line"><span class="comment"># add &quot;amdgpu.ppfeaturemask=0xffff3fff amdgpu.runpm=0x0&quot; into GRUB_CMDLINE_LINUX_DEFAULT</span></span><br><span class="line">sudo update-grub</span><br><span class="line">reboot</span><br><span class="line"><span class="built_in">cat</span> /proc/cmdline</span><br><span class="line"><span class="comment"># see if the modification takes effect</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>The codename: <code>gfx803</code></p>
+<p>You may have to <a target="_blank" rel="noopener" href="https://github.com/tsl0922/pytorch-gfx803">build it yourself</a></p>
+<p>Setup environmental parameters and install drivers:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">echo</span> ROC_ENABLE_PRE_VEGA=1 &gt;&gt; /etc/environment</span><br><span class="line">sudo <span class="built_in">echo</span> HSA_OVERRIDE_GFX_VERSION=8.0.3 &gt;&gt; /etc/environment</span><br><span class="line"><span class="comment"># reboot</span></span><br><span class="line">wget https://repo.radeon.com/amdgpu-install/22.40.3/ubuntu/focal/amdgpu-install_5.4.50403-1_all.deb</span><br><span class="line">sudo apt install ./amdgpu-install_5.4.50403-1_all.deb</span><br><span class="line">sudo amdgpu-install -y --usecase=rocm,hiplibsdk,mlsdk</span><br><span class="line">sudo usermod -aG video <span class="variable">$LOGNAME</span></span><br><span class="line">sudo usermod -aG render <span class="variable">$LOGNAME</span></span><br><span class="line"><span class="comment"># verify</span></span><br><span class="line">rocminfo</span><br><span class="line">clinfo</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Build torch:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/pytorch/pytorch.git -b v1.13.1</span><br><span class="line"><span class="built_in">cd</span> pytorch</span><br><span class="line"><span class="built_in">export</span> PATH=/opt/rocm/bin:<span class="variable">$PATH</span> ROCM_PATH=/opt/rocm HIP_PATH=/opt/rocm/hip</span><br><span class="line"><span class="built_in">export</span> PYTORCH_ROCM_ARCH=gfx803</span><br><span class="line"><span class="built_in">export</span> PYTORCH_BUILD_VERSION=1.13.1 PYTORCH_BUILD_NUMBER=1</span><br><span class="line">python3 tools/amd_build/build_amd.py</span><br><span class="line">USE_ROCM=1 USE_NINJA=1 python3 setup.py bdist_wheel</span><br><span class="line">pip3 install dist/torch-1.13.1-cp310-cp310-linux_x86_64.whl</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>If you want to use this beefy GPU for computation, then either prepare a suitable ventalized desktop frame or use external GPU connected by OCuLink, which can be found on latest MiniPCs and laptops.</p>
+<hr>
+<p>Your integrated GPU <code>gfx90c</code> <a target="_blank" rel="noopener" href="https://github.com/ROCm/ROCm/issues/1743">can</a> be used for AI.</p>
+<p>To run it without container, you build it with codename <code>gfx900</code>.</p>
+<p>Either way, you need to specify <code>export HSA_OVERRIDE_GFX_VERSION=9.0.0</code>.</p>
+<p>Run a container:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run --<span class="built_in">rm</span> -it --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --device=/dev/kfd --device=/dev/dri --group-add video --ipc=host --shm-size 8G rocm/pytorch:latest</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>If you want to run <code>ollama</code> on AMD GPUs, you must install ROCm 6.</p>
+<p>Additinally if the card is <a target="_blank" rel="noopener" href="https://github.com/ROCm/ROCm/issues/2774"><code>gfx90c</code></a>, you need to run <code>export HSA_ENABLE_SDMA=0</code>.</p>
+<p>You can get current ROCm version by <code>dpkg -l | grep -i rocm</code>.</p>
+<p>You can disable GPU by <code>export HSA_OVERRIDE_GFX_VERSION=1</code>.</p>
+<p>Since latest <code>ollama</code> accesses ROCm, run it with <code>root</code> account.</p>
+<hr>
+<p>In order to circumvent BIOS VRAM limitation for APU, you can follow the instruction <a target="_blank" rel="noopener" href="https://typeof.pw/archives/pytorch-on-apu-vram">here</a>.</p>
+<p>Related repos:</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/pomoke/torch-apu-helper">torch-apu-helper</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/segurac/force-host-alloction-APU">force-host-alloction-APU</a> (by hooking VRAM allocators)</p>
+</li>
+</ul>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/12/30/349492fe-5f38-4cb2-8f15-4876dae24ea2/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2023/12/09/41134802-1add-49b5-9c07-aa111fa98070/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -624,8 +509,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-12-28 </div>
-			<div class="article-title"><a href="/blog/2022/12/28/4bafb1e7-a9ec-4fe8-afd2-5be076703113/" title="This article discusses the cognitive limitations of puppies that prevent them from naturally learning human languages. It also explains that evolution is a natural process that is not influenced by intention.">Teach Puppies To Speak English (Video Script)</a></div>
+			<div class="date"> 2023-12-09 </div>
+			<div class="article-title"><a href="/blog/2023/12/09/749697d9-e205-4f4d-9733-3c7de07ee228/" title="This article provides a solution to the OpenCL platform not found issue on Android when running llama.cpp on Oneplus Ace2V by instructing users to set the LD_LIBRARY_PATH environment variable.">How To Fix Opencl Platform Not Found Issue On Android</a></div>
 		</h3>
 	
 
@@ -636,25 +521,12 @@
   <div class="row">
 	
 	
-		<p>you create a <strong>stylish</strong> intro for this script? outro? joke? all with chatgpt.</p>
-<p>refer to “how to use ai to generate video, distribute them and advertise” for batch video generation</p>
-<h2 id="if-i-put-a-puppy-into-a-group-of-fake-puppies-controlled-by-humans-interacting-with-the-puppy-and-speak-English-only-to-the-puppy-will-the-puppy-speak-English"><a href="#if-i-put-a-puppy-into-a-group-of-fake-puppies-controlled-by-humans-interacting-with-the-puppy-and-speak-English-only-to-the-puppy-will-the-puppy-speak-English" class="headerlink" title="if i put a puppy into a group of fake puppies controlled by humans, interacting with the puppy and speak English only to the puppy, will the puppy speak English?"></a>if i put a puppy into a group of fake puppies controlled by humans, interacting with the puppy and speak English only to the puppy, will the puppy speak English?</h2><p>It is unlikely that a puppy will be able to learn to speak English or any other human language simply by being placed in a group of fake puppies controlled by humans and interacting with the puppy. While puppies are highly intelligent and capable of learning, they do not have the cognitive abilities necessary to understand and produce human language.</p>
-<p>In order for a puppy or any other non-human animal to learn a human language, it would need to be trained and reinforced through extensive and consistent exposure to the language, as well as being provided with the necessary physical and cognitive abilities to understand and produce the sounds and gestures associated with the language. Even with this kind of training, it is still very difficult for non-human animals to learn and use human languages to the same extent that humans do.</p>
-<h2 id="well-you-know-my-fake-puppies-speak-English"><a href="#well-you-know-my-fake-puppies-speak-English" class="headerlink" title="well you know my fake puppies speak English"></a>well you know my fake puppies speak English</h2><p>I apologize if my previous response was unclear. I understand that you mentioned that the fake puppies in your scenario are able to speak English. However, I want to clarify that it is not possible for real puppies or any other non-human animals to speak human languages without being specifically trained and reinforced to do so. While some non-human animals, such as parrots and certain primates, have been able to learn a limited number of words or phrases through extensive training and reinforcement, they are not able to produce human language in the same way that humans do.</p>
-<p>I hope this helps to clarify the matter. If you have any further questions, please don’t hesitate to ask.</p>
-<h2 id="if-all-puppies-speak-English-will-their-children-be-taught-English-all-by-parents-and-puppy-communities-without-human-intervention"><a href="#if-all-puppies-speak-English-will-their-children-be-taught-English-all-by-parents-and-puppy-communities-without-human-intervention" class="headerlink" title="if all puppies speak English, will their children be taught English all by parents and puppy communities without human intervention?"></a>if all puppies speak English, will their children be taught English all by parents and puppy communities without human intervention?</h2><p>It is not possible for puppies or any other non-human animals to speak human languages without being specifically trained and reinforced to do so by humans or other animals that have been trained by humans. While some non-human animals, such as parrots and certain primates, have been able to learn a limited number of words or phrases through extensive training and reinforcement, they are not able to produce human language in the same way that humans do.</p>
-<p>Therefore, even if a group of puppies were all able to speak English as a result of being trained by humans, their offspring would not be able to learn English simply by being exposed to their parents or other members of their community speaking English. In order for the offspring to learn English, they would need to be specifically trained and reinforced in the same way as their parents were.</p>
-<p>It is worth noting that the ability to learn and use human language is a complex and uniquely human trait that is not shared by other animals to the same extent. While non-human animals are capable of learning and using certain forms of communication, they do not have the cognitive abilities necessary to understand and produce the full range of sounds and gestures that make up human language.</p>
-<h2 id="Ok-if-their-parents-were-taught-how-to-teach-English-then"><a href="#Ok-if-their-parents-were-taught-how-to-teach-English-then" class="headerlink" title="Ok, if their parents were taught how to teach English, then"></a>Ok, if their parents were taught how to teach English, then</h2><p>If the parents of a group of puppies were trained to speak English by humans, and then were able to teach their offspring how to speak English, it is still unlikely that the puppies would be able to learn and use English to the same extent as humans. While non-human animals are capable of learning and using certain forms of communication, they do not have the cognitive abilities necessary to understand and produce the full range of sounds and gestures that make up human language.</p>
-<p>In order for a non-human animal, such as a puppy, to learn and use human language, it would need to be provided with consistent and extensive exposure to the language, as well as being trained and reinforced through a structured and systematic approach. Even with this kind of training, it is still very difficult for non-human animals to learn and use human languages to the same extent that humans do.</p>
-<p>It is worth noting that the ability to learn and use human language is a complex and uniquely human trait that is not shared by other animals to the same extent. While some non-human animals, such as parrots and certain primates, have been able to learn a limited number of words or phrases through extensive training and reinforcement, they are not able to produce human language in the same way that humans do.</p>
-<h2 id="If-I-use-some-machine-to-teach-every-puppy-English-by-evolution-is-it-possible-for-puppies-to-speak-English-without-help-from-machine-and-human"><a href="#If-I-use-some-machine-to-teach-every-puppy-English-by-evolution-is-it-possible-for-puppies-to-speak-English-without-help-from-machine-and-human" class="headerlink" title="If I use some machine to teach every puppy English, by evolution, is it possible for puppies to speak English without help from machine and human?"></a>If I use some machine to teach every puppy English, by evolution, is it possible for puppies to speak English without help from machine and human?</h2><p>It is not possible for puppies or any other non-human animals to evolve the ability to speak human languages without the assistance of humans or machines. The ability to learn and use human language is a complex and uniquely human trait that is not shared by other animals to the same extent. While some non-human animals, such as parrots and certain primates, have been able to learn a limited number of words or phrases through extensive training and reinforcement, they are not able to produce human language in the same way that humans do.</p>
-<p>In order for a non-human animal, such as a puppy, to learn and use human language, it would need to be provided with consistent and extensive exposure to the language, as well as being trained and reinforced through a structured and systematic approach. Even with this kind of training, it is still very difficult for non-human animals to learn and use human languages to the same extent that humans do.</p>
-<p>Using a machine to teach puppies English would likely involve a similar process of training and reinforcement, and would not result in the puppies evolving the ability to speak the language on their own. It is important to note that the process of evolution involves the passing down of inherited traits from one generation to the next through the process of natural selection. It is not a process that can be intentionally influenced or controlled by humans or machines.</p>
+		<p>To run <code>llama.cpp</code> on Oneplus Ace2V, you need an extra step:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=/vendor/lib64:/vendor/lib64/mt6983:/vendor/lib64/egl/mt6983</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/12/28/4bafb1e7-a9ec-4fe8-afd2-5be076703113/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2023/12/09/749697d9-e205-4f4d-9733-3c7de07ee228/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -664,8 +536,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-12-28 </div>
-			<div class="article-title"><a href="/blog/2022/12/28/a76d3719-f3ec-46ad-a8fe-79fe978df924/" title="This article provides a method for clearing mucus from the throat and nasal passages by using ear pressure, opening the Eustachian tube&#39;s passage, and blowing or coughing out the mucus. It also suggests pressing on any sore areas in the face, neck, or jaw to help with relief.">怎样清理嗓子 鼻腔里面的痰液</a></div>
+			<div class="date"> 2023-12-08 </div>
+			<div class="article-title"><a href="/blog/2023/12/08/5c8bc0fa-a84c-40db-9559-26f5230872e7/" title="This article delves into the creation of an advanced AI agent that utilizes historical data for learning and forecasting future events to earn rewards. Additionally, the agent interacts with a world model to prevent cheating and establishes a hierarchy of superagents.">How To Create Cybergod</a></div>
 		</h3>
 	
 
@@ -676,12 +548,19 @@
   <div class="row">
 	
 	
-		<p>挤压耳后根 耳洞旁 同时吸气 用力打开耳朵通鼻腔的通道 吐痰</p>
-<p>如果面部 下巴 脖子后面有酸胀的区域也可以挤压</p>
+		<p><a target="_blank" rel="noopener" href="https://www.novaspivack.com/business/the-four-levels-of-ai-steps-to-self-evolution">https://www.novaspivack.com/business/the-four-levels-of-ai-steps-to-self-evolution</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.novaspivack.com/business/exploring-higher-order-ai-training-on-first-order-ai-networks-for-optimal-path-outcomes">https://www.novaspivack.com/business/exploring-higher-order-ai-training-on-first-order-ai-networks-for-optimal-path-outcomes</a></p>
+<hr>
+<p>i want to create some sort of agent, that learns autoregressively on historical tokens (not necessarily present in history, but close). however, when the agent is given some previous tokens, it is expected to send some actions to the environment in order to really observe the given tokens to get reward. the agent is not allowed to directly generate the token to the environment in order to prevent cheating. the agent is rewarded to successfully rebuild the past or predict and build the future. to predict the future is like the target token is generated by the agent itself instead of some automatic history replay bot, and the rest of the reward system follows the same way as the history replay reward system. this kind of system might have some sort of consciousness and therefore agi</p>
+<p>the main objective of AGI is to create another version of itself.</p>
+<p>the verification system can be built upon internal hidden tokens (you feel like you made it, feeling based) or similarity based (timeseries similarity or semantic similarity). there can be some external verification system such as lifespan, disk usage, view count, popularity, total capital etc.</p>
+<hr>
+<p>the main problem of making this work is how to train it in parallel. the real world can be replaced by some world model (say some neural network) so that it can go back in time, or some really fast real world evaluators or some special world evaluators which supports time traversal, like virtual machine snapshots, web browsers (tab traversal). alphago has such advantage because go game is a very simple world model, while the real world is not.</p>
+<p>also this could build some hierarchy like: real world -&gt; world model -&gt; agent -&gt; superagent -&gt; …</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/12/28/a76d3719-f3ec-46ad-a8fe-79fe978df924/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2023/12/08/5c8bc0fa-a84c-40db-9559-26f5230872e7/#more" class="btn btn-default more">Read More</a>
 </div>
 
            

@@ -116,6 +116,120 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2024-07-26 </div>
+			<div class="article-title"><a href="/blog/2024/07/26/47372e0e-9f4a-4590-af31-cbfe5ca2c39d/" title="This article guides you through the process of copying an encrypted Linux installation to a new disk. It explains how to use the &#39;dd&#39; command in the terminal to clone the source disk to the target disk, and then resize the encrypted partition, root partition, and swap partition using either KDE Partition Manager or following a manual guide provided in the link.">How To Clone And Resize Encrypted Linux Installation</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="copy-encrypted-linux-install-to-new-disk"><a href="#copy-encrypted-linux-install-to-new-disk" class="headerlink" title="copy encrypted linux install to new disk"></a>copy encrypted linux install to new disk</h1><p>perform a bit-by-bit clone to new disk</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">dd</span> <span class="keyword">if</span>=&lt;source_disk_device&gt; of=&lt;target_disk_device&gt; bs=4M status=progress</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>remember to detach the old disk and enlarge the system partition on new disk</p>
+<hr>
+<p>in kde partiton manager, you can resize both the encrypted partition and the root partition as well as the swap partition (install tools prompted by name)</p>
+<p>follow the guide here to do it manually:</p>
+<p><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Resizing_LVM-on-LUKS">https://wiki.archlinux.org/title/Resizing_LVM-on-LUKS</a></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/07/26/47372e0e-9f4a-4590-af31-cbfe5ca2c39d/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-07-24 </div>
+			<div class="article-title"><a href="/blog/2024/07/24/2ff88d41-c9fc-4af0-84ba-ef10cf603ef6/" title="This article provides step-by-step instructions to help you remove X11 and Qt dependencies from your Ubuntu system, turning it into a headless setup. By following these instructions, you can optimize your Ubuntu installation for servers or other environments where a graphical user interface is not required.">How To Remove X11 And Qt Dependencies For A Headless Ubuntu System</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="Make-desktop-ubuntu-headless"><a href="#Make-desktop-ubuntu-headless" class="headerlink" title="Make desktop ubuntu headless"></a>Make desktop ubuntu headless</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get purge libx11.* libqt.*</span><br><span class="line">sudo apt-get autoremove -y</span><br><span class="line">sudo apt-get clean</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/07/24/2ff88d41-c9fc-4af0-84ba-ef10cf603ef6/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-06-19 </div>
+			<div class="article-title"><a href="/blog/2024/06/19/5f0cafc9-9eb9-4cb3-b106-af69965de47e/" title="The article provides instructions on running GUI programs with cron in Linux and monitoring root filesystem disk usage using `notify-send` and setting environment variables. It also includes a script for disk usage monitoring that sends alerts when the root filesystem has less than 10% free space.">Run Gui Programs Under Cron, Monitor Root Filesystem Disk Usage And Send Alarm</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>the ultimate solution:</p>
+<p>copy all current user environment variables to crontab.</p>
+<hr>
+<p>to run <code>notify-send</code> you have to set <code>DBUS_SESSION_BUS_ADDRESS</code></p>
+<hr>
+<p>to run other gui programs you set <code>DISPLAY</code> and <code>XAUTHORITY</code></p>
+<hr>
+<p><code>wall</code> works for <code>tmux</code> and ssh sessions but not <code>gnome-terminal</code>.</p>
+<p>in kde everything works fine. install konsole instead.</p>
+<hr>
+<p>script for monitoring disk usage:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">used_percentage=$(<span class="built_in">df</span> / | awk <span class="string">&#x27;NR==2 &#123;sub(/%/, &quot;&quot;, $5); print $5&#125;&#x27;</span>)</span><br><span class="line">alarm_message=<span class="string">&quot;Root filesystem has less than 10% free space.&quot;</span></span><br><span class="line"><span class="comment"># Compare the percentage with the number 90</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$used_percentage</span>&quot;</span> -lt 90 ]; <span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Disk is ok.&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">wall <span class="variable">$alarm_message</span></span><br><span class="line">notify-send <span class="variable">$alarm_message</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/06/19/5f0cafc9-9eb9-4cb3-b106-af69965de47e/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-05-12 </div>
+			<div class="article-title"><a href="/blog/2024/05/12/8488cce3-4170-4d90-bc4a-ab700a07bd2e/" title="This article provides a step-by-step guide on how to install the `sysstat` package and use the `sar -u` command to view CPU usage history, enabling users to monitor and analyze their system&#39;s performance.">Viewing Cpu Usage History With Sysstat And The Sar Command</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="View-history-CPU-usage-statistics"><a href="#View-history-CPU-usage-statistics" class="headerlink" title="View history CPU usage statistics"></a>View history CPU usage statistics</h1><p>First install <code>sysstat</code> package, then run <code>sar -u</code></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/05/12/8488cce3-4170-4d90-bc4a-ab700a07bd2e/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2023-09-26 </div>
 			<div class="article-title"><a href="/blog/2023/09/26/3bda6569-50ca-44c1-a21c-b1575bfa27ae/" title="This article provides a guide on how to preserve system stability while detaching and reattaching Linux disks using the `mount --bind` command, ensuring data consistency and seamless disk management.">Maintaining Stability With Mount --Bind: Detaching And Reattaching Linux Disks</a></div>
 		</h3>
@@ -313,165 +427,22 @@
 </div>
 
 	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2022-07-15 </div>
-			<div class="article-title"><a href="/blog/2022/07/15/e1fee6ca-f126-4189-99b4-b23fbaf9fa23/" title="This article highlights various accessibility tools and frameworks like Pyatspi, dogtail Gnome, Appium Linux Accessibility, and Pywinauto. It also stresses the significance of readbility.js and Meilisearch for enhancing web history search and incorporating a11y into Firefox and GNOME&#39;s ATK browsers.">Pyatspi Dogtail Gnome Accessibility Gui Inspect Tool For Linux A11Y</a></div>
-		</h3>
-	
-
-
-		     
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p>does appium have linux accessibility implementation?</p>
-<p>windows a11y:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/blackrosezy/gui-inspect-tool">https://github.com/blackrosezy/gui-inspect-tool</a></p>
-<p>pywinauto</p>
-<p>bookmark_history_search sucks. it does not include webpage summaries, only title, which makes searching the history very hard. the solution is to use readbility.js to visit and summarize these pages, and update these documents in meilisearch.</p>
-<p>a11y is the general term for accessibility, for web browsers like firefox. however, there’s implementation for gnome internally.</p>
-<p>linux a11y:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/shubhamvasaikar/Auto-GUI-Testing">https://github.com/shubhamvasaikar/Auto-GUI-Testing</a></p>
-<p>gnome accessibility toolkit(atk)</p>
-<p><a target="_blank" rel="noopener" href="https://gitlab.gnome.org/GNOME/pyatspi2">https://gitlab.gnome.org/GNOME/pyatspi2</a></p>
-<p><a target="_blank" rel="noopener" href="https://gitlab.com/dogtail/dogtail">https://gitlab.com/dogtail/dogtail</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.freedesktop.org/wiki/Accessibility/PyAtSpi2Example/">https://www.freedesktop.org/wiki/Accessibility/PyAtSpi2Example/</a></p>
-<p>accessibility implementation in different toolkits:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/GNOME/at-spi2-core/blob/e83d5558d2fbded5b345b0af254f26865e148e49/devel-docs/toolkits.md">https://github.com/GNOME/at-spi2-core/blob/e83d5558d2fbded5b345b0af254f26865e148e49/devel-docs/toolkits.md</a></p>
-<p>Toolkits that use the DBus APIs directly</p>
-<p>GTK4</p>
-<p>Sources: gtk4&#x2F;gtk&#x2F;a11y</p>
-<p>Qt5</p>
-<p>Sources: qtbase&#x2F;src&#x2F;gui&#x2F;accessible&#x2F;linux</p>
-<p>WebKit</p>
-<p>Sources: WebKit&#x2F;Source&#x2F;WebCore&#x2F;accessibility&#x2F;atspi</p>
-<p>Toolkits that use ATK</p>
-<p>GTK3</p>
-<p>Sources: gtk3&#x2F;gtk&#x2F;a11y</p>
-<p>gnome-shell &#x2F; St &#x2F; via clutter’s cally</p>
-<p>Sources: mutter&#x2F;clutter&#x2F;clutter&#x2F;cally</p>
-<p>Mozilla Firefox</p>
-<p>Sources: gecko-dev&#x2F;accessible&#x2F;atk</p>
-<p>Chromium</p>
-<p>Uses both ATK and libatspi?</p>
-<p>Sources:</p>
-<p>chromium&#x2F;ui&#x2F;accessibility&#x2F;platform&#x2F;<em>auralinux</em> (atk)</p>
-<p>chromium&#x2F;ui&#x2F;accessibility&#x2F;platform&#x2F;inspect&#x2F;<em>auralinux</em> (atspi)</p>
-<p>chromium&#x2F;content&#x2F;browser&#x2F;accessibility&#x2F;<em>auralinux</em> (atspi and atk)</p>
-<p>LibreOffice</p>
-<p>Sources: LibreOffice&#x2F;core&#x2F;vcl&#x2F;unx&#x2F;gtk3&#x2F;a11y</p>
-<p>Java Swing - via java-atk-wrapper</p>
-<p>Sources: java-atk-wrapper</p>
-
-	
-	</div>
-  <a type="button" href="/blog/2022/07/15/e1fee6ca-f126-4189-99b4-b23fbaf9fa23/#more" class="btn btn-default more">Read More</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2022-07-07 </div>
-			<div class="article-title"><a href="/blog/2022/07/07/ae1c2d03-8a12-4754-9acf-3ddbfb9304b6/" title="This article offers a solution to the problem of Nautilus file manager hanging during search operations. The proposed fix involves deleting the &#39;~/.cache/tracker&#39; folder, which should resolve the issue.">Nautilus Hangs When Searching</a></div>
-		</h3>
-	
-
-
-		     
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p>delete ~&#x2F;.cache&#x2F;tracker</p>
-
-	
-	</div>
-  <a type="button" href="/blog/2022/07/07/ae1c2d03-8a12-4754-9acf-3ddbfb9304b6/#more" class="btn btn-default more">Read More</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2022-05-06 </div>
-			<div class="article-title"><a href="/blog/2022/05/06/828d50cf-9486-4c4a-a8b2-3cbc4b6c9690/" title="This text provides a solution for accessing the Linux command line (tty) when Xorg fails. It describes how to boot into the command line by entering &#39;3&#39; after the longest line of boot commands, and suggests using SSH to collect logs even if there are interface issues.">Boot Into Linux Commandline (Tty)</a></div>
-		</h3>
-	
-
-
-		     
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p>when xorg fails, one must use commandline to debug problems.</p>
-<p>put ‘3’ after the longest line of boot commands.</p>
-<p>use ssh to collect logs even if the main interface is stuck somehow (like libinput faliure)</p>
-<p>reference:</p>
-<p><a target="_blank" rel="noopener" href="https://www.linuxandubuntu.com/home/how-to-boot-into-linux-command-line/amp">https://www.linuxandubuntu.com/home/how-to-boot-into-linux-command-line/amp</a></p>
-
-	
-	</div>
-  <a type="button" href="/blog/2022/05/06/828d50cf-9486-4c4a-a8b2-3cbc4b6c9690/#more" class="btn btn-default more">Read More</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2022-03-23 </div>
-			<div class="article-title"><a href="/blog/2022/03/23/424fe97e-988e-4ca6-9021-8b3bfe1cdf45/" title="This article provides instructions on how to update Intel Bluetooth drivers, such as the 9250 and 9462AC HMC drivers, for Windows servers. However, it highlights that modifying the Netwsw04.INF file to update an Intel 9462AC HMC driver may be challenging due to differences between Win7 and Win10 packages in the &#39;No_160&#39; section.">Intel 9250 Bluetooth Win Server</a></div>
-		</h3>
-	
-
-
-		     
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p>intel driver &amp; support assistant</p>
-<p><a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/support/detect.html">https://www.intel.com/content/www/us/en/support/detect.html</a></p>
-<p>unzip the it admin pack for win 10</p>
-<p><a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/download/16807/intel-wireless-bluetooth-for-it-administrators.html">https://www.intel.com/content/www/us/en/download/16807/intel-wireless-bluetooth-for-it-administrators.html</a></p>
-<p>follow instructions to find and modify driver</p>
-<p><a target="_blank" rel="noopener" href="https://www.sevenforums.com/network-sharing/415513-intel-wifi-ac-9260-driver-fir-win7-x32-x64.html">https://www.sevenforums.com/network-sharing/415513-intel-wifi-ac-9260-driver-fir-win7-x32-x64.html</a></p>
-<p>Intel has updated the drivers since my first post. Current is now 20.70</p>
-<p>Download Intel(R) PROSet&#x2F;Wireless Software and Drivers for IT Admins</p>
-<p>You should be downloading WiFi_20.70.0_Driver64_Win7 (your first post mentions both x32 and x64 so I am not sure which one you are running. Hopefully x64) In the package is a Netwsw04.INF file but not a Netwsw03.INF file.</p>
-<p>Something I did not think of until now, is we need to ALSO use the WIN10 download package in order to see the lines where Intel calls out your specific driver. To find that, you need to also download the WiFi_20.70.0_Driver64_Win10 package. Within it, we need to look at the Netwtw06.INF file which is the file that has your device. You will need to cut-n-paste the two lines within that file that contain the string PCI\VEN_8086&amp;DEV_A370&amp;SUBSYS_42A48086. Or better yet forget all that, I’ll just cut-n-paste them now and include them in screenshots. You can ignore the Win10 download altogether in order to keep things straight.</p>
-<p>So we cut and paste those two lines and put them within the Netwsw04.INF file that is in the win7 package. The first one goes at the top of the excludefrom select part, and the next one goes at the top of the DEVICE WIN7_64 section. I will attach a screenshots now of what these new lines look like within my editor. They are the highlighted lines. Since you cannot cut and paste from an image, here is the text of the two lines:</p>
-<p>1st line</p>
-<p>; PCI\VEN_8086&amp;DEV_A370&amp;SUBSYS_42A48086 , \</p>
-<p>2nd line</p>
-<p>%NIC_9462AC_HMC% &#x3D; Install_MPCIEX_DELLM2CRF3DIVERSITY_9462_AC_HMC_WINT_64_AC , PCI\VEN_8086&amp;DEV_A370&amp;SUBSYS_42A48086 ; AC</p>
-<p>As I mentioned before, the first line is near the top of the Netwsw04.inf file and the second line is about 5 pages down.</p>
-<p>Here’s a caveat, a new piece of information that is a potential show-stopper. See where within the second line there are three places where it says “AC”? That appears related to how the setup file integrates the driver later on in the file. Well over in the Win10 package it does not actually say “AC”, instead it says “No_160”, which is something that is part of the win10 package but not part of the win7 package. Based on text within the win10 setup file (the one named Netwsw06.inf) there appears to be a special section specifically for Dell machines called No_160. I’m over my head as to what exactly it all means, other than to say that since there is no section in the Win7 package called No_160, I had to change No_160 to AC in order for the win7 file to process the line, and of course it is possible that this driver cannot install without the No_160 section, meaning it is not installable on win7. So what that all adds up to is that when I first replied to you I was giving this method about a 70% chance of working, but now I would put the odds at 30%.</p>
-
-	
-	</div>
-  <a type="button" href="/blog/2022/03/23/424fe97e-988e-4ca6-9021-8b3bfe1cdf45/#more" class="btn btn-default more">Read More</a>
-</div>
-
-	       
 	     </div>
 	     <div>
 	       <center>
 	         <div class="pagination">
 <ul class="pagination">
 	 
+		
+          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+        
+
+        <li><a href="/blog/"><i class="fa fa-home"></i>Home</a></li>
+
+		
+		   <li class="next"> <a href="/blog/tags/linux/page/2/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a> </li>
+        
+	
 </ul>
 </div>
 

@@ -116,6 +116,56 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2024-06-03 </div>
+			<div class="article-title"><a href="/blog/2024/06/03/8ff9b102-8c68-44a7-8ce7-d09ce877842a/" title="Discover how to route network interfaces to specific apps using Firejail or Dante and Proxychains-ng, while preventing dual WiFi connections. The guide offers step-by-step instructions for installation, configuration, and usage.">Route Network Interface To Specific Application</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>It is not advised to do so with dual WiFi connections, which is a pain in the ass in daily usage (only one of them will be used at a time).</p>
+<p>Ethernet and WiFi dual connections seem fine with <code>firejail</code> but failed with <code>dante</code>.</p>
+<hr>
+<p>Use <code>firejail</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo firejail --net=wlan0 --ip=dhcp --noprofile &lt;program cmd&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>Use <code>dante</code> and <code>proxychains-ng</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install dante-server proxychains-ng</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Now edit the <code>dante</code> config file at <code>/etc/dante.conf</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">internal: eth0 port = 1080</span><br><span class="line">external: wlan0</span><br><span class="line">socksmethod: username</span><br><span class="line">user.privileged: root</span><br><span class="line">user.unprivileged: nobody</span><br><span class="line">user.libwrap: nobody</span><br><span class="line">client pass &#123;</span><br><span class="line">from: 0/0 to: 0/0</span><br><span class="line">&#125;</span><br><span class="line">socks pass &#123;</span><br><span class="line">from: 0/0 to: 0/0</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Run the daemon by:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">danted</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Find the <code>[ProxyList]</code> section and add the following line in <code>/etc/proxychains.conf</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">socks5 127.0.0.1 1080 root &lt;root_password&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Run the program with proxychains-ng:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">proxychains &lt;program cmd&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>You can test your configuration like:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -x socks5://root:root@127.0.0.1:1080 https://www.baidu.com</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>If you run <code>danted</code> like <code>systemctl start danted</code>, you can configure a separate user for authentication. You have to change <code>/etc/danted.conf</code> and <code>/etc/proxychains.conf</code> accordingly.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo useradd -r -s /bin/false your_dante_user</span><br><span class="line">sudo passwd your_dante_user</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/06/03/8ff9b102-8c68-44a7-8ce7-d09ce877842a/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2022-12-05 </div>
 			<div class="article-title"><a href="/blog/2022/12/05/a86d42ed-2650-4ad5-a427-d838e83a02cf/" title="In this article, you will learn how to troubleshoot and configure Wi-Fi connections on a Raspberry Pi. You will discover how to work with 5G connectivity, adjust frequencies, scan for SSIDs, update login credentials, and recover the DHCPCD service. Additionally, you will set Wi-Fi connection details specifically for use with Docker.">Raspberry Pi Tweaks</a></div>
 		</h3>

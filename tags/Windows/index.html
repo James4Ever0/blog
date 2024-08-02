@@ -116,6 +116,78 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2024-03-25 </div>
+			<div class="article-title"><a href="/blog/2024/03/25/8907029d-6164-4ceb-99b6-69adacfd6ba8/" title="This article provides a step-by-step guide on how to enable WDDM mode on Windows for Tesla GPUs, enabling functions like DirectML and Vulkan. The process involves changing registry settings and restarting the computer. Users can verify if the changes were successful by checking the Task Manager and ensuring the correct GPU is selected when using Vulkan.">Use Tesla Gpu In Wddm Mode On Windows</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>On Linux there is no difference between WDDM and TCC.</p>
+<p>On Windows, all Tesla GPUs operate at TCC mode, which cannot utilize functions like DirectML, Vulkan etc.</p>
+<p>To enable WDDM mode, you need to <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45673245/articles/details/128555342">change the registry</a>.</p>
+<p>The path: <code>Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Class\&#123;4d36e968-e325-11ce-bfc1-08002be10318&#125;</code></p>
+<p>Find the Tesla card within <code>000x</code>, change <code>AdapterType</code> to 1, <code>FeatureScore</code> to 0xd1, create DWORD <code>GridLicensedFeatures</code> to 7, create DWORD <code>EnableMsHybrid</code> to 1.</p>
+<p>Find the iGPU within <code>000x</code>, create DWORD <code>EnableMsHybrid</code> to 2.</p>
+<p>Restart the computer. When you see the Tesla GPU popping up in Task manager you are all set.</p>
+<p>Run:</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvidia-smi -g <span class="number">0</span> -dm <span class="number">0</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Make sure to select the right GPU when using Vulkan.</p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/03/25/8907029d-6164-4ceb-99b6-69adacfd6ba8/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2023-08-07 </div>
+			<div class="article-title"><a href="/blog/2023/08/07/7742c3b8-4bc2-4e33-9ed9-b1030f468c2a/" title="This article offers solutions for preventing computer overheating and battery damage in Windows and Linux systems. It suggests using Xeon processors, UPS+NUC instead of laptops, adjusting charging thresholds, and platform-specific tools like tlp/tlpui for ThinkPads and selective laptops.">Aldente Windows &amp; Linux Alternative</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>to increase stability, you need to prevent computer from overheating (throttle). also, replace normal laptop ram with ecc ram (not server-grade reg-ecc)</p>
+<p>but ecc is only supported on Xeon processors.</p>
+<p>moreover, you could just use UPS+NUC instead of laptop, to prevent this bloody battery issue.</p>
+<hr>
+<p>will these charging limits still work if we close the lid? if not, we could possibly damage the battery.</p>
+<hr>
+<p>to prevent damage to computer battery due to overcharging</p>
+<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><p>kernel 5.5 or newer:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> 60 | sudo <span class="built_in">tee</span> /sys/class/power_supply/BAT0/charge_control_end_threshold</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>with <a target="_blank" rel="noopener" href="https://unix.stackexchange.com/questions/48534/how-to-adjust-charging-thresholds-of-laptop-battery">platform-specific drivers</a>, look for: <code>/sys/devices/platform/.*/.*(battery|charge|thresh|limit).*</code></p>
+<p>For ThinkPads and selected other laptops <a target="_blank" rel="noopener" href="https://linrunner.de/tlp">tlp</a>&#x2F;tlpui (acts like <a target="_blank" rel="noopener" href="https://01.org/powertop/">powertop</a> which turns off usb devices, so be careful when running long-term programs) provides a unified way</p>
+<p>to configure charge thresholds and recalibrate the battery.</p>
+<p>Sometimes tp-smapi from <code>apt</code> will not install and you need to fetch the <a href="">source</a> and compile yourself. Activate the plugin by <code>sudo modprobe tp_smapi</code></p>
+<p>Run <code>sudo systemctl start tlp</code> to initiate service. Run <code>sudo tlp-stat -s</code> to check status.</p>
+<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2>
+	
+	</div>
+  <a type="button" href="/blog/2023/08/07/7742c3b8-4bc2-4e33-9ed9-b1030f468c2a/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2022-12-10 </div>
 			<div class="article-title"><a href="/blog/2022/12/10/9d48d68f-ceac-4c1b-b28f-f81cd14daf17/" title="This article provides a comprehensive guide on how to set the NODE_PATH environment variable for npm global package installation across different operating systems. It explains the process in detail for ZSH, Bash, Fish, Windows, Termux, Kali, and MacOS, ensuring proper importing of packages from specific paths without any issues.">Nodejs Node_Path For Npm Global Package Installation</a></div>
 		</h3>

@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Kubernetes security | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/blog/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/blog/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+<!-- title -->
+<div class="page-header page-header-inverse ">
+  <h1 class="archive-title-category title title-inverse ">Kubernetes security</h1>
+</div>
+
+<div class="row page">
+  <!-- cols -->
+  
+  <div class="col-md-9">
+	
+
+	  <div id="top_search"></div>
+
+      
+         <!-- display as entry -->
+	     <div class="mypage">
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-07-20 </div>
+			<div class="article-title"><a href="/blog/2024/07/20/5f4542dd-3492-4971-86e0-43210ce66510/" title="This article discusses the importance of securing Kubernetes and managing resources using distribution-specific methods. It also covers preventing intranet access through network policies, and considering manual/automatic cleanup for storage limits. Hardening guidelines are followed, and additional resources are provided for further information on available tools.">K8S Deny Intranet Access From All Containers</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>constrain pod resources:</p>
+<p><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/">https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/</a></p>
+<hr>
+<p>to manually exceed the ephermal storage limit run:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fallocate -l 10G /bigfile</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>the pod will be evicted, volume and container will be purged, but the record is not automatically removed.</p>
+<p>to cleanup the mess one may run a scheduled job like:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">microk8s kubectl delete pods --field-selector=status.phase=Failed</span><br><span class="line">microk8s kubectl delete pods --field-selector=status.phase=Unknown</span><br><span class="line"><span class="built_in">sleep</span> 60</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>or configure implementation dependent <code>kube-controller-manager</code> startup argument <code>terminated-pod-gc-threshold=1</code>.</p>
+<p>for <code>k3s</code> edit <code>/etc/rancher/k3s/config.yaml</code> like:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">kube-controller-manager-arg:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">&#x27;terminated-pod-gc-threshold=1&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>for <code>microk8s</code>, edit <code>/var/snap/microk8s/current/args/kube-controller-manager</code></p>
+<p>references:</p>
+<p><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/reference/command-line-tools-reference/kube-controller-manager/">https://kubernetes.io/docs/reference/command-line-tools-reference/kube-controller-manager/</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.k3s.io/security/hardening-guide">https://docs.k3s.io/security/hardening-guide</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/k3s-io/k3s/issues/10448">https://github.com/k3s-io/k3s/issues/10448</a></p>
+<hr>
+<p>make sure you have a networkpolicy enabled cni first. usually included but be careful with minikube since that is a different story</p>
+<p>apply these configs with <code>kubectl apply -f &lt;config_path&gt;</code></p>
+<p>interact with <code>kubectl exec &lt;pod_name&gt; -it -- /bin/sh</code></p>
+<p>deployment config:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Deployment</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">hello-world</span></span><br><span class="line"><span class="attr">labels:</span></span><br><span class="line"><span class="attr">app:</span> <span class="string">hello-world</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">replicas:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">selector:</span></span><br><span class="line"><span class="attr">matchLabels:</span></span><br><span class="line"><span class="attr">app:</span> <span class="string">hello-world</span></span><br><span class="line"><span class="attr">template:</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">labels:</span></span><br><span class="line"><span class="attr">app:</span> <span class="string">hello-world</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">containers:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">alpine-container</span></span><br><span class="line"><span class="attr">image:</span> <span class="string">alpine:3.7</span></span><br><span class="line"><span class="attr">command:</span> [<span class="string">&quot;tail&quot;</span>, <span class="string">&quot;-f&quot;</span>, <span class="string">&quot;/dev/null&quot;</span>]</span><br><span class="line"><span class="attr">resources:</span></span><br><span class="line"><span class="attr">limits:</span></span><br><span class="line"><span class="attr">ephemeral-storage:</span> <span class="string">&quot;4Gi&quot;</span></span><br><span class="line"><span class="attr">dnsPolicy:</span> <span class="string">None</span></span><br><span class="line"><span class="attr">dnsConfig:</span></span><br><span class="line"><span class="attr">nameservers:</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">8.8</span><span class="number">.8</span><span class="number">.8</span></span><br><span class="line"><span class="attr">terminationGracePeriodSeconds:</span> <span class="number">0</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>network policy config:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">networking.k8s.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">NetworkPolicy</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">deny-intranet-egress</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">podSelector:</span></span><br><span class="line"><span class="attr">matchLabels:</span></span><br><span class="line"><span class="attr">app:</span> <span class="string">hello-world</span></span><br><span class="line"><span class="attr">policyTypes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">Egress</span></span><br><span class="line"><span class="attr">egress:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">to:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">ipBlock:</span></span><br><span class="line"><span class="attr">cidr:</span> <span class="string">::/0</span></span><br><span class="line"><span class="attr">except:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">fc00::/7</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">fe80::/10</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">ipBlock:</span></span><br><span class="line"><span class="attr">cidr:</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span><span class="string">/0</span></span><br><span class="line"><span class="attr">except:</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span><span class="string">/8</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">10.0</span><span class="number">.0</span><span class="number">.0</span><span class="string">/8</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">100.64</span><span class="number">.0</span><span class="number">.0</span><span class="string">/10</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">169.254</span><span class="number">.0</span><span class="number">.0</span><span class="string">/16</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">172.16</span><span class="number">.0</span><span class="number">.0</span><span class="string">/12</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">192.168</span><span class="number">.0</span><span class="number">.0</span><span class="string">/16</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/07/20/5f4542dd-3492-4971-86e0-43210ce66510/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+	     </div>
+	     <div>
+	       <center>
+	         <div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+	       </center>
+	     </div>	
+      
+
+</div> <!-- col-md-9/col-md-12 -->
+
+
+<div class="col-md-3">
+	<div id="sidebar">
+	
+			
+  <div id="site_search">
+   <div class="form-group">
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="Search" class="st-search-input st-default-search-input form-control"/>
+   </div>  
+  <div id="local-search-result"></div>
+  </div>
+
+
+		
+			
+<div class="widget">
+	<h4>Links</h4>
+	<ul class="blogroll list-unstyled">
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/agi_computer_control/" title="Autonomous computer agent" target="_blank"]);">Project Cybergod</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/pyjom/" title="Media content automation" target="_blank"]);">Project Pyjom</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/prometheous/" title="Automated documentation, AI+IR(RAG)" target="_blank"]);">Project Prometheus</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/pyjom/" title="Media Content Automation" target="_blank"]);">Project Pyjom</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/my_blog_source/" title="Source code of my blog"" target="_blank"]);">Blog Source Code</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="http://www.github.com/james4ever0" title="My Github account" target="_blank"]);">My Github</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="https://samoyedsun.github.io/" title="Samoyedsun's Blog" target="_blank"]);">Samoyedsun&#39;s Blog</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="http://atlant1c.cn/" title="Atlant1c's Blog" target="_blank"]);">Atlant1c&#39;s Blog</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="https://www.gregoryuan.com/" title="Gregoryuan's Blog" target="_blank"]);">Gregoryuan&#39;s Blog</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="https://yubingtao.netlify.app/" title="Yubingtao's Blog" target="_blank"]);">Yubingtao&#39;s Blog</a></li>
+	
+	</ul>
+</div>
+
+
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2024 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/blog/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+
+</body>
+</html>

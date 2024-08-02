@@ -116,6 +116,43 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2024-03-31 </div>
+			<div class="article-title"><a href="/blog/2024/03/31/52864fca-3c66-404f-a23c-ca32d55a180c/" title="This article offers tips for controlling Android devices, including setting the time with adb, disabling alarms, and utilizing cloud phone platforms like Redroid and Lambda. Additionally, it covers solutions to adb connection issues by suggesting troubleshooting steps such as restarting the adb server, ensuring proper USB hardware connectivity, improving power supply, and using high-quality cables.">Android控制注意事项</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>长时间不开机的机器可能会发生时间错位问题 需要用adb进行时间校准</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb shell <span class="built_in">date</span> <span class="string">&quot;YYYY-MM-DD HH:MM:SS&quot;</span></span><br><span class="line"><span class="comment"># sometimes you have to use &#x27;-s&#x27; flag</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>把所有闹钟都关闭 防止关了机又打开 或者在脚本操作控制的时候出问题</p>
+<hr>
+<p>建议使用云手机平台(搜索：开源云手机)，虚拟手机，方便进行环境打包和重新部署。</p>
+<p>redroid supports adb connection, and is a docker image</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/remote-android/redroid-doc">redroid-doc</a> and <a target="_blank" rel="noopener" href="https://www.dsx2020.com/homelab-mini-host-x86-docker-deploys-open-source-cloud-phone-android-redroid/">redroid tutorial</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/rev1si0n/lamda">lamda</a> is a multi-source (simulator and real device support) android controlling, network capturing and reverse engineering platform</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/rev1si0n/lamda/wiki">lamda wiki</a></p>
+<hr>
+<p>如果adb出现连接问题，可以重启adb服务</p>
+<p>usb硬件出问题一般是因为供电不足，或者连接线接触不良。所以可以加强供电，以及更换更好的连接线。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb kill-server</span><br><span class="line">adb start-server</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/03/31/52864fca-3c66-404f-a23c-ca32d55a180c/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2022-11-04 </div>
 			<div class="article-title"><a href="/blog/2022/11/04/0307d11f-2de1-4a43-82e5-7ee7476e9fc1/" title="Learn how to register a new file in the Android gallery using Beanshell code. The article explains the process of sending a broadcast intent to scan a specific file and adding it to the Android media scanner, allowing the file to be accessible within the gallery.">Register A New File In Android Gallery Using Beanshell Code</a></div>
 		</h3>

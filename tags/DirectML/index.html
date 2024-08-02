@@ -116,8 +116,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-10-10 </div>
-			<div class="article-title"><a href="/blog/2023/10/10/82746164-6c4e-4447-a40c-f4747b7d74d1/" title="This article addresses the challenges faced while using AMDGPU, ROCM, and PyTorch. It proposes alternative solutions such as Vulkan/OpenGL or DirectML for integrated graphics cards instead of ROCM, and advises checking the Pytorch nightly repo for up-to-date builds.">Amdgpu, Rocm And Pytorch</a></div>
+			<div class="date"> 2024-03-25 </div>
+			<div class="article-title"><a href="/blog/2024/03/25/8907029d-6164-4ceb-99b6-69adacfd6ba8/" title="This article provides a step-by-step guide on how to enable WDDM mode on Windows for Tesla GPUs, enabling functions like DirectML and Vulkan. The process involves changing registry settings and restarting the computer. Users can verify if the changes were successful by checking the Task Manager and ensuring the correct GPU is selected when using Vulkan.">Use Tesla Gpu In Wddm Mode On Windows</a></div>
 		</h3>
 	
 
@@ -128,7 +128,43 @@
   <div class="row">
 	
 	
-		<p>rocm is trash to apu. use vulkan or opengl (alternative backends)</p>
+		<p>On Linux there is no difference between WDDM and TCC.</p>
+<p>On Windows, all Tesla GPUs operate at TCC mode, which cannot utilize functions like DirectML, Vulkan etc.</p>
+<p>To enable WDDM mode, you need to <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45673245/articles/details/128555342">change the registry</a>.</p>
+<p>The path: <code>Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Class\&#123;4d36e968-e325-11ce-bfc1-08002be10318&#125;</code></p>
+<p>Find the Tesla card within <code>000x</code>, change <code>AdapterType</code> to 1, <code>FeatureScore</code> to 0xd1, create DWORD <code>GridLicensedFeatures</code> to 7, create DWORD <code>EnableMsHybrid</code> to 1.</p>
+<p>Find the iGPU within <code>000x</code>, create DWORD <code>EnableMsHybrid</code> to 2.</p>
+<p>Restart the computer. When you see the Tesla GPU popping up in Task manager you are all set.</p>
+<p>Run:</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvidia-smi -g <span class="number">0</span> -dm <span class="number">0</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Make sure to select the right GPU when using Vulkan.</p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/03/25/8907029d-6164-4ceb-99b6-69adacfd6ba8/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2023-10-10 </div>
+			<div class="article-title"><a href="/blog/2023/10/10/37e4a151-d6f1-48cf-9e89-d0de890ff801/" title="This article explores utilizing AMDGPU, ROCM, and Pytorch for GPU acceleration. It proposes leveraging Vulkan or OpenGL over ROCM, locating the most current build in Pytorch&#39;s nightly repository, and integrating DirectML with Windows. However, it also cautions that ROCM is not compatible with integrated graphics cards and offers limited compatibility for AMD cards.">Amdgpu, Rocm And Pytorch</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p><a target="_blank" rel="noopener" href="https://scale-lang.com/">https://scale-lang.com/</a></p>
+<hr>
+<p>rocm is trash to apu. use vulkan or opengl (alternative backends)</p>
 <hr>
 <p>find latest build in pytorch nightly repo</p>
 <p>use sudo before invoking amdgpu related commands, otherwise unavailable</p>
@@ -139,7 +175,7 @@
 
 	
 	</div>
-  <a type="button" href="/blog/2023/10/10/82746164-6c4e-4447-a40c-f4747b7d74d1/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2023/10/10/37e4a151-d6f1-48cf-9e89-d0de890ff801/#more" class="btn btn-default more">Read More</a>
 </div>
 
 	       

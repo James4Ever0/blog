@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>command line | Blog of James Brown</title>
+  <title>command_line | Blog of James Brown</title>
   <meta name="author" content="James Brown">
   
   
@@ -97,7 +97,7 @@
 
 <!-- title -->
 <div class="page-header page-header-inverse ">
-  <h1 class="archive-title-tag title title-inverse ">command line</h1>
+  <h1 class="archive-title-tag title title-inverse ">command_line</h1>
 </div>
 
 <div class="row page">
@@ -116,8 +116,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-10-11 </div>
-			<div class="article-title"><a href="/blog/2022/10/11/32cbb612-3f8b-4d5d-a4b6-6e9a790adef3/" title="These instructions provide a step-by-step guide on how to sync hand-written notes and scripts backup on a MacBook using the command line and Git. The process involves copying files to a different folder, attaching necessary files, pulling updates from the main branch, and finally committing the changes. This method ensures that your data remains secure and up-to-date.">My Notes On Paper, Hand-Written Scripts Backup</a></div>
+			<div class="date"> 2024-03-31 </div>
+			<div class="article-title"><a href="/blog/2024/03/31/8da24805-6532-40b1-bb36-23edc91406c5/" title="This article provides a solution to decompress an Electron asar file without encountering the &#39;unable to find xxx in app.asar.unpacked&#39; issue. It explains the process of extracting the file without moving it, and then offers commands for both decompression and moving the file to its desired location.">解压Electron Asar文件注意</a></div>
 		</h3>
 	
 
@@ -128,38 +128,12 @@
   <div class="row">
 	
 	
-		<p>see attachments.</p>
-<p>it is in a different folder.</p>
-<p>sync on macbook:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash -c <span class="string">&#x27;cd /Users/jamesbrown/.notable/attachments; git pull origin main; git add .; git commit -m &quot;init commit&quot;; git push origin main&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+		<p>解压asar的时候 注意不要移动<code>app.asar</code>的位置 解压完毕之后再移动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># to prevent &#x27;unable to find xxx in app.asar.unpacked&#x27; issue, do not move app.asar yet.</span></span><br><span class="line">asar e app.asar app</span><br><span class="line"><span class="built_in">mkdir</span> asar</span><br><span class="line"><span class="built_in">cp</span> app.asar asar</span><br><span class="line"><span class="built_in">rm</span> app.asar</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/10/11/32cbb612-3f8b-4d5d-a4b6-6e9a790adef3/#more" class="btn btn-default more">Read More</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2022-09-08 </div>
-			<div class="article-title"><a href="/blog/2022/09/08/997dc98a-8883-482a-9b93-d3cff49e984f/" title="This article explores the use of special control characters in conjunction with &#39;expect send&#39; commands, providing a deeper understanding of their functionality and purpose. For more detailed information, refer to the accompanying blog post.">Expect Send Special Control Chars</a></div>
-		</h3>
-	
-
-
-		     
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34114823/article/details/91765887?spm=1001.2101.3001.6650.4&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-4-91765887-blog-49175707.pc_relevant_multi_platform_whitelistv5&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-4-91765887-blog-49175707.pc_relevant_multi_platform_whitelistv5&utm_relevant_index=9">reference blog</a></p>
-
-	
-	</div>
-  <a type="button" href="/blog/2022/09/08/997dc98a-8883-482a-9b93-d3cff49e984f/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2024/03/31/8da24805-6532-40b1-bb36-23edc91406c5/#more" class="btn btn-default more">Read More</a>
 </div>
 
 	       

@@ -116,6 +116,34 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2024-05-13 </div>
+			<div class="article-title"><a href="/blog/2024/05/13/5a6c512c-fde1-4f09-ab60-f56245fc1df1/" title="This article explains the process of creating a favicon hash using the mmh3 library in Python. It involves making a GET request and hashing the content, which can be utilized with Shodan or ZoomEye to search for websites that have the same favicon.">Favicon Hashes Creation And Usage</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>To create favicon hash, run:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> mmh3</span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">perform_get_request_with_insecure_and_redirects</span>(<span class="params">url: <span class="built_in">str</span></span>):</span><br><span class="line">response = requests.get(url, verify=<span class="literal">False</span>, allow_redirects=<span class="literal">True</span>, timeout=<span class="number">15</span>)</span><br><span class="line"><span class="keyword">return</span> response</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_favicon_url</span>(<span class="params">url: <span class="built_in">str</span></span>):</span><br><span class="line"><span class="keyword">return</span> <span class="string">f&quot;<span class="subst">&#123;url&#125;</span>/favicon.ico&quot;</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">process_url_and_get_favicon_hash</span>(<span class="params">url: <span class="built_in">str</span></span>):</span><br><span class="line">favicon_url = get_favicon_url(url)</span><br><span class="line">response perform_get_request_with_insecure_and_redirects(favicon_url)</span><br><span class="line">favicon = codecs.encode(response.content, <span class="string">&quot;base64&quot;</span>)</span><br><span class="line">_<span class="built_in">hash</span> = mmh3.<span class="built_in">hash</span>(favicon)</span><br><span class="line">_<span class="built_in">hash</span> = <span class="built_in">str</span>(_<span class="built_in">hash</span>)</span><br><span class="line"><span class="keyword">return</span> _<span class="built_in">hash</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">url = <span class="string">&quot;https://www.baidu.com&quot;</span></span><br><span class="line">icon_hash = process_url_and_get_favicon_hash(url)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;icon hash for url &#x27;<span class="subst">&#123;url&#125;</span>&#x27;:&quot;</span>, icon_hash)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>You can use favicon hash in Shodan like: <code>http.favicon.hash:&lt;favicon_hash&gt;</code></p>
+<p>In ZoomEye like: <code>iconhash:&quot;&lt;favicon_hash&gt;&quot;</code></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/05/13/5a6c512c-fde1-4f09-ab60-f56245fc1df1/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2022-10-06 </div>
 			<div class="article-title"><a href="/blog/2022/10/06/78fa1bff-0421-472b-bd43-86b975a3e254/" title="The article delves into the world of IoT and IP address search engines, such as Shodan, Zoomeye, Fofa, and Censys. It also explores various tools available for discovering vulnerable devices/servers and conducting network reconnaissance.">Iot Search Engines, Ip Search Engines, Vulnerable Device/Server Discovery</a></div>
 		</h3>

@@ -123,8 +123,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-05-31 </div>
-			<div class="article-title"><a href="/blog/2022/05/31/bf760350-ca1d-4029-ae38-368cad3d1cc4/" title="The text explores Optical Flow, a technique used in computer vision to estimate motion between frames of video sequences. It highlights &#39;flownet&#39; by NVIDIA, an optical flow SDK compatible with most Turing GPUs but excluding GTX1650(tu117). Additionally, it introduces mmflow from OpenMMLab, available at the provided link.">Optical Flow</a></div>
+			<div class="date"> 2022-08-04 </div>
+			<div class="article-title"><a href="/blog/2022/08/04/e35030a6-4562-4f9e-8eb9-90ceb0bd5100/" title="This article provides methods for obtaining royalty-free video, image, and audio sources without watermarks. It suggests using tools like &#39;video_spider&#39; for downloading videos from various apps, target tracking algorithms for removing dynamic watermarks, and the &#39;dewatermark algorithm&#39; for static watermarks. Additionally, it mentions using Bing wallpapers and providing scrapers for GettyImages and Visual China without watermarks.">Royalty Free Video/Picture/Audio Sources</a></div>
 		</h3>
 	
 
@@ -135,14 +135,21 @@
   <div class="row">
 	
 	
-		<p>flownet nvidia</p>
-<p>nvidia optical flow sdk supports all turing gpus (like gtx1660) and above except for gtx1650(tu117).</p>
-<p>mmflow from openmmlab:</p>
-<p><a target="_blank" rel="noopener" href="https://mmflow.readthedocs.io/en/latest/">https://mmflow.readthedocs.io/en/latest/</a></p>
+		<p><a target="_blank" rel="noopener" href="https://github.com/wxy2077/video_spider">download video without watermark</a> 😛 源视频mp4链接获取: toutiao今日头条app视频;🍉xigua西瓜视频; 🐧tencent腾讯视频; 🎼douyin抖音分享短链接解析，获取无水印播放链接</p>
+<p>目标追踪使用<a target="_blank" rel="noopener" href="https://github.com/ifzhang/ByteTrack">bytetrack</a></p>
+<p>如果有动态水印 实际上就是一个目标追踪的任务 识别出来水印的位置 以及里面的文字 确定可信度 然后用目标跟踪算法套上去 一直跟踪直到目标消失为止</p>
+<p>类似的策略也可以应用于游戏 选出来所有的过场动画 过滤掉游戏画面</p>
+<p>静态的就用<a target="_blank" rel="noopener" href="https://github.com/rohitrango/automatic-watermark-detection">dewatermark算法</a>就好了</p>
+<p>视频素材 影视素材 音频素材 图片素材 无水印获取</p>
+<p>use bing wallpaper</p>
+<p>gettyimages scraped by github provided scrapers</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/chuanenlin/shutterscrape">https://github.com/chuanenlin/shutterscrape</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/m-rots/getty/blob/master/getty.go">https://github.com/m-rots/getty/blob/master/getty.go</a></p>
+<p>视觉中国 无水印爬虫</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/05/31/bf760350-ca1d-4029-ae38-368cad3d1cc4/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/04/e35030a6-4562-4f9e-8eb9-90ceb0bd5100/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -152,8 +159,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-05-31 </div>
-			<div class="article-title"><a href="/blog/2022/05/31/af91bf33-e6ac-4eb7-ac15-2969d7ce9ae0/" title="This article delves into the world of automatic video generation, exploring various methods and tools that facilitate the creation of diverse content such as YouTube videos, short films, Twitch compilations, TikTok videos, and more. Techniques covered include using templates, images, background music (BGM), voiceovers, filtering, effects, subtitling, single video editing, and transforming text into voiceovers.">全自动电影解说软件介绍</a></div>
+			<div class="date"> 2022-08-03 </div>
+			<div class="article-title"><a href="/blog/2022/08/03/012175b8-a7ef-488e-aadb-c76d620d2eb3/" title="This article discusses the prevalence of various video and streaming platforms, such as Twitch, Netflix, YouTube, Instagram, Twitter, Pornhub, Bilibili, Douyu, Huya, iQiyi, Youku, and Weibo. These platforms offer a diverse range of content, including entertainment, education, social media, and streaming services, making them popular choices for users worldwide.">Popular Video Sites</a></div>
 		</h3>
 	
 
@@ -164,53 +171,28 @@
   <div class="row">
 	
 	
-		<h1 id="全自动电影解说软件介绍-全自动短视频合成"><a href="#全自动电影解说软件介绍-全自动短视频合成" class="headerlink" title="全自动电影解说软件介绍 全自动短视频合成"></a>全自动电影解说软件介绍 全自动短视频合成</h1><p>自媒体自学网 新媒体运营 自动化运营 混剪：</p>
-<p><a target="_blank" rel="noopener" href="https://www.zmtzxw.com/">https://www.zmtzxw.com</a></p>
-<p>generate video from plain text using beatdetectorforgames:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/FireFragment/video-generator">https://github.com/FireFragment/video-generator</a></p>
-<p>youtube reddit text to speech video generator:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/HA6Bots/Automatic-Youtube-Reddit-Text-To-Speech-Video-Generator-and-Uploader">https://github.com/HA6Bots/Automatic-Youtube-Reddit-Text-To-Speech-Video-Generator-and-Uploader</a></p>
-<p>twitch clip compilation:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/HA6Bots/Twitch-Clips-Compilation-Generator-TCCG-">https://github.com/HA6Bots/Twitch-Clips-Compilation-Generator-TCCG-</a></p>
-<p>slideshow video generator:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/oknoorap/vidshow">https://github.com/oknoorap/vidshow</a></p>
-<p>best of twitch video generator:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/BayoDev/Twitch-Best-Of-Gen">https://github.com/BayoDev/Twitch-Best-Of-Gen</a></p>
-<p>video generator by scraping reddit videos and comments:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/charlypoirier/redditube">https://github.com/charlypoirier/redditube</a></p>
-<p>youtube video generation based on watson natural languahe understanding and google image search:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/rhenriquea/ai-video-generator">https://github.com/rhenriquea/ai-video-generator</a></p>
-<p>tiktok video compilation based on custom filters:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/HA6Bots/TikTok-Compilation-Video-Generator">https://github.com/HA6Bots/TikTok-Compilation-Video-Generator</a></p>
-<p>12个搬运手法：</p>
-<p>去水印 放大缩小 镜像 抽帧 加滤镜 加特效 调色 调速 转场 调整视频顺序 加画中画 其他视频元素</p>
-<p>文案加字幕 朗读方案：</p>
-<p><a target="_blank" rel="noopener" href="https://m.baidu.com/video/page?pd=video_page&nid=9603074179371472094&sign=5664314656417860263&word=%E8%87%AA%E5%8A%A8%E5%90%88%E6%88%90%E8%A7%86%E9%A2%91&oword=%E8%87%AA%E5%8A%A8%E5%90%88%E6%88%90%E8%A7%86%E9%A2%91&atn=index&frsrcid=4185&ext=%7B%22jsy%22:1%7D&top=%7B%22sfhs%22:1,%22_hold%22:2%7D&sl=4&fr0=A&fr1=A&ms=1&lid=12061699393737547668&referlid=12061699393737547668&frorder=6&_t=1653970095475">https://m.baidu.com/video/page?pd=video_page&amp;nid=9603074179371472094&amp;sign=5664314656417860263&amp;word=自动合成视频&amp;oword=自动合成视频&amp;atn=index&amp;frsrcid=4185&amp;ext=%7B&quot;jsy&quot;%3A1%7D&amp;top=%7B&quot;sfhs&quot;%3A1%2C&quot;_hold&quot;%3A2%7D&amp;sl=4&amp;fr0=A&amp;fr1=A&amp;ms=1&amp;lid=12061699393737547668&amp;referlid=12061699393737547668&amp;frorder=6&amp;_t=1653970095475</a></p>
-<p>知乎方案，模板加图片，BGM，配音</p>
-<p>文章自动生成视频，幕言 自动打轴（force alignment）：</p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/218000255">https://zhuanlan.zhihu.com/p/218000255</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.muyanpeiyin.com/?zhihu">https://www.muyanpeiyin.com/?zhihu</a></p>
-<p>5种方式生成原创视频：</p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/140075360?from_voters_page=true">https://zhuanlan.zhihu.com/p/140075360?from_voters_page=true</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/119422109">https://zhuanlan.zhihu.com/p/119422109</a></p>
-<p><a target="_blank" rel="noopener" href="https://m.baidu.com/video/page?pd=video_page&nid=11383613456893718608&sign=855254448776210471&word=AI%E5%85%A8%E8%87%AA%E5%8A%A8%E5%89%AA%E8%BE%91%E8%BD%AF%E4%BB%B6%EF%BC%9A2%E5%88%86%E9%92%9F%E8%87%AA%E5%8A%A8%E5%90%88%E6%88%90%E4%B8%80%E4%B8%AA%E5%BD%B1%E8%A7%86%E8%A7%A3%E8%AF%B4%E8%A7%86%E9%A2%91%EF%BC%8C%E6%89%B9%E9%87%8F%E6%95%88%E7%8E%87%E9%AB%98&oword=%E8%87%AA%E5%8A%A8%E5%90%88%E6%88%90%E8%A7%86%E9%A2%91&atn=index&frsrcid=5373&ext=%7B%22jsy%22:1%7D&top=%7B%22sfhs%22:1,%22_hold%22:2%7D&sl=4&fr0=A&fr1=C&title=AI%E5%85%A8%E8%87%AA%E5%8A%A8%E5%89%AA%E8%BE%91%E8%BD%AF%E4%BB%B6%EF%BC%9A2%E5%88%86%E9%92%9F%E8%87%AA%E5%8A%A8%E5%90%88%E6%88%90%E4%B8%80%E4%B8%AA%E5%BD%B1%E8%A7%86%E8%A7%A3%E8%AF%B4%E8%A7%86%E9%A2%91%EF%BC%8C%E6%89%B9%E9%87%8F%E6%95%88%E7%8E%87%E9%AB%98&lid=12061699393737547668&ms=1&_t=1653971026899">https://m.baidu.com/video/page?pd=video_page&amp;nid=11383613456893718608&amp;sign=855254448776210471&amp;word=AI全自动剪辑软件：2分钟自动合成一个影视解说视频，批量效率高&amp;oword=自动合成视频&amp;atn=index&amp;frsrcid=5373&amp;ext=%7B&quot;jsy&quot;%3A1%7D&amp;top=%7B&quot;sfhs&quot;%3A1%2C&quot;_hold&quot;%3A2%7D&amp;sl=4&amp;fr0=A&amp;fr1=C&amp;title=AI全自动剪辑软件：2分钟自动合成一个影视解说视频，批量效率高&amp;lid=12061699393737547668&amp;ms=1&amp;_t=1653971026899</a></p>
-<p>模式一：单视频+文案</p>
-<p>一个视频配一个文案，软件将自动把文案转化成字幕以及真人发音，把视频和字幕添加到视频上</p>
-<p>此模式适合电影解说，新闻讲解等等</p>
-<p>模式二：多视频+文案</p>
-<p>多个视频会随机合成一个视频,然后把文案转化成字幕以及真人发音，把视频和字幕添加到视频上</p>
-<p>此模式适合抖音带货等</p>
-<p>模式三：多图片+文案</p>
-<p>多个图片会随机合成一个视频,然后把文案转化成字幕以及真人发音，把视频和字幕添加到视频上</p>
-<p>此模式适合大批量却又苦于找不到视频素材的情况</p>
-<p>模式四：单视频混剪</p>
-<p>适合抖音带货，或者搬运类的影视混剪</p>
-<p>模式五：文字转语音</p>
-<p>现在头条也出了音频的创作专区，应广大用户的需求，添加这个功能，将txt文件批量放入video目录即可。</p>
+		<p>twitch</p>
+<p><a target="_blank" rel="noopener" href="https://netflix.com/">https://netflix.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ted.com/">https://www.ted.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/">https://www.youtube.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.instagram.com/">https://www.instagram.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://twitter.com/">https://twitter.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.pornhub.com/">https://www.pornhub.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/">https://www.bilibili.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.douyu.com/">https://www.douyu.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.huya.com/">https://www.huya.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.iqiyi.com/">https://www.iqiyi.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.youku.com/">https://www.youku.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://weibo.com/tv">https://weibo.com/tv</a></p>
+<p><a target="_blank" rel="noopener" href="https://krcom.cn/">https://krcom.cn</a></p>
+<p><a target="_blank" rel="noopener" href="https://tv.sohu.com/">https://tv.sohu.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://v.qq.com/">https://v.qq.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://open.163.com/ted">NetEase Public Class</a></p>
+<p>[QQ Music-MV](QQ Music-MV)</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/05/31/af91bf33-e6ac-4eb7-ac15-2969d7ce9ae0/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/03/012175b8-a7ef-488e-aadb-c76d620d2eb3/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -220,8 +202,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-05-31 </div>
-			<div class="article-title"><a href="/blog/2022/05/31/a6b9f5ae-ee71-49a4-b9d0-b87da1180e8a/" title="AI-based NSFW detection utilizes image classification, profanity filters, and violence detection through techniques such as SVM and CNNs, with a focus on bloody images. Content moderation tools involve text/image filters, evasion methods, and political considerations.">Deepnude Censorship Nsfw Safesearch</a></div>
+			<div class="date"> 2022-08-03 </div>
+			<div class="article-title"><a href="/blog/2022/08/03/7c991e15-4177-4afb-a3df-726e3a58317e/" title="Learn how to generate a Mathematica activation code using an online code generator and your free Wolfram account. Follow the instructions to locate and edit the `mathpass` file, enabling you to successfully activate the software.">Free Mathematica Activation Method</a></div>
 		</h3>
 	
 
@@ -232,76 +214,17 @@
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://github.com/LAION-AI/CLIP-based-NSFW-Detector">clip-based-nsfw-detector</a></p>
-<p>you can turn on&#x2F;off safesearch by changing ip to iran. is there better options, doing this programmatically?</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/anupamchugh/iowncode/tree/master/NSFWCreateMLImageClassifier/NSFWCreateMLImageClassifier">nsfw createml imageclassifier</a> with pretrained model</p>
-<p>敏感词过滤器 also need a high speed censor engine using trie, also in diffferent language(like english or japanese)</p>
-<p>english profanity:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/snguyenthanh/better_profanity">https://github.com/snguyenthanh/better_profanity</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/zacanger/profane-words">https://github.com/zacanger/profane-words</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/MauriceButler/badwords">https://github.com/MauriceButler/badwords</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/vzhou842/profanity-check">https://github.com/vzhou842/profanity-check</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/coffee-and-fun/google-profanity-words">https://github.com/coffee-and-fun/google-profanity-words</a></p>
-<p>chinese profanity:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/gaohuifeng/sensitive-word-filter">https://github.com/gaohuifeng/sensitive-word-filter</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/lunzima/profanities.txt">https://github.com/lunzima/profanities.txt</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/nyx1987/forbiddenwords">https://github.com/nyx1987/forbiddenwords</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/insoxin/bannedwords">https://github.com/insoxin/bannedwords</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/chason777777/mgck">https://github.com/chason777777/mgck</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/k5h9999/keywordfilter">https://github.com/k5h9999/keywordfilter</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/tomzhang/bannedwords">https://github.com/tomzhang/bannedwords</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/observerss/textfilter">https://github.com/observerss/textfilter</a> （需要回看历史 查看git历史）</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/aojiaotage/text-censor">https://github.com/aojiaotage/text-censor</a></p>
-<p>deepnude nsfw nude picture detection:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/yuanxiaosc/DeepNude-an-Image-to-Image-technology/blob/master/README-ZH.md">https://github.com/yuanxiaosc/DeepNude-an-Image-to-Image-technology/blob/master/README-ZH.md</a></p>
-<p>videoaudit 视频审核框架<a target="_blank" rel="noopener" href="https://github.com/minitrill/VideoAudit">https://github.com/minitrill/VideoAudit</a></p>
-<p>nsfw: not safe for work, inappropriate content, porn, offensive</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/rockyzhengwu/nsfw">https://github.com/rockyzhengwu/nsfw</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/alex000kim/nsfw_data_scraper">https://github.com/alex000kim/nsfw_data_scraper</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/yahoo/open_nsfw">https://github.com/yahoo/open_nsfw</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Rayraegah/nsfw_japan">https://github.com/Rayraegah/nsfw_japan</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/fishsup/nsfw-image-classification">https://github.com/fishsup/nsfw-image-classification</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/yangbisheng2009/nsfw-resnet">https://github.com/yangbisheng2009/nsfw-resnet</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/GantMan/nsfw_model">https://github.com/GantMan/nsfw_model</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/devzwy/open_nsfw_android">https://github.com/devzwy/open_nsfw_android</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/infinitered/nsfwjs">https://github.com/infinitered/nsfwjs</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/nsfw-filter/nsfw-filter">https://github.com/nsfw-filter/nsfw-filter</a></p>
-<p>nudity, violence and drug</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/amshrbo/nsfw-detection">https://github.com/amshrbo/nsfw-detection</a></p>
-<p>to train these networks, suitable datasets are required.</p>
-<p>找训练集 找涉政 涉黄 暴力血腥图片训练集 找类似的文字训练集 百度aistudio可能有 github可能有 百度一下也可能有</p>
-<p>同样的思路 情绪 情感打分也可以这样打分 根据不同的训练集进行打分</p>
-<p>github violence detection:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/topics/violence-detection">https://github.com/topics/violence-detection</a></p>
-<p>Bloody Image Classification with Global and Local Features</p>
-<p><a target="_blank" rel="noopener" href="https://www.researchgate.net/publication/309365631_Bloody_Image_Classification_with_Global_and_Local_Features">https://www.researchgate.net/publication/309365631_Bloody_Image_Classification_with_Global_and_Local_Features</a></p>
-<p>Object content understanding in images and videos draws more and more attention nowadays. However, only few existing methods have addressed the problem of bloody scene detection in images. Along with the widespread popularity of the Internet, violent contents have affected our daily life. In this paper, we propose region-based techniques to identify a color image being bloody or not. Firstly, we have established a new dataset containing 25431 bloody images and 25431 non-bloody images. These annotated images are derived from the Violent Scenes Dataset, a public shared dataset for violent scenes detection in Hollywood movies and web videos. Secondly, we design a bloody image classification method with global visual features using Support Vector Machines. Thirdly, we also construct a novel bloody region identification approach using Convolutional Neural Networks. Finally, comparative experiments show that bloody image classification with local features is more effective.</p>
-<p>search for nsfw filter providers on google&#x2F;kaggle</p>
-<p>kaggle nsfw image dataset</p>
-<p><a target="_blank" rel="noopener" href="https://www.kaggle.com/datasets/laxmansingh/nsfw-images-data">https://www.kaggle.com/datasets/laxmansingh/nsfw-images-data</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.kaggle.com/datasets/drakedtrex/my-nsfw-dataset/code">https://www.kaggle.com/datasets/drakedtrex/my-nsfw-dataset/code</a></p>
-<p>search for nsfw image&#x2F;text on github:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/alex000kim/nsfw_data_scraper">https://github.com/alex000kim/nsfw_data_scraper</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/nsfw-filter/nsfw-filter">https://github.com/nsfw-filter/nsfw-filter</a></p>
-<p>nsfwjs</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/arufian/Image-Censor-Lightning-Web-Component">https://github.com/arufian/Image-Censor-Lightning-Web-Component</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/enymuss/censorText">https://github.com/enymuss/censorText</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/fmsky/resnet50_inappropriate_content_detect">https://github.com/fmsky/resnet50_inappropriate_content_detect</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/CheranMahalingam/Image_Content_Moderation">https://github.com/CheranMahalingam/Image_Content_Moderation</a></p>
-<p>文本审核框架：</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/minitrill/TextAudit">https://github.com/minitrill/TextAudit</a></p>
-<p>规避文本审查：有可能是加密了 但是人眼可以识别</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/kallydev/shutup">https://github.com/kallydev/shutup</a></p>
-<p>nudenet based inappropriate image censoring</p>
-<p>ocr based word censoring</p>
-<p>politics</p>
-<p>涉及政治：领导人 人脸识别 图标识别</p>
-<p>violence</p>
-<p>血腥暴力：图像识别</p>
+		<p>visit <a target="_blank" rel="noopener" href="https://ibug.io/blog/2019/05/mathematica-keygen/">online activation code generator</a>, which recommends a paid global internet service provider.</p>
+<p>first generate MathID using a free wolfram account, login through it.</p>
+<p>next find the location of <code>mathpass</code>. follow the format and create a new line above all lines, with the obtained activation code.</p>
+<p>for macos, we can find it here:</p>
+<p><code>/Users/&lt;userName&gt;/Library/WolframEngine/Licensing/mathpass</code></p>
+<p>for linux:</p>
+<p><code>/root/.WolframEngine/Licensing/mathpass</code> or something else.</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/05/31/a6b9f5ae-ee71-49a4-b9d0-b87da1180e8a/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/03/7c991e15-4177-4afb-a3df-726e3a58317e/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -311,8 +234,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-05-31 </div>
-			<div class="article-title"><a href="/blog/2022/05/31/b09071dd-8ddc-4a64-b82e-2378ef495706/" title="The text focuses on Deepfake Face Swap technologies, covering notable software like DeepFaceLab, Faceswap, and SimSwap. These tools facilitate advanced video generation with face swaps and single model transformations.">Deepfake face swap</a></div>
+			<div class="date"> 2022-08-03 </div>
+			<div class="article-title"><a href="/blog/2022/08/03/f223fb10-2223-45b3-8db9-e32bfe374f7e/" title="This content delves into the process of creating xkcd-like plots and characters using Mathematica or Wolfram Language, as exemplified by links to Stack Exchange and a Wolfram blog post.">Interesting Xkcd Style Plots And Characters Generator In Mathematica/Wolfram Language</a></div>
 		</h3>
 	
 
@@ -323,16 +246,12 @@
   <div class="row">
 	
 	
-		<p>deepfacelab leading software for faceswap video generation:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/iperov/DeepFaceLab">https://github.com/iperov/DeepFaceLab</a></p>
-<p>faceswap:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/deepfakes/faceswap">https://github.com/deepfakes/faceswap</a></p>
-<p>arbitrary face swap on one single model:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/neuralchen/SimSwap">https://github.com/neuralchen/SimSwap</a></p>
+		<p><a target="_blank" rel="noopener" href="https://mathematica.stackexchange.com/questions/11350/xkcd-style-plots">https://mathematica.stackexchange.com/questions/11350/xkcd-style-plots</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.wolfram.com/2012/10/05/automating-xkcd-diagrams-transforming-serious-to-funny/">https://blog.wolfram.com/2012/10/05/automating-xkcd-diagrams-transforming-serious-to-funny/</a></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/05/31/b09071dd-8ddc-4a64-b82e-2378ef495706/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/03/f223fb10-2223-45b3-8db9-e32bfe374f7e/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -342,8 +261,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-05-31 </div>
-			<div class="article-title"><a href="/blog/2022/05/31/97da2a2b-82c0-492b-871e-c55484e369fc/" title="The project, available on GitHub, is a creative application of AI that converts static images into dance videos. It comes with MMD format conversion tools and an online demo for users to experience the transformation. Additionally, it includes video examples showcasing its capabilities, and utilizes the CoNR group chat for collaboration and updates.">Jiggy Boring Still Image To Funny Dance Video 跳舞 舞蹈</a></div>
+			<div class="date"> 2022-07-31 </div>
+			<div class="article-title"><a href="/blog/2022/07/31/0f75254d-b5bd-4943-b80f-6f2cf4852a05/" title="A user contacted bilibili customer service for account recovery assistance and received a reminder to check their phone bills weekly starting August 19th. Additionally, new registrants can switch plans after 6 months to an 8 yuan monthly option.">Bilibili 账号找回</a></div>
 		</h3>
 	
 
@@ -354,31 +273,17 @@
   <div class="row">
 	
 	
-		<h1 id="Jiggy-boring-still-image-to-funny-dance-video"><a href="#Jiggy-boring-still-image-to-funny-dance-video" class="headerlink" title="Jiggy boring still image to funny dance video"></a>Jiggy boring still image to funny dance video</h1><p>最新版代码:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/transpchan/Live3D-v2">https://github.com/transpchan/Live3D-v2</a></p>
-<p>MMD 格式转换工具：</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/KurisuMakise004/MMD2UDP">https://github.com/KurisuMakise004/MMD2UDP</a></p>
-<p>官网：<a target="_blank" rel="noopener" href="https://transpchan.github.io/live3d/">https://transpchan.github.io/live3d/</a></p>
-<p>Colab:<a target="_blank" rel="noopener" href="https://colab.research.google.com/github/transpchan/Live3D-v2/blob/main/notebook.ipynb">https://colab.research.google.com/github/transpchan/Live3D-v2/blob/main/notebook.ipynb</a></p>
-<p>CoNR群：362985749</p>
-<p>【[ai绘画]仅用4张图片合成一段舞蹈视频-哔哩哔哩】 <a target="_blank" rel="noopener" href="https://b23.tv/NaF20nA">https://b23.tv/NaF20nA</a></p>
-<p>用到的资料和项目地址</p>
-<p>BV19V4y1x7bJ</p>
-<p>GitHub：<a target="_blank" rel="noopener" href="https://github.com/megvii-research/CoNR">https://github.com/megvii-research/CoNR</a></p>
-<p>GitHub：<a target="_blank" rel="noopener" href="https://github.com/KurisuMakise004/MMD2UDP">https://github.com/KurisuMakise004/MMD2UDP</a></p>
-<p>配音：基于VITS的弥希miki音声：BV1vW4y1e7bn</p>
-<p>bgm：风神少女</p>
-<p>视频如果有什么不对的地方，欢迎指出(<em>^▽^</em>)</p>
-<p>侵删</p>
-<p>still image to dancing</p>
-<p>everybody dance now:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/carolineec/EverybodyDanceNow">https://github.com/carolineec/EverybodyDanceNow</a></p>
-<p>edn pytorch implenentation:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Lotayou/everybody_dance_now_pytorch">https://github.com/Lotayou/everybody_dance_now_pytorch</a></p>
+		<p>联系了客服娘 人工找回的</p>
+<p>看来这个b站还是欠日 什么消息都要我记住？我记得住个屁</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 提醒我隔一段时间检查一下这个话费 两个号码都要检查</li>
+</ul>
+<p>一周提醒一次 从8月19号开始 每个星期五都要检查话费</p>
+<p>新注册的号码 6个月之后可以更换套餐 换成8块钱一个月的</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/05/31/97da2a2b-82c0-492b-871e-c55484e369fc/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/07/31/0f75254d-b5bd-4943-b80f-6f2cf4852a05/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -388,8 +293,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-05-29 </div>
-			<div class="article-title"><a href="/blog/2022/05/29/7da1cb0b-eb29-4636-b7b9-7384098ef379/" title="This tutorial provides an overview of different natural language processing (NLP) techniques for text classification. It covers a range of methods, including BERT-NER, ALBERT-NER, GPT2-generation, BiLSTM+Attention, TextCNN, and TextGCN. These techniques are applicable to both Chinese and English languages, making it a valuable resource for developers working with diverse language datasets.">Mastering Text Classification: Exploring Nlp Techniques With Bert-Ner, Albert-Ner, Gpt2, And More</a></div>
+			<div class="date"> 2022-07-28 </div>
+			<div class="article-title"><a href="/blog/2022/07/28/0f337a18-2d92-48d3-9e40-e6974bce622c/" title="In this article, the author discusses their backup plan that involves using rclone to periodically commit files to a NAS or external SSD. They also consider using an Airport Extreme router and investing in an SSD with USB-C cables for improved efficiency and convenience.">Time Machine Nas Macos</a></div>
 		</h3>
 	
 
@@ -400,25 +305,24 @@
   <div class="row">
 	
 	
-		<h1 id="GAN-for-NLP-text-generation"><a href="#GAN-for-NLP-text-generation" class="headerlink" title="GAN for NLP text generation"></a>GAN for NLP text generation</h1><p>GAN Journey:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/nutllwhy/gan-journey">https://github.com/nutllwhy/gan-journey</a></p>
-<p>NLPGNN:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/kyzhouhzau/NLPGNN">https://github.com/kyzhouhzau/NLPGNN</a></p>
-<p>Examples (See tests for more details):</p>
-<p>BERT-NER (Chinese and English Version)</p>
-<p>BERT-CRF-NER (Chinese and English Version)</p>
-<p>BERT-CLS (Chinese and English Version)</p>
-<p>ALBERT-NER (Chinese and English Version)</p>
-<p>ALBERT-CLS (Chinese and English Version)</p>
-<p>GPT2-generation (English Version)</p>
-<p>Bilstm+Attention (Chinese and English Version)</p>
-<p>TextCNN(Chinese and English Version)</p>
-<p>GCN, GAN, GIN, GraphSAGE (Base on message passing)</p>
-<p>TextGCN and TextSAGE for text classification</p>
+		<p>use rclone to periodically commit files to NAS (incremental only, do not delete things), or use rclone to copy files to external SSD</p>
+<p>buy airport extreme as wireless router and backup device</p>
+<hr>
+<p>when in doubt, delete files under GUI instead of terminal</p>
+<p>check out commands for moving files into trash bin instead of direct removal on different OSes</p>
+<hr>
+<p>my data under <code>~/works</code> is lost. fuck.</p>
+<p>buy me some ssd 512GB at least to do time machine backup.</p>
+<p>buy m.2 ssd to reduce the size.</p>
+<p>use usb-c cables to prevent inconvenience.</p>
+<hr>
+<p>the filesystem will be formatted as APFS.</p>
+<p>need a dedicated usb storage for it.</p>
+<p>do not know if it is incremental backup.</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/05/29/7da1cb0b-eb29-4636-b7b9-7384098ef379/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/07/28/0f337a18-2d92-48d3-9e40-e6974bce622c/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -428,8 +332,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-05-29 </div>
-			<div class="article-title"><a href="/blog/2022/05/29/b44f882c-c640-464c-a6bf-14331cdf7fa9/" title="This article discusses the use of three automated essay grading tools: LSTM Grading, Essay Scoring, and Neural Essay Assessor. These tools utilize Recurrent Neural Networks (RNN) to evaluate the quality of essays, providing an efficient and reliable method for assessing written work.">Essay Grading</a></div>
+			<div class="date"> 2022-07-27 </div>
+			<div class="article-title"><a href="/blog/2022/07/27/c172e781-4ff8-472d-984a-971d3111acc1/" title="This article provides detailed instructions on how to route GitHub-related domains through Fastgithub using Clash and configuring DNS settings. It covers various system-specific methods, including launchctl for macOS and systemd for Linux, as well as alternative options like monit and shell scripts.">Clash Route Only Github Related Domains To Fastgithub</a></div>
 		</h3>
 	
 
@@ -440,16 +344,18 @@
   <div class="row">
 	
 	
-		<p>LSTM grading:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/yetianpro/automated-essay-grading-by-RNN">https://github.com/yetianpro/automated-essay-grading-by-RNN</a></p>
-<p>essay scoring:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/mankadronit/Automated-Essay--Scoring">https://github.com/mankadronit/Automated-Essay--Scoring</a></p>
-<p>Neural Essay Assessor:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/nusnlp/nea">https://github.com/nusnlp/nea</a></p>
+		<h2 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h2><p>use clash official DNS settings to resolve issues related to domain resolution, especially when used as a system proxy.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Dreamacro/clash/wiki/configuration#dns">documentation</a></p>
+<p>to persist program using platform-specific service manager like nssm on windows:</p>
+<h2 id="macos"><a href="#macos" class="headerlink" title="macos"></a>macos</h2><p>use launchctl(launchd) or easyd</p>
+<h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><p>create systemd</p>
+<p>need to change system wide proxy settings in init files</p>
+<p>or use <a target="_blank" rel="noopener" href="https://mmonit.com/monit/documentation/monit.html">monit</a>, with control over the service itself.</p>
+<p>or shell script alike <a target="_blank" rel="noopener" href="https://github.com/guolisongIsesol/linuxNssm">linuxNSSM</a></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/05/29/b44f882c-c640-464c-a6bf-14331cdf7fa9/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/07/27/c172e781-4ff8-472d-984a-971d3111acc1/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -459,8 +365,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-05-29 </div>
-			<div class="article-title"><a href="/blog/2022/05/29/e919aa98-5fee-4aa6-9ebc-56523403f6dd/" title="This article presents a variety of Python-based Chinese input tools such as LoginputEngine, Pinyin2Hanzi, python-pinyin, pyim Tsinghua dict (Emacs), and IMEWLCConverter. These resources aid in the conversion between Chinese characters and pinyin, facilitating Chinese text input.">Chinese Input Method Or Engine</a></div>
+			<div class="date"> 2022-07-27 </div>
+			<div class="article-title"><a href="/blog/2022/07/27/f228b103-225b-41a4-86f8-167ff7c8e967/" title="This article provides instructions on utilizing the macOS command-click feature, enabling users to interact with inactive windows without accidentally activating them. This functionality is unique to macOS and not available on Linux or Windows systems.">Macos Window Click-Through</a></div>
 		</h3>
 	
 
@@ -471,20 +377,12 @@
   <div class="row">
 	
 	
-		<h1 id="Chinese-Input-Method-Engine"><a href="#Chinese-Input-Method-Engine" class="headerlink" title="Chinese Input Method&#x2F;Engine"></a>Chinese Input Method&#x2F;Engine</h1><p>using python:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/R0uter/LoginputEngine">https://github.com/R0uter/LoginputEngine</a></p>
-<p>pinyin2hanzi:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/letiantian/Pinyin2Hanzi">https://github.com/letiantian/Pinyin2Hanzi</a></p>
-<p>Python chinese to pinyin:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/mozillazg/python-pinyin">https://github.com/mozillazg/python-pinyin</a></p>
-<p>pyim tsinghua dict(for emacs):</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/redguardtoo/pyim-tsinghua-dict">https://github.com/redguardtoo/pyim-tsinghua-dict</a></p>
-<p>chinese input method dict converter:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/studyzy/imewlconverter">https://github.com/studyzy/imewlconverter</a></p>
+		<p>use cmd-click to operate the inactive window without activating it.</p>
+<p>linux&#x2F;windows not having this feature. might need custom hot key for this.</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/05/29/e919aa98-5fee-4aa6-9ebc-56523403f6dd/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/07/27/f228b103-225b-41a4-86f8-167ff7c8e967/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -494,8 +392,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-05-29 </div>
-			<div class="article-title"><a href="/blog/2022/05/29/5b67ca35-100a-4073-a21b-86d2d1ef86a0/" title="This article provides a step-by-step guide on how to upload a model to Hugging Face&#39;s Hub using code. It includes a link for detailed instructions and demonstrates the process with the Camembert language model, utilizing AutoModelForMaskedLM and AutoTokenizer from Transformers library. The model and tokenizer are then pushed to the Hub under the name &#39;dummy-model&#39;.">Upload Model To Huggingface</a></div>
+			<div class="date"> 2022-07-27 </div>
+			<div class="article-title"><a href="/blog/2022/07/27/4451fb3e-621b-4a3e-ba48-3947de4ea43b/" title="This article provides detailed instructions on how to search and switch between windows using tools like xdotool and wmctrl for various operating systems such as Windows, macOS, and Linux. It covers the installation process via the apt package manager, making it easy for users to follow along and enhance their window management experience.">Search And Switch To Window By Title</a></div>
 		</h3>
 	
 
@@ -506,18 +404,24 @@
   <div class="row">
 	
 	
-		<p>via code:</p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/390826470">https://zhuanlan.zhihu.com/p/390826470</a></p>
-<p>from transformers import AutoModelForMaskedLM, AutoTokenizer</p>
-<p>checkpoint &#x3D; “camembert-base”</p>
-<p>model &#x3D; AutoModelForMaskedLM.from_pretrained(checkpoint)</p>
-<p>tokenizer &#x3D; AutoTokenizer.from_pretrained(checkpoint)</p>
-<p>model.push_to_hub(“dummy-model”)</p>
-<p>tokenizer.push_to_hub(“dummy-model”)</p>
-<h1 id="config-push-to-hub-““"><a href="#config-push-to-hub-““" class="headerlink" title="config.push_to_hub(““)"></a>config.push_to_hub(“<model_name>“)</h1>
+		<h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><h3 id="yal"><a href="#yal" class="headerlink" title="yal"></a>yal</h3><p>access and search windows</p>
+<p>access files, programs, bookmarks, search engines</p>
+<h2 id="macos"><a href="#macos" class="headerlink" title="macos"></a>macos</h2><h3 id="finda"><a href="#finda" class="headerlink" title="finda"></a>finda</h3><p>find windows, browser tabs, code editor buffers, browser history, apps, files</p>
+<h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><p>kupfer plugin window list</p>
+<p>use xdotool and wmctrl</p>
+<p>Window List command (wmctrl):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ wmctrl -lx</span><br><span class="line">0x0540043e  0 google-chrome.Google-chrome  ubunzeus Search <span class="keyword">for</span> window title? - Ask Ubuntu - Google Chrome</span><br><span class="line">0x050000ec  0 Mail.Thunderbird      ubunzeus Inbox - Mozilla Thunderbird</span><br><span class="line">0x04e1068d  0 gnome-terminal-server.Gnome-terminal  ubunzeus ljames@ubunzeus: ~</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Command to switch to specific window (xdotool)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ xdotool windowactivate 0x0540043e</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>The above command will switch to the Windows with the ID 0x0540043e, which is specific from the list for this Askubuntu message entry.</p>
+<p>They are both in the repository:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install wmctrl xdotool</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 	
 	</div>
-  <a type="button" href="/blog/2022/05/29/5b67ca35-100a-4073-a21b-86d2d1ef86a0/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/07/27/4451fb3e-621b-4a3e-ba48-3947de4ea43b/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -527,8 +431,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-05-29 </div>
-			<div class="article-title"><a href="/blog/2022/05/29/7b23fe43-2d0f-44ae-9480-f20fdaaf3a2f/" title="This article discusses image and cloth classification using advanced models such as vit-pytorch and a feed forward neural network. The vit-pytorch model employs multiple attention heads for efficient image classification, while the feed forward neural network is specifically designed for cloth classification. Both models can be found on their respective GitHub repositories.">Image Classification, Cloth Classification</a></div>
+			<div class="date"> 2022-07-27 </div>
+			<div class="article-title"><a href="/blog/2022/07/27/7cced77f-4557-4aa5-83ea-1cad52d9a7d5/" title="This text offers step-by-step guidance on how to create a macOS recovery USB for Macbook M1 devices, which can be useful in situations where system troubleshooting or reinstallation is required.">Macbook M1 Create Macos Recovery Usb</a></div>
 		</h3>
 	
 
@@ -539,12 +443,10 @@
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://github.com/lucidrains/vit-pytorch">vit-pytorch</a> state of the art image classifier with multiple attention heads</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/arnab39/Cloth_Classification_DeepLearning">feed forward neural network</a></p>
-
+		
 	
 	</div>
-  <a type="button" href="/blog/2022/05/29/7b23fe43-2d0f-44ae-9480-f20fdaaf3a2f/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/07/27/7cced77f-4557-4aa5-83ea-1cad52d9a7d5/#more" class="btn btn-default more">Read More</a>
 </div>
 
            

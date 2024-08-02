@@ -123,8 +123,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-12-09 </div>
-			<div class="article-title"><a href="/blog/2022/12/09/693d4caf-8b73-4470-a512-ae9117c1faee/" title="This article provides detailed instructions on how to add a certificate to Termux for fastgithub, including steps for installing OpenSSL tools and using the add-trusted-certificate command. Additionally, an alternative method is explained for chromebooks involving nginx and configuring proxy settings.">Add Certificate To Termux, Especially For Fastgithub</a></div>
+			<div class="date"> 2023-08-16 </div>
+			<div class="article-title"><a href="/blog/2023/08/16/8322c697-be5a-4f16-bf5c-cdbff433f771/" title="This article provides a step-by-step guide on how to reset a Windows Server password when it cannot be fixed by `chntpw`. The process involves swapping `Utilman.exe` with `cmd.exe`, accessing the command prompt through widgets, and using the `net user` command to reset the password.">Reset Windows Server Password</a></div>
 		</h3>
 	
 
@@ -135,12 +135,14 @@
   <div class="row">
 	
 	
-		<p>install <code>openssl-tools</code> then use <code>add-trusted-certificate</code> against the <code>.crt</code> file, so curl will work fine (still not for elinks, i wonder why that works on macos and linux, or maybe not? just use playwright instead.)</p>
-<p>chromebook is different. you need to export the proxy to <code>0.0.0.0</code> by means of nginx or something, so you can configure proxy to <code>100.115.92.14</code> or <code>100.115.92.2</code> as seen in termux by <code>ifconfig</code></p>
+		<p><code>chntpw</code> does not work this time. it will auto restore</p>
+<p>the SAM file.</p>
+<p>instead, under directory <code>C:\Windows\System32</code>, swap <code>Utilman.exe</code> (remember to back it up) with <code>cmd.exe</code> then click widgets in login window to popup command prompt, type <code>net user &lt;username&gt; &lt;password&gt;</code> to reset.</p>
+<p><a target="_blank" rel="noopener" href="https://www.top-password.com/blog/reset-forgotten-windows-server-2016-password/">reference</a></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/12/09/693d4caf-8b73-4470-a512-ae9117c1faee/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2023/08/16/8322c697-be5a-4f16-bf5c-cdbff433f771/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -150,8 +152,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-12-09 </div>
-			<div class="article-title"><a href="/blog/2022/12/09/643b48e3-723d-4009-8988-10aa5ddbd217/" title="A comprehensive guide is provided on how to create a lucrative work environment by developing a sleek, splitable wireless keyboard, optimizing typing training software with an intuitive interface, enhancing computer stands for seamless connectivity, bundling products together, and incorporating ads alongside media content.">The Most Powerful Work Environment Setup, Introduced By Us</a></div>
+			<div class="date"> 2023-08-13 </div>
+			<div class="article-title"><a href="/blog/2023/08/13/c69512a3-e382-4ae7-ac79-6f927d4885a8/" title="This Resource Utilization Monitor Tool is specifically designed for Linux systems, providing features such as htop to track RAM usage and processes, along with s-tui for monitoring CPU/GPU temperatures. It is a helpful tool for keeping an eye on system resources in real-time.">resource utilization monitor tool</a></div>
 		</h3>
 	
 
@@ -162,23 +164,11 @@
   <div class="row">
 	
 	
-		<p>in order to make money with this idea, you can do the following:</p>
-<ul>
-<li><p>create thinner splitable wireless keyboard</p>
-</li>
-<li><p>create typing traning software with good interface</p>
-</li>
-<li><p>better computer stand so you can insert keyboard closer and introduce more ports</p>
-</li>
-<li><p>sell things together, introduce many usages to let people see what really matters</p>
-</li>
-<li><p>send ads along with your media, not just fun videos and news</p>
-</li>
-</ul>
+		<h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><p><a target="_blank" rel="noopener" href="https://htop.dev/">htop</a> for ram and processes. <a target="_blank" rel="noopener" href="https://github.com/amanusk/s-tui">s-tui</a> for cpu&#x2F;gpu temperatures</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/12/09/643b48e3-723d-4009-8988-10aa5ddbd217/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2023/08/13/c69512a3-e382-4ae7-ac79-6f927d4885a8/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -188,8 +178,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-12-08 </div>
-			<div class="article-title"><a href="/blog/2022/12/08/1161d1ab-ffae-4fd7-b835-0ba7eec79b4e/" title="Text-to-video projects like make-a-video, Maria, OFA, GEN-2, CogVideo, Nuwa, MoCoGAN, tgan-pytorch, Redditube, and Ningyov employ multimodal techniques with distinctive features, leveraging deep learning for diverse video generation tasks.">Make-A-Video And Its Related Text To Video Projects</a></div>
+			<div class="date"> 2023-08-12 </div>
+			<div class="article-title"><a href="/blog/2023/08/12/5a798d49-b06a-4284-aaf1-3326eb7b0718/" title="This article provides tips on how to avoid slashes in note names to prevent syncing program issues. By following these guidelines, users can ensure that their notes are properly synced across different devices and platforms without encountering any problems.">Notable Tips</a></div>
 		</h3>
 	
 
@@ -200,27 +190,11 @@
   <div class="row">
 	
 	
-		<p>saying “video2video” is much simpler than “text2video”, I also want to add basic editing and semantic alignment is also simpler than this.</p>
-<h2 id="similar-models-since-video-generating-models-are-usually-multimodal"><a href="#similar-models-since-video-generating-models-are-usually-multimodal" class="headerlink" title="similar models, since video generating models are usually multimodal"></a>similar models, since video generating models are usually multimodal</h2><p><a target="_blank" rel="noopener" href="https://github.com/jokieleung/Maria">maria</a>, A Visual Experience Powered Conversational Agent, suggested by incident</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/OFA-Sys/OFA">OFA</a> Unifying Architectures, Tasks, and Modalities Through a Simple Sequence-to-Sequence Learning Framework</p>
-<p><a target="_blank" rel="noopener" href="https://research.runwayml.com/gen2">GEN-2</a> by runway research with <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2302.03011">paper</a></p>
-<h2 id="according-to-its-paper-it’s-been-compared-to-a-range-of-models"><a href="#according-to-its-paper-it’s-been-compared-to-a-range-of-models" class="headerlink" title="according to its paper, it’s been compared to a range of models"></a>according to its paper, it’s been compared to a range of models</h2><p><a target="_blank" rel="noopener" href="https://github.com/THUDM/CogVideo">cogvideo</a> able to process chinese and english input</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/lucidrains/make-a-video-pytorch">make a video in pytorch</a> text to video generation</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/soran-ghaderi/make-a-video">make a video in tensorflow</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/lucidrains/nuwa-pytorch">nuwa</a> text to video generation</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/sergeytulyakov/mocogan">mocogan</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/snap-research/MoCoGAN-HD#:~:text=/-,MoCoGAN%2DHD,-Public">mocogan-hd</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/proceduralia/tgan-pytorch">tgan-pytorch</a></p>
-<h2 id="there-are-also-some-projects-being-a-video-generator-but-not-so-much-deeplearning-involved"><a href="#there-are-also-some-projects-being-a-video-generator-but-not-so-much-deeplearning-involved" class="headerlink" title="there are also some projects being a video generator but not so much deeplearning involved"></a>there are also some projects being a video generator but not so much deeplearning involved</h2><p><a target="_blank" rel="noopener" href="https://github.com/charlypoirier/redditube">redditube</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/HA6Bots/Automatic-Youtube-Reddit-Text-To-Speech-Video-Generator-and-Uploade">Automatic-Youtube-Reddit-Text-To-Speech-Video-Generator-and-Uploader</a></p>
-<h2 id="tools-for-slideshow-video-effects-presentations"><a href="#tools-for-slideshow-video-effects-presentations" class="headerlink" title="tools for slideshow, video effects, presentations"></a>tools for slideshow, video effects, presentations</h2><p><a target="_blank" rel="noopener" href="https://github.com/react-phenomenon/phenomenon">phenomenon</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/oknoorap/vidshow">vidshow</a> Simple CLI to generate slideshow video with native FFMPEG</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/BayoDev/Twitch-Best-Of">Twitch-Best-Of</a> create best-of videos on twitch without token</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/613-forever/Ningyov">Ningyov</a> galgame effects</p>
+		<p>do not use slash in note names, which might cause issues for our syncing program.</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/12/08/1161d1ab-ffae-4fd7-b835-0ba7eec79b4e/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2023/08/12/5a798d49-b06a-4284-aaf1-3326eb7b0718/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -230,8 +204,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-12-08 </div>
-			<div class="article-title"><a href="/blog/2022/12/08/b906edab-ffa1-4e82-97e6-679b6150b57c/" title="AI hacking tools, such as network analysis and custom malware creators like DeepLocker, are becoming increasingly popular for efficient attacks. These tools can also be legally used for security research and testing with tools like Acunetix and Nessus. Hashcat is a powerful password-cracking tool used for generating and outputting password lists in the terminal and is often employed in brute-force attack mode with MD5 hash type. John the Ripper and Aircrack-ng are other popular AI hacking tools.">Learn About Ai Hacking</a></div>
+			<div class="date"> 2023-08-08 </div>
+			<div class="article-title"><a href="/blog/2023/08/08/44451f63-783f-4ccc-8c2f-799d865de816/" title="This article discusses various Linux cd managers, comparing their features and compatibility with different shells. Alternatives such as Goto (supporting bash &amp; zsh), Go-Shell (compatible with PowerShell), Up (capable of navigating to parent directory and supporting fish, bash, zsh) and AutoJump (a popular choice) are examined in detail.">Exploring Alternative Linux Cd Managers: Goto, Go-Shell, Up, And Autojump</a></div>
 		</h3>
 	
 
@@ -242,52 +216,14 @@
   <div class="row">
 	
 	
-		<p>you should consider automatic problem generation, post it to chatgpt to get answers. really? how to?</p>
-<h2 id="you-said-hacking-needs-collaboration-what-if-i-am-alone-and-i-need-help-from-ai-when-hacking"><a href="#you-said-hacking-needs-collaboration-what-if-i-am-alone-and-i-need-help-from-ai-when-hacking" class="headerlink" title="you said hacking needs collaboration. what if i am alone and i need help from ai when hacking"></a>you said hacking needs collaboration. what if i am alone and i need help from ai when hacking</h2><p>While it is true that hacking often requires collaboration and a team effort, it is also possible for an individual to carry out a successful hack on their own. In fact, some of the most famous hacks in history were carried out by a single person. However, it is generally more difficult for an individual to carry out a hack without the help of others, as hacking often requires a diverse set of skills and knowledge.</p>
-<p>In terms of using artificial intelligence to help with hacking, there are a few ways that AI can be useful. For example, AI can be used to automate certain tasks involved in hacking, such as scanning for vulnerabilities or testing password combinations. This can save a lot of time and effort for the hacker, and allow them to focus on other aspects of the hack.</p>
-<p>Additionally, some AI systems are specifically designed to assist with hacking. For example, there are AI-powered tools that can analyze a target’s network and identify potential vulnerabilities, or generate custom malware that is tailored to the target’s specific system. These tools can greatly enhance a hacker’s ability to carry out a successful attack.</p>
-<p>In short, while it is possible for an individual to carry out a hack on their own, AI can be a valuable asset in helping them to do so more effectively and efficiently.</p>
-<h2 id="what-are-the-ai-tools-for-hacking"><a href="#what-are-the-ai-tools-for-hacking" class="headerlink" title="what are the ai tools for hacking"></a>what are the ai tools for hacking</h2><p>There are many different AI-powered tools that can be used for hacking, depending on the specific needs and goals of the hacker. Some examples of AI-powered hacking tools include:</p>
-<p>Vulnerability scanners: These tools use AI to scan a target’s network for potential vulnerabilities, such as weak passwords or open ports. This can help the hacker to identify potential entry points for an attack.</p>
-<p>Malware generation tools: These tools use AI to automatically generate custom malware that is tailored to a specific target’s system. This can make it more difficult for antivirus software to detect and block the malware.</p>
-<p>Social engineering tools: These tools use AI to help hackers carry out social engineering attacks, such as phishing campaigns or “spear-phishing” attacks that are targeted at specific individuals. The AI can help the hacker to create more convincing and effective phishing emails or messages.</p>
-<p>Password cracking tools: These tools use AI to automatically generate and test password combinations, in an attempt to guess the correct password for a target’s account. AI can make this process much faster and more efficient than a human trying to guess the password manually.</p>
-<p>Overall, the specific AI tools that are used for hacking will depend on the individual goals and needs of the hacker. Some hackers may use a combination of different AI-powered tools to carry out their attacks, while others may focus on a single tool that is particularly well-suited to their needs.</p>
-<h2 id="can-i-build-a-search-engine-based-on-ai-for-hacking"><a href="#can-i-build-a-search-engine-based-on-ai-for-hacking" class="headerlink" title="can i build a search engine based on ai for hacking"></a>can i build a search engine based on ai for hacking</h2><p>It is possible to build a search engine that uses AI to help with hacking, although it is important to note that doing so would be illegal in most countries. Hacking is the unauthorized access of a computer or network, and is a crime in most places. As such, building a search engine that is specifically designed to help with hacking would be a criminal act.</p>
-<p>That being said, it is possible to build a search engine that uses AI to help with legal security research and testing. For example, such a search engine could be used to scan for vulnerabilities in a network or system, or to help generate custom security testing scenarios. However, it is important to only use such a tool for legal and authorized purposes, as using it for illegal hacking activities would be a crime.</p>
-<h2 id="what-are-popular-vulnerability-scanners-powered-by-ai"><a href="#what-are-popular-vulnerability-scanners-powered-by-ai" class="headerlink" title="what are popular vulnerability scanners powered by ai"></a>what are popular vulnerability scanners powered by ai</h2><p>Some of the most popular vulnerability scanners that use AI include:</p>
-<p>Acunetix: This is a commercial vulnerability scanner that uses AI to automatically scan a target’s network for potential vulnerabilities. It is able to identify a wide range of vulnerabilities, including SQL injection, cross-site scripting, and more.</p>
-<p>Nessus: This is another commercial vulnerability scanner that uses AI to automate the process of scanning for vulnerabilities. It is known for its comprehensive coverage and ability to identify a wide range of vulnerabilities.</p>
-<p>OpenVAS: This is an open-source vulnerability scanner that uses AI to automate the scanning process. It is a popular choice among security researchers and ethical hackers, due to its open-source nature and ability to identify a wide range of vulnerabilities.</p>
-<p>Overall, there are many different vulnerability scanners that use AI, and the specific one that is best for a given situation will depend on the individual needs and goals of the user.</p>
-<h2 id="popular-malware-generation-tools-powered-by-ai"><a href="#popular-malware-generation-tools-powered-by-ai" class="headerlink" title="popular malware generation tools powered by ai"></a>popular malware generation tools powered by ai</h2><p>Some of the most popular malware generation tools that use AI include:</p>
-<p>DeepLocker: This is a tool that uses AI to generate custom malware that is tailored to a specific target. It is able to evade detection by antivirus software, making it a powerful tool for malicious hackers.</p>
-<p>AnglerPhish: This is a tool that uses AI to help with the creation of convincing phishing emails. It can automatically generate personalized emails that are tailored to specific individuals, making it more likely that the recipient will fall for the scam.</p>
-<p>Carbanak: This is a piece of malware that uses AI to adapt to the specific system it is running on, making it more difficult to detect and remove. It is known for its ability to steal sensitive financial information from banks and other financial institutions.</p>
-<p>Overall, there are many different malware generation tools that use AI, and the specific one that is best for a given situation will depend on the individual goals and needs of the user.</p>
-<h2 id="popular-social-engireering-tools-powered-by-ai"><a href="#popular-social-engireering-tools-powered-by-ai" class="headerlink" title="popular social engireering tools powered by ai"></a>popular social engireering tools powered by ai</h2><p>Some of the most popular social engineering tools that use AI include:</p>
-<p>ReFud.me: This is a tool that uses AI to automatically generate convincing phishing emails. It is able to tailor the emails to specific individuals, making them more likely to fall for the scam.</p>
-<p>PhishAI: This is a tool that uses AI to automatically identify and block phishing emails. It is able to learn from past phishing attacks and use that knowledge to improve its ability to detect and block future attacks.</p>
-<p>Imperson: This is a tool that uses AI to automatically generate personalized phishing messages that are tailored to specific individuals. It is able to create messages that are highly convincing, making it more likely that the recipient will fall for the scam.</p>
-<p>Overall, there are many different social engineering tools that use AI, and the specific one that is best for a given situation will depend on the individual goals and needs of the user.</p>
-<h2 id="popular-password-cracking-tools-powered-by-ai"><a href="#popular-password-cracking-tools-powered-by-ai" class="headerlink" title="popular password cracking tools powered by ai"></a>popular password cracking tools powered by ai</h2><p>Some of the most popular password cracking tools that use AI include:</p>
-<p>Hashcat: This is a popular open-source password cracking tool that uses AI to automatically generate and test password combinations. It is known for its high speed and ability to crack even complex and long passwords.</p>
-<p>John the Ripper: This is another popular open-source password cracking tool that uses AI to automate the password cracking process. It is able to crack a wide range of password hashes, and is a popular choice among security researchers and ethical hackers.</p>
-<p>Aircrack-ng: This is an open-source password cracking tool that is specifically designed for cracking wireless network passwords. It uses AI to automatically generate and test password combinations, making it a powerful tool for breaking into wireless networks.</p>
-<p>Overall, there are many different password cracking tools that use AI, and the specific one that is best for a given situation will depend on the individual goals and needs of the user.</p>
-<h2 id="how-to-use-hashcat-to-generate-password-list-in-terminal"><a href="#how-to-use-hashcat-to-generate-password-list-in-terminal" class="headerlink" title="how to use hashcat to generate password list in terminal"></a>how to use hashcat to generate password list in terminal</h2><p>Use the “hashcat” command to start the Hashcat software. You will need to specify the attack mode that you want to use, as well as the type of password hash that you want to crack. For example, to use the “brute-force” attack mode and crack an MD5 password hash, you would enter the following command:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./hashcat -a 3 -m 0 hash.txt</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>Use the “–stdout” option to output the generated password list to the terminal. This will allow you to see the password combinations as they are generated by Hashcat. For example, to generate a password list using the “brute-force” attack mode and output it to the terminal, you would enter the following command:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./hashcat -a 3 -m 0 hash.txt --stdout</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>Use the “CTRL + C” keys to stop the password generation process once you have generated enough password combinations.</p>
-<p>Overall, using Hashcat to generate a password list in the terminal is a relatively straightforward process, and the commands are easy to learn and use. It is a powerful tool that can greatly assist with password cracking tasks.</p>
-<h2 id="sha1-on-hashcat"><a href="#sha1-on-hashcat" class="headerlink" title="sha1 on hashcat"></a>sha1 on hashcat</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./hashcat -a 3 -m 100 hash.txt</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+		<h1 id="cd-manager-Linux-alternative"><a href="#cd-manager-Linux-alternative" class="headerlink" title="cd manager Linux alternative"></a>cd manager Linux alternative</h1><p><a target="_blank" rel="noopener" href="https://github.com/iridakos/goto">goto</a> supports bash and zsh (compdef needed)</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/cameronharp/Go-Shell">go-shell</a> supports powershell</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/shannonmoeller/up">up</a> navigates to parent directory, supports fish, bash, zsh</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/wting/autojump">autojump</a></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/12/08/b906edab-ffa1-4e82-97e6-679b6150b57c/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2023/08/08/44451f63-783f-4ccc-8c2f-799d865de816/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -297,8 +233,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-12-08 </div>
-			<div class="article-title"><a href="/blog/2022/12/08/a60440bd-9482-44c5-9844-d747da208f69/" title="This article delves into AI techniques for text generation and paraphrasing, specifically exploring language models like LSA and LDA in Python. Comment A dives into word matrix decomposition to create attention-grabbing titles, while Comment B discusses the capabilities and drawbacks of Latent Semantic Analysis (LSA) in paraphrasing.">Talk To Openai Chatgpt To Learn A Few On Paraphrasing, Title Generation</a></div>
+			<div class="date"> 2023-08-07 </div>
+			<div class="article-title"><a href="/blog/2023/08/07/7742c3b8-4bc2-4e33-9ed9-b1030f468c2a/" title="This article offers solutions for preventing computer overheating and battery damage in Windows and Linux systems. It suggests using Xeon processors, UPS+NUC instead of laptops, adjusting charging thresholds, and platform-specific tools like tlp/tlpui for ThinkPads and selective laptops.">Aldente Windows &amp; Linux Alternative</a></div>
 		</h3>
 	
 
@@ -309,255 +245,230 @@
   <div class="row">
 	
 	
-		<p>it’s like a huge search engine which can talk.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/topics/paraphrase">github topic on paraphrase</a></p>
-<p><a target="_blank" rel="noopener" href="http://www.xiaofamaoai.com/">小发猫</a></p>
-<p><a target="_blank" rel="noopener" href="http://www.wzwyc.com/">文章伪原创工具</a> and <a target="_blank" rel="noopener" href="http://ai.guiyigs.com/">backup</a> 有提到用扫描仪来扫描原创文章的方法</p>
-<p>online <a target="_blank" rel="noopener" href="https://paraphrasetool.com/">paraphrase tool</a>  translation based, can process chinese</p>
-<p>chatgpt says creativity matters, such as hackers, video producers and your evil sex shit.</p>
-<h2 id="you-said-LDA-and-LSA-are-helpful-for-paraphrasing"><a href="#you-said-LDA-and-LSA-are-helpful-for-paraphrasing" class="headerlink" title="you said LDA and LSA are helpful for paraphrasing"></a>you said LDA and LSA are helpful for paraphrasing</h2><p>Yes, LDA and LSA are two methods that can be used to generate paraphrases of a given text. LDA (Latent Dirichlet Allocation) is a probabilistic model that can be used to identify topics in a text and then generate new sentences that express the same topics in a different way. LSA (Latent Semantic Analysis) is a method that uses singular value decomposition to identify the underlying meaning of words in a text and then generate paraphrases by replacing words with their closest semantic equivalents. Both LDA and LSA can be helpful for generating paraphrases, but they each have their own strengths and limitations.</p>
-<h2 id="can-you-demonstrate-how-to-use-LSA-for-paraphrasing-in-python"><a href="#can-you-demonstrate-how-to-use-LSA-for-paraphrasing-in-python" class="headerlink" title="can you demonstrate how to use LSA for paraphrasing in python"></a>can you demonstrate how to use LSA for paraphrasing in python</h2><p>I’m sorry, but I am not currently able to browse the internet or access any external resources. As a large language model trained by OpenAI, my knowledge is based solely on the text that I have been trained on, and I don’t have the ability to run code or demonstrate specific examples. However, I can provide a general overview of how LSA could be used for paraphrasing in Python.</p>
-<p>To use LSA for paraphrasing in Python, you would first need to create a matrix of word vectors for the words in the text you want to paraphrase. This matrix would represent the semantic relationships between the words in the text, and would be used to identify the underlying meaning of each word.</p>
-<p>Next, you would use singular value decomposition (SVD) to decompose the matrix into three matrices, which represent the different factors that contribute to the meaning of the words in the text.</p>
-<p>Once you have the three matrices, you can then use them to identify the most closely related words for each word in the text, and generate paraphrases by replacing words with their closest semantic equivalents.</p>
-<p>This is just a brief overview of how LSA could be used for paraphrasing in Python. There are many different ways to implement LSA, and the exact details of the implementation would depend on the specific requirements of your project.</p>
-<h2 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h2><p>I’m sorry, but I’m not sure what you would like me to continue with. If you have a specific question or topic you would like to discuss, I would be happy to help. Otherwise, I can provide more information about LSA and how it can be used for paraphrasing if that would be helpful. Let me know what you would like to know.</p>
-<h2 id="how-to-use-LDA-for-paraphrasing"><a href="#how-to-use-LDA-for-paraphrasing" class="headerlink" title="how to use LDA for paraphrasing"></a>how to use LDA for paraphrasing</h2><p>To use LDA for paraphrasing, you would first need to train a LDA model on a large corpus of text. This would involve using a machine learning algorithm to identify the topics that are present in the corpus, and then generating a set of “topic vectors” that represent the distribution of those topics across the text.</p>
-<p>Once you have trained the LDA model, you can then use it to generate paraphrases of a given text by identifying the topics present in the text and then replacing words with synonyms or related words that express the same topics in a different way. This process can be repeated multiple times to generate multiple paraphrases of the same text.</p>
-<p>Here is a brief example of how LDA could be used for paraphrasing in Python:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> gensim <span class="keyword">import</span> corpora, models</span><br><span class="line"><span class="comment"># Load the text you want to paraphrase</span></span><br><span class="line">text = <span class="string">&quot;The quick brown fox jumps over the lazy dog.&quot;</span></span><br><span class="line"><span class="comment"># Tokenize the text and create a dictionary of words</span></span><br><span class="line">tokens = text.split(<span class="string">&quot; &quot;</span>)</span><br><span class="line">dictionary = corpora.Dictionary([tokens])</span><br><span class="line"><span class="comment"># Train a LDA model on the text</span></span><br><span class="line">lda_model = models.LdaModel([dictionary.doc2bow(tokens)], num_topics=<span class="number">1</span>)</span><br><span class="line"><span class="comment"># Generate paraphrases of the text</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">paraphrase = lda_model.show_topics(num_topics=<span class="number">1</span>, num_words=<span class="built_in">len</span>(tokens), formatted=<span class="literal">False</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot; &quot;</span>.join([word[<span class="number">0</span>] <span class="keyword">for</span> word <span class="keyword">in</span> paraphrase[<span class="number">0</span>][<span class="number">1</span>]]))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>This example trains a simple LDA model on a single sentence and then generates three paraphrases of the sentence by replacing words with their closest semantic equivalents. Of course, this is just a simple example to illustrate the basic concept of using LDA for paraphrasing. In practice, you would need to use a much larger corpus of text to train the LDA model and generate more accurate paraphrases.</p>
-<h2 id="demonstrate-using-LSA-to-paraphrase-in-python-using-gensim-if-needed"><a href="#demonstrate-using-LSA-to-paraphrase-in-python-using-gensim-if-needed" class="headerlink" title="demonstrate using LSA to paraphrase in python, using gensim if needed"></a>demonstrate using LSA to paraphrase in python, using gensim if needed</h2><p>As I mentioned earlier, I am not currently able to browse the internet or access external resources, so I cannot demonstrate using LSA to paraphrase in Python using gensim or any other specific libraries. However, I can provide a general overview of how LSA could be used for paraphrasing in Python.</p>
-<p>To use LSA for paraphrasing in Python, you would first need to create a matrix of word vectors for the words in the text you want to paraphrase. This matrix would represent the semantic relationships between the words in the text, and would be used to identify the underlying meaning of each word.</p>
-<p>Once you have the matrix of word vectors, you can use singular value decomposition (SVD) to decompose the matrix into three matrices, which represent the different factors that contribute to the meaning of the words in the text. The gensim library includes a implementation of SVD that you can use for this purpose.</p>
-<p>Once you have the three matrices, you can then use them to identify the most closely related words for each word in the text, and generate paraphrases by replacing words with their closest semantic equivalents. Here is an example of how this could be done in Python:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> gensim <span class="keyword">import</span> corpora, models, matutils</span><br><span class="line"><span class="comment"># Load the text you want to paraphrase</span></span><br><span class="line">text = <span class="string">&quot;The quick brown fox jumps over the lazy dog.&quot;</span></span><br><span class="line"><span class="comment"># Tokenize the text and create a dictionary of words</span></span><br><span class="line">tokens = text.split(<span class="string">&quot; &quot;</span>)</span><br><span class="line">dictionary = corpora.Dictionary([tokens])</span><br><span class="line"><span class="comment"># Create a matrix of word vectors using the dictionary</span></span><br><span class="line">word_vectors = [dictionary.doc2bow(tokens)]</span><br><span class="line"><span class="comment"># Use SVD to decompose the matrix of word vectors</span></span><br><span class="line">U, S, VT = matutils.svd(word_vectors, k=<span class="number">3</span>)</span><br><span class="line"><span class="comment"># Generate paraphrases of the text</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">paraphrase = []</span><br><span class="line"><span class="keyword">for</span> word <span class="keyword">in</span> tokens:</span><br><span class="line"><span class="comment"># Identify the closest semantic equivalents for each word</span></span><br><span class="line">closest_words = VT.dot(VT[dictionary.token2id[word]])</span><br><span class="line">closest_words = <span class="built_in">sorted</span>(<span class="built_in">enumerate</span>(closest_words), key=<span class="keyword">lambda</span> x: x[<span class="number">1</span>], reverse=<span class="literal">True</span>)</span><br><span class="line">closest_word = closest_words[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line"><span class="comment"># Replace the word with its closest semantic equivalent</span></span><br><span class="line">paraphrase.append(dictionary[closest_word])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot; &quot;</span>.join(paraphrase))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>This example trains an LSA model on a single sentence and then generates three paraphrases of the sentence by replacing words with their closest semantic equivalents. Again, this is just a simple example to illustrate the basic concept of using LSA for paraphrasing. In practice, you would need to use a much larger corpus of text to train the LSA model and generate more accurate paraphrases.</p>
-<h2 id="how-to-use-transformer-for-paraphrasing"><a href="#how-to-use-transformer-for-paraphrasing" class="headerlink" title="how to use transformer for paraphrasing"></a>how to use transformer for paraphrasing</h2><p>The transformer is a type of neural network architecture that has been used for a wide range of natural language processing tasks, including paraphrasing. To use a transformer for paraphrasing, you would need to train the transformer on a large corpus of text using a machine learning algorithm.</p>
-<p>During training, the transformer would learn to identify the underlying meaning of words and phrases in the text and then generate paraphrases by replacing words with synonyms or related words that express the same meaning in a different way.</p>
-<p>Here is a brief example of how a transformer could be used for paraphrasing in Python:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> transformers <span class="keyword">import</span> AutoTokenizer, AutoModelForSeq2SeqLM</span><br><span class="line"><span class="comment"># Load the text you want to paraphrase</span></span><br><span class="line">text = <span class="string">&quot;The quick brown fox jumps over the lazy dog.&quot;</span></span><br><span class="line"><span class="comment"># Tokenize the text using a pre-trained transformer model</span></span><br><span class="line">tokenizer = AutoTokenizer.from_pretrained(<span class="string">&quot;distilbert-base-cased&quot;</span>)</span><br><span class="line">tokens = tokenizer.encode(text)</span><br><span class="line"><span class="comment"># Load a pre-trained transformer model</span></span><br><span class="line">transformer = AutoModelForSeq2SeqLM.from_pretrained(<span class="string">&quot;distilbert-base-cased&quot;</span>)</span><br><span class="line"><span class="comment"># Generate paraphrases of the text</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">paraphrase = transformer.generate(tokens)</span><br><span class="line">paraphrase = tokenizer.decode(paraphrase[<span class="number">0</span>])</span><br><span class="line"><span class="built_in">print</span>(paraphrase)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>This example uses a pre-trained transformer model to generate three paraphrases of a single sentence. Of course, in practice you would need to train the transformer on a much larger corpus of text to generate more accurate paraphrases. The exact details of the implementation would depend on the specific requirements of your project.</p>
-<h2 id="how-to-generate-catchy-title-from-keywords-using-language-model"><a href="#how-to-generate-catchy-title-from-keywords-using-language-model" class="headerlink" title="how to generate catchy title from keywords using language model"></a>how to generate catchy title from keywords using language model</h2><p>To generate a catchy title from a set of keywords using a language model, you would need to train the language model on a large corpus of text that includes a variety of titles. During training, the language model would learn to identify the underlying meaning of words and phrases and the characteristics of catchy titles.</p>
-<p>Once the language model has been trained, you can then use it to generate a catchy title from a set of keywords by providing the keywords as input to the model and then selecting the generated title that is the most catchy and relevant to the keywords.</p>
-<p>Here is a brief example of how this could be done in Python:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> transformers <span class="keyword">import</span> AutoTokenizer, AutoModelForCausalLM</span><br><span class="line"><span class="comment"># Load the keywords you want to use to generate the title</span></span><br><span class="line">keywords = [<span class="string">&quot;quick&quot;</span>, <span class="string">&quot;brown&quot;</span>, <span class="string">&quot;fox&quot;</span>]</span><br><span class="line"><span class="comment"># Tokenize the keywords using a pre-trained language model</span></span><br><span class="line">tokenizer = AutoTokenizer.from_pretrained(<span class="string">&quot;gpt2&quot;</span>)</span><br><span class="line">tokens = tokenizer.encode(keywords)</span><br><span class="line"><span class="comment"># Load a pre-trained language model</span></span><br><span class="line">language_model = AutoModelForCausalLM.from_pretrained(<span class="string">&quot;gpt2&quot;</span>)</span><br><span class="line"><span class="comment"># Generate candidate titles from the keywords</span></span><br><span class="line">candidate_titles = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">title = language_model.generate(tokens, max_length=<span class="number">8</span>)</span><br><span class="line">title = tokenizer.decode(title[<span class="number">0</span>])</span><br><span class="line">candidate_titles.append(title)</span><br><span class="line"><span class="comment"># Select the most catchy and relevant title</span></span><br><span class="line">selected_title = candidate_titles[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">for</span> title <span class="keyword">in</span> candidate_titles:</span><br><span class="line"><span class="keyword">if</span> is_catchy(title) <span class="keyword">and</span> is_relevant(title, keywords):</span><br><span class="line">selected_title = title</span><br><span class="line"><span class="keyword">break</span></span><br><span class="line"><span class="built_in">print</span>(selected_title)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>This example generates three candidate titles from a set of keywords using a pre-trained language model, and then selects the most catchy and relevant title as the final title. Of course, this is just a simple example to illustrate the basic concept of using a language model to generate a catchy title from keywords. In practice, you would need to use a much larger corpus of text to train the language model and generate more accurate and diverse titles.</p>
-
-	
-	</div>
-  <a type="button" href="/blog/2022/12/08/a60440bd-9482-44c5-9844-d747da208f69/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2022-12-07 </div>
-			<div class="article-title"><a href="/blog/2022/12/07/63a0a5d8-cc5f-44eb-b9ee-f5b0692f2b85/" title="This tutorial provides step-by-step instructions for accessing Kali Linux on Chromebook using ttyd, x11vnc, and novnc. It includes detailed setup procedures for each tool, demonstrates novnc&#39;s clipboard sharing feature, and offers the necessary commands to help users make the most of their experience.">Access Kali On Chromebook Or Anywhere</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<h2 id="setup-tty"><a href="#setup-tty" class="headerlink" title="setup tty"></a>setup tty</h2><p>i don’t think this will work on android, but let’s see?</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ttyd -p &lt;port&gt; -c &lt;username&gt;:&lt;password&gt; &lt;shell_path&gt;</span><br><span class="line"><span class="comment"># don&#x27;t specify interface since that will screw things up</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="setup-x11vnc-and-novnc"><a href="#setup-x11vnc-and-novnc" class="headerlink" title="setup x11vnc and novnc"></a>setup x11vnc and novnc</h2><p>notice novnc has clipboard function now. share clipboard content across devices via the sidebar menu,</p>
-<p>in reference of <a target="_blank" rel="noopener" href="https://kali.org/general-use/novnc-kali-in-browser">kali official</a></p>
-<p>x11vnc is mirroring the current x11 session. i set it without password.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#retrieved from fish history</span></span><br><span class="line">x11vnc -threads -forever</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>then launch novnc server</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">novnc  --vnc localhost:5900 --listen 10020</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>use this url to access from chromebook:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://&lt;kali_ip&gt;:10020/vnc.html?host=&lt;kali_ip&gt;&amp;port=10020</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/blog/2022/12/07/63a0a5d8-cc5f-44eb-b9ee-f5b0692f2b85/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2022-12-07 </div>
-			<div class="article-title"><a href="/blog/2022/12/07/bba6278c-c13c-4c41-a1cb-3a084ad7df1c/" title="This article delves into the world of fuzzing tools like AFL and AFL++ for identifying vulnerabilities. It also covers seed generation techniques such as Skyfire and Learn&amp;Fuzz. Furthermore, it explores static and dynamic analysis methods including LSTM, RL, ILF, VUzzer, GreyOne, and discusses efficiency metrics in software testing.">0Day Exploits, Afl(American Fuzzy Lop), Afl++</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p><a target="_blank" rel="noopener" href="https://github.com/google/oss-fuzz">oss-fuzz</a> supports fuzzing C&#x2F;C++, Rust, Go, Python and Java&#x2F;JVM code</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Eastmount/article/details/107825286">blog about greyone</a> Discover Vulnerabilities with Flow Sensitive Fuzzing</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/google/afl">AFL</a>（American Fuzzy Lop）是由安全研究员Michał Zalewski（@lcamtuf）开发的一款基于覆盖引导（Coverage-guided）的模糊测试工具，它通过记录输入样本的代码覆盖率，从而调整输入样本以提高覆盖率，增加发现漏洞的概率</p>
-<p><a target="_blank" rel="noopener" href="https://countuponsecurity.com/2018/03/07/intro-to-american-fuzzy-lop-fuzzing-in-5-steps/">intro-to-american-fuzzy-lop-fuzzing-in-5-steps</a></p>
-<p><a target="_blank" rel="noopener" href="https://labs.nettitude.com/blog/fuzzing-with-american-fuzzy-lop-afl/#:~:text=Fuzzing%20with%20American%20Fuzzy%20Lop%20%28AFL%29%201%201.,2.%20Run%20our%20instrumented%20%E2%80%9Ctar%E2%80%9D%20binary%3A%20%E2%80%93%20~%2Ftar-1.28%2Fsrc%2Ftar">fuzzing-with-american-fuzzy-lop-afl</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/AFLplusplus/AFLplusplus">AFL++</a> can fuzz c source code, binary targets, network services, gui programs</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/WSP-LAB/Montage">Montage</a>: A Neural Network Language Model-Guided JavaScript Engine Fuzzer</p>
-<h2 id="seed-generation"><a href="#seed-generation" class="headerlink" title="seed generation"></a>seed generation</h2><h3 id="AI-based"><a href="#AI-based" class="headerlink" title="AI based"></a>AI based</h3><p>Skyfire (learn a probabilistic CFG grammar)</p>
-<p>Learn&amp;Fuzz (learn a RNN model of valid inputs)</p>
-<p>GAN (learn a GAN to generate legitimate seeds)</p>
-<p>Neuzz (learn a NN to model input -&gt; coverage)</p>
-<h3 id="Symbolic-Execution"><a href="#Symbolic-Execution" class="headerlink" title="Symbolic Execution"></a>Symbolic Execution</h3><p>Driller</p>
-<p>QSYM</p>
-<p>DigFuzz</p>
-<p>SAVIOR</p>
-<p>Intriguer</p>
-<p>Matryoshka</p>
-<p>HFL</p>
-<h3 id="static-dynamic-analysis"><a href="#static-dynamic-analysis" class="headerlink" title="static&#x2F;dynamic analysis"></a>static&#x2F;dynamic analysis</h3><p>FANS</p>
-<h2 id="seed-mutation"><a href="#seed-mutation" class="headerlink" title="seed mutation"></a>seed mutation</h2><h3 id="AI-based-1"><a href="#AI-based-1" class="headerlink" title="AI based"></a>AI based</h3><p>Mopt</p>
-<p>LSTM</p>
-<p>RL</p>
-<p>ILF</p>
-<h3 id="program-based"><a href="#program-based" class="headerlink" title="program based"></a>program based</h3><p>VUzzer</p>
-<p>GreyOne</p>
-<h2 id="efficient-testing"><a href="#efficient-testing" class="headerlink" title="efficient testing"></a>efficient testing</h2><h2 id="coverage-metrics"><a href="#coverage-metrics" class="headerlink" title="coverage metrics"></a>coverage metrics</h2>
-	
-	</div>
-  <a type="button" href="/blog/2022/12/07/bba6278c-c13c-4c41-a1cb-3a084ad7df1c/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2022-12-07 </div>
-			<div class="article-title"><a href="/blog/2022/12/07/b0292989-db2b-4857-81e7-56e7e9533d92/" title="This article dives into Human-In-The-Loop Ai Training And Models, specifically examining GitHub topics such as Dalle-flow, Argilla, Refinery, Human-in-the-loop-learning, Mariusmcl&#39;s InstructGPT-PyTorch, and CarperAI&#39;s TRLx. The discussion focuses on how these tools and methodologies are transforming the AI landscape by involving human feedback in training processes.">human-in-the-loop AI training and models</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p><a target="_blank" rel="noopener" href="https://github.com/topics/human-in-the-loop">github topic</a> includes dalle-flow, argilla, refinery and more</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/topics/human-in-the-loop-learning">human-in-the-loop-learning</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/mariusmcl?tab=stars">mariusmcl</a> who has a ghosted repo called <code>instructgpt-pytorch</code> seems like the topic on instructive AI including <a target="_blank" rel="noopener" href="https://github.com/kzl/decision-transformer">decision transformer</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/CarperAI">CarperAI</a> has many repos related including <a target="_blank" rel="noopener" href="https://github.com/CarperAI/trlx">trix</a> (distributed training of language models with Reinforcement Learning via Human Feedback)</p>
-
-	
-	</div>
-  <a type="button" href="/blog/2022/12/07/b0292989-db2b-4857-81e7-56e7e9533d92/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2022-12-07 </div>
-			<div class="article-title"><a href="/blog/2022/12/07/b7fd9ac4-c4ac-4e67-8be8-fdf8c7c46c20/" title="This article delves into Reinforcement Learning (RL), trajectory prediction, and model predictive control. It highlights related projects such as ddpg-usv-asmc, Deep-Reinforcement-Learning-Algorithms-with-PyTorch, stable-baselines3, and PPO. Additionally, it provides further resources for exploring deep RL.">Rl, Trajectory Prediction, Model Predictive Control</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p>this reminds me of <code>ddpg-usv-asmc</code> and <a target="_blank" rel="noopener" href="https://github.com/p-christ/Deep-Reinforcement-Learning-Algorithms-with-PyTorch">Deep-Reinforcement-Learning-Algorithms-with-PyTorch</a> (is it? nope. it is <a target="_blank" rel="noopener" href="https://github.com/DLR-RM/stable-baselines3">stable-baseline3</a>, containing <a target="_blank" rel="noopener" href="https://openai.com/blog/openai-baselines-ppo/">PPO</a> preferred by OpenAI when training InstructGPT) or <a target="_blank" rel="noopener" href="https://github.com/sweetice/Deep-reinforcement-learning-with-pytorch">Deep-reinforcement-learning-with-pytorch</a></p>
-<p><a target="_blank" rel="noopener" href="https://locuslab.github.io/mpc.pytorch/">mpc.torch</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/tigerneil/awesome-deep-rl">awesome-deep-rl</a> For deep RL and the future of AI.</p>
-
-	
-	</div>
-  <a type="button" href="/blog/2022/12/07/b7fd9ac4-c4ac-4e67-8be8-fdf8c7c46c20/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2022-12-07 </div>
-			<div class="article-title"><a href="/blog/2022/12/07/fe91bcb4-5849-446b-a33a-54c44e8f3192/" title="This article highlights several cybersecurity tools and resources, including theHarvester, Shodan, Metagoofil, Searchcode, SpiderFoot, and Babel X. These tools aid in information gathering and exploiting vulnerabilities for security analysis and risk management.">Useful Sources On Cyber Attack</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<h2 id="open-source-virus-malware-in-your-arsenal"><a href="#open-source-virus-malware-in-your-arsenal" class="headerlink" title="open source virus&#x2F;malware in your arsenal"></a>open source virus&#x2F;malware in your arsenal</h2><p><a target="_blank" rel="noopener" href="https://github.com/H4de5-7/powershell-obfuscation">powershell obfuscator</a>  advanced, will bypass any av</p>
-<h3 id="post-exploit-framework-evasion"><a href="#post-exploit-framework-evasion" class="headerlink" title="post-exploit framework, evasion"></a>post-exploit framework, evasion</h3><p><a target="_blank" rel="noopener" href="https://github.com/screetsec/TheFatRat">thefatrat</a> is an exploiting tool which compiles a malware with famous payload, and then the compiled maware can be executed on Linux , Windows , Mac and Android. TheFatRat Provides An Easy way to create Backdoors and Payload which can bypass most anti-virus. <a target="_blank" rel="noopener" href="https://github.com/screetsec">the author</a> has some tools to share.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/n1nj4sec/pupy">pupy</a> is an opensource, cross-platform (Windows, Linux, OSX, Android) C2 and post-exploitation framework written in python and C</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/r00t-3xp10it/venom">venom</a> - C2 shellcode generator&#x2F;compiler&#x2F;handler</p>
-<h3 id="virus-samples"><a href="#virus-samples" class="headerlink" title="virus samples"></a>virus samples</h3><p><a target="_blank" rel="noopener" href="https://github.com/Da2dalus/The-MALWARE-Repo">the malware repo</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/jaredsburrows/open-virus">open source virus</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/ytisf/theZoo">thezoo</a> A repository of LIVE malwares for your own joy and pleasure. theZoo is a project created to make the possibility of malware analysis open and available to the public.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/malwares">malwares</a> codebase, botnet</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/BushidoUK/Open-source-Malware/blob/main/GitHubMalware.csv">open source malware on github, repo list</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/R3YW1N/Virus-for-win-10">virus for win10</a></p>
-<p><a target="_blank" rel="noopener" href="https://bbs.kafan.cn/forum-31-1.html">kafan virus samples</a></p>
-<p><a target="_blank" rel="noopener" href="http://www.vbgood.com/">vbgood</a></p>
-<p><a target="_blank" rel="noopener" href="https://debugmen.dev/">debugman</a> reverse engineering</p>
+		<p>to increase stability, you need to prevent computer from overheating (throttle). also, replace normal laptop ram with ecc ram (not server-grade reg-ecc)</p>
+<p>but ecc is only supported on Xeon processors.</p>
+<p>moreover, you could just use UPS+NUC instead of laptop, to prevent this bloody battery issue.</p>
 <hr>
-<p><a target="_blank" rel="noopener" href="https://github.com/toolswatch/blackhat-arsenal-tools">official blackhat arsenal</a> under <a target="_blank" rel="noopener" href="https://toolswatch.org/">toolswatch</a> category <a target="_blank" rel="noopener" href="https://www.toolswatch.org/category/arsenal/">arsenal</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/EgeBalci/Mass-Hacker-Arsenal">massive hacking tools collection</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/tristanlatr/burpa">burpa</a> burp suite automation tool</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/James4Ever0/Twitter-Token-Gen">twitter token generator</a> register twitter in batch, has a large proxy list</p>
-<p><a target="_blank" rel="noopener" href="https://i0gan.github.io/">i0gan</a> some hacker with automated tools like <a target="_blank" rel="noopener" href="https://github.com/i0gan/awd_script/fork">awd_script</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.ichunqiu.com/">ichunqiu</a> ctf educational resources</p>
-<p><a target="_blank" rel="noopener" href="https://gchq.github.io/CyberChef/">cyberchief</a> online ctf interactive tools suite</p>
-<p><a target="_blank" rel="noopener" href="http://tool.bugku.com/">bugku tools</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.ctftools.com/">ctftools</a> curated online tool list</p>
-<p><a target="_blank" rel="noopener" href="http://www.hiencode.com/">ctf online tools</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.kanxue.com/">kanxue</a> home page, articles</p>
-<p><a target="_blank" rel="noopener" href="https://down.52pojie.cn/Tools/">52pojie hack tools</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.kanxue.com/chm.htm">kanxue knowledge base</a></p>
-<p><a target="_blank" rel="noopener" href="https://ctf.show/">ctfshow</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.ctfhub.com/#/tools">ctfhub tools</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.shentoushi.top/">渗透师导航</a></p>
-<p><a target="_blank" rel="noopener" href="https://ctf-wiki.org/introduction/resources/">resources recommended by ctfwiki</a></p>
-<p><a target="_blank" rel="noopener" href="http://shell-storm.org/shellcode/index.html">shellcode storm database</a> can be queried via api</p>
-<p><a target="_blank" rel="noopener" href="https://www.exploit-db.com/">exploitdb</a> find exploits, poc code, <a target="_blank" rel="noopener" href="https://www.exploit-db.com/google-hacking-database">google hacking database</a> for finding juicy information&#x2F;urls, <a target="_blank" rel="noopener" href="https://www.exploit-db.com/shellcodes">shellcodes</a> with an <a target="_blank" rel="noopener" href="https://www.exploit-db.com/search">advanced search interface</a></p>
-<p><a target="_blank" rel="noopener" href="https://cracking.org/">cracking.org</a></p>
-<p>OSINT: open source (public source) intelligence is the practice of collecting information from published or otherwise publicly available sources</p>
-<p><a target="_blank" rel="noopener" href="https://www.csoonline.com/article/3445357/what-is-osint-top-open-source-intelligence-tools.html">osint tools</a>:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Maltego</span><br><span class="line">Google dorks</span><br><span class="line">Mitaka</span><br><span class="line">SpiderFoot</span><br><span class="line">Spyse</span><br><span class="line">BuiltWith</span><br><span class="line">Intelligence X</span><br><span class="line">DarkSearch.io</span><br><span class="line">Grep.app</span><br><span class="line">Recon-ng</span><br><span class="line">theHarvester</span><br><span class="line">Shodan</span><br><span class="line">Metagoofil</span><br><span class="line">Searchcode</span><br><span class="line">SpiderFoot</span><br><span class="line">Babel X</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>will these charging limits still work if we close the lid? if not, we could possibly damage the battery.</p>
+<hr>
+<p>to prevent damage to computer battery due to overcharging</p>
+<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><p>kernel 5.5 or newer:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> 60 | sudo <span class="built_in">tee</span> /sys/class/power_supply/BAT0/charge_control_end_threshold</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>with <a target="_blank" rel="noopener" href="https://unix.stackexchange.com/questions/48534/how-to-adjust-charging-thresholds-of-laptop-battery">platform-specific drivers</a>, look for: <code>/sys/devices/platform/.*/.*(battery|charge|thresh|limit).*</code></p>
+<p>For ThinkPads and selected other laptops <a target="_blank" rel="noopener" href="https://linrunner.de/tlp">tlp</a>&#x2F;tlpui (acts like <a target="_blank" rel="noopener" href="https://01.org/powertop/">powertop</a> which turns off usb devices, so be careful when running long-term programs) provides a unified way</p>
+<p>to configure charge thresholds and recalibrate the battery.</p>
+<p>Sometimes tp-smapi from <code>apt</code> will not install and you need to fetch the <a href="">source</a> and compile yourself. Activate the plugin by <code>sudo modprobe tp_smapi</code></p>
+<p>Run <code>sudo systemctl start tlp</code> to initiate service. Run <code>sudo tlp-stat -s</code> to check status.</p>
+<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2>
+	
+	</div>
+  <a type="button" href="/blog/2023/08/07/7742c3b8-4bc2-4e33-9ed9-b1030f468c2a/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2023-07-30 </div>
+			<div class="article-title"><a href="/blog/2023/07/30/d21793d1-6f30-4238-a2a5-a4377d1b8650/" title="This article provides a detailed explanation on how to set Docker container storage quota using the `--storage-opt` option with overlay on XFS, and offers examples with various storage drivers such as devmapper, zfs, and vfs. Additionally, it guides you through changing the `data-root` configuration in `/etc/docker/daemon.json` and editing the `/etc/fstab` file to further customize your Docker container&#39;s storage settings.">Setting Docker Container Storage Quota With Overlay And Different Storage Drivers</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="Docker-container-storage-quota"><a href="#Docker-container-storage-quota" class="headerlink" title="Docker container storage quota"></a>Docker container storage quota</h1><p><code>--storage-opt</code> is supported only for overlay over xfs with ‘pquota’ mount option.</p>
+<p>change data-root to somewhere else in <code>/etc/docker/daemon.json</code></p>
+<p>edit <code>/etc/fstab</code> and add our xfs block on new line (find uuid using blkid)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run --storage-opt size=10M --<span class="built_in">rm</span> -it alpine</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>when using <a target="_blank" rel="noopener" href="https://docs.docker.com/storage/storagedriver/device-mapper-driver">devmapper</a> make sure size is greater than 10G (default)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run --storage-opt size=11G --r<span class="string">&#x27;m -it alpine</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
+
+<p>zfs, vfs (not a unionfs, but for testing) storage drivers also supports disk quota. you may use it by changing <code>data-root</code> to the related storage device.</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/12/07/fe91bcb4-5849-446b-a33a-54c44e8f3192/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2023/07/30/d21793d1-6f30-4238-a2a5-a4377d1b8650/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2023-07-27 </div>
+			<div class="article-title"><a href="/blog/2023/07/27/bf0191c3-1c1c-4bf6-a7ce-742e4f5f58b2/" title="This article explores the process of controlling computers using hardware operations and software tools. It covers various applications and methods, such as CyberTron, Larq, USB Gadget with OTG cables, Taiwan data cables, scrcpy, HID instructions, power management, Deep Freeze or Live CD mechanisms, and Python wrappers for usb-gadget.">Controlling Computers With Hardware Operations And Software Tools: A Comprehensive Guide</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="硬件操作电脑"><a href="#硬件操作电脑" class="headerlink" title="硬件操作电脑"></a>硬件操作电脑</h1><p><a target="_blank" rel="noopener" href="https://github.com/kyegomez/CyberTron">https://github.com/kyegomez/CyberTron</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/eric-ai-lab/MiniGPT-5">https://github.com/eric-ai-lab/MiniGPT-5</a></p>
+<p><a target="_blank" rel="noopener" href="https://bubo-gpt.github.io/">bubogpt</a> has attached many spacial adaptors, which may help controlling computers</p>
+<hr>
+<p>use <a target="_blank" rel="noopener" href="https://github.com/larq/larq">larq</a> for low-end neural network training.</p>
+<hr>
+<p>applications:</p>
+<p>game playing&#x2F;live streaming</p>
+<p>hacking</p>
+<p>assistent</p>
+<p>virtual worker</p>
+<p>digital life</p>
+<hr>
+<p>high level self-replication: ideology reconstruction</p>
+<p>self-consciousness (internal mirror)</p>
+<p>based on low-level self-replication</p>
+<hr>
+<p>install snapshot-free oses to eliminate data corruption and save time from rolling back to previous state when running virtual machines, or use docker containers with xfs support.</p>
+<hr>
+<p>perform responsiveness check by interval, using some deterministic responses or commands (something (different) must happen because of something)</p>
+<hr>
+<p>使用USB3.0录屏卡（HDMI）作为视频输入（类似于摄像头），延迟越低越好</p>
+<p>you may configure pixel format (jpeg for fast computation) when using different capture cards</p>
+<p>为了通用一般用专门的硬件键鼠模拟器 或者带OTG的RPi模拟键鼠 接收操控方电脑的指令 输出HID信号</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://raspberrypi.stackexchange.com/questions/7101/raspberry-pi-live-boot-or-read-only-distro">reference</a></p>
+<p>For recent raspbian you only need to turn on overlay switch in system configuration. (do not use other tools, since they will interfere)</p>
+<p>For debian-like distros (ubuntu) you can use bilibop-lockfs or fsprotect (install&#x2F;enable aufs-dkms or overlay filesystem before that)</p>
+<p>For linux that is set to run in ram (tinycore linux), you can use it as-is, but it may oom so quick that you have to abandon it.</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://superuser.com/questions/1128365/simulate-usb-keyboard-from-machine#">stackoverflow</a> 提到可以用蓝牙进行鼠标键盘模拟 (requires extra setup)</p>
+<p>Linux有驱动可以实现HID输出</p>
+<p>Use USB Gadget with OTG cables.</p>
+<p>用台湾的数据线</p>
+<p>RPi4支持OTG（通过USB-C供电接口） micro HDMI需要转接</p>
+<p>scrcpy –otg 可以识别周边设备 发送HID指令</p>
+<p>定时开关机电源线 加类似于Deep Freeze或者Live CD机制 使得电脑可以接收任意操作而不崩溃</p>
+<p>python <a target="_blank" rel="noopener" href="https://pypi.org/project/usb-gadget/">usb-gadget</a> wrapper</p>
+
+	
+	</div>
+  <a type="button" href="/blog/2023/07/27/bf0191c3-1c1c-4bf6-a7ce-742e4f5f58b2/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2023-07-14 </div>
+			<div class="article-title"><a href="/blog/2023/07/14/fc32ea43-c71f-4460-9806-b1dd4c9569a1/" title="This article provides an overview of several Python-based domain-specific language (DSL) tools, such as TextX with syntax highlighting and LSP support, Ply offering lex-yacc functionality, DhParser, and Lark Parser. These tools are designed to help developers create and analyze DSLs efficiently within the Python ecosystem.">Python Dsl</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p><a target="_blank" rel="noopener" href="https://github.com/textX/textX">textX</a> with syntax highlighter and LSP support, just like Xtext</p>
+<p><a target="_blank" rel="noopener" href="https://ply.readthedocs.io/en/latest/ply.html">ply</a>: python lex-yacc</p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/dhparser/">dhparser</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lark-parser/lark">lark</a></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2023/07/14/fc32ea43-c71f-4460-9806-b1dd4c9569a1/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2023-07-05 </div>
+			<div class="article-title"><a href="/blog/2023/07/05/2325b342-1a2d-4d11-a5f6-df35c62f65a9/" title="The text dives into a Python encoding problem encountered on Windows systems. It proposes two solutions: running the interpreter with the `-X utf8=1` flag or setting `sys.flags.utf8_mode`. This ensures proper handling of Unicode characters and eliminates any potential encoding issues in Python scripts.">Python Encoding Issue</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>windows has encoding issue on python intepreter.</p>
+<p>run like this:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python -X utf8=1 &lt;args&gt;</span><br><span class="line"><span class="comment"># flag: sys.flags.utf8_mode</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2023/07/05/2325b342-1a2d-4d11-a5f6-df35c62f65a9/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2023-06-16 </div>
+			<div class="article-title"><a href="/blog/2023/06/16/92fd1692-651c-42f9-a2b8-2b4972be284b/" title="This article explores Python testing methods, logging best practices, and error handling techniques. It also introduces alternative libraries, such as enum class, pytest caching, Redis LRU cache for decorators, build tools, type checking, code static analysis, automation tools like pydoit, SCons, and Rake. The article aims to provide insights into various Python tools and their applications for effective development and maintenance.">Incremental Testing, Build Tools, Cacheing, Logging</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>how to log error emitted from <code>better-exceptions</code>?</p>
+<hr>
+<p>logging tutorial at <a target="_blank" rel="noopener" href="https://betterstack.com/community/guides/logging/python/python-logging-best-practices/">betterstack</a> &amp; <a target="_blank" rel="noopener" href="https://docs.python.org/3/howto/logging.html">official</a></p>
+<p>other logging libraries: <a target="_blank" rel="noopener" href="https://betterstack.com/community/guides/logging/loguru/">loguru</a> <a target="_blank" rel="noopener" href="https://www.structlog.org/en/stable/">structlog</a> (able to show locals&#x2F;globals around error)</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://github.com/qix-/better-exceptions">better-exceptions</a></p>
+<hr>
+<p>to ensure the consistency of tests, you need to collect input&#x2F;output pairs (and compare with expected&#x2F;actual output), if it is deterministic.</p>
+<hr>
+<p>monkeytype, pytype (by google), runtype (Dispatch)</p>
+<hr>
+<p>better assertion</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://docs.python.org/3/howto/enum.html#enum-class-differences">enum class</a> in python</p>
+<hr>
+<p>use <a target="_blank" rel="noopener" href="https://docs.pytest.org/en/6.2.x/cache.html">cache</a> in pytest</p>
+<p>use redis lru_cache, put decorators to json serializable functions</p>
+<p>use build tools, forcing program to read and write files in the process</p>
+<p>type checking using mypy</p>
+<p>code static analysis</p>
+<p>code formatter like black</p>
+<hr>
+<p>tools:</p>
+<p><a target="_blank" rel="noopener" href="https://pydoit.org/dependencies.html">pydoit</a> with “up to date” signals for non-file objectives</p>
+<p><a target="_blank" rel="noopener" href="https://scons.org/doc/production/HTML/scons-user.html#idp105549032593992">scons</a></p>
+<p>ruby <a target="_blank" rel="noopener" href="https://graceful.dev/courses/the-freebies/modules/rake-and-project-automation/topic/episode-131-rake-rules/">rake</a></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2023/06/16/92fd1692-651c-42f9-a2b8-2b4972be284b/#more" class="btn btn-default more">Read More</a>
 </div>
 
            

@@ -116,6 +116,88 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2024-07-01 </div>
+			<div class="article-title"><a href="/blog/2024/07/01/a7a584b6-b421-4c75-b3ca-f5b6814629c5/" title="This article provides instructions on how to prevent unauthorized access to a Linux system by utilizing the `ufw` and `firewalld` tools. It explains the steps needed for both tools, including the necessary commands to deny connections from specific IP ranges and port numbers.">Block Unauthorized Access By Firewall</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p><code>ufw</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw deny from &lt;ip_range&gt; port &lt;port&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>firewalld</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo firewall-cmd --add-rich-rule=<span class="string">&#x27;rule family=&quot;ipv4&quot; source address=&quot;&lt;ip_range&gt;&quot; port protocol=&quot;tcp&quot; port=&quot;&lt;port&gt;&quot; drop&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/07/01/a7a584b6-b421-4c75-b3ca-f5b6814629c5/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-06-09 </div>
+			<div class="article-title"><a href="/blog/2024/06/09/76e14b41-9042-40d7-8097-4bb77809ae1f/" title="This article explains how to use UFW (Uncomplicated Firewall) to block incoming connections on all ports for increased security, especially when accessing public WiFi networks. The article provides instructions on how to configure and test the effectiveness of UFW using another computer.">Secure Your Online Activity With Ufw: Blocking Incoming Connections On All Ports</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="UFW-access-control"><a href="#UFW-access-control" class="headerlink" title="UFW access control"></a>UFW access control</h1><p>when using long range public wifi it matters to block every port from incoming connections.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw default deny</span><br><span class="line">sudo ufw prepend reject <span class="keyword">in</span> on &lt;intetfece name&gt;</span><br><span class="line">sudo ufw restart</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>when configuration is done, remember to restart ufw and reconnect existing interfaces.</p>
+<p>although remote clients are blocked, self-issued connections are not. so be sure to use another computer for testing ufw effectiveness before and after configuration.</p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/06/09/76e14b41-9042-40d7-8097-4bb77809ae1f/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-02-13 </div>
+			<div class="article-title"><a href="/blog/2024/02/13/ea4a52bc-a870-4864-8a3e-9610369eabfd/" title="Recently, suspicious activity has been detected on an instant messaging network. This activity may involve the exposure of user credentials and the use of nameless QQ accounts for communication. A noteworthy account, 153-748-0445, is associated with this incident.">Suspicious Activity Found On Instant Messaging Network</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>People tend to seek for inspiration and conflicts on chatting software. They can be used to create video and article posts.</p>
+<p>Sometimes your credential will be exposed by someone. Maybe you need to buy nameless QQ accounts to chat.</p>
+<p>Suspicious account: 153-748-0445</p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/02/13/ea4a52bc-a870-4864-8a3e-9610369eabfd/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2023-09-30 </div>
 			<div class="article-title"><a href="/blog/2023/09/30/1c544953-b6de-4ea3-b76e-75911c518bd0/" title="This article highlights the significance of performing online tasks within a virtual machine to ensure security and safeguard physical machines from unidentified applications.">网上接单注意</a></div>
 		</h3>

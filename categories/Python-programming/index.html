@@ -116,6 +116,96 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2024-04-23 </div>
+			<div class="article-title"><a href="/blog/2024/04/23/3fd7f56c-1ff4-48b4-b3bf-4975d506fe0f/" title="This article demonstrates the usage of the &#39;sorcery&#39; library in Python for generating dictionaries from variables. It includes a code snippet and refers to a related question on Stack Overflow for further assistance.">Python Object Value Shorthand</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>Use <a target="_blank" rel="noopener" href="https://github.com/alexmojaki/sorcery">sorcery</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sorcery</span><br><span class="line">a,b,c = <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span></span><br><span class="line">mydict = sorcery.dict_of(a,b,c)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Related <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/28722869/does-python-support-object-literal-property-value-shorthand-a-la-ecmascript-6">question</a></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/04/23/3fd7f56c-1ff4-48b4-b3bf-4975d506fe0f/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-03-01 </div>
+			<div class="article-title"><a href="/blog/2024/03/01/e2a428f9-f040-423f-b3b5-fbebd808e526/" title="This article explores the utilization of IPYthon for code testing and image processing in language models, with an emphasis on techniques like `patchify` and Torch&#39;s `unfold`. It delves into converting patches into embeddings using LayerNorm and Dense layers, specifically focusing on the class token as a full image summary. Additionally, it introduces speaker detection models such as pyannote and diart for audio processing, demonstrating their implementation with Whisper&#39;s architecture and AST transformers in Python.">Image And Audio Feature Extraction For Language Models</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>Use <code>ipython</code> instead of <code>python</code> to test these code, get better parameter hints and dynamic hints, just like what you saw in <code>brownie</code>.</p>
+<p>Use <code>dataset.transform</code> instead of <code>dataset.map</code> to save loading time.</p>
+<h2 id="Image-processing"><a href="#Image-processing" class="headerlink" title="Image processing"></a>Image processing</h2><p>Many language models resize, reshape &amp; pad the input image into 224x224 square and put into ViT directly.</p>
+<p>To simplify the pipeline, we would recommend you to sample the image into fixed size square patches, like 2x2, 4x4 etc.</p>
+<p>Or you can skip the ViT embedding part, just use <a target="_blank" rel="noopener" href="https://hf-mirror.com/adept/fuyu-8b">Fuyu-8b</a> or take its architecture <code>FuyuForCausalLM</code> and processor <code>FuyuProcessor</code> because it supports arbitrary sized images.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> transformers <span class="keyword">import</span> FuyuProcessor, FuyuForCausalLM</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">model_name = <span class="string">&quot;adept/fuyu-8b&quot;</span></span><br><span class="line">processor = FuyuProcessor.from_pretrained(model_name)</span><br><span class="line">model = FuyuForCausalLM.from_pretrained(model_name)</span><br><span class="line">url = <span class="string">&quot;http://images.cocodataset.org/val2017/000000039769.jpg&quot;</span></span><br><span class="line">image = Image.<span class="built_in">open</span>(requests.get(url, stream=<span class="literal">True</span>).raw)</span><br><span class="line">prompt = <span class="string">&quot;Generate a coco-style caption.\n&quot;</span></span><br><span class="line">inputs = processor(text=text_prompt, images=image, return_tensors=<span class="string">&quot;pt&quot;</span>)</span><br><span class="line">outputs = model(**inputs)</span><br><span class="line">generated_ids = model.generate(**model_inputs, max_new_tokens=<span class="number">7</span>)</span><br><span class="line">generation_text = processor.batch_decode(generated_ids, skip_special_tokens=<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span>(generation_text)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Split-image-into-patches"><a href="#Split-image-into-patches" class="headerlink" title="Split image into patches"></a>Split image into patches</h3><p>Usually images are large so we need to split.</p>
+<p>You have three ways to split an image.</p>
+<h4 id="Patchify"><a href="#Patchify" class="headerlink" title="Patchify"></a>Patchify</h4><p>The splited indexs are put in front instead of appended back.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> patchify <span class="keyword">import</span> patchify</span><br><span class="line">image = np.random.rand(<span class="number">512</span>,<span class="number">512</span>,<span class="number">3</span>)</span><br><span class="line">patches = patchify(image, (<span class="number">128</span>,<span class="number">128</span>,<span class="number">3</span>), step=<span class="number">128</span>)</span><br><span class="line"><span class="built_in">print</span>(patches.shape) <span class="comment"># (4, 4, 1, 128, 128, 3)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="Torch-unfold"><a href="#Torch-unfold" class="headerlink" title="Torch unfold"></a>Torch <code>unfold</code></h4><p>It works by expanding target dimension and appending a new dimension corresponding to it.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">image = torch.rand(<span class="number">512</span>,<span class="number">512</span>,<span class="number">3</span>)</span><br><span class="line">patches = image.unfold(<span class="number">0</span>, <span class="number">128</span>, <span class="number">128</span>).unfold(<span class="number">1</span>, <span class="number">128</span>, <span class="number">128</span>).unfold(<span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(patches.shape) <span class="comment"># torch.Size([4, 4, 1, 128, 128, 3])</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="EMPatches"><a href="#EMPatches" class="headerlink" title="EMPatches"></a>EMPatches</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> empatches <span class="keyword">import</span> EMPatches</span><br><span class="line">image = np.random.rand(<span class="number">512</span>, <span class="number">512</span>, <span class="number">3</span>)</span><br><span class="line">emp = EMPatches()</span><br><span class="line">patches, indices = emp.extract_patches(image, patchsize = <span class="number">128</span>, overlap = <span class="number">0</span>)</span><br><span class="line"><span class="built_in">print</span>(patches) <span class="comment"># a list of numpy arrays, total 16 items</span></span><br><span class="line"><span class="built_in">print</span>(indices) <span class="comment"># [(x_start, x_end, y_start, y_end), ...], total 16 items</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Convert-fixed-size-patches-into-embeddings"><a href="#Convert-fixed-size-patches-into-embeddings" class="headerlink" title="Convert fixed-size patches into embeddings"></a>Convert fixed-size patches into embeddings</h3><p>The embeddings from ViT cannot be used directly by LLM. Instead, use <code>LayerNorm</code> and <code>Dense</code> as simple adaptors.</p>
+<p>The first token is the class token, randomly initialized and processed along with the transformer, output as the summary of the full image, can be extracted for image embedding.</p>
+<p>Proof:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">224x224 is the shape of input image</span><br><span class="line">16x16 is the patch size</span><br><span class="line">224/16 = 14</span><br><span class="line">14*14 + 1 = 197</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> transformers</span><br><span class="line"><span class="comment"># not torch.randn (sample from normal distribution)</span></span><br><span class="line">image = torch.rand(<span class="number">3</span>, <span class="number">224</span>, <span class="number">224</span>) <span class="comment"># chw</span></span><br><span class="line">model_name = <span class="string">&quot;google/vit-base-patch16-224-in21k&quot;</span></span><br><span class="line">processor = transformers.AutoImageProcessor(model_name) <span class="comment"># for processing image</span></span><br><span class="line">image = processor(image, do_rescale=<span class="literal">False</span>) <span class="comment"># use this parameter when passing values ranging from 0 to 1</span></span><br><span class="line"><span class="comment">#image = processor(pil_image) # can also handle pil image</span></span><br><span class="line">model = transformers.ViTModel(model_name)</span><br><span class="line">outputs = model(pixel_values = image)</span><br><span class="line">embeddings = outputs.last_hidden_state[:,<span class="number">0</span>,:] <span class="comment"># torch.Size([1, 768])</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Audio-processing"><a href="#Audio-processing" class="headerlink" title="Audio processing"></a>Audio processing</h2><p>An useful and related field to speaker diarization in video processing is visual entity recognization, which can help you identify anime or movie characters across different frames.</p>
+<p>When unsure, the agent shall consult online search engines, subtitles and existing recognized entities for classification. If a dataset is successfully created, one can train a YOLO model to speed up the process, used along with popular person&#x2F;anime head detection models.</p>
+<p>In most videos speakers and visuals are aligned. You can first identify speakers then get character identification. Remember you need to use special pipeline for long-time diarization, sharing speaker features for cross-audio diarization.</p>
+<hr>
+<p>For multilanguage context, you would like to use speaker detection models like <a target="_blank" rel="noopener" href="https://github.com/pyannote/pyannote-audio">pyannote</a>. <a target="_blank" rel="noopener" href="https://github.com/juanmc2005/diart">Diart</a> is a speech processing library based on that and can be used in real time, with speaker diarization, voice activity detection training pipelines.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ufal/whisper_streaming">Whisper-streaming</a> uses LocalAgreement algoritm to segment chunks of audio and merge common patterns.</p>
+<hr>
+<p>Whisper architecture is comprised of an audio encoder and transcription decoder. The output of the encoder is feed into every cross attention layer of the decoder. For feature extraction, you only need to use the encoder.</p>
+<hr>
+<p>You pass single channel audio amplitude array to audio feature extractors with predetermined audio sample rate. If the sample rate mismatch, you need to resample the audio.</p>
+<hr>
+<p>Different audio transformers choose different context window sizes. Like LLMs, they can be streamed. However during training they must use a fixed context size.</p>
+<p>For <a target="_blank" rel="noopener" href="https://github.com/OpenAI/whisper">Whisper</a>, the context size is 30 seconds. Confugurable at: <code>transformers.WhisperFeatureExtractor(chunk_length=30, ...)</code></p>
+<p>For AST, it is 10.24 seconds. You can find more info about input and output sizes <a target="_blank" rel="noopener" href="https://github.com/YuanGongND/ast">here</a>. Configurable at: <code>transformers.ASTFeatureExtractor(max_length=1024, ...)</code></p>
+<p>These numbers can be found over respective processor parameters.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> transformers <span class="keyword">import</span> AutoProcessor, ASTModel</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> dataset <span class="keyword">import</span> load_dataset</span><br><span class="line">dataset_name = <span class="string">&quot;hf_internal_testing/librispeech_asr_demo&quot;</span></span><br><span class="line">model_name = <span class="string">&quot;MIT/ast-finetuned-audioset-10-10-0.4593&quot;</span></span><br><span class="line">dataset = load_dataset(dataset_name, <span class="string">&#x27;clean&#x27;</span>, split=<span class="string">&quot;validation&quot;</span>)</span><br><span class="line">sampling_rate = dataset.features[<span class="string">&quot;audio&quot;</span>].sampling_rate</span><br><span class="line">processor = AutoProcessor.from_pretrained(model_name)</span><br><span class="line">model = ASTModel.from_pretrained(model_name)</span><br><span class="line">audio_array = dataset[<span class="number">0</span>].audio.array</span><br><span class="line">inputs = processor(audio_array, sampling_rate=sampling_rate, return_tensors=<span class="string">&#x27;pt&#x27;</span>)</span><br><span class="line"><span class="keyword">with</span> torch.no_grad():</span><br><span class="line">outputs = model(**inputs)</span><br><span class="line">pooler_output = outputs[<span class="string">&quot;pooler_output&quot;</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/03/01/e2a428f9-f040-423f-b3b5-fbebd808e526/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2023-07-05 </div>
 			<div class="article-title"><a href="/blog/2023/07/05/2325b342-1a2d-4d11-a5f6-df35c62f65a9/" title="The text dives into a Python encoding problem encountered on Windows systems. It proposes two solutions: running the interpreter with the `-X utf8=1` flag or setting `sys.flags.utf8_mode`. This ensures proper handling of Unicode characters and eliminates any potential encoding issues in Python scripts.">Python Encoding Issue</a></div>
 		</h3>

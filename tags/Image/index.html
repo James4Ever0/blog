@@ -116,6 +116,30 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2024-07-04 </div>
+			<div class="article-title"><a href="/blog/2024/07/04/2fa65266-e8d2-46cc-827a-5f6a744295f9/" title="The text outlines several methods to keep a Docker container continuously operational using commands like &#39;docker run -d&#39;, &#39;tail -f /dev/null&#39;, &#39;sleep infinity&#39;, and &#39;nc -l -p &lt;port&gt;&#39;. These commands help maintain the Docker container&#39;s functionality and ensure that it remains running without stopping or terminating.">Keep Docker Container Running</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -d &lt;image_name&gt; <span class="built_in">tail</span> -f /dev/null</span><br><span class="line">docker run -d &lt;image_name&gt; <span class="built_in">sleep</span> infinity</span><br><span class="line">docker run -dt &lt;image_name&gt;</span><br><span class="line">docker run -dt &lt;image_name&gt; <span class="built_in">cat</span></span><br><span class="line">docker run -d &lt;image_name&gt; nc -l -p &lt;port&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/07/04/2fa65266-e8d2-46cc-827a-5f6a744295f9/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2023-10-05 </div>
 			<div class="article-title"><a href="/blog/2023/10/05/4df79ade-d538-4df2-9a6e-7840343648e1/" title="This article guides you through the process of configuring Docker to pull images from a specific mirror, such as baidubce.com, instead of the default docker.io. The article also explains that the configuration may not work until you explicitly pull from the specified mirror.">Force To Use Docker Mirror Instead Of Pulling From Docker.Io</a></div>
 		</h3>

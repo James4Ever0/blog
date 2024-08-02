@@ -116,6 +116,53 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2024-03-30 </div>
+			<div class="article-title"><a href="/blog/2024/03/30/54412af5-1dc4-425c-9754-1ad0504e139d/" title="This article explains how to use Proot-Distro on Termux to install Kali and Blackarch Linux. It compares Podman with Docker for faster image pulling speed, discusses granting container permissions for network scanning commands, and suggests using Github searches for finding relevant Docker images. Additionally, it provides guidance on utilizing Kali and Blackarch Linux Docker images on Ubuntu with Docker and recommends updating installed Blackarch for better performance.">Hacker Virtual Machines, Containers</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>on termux you use <a target="_blank" rel="noopener" href="https://github.com/termux/proot-distro"><code>proot-distro</code></a> for installing kali and blackarch linux.</p>
+<p>install via  <code>apt install proot-distro</code></p>
+<hr>
+<p>use podman over docker, since we do not need gpu here, and want faster pulling speed.</p>
+<p>recent version of podman requires extra layer of domain&#x2F;index specification before searching and pulling images.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">podman search docker.io/kali</span><br><span class="line">podman pull docker.io/kalilinux/kali-rolling</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>if you want to run network scanning commands like <code>nmap</code>, you would grant the container sufficient permissions:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">podman run --cap-add=NET_RAW --cap-add=NET_ADMIN --<span class="built_in">rm</span> -it docker.io/parrotsec/security</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><a target="_blank" rel="noopener" href="https://docs.rapid7.com/metasploit/metasploitable-2-exploitability-guide/">metasploitable2</a>, <a target="_blank" rel="noopener" href="https://parrotsec.org/docs/cloud/parrot-on-docker/">parrot linux</a> also have docker images. more cybersecurity&#x2F;ctf related images to be found.</p>
+<p>run this query in search engines:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">site:github.com cybersecurity docker images</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/VaultSEC/osint">https://github.com/VaultSEC/osint</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/PberAcademy/Dockerimages">https://github.com/PberAcademy/Dockerimages</a></p>
+<hr>
+<p>on ubuntu you use docker for pulling <a target="_blank" rel="noopener" href="https://www.kali.org/docs/containers/official-kalilinux-docker-images/">kali</a> and <a target="_blank" rel="noopener" href="https://github.com/BlackArch/blackarch-docker">blackarch</a> linux images. latest images are pushed to docker hub.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo docker pull kalilinux/kali-rolling</span><br><span class="line"><span class="comment"># kali-rolling does not contain all packages</span></span><br><span class="line"><span class="comment"># run inside container: apt update &amp;&amp; apt install -y kali-linux-headless</span></span><br><span class="line">sudo docker pull blackarchlinux/blackarch</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>it is always recommend to update and upgrade the blackarch you installed.</p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/03/30/54412af5-1dc4-425c-9754-1ad0504e139d/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2022-12-07 </div>
 			<div class="article-title"><a href="/blog/2022/12/07/67b3a9b8-2724-403f-adfa-91339adf83f9/" title="This article discusses popular security tools used for various tasks such as web application scanning, port scanning, and password recovery. It provides examples of tools like QualysGuard, WebInspect, Hashcat, L0phtCrack, IKECrack, Medusa, Cain and Abel, and Zenmap, which are commonly utilized in the field of cybersecurity.">Tools From Breachforums</a></div>
 		</h3>

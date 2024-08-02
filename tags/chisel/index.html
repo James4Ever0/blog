@@ -1,0 +1,284 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>chisel | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/blog/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/blog/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+<!-- title -->
+<div class="page-header page-header-inverse ">
+  <h1 class="archive-title-tag title title-inverse ">chisel</h1>
+</div>
+
+<div class="row page">
+  <!-- cols -->
+  
+  <div class="col-md-9">
+	
+
+	  <div id="top_search"></div>
+
+      
+         <!-- display as entry -->
+	     <div class="mypage">
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-06-23 </div>
+			<div class="article-title"><a href="/blog/2024/06/23/2339ae60-e96d-4d20-b59b-c01a56d6ffe8/" title="This article delves into the configuration of SSH, specifically using chisel port forwarding for systemd services. It also provides tips on troubleshooting and enhancing connection stability with n2n. The main focus is on establishing access to all ports between local machines while dealing with limited internet port availability.">Intrisic Sshd Configuration Errors</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>if you want to use ssh port forwarding as systemd service, keep in mind that the default user for execution is root, and you need to use the public key of root to login.</p>
+<p>or you can change the user executing the task in service config:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[System]</span><br><span class="line">User=xxx</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><a target="_blank" rel="noopener" href="https://github.com/jpillora/chisel"><code>chisel</code></a> can be used for port forwarding by http compared with <code>wstunnel</code>, able to survive <code>nginx</code> (still need to configure websocket upgrades).</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># server, allowing reverse port forwarding</span></span><br><span class="line">chisel server -p &lt;port&gt; --auth &lt;user&gt;:&lt;pass&gt; --reverse</span><br><span class="line"><span class="comment"># client</span></span><br><span class="line">chisel client --auth &lt;user&gt;:&lt;pass&gt; &lt;protocol&gt;://&lt;url&gt; &lt;local_addr&gt;:&lt;remote_addr&gt; R:&lt;remote_addr&gt;:&lt;local_addr&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>if you want to have multiple host sharing same ip because of proxy forwarding or different network locations, then you need to change the system host mapping file.</p>
+<p>in linux and macos it is at <code>/etc/hosts</code></p>
+<p>in windows, <code>C:\Windows\System32\drivers\etc\hosts</code></p>
+<p>you need to configure the host file on the proxy machine if you want to avoid name clashes with proxies. these host names can be less informative to hide the intent.</p>
+<hr>
+<p>on latest ubuntu 24.04 the sshd config includes files under <code>/etc/ssh/sshd_config.d</code> which has a file named <code>50-cloud-init.conf</code> has the line overriding any other setting afterwords.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PasswordAuthentication yes</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>you need to change both <code>/etc/ssh/sshd_config</code> and this file to disable password authentication.</p>
+<hr>
+<p><code>-R</code> will not allow you to open <code>0.0.0.0</code> port on remote machine unless you configure something in <code>/etc/ssh/sshd_config</code> like below.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">AllowTcpForwarding yes</span><br><span class="line">GatewayPorts clientspecified</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>if not, use <code>socat</code> to finally deliver the forwarded remote local port to remote public port.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">socat TCP-LISTEN:&lt;lport&gt;,reuseaddr,fork TCP:&lt;rhost&gt;:&lt;rport&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>port forwarding failure can be corrected.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># get the process pid of the port</span></span><br><span class="line">sudo lsof -i :&lt;port&gt;</span><br><span class="line">lsof -i :&lt;port&gt;</span><br><span class="line"><span class="comment"># kill the process</span></span><br><span class="line"><span class="built_in">kill</span> &lt;port&gt;</span><br><span class="line"><span class="comment"># rerun lsof to check if the port is freed</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><code>n2n</code> can be in handy if you do not have too many ports on internet and still want to access all ports in between your local machines.</p>
+<hr>
+<p>if connection is unstable, use <code>-o ServerAliveInterval=60 -o ServerAliveCountMax=3</code> to extend the timeout period.</p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/06/23/2339ae60-e96d-4d20-b59b-c01a56d6ffe8/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+	     </div>
+	     <div>
+	       <center>
+	         <div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+	       </center>
+	     </div>	
+      
+
+</div> <!-- col-md-9/col-md-12 -->
+
+
+<div class="col-md-3">
+	<div id="sidebar">
+	
+			
+  <div id="site_search">
+   <div class="form-group">
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="Search" class="st-search-input st-default-search-input form-control"/>
+   </div>  
+  <div id="local-search-result"></div>
+  </div>
+
+
+		
+			
+<div class="widget">
+	<h4>Links</h4>
+	<ul class="blogroll list-unstyled">
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/agi_computer_control/" title="Autonomous computer agent" target="_blank"]);">Project Cybergod</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/pyjom/" title="Media content automation" target="_blank"]);">Project Pyjom</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/prometheous/" title="Automated documentation, AI+IR(RAG)" target="_blank"]);">Project Prometheus</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/pyjom/" title="Media Content Automation" target="_blank"]);">Project Pyjom</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/my_blog_source/" title="Source code of my blog"" target="_blank"]);">Blog Source Code</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="http://www.github.com/james4ever0" title="My Github account" target="_blank"]);">My Github</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="https://samoyedsun.github.io/" title="Samoyedsun's Blog" target="_blank"]);">Samoyedsun&#39;s Blog</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="http://atlant1c.cn/" title="Atlant1c's Blog" target="_blank"]);">Atlant1c&#39;s Blog</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="https://www.gregoryuan.com/" title="Gregoryuan's Blog" target="_blank"]);">Gregoryuan&#39;s Blog</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="https://yubingtao.netlify.app/" title="Yubingtao's Blog" target="_blank"]);">Yubingtao&#39;s Blog</a></li>
+	
+	</ul>
+</div>
+
+
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2024 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/blog/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+
+</body>
+</html>

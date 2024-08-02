@@ -123,8 +123,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-06-18 </div>
-			<div class="article-title"><a href="/blog/2022/06/18/869fd8ae-5a70-471b-b723-b8d97a14444a/" title="This text explores capital, politics, control, and management themes through concepts like unfulfillable promises, self-contradictions, lying, reversal of intentions, virtualization, and ideologization.">资本 政治 商业 统治 管理 原理</a></div>
+			<div class="date"> 2022-08-18 </div>
+			<div class="article-title"><a href="/blog/2022/08/18/6792c6e8-11df-4e8c-ba24-f5ad2854cf39/" title="This article features discussions on various video and audio processing projects. These projects cover a wide range of tasks such as Natural Language Understanding (NLU), trending topic discovery, loudness improvement, watermark removal, enhanced highlight algorithms, voice changing technology, locating older content, and live streaming for quality enhancement.">Pyjom Schedules</a></div>
 		</h3>
 	
 
@@ -135,13 +135,219 @@
   <div class="row">
 	
 	
-		<p>画大饼（永远兑现不了的承诺 只兑现一点点）</p>
-<p>自相矛盾（给一个有争议的话题 或者让人群分化 对立）</p>
-<p>撒谎（一切都按照别人的愿望回答 然而不去实现 不去操作 反向实现 反向操作 或者虚拟化 电子化 意识形态化）</p>
+		<h1 id="pyjom-dev-schedules"><a href="#pyjom-dev-schedules" class="headerlink" title="pyjom dev schedules"></a>pyjom dev schedules</h1><h2 id="整活"><a href="#整活" class="headerlink" title="整活"></a>整活</h2><ul>
+<li><input disabled="" type="checkbox"> 应 急 诈 骗 食 品 (派蒙加Rick Ashley 如何混合？）</li>
+</ul>
+<h2 id="recommendation"><a href="#recommendation" class="headerlink" title="recommendation"></a>recommendation</h2><ul>
+<li><input disabled="" type="checkbox"> use txtai to do NLU and recommend things to people</li>
+</ul>
+<h2 id="topic-discovery-acquiring"><a href="#topic-discovery-acquiring" class="headerlink" title="topic discovery&#x2F;acquiring"></a>topic discovery&#x2F;acquiring</h2><h3 id="trending-topics"><a href="#trending-topics" class="headerlink" title="trending topics"></a>trending topics</h3><ul>
+<li><p><input disabled="" type="checkbox"> 
+baidu search trending</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+sogou trending</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+bilibili trending</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+wechat trending</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+toutiao trending</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+tencent trending</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+netease trending</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+youtube trending</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+reddit trending</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+twitch trending</p>
+</li>
+</ul>
+<h3 id="popular-topics"><a href="#popular-topics" class="headerlink" title="popular topics"></a>popular topics</h3><ul>
+<li><p><input disabled="" type="checkbox"> 
+baijiahao popular topics</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+bilibili popular topics</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+douyin popular topics</p>
+</li>
+</ul>
+<h3 id="personal-customized-topics"><a href="#personal-customized-topics" class="headerlink" title="personal&#x2F;customized topics"></a>personal&#x2F;customized topics</h3><ul>
+<li><p><input disabled="" type="checkbox"> 
+tencent qq customized (can associate with mail)</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+wechat customized</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+bilibili per user customized</p>
+</li>
+</ul>
+<h2 id="dog-cat-video-generation"><a href="#dog-cat-video-generation" class="headerlink" title="dog&#x2F;cat video generation"></a>dog&#x2F;cat video generation</h2><h3 id="make-render-engine-runnable"><a href="#make-render-engine-runnable" class="headerlink" title="make render engine runnable"></a>make render engine runnable</h3><p>issues:</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> video length too long (10 mins)</li>
+</ul>
+<p>it was the speed calculation error.</p>
+<ul>
+<li><p><input checked="" disabled="" type="checkbox"> 
+bgm somehow not in sync (too broad bpm&#x2F;clip ranges?)</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+to analyze the peaks (abrupt changes) in bgm and grab louder peaks using <code>pyloudnorm</code> (getting audio volume)</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip3 install pyloudnorm</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> soundfile <span class="keyword">as</span> sf</span><br><span class="line"><span class="keyword">import</span> pyloudnorm <span class="keyword">as</span> pyln</span><br><span class="line">data, rate = sf.read(<span class="string">&quot;0055014.wav&quot;</span>) <span class="comment"># load audio (with shape (samples, channels))</span></span><br><span class="line"><span class="built_in">print</span>(data.shape)</span><br><span class="line">meter = pyln.Meter(rate) <span class="comment"># create BS.1770 meter</span></span><br><span class="line">loudness = meter.integrated_loudness(data) <span class="comment"># measure loudness</span></span><br><span class="line"><span class="built_in">print</span>(loudness)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><input disabled="" type="checkbox"> 
+place video on loudest points, abrupt changes detected by talib or just take direvative and gaussian average</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+video too repetitive (small corpus?)</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+do not remove subtitle and crop active region (reviewer’s resource not used? but i rather advise you to do it directly since it requires less computational power)</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+do not have minimum motion threshold (reviewer’s fault? also recommend you to do this in producer)</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p><input checked="" disabled="" type="checkbox"> 
+remove all watermarks, subtitles and crop video boundaries accordingly</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+source video and audio (infinite, basic test is to find 500 sources at once without duplicate, second test is to find 500 second is to find 500 without duplicate twice), improve highlight algorithm</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+find 500 songs without duplicate at once</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+find 500 songs no duplicate twice</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+find 500 animal videos without duplicate</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+find 500 animal videos no duplicate twice</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+generate appropriate title, cover, info and tags</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+collect feedback after the post</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+find some shocking fonts for cover and subtitle, english and chinese</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+make that karaoke effect</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+make ass with karaoke effect with lrc files</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+make lyrics sync logic fluent, according to what have learned from karaoke effects</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+make selected video clips fluent, no abrupt cuts, maybe we need pyscenedetect?</p>
+</li>
+</ul>
+<h2 id="text-to-video-template-based-video-generator-this-is-perhaps-the-most-complex-video-generator-ever-do-it-with-caution-it-might-also-includes-the-flipcard-narrator-and-slideshow-based-generators"><a href="#text-to-video-template-based-video-generator-this-is-perhaps-the-most-complex-video-generator-ever-do-it-with-caution-it-might-also-includes-the-flipcard-narrator-and-slideshow-based-generators" class="headerlink" title="text to video, template based video generator (this is perhaps the most complex video generator ever. do it with caution, it might also includes the flipcard, narrator and slideshow based generators)"></a>text to video, template based video generator (this is perhaps the most complex video generator ever. do it with caution, it might also includes the flipcard, narrator and slideshow based generators)</h2><h3 id="generator-models-subarchitecture-subcategories-of-template-based-generators"><a href="#generator-models-subarchitecture-subcategories-of-template-based-generators" class="headerlink" title="generator models subarchitecture (subcategories of template based generators)"></a>generator models subarchitecture (subcategories of template based generators)</h3><h4 id="flipcard"><a href="#flipcard" class="headerlink" title="flipcard"></a>flipcard</h4><h4 id="slideshow-video-and-audio-might-also-include-the-dog-cat-video"><a href="#slideshow-video-and-audio-might-also-include-the-dog-cat-video" class="headerlink" title="slideshow (video and audio, might also include the dog&amp;cat video!)"></a>slideshow (video and audio, might also include the dog&amp;cat video!)</h4><h4 id="narrator"><a href="#narrator" class="headerlink" title="narrator"></a>narrator</h4><h4 id="summarized-video"><a href="#summarized-video" class="headerlink" title="summarized video"></a>summarized video</h4><hr>
+<h3 id="policy-evasion-NSFW-filters"><a href="#policy-evasion-NSFW-filters" class="headerlink" title="policy evasion, NSFW filters"></a>policy evasion, NSFW filters</h3><ul>
+<li><input disabled="" type="checkbox"> remove all hints from image, video, audio and script that may lead to copyright issues</li>
+</ul>
+<hr>
+<h3 id="analyze-the-media-content-and-metadata-relationships"><a href="#analyze-the-media-content-and-metadata-relationships" class="headerlink" title="analyze the media content and metadata, relationships"></a>analyze the media content and metadata, relationships</h3><ul>
+<li><p><input disabled="" type="checkbox"> 
+analyze danmaku</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+paraphrase the script</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+cut the crap and understand each clip’s meaning</p>
+</li>
+</ul>
+<hr>
+<h3 id="process-the-video-clips-like-changing-the-human-figure-changing-face-stylish-the-video-adding-2d-to-3d-effects"><a href="#process-the-video-clips-like-changing-the-human-figure-changing-face-stylish-the-video-adding-2d-to-3d-effects" class="headerlink" title="process the video clips, like changing the human figure, changing face, stylish the video, adding 2d to 3d effects"></a>process the video clips, like changing the human figure, changing face, stylish the video, adding 2d to 3d effects</h3><hr>
+<h3 id="process-the-audio-clips-like-changing-voice-adding-sound-effects-separating-audio-music-tracks-ducking"><a href="#process-the-audio-clips-like-changing-voice-adding-sound-effects-separating-audio-music-tracks-ducking" class="headerlink" title="process the audio clips, like changing voice, adding sound effects, separating audio&#x2F;music tracks, ducking"></a>process the audio clips, like changing voice, adding sound effects, separating audio&#x2F;music tracks, ducking</h3><hr>
+<h3 id="index-retrieve-and-align-video-and-audio-content-according-to-our-collected-database"><a href="#index-retrieve-and-align-video-and-audio-content-according-to-our-collected-database" class="headerlink" title="index, retrieve and align video and audio content according to our collected database"></a>index, retrieve and align video and audio content according to our collected database</h3><hr>
+<h3 id="retrieve-and-align-video-and-audio-according-to-our-smart-search-agent-keyword-extractor-related-words-and-do-live-compilation"><a href="#retrieve-and-align-video-and-audio-according-to-our-smart-search-agent-keyword-extractor-related-words-and-do-live-compilation" class="headerlink" title="retrieve and align video and audio according to our smart search agent (keyword extractor, related words) and do live compilation"></a>retrieve and align video and audio according to our smart search agent (keyword extractor, related words) and do live compilation</h3><hr>
+<h2 id="qq-managing"><a href="#qq-managing" class="headerlink" title="qq managing"></a>qq managing</h2><ul>
+<li><p><input disabled="" type="checkbox"> 
+mitm chats in friends</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+mitm chats in groups</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+source and send pictures to qzone</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+source and send pictures to chat</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+reduce posting frequency by group size and feedback</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+post relative video link relative to group topic</p>
+</li>
+</ul>
+<h2 id="personal-info-collecting-and-email-sms-bulk-sending"><a href="#personal-info-collecting-and-email-sms-bulk-sending" class="headerlink" title="personal info collecting and email&#x2F;sms bulk sending"></a>personal info collecting and email&#x2F;sms bulk sending</h2><ul>
+<li><p><input disabled="" type="checkbox"> 
+avoid mail being trashed or turned into junk</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+collect and make mail templates for mail posting</p>
+</li>
+</ul>
+<h2 id="voice-changer"><a href="#voice-changer" class="headerlink" title="voice changer"></a>voice changer</h2><ul>
+<li><p><input disabled="" type="checkbox"> 
+vst based voice changer</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+train or find a decent voice generator 御姐音语料库 小受音语料库</p>
+</li>
+</ul>
+<p>请在b站或者qq群里面寻找 或者什么其他的有关的地方寻找 谢谢</p>
+<h2 id="直播-live-streaming"><a href="#直播-live-streaming" class="headerlink" title="直播 live streaming"></a>直播 live streaming</h2><ul>
+<li><input disabled="" type="checkbox"> source the video</li>
+</ul>
+<p>如果是同一个站的 尽量放一个月以前的视频 半个月以前的音频</p>
+<ul>
+<li><p><input disabled="" type="checkbox"> 
+prepare some space for storing live streaming data</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+source the audio</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+automatic interactions</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+handle the vtuber model’s actions</p>
+</li>
+</ul>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/06/18/869fd8ae-5a70-471b-b723-b8d97a14444a/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/18/6792c6e8-11df-4e8c-ba24-f5ad2854cf39/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -151,8 +357,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-06-18 </div>
-			<div class="article-title"><a href="/blog/2022/06/18/aa17a546-5b4f-4aff-94e0-47cfa04dca5e/" title="The article discusses innovative robots designed for recycling purposes. One robot is specialized in collecting plastic bottles, while the other retrieves coins from coin machines. These robots are aimed at promoting environmental conservation and efficiency in the recycling process.">捡塑料瓶机器人 吸硬币 回收硬币机器人</a></div>
+			<div class="date"> 2022-08-17 </div>
+			<div class="article-title"><a href="/blog/2022/08/17/af744580-ee9a-42b5-887b-fc97e1e342e3/" title="The author implemented schedules to prioritize their projects, with the primary objective being general schedule creation and a secondary goal of completing the development of a dog video generator.">2022-08-18-03-35-56</a></div>
 		</h3>
 	
 
@@ -163,10 +369,12 @@
   <div class="row">
 	
 	
-		
+		<p>i decided to push myself a little bit by setting up schedules. no due date but it might make it clear for me to work on which project first.</p>
+<p>though i could write what i want to do next in diary of course. the primary target is to make general schedules of course, the second or the target afterwards is to complete the development of the dog video generator.</p>
+
 	
 	</div>
-  <a type="button" href="/blog/2022/06/18/aa17a546-5b4f-4aff-94e0-47cfa04dca5e/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/17/af744580-ee9a-42b5-887b-fc97e1e342e3/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -176,8 +384,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-06-18 </div>
-			<div class="article-title"><a href="/blog/2022/06/18/c94fa34c-661c-441f-ae39-110630460da4/" title="This article discusses the design considerations for creating a smartwatch that can be used in hot springs or while showering. It highlights the importance of using heat and steam resistant adhesive, a protective case with sealant, ridges for added sealing strength, waterproof silicone covers or hard quality buttons with a silicone sealing layer, and avoiding rotatable buttons. The article also suggests that the case should come with a complementary strap and not use the original attachment system.">智能手表防水 泡温泉</a></div>
+			<div class="date"> 2022-08-17 </div>
+			<div class="article-title"><a href="/blog/2022/08/17/271eba9e-26fe-4335-b309-3b055d96e233/" title="This personal study plan covers various topics including reviewing past notes, revisiting history, studying finance and quantitative trading, and exploring artificial general intelligence. Tasks involved range from completing unfinished notes to designing algorithms and executing shell commands.">Self-Learning Schedules</a></div>
 		</h3>
 	
 
@@ -188,15 +396,43 @@
   <div class="row">
 	
 	
-		<h1 id="智能手表防水-泡温泉-外壳"><a href="#智能手表防水-泡温泉-外壳" class="headerlink" title="智能手表防水 泡温泉 外壳"></a>智能手表防水 泡温泉 外壳</h1><p>智能手表都不能泡温泉 洗澡</p>
-<p>可以考虑做智能手表的时候添加耐温耐水蒸汽的胶水 也可以考虑做防水汽的外壳 塑料透明保护壳 胶圈要和塑料壳之间用耐温耐水汽的胶水粘连 胶圈之间添加波纹 纹路 增加密封强度 耐压 用铰链链接 卡扣扣住 或者双卡扣</p>
-<p>如果外壳需要留空间给按钮 用橡胶按钮加耐压防水胶 或者粘贴实体按钮 硬质按钮加橡胶密封层 注意连接处面积要大</p>
-<p>旋转的按钮就不要旋转了 因为无法密封 比如苹果iwatch 只能点按</p>
-<p>外壳一般有配套的表带 不用原来的连接装置</p>
-
+		<h2 id="review-previous-notes-and-fill-blanks-list-blanks-below-better-with-direct-link-to-it"><a href="#review-previous-notes-and-fill-blanks-list-blanks-below-better-with-direct-link-to-it" class="headerlink" title="review previous notes and fill blanks, list blanks below, better with direct link to it"></a>review previous notes and fill blanks, list blanks below, better with direct link to it</h2><ul>
+<li><p><input checked="" disabled="" type="checkbox"> 
+tag all notes, especially mark out those stub, incomplete ones</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+review and complete bilibili courses, reorder, rename and split them if necessary</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+传播学导论把笔记做完</p>
+</li>
+</ul>
+<h2 id="review-your-history"><a href="#review-your-history" class="headerlink" title="review your history"></a>review your history</h2><ul>
+<li><input disabled="" type="checkbox"> visit all previously visited links and store briefs generated by readbility.js and elinks</li>
+</ul>
+<h2 id="finance-and-quantatitive-trading"><a href="#finance-and-quantatitive-trading" class="headerlink" title="finance and quantatitive trading"></a>finance and quantatitive trading</h2><ul>
+<li><p><input checked="" disabled="" type="checkbox"> 
+design a basic algorithm and complete regression test on joinquant</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+design and complete one regression test offline</p>
+</li>
+</ul>
+<h2 id="artificial-general-intelligence"><a href="#artificial-general-intelligence" class="headerlink" title="artificial general intelligence"></a>artificial general intelligence</h2><ul>
+<li><p><input disabled="" type="checkbox"> 
+design a program automatically execute commands in shell</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+design a program automatically click everywhere in GUI</p>
+</li>
+</ul>
+<h3 id="study-nars"><a href="#study-nars" class="headerlink" title="study nars"></a>study nars</h3><ul>
+<li><input disabled="" type="checkbox"> run python version of nars</li>
+</ul>
+<h3 id="study-opencog"><a href="#study-opencog" class="headerlink" title="study opencog"></a>study opencog</h3><h3 id="study-he4o"><a href="#study-he4o" class="headerlink" title="study he4o"></a>study he4o</h3>
 	
 	</div>
-  <a type="button" href="/blog/2022/06/18/c94fa34c-661c-441f-ae39-110630460da4/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/17/271eba9e-26fe-4335-b309-3b055d96e233/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -206,8 +442,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-06-17 </div>
-			<div class="article-title"><a href="/blog/2022/06/17/a6600902-fd43-4525-b9e1-3f31c4e41c4d/" title="This article provides information and links about the &#39;Bilibili Up主启航计划&#39;, a program on the video-sharing platform bilibili. It covers various aspects of the program, including its objectives, eligibility criteria, benefits, and resources for potential participants.">bilibili up主启航计划</a></div>
+			<div class="date"> 2022-08-17 </div>
+			<div class="article-title"><a href="/blog/2022/08/17/3e9228ee-7ba7-4d45-89c6-cb570df96bf6/" title="This article provides insights on locating free hacking tutorials and optimizing Hacking Schedules. It covers various indexing tools, search engines, GitHub coin mining, SEO enhancements, and utilizes popular hacking tools such as Frida, Cutter, Radare2, and solves CTF challenges.">hacking schedules</a></div>
 		</h3>
 	
 
@@ -218,12 +454,49 @@
   <div class="row">
 	
 	
-		<p>现在看来b站应该是有专人在负责讲解同一套课程了 我现在还在收到b站的培训通知短信</p>
-<p>应该把相关的链接 信息收集在这里</p>
+		<h2 id="indexing-necessary-tools-blogs-procedures-manuals-snippets-and-search-them"><a href="#indexing-necessary-tools-blogs-procedures-manuals-snippets-and-search-them" class="headerlink" title="indexing necessary tools, blogs, procedures, manuals, snippets and search them"></a>indexing necessary tools, blogs, procedures, manuals, snippets and search them</h2><ul>
+<li><p><input disabled="" type="checkbox"> 
+indexing kali tools</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+use <a target="_blank" rel="noopener" href="https://github.com/edoardottt/awesome-hacker-search-engines">hacker’s search engines</a></p>
+</li>
+</ul>
+<h2 id="github-coin-xmrig-mining"><a href="#github-coin-xmrig-mining" class="headerlink" title="github coin (xmrig) mining"></a>github coin (xmrig) mining</h2><ul>
+<li><p><input disabled="" type="checkbox"> 
+automatic captcha resolve by clash redirection to force the captcha not being too complex</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+create better labeling interface for spiral picture detection</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+automate the whole process unsupervised</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+find more ways to mine coins other than cirrus</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+hide our intention of coin mining</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+create or reassure our monero wallet</p>
+</li>
+</ul>
+<h2 id="bilibili-seo-and-hacking"><a href="#bilibili-seo-and-hacking" class="headerlink" title="bilibili seo and hacking"></a>bilibili seo and hacking</h2><h3 id="study-bilibili-source-code"><a href="#study-bilibili-source-code" class="headerlink" title="study bilibili source code"></a>study bilibili source code</h3><h3 id="study-and-learn-some-parameters-apis-for-faking-data"><a href="#study-and-learn-some-parameters-apis-for-faking-data" class="headerlink" title="study and learn some parameters&#x2F;apis for faking data"></a>study and learn some parameters&#x2F;apis for faking data</h3><h2 id="general-hacking-and-tool-learning"><a href="#general-hacking-and-tool-learning" class="headerlink" title="general hacking and tool learning"></a>general hacking and tool learning</h2><h3 id="study-popular-tools"><a href="#study-popular-tools" class="headerlink" title="study popular tools"></a>study popular tools</h3><h4 id="frida"><a href="#frida" class="headerlink" title="frida"></a>frida</h4><h4 id="cutter"><a href="#cutter" class="headerlink" title="cutter"></a>cutter</h4><h4 id="radare2"><a href="#radare2" class="headerlink" title="radare2"></a>radare2</h4><h3 id="study-popular-kali-tools"><a href="#study-popular-kali-tools" class="headerlink" title="study popular kali tools"></a>study popular kali tools</h3><ul>
+<li><p><input disabled="" type="checkbox"> 
+nmap script to find nearby hosts in same router</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+metasploit script to scan vulnerable hosts</p>
+</li>
+</ul>
+<h3 id="solve-ctf-challenges"><a href="#solve-ctf-challenges" class="headerlink" title="solve ctf challenges"></a>solve ctf challenges</h3><h3 id="study-hacking-posts"><a href="#study-hacking-posts" class="headerlink" title="study hacking posts"></a>study hacking posts</h3><h3 id="study-hacking-tutorial-on-darkweb"><a href="#study-hacking-tutorial-on-darkweb" class="headerlink" title="study hacking tutorial on darkweb"></a>study hacking tutorial on darkweb</h3><ul>
+<li><input disabled="" type="checkbox"> find a free hacking tutorial on darkweb</li>
+</ul>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/06/17/a6600902-fd43-4525-b9e1-3f31c4e41c4d/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/17/3e9228ee-7ba7-4d45-89c6-cb570df96bf6/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -233,8 +506,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-06-15 </div>
-			<div class="article-title"><a href="/blog/2022/06/15/cd365605-1e50-4ffa-be55-ab742cf99b40/" title="This article discusses the importance of diet and skincare products in reducing oil production and preventing acne. It also highlights the role of stress management, temperature control, sun protection, and specific ingredients like fruit acids, honey, aloe vera, cinnamate, henna, and goldthread in maintaining healthy skin.">控油 祛痘</a></div>
+			<div class="date"> 2022-08-17 </div>
+			<div class="article-title"><a href="/blog/2022/08/17/b62f8aa1-c221-4405-9493-8300650da2bb/" title="This article provides an overview of popular disk usage management tools available for Linux systems, including Baobab for Gnome and Filelight for KDE. Additionally, Qdirstat is introduced as another useful option for managing disk space.">Visual Disk Usage Manager, Visual Disk Cleaner</a></div>
 		</h3>
 	
 
@@ -245,41 +518,13 @@
   <div class="row">
 	
 	
-		<p>痘坑修护</p>
-<p>水杨酸 果酸（加速角质增生）</p>
-<p>乳糖酸 海藻糖（提供营养）</p>
-<p>洋甘菊 芦荟（降油）</p>
-<p>苦参 香叶天竺葵 马齿苋（促进再生）</p>
-<p>燃脂 瘦腿霜 看起来更像女的 减肚子 减油</p>
-<p>清水洗脸 不要过度清洁 不要搓 用氨基酸洗面奶 不要用皂基 油的时候就清水洗脸 不要抹乳膏</p>
-<p>往气温低的地方走 开空调</p>
-<p>刷酸 果酸 水杨酸 杏仁酸</p>
-<p>控制雄性激素 减少压力 不要紫薇 不要熬夜</p>
-<p>涂吸油的粉 玉米淀粉</p>
-<p>防晒 spf值高的防晒霜 物理防晒 不是化学防晒 不油的防晒霜</p>
-<p>饮食调节</p>
-<p>不要吃肉 碳水化合物 糖 乳制品 不吃油 吃蛋白质 少盐</p>
-<p>吃大豆 大豆异黄酮（植物雌激素）</p>
-<p>吃番茄 番茄红素（植物的双氢睾酮转化酶抑制剂）</p>
-<p>吃非那雄胺 雌激素 螺内酯</p>
-<p>干燥的空气 去湿气</p>
-<p>维生素 微量元素：</p>
-<p>维他命B6和B2</p>
-<p>维他命A</p>
-<p>维他命C</p>
-<p>锌 可杀灭痤疮杆菌 轻度减少油脂分泌</p>
-<p>烟酰胺</p>
-<p>抑制还原酶活性：</p>
-<p>丹参酮 抗雄</p>
-<p>茶多酚 抑制酶活性</p>
-<p>壬二酸&#x2F;锯棕榈提取物：抑制5α还原酶的活性</p>
-<p>烟酰胺：减少皮肤表面的油脂量</p>
-<p>染料木黄酮：一种植物性雌激素（新鲜的豆浆里面就有~），被认为是抗雄激素成分以减少油脂产生。</p>
-<p>金缕梅：有收敛作用，能够去除面部多余的油脂。</p>
+		<h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><p>for gnome, there’s a built in disk usage manager called baobab.</p>
+<p>filelight for kde</p>
+<p>qdirstat</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/06/15/cd365605-1e50-4ffa-be55-ab742cf99b40/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/17/b62f8aa1-c221-4405-9493-8300650da2bb/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -289,8 +534,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-06-13 </div>
-			<div class="article-title"><a href="/blog/2022/06/13/b2e4e778-9f36-4ea8-815e-324e3fc41364/" title="This article delves into the difficulties of detecting picture-in-picture (PiP) videos, a common technique used in generating fake content. It highlights a Chinese patent related to PiP detection and an international research paper that explores this topic.">Video Picture In Picture Detection</a></div>
+			<div class="date"> 2022-08-17 </div>
+			<div class="article-title"><a href="/blog/2022/08/17/b8224b7d-765f-4b04-bb1b-04f8d4cbc171/" title="This article highlights different model zoos and resources available for finding and utilizing task-specific models across multiple platforms. Some of the popular platforms discussed are HuggingFace, MindSpore, ModelScope, Intel, OpenVino, Jina, CoreML, PaddleHub, PyTorch, TensorFlow, and Model Garden.">Model Zoo</a></div>
 		</h3>
 	
 
@@ -301,12 +546,28 @@
   <div class="row">
 	
 	
-		<p>视频画中画是流行的伪原创方法 但是检测很难 同时加大了二次利用的难度（或许可以再加一层画中画？？）</p>
-<p>目前找到了一个国内画中画检测专利，以及国外画中画检测论文</p>
+		<p>find things in colab, kaggle, aistudio, bilibili, youtube.</p>
+<p>see in <a target="_blank" rel="noopener" href="https://huggingface.co/tasks">huggingface tasks</a> to find task-specific models, also <a target="_blank" rel="noopener" href="https://huggingface.co/spaces">huggingface spaces</a> for demo on models</p>
+<p><a target="_blank" rel="noopener" href="https://modelscope.cn/home">modelscope</a> by alibaba supports tensorflow and pytorch</p>
+<p><a target="_blank" rel="noopener" href="https://gitee.com/mindspore/models">mindspore model zoo</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.mindspore.cn/resources/hub/">mindspore hub</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/IntelAI/models">intel model zoo</a></p>
+<p>run models from intel model zoo in docker container, like <a target="_blank" rel="noopener" href="https://hub.docker.com/r/intel/recommendation">recommendation</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/openvinotoolkit/open_model_zoo">openvino model zoo</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/datawhalechina/awesome-DeepLearning">百度总结的 比较全面的深度学习应用</a> deeplearning applications</p>
+<p><a target="_blank" rel="noopener" href="https://hub.jina.ai/">jina hub</a></p>
+<p><a target="_blank" rel="noopener" href="https://modelscope.cn/#/models">阿里巴巴模型库</a> 具有许多适用于商业 自媒体的模型供选择</p>
+<p>huggingface</p>
+<p>苹果官方CoreML模型库</p>
+<p>CoreML第三方模型库</p>
+<p>paddle模型库 <a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/PaddleHub">paddlehub</a></p>
+<p>pytorch模型库</p>
+<p>TensorFlow模型库</p>
+<p><a target="_blank" rel="noopener" href="https://www.graphcore.ai/resources/model-garden">graphcore model zoo for IPU</a></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/06/13/b2e4e778-9f36-4ea8-815e-324e3fc41364/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/17/b8224b7d-765f-4b04-bb1b-04f8d4cbc171/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -316,8 +577,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-06-11 </div>
-			<div class="article-title"><a href="/blog/2022/06/11/9ee7c94e-0350-4b37-8321-9cf0de9f1199/" title="This passage explores the evolving trends in VTubers, focusing on the use of existing popular content as templates to generate similar content. The article emphasizes the importance of audience feedback and clustering viewers to understand preferences and match them with appropriate content, ultimately aiming for a blend of modern and post-modern content that appeals to the evolving audience and stays ahead of trends.">现代 后现代 Vtuber 流行趋势</a></div>
+			<div class="date"> 2022-08-15 </div>
+			<div class="article-title"><a href="/blog/2022/08/15/5c19cbd7-34e4-43d3-813c-17fe1775cafc/" title="This article addresses the issue of slow download speeds caused by self-signed certificates in language-specific package managers like npm and yarn. It proposes solutions such as using cnpm, a version of the npm command-line interface that uses a different registry, and configuring binary distribution file mirrors to improve performance.">Issues Related To Fastgithub And Other Self-Signed Certificates In Language-Specific Package Managers</a></div>
 		</h3>
 	
 
@@ -328,15 +589,19 @@
   <div class="row">
 	
 	
-		<p>把内容生产者的内容拿来训练 当模板 生成类似内容</p>
-<p>把大众的评论 互动 弹幕拿来当鉴别器的训练资料 聚类观众 建立观众群体和内容的对应关系</p>
-<p>现代就是烂大街的内容 大家都接受</p>
-<p>后现代就是一部分人接受 一部分不接受的内容 有流行的趋势</p>
-<p>将现代的内容（已经流行过的内容）作为素材 将后现代（将要流行 或者根据以往经验生成的模板）作为模板 合成内容 可以满足后现代群体需要 具有流行趋势</p>
+		<h2 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/fclwd/article/details/79894251">npm报错：unable to verify the first certificate</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> strict-ssl <span class="literal">false</span></span><br><span class="line">npm config <span class="built_in">set</span> ca=<span class="string">&quot;&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>npm download binary files from github will raise error since the download speed is low.</p>
+<p>use <code>cnpm</code> instead, since it will route all github binary requests to mirrored cnpm cdn.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i -g cnpm</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>set some binary distribution file mirror to <code>https://registry.npmmirror.com</code> in <code>~/.npmrc</code> and <code>~/.yarnrc</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">canvas_binary_host_mirror=https://registry.npmmirror.com/-/binary/canvas/</span><br><span class="line">sass_binary_site=https://registry.npmmirror.com/-/binary/node-sass</span><br><span class="line">nodejs_org_mirror=https://registry.npmmirror.com/-/binary/node/</span><br><span class="line">electron_mirror=https://registry.npmmirror.com/-/binary/electron/</span><br><span class="line">electron_builder_binaries_mirror=https://registry.npmmirror.com/-/binary/electron-builder-binaries/</span><br><span class="line">chromedriver_cdnurl=https://registry.npmmirror.com/-/binary/chromedriver/</span><br><span class="line">registry=https://registry.npmmirror.com</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/06/11/9ee7c94e-0350-4b37-8321-9cf0de9f1199/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/15/5c19cbd7-34e4-43d3-813c-17fe1775cafc/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -346,8 +611,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-06-10 </div>
-			<div class="article-title"><a href="/blog/2022/06/10/95f223f8-3c4b-495c-95ee-b7efa6da8922/" title="This article discusses the process of submitting and recommending videos on platforms like Bilibili. It explores video processing, content moderation, and recommendation algorithms based on scene characteristics, user behavior, and content quality.">Bilibili Up主 入站了解 运作机制</a></div>
+			<div class="date"> 2022-08-14 </div>
+			<div class="article-title"><a href="/blog/2022/08/14/2c4f1e59-c56a-4690-8332-3b57e9230e5f/" title="Discover how to automatically post your content on various platforms like Toutiao, WordPress, Zhihu, Jiathisay, Juejin, CSDN, and Typecho with just one click. Boost your personal productivity by syncing effortlessly across multiple content platforms.">自动内容发布 多平台发布 管理多个自媒体平台 Automatic Content Posting In Multiple Platforms</a></div>
 		</h3>
 	
 
@@ -358,19 +623,11 @@
   <div class="row">
 	
 	
-		<h1 id="bilibili-up主-入站了解-运作机制-开篇动画"><a href="#bilibili-up主-入站了解-运作机制-开篇动画" class="headerlink" title="bilibili up主 入站了解 运作机制 开篇动画"></a>bilibili up主 入站了解 运作机制 开篇动画</h1><p>视频提交之后 转码（可能会二次压缩）</p>
-<p>ai加人工审核 血腥 暴力 色情（ai识别）</p>
-<p>涉政 时政 版权 违反社区规范</p>
-<p>推荐系统</p>
-<p>根据场景特点（分区 话题 标签 相关度） 用户行为（点击率） 稿件互动质量（回复的内容是否是积极的）</p>
-<p>精准 多样（不能重复 完全一样） 视频内容</p>
-<p>热门热搜筛选更严格 没进去不是流量限流</p>
-<p>限流是流量更高的时候 第二道审核出现问题</p>
-<p>锤人 引战 粗俗的问题</p>
+		<p><a target="_blank" rel="noopener" href="https://github.com/wechatsync/Wechatsync">文章多平台发布 浏览器插件 一键同步文章到多个内容平台，支持今日头条、WordPress、知乎、简书、掘金、CSDN、typecho各大平台，一次发布，多平台同步发布。解放个人生产力</a></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/06/10/95f223f8-3c4b-495c-95ee-b7efa6da8922/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/14/2c4f1e59-c56a-4690-8332-3b57e9230e5f/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -380,8 +637,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-06-09 </div>
-			<div class="article-title"><a href="/blog/2022/06/09/9e8ccd9c-86de-435d-8284-fc06d1da00a7/" title="This article explores the psychology behind gaming, delving into the reasons why individuals turn to games for escape from reality and how it is influenced by peers. It also examines the formation of gaming subcultures based on legitimacy and play modes. Furthermore, it highlights the isolation that gamers might experience due to game characteristics and suggests incorporating game elements in content or repurposing footage into strategies and tutorials as ways to attract this audience.">Understanding The Psychology Of Gaming And Its Impact On Community Formation</a></div>
+			<div class="date"> 2022-08-13 </div>
+			<div class="article-title"><a href="/blog/2022/08/13/a8d57d12-8153-4cfb-a58f-f7ceb2612412/" title="This article delves into the development of anime-style avatars, emphasizing the significance of 3D models, Linux compatibility, and face tracking tools. It explores various techniques such as moeflow, AniSeg, NextHuman Beta0.9, FaceRig, Style GAN, Python, and facial landmark detection for creating digital people and animating them. Furthermore, it discusses applications like Animoji, VTuber talking heads, and live streaming in the context of this avatar development.">哔哩哔哩 直播姬 2D模型 3D模型</a></div>
 		</h3>
 	
 
@@ -392,20 +649,52 @@
   <div class="row">
 	
 	
-		<h1 id="Game-Player’s-Logic"><a href="#Game-Player’s-Logic" class="headerlink" title="Game Player’s Logic"></a>Game Player’s Logic</h1><p>玩家玩游戏的逻辑</p>
-<p>“Looks like you are caring about me.”</p>
-<p>Gaming starts from dissatisfactory of the reality. Be it loneliness, anger, tirement or stress.</p>
-<p>玩游戏都是有人引导玩的 都是因为别人玩 所以跟着玩的 固有的社交属性</p>
-<p>玩游戏和职业可能没多大关系</p>
-<p>跟着玩会形成流派 会在不同的区域分化 比如正版盗版 单机联机</p>
-<p>玩家自闭的因素 是因为游戏本身的复杂性 以及封闭性 重复性 玩家变得不想考虑外界的事情 只想关心游戏本身的事情</p>
-<p>可以把游戏相关的视频从外网搬到内网 把游戏视频搬运过来 也可以引用游戏元素 头像 吸引游戏玩家的流量 可以切分游戏剪辑视频 转化游戏攻略之类的视频和文案</p>
-<p>sound, visual effects, scripts</p>
-<p>Classic scenes picked from danmaku peaks.</p>
+		<h2 id="3d-pose-tracker"><a href="#3d-pose-tracker" class="headerlink" title="3d pose tracker"></a><a target="_blank" rel="noopener" href="https://github.com/digital-standard/ThreeDPoseTracker">3d pose tracker</a></h2><p>rendered on unity. needs GPU.</p>
+<h2 id="Sysmocap"><a href="#Sysmocap" class="headerlink" title="Sysmocap"></a><a target="_blank" rel="noopener" href="https://github.com/xianfei/SysMocap">Sysmocap</a></h2><p><strong>WHAT I WANT FOR</strong> (or nearly) requires real 3d models, written in javascript</p>
+<p>cannot output video?</p>
+<p>A cross-platform real-time video-driven motion capture and 3D virtual character rendering system for VTuber&#x2F;Live&#x2F;AR&#x2F;VR.</p>
+<p>Does not require a discrete graphics card and runs smoothly even on eight-year-old computers</p>
+<h2 id="Vtuber-python-unity"><a href="#Vtuber-python-unity" class="headerlink" title="Vtuber python unity"></a><a target="_blank" rel="noopener" href="https://github.com/mmmmmm44/VTuber-Python-Unity">Vtuber python unity</a></h2><p>search for “vtuber” along with “motion capture” you will get many head-only trackers and renderers for windows but not linux, also some “broadcast templates&#x2F;frameworks”. many support one single image (anime head + remove background) as input instead of 2d&#x2F;3d models</p>
+<p>face tracking only, showing face, mouth and eyes, head directions, bind to live2d models</p>
+<h2 id="虚拟数字人-metahuman"><a href="#虚拟数字人-metahuman" class="headerlink" title="虚拟数字人 metahuman"></a>虚拟数字人 metahuman</h2><p>NextHuman Beta0.9上线公测，5分钟高品质讲解，带你进入数字人“零门槛”创作新时代，体验直通车 -&gt; <a target="_blank" rel="noopener" href="https://nexthuman.cn/">https://nexthuman.cn</a> 免费版是Windows上面跑的 需要高端1070显卡</p>
+<h2 id="anime-character-segmentation"><a href="#anime-character-segmentation" class="headerlink" title="anime character segmentation"></a>anime character segmentation</h2><p>to remove false positives, make sure we have anime face in view, otherwise mark it as a false positive.</p>
+<p>you can use anime character recognition like <a target="_blank" rel="noopener" href="https://github.com/freedomofkeima/MoeFlow">moeflow</a> or <a target="_blank" rel="noopener" href="https://github.com/nagadomi/lbpcascade_animeface">opencv anime face detector</a> <strong>along with</strong> some <a target="_blank" rel="noopener" href="http://phash.org/">phash</a> or perceptual hash library to group similar characters, compare perceptual image similarity and line them up in a series.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jerryli27/AniSeg">aniseg, able to segment anime character and head, using mask-rcnn</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zymk9/Yet-Another-Anime-Segmenter">yet another anime character segmentation model using solov2 and condinst</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Neihtq/waifu-segmentation">waifu segmentation</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/SkyTNT/anime-segmentation">high accuracy anime character segmentation</a></p>
+<p>自动画漫画 画几笔就成某个人像 动漫头像</p>
+<p><a target="_blank" rel="noopener" href="https://menyifang.github.io/projects/DCTNet/DCTNet.html">https://menyifang.github.io/projects/DCTNet/DCTNet.html</a></p>
+<p>自动捏脸 gan给人脸戴口罩</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/futscdav/Chunkmogrify">https://github.com/futscdav/Chunkmogrify</a></p>
+<h2 id="selfie-to-anime-picture-to-anime-photos"><a href="#selfie-to-anime-picture-to-anime-photos" class="headerlink" title="selfie to anime, picture to anime photos"></a>selfie to anime, picture to anime photos</h2><p><a target="_blank" rel="noopener" href="https://github.com/XingruiWang/Animefy">selfie2anime with trained models</a></p>
+<p>##原神mmd下载模型</p>
+<p>模之屋（需要注册）：</p>
+<p><a target="_blank" rel="noopener" href="https://www.aplaybox.com/u/680828836">https://www.aplaybox.com/u/680828836</a></p>
+<p>夕蓝资源网（可直接下载） 也有其他的3d模型可以下载：</p>
+<p><a target="_blank" rel="noopener" href="https://www.seoliye.com/tags/53.html">https://www.seoliye.com/tags/53.html</a></p>
+<h2 id="use-voice-to-power-up-static-images"><a href="#use-voice-to-power-up-static-images" class="headerlink" title="use voice to power up static images"></a>use voice to power up static images</h2><p><a target="_blank" rel="noopener" href="https://github.com/AnimatePortrait/AnimatePortrait">voice powered animated cartoon figure</a></p>
+<h2 id="jeeliz-some-web-deep-learning-runtime-like-tensorflow-js-powered"><a href="#jeeliz-some-web-deep-learning-runtime-like-tensorflow-js-powered" class="headerlink" title="jeeliz (some web deep learning runtime, like tensorflow.js) powered"></a>jeeliz (some web deep learning runtime, like tensorflow.js) powered</h2><p><a target="_blank" rel="noopener" href="https://github.com/jeeliz/jeelizWeboji">weboji, highly similar to animoji, with three.js and cute fox avatar</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jeeliz/jeelizFaceFilter">face filter, alter the face like putting glass, minor changes to avoid privacy&#x2F;copyright concerns?</a></p>
+<h2 id="openface"><a href="#openface" class="headerlink" title="openface"></a>openface</h2><p><a target="_blank" rel="noopener" href="https://github.com/TadasBaltrusaitis/OpenFace">facial features extraction</a></p>
+<h2 id="facerig"><a href="#facerig" class="headerlink" title="facerig"></a>facerig</h2><p>facerig location: <code>/Software/Program Files (x86)/FaceRig</code></p>
+<p>i’ve seen python code inside facerig.</p>
+<p>facerig does not offer head-only rendering, but that could be changed i suppose?</p>
+<h2 id="avatarify-python"><a href="#avatarify-python" class="headerlink" title="avatarify python"></a>avatarify python</h2><p><a target="_blank" rel="noopener" href="https://github.com/alievk/avatarify-python">infinite avatars by using style gan, first order motion model</a></p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/python-avatars/">create static portrait avatar (svg?)</a></p>
+<h2 id="animoji-from-apple"><a href="#animoji-from-apple" class="headerlink" title="animoji from apple"></a>animoji from apple</h2><p><a target="_blank" rel="noopener" href="https://github.com/thevarunsharma/Animoji-Animate">facial landmark detection in python, animoji-animate</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/efremidze/Animoji">animoji apple private framework</a> 实际上这个就是之前看到的会动的狗屎的视频来源</p>
+<h2 id="2d模型-皮套-可动-虚拟Vtuber-talking-head"><a href="#2d模型-皮套-可动-虚拟Vtuber-talking-head" class="headerlink" title="2d模型 皮套 可动 虚拟Vtuber talking head"></a>2d模型 皮套 可动 虚拟Vtuber talking head</h2><p><a target="_blank" rel="noopener" href="https://github.com/yuyuyzl/EasyVtuber">https://github.com/yuyuyzl/EasyVtuber</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/pkhungurn/talking-head-anime-3-demo">https://github.com/pkhungurn/talking-head-anime-3-demo</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/GunwooHan/EasyVtuber">https://github.com/GunwooHan/EasyVtuber</a></p>
+<h2 id="b站官方"><a href="#b站官方" class="headerlink" title="b站官方"></a>b站官方</h2><p>直播姬现在支持2d面部捕捉 3d模型动作捕捉</p>
+<p>直播姬版本有windows macos(m1) Android版本</p>
+<p>2d模型是live2d的模型</p>
+<p>有待研究</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/06/09/9e8ccd9c-86de-435d-8284-fc06d1da00a7/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/13/a8d57d12-8153-4cfb-a58f-f7ceb2612412/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -415,8 +704,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-06-09 </div>
-			<div class="article-title"><a href="/blog/2022/06/09/26a15cb5-2efd-447d-b331-8f24dff1a849/" title="This article discusses the importance of improving digital marketing strategies using techniques like website analytics, SEO, and mentions Jumpcut.com as a platform that offers courses in these areas to help businesses enhance their online presence.">Jumpcut Analysis, Social Media Marketing, Blackhat Seo</a></div>
+			<div class="date"> 2022-08-13 </div>
+			<div class="article-title"><a href="/blog/2022/08/13/7bec84fe-7080-45cb-8f4f-6b6da1d1cbcf/" title="Opqbot, a tool for logging into Gitter.im using a device JSON file, has been discussed in terms of compatibility and login issues. Additionally, alternative QQ protocol analysis tools have been mentioned as options.">Gitter Developer Tokens And Qq Opqbot, Reverse Engineering Qq Protocols And More</a></div>
 		</h3>
 	
 
@@ -427,38 +716,54 @@
   <div class="row">
 	
 	
-		<h2 id="malware-hacking"><a href="#malware-hacking" class="headerlink" title="malware, hacking"></a>malware, hacking</h2><p>do it!</p>
-<h2 id="referral-spam"><a href="#referral-spam" class="headerlink" title="referral spam"></a>referral spam</h2><p>Referral spam is used to get into a <strong>targeted businesses analytics</strong> by visiting their</p>
-<p>site multiple times with <strong>different IP’s</strong> from the domain you’re trying to market.</p>
-<h2 id="keyword-stuffing"><a href="#keyword-stuffing" class="headerlink" title="keyword stuffing"></a>keyword stuffing</h2><p>encourage you to add more “hot” words, by training language model in a supervised way, or just use plain replace hacks.</p>
-<h2 id="open-graph-metadata-tag-easy-for-sharing-advertising-webpages-to-social-media"><a href="#open-graph-metadata-tag-easy-for-sharing-advertising-webpages-to-social-media" class="headerlink" title="open graph metadata tag, easy for sharing&#x2F;advertising webpages to social media"></a>open graph metadata tag, easy for sharing&#x2F;advertising webpages to social media</h2><p>change open graph data for same page once in a while</p>
-<p><a target="_blank" rel="noopener" href="https://www.freecodecamp.org/news/what-is-open-graph-and-how-can-i-use-it-for-my-website/#:~:text=Open%20Graph%20is%20an%20internet%20protocol%20that%20was,as%20specific%20as%20the%20duration%20of%20a%20video.">open graph tutorial</a></p>
-<p><a target="_blank" rel="noopener" href="https://opengraphr.com/">free open graph extractor</a></p>
-<h2 id="scrape-and-rinse-content"><a href="#scrape-and-rinse-content" class="headerlink" title="scrape and rinse content"></a>scrape and rinse content</h2><p>scrape from wayback machine (older but clean), check plagiarism in <a target="_blank" rel="noopener" href="https://www.copyscape.com/">copyscape</a></p>
-<h2 id="private-blog-networks"><a href="#private-blog-networks" class="headerlink" title="private blog networks"></a>private blog networks</h2><p>create a bunch of websites, all refer to your own contents.</p>
-<h2 id="social-media-automation-tools"><a href="#social-media-automation-tools" class="headerlink" title="social media automation tools"></a>social media automation tools</h2><p>Instagram: Instagress</p>
-<p>G+: Circlescope</p>
-<p>Linkedin: Elink</p>
-<p>Twitter: Managedflitter and Twitter toolkit</p>
-<p>chrome extension</p>
-<p>Youtube: <a target="_blank" rel="noopener" href="https://www.tubebuddy.com/">Tubebuddy</a></p>
-<p>Facebook: Facebook automation toolkit</p>
-<p>chrome extension</p>
-<p>Pinterest: NinjaPinner</p>
-<p>Tumblr (blogging platform): <a target="_blank" rel="noopener" href="https://tumbleninja.software.informer.com/">Tumbleninja</a></p>
-<p>Email: Pitchbox</p>
-<h2 id="jumpcut-courses"><a href="#jumpcut-courses" class="headerlink" title="jumpcut courses"></a>jumpcut courses</h2><p>jumpcut.com provides digital marketing courses:</p>
-<p>viral academy(free as youtube influencer 101 course), automated income machine(forbidden), video ads bootscamp(nothing, avaliable on freecoursedl.com), contageous content(currently premium)</p>
-<p>it features different camera angles of narriator’s portraits, relative animations and pdf sheets for fill-in-blank tasks. it emphasizes on email ads and audience funnel&#x2F;filter.</p>
-<p>many free course providers now offer jumpcut academy 2.0. they also offer technical analysis&#x2F; quantative analysis on marketing and other courses. though sometimes it is better to get to the code.</p>
-<p>中文的自媒体教程和它也是讲一个类型的内容，不过更倾向于实操和自动化。当然也有国外的自媒体教程。</p>
-<p>我觉得教程看太多了可能不利于代码实现。可以先把记录放在这里等待之后利用。</p>
-<p>搬运教程&#x2F;课程也是一个好的方向，好的教程&#x2F;课程需要被翻译或者洗稿，避免被维权。</p>
-<p>知乎上也有被我收藏下来的一个自媒体提高视频播放量的视频。他讲的是如何用连词，问句强行引起观众注意（拍摄技巧也可以强行引起观众注意，或者其他的方法，如连贯的语音）。可能知乎上面还有更多关于提高播放量以及和jumpcut有关的内容。</p>
+		<p>qq seems to release mac qq with electron, lot more easier for reverse engineering</p>
+<p><a target="_blank" rel="noopener" href="https://zu1k.com/posts/security/reverse/golang-reverse/">how to reverse go binary, golang reverse</a></p>
+<p>opqbot官方已经说了 登陆过程中会用到远程的服务器 这个服务器究竟在干什么不得而知 可能和登陆有关也可能没有关系 但是服务器维护期间是没法扫码登录的 如果有可以正常使用的secdata是可以直接启动服务的 不需要服务器 所以估计这个服务器很可能就是拿来解析cookie的</p>
+<p>login error:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">2022/08/14 00:01:24.808 [I]  Scan Status 48 Uin 0</span><br><span class="line">2022/08/14 00:01:25.880 [I]  Scan Status 48 Uin 0</span><br><span class="line">2022/08/14 00:01:26.937 [I]  Scan Status 53 Uin 0</span><br><span class="line">2022/08/14 00:01:27.998 [I]  Scan Status 53 Uin 0</span><br><span class="line">2022/08/14 00:01:29.054 [N]  User &lt;userId&gt; 登录中..请勿连续操作,登录成功后或释放连接后在继续操作 登陆成功后请勿频繁扫码再次登陆(除非冻结导致的掉线) 发不出去群消息请挂机几天 TX日常风控</span><br><span class="line">=========本框架 🎈 免费 🎈 使用 谨防 ⚠️ 诈骗 ⚠️ 收费 切勿用于 🈲️ 非 🈲️ 法用途</span><br><span class="line">=========交流群:757360354 TG群组:https://t.me/IOTQQ</span><br><span class="line">=========开源社区 👍 https://github.com/opq-osc 👍</span><br><span class="line">=========项目主页 😄 https://github.com/OPQBOT/OPQ/wiki 😄</span><br><span class="line">=========项目Wiki 📒 https://github.com/OPQBOT/OPQ/wiki 📒</span><br><span class="line">2022/08/14 00:02:30.234 [W]  recvPump session 0D48F5949075DA13D3A9F83838903920</span><br><span class="line">2022/08/14 00:02:30.234 [A]  Default Closed:0D48F5949075DA13D3A9F83838903920</span><br><span class="line">2022/08/14 00:02:30.235 [D]  Unregister In Conn -&gt; 0D48F5949075DA13D3A9F83838903920</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>关于自动加群 可以考虑使用安卓手机自启动功能（需要下载<a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=imoblife.startupmanager">startup manager</a> 或者<a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=de.defim.apk.bootmanager&showAllReviews=true">boot manager</a>（有root权限和xposed框架）） 用<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/termux-appium">termux-appium</a> 自动操作手机在联网的情况下自启动加群</p>
+<p>现在有两个标准<a target="_blank" rel="noopener" href="https://onebot.dev/">onebot</a> <a target="_blank" rel="noopener" href="https://nb2.baka.icu/">nonebot</a></p>
+<p>这两个协议都不支持主动加好友 加群 还有收红包方法 至少mac qq协议支持这些方法 但是其他的协议比如手表 ipad协议支不支持就不清楚了</p>
+<p>onebot有大量的<a target="_blank" rel="noopener" href="https://onebot.dev/ecosystem.html#onebot-12">qq适配器</a> 而nonebot有<a target="_blank" rel="noopener" href="https://nb2.baka.icu/store">大量的插件和除了qq以外的连接器</a></p>
+<p>nonebot可以<a target="_blank" rel="noopener" href="https://onebot.adapters.nonebot.dev/docs/guide/installation">连接onebot</a></p>
+<p>在onebot的qq适配器中 oicq可以查看qq历史聊天记录（有待验证） 可能对qq的数据爬取有帮助 视频爬取 <a target="_blank" rel="noopener" href="https://github.com/takayama-lily/oicq">oicq</a>这个适配器有在群里面加好友的方法<code>addFriend(gid, uid)</code>可以参考,提供了一些用于逆向qq协议的程序：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/fuqiuluo/TXHook">txhook</a> 该软件适合在安卓8.0以上系统运行，理论支持安卓7.0以上，但是很多问题。群号：901422091 702991373</p>
+<ul>
+<li><p>获取ShareKey\PublicKey\D2\A2…</p>
+</li>
+<li><p>主动拦截固定Ecdh密钥及版本</p>
+</li>
+<li><p>对Jce\Protobuf的自动分析</p>
+</li>
+<li><p>过滤抓包，支持高级过滤（长按抓包页面的搜索栏展示&#x2F;隐藏图标）</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://protobuf-decoder.netlify.app/">protobuf online decode</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/takayama-lily/unpack-tools">protobuf unpack-tools</a></p>
+<p>也有一些可以进行二次开发的<a target="_blank" rel="noopener" href="https://github.com/takayama-lily/oicq/blob/main/web-api.md">qq web api</a> 搜索QQ号和群号 且有个性签名等更多信息 或许可以搜索关键词？</p>
+<p>这些适配器中有的提供了qq频道的支持：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/takayama-lily/oicq-guild">oicq-guild</a></p>
+<p>也可以考虑用<a target="_blank" rel="noopener" href="https://frida.re/">frida</a> <a target="_blank" rel="noopener" href="https://github.com/NationalSecurityAgency/ghidra">ghidra</a> <a target="_blank" rel="noopener" href="https://rada.re/n/radare2.html">radare2</a> <a target="_blank" rel="noopener" href="https://cutter.re/">cutter</a>来<a target="_blank" rel="noopener" href="https://cn.bing.com/search?q=reverse+go+binary&form=CHRDEF&sp=-1&pq=reverse+go+binary&sc=0-17&qs=n&sk=&cvid=3A1FCCCF9C2F495DB516CB656D281DCA&ghsh=0&ghacc=0&ghpl=">逆向opqbot的go编译好了的程序</a> 或者逆向分析opqbot的网络请求数据 甚至直接动态调用opqbot里面的方法 直接用其他机器人登陆之后获得的cookie进行操作</p>
+<p>to get the token, login first, then visit <a target="_blank" rel="noopener" href="https://developer.gitter.im/apps">here</a> or click “sign in” <a target="_blank" rel="noopener" href="https://developer.gitter.im/">here</a></p>
+<p>据说扫码登录只支持同一个ip下面的登陆 不知道为什么这个opqbot登陆失败 但是其他机器人都提供了账号密码登陆的渠道 将opqbot的协议逆向出来 或许可以提高登陆成功率 实现相同的功能</p>
+<p>默认(可修改)在 .&#x2F;data&#x2F;your-account&#x2F; 下会自动生成device.json设备文件，登录完成后此设备文件长期有效</p>
+<p>设备文件的生成并非随机，而是使用固定算法，一个账号会永远生成同一份设备文件</p>
+<p>如果需要在异地服务器上登录，建议先在常用地通过设备验证并登录挂机一段时间</p>
+<p>由于会生成相同设备文件，只要不手动修改，只需验证一次，在任何地区都可直接登录</p>
+<p>it seems the login issue of opqbot is related to the account itself, not gitter token, software version or proxy</p>
+<p>by the way we could always use go-cqhttp, without the ability to collect red packet and add group&#x2F;friends.</p>
+<p>qq add group&#x2F;friends may be enabled by our windows virtual machines. without opq, it is very memory intensive.</p>
+<p>tokens:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">74eb7eb14aa36d1b9c2c663bc49335e8becd5318</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2d391bd7639362032d09abfc5a9cc6368b7664d5</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bdf52599d992665509ee5b0b533d5eed08452def</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/06/09/26a15cb5-2efd-447d-b331-8f24dff1a849/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/13/7bec84fe-7080-45cb-8f4f-6b6da1d1cbcf/#more" class="btn btn-default more">Read More</a>
 </div>
 
            

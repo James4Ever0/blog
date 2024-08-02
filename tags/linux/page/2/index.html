@@ -17,34 +17,28 @@
   
 
   
-    <link rel="alternative" href="/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
   
   
-    <link href="/favicon.png" rel="icon">
+    <link href="/blog/favicon.png" rel="icon">
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/themes/cerulean.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
   <![endif]-->
 
-  <script src="/js/jquery-2.0.3.min.js"></script>
-  
-    <script src="/js/marked.js"></script>
-    <script src="/js/comment.js"></script>
-    <script src="/js/timeago.min.js"></script>
-    <script src="/js/highlight.min.js"></script>
-	<script src="/js/spin.min.js"></script>
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
   
   
   <!-- analytics -->
@@ -63,30 +57,30 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">Blog of James Brown</a>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
 		  <li>
-			<a href="/archives" title="All the articles.">
+			<a href="/blog/archives" title="All the articles.">
 			  <i class="fa fa-archive"></i>Archives
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/categories" title="All the categories.">
+			<a href="/blog/categories" title="All the categories.">
 			  <i class="fa fa-folder"></i>Categories
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/tags" title="All the tags.">
+			<a href="/blog/tags" title="All the tags.">
 			  <i class="fa fa-tags"></i>Tags
 			</a>
 		  </li>
 		  
 		  <li>
-			<a href="/about" title="About me.">
+			<a href="/blog/about" title="About me.">
 			  <i class="fa fa-user"></i>About
 			</a>
 		  </li>
@@ -122,8 +116,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-12-22 </div>
-			<div class="article-title"><a href="/2023/12/22/828d50cf-9486-4c4a-a8b2-3cbc4b6c9690/" title="This text provides a solution for accessing the Linux command line (tty) when Xorg fails. It describes how to boot into the command line by entering &#39;3&#39; after the longest line of boot commands, and suggests using SSH to collect logs even if there are interface issues.">Boot into Linux commandline (tty)</a></div>
+			<div class="date"> 2022-07-15 </div>
+			<div class="article-title"><a href="/blog/2022/07/15/e1fee6ca-f126-4189-99b4-b23fbaf9fa23/" title="This article highlights various accessibility tools and frameworks like Pyatspi, dogtail Gnome, Appium Linux Accessibility, and Pywinauto. It also stresses the significance of readbility.js and Meilisearch for enhancing web history search and incorporating a11y into Firefox and GNOME&#39;s ATK browsers.">Pyatspi Dogtail Gnome Accessibility Gui Inspect Tool For Linux A11Y</a></div>
 		</h3>
 	
 
@@ -134,7 +128,92 @@
   <div class="row">
 	
 	
-		<h1 id="Boot-into-Linux-commandline-tty"><a href="#Boot-into-Linux-commandline-tty" class="headerlink" title="Boot into Linux commandline (tty)"></a>Boot into Linux commandline (tty)</h1><p>when xorg fails, one must use commandline to debug problems.</p>
+		<p>does appium have linux accessibility implementation?</p>
+<p>windows a11y:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/blackrosezy/gui-inspect-tool">https://github.com/blackrosezy/gui-inspect-tool</a></p>
+<p>pywinauto</p>
+<p>bookmark_history_search sucks. it does not include webpage summaries, only title, which makes searching the history very hard. the solution is to use readbility.js to visit and summarize these pages, and update these documents in meilisearch.</p>
+<p>a11y is the general term for accessibility, for web browsers like firefox. however, there’s implementation for gnome internally.</p>
+<p>linux a11y:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/shubhamvasaikar/Auto-GUI-Testing">https://github.com/shubhamvasaikar/Auto-GUI-Testing</a></p>
+<p>gnome accessibility toolkit(atk)</p>
+<p><a target="_blank" rel="noopener" href="https://gitlab.gnome.org/GNOME/pyatspi2">https://gitlab.gnome.org/GNOME/pyatspi2</a></p>
+<p><a target="_blank" rel="noopener" href="https://gitlab.com/dogtail/dogtail">https://gitlab.com/dogtail/dogtail</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.freedesktop.org/wiki/Accessibility/PyAtSpi2Example/">https://www.freedesktop.org/wiki/Accessibility/PyAtSpi2Example/</a></p>
+<p>accessibility implementation in different toolkits:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/GNOME/at-spi2-core/blob/e83d5558d2fbded5b345b0af254f26865e148e49/devel-docs/toolkits.md">https://github.com/GNOME/at-spi2-core/blob/e83d5558d2fbded5b345b0af254f26865e148e49/devel-docs/toolkits.md</a></p>
+<p>Toolkits that use the DBus APIs directly</p>
+<p>GTK4</p>
+<p>Sources: gtk4&#x2F;gtk&#x2F;a11y</p>
+<p>Qt5</p>
+<p>Sources: qtbase&#x2F;src&#x2F;gui&#x2F;accessible&#x2F;linux</p>
+<p>WebKit</p>
+<p>Sources: WebKit&#x2F;Source&#x2F;WebCore&#x2F;accessibility&#x2F;atspi</p>
+<p>Toolkits that use ATK</p>
+<p>GTK3</p>
+<p>Sources: gtk3&#x2F;gtk&#x2F;a11y</p>
+<p>gnome-shell &#x2F; St &#x2F; via clutter’s cally</p>
+<p>Sources: mutter&#x2F;clutter&#x2F;clutter&#x2F;cally</p>
+<p>Mozilla Firefox</p>
+<p>Sources: gecko-dev&#x2F;accessible&#x2F;atk</p>
+<p>Chromium</p>
+<p>Uses both ATK and libatspi?</p>
+<p>Sources:</p>
+<p>chromium&#x2F;ui&#x2F;accessibility&#x2F;platform&#x2F;<em>auralinux</em> (atk)</p>
+<p>chromium&#x2F;ui&#x2F;accessibility&#x2F;platform&#x2F;inspect&#x2F;<em>auralinux</em> (atspi)</p>
+<p>chromium&#x2F;content&#x2F;browser&#x2F;accessibility&#x2F;<em>auralinux</em> (atspi and atk)</p>
+<p>LibreOffice</p>
+<p>Sources: LibreOffice&#x2F;core&#x2F;vcl&#x2F;unx&#x2F;gtk3&#x2F;a11y</p>
+<p>Java Swing - via java-atk-wrapper</p>
+<p>Sources: java-atk-wrapper</p>
+
+	
+	</div>
+  <a type="button" href="/blog/2022/07/15/e1fee6ca-f126-4189-99b4-b23fbaf9fa23/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2022-07-07 </div>
+			<div class="article-title"><a href="/blog/2022/07/07/ae1c2d03-8a12-4754-9acf-3ddbfb9304b6/" title="This article offers a solution to the problem of Nautilus file manager hanging during search operations. The proposed fix involves deleting the &#39;~/.cache/tracker&#39; folder, which should resolve the issue.">Nautilus Hangs When Searching</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>delete ~&#x2F;.cache&#x2F;tracker</p>
+
+	
+	</div>
+  <a type="button" href="/blog/2022/07/07/ae1c2d03-8a12-4754-9acf-3ddbfb9304b6/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2022-05-06 </div>
+			<div class="article-title"><a href="/blog/2022/05/06/828d50cf-9486-4c4a-a8b2-3cbc4b6c9690/" title="This text provides a solution for accessing the Linux command line (tty) when Xorg fails. It describes how to boot into the command line by entering &#39;3&#39; after the longest line of boot commands, and suggests using SSH to collect logs even if there are interface issues.">Boot Into Linux Commandline (Tty)</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>when xorg fails, one must use commandline to debug problems.</p>
 <p>put ‘3’ after the longest line of boot commands.</p>
 <p>use ssh to collect logs even if the main interface is stuck somehow (like libinput faliure)</p>
 <p>reference:</p>
@@ -142,7 +221,7 @@
 
 	
 	</div>
-  <a type="button" href="/2023/12/22/828d50cf-9486-4c4a-a8b2-3cbc4b6c9690/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/05/06/828d50cf-9486-4c4a-a8b2-3cbc4b6c9690/#more" class="btn btn-default more">Read More</a>
 </div>
 
 	       
@@ -150,8 +229,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-12-22 </div>
-			<div class="article-title"><a href="/2023/12/22/948c2271-240d-4b29-8799-833cdf21509b/" title="This article provides a guide on how to preserve system stability while detaching and reattaching Linux disks using the `mount --bind` command, ensuring data consistency and seamless disk management.">Maintaining Stability with Mount --Bind: Detaching and Reattaching Linux Disks</a></div>
+			<div class="date"> 2022-03-23 </div>
+			<div class="article-title"><a href="/blog/2022/03/23/424fe97e-988e-4ca6-9021-8b3bfe1cdf45/" title="This article provides instructions on how to update Intel Bluetooth drivers, such as the 9250 and 9462AC HMC drivers, for Windows servers. However, it highlights that modifying the Netwsw04.INF file to update an Intel 9462AC HMC driver may be challenging due to differences between Win7 and Win10 packages in the &#39;No_160&#39; section.">Intel 9250 Bluetooth Win Server</a></div>
 		</h3>
 	
 
@@ -162,275 +241,27 @@
   <div class="row">
 	
 	
-		<h1 id="linux-disk-detach-and-reattach-how-to-maintain-stability"><a href="#linux-disk-detach-and-reattach-how-to-maintain-stability" class="headerlink" title="linux disk detach and reattach, how to maintain stability"></a>linux disk detach and reattach, how to maintain stability</h1><p>use <code>mount --bind</code></p>
+		<p>intel driver &amp; support assistant</p>
+<p><a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/support/detect.html">https://www.intel.com/content/www/us/en/support/detect.html</a></p>
+<p>unzip the it admin pack for win 10</p>
+<p><a target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/download/16807/intel-wireless-bluetooth-for-it-administrators.html">https://www.intel.com/content/www/us/en/download/16807/intel-wireless-bluetooth-for-it-administrators.html</a></p>
+<p>follow instructions to find and modify driver</p>
+<p><a target="_blank" rel="noopener" href="https://www.sevenforums.com/network-sharing/415513-intel-wifi-ac-9260-driver-fir-win7-x32-x64.html">https://www.sevenforums.com/network-sharing/415513-intel-wifi-ac-9260-driver-fir-win7-x32-x64.html</a></p>
+<p>Intel has updated the drivers since my first post. Current is now 20.70</p>
+<p>Download Intel(R) PROSet&#x2F;Wireless Software and Drivers for IT Admins</p>
+<p>You should be downloading WiFi_20.70.0_Driver64_Win7 (your first post mentions both x32 and x64 so I am not sure which one you are running. Hopefully x64) In the package is a Netwsw04.INF file but not a Netwsw03.INF file.</p>
+<p>Something I did not think of until now, is we need to ALSO use the WIN10 download package in order to see the lines where Intel calls out your specific driver. To find that, you need to also download the WiFi_20.70.0_Driver64_Win10 package. Within it, we need to look at the Netwtw06.INF file which is the file that has your device. You will need to cut-n-paste the two lines within that file that contain the string PCI\VEN_8086&amp;DEV_A370&amp;SUBSYS_42A48086. Or better yet forget all that, I’ll just cut-n-paste them now and include them in screenshots. You can ignore the Win10 download altogether in order to keep things straight.</p>
+<p>So we cut and paste those two lines and put them within the Netwsw04.INF file that is in the win7 package. The first one goes at the top of the excludefrom select part, and the next one goes at the top of the DEVICE WIN7_64 section. I will attach a screenshots now of what these new lines look like within my editor. They are the highlighted lines. Since you cannot cut and paste from an image, here is the text of the two lines:</p>
+<p>1st line</p>
+<p>; PCI\VEN_8086&amp;DEV_A370&amp;SUBSYS_42A48086 , \</p>
+<p>2nd line</p>
+<p>%NIC_9462AC_HMC% &#x3D; Install_MPCIEX_DELLM2CRF3DIVERSITY_9462_AC_HMC_WINT_64_AC , PCI\VEN_8086&amp;DEV_A370&amp;SUBSYS_42A48086 ; AC</p>
+<p>As I mentioned before, the first line is near the top of the Netwsw04.inf file and the second line is about 5 pages down.</p>
+<p>Here’s a caveat, a new piece of information that is a potential show-stopper. See where within the second line there are three places where it says “AC”? That appears related to how the setup file integrates the driver later on in the file. Well over in the Win10 package it does not actually say “AC”, instead it says “No_160”, which is something that is part of the win10 package but not part of the win7 package. Based on text within the win10 setup file (the one named Netwsw06.inf) there appears to be a special section specifically for Dell machines called No_160. I’m over my head as to what exactly it all means, other than to say that since there is no section in the Win7 package called No_160, I had to change No_160 to AC in order for the win7 file to process the line, and of course it is possible that this driver cannot install without the No_160 section, meaning it is not installable on win7. So what that all adds up to is that when I first replied to you I was giving this method about a 70% chance of working, but now I would put the odds at 30%.</p>
 
 	
 	</div>
-  <a type="button" href="/2023/12/22/948c2271-240d-4b29-8799-833cdf21509b/#more" class="btn btn-default more">Read More</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2023-12-22 </div>
-			<div class="article-title"><a href="/2023/12/22/95886951-6430-4ced-b481-fb6f1d357b45/" title="This article outlines various methods to restore Linux window sessions using tools such as wmctrl, devilspie, and launch_on_workspace. It also provides links to helpful online resources for starting applications in specific workspaces and explains how to manually restore a session by enabling auto-save-session in org.gnome.gnome-session through dconf-editor.">Linux restore window sessions</a></div>
-		</h3>
-	
-
-
-		     
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<h1 id="Linux-restore-window-sessions"><a href="#Linux-restore-window-sessions" class="headerlink" title="Linux restore window sessions"></a>Linux restore window sessions</h1><p>to relaunch app in given workspace</p>
-<p>tools:<br>wmctrl<br><a target="_blank" rel="noopener" href="https://help.ubuntu.com/community/Devilspie">devilspie</a><br><a target="_blank" rel="noopener" href="https://github.com/xblahoud/launch_on_workspace">launch_on_workspace</a></p>
-<p>references:<br><a target="_blank" rel="noopener" href="https://unix.stackexchange.com/questions/27050/how-to-start-an-application-on-a-different-workspace">https://unix.stackexchange.com/questions/27050/how-to-start-an-application-on-a-different-workspace</a><br><a target="_blank" rel="noopener" href="https://askubuntu.com/questions/89946/open-application-in-specific-workspace">https://askubuntu.com/questions/89946/open-application-in-specific-workspace</a></p>
-<p>npm install -g linux-window-session-manager<br>restore session manually</p>
-<p>dconf-editor<br>org.gnome.gnome-session<br>auto-save-session -&gt; on</p>
-
-	
-	</div>
-  <a type="button" href="/2023/12/22/95886951-6430-4ced-b481-fb6f1d357b45/#more" class="btn btn-default more">Read More</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2023-12-22 </div>
-			<div class="article-title"><a href="/2023/12/22/a40af93d-6ad7-4f21-b874-5391fc45fa2e/" title="The reset-usb.sh script is a solution to hard disk detection issues in Linux, specifically addressing USB controller problems. It works by utilizing sub-scripts and a for loop to unbind and rebind the controllers, with suggested enhancements for Kali Linux.">reset usb</a></div>
-		</h3>
-	
-
-
-		     
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<h1 id="reset-usb"><a href="#reset-usb" class="headerlink" title="reset usb"></a>reset usb</h1><p>the same for <code>/sys/bus/usb/drivers/*</code>.</p>
-<hr>
-<p>in case kali failed to detect presence of hard disks, shall you pop up a dialog for us to decide whether to reset to usb or not.</p>
-<h2 id="reset-usb-sh"><a href="#reset-usb-sh" class="headerlink" title="reset-usb.sh"></a>reset-usb.sh</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">reset-ahci-controllers.sh</span><br><span class="line">reset-xhci-controllers.sh</span><br></pre></td></tr></table></figure>
-
-<h2 id="reset-ahci-controllers-sh"><a href="#reset-ahci-controllers-sh" class="headerlink" title="reset-ahci-controllers.sh"></a>reset-ahci-controllers.sh</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># this freaking works.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Script to reset all local xHCI (USB) controllers</span></span><br><span class="line"><span class="comment"># Based on: http://billauer.co.il/blog/2013/02/usb-reset-ehci-uhci-linux/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [[ <span class="variable">$&#123;EUID&#125;</span> != 0 ]]; <span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> This must be run as root!</span><br><span class="line">	<span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> xhci <span class="keyword">in</span> /sys/bus/pci/drivers/ahci; <span class="keyword">do</span></span><br><span class="line">	<span class="keyword">if</span> ! <span class="built_in">cd</span> <span class="variable">$&#123;xhci&#125;</span>; <span class="keyword">then</span></span><br><span class="line">		<span class="built_in">echo</span> <span class="string">&quot;Weird error. Failed to change directory to <span class="variable">$&#123;xhci&#125;</span>.&quot;</span></span><br><span class="line">	<span class="built_in">exit</span> 1</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">&quot;Resetting devices from <span class="variable">$&#123;xhci&#125;</span>...&quot;</span></span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> ????:??:??.?; <span class="keyword">do</span></span><br><span class="line">		<span class="built_in">echo</span> -n <span class="string">&quot;<span class="variable">$&#123;i&#125;</span>&quot;</span> &gt; unbind</span><br><span class="line">		<span class="built_in">echo</span> -n <span class="string">&quot;<span class="variable">$&#123;i&#125;</span>&quot;</span> &gt; <span class="built_in">bind</span></span><br><span class="line">	<span class="keyword">done</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="reset-xhci-controllers-sh"><a href="#reset-xhci-controllers-sh" class="headerlink" title="reset-xhci-controllers.sh"></a>reset-xhci-controllers.sh</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># this freaking works.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Script to reset all local xHCI (USB) controllers</span></span><br><span class="line"><span class="comment"># Based on: http://billauer.co.il/blog/2013/02/usb-reset-ehci-uhci-linux/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [[ <span class="variable">$&#123;EUID&#125;</span> != 0 ]]; <span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> This must be run as root!</span><br><span class="line">	<span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> xhci <span class="keyword">in</span> /sys/bus/pci/drivers/?hci_hcd; <span class="keyword">do</span></span><br><span class="line">	<span class="keyword">if</span> ! <span class="built_in">cd</span> <span class="variable">$&#123;xhci&#125;</span>; <span class="keyword">then</span></span><br><span class="line">		<span class="built_in">echo</span> <span class="string">&quot;Weird error. Failed to change directory to <span class="variable">$&#123;xhci&#125;</span>.&quot;</span></span><br><span class="line">	<span class="built_in">exit</span> 1</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">&quot;Resetting devices from <span class="variable">$&#123;xhci&#125;</span>...&quot;</span></span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> ????:??:??.?; <span class="keyword">do</span></span><br><span class="line">		<span class="built_in">echo</span> -n <span class="string">&quot;<span class="variable">$&#123;i&#125;</span>&quot;</span> &gt; unbind</span><br><span class="line">		<span class="built_in">echo</span> -n <span class="string">&quot;<span class="variable">$&#123;i&#125;</span>&quot;</span> &gt; <span class="built_in">bind</span></span><br><span class="line">	<span class="keyword">done</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2023/12/22/a40af93d-6ad7-4f21-b874-5391fc45fa2e/#more" class="btn btn-default more">Read More</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2023-12-22 </div>
-			<div class="article-title"><a href="/2023/12/22/a5b2ecea-f93f-403b-a117-0544bdef661d/" title="This article provides instructions for managing systemd services and viewing logs on Linux. It includes sample configuration files for various applications such as frpc, pyjom_webdav_rclone, clash_fastgithub, tujia_scraper_qq_bot, tempthrottle, and sync_git_repos_syncdog.">systemd on linux, maintainence details</a></div>
-		</h3>
-	
-
-
-		     
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<h1 id="systemd-on-linux-maintainence-details"><a href="#systemd-on-linux-maintainence-details" class="headerlink" title="systemd on linux, maintainence details"></a>systemd on linux, maintainence details</h1><h2 id="view-full-logs"><a href="#view-full-logs" class="headerlink" title="view full logs"></a>view full logs</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">journalctl -u &lt;serviceName&gt;.service</span><br></pre></td></tr></table></figure>
-
-<h2 id="create-install-restart-reload"><a href="#create-install-restart-reload" class="headerlink" title="create, install, restart, reload"></a>create, install, restart, reload</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/systemd/system</span><br><span class="line">create &lt;serviceName&gt;.service</span><br><span class="line">systemctl <span class="built_in">enable</span> &lt;serviceName&gt;.service</span><br><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl start &lt;serviceName&gt;.service</span><br></pre></td></tr></table></figure>
-
-<h2 id="sample-systemd-service-config-files"><a href="#sample-systemd-service-config-files" class="headerlink" title="sample systemd service config files"></a>sample systemd service config files</h2><p>maybe we should add some autorestart configs at it?</p>
-<p>frpc_service.service</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[<span class="title class_">Unit</span>]</span><br><span class="line"><span class="title class_">Description</span>=frpc service, expose ssh, webdav and code-server ports</span><br><span class="line"><span class="title class_">Wants</span>=network.<span class="property">target</span></span><br><span class="line"><span class="title class_">After</span>=syslog.<span class="property">target</span> network-online.<span class="property">target</span></span><br><span class="line"></span><br><span class="line">[<span class="title class_">Service</span>]</span><br><span class="line"><span class="title class_">Type</span>=simple</span><br><span class="line"><span class="title class_">User</span>=root</span><br><span class="line"><span class="title class_">ExecStart</span>=<span class="regexp">/root/</span>frp_client_linux/frp_0<span class="number">.36</span>.2_linux_amd64/frpc -c frpc.<span class="property">ini</span></span><br><span class="line"><span class="title class_">WorkingDirectory</span>=<span class="regexp">/root/</span>frp_client_linux/frp_0<span class="number">.36</span>.2_linux_amd64</span><br><span class="line"><span class="title class_">Restart</span>=on-failure</span><br><span class="line"><span class="title class_">RestartSec</span>=<span class="number">10</span></span><br><span class="line"><span class="title class_">KillMode</span>=process</span><br><span class="line"></span><br><span class="line">[<span class="title class_">Install</span>]</span><br><span class="line"><span class="title class_">WantedBy</span>=multi-user.<span class="property">target</span></span><br></pre></td></tr></table></figure>
-
-<p>pyjom_webdav_rclone_service.service</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[<span class="title class_">Unit</span>]</span><br><span class="line"><span class="title class_">Description</span>=rclone webdav served on pyjom, after the disk is mounted</span><br><span class="line"></span><br><span class="line">[<span class="title class_">Service</span>]</span><br><span class="line"><span class="title class_">User</span>=root</span><br><span class="line"><span class="title class_">ExecStart</span>=<span class="regexp">/usr/</span>bin/python3 mount_help_and_serve_pyjom.<span class="property">py</span></span><br><span class="line"><span class="title class_">WorkingDirectory</span>=<span class="regexp">/root/</span><span class="title class_">Desktop</span>/works/restore_sessions</span><br><span class="line"></span><br><span class="line">[<span class="title class_">Install</span>]</span><br><span class="line"><span class="title class_">WantedBy</span>=multi-user.<span class="property">target</span></span><br></pre></td></tr></table></figure>
-
-<p>tempthrottle.service</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[<span class="title class_">Unit</span>]</span><br><span class="line"><span class="title class_">Description</span>=temperature control, cpu temperature under <span class="number">60</span> celsius</span><br><span class="line"></span><br><span class="line">[<span class="title class_">Service</span>]</span><br><span class="line"><span class="title class_">User</span>=root</span><br><span class="line"><span class="title class_">ExecStart</span>=<span class="regexp">/usr/</span>bin/python3 tempthrottle_daemon.<span class="property">py</span></span><br><span class="line"><span class="title class_">WorkingDirectory</span>=<span class="regexp">/root/</span><span class="title class_">Desktop</span>/works/restore_sessions</span><br><span class="line"></span><br><span class="line">[<span class="title class_">Install</span>]</span><br><span class="line"><span class="title class_">WantedBy</span>=multi-user.<span class="property">target</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>clash_fastgithub.service</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[<span class="title class_">Unit</span>]</span><br><span class="line"><span class="title class_">Description</span>=<span class="title class_">Clash</span> <span class="title class_">Fastgithub</span> <span class="title class_">Proxy</span></span><br><span class="line"><span class="title class_">After</span>=network.<span class="property">target</span></span><br><span class="line"></span><br><span class="line">[<span class="title class_">Service</span>]</span><br><span class="line"><span class="title class_">Type</span>=simple</span><br><span class="line"><span class="title class_">Restart</span>=always</span><br><span class="line"><span class="title class_">ExecStart</span>=<span class="regexp">/usr/</span>bin/clash -d /etc/clash</span><br><span class="line"></span><br><span class="line">[<span class="title class_">Install</span>]</span><br><span class="line"><span class="title class_">WantedBy</span>=multi-user.<span class="property">target</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>tujia_scraper_qq_bot.service</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[<span class="title class_">Unit</span>]</span><br><span class="line"><span class="title class_">Description</span>=two crucial <span class="attr">services</span>: tujia scraper, qq bot</span><br><span class="line"><span class="title class_">Wants</span>=network.<span class="property">target</span></span><br><span class="line"><span class="title class_">After</span>=syslog.<span class="property">target</span> network-online.<span class="property">target</span></span><br><span class="line"></span><br><span class="line">[<span class="title class_">Service</span>]</span><br><span class="line"><span class="title class_">Environment</span>=<span class="string">&quot;DISPLAY=:1&quot;</span></span><br><span class="line"><span class="title class_">Environment</span>=<span class="string">&quot;XAUTHORITY=/root/.Xauthority&quot;</span></span><br><span class="line"><span class="title class_">User</span>=root</span><br><span class="line"><span class="title class_">ExecStart</span>=<span class="regexp">/usr/</span>bin/python3 main_daemon.<span class="property">py</span></span><br><span class="line"><span class="title class_">WorkingDirectory</span>=<span class="regexp">/root/</span><span class="title class_">Desktop</span>/works/restore_sessions</span><br><span class="line"></span><br><span class="line">[<span class="title class_">Install</span>]</span><br><span class="line"><span class="title class_">WantedBy</span>=graphical.<span class="property">target</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>sync_git_repos_syncdog.service</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[<span class="title class_">Unit</span>]</span><br><span class="line"><span class="title class_">Description</span>=syncdog (server), to sync things to the cloud (github)</span><br><span class="line"><span class="title class_">Wants</span>=sshd.<span class="property">service</span></span><br><span class="line"><span class="title class_">Wants</span>=network.<span class="property">target</span></span><br><span class="line"></span><br><span class="line">[<span class="title class_">Service</span>]</span><br><span class="line"><span class="title class_">User</span>=root</span><br><span class="line"><span class="title class_">ExecStart</span>=<span class="regexp">/usr/</span>bin/python3 syncdog_test.<span class="property">py</span></span><br><span class="line"><span class="title class_">WorkingDirectory</span>=<span class="regexp">/root/</span><span class="title class_">Desktop</span>/works/sync_git_repos</span><br><span class="line"></span><br><span class="line">[<span class="title class_">Install</span>]</span><br><span class="line"><span class="title class_">WantedBy</span>=multi-user.<span class="property">target</span></span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2023/12/22/a5b2ecea-f93f-403b-a117-0544bdef661d/#more" class="btn btn-default more">Read More</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2023-12-22 </div>
-			<div class="article-title"><a href="/2023/12/22/ae1c2d03-8a12-4754-9acf-3ddbfb9304b6/" title="This article offers a solution to the problem of Nautilus file manager hanging during search operations. The proposed fix involves deleting the &#39;~/.cache/tracker&#39; folder, which should resolve the issue.">Nautilus Hangs When Searching</a></div>
-		</h3>
-	
-
-
-		     
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<h1 id="Nautilus-Hangs-When-Searching"><a href="#Nautilus-Hangs-When-Searching" class="headerlink" title="Nautilus Hangs When Searching"></a>Nautilus Hangs When Searching</h1><p>delete ~&#x2F;.cache&#x2F;tracker</p>
-
-	
-	</div>
-  <a type="button" href="/2023/12/22/ae1c2d03-8a12-4754-9acf-3ddbfb9304b6/#more" class="btn btn-default more">Read More</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2023-12-22 </div>
-			<div class="article-title"><a href="/2023/12/22/bbd74729-59a5-40fe-a184-b32f66e532a6/" title="The reset-usb.sh script is a solution to hard disk detection issues in Linux, specifically addressing USB controller problems. It works by utilizing sub-scripts and a for loop to unbind and rebind the controllers, with suggested enhancements for Kali Linux.">reset usb</a></div>
-		</h3>
-	
-
-
-		     
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<h1 id="reset-usb"><a href="#reset-usb" class="headerlink" title="reset usb"></a>reset usb</h1><p>the same for <code>/sys/bus/usb/drivers/*</code>.</p>
-<hr>
-<p>in case kali failed to detect presence of hard disks, shall you pop up a dialog for us to decide whether to reset to usb or not.</p>
-<h2 id="reset-usb-sh"><a href="#reset-usb-sh" class="headerlink" title="reset-usb.sh"></a>reset-usb.sh</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">reset-ahci-controllers.sh</span><br><span class="line">reset-xhci-controllers.sh</span><br></pre></td></tr></table></figure>
-
-<h2 id="reset-ahci-controllers-sh"><a href="#reset-ahci-controllers-sh" class="headerlink" title="reset-ahci-controllers.sh"></a>reset-ahci-controllers.sh</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># this freaking works.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Script to reset all local xHCI (USB) controllers</span></span><br><span class="line"><span class="comment"># Based on: http://billauer.co.il/blog/2013/02/usb-reset-ehci-uhci-linux/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [[ <span class="variable">$&#123;EUID&#125;</span> != 0 ]]; <span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> This must be run as root!</span><br><span class="line">	<span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> xhci <span class="keyword">in</span> /sys/bus/pci/drivers/ahci; <span class="keyword">do</span></span><br><span class="line">	<span class="keyword">if</span> ! <span class="built_in">cd</span> <span class="variable">$&#123;xhci&#125;</span>; <span class="keyword">then</span></span><br><span class="line">		<span class="built_in">echo</span> <span class="string">&quot;Weird error. Failed to change directory to <span class="variable">$&#123;xhci&#125;</span>.&quot;</span></span><br><span class="line">	<span class="built_in">exit</span> 1</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">&quot;Resetting devices from <span class="variable">$&#123;xhci&#125;</span>...&quot;</span></span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> ????:??:??.?; <span class="keyword">do</span></span><br><span class="line">		<span class="built_in">echo</span> -n <span class="string">&quot;<span class="variable">$&#123;i&#125;</span>&quot;</span> &gt; unbind</span><br><span class="line">		<span class="built_in">echo</span> -n <span class="string">&quot;<span class="variable">$&#123;i&#125;</span>&quot;</span> &gt; <span class="built_in">bind</span></span><br><span class="line">	<span class="keyword">done</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="reset-xhci-controllers-sh"><a href="#reset-xhci-controllers-sh" class="headerlink" title="reset-xhci-controllers.sh"></a>reset-xhci-controllers.sh</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># this freaking works.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Script to reset all local xHCI (USB) controllers</span></span><br><span class="line"><span class="comment"># Based on: http://billauer.co.il/blog/2013/02/usb-reset-ehci-uhci-linux/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [[ <span class="variable">$&#123;EUID&#125;</span> != 0 ]]; <span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> This must be run as root!</span><br><span class="line">	<span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> xhci <span class="keyword">in</span> /sys/bus/pci/drivers/?hci_hcd; <span class="keyword">do</span></span><br><span class="line">	<span class="keyword">if</span> ! <span class="built_in">cd</span> <span class="variable">$&#123;xhci&#125;</span>; <span class="keyword">then</span></span><br><span class="line">		<span class="built_in">echo</span> <span class="string">&quot;Weird error. Failed to change directory to <span class="variable">$&#123;xhci&#125;</span>.&quot;</span></span><br><span class="line">	<span class="built_in">exit</span> 1</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">&quot;Resetting devices from <span class="variable">$&#123;xhci&#125;</span>...&quot;</span></span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> ????:??:??.?; <span class="keyword">do</span></span><br><span class="line">		<span class="built_in">echo</span> -n <span class="string">&quot;<span class="variable">$&#123;i&#125;</span>&quot;</span> &gt; unbind</span><br><span class="line">		<span class="built_in">echo</span> -n <span class="string">&quot;<span class="variable">$&#123;i&#125;</span>&quot;</span> &gt; <span class="built_in">bind</span></span><br><span class="line">	<span class="keyword">done</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/2023/12/22/bbd74729-59a5-40fe-a184-b32f66e532a6/#more" class="btn btn-default more">Read More</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2023-12-22 </div>
-			<div class="article-title"><a href="/2023/12/22/d4d2df05-2db3-4e9e-aa9d-f4a0b203e85c/" title="This article explains how to troubleshoot and resolve a fan issue on a Linux machine by installing i8kctl and thermald, configuring pwmconfig with Expect for fan control, and allowing sufficient time for the fans to reach full speed.">Linux Fan Not Spinning, GPU Fan Not Spinning</a></div>
-		</h3>
-	
-
-
-		     
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<h1 id="Linux-Fan-Not-Spinning-GPU-Fan-Not-Spinning"><a href="#Linux-Fan-Not-Spinning-GPU-Fan-Not-Spinning" class="headerlink" title="Linux Fan Not Spinning, GPU Fan Not Spinning"></a>Linux Fan Not Spinning, GPU Fan Not Spinning</h1><p>everytime the fucking machine restarts, it fails devastatingly.</p>
-<p>the word: <code>Giving the fans some time to reach full speed...</code></p>
-<p>the script:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/expect</span></span><br><span class="line">spawn pwmconfig</span><br><span class="line"><span class="comment">#expect &quot;Giving the fans some time to reach full speed...&quot;</span></span><br><span class="line">expect <span class="string">&quot;If you do not want to do this hit control-C now!!!&quot;</span></span><br><span class="line">send <span class="string">&quot;\03&quot;</span></span><br><span class="line">expect eof</span><br></pre></td></tr></table></figure>
-
-<p>hope this shit works?</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> 255 | sudo <span class="built_in">tee</span> /sys/class/hwmon/hwmon6/pwm3</span><br><span class="line"><span class="built_in">echo</span> 255 | sudo <span class="built_in">tee</span> /sys/class/hwmon/hwmon6/pwm1</span><br></pre></td></tr></table></figure>
-
-<p>i have install something other than that. like i8kctl, some thermal controllers by intel (thermald)? but still gpu fan not spinning till now.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt install -y lm-sensors fancontrol</span><br><span class="line">sensors-detect</span><br><span class="line">pwmconfig</span><br></pre></td></tr></table></figure>
-<p>already have cpu frequency under control by running temp_throttle.sh</p>
-<p>notes: found controllers <code>dell_smm-isa-0000</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Found the following PWM controls:</span><br><span class="line">   hwmon6/pwm1           current value: 255</span><br><span class="line">   hwmon6/pwm3           current value: 255</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-	
-	</div>
-  <a type="button" href="/2023/12/22/d4d2df05-2db3-4e9e-aa9d-f4a0b203e85c/#more" class="btn btn-default more">Read More</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2023-12-22 </div>
-			<div class="article-title"><a href="/2023/12/22/e1fee6ca-f126-4189-99b4-b23fbaf9fa23/" title="This article highlights various accessibility tools and frameworks like Pyatspi, dogtail Gnome, Appium Linux Accessibility, and Pywinauto. It also stresses the significance of readbility.js and Meilisearch for enhancing web history search and incorporating a11y into Firefox and GNOME&#39;s ATK browsers.">Pyatspi dogtail gnome accessibility gui inspect tool for linux a11y</a></div>
-		</h3>
-	
-
-
-		     
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<h1 id="Pyatspi-dogtail-gnome-accessibility-gui-inspect-tool-for-linux-a11y"><a href="#Pyatspi-dogtail-gnome-accessibility-gui-inspect-tool-for-linux-a11y" class="headerlink" title="Pyatspi dogtail gnome accessibility gui inspect tool for linux a11y"></a>Pyatspi dogtail gnome accessibility gui inspect tool for linux a11y</h1><p>does appium have linux accessibility implementation?</p>
-<p>windows a11y:<br><a target="_blank" rel="noopener" href="https://github.com/blackrosezy/gui-inspect-tool">https://github.com/blackrosezy/gui-inspect-tool</a><br>pywinauto</p>
-<p>bookmark_history_search sucks. it does not include webpage summaries, only title, which makes searching the history very hard. the solution is to use readbility.js to visit and summarize these pages, and update these documents in meilisearch.</p>
-<p>a11y is the general term for accessibility, for web browsers like firefox. however, there’s implementation for gnome internally.</p>
-<p>linux a11y:<br><a target="_blank" rel="noopener" href="https://github.com/shubhamvasaikar/Auto-GUI-Testing">https://github.com/shubhamvasaikar/Auto-GUI-Testing</a><br>gnome accessibility toolkit(atk)</p>
-<p><a target="_blank" rel="noopener" href="https://gitlab.gnome.org/GNOME/pyatspi2">https://gitlab.gnome.org/GNOME/pyatspi2</a><br><a target="_blank" rel="noopener" href="https://gitlab.com/dogtail/dogtail">https://gitlab.com/dogtail/dogtail</a><br><a target="_blank" rel="noopener" href="https://www.freedesktop.org/wiki/Accessibility/PyAtSpi2Example/">https://www.freedesktop.org/wiki/Accessibility/PyAtSpi2Example/</a></p>
-<p>accessibility implementation in different toolkits:<br><a target="_blank" rel="noopener" href="https://github.com/GNOME/at-spi2-core/blob/e83d5558d2fbded5b345b0af254f26865e148e49/devel-docs/toolkits.md">https://github.com/GNOME/at-spi2-core/blob/e83d5558d2fbded5b345b0af254f26865e148e49/devel-docs/toolkits.md</a></p>
-<p>Toolkits that use the DBus APIs directly<br>GTK4<br>Sources: gtk4&#x2F;gtk&#x2F;a11y</p>
-<p>Qt5<br>Sources: qtbase&#x2F;src&#x2F;gui&#x2F;accessible&#x2F;linux</p>
-<p>WebKit<br>Sources: WebKit&#x2F;Source&#x2F;WebCore&#x2F;accessibility&#x2F;atspi</p>
-<p>Toolkits that use ATK<br>GTK3<br>Sources: gtk3&#x2F;gtk&#x2F;a11y</p>
-<p>gnome-shell &#x2F; St &#x2F; via clutter’s cally<br>Sources: mutter&#x2F;clutter&#x2F;clutter&#x2F;cally</p>
-<p>Mozilla Firefox<br>Sources: gecko-dev&#x2F;accessible&#x2F;atk</p>
-<p>Chromium<br>Uses both ATK and libatspi?</p>
-<p>Sources:</p>
-<p>chromium&#x2F;ui&#x2F;accessibility&#x2F;platform&#x2F;<em>auralinux</em> (atk)<br>chromium&#x2F;ui&#x2F;accessibility&#x2F;platform&#x2F;inspect&#x2F;<em>auralinux</em> (atspi)<br>chromium&#x2F;content&#x2F;browser&#x2F;accessibility&#x2F;<em>auralinux</em> (atspi and atk)<br>LibreOffice<br>Sources: LibreOffice&#x2F;core&#x2F;vcl&#x2F;unx&#x2F;gtk3&#x2F;a11y</p>
-<p>Java Swing - via java-atk-wrapper<br>Sources: java-atk-wrapper</p>
-
-	
-	</div>
-  <a type="button" href="/2023/12/22/e1fee6ca-f126-4189-99b4-b23fbaf9fa23/#more" class="btn btn-default more">Read More</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2023-12-22 </div>
-			<div class="article-title"><a href="/2023/12/22/f0459443-f60a-4311-ad40-8219c5272216/" title="This article discusses the issue of CPU overheating in Linux systems and provides potential solutions such as cpufrequtils and temp-throttle. The recommended desired temperature is 60°C, and managing CPU temperature effectively can help reduce the likelihood of GPU issues.">CPU Overheating (temperature too high)</a></div>
-		</h3>
-	
-
-
-		     
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<h1 id="CPU-Overheating-temperature-too-high"><a href="#CPU-Overheating-temperature-too-high" class="headerlink" title="CPU Overheating (temperature too high)"></a>CPU Overheating (temperature too high)</h1><h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><p><a target="_blank" rel="noopener" href="http://kernel.org/pub/linux/utils/kernel/cpufreq/cpufrequtils.html">cpufrequtils</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Sepero/temp-throttle">throttling cpu frequencies by temperature incrementally</a></p>
-<p>the desired temperature is 60.</p>
-<p>usually when one throttles the CPU temperature, the GPU cannot be overheated.</p>
-<p>it is turning my core i7 into a pentium 3! but not entirely cumbersome.</p>
-
-	
-	</div>
-  <a type="button" href="/2023/12/22/f0459443-f60a-4311-ad40-8219c5272216/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/03/23/424fe97e-988e-4ca6-9021-8b3bfe1cdf45/#more" class="btn btn-default more">Read More</a>
 </div>
 
 	       
@@ -441,10 +272,10 @@
 <ul class="pagination">
 	 
 		
-		<li class="prev"><a href="/tags/linux/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i> Prev</a></li>
+		<li class="prev"><a href="/blog/tags/linux/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i> Prev</a></li>
   		
 
-        <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+        <li><a href="/blog/"><i class="fa fa-home"></i>Home</a></li>
 
 		
           <li class="next disabled"><a>Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
@@ -473,898 +304,6 @@
 
 
 		
-			<div class="widget">
-    
-	    <h4 class="dsq-widget-title">Recent Comments</h4>
-		<div id="recent-comments"></div>
-		<script type="text/javascript">
-		    getRecentCommentsList({
-			   type: "github" ? "github" : "github",
-			   user: "james4ever0",
-               repo: "my_blog",
-               client_id: "",
-               client_secret: "",
-			   count: "5" ? "5" : 5,
-			   recent_comments_target: "#recent-comments"
-			});
-		</script>
-	
-</div>
-
-		
-			
-	<div class="widget">
-		<h4>Categories</h4>
-		<ul class="tag_box inline list-unstyled">
-		
-			<li><a href="/categories/2D-Animation/">2D Animation<span>2</span></a></li>
-		
-			<li><a href="/categories/3D-Avatar-Creation/">3D Avatar Creation<span>2</span></a></li>
-		
-			<li><a href="/categories/3D-Modeling/">3D Modeling<span>4</span></a></li>
-		
-			<li><a href="/categories/3D-Rendering/">3D Rendering<span>2</span></a></li>
-		
-			<li><a href="/categories/AI/">AI<span>14</span></a></li>
-		
-			<li><a href="/categories/AI-Accelerators/">AI Accelerators<span>2</span></a></li>
-		
-			<li><a href="/categories/AI-Competitions/">AI Competitions<span>2</span></a></li>
-		
-			<li><a href="/categories/AI-Libraries/">AI Libraries<span>2</span></a></li>
-		
-			<li><a href="/categories/AI-Optimization/">AI Optimization<span>2</span></a></li>
-		
-			<li><a href="/categories/AI-System-Design-Guidelines/">AI System Design Guidelines<span>2</span></a></li>
-		
-			<li><a href="/categories/AI-Techniques-for-Text-Generation-and-Paraphrasing/">AI Techniques for Text Generation and Paraphrasing<span>2</span></a></li>
-		
-			<li><a href="/categories/AI-Video-Generation/">AI Video Generation<span>2</span></a></li>
-		
-			<li><a href="/categories/AI-development/">AI development<span>4</span></a></li>
-		
-			<li><a href="/categories/AI-tools-collections/">AI tools collections<span>2</span></a></li>
-		
-			<li><a href="/categories/AI-Generated-Singing-Voices/">AI-Generated Singing Voices<span>2</span></a></li>
-		
-			<li><a href="/categories/AI-generated-Art/">AI-generated Art<span>2</span></a></li>
-		
-			<li><a href="/categories/API/">API<span>10</span></a></li>
-		
-			<li><a href="/categories/API-Development/">API Development<span>2</span></a></li>
-		
-			<li><a href="/categories/API-Scraping/">API Scraping<span>2</span></a></li>
-		
-			<li><a href="/categories/APIs/">APIs<span>4</span></a></li>
-		
-			<li><a href="/categories/Academic-Articles/">Academic Articles<span>2</span></a></li>
-		
-			<li><a href="/categories/Accessibility-tools/">Accessibility tools<span>2</span></a></li>
-		
-			<li><a href="/categories/Account-Disabling/">Account Disabling<span>1</span></a></li>
-		
-			<li><a href="/categories/Account-Management/">Account Management<span>2</span></a></li>
-		
-			<li><a href="/categories/Account-Registration/">Account Registration<span>2</span></a></li>
-		
-			<li><a href="/categories/Advanced-AI-powered-video-editors/">Advanced AI-powered video editors<span>2</span></a></li>
-		
-			<li><a href="/categories/Android/">Android<span>2</span></a></li>
-		
-			<li><a href="/categories/Android-Development/">Android Development<span>4</span></a></li>
-		
-			<li><a href="/categories/Android-Reverse-Engineering/">Android Reverse Engineering<span>2</span></a></li>
-		
-			<li><a href="/categories/Android-Security/">Android Security<span>2</span></a></li>
-		
-			<li><a href="/categories/Android-automation/">Android automation<span>2</span></a></li>
-		
-			<li><a href="/categories/Android-emulators/">Android emulators<span>2</span></a></li>
-		
-			<li><a href="/categories/Animation-Tools/">Animation Tools<span>4</span></a></li>
-		
-			<li><a href="/categories/Anime/">Anime<span>4</span></a></li>
-		
-			<li><a href="/categories/Anime-Video-Downloads/">Anime Video Downloads<span>2</span></a></li>
-		
-			<li><a href="/categories/Annotation-Tools/">Annotation Tools<span>1</span></a></li>
-		
-			<li><a href="/categories/App-Compatibility/">App Compatibility<span>2</span></a></li>
-		
-			<li><a href="/categories/Artificial-General-Intelligence/">Artificial General Intelligence<span>2</span></a></li>
-		
-			<li><a href="/categories/Artificial-Intelligence/">Artificial Intelligence<span>32</span></a></li>
-		
-			<li><a href="/categories/Asynchronous-Requests/">Asynchronous Requests<span>2</span></a></li>
-		
-			<li><a href="/categories/Audio-Processing/">Audio Processing<span>8</span></a></li>
-		
-			<li><a href="/categories/Audio-Production/">Audio Production<span>2</span></a></li>
-		
-			<li><a href="/categories/Audio-Recognition/">Audio Recognition<span>2</span></a></li>
-		
-			<li><a href="/categories/Augmented-Reality/">Augmented Reality<span>2</span></a></li>
-		
-			<li><a href="/categories/Automated-Essay-Scoring/">Automated Essay Scoring<span>2</span></a></li>
-		
-			<li><a href="/categories/Automation/">Automation<span>2</span></a></li>
-		
-			<li><a href="/categories/Automotive-Computer-Research/">Automotive Computer Research<span>2</span></a></li>
-		
-			<li><a href="/categories/Backup-software/">Backup software<span>2</span></a></li>
-		
-			<li><a href="/categories/Battery-Damage-Prevention/">Battery Damage Prevention<span>2</span></a></li>
-		
-			<li><a href="/categories/Behavior-Driven-Development/">Behavior Driven Development<span>2</span></a></li>
-		
-			<li><a href="/categories/Best-Earphones/">Best Earphones<span>2</span></a></li>
-		
-			<li><a href="/categories/Bilibili/">Bilibili<span>4</span></a></li>
-		
-			<li><a href="/categories/Biology/">Biology<span>2</span></a></li>
-		
-			<li><a href="/categories/Bot-Development/">Bot Development<span>2</span></a></li>
-		
-			<li><a href="/categories/Browser-Extensions/">Browser Extensions<span>4</span></a></li>
-		
-			<li><a href="/categories/CACANi-Software/">CACANi Software<span>2</span></a></li>
-		
-			<li><a href="/categories/CITIC-Security-Account/">CITIC Security Account<span>1</span></a></li>
-		
-			<li><a href="/categories/Captcha-recognition/">Captcha recognition<span>2</span></a></li>
-		
-			<li><a href="/categories/Cheminformatics/">Cheminformatics<span>2</span></a></li>
-		
-			<li><a href="/categories/Chinese-Input-Methods/">Chinese Input Methods<span>2</span></a></li>
-		
-			<li><a href="/categories/Chocolatey/">Chocolatey<span>2</span></a></li>
-		
-			<li><a href="/categories/Chromium-Policies/">Chromium Policies<span>2</span></a></li>
-		
-			<li><a href="/categories/Clash-GitHub-Fastgithub-DNS-settings-macOS-Linux-monit-shell-scripts/">Clash, GitHub, Fastgithub, DNS settings, macOS, Linux, monit, shell scripts<span>2</span></a></li>
-		
-			<li><a href="/categories/Clipboard-issue-in-Android-10/">Clipboard issue in Android 10<span>2</span></a></li>
-		
-			<li><a href="/categories/Code-Auditing/">Code Auditing<span>2</span></a></li>
-		
-			<li><a href="/categories/Code-Refactoring/">Code Refactoring<span>2</span></a></li>
-		
-			<li><a href="/categories/Collaborative-Programming/">Collaborative Programming<span>2</span></a></li>
-		
-			<li><a href="/categories/Color-Palette-Extraction/">Color Palette Extraction<span>2</span></a></li>
-		
-			<li><a href="/categories/Colorization/">Colorization<span>1</span></a></li>
-		
-			<li><a href="/categories/Command-line-Tools/">Command-line Tools<span>2</span></a></li>
-		
-			<li><a href="/categories/Community-Detection/">Community Detection<span>2</span></a></li>
-		
-			<li><a href="/categories/Computer-Vision/">Computer Vision<span>6</span></a></li>
-		
-			<li><a href="/categories/Content-Creation/">Content Creation<span>8</span></a></li>
-		
-			<li><a href="/categories/Content-Promotion/">Content Promotion<span>2</span></a></li>
-		
-			<li><a href="/categories/Copying-and-Moving-Files/">Copying and Moving Files<span>2</span></a></li>
-		
-			<li><a href="/categories/Cross-Platform-Apps/">Cross-Platform Apps<span>2</span></a></li>
-		
-			<li><a href="/categories/Cross-Platform-Publishing/">Cross-Platform Publishing<span>2</span></a></li>
-		
-			<li><a href="/categories/Cybergod-Projects/">Cybergod Projects<span>2</span></a></li>
-		
-			<li><a href="/categories/Cybersecurity/">Cybersecurity<span>10</span></a></li>
-		
-			<li><a href="/categories/DNS-proxies/">DNS proxies<span>2</span></a></li>
-		
-			<li><a href="/categories/DWG-to-DXF-conversion/">DWG to DXF conversion<span>2</span></a></li>
-		
-			<li><a href="/categories/Dark-Web/">Dark Web<span>2</span></a></li>
-		
-			<li><a href="/categories/Data-Annotation-Tools/">Data Annotation Tools<span>4</span></a></li>
-		
-			<li><a href="/categories/Data-Backup/">Data Backup<span>4</span></a></li>
-		
-			<li><a href="/categories/Data-Capture/">Data Capture<span>4</span></a></li>
-		
-			<li><a href="/categories/Data-Scraping/">Data Scraping<span>2</span></a></li>
-		
-			<li><a href="/categories/Data-Security/">Data Security<span>2</span></a></li>
-		
-			<li><a href="/categories/Database/">Database<span>2</span></a></li>
-		
-			<li><a href="/categories/Database-Management/">Database Management<span>4</span></a></li>
-		
-			<li><a href="/categories/Deep-Learning/">Deep Learning<span>4</span></a></li>
-		
-			<li><a href="/categories/Digital-Identity/">Digital Identity<span>2</span></a></li>
-		
-			<li><a href="/categories/Digital-Marketing/">Digital Marketing<span>2</span></a></li>
-		
-			<li><a href="/categories/Discord-Channels/">Discord Channels<span>2</span></a></li>
-		
-			<li><a href="/categories/Disk-Management/">Disk Management<span>4</span></a></li>
-		
-			<li><a href="/categories/Docker/">Docker<span>6</span></a></li>
-		
-			<li><a href="/categories/Domain-specific-languages-DSL/">Domain-specific languages (DSL)<span>2</span></a></li>
-		
-			<li><a href="/categories/Drivers-updates/">Drivers updates<span>2</span></a></li>
-		
-			<li><a href="/categories/Dynamic-Classification-Systems/">Dynamic Classification Systems<span>2</span></a></li>
-		
-			<li><a href="/categories/E-book-conversion/">E-book conversion<span>2</span></a></li>
-		
-			<li><a href="/categories/Education/">Education<span>7</span></a></li>
-		
-			<li><a href="/categories/Emotion-Manipulation/">Emotion Manipulation<span>2</span></a></li>
-		
-			<li><a href="/categories/Energy-System-Simulation/">Energy System Simulation<span>2</span></a></li>
-		
-			<li><a href="/categories/Ergonomics/">Ergonomics<span>2</span></a></li>
-		
-			<li><a href="/categories/Error-Resolution/">Error Resolution<span>2</span></a></li>
-		
-			<li><a href="/categories/Evolution/">Evolution<span>2</span></a></li>
-		
-			<li><a href="/categories/Exception-Handling/">Exception Handling<span>2</span></a></li>
-		
-			<li><a href="/categories/Expect-Send/">Expect Send<span>2</span></a></li>
-		
-			<li><a href="/categories/Extensions/">Extensions<span>2</span></a></li>
-		
-			<li><a href="/categories/Facial-Expression-Detection/">Facial Expression Detection<span>2</span></a></li>
-		
-			<li><a href="/categories/Fake-Content-Detection/">Fake Content Detection<span>2</span></a></li>
-		
-			<li><a href="/categories/FastAPI/">FastAPI<span>2</span></a></li>
-		
-			<li><a href="/categories/File-Hosting-Services/">File Hosting Services<span>2</span></a></li>
-		
-			<li><a href="/categories/File-Transfer/">File Transfer<span>3</span></a></li>
-		
-			<li><a href="/categories/Filesystem-Cache/">Filesystem Cache<span>2</span></a></li>
-		
-			<li><a href="/categories/GUI-Programming/">GUI Programming<span>2</span></a></li>
-		
-			<li><a href="/categories/Generative-Adversarial-Networks-GAN/">Generative Adversarial Networks (GAN)<span>2</span></a></li>
-		
-			<li><a href="/categories/Generative-Adversarial-Networks-GANs/">Generative Adversarial Networks (GANs)<span>2</span></a></li>
-		
-			<li><a href="/categories/Geometry/">Geometry<span>2</span></a></li>
-		
-			<li><a href="/categories/GitFS/">GitFS<span>2</span></a></li>
-		
-			<li><a href="/categories/GitHub/">GitHub<span>6</span></a></li>
-		
-			<li><a href="/categories/Graph-Databases/">Graph Databases<span>1</span></a></li>
-		
-			<li><a href="/categories/Hacking/">Hacking<span>6</span></a></li>
-		
-			<li><a href="/categories/Hacking-Tutorials/">Hacking Tutorials<span>2</span></a></li>
-		
-			<li><a href="/categories/Hacking-techniques/">Hacking techniques<span>2</span></a></li>
-		
-			<li><a href="/categories/Health/">Health<span>4</span></a></li>
-		
-			<li><a href="/categories/Home-Appliances/">Home Appliances<span>2</span></a></li>
-		
-			<li><a href="/categories/Hot-Reloading/">Hot Reloading<span>2</span></a></li>
-		
-			<li><a href="/categories/Huggingface/">Huggingface<span>2</span></a></li>
-		
-			<li><a href="/categories/Human-in-the-Loop-AI/">Human-in-the-Loop AI<span>2</span></a></li>
-		
-			<li><a href="/categories/Image-Classification/">Image Classification<span>2</span></a></li>
-		
-			<li><a href="/categories/Image-Generation/">Image Generation<span>2</span></a></li>
-		
-			<li><a href="/categories/Image-Processing/">Image Processing<span>10</span></a></li>
-		
-			<li><a href="/categories/Image-Search-Tools/">Image Search Tools<span>2</span></a></li>
-		
-			<li><a href="/categories/Image-restoration/">Image restoration<span>2</span></a></li>
-		
-			<li><a href="/categories/Information-Management/">Information Management<span>2</span></a></li>
-		
-			<li><a href="/categories/Installation/">Installation<span>4</span></a></li>
-		
-			<li><a href="/categories/Installation-Instructions/">Installation Instructions<span>2</span></a></li>
-		
-			<li><a href="/categories/Interactive-Interfaces/">Interactive Interfaces<span>2</span></a></li>
-		
-			<li><a href="/categories/Interpolation-Techniques/">Interpolation Techniques<span>2</span></a></li>
-		
-			<li><a href="/categories/Interval-set-manipulation/">Interval set manipulation<span>2</span></a></li>
-		
-			<li><a href="/categories/IoT/">IoT<span>2</span></a></li>
-		
-			<li><a href="/categories/JavaScript/">JavaScript<span>4</span></a></li>
-		
-			<li><a href="/categories/Kafka-System-Design/">Kafka System Design<span>2</span></a></li>
-		
-			<li><a href="/categories/Kali-Linux/">Kali Linux<span>4</span></a></li>
-		
-			<li><a href="/categories/Karaoke/">Karaoke<span>2</span></a></li>
-		
-			<li><a href="/categories/Keyboard-Shortcuts/">Keyboard Shortcuts<span>2</span></a></li>
-		
-			<li><a href="/categories/Kotlin-ORM-libraries/">Kotlin ORM libraries<span>2</span></a></li>
-		
-			<li><a href="/categories/Kotlin-Spring-Boot/">Kotlin Spring Boot<span>2</span></a></li>
-		
-			<li><a href="/categories/Library-Management/">Library Management<span>2</span></a></li>
-		
-			<li><a href="/categories/Linux/">Linux<span>12</span></a></li>
-		
-			<li><a href="/categories/Live-Streaming/">Live Streaming<span>4</span></a></li>
-		
-			<li><a href="/categories/Live-broadcasting/">Live broadcasting<span>2</span></a></li>
-		
-			<li><a href="/categories/Logo-Finders/">Logo Finders<span>2</span></a></li>
-		
-			<li><a href="/categories/Lua-Python-Bridge/">Lua Python Bridge<span>2</span></a></li>
-		
-			<li><a href="/categories/MIDI-Conversion-Tools/">MIDI Conversion Tools<span>2</span></a></li>
-		
-			<li><a href="/categories/Machine-Learning/">Machine Learning<span>16</span></a></li>
-		
-			<li><a href="/categories/Man-in-the-middle-proxy/">Man-in-the-middle proxy<span>2</span></a></li>
-		
-			<li><a href="/categories/Manga/">Manga<span>4</span></a></li>
-		
-			<li><a href="/categories/Markdown-to-PDF-Conversion/">Markdown to PDF Conversion<span>2</span></a></li>
-		
-			<li><a href="/categories/Mass-Email-SMS-Tools/">Mass Email/SMS Tools<span>2</span></a></li>
-		
-			<li><a href="/categories/Mathematica/">Mathematica<span>2</span></a></li>
-		
-			<li><a href="/categories/Mathematica-software/">Mathematica software<span>2</span></a></li>
-		
-			<li><a href="/categories/Mathematics/">Mathematics<span>4</span></a></li>
-		
-			<li><a href="/categories/Media-Filtering/">Media Filtering<span>2</span></a></li>
-		
-			<li><a href="/categories/Media-repurposing-tools/">Media repurposing tools<span>2</span></a></li>
-		
-			<li><a href="/categories/Memory-Errors/">Memory Errors<span>1</span></a></li>
-		
-			<li><a href="/categories/Meta-Search-Engines/">Meta Search Engines<span>2</span></a></li>
-		
-			<li><a href="/categories/Metasploit-Python-scripting/">Metasploit Python scripting<span>2</span></a></li>
-		
-			<li><a href="/categories/Mini-ITX-Computers/">Mini-ITX Computers<span>2</span></a></li>
-		
-			<li><a href="/categories/Mitmproxy-tool/">Mitmproxy tool<span>2</span></a></li>
-		
-			<li><a href="/categories/Mobile/">Mobile<span>1</span></a></li>
-		
-			<li><a href="/categories/Mobile-App-Development/">Mobile App Development<span>2</span></a></li>
-		
-			<li><a href="/categories/Mobile-Phones/">Mobile Phones<span>2</span></a></li>
-		
-			<li><a href="/categories/Model-Optimization/">Model Optimization<span>2</span></a></li>
-		
-			<li><a href="/categories/Model-Uploading/">Model Uploading<span>2</span></a></li>
-		
-			<li><a href="/categories/Model-zoos/">Model zoos<span>2</span></a></li>
-		
-			<li><a href="/categories/Molecular-dynamics-simulations/">Molecular dynamics simulations<span>2</span></a></li>
-		
-			<li><a href="/categories/Movies/">Movies<span>2</span></a></li>
-		
-			<li><a href="/categories/Music/">Music<span>2</span></a></li>
-		
-			<li><a href="/categories/Music-Discovery/">Music Discovery<span>2</span></a></li>
-		
-			<li><a href="/categories/Music-Generation/">Music Generation<span>2</span></a></li>
-		
-			<li><a href="/categories/Music-Platforms/">Music Platforms<span>2</span></a></li>
-		
-			<li><a href="/categories/Music-Production/">Music Production<span>2</span></a></li>
-		
-			<li><a href="/categories/NAS/">NAS<span>2</span></a></li>
-		
-			<li><a href="/categories/NLP-Frameworks/">NLP Frameworks<span>2</span></a></li>
-		
-			<li><a href="/categories/NLP-Tools/">NLP Tools<span>2</span></a></li>
-		
-			<li><a href="/categories/NTFS-Recovery-Tools/">NTFS Recovery Tools<span>2</span></a></li>
-		
-			<li><a href="/categories/NVIDIA-drivers/">NVIDIA drivers<span>2</span></a></li>
-		
-			<li><a href="/categories/Natural-Language-Generation/">Natural Language Generation<span>2</span></a></li>
-		
-			<li><a href="/categories/Natural-Language-Processing/">Natural Language Processing<span>12</span></a></li>
-		
-			<li><a href="/categories/Neo4j/">Neo4j<span>2</span></a></li>
-		
-			<li><a href="/categories/Neo4j-Cypher-Cheatsheet/">Neo4j Cypher Cheatsheet<span>2</span></a></li>
-		
-			<li><a href="/categories/Neo4j-Graph-Data-Science/">Neo4j Graph Data Science<span>2</span></a></li>
-		
-			<li><a href="/categories/Network-Switching/">Network Switching<span>2</span></a></li>
-		
-			<li><a href="/categories/Network-communication/">Network communication<span>2</span></a></li>
-		
-			<li><a href="/categories/Networking/">Networking<span>8</span></a></li>
-		
-			<li><a href="/categories/Neural-Search-Engines/">Neural Search Engines<span>2</span></a></li>
-		
-			<li><a href="/categories/NeuralDiff/">NeuralDiff<span>2</span></a></li>
-		
-			<li><a href="/categories/Note-Syncing/">Note Syncing<span>2</span></a></li>
-		
-			<li><a href="/categories/Notes-and-Scripts-Backup/">Notes and Scripts Backup<span>2</span></a></li>
-		
-			<li><a href="/categories/Numpy/">Numpy<span>2</span></a></li>
-		
-			<li><a href="/categories/OCR-Techniques/">OCR Techniques<span>2</span></a></li>
-		
-			<li><a href="/categories/OCR-Tools/">OCR Tools<span>2</span></a></li>
-		
-			<li><a href="/categories/Online-Movies/">Online Movies<span>2</span></a></li>
-		
-			<li><a href="/categories/Online-Security-and-Privacy/">Online Security and Privacy<span>2</span></a></li>
-		
-			<li><a href="/categories/Online-Shopping/">Online Shopping<span>1</span></a></li>
-		
-			<li><a href="/categories/Online-Tools/">Online Tools<span>2</span></a></li>
-		
-			<li><a href="/categories/Online-security-and-privacy/">Online security and privacy<span>2</span></a></li>
-		
-			<li><a href="/categories/Open-source-Android-Automation/">Open-source Android Automation<span>2</span></a></li>
-		
-			<li><a href="/categories/Open-source-Chinese-Fonts/">Open-source Chinese Fonts<span>2</span></a></li>
-		
-			<li><a href="/categories/Open-source-Software/">Open-source Software<span>2</span></a></li>
-		
-			<li><a href="/categories/OpenCV/">OpenCV<span>2</span></a></li>
-		
-			<li><a href="/categories/Opqbot/">Opqbot<span>2</span></a></li>
-		
-			<li><a href="/categories/Optical-Flow-Techniques/">Optical Flow Techniques<span>2</span></a></li>
-		
-			<li><a href="/categories/Optimization-Techniques/">Optimization Techniques<span>2</span></a></li>
-		
-			<li><a href="/categories/Package-Management/">Package Management<span>4</span></a></li>
-		
-			<li><a href="/categories/Package-Managers/">Package Managers<span>2</span></a></li>
-		
-			<li><a href="/categories/Paraphrasing/">Paraphrasing<span>2</span></a></li>
-		
-			<li><a href="/categories/Password-Reset/">Password Reset<span>2</span></a></li>
-		
-			<li><a href="/categories/Payment-Systems/">Payment Systems<span>2</span></a></li>
-		
-			<li><a href="/categories/Platform-Tutorials/">Platform Tutorials<span>2</span></a></li>
-		
-			<li><a href="/categories/Playwright/">Playwright<span>2</span></a></li>
-		
-			<li><a href="/categories/Politics-and-Capitalism/">Politics and Capitalism<span>2</span></a></li>
-		
-			<li><a href="/categories/Probabilistic-Programming/">Probabilistic Programming<span>4</span></a></li>
-		
-			<li><a href="/categories/Process-Management/">Process Management<span>2</span></a></li>
-		
-			<li><a href="/categories/Process-Monitoring/">Process Monitoring<span>2</span></a></li>
-		
-			<li><a href="/categories/Producer-flags/">Producer flags<span>2</span></a></li>
-		
-			<li><a href="/categories/Product-Issues/">Product Issues<span>2</span></a></li>
-		
-			<li><a href="/categories/Programming/">Programming<span>4</span></a></li>
-		
-			<li><a href="/categories/Programming-Humor/">Programming Humor<span>2</span></a></li>
-		
-			<li><a href="/categories/Programming-Languages/">Programming Languages<span>8</span></a></li>
-		
-			<li><a href="/categories/Project-Planning/">Project Planning<span>2</span></a></li>
-		
-			<li><a href="/categories/Propagation-Science/">Propagation Science<span>2</span></a></li>
-		
-			<li><a href="/categories/Proxies/">Proxies<span>2</span></a></li>
-		
-			<li><a href="/categories/PyTorch/">PyTorch<span>3</span></a></li>
-		
-			<li><a href="/categories/Python/">Python<span>8</span></a></li>
-		
-			<li><a href="/categories/Python-Libraries/">Python Libraries<span>4</span></a></li>
-		
-			<li><a href="/categories/Python-Performance/">Python Performance<span>2</span></a></li>
-		
-			<li><a href="/categories/Python-Programming/">Python Programming<span>6</span></a></li>
-		
-			<li><a href="/categories/Python-Testing/">Python Testing<span>2</span></a></li>
-		
-			<li><a href="/categories/Python-Tools/">Python Tools<span>2</span></a></li>
-		
-			<li><a href="/categories/Python-programming/">Python programming<span>14</span></a></li>
-		
-			<li><a href="/categories/QQ-password/">QQ password<span>1</span></a></li>
-		
-			<li><a href="/categories/Quantitative-Trading-Platforms/">Quantitative Trading Platforms<span>2</span></a></li>
-		
-			<li><a href="/categories/Quantum-Computing/">Quantum Computing<span>2</span></a></li>
-		
-			<li><a href="/categories/RAM-Disk/">RAM Disk<span>2</span></a></li>
-		
-			<li><a href="/categories/RSS-Feeds-and-Aggregators/">RSS Feeds and Aggregators<span>2</span></a></li>
-		
-			<li><a href="/categories/RWKV-Language-Models/">RWKV Language Models<span>2</span></a></li>
-		
-			<li><a href="/categories/Radar-systems/">Radar systems<span>2</span></a></li>
-		
-			<li><a href="/categories/Random-Number-Generation/">Random Number Generation<span>2</span></a></li>
-		
-			<li><a href="/categories/Recaptcha-Solving-Solutions/">Recaptcha Solving Solutions<span>2</span></a></li>
-		
-			<li><a href="/categories/Recommendation-Algorithms/">Recommendation Algorithms<span>2</span></a></li>
-		
-			<li><a href="/categories/Recovery-USB/">Recovery USB<span>2</span></a></li>
-		
-			<li><a href="/categories/Rectangularization-Methods/">Rectangularization Methods<span>2</span></a></li>
-		
-			<li><a href="/categories/Redis/">Redis<span>2</span></a></li>
-		
-			<li><a href="/categories/Redis-py-library/">Redis-py library<span>2</span></a></li>
-		
-			<li><a href="/categories/Reinforcement-Learning/">Reinforcement Learning<span>4</span></a></li>
-		
-			<li><a href="/categories/Remote-Connection/">Remote Connection<span>2</span></a></li>
-		
-			<li><a href="/categories/Remote-Jobs/">Remote Jobs<span>2</span></a></li>
-		
-			<li><a href="/categories/Remote-Procedure-Call-Technologies/">Remote Procedure Call Technologies<span>2</span></a></li>
-		
-			<li><a href="/categories/Retry-Libraries/">Retry Libraries<span>2</span></a></li>
-		
-			<li><a href="/categories/Reverse-Engineering/">Reverse Engineering<span>4</span></a></li>
-		
-			<li><a href="/categories/Robotics/">Robotics<span>2</span></a></li>
-		
-			<li><a href="/categories/Royalty-free-video-sources/">Royalty-free video sources<span>2</span></a></li>
-		
-			<li><a href="/categories/SEO/">SEO<span>2</span></a></li>
-		
-			<li><a href="/categories/SQL-Injection-Attacks/">SQL Injection Attacks<span>2</span></a></li>
-		
-			<li><a href="/categories/SQLite-ORM/">SQLite ORM<span>2</span></a></li>
-		
-			<li><a href="/categories/SSH-keys/">SSH keys<span>2</span></a></li>
-		
-			<li><a href="/categories/Scraping/">Scraping<span>2</span></a></li>
-		
-			<li><a href="/categories/Search-Engine-Optimization/">Search Engine Optimization<span>2</span></a></li>
-		
-			<li><a href="/categories/Search-Engines/">Search Engines<span>6</span></a></li>
-		
-			<li><a href="/categories/Search-Methods/">Search Methods<span>2</span></a></li>
-		
-			<li><a href="/categories/Security/">Security<span>16</span></a></li>
-		
-			<li><a href="/categories/Security-Tools/">Security Tools<span>2</span></a></li>
-		
-			<li><a href="/categories/Semantic-Search/">Semantic Search<span>2</span></a></li>
-		
-			<li><a href="/categories/Session-Management/">Session Management<span>2</span></a></li>
-		
-			<li><a href="/categories/Short-URL-generators/">Short URL generators<span>2</span></a></li>
-		
-			<li><a href="/categories/Sketch-based-Applications/">Sketch-based Applications<span>2</span></a></li>
-		
-			<li><a href="/categories/Skin-Products-and-Diet/">Skin Products and Diet<span>2</span></a></li>
-		
-			<li><a href="/categories/Sleep/">Sleep<span>2</span></a></li>
-		
-			<li><a href="/categories/Smartwatches/">Smartwatches<span>4</span></a></li>
-		
-			<li><a href="/categories/Social-Media/">Social Media<span>2</span></a></li>
-		
-			<li><a href="/categories/Social-Media-Transformation/">Social Media Transformation<span>2</span></a></li>
-		
-			<li><a href="/categories/Software/">Software<span>4</span></a></li>
-		
-			<li><a href="/categories/Software-Security/">Software Security<span>2</span></a></li>
-		
-			<li><a href="/categories/Software-Testing-Efficiency-Metrics/">Software Testing Efficiency Metrics<span>2</span></a></li>
-		
-			<li><a href="/categories/Software-Tools/">Software Tools<span>2</span></a></li>
-		
-			<li><a href="/categories/Software-Troubleshooting/">Software Troubleshooting<span>6</span></a></li>
-		
-			<li><a href="/categories/Software-activation/">Software activation<span>2</span></a></li>
-		
-			<li><a href="/categories/Software-as-a-Service-SaaS/">Software as a Service (SaaS)<span>2</span></a></li>
-		
-			<li><a href="/categories/Software-troubleshooting/">Software troubleshooting<span>2</span></a></li>
-		
-			<li><a href="/categories/Sound-Effects/">Sound Effects<span>2</span></a></li>
-		
-			<li><a href="/categories/Speaker-Detection/">Speaker Detection<span>2</span></a></li>
-		
-			<li><a href="/categories/Speech-to-Text-Conversion/">Speech-to-Text Conversion<span>2</span></a></li>
-		
-			<li><a href="/categories/Stock-Data/">Stock Data<span>2</span></a></li>
-		
-			<li><a href="/categories/Stock-Market-Analysis/">Stock Market Analysis<span>2</span></a></li>
-		
-			<li><a href="/categories/Stock-Selection/">Stock Selection<span>2</span></a></li>
-		
-			<li><a href="/categories/Story-Dalle/">Story-Dalle<span>2</span></a></li>
-		
-			<li><a href="/categories/Synchronization/">Synchronization<span>2</span></a></li>
-		
-			<li><a href="/categories/System-Administration/">System Administration<span>2</span></a></li>
-		
-			<li><a href="/categories/System-Monitoring/">System Monitoring<span>2</span></a></li>
-		
-			<li><a href="/categories/Tab-Management/">Tab Management<span>2</span></a></li>
-		
-			<li><a href="/categories/Technology/">Technology<span>4</span></a></li>
-		
-			<li><a href="/categories/Technology-and-Innovation/">Technology and Innovation<span>2</span></a></li>
-		
-			<li><a href="/categories/Telegram-Bots/">Telegram Bots<span>1</span></a></li>
-		
-			<li><a href="/categories/Temperature-Management/">Temperature Management<span>2</span></a></li>
-		
-			<li><a href="/categories/TensorFlow-js/">TensorFlow.js<span>2</span></a></li>
-		
-			<li><a href="/categories/Tensorly-and-Torch-based-Liquid-State-Machine-for-Efficient-Data-Processing-of-Complex-Datasets-like-Brain-Neurons/">Tensorly and Torch-based Liquid State Machine for Efficient Data Processing of Complex Datasets like Brain Neurons<span>2</span></a></li>
-		
-			<li><a href="/categories/Terminal-autocomplete/">Terminal autocomplete<span>2</span></a></li>
-		
-			<li><a href="/categories/Termux/">Termux<span>6</span></a></li>
-		
-			<li><a href="/categories/Text-Editors/">Text Editors<span>2</span></a></li>
-		
-			<li><a href="/categories/Text-to-Speech/">Text to Speech<span>2</span></a></li>
-		
-			<li><a href="/categories/Text-to-Video-Projects/">Text-to-Video Projects<span>2</span></a></li>
-		
-			<li><a href="/categories/Throat-Care/">Throat Care<span>2</span></a></li>
-		
-			<li><a href="/categories/Time-Series-Analysis/">Time Series Analysis<span>2</span></a></li>
-		
-			<li><a href="/categories/Torrent-Search-Engines/">Torrent Search Engines<span>2</span></a></li>
-		
-			<li><a href="/categories/Training-Large-Language-Models/">Training Large Language Models<span>2</span></a></li>
-		
-			<li><a href="/categories/Trash-Management/">Trash Management<span>2</span></a></li>
-		
-			<li><a href="/categories/Troubleshooting/">Troubleshooting<span>16</span></a></li>
-		
-			<li><a href="/categories/Tutorial/">Tutorial<span>2</span></a></li>
-		
-			<li><a href="/categories/Unblocked-content/">Unblocked content<span>2</span></a></li>
-		
-			<li><a href="/categories/Unlocking-Bootloader/">Unlocking Bootloader<span>2</span></a></li>
-		
-			<li><a href="/categories/Video-Analysis/">Video Analysis<span>2</span></a></li>
-		
-			<li><a href="/categories/Video-Compression/">Video Compression<span>2</span></a></li>
-		
-			<li><a href="/categories/Video-Creation-Methods/">Video Creation Methods<span>2</span></a></li>
-		
-			<li><a href="/categories/Video-Downloaders/">Video Downloaders<span>4</span></a></li>
-		
-			<li><a href="/categories/Video-Downloading-Tools/">Video Downloading Tools<span>4</span></a></li>
-		
-			<li><a href="/categories/Video-Editing/">Video Editing<span>10</span></a></li>
-		
-			<li><a href="/categories/Video-Editing-Software/">Video Editing Software<span>4</span></a></li>
-		
-			<li><a href="/categories/Video-Editing-Tools/">Video Editing Tools<span>2</span></a></li>
-		
-			<li><a href="/categories/Video-Enhancement/">Video Enhancement<span>2</span></a></li>
-		
-			<li><a href="/categories/Video-Manipulation/">Video Manipulation<span>2</span></a></li>
-		
-			<li><a href="/categories/Video-Object-Tracking/">Video Object Tracking<span>2</span></a></li>
-		
-			<li><a href="/categories/Video-Processing/">Video Processing<span>8</span></a></li>
-		
-			<li><a href="/categories/Video-Production/">Video Production<span>2</span></a></li>
-		
-			<li><a href="/categories/Video-Quality-Assessment/">Video Quality Assessment<span>2</span></a></li>
-		
-			<li><a href="/categories/Video-Search/">Video Search<span>2</span></a></li>
-		
-			<li><a href="/categories/Video-Sharing-Platforms/">Video Sharing Platforms<span>2</span></a></li>
-		
-			<li><a href="/categories/Video-and-Audio-Processing/">Video and Audio Processing<span>2</span></a></li>
-		
-			<li><a href="/categories/Virtual-Environments/">Virtual Environments<span>2</span></a></li>
-		
-			<li><a href="/categories/Virtual-Reality/">Virtual Reality<span>1</span></a></li>
-		
-			<li><a href="/categories/Virtualization/">Virtualization<span>2</span></a></li>
-		
-			<li><a href="/categories/Visual-Studio-Code/">Visual Studio Code<span>2</span></a></li>
-		
-			<li><a href="/categories/Volume-Management/">Volume Management<span>2</span></a></li>
-		
-			<li><a href="/categories/Water-Cooling-Systems/">Water Cooling Systems<span>2</span></a></li>
-		
-			<li><a href="/categories/Wearable-Devices/">Wearable Devices<span>2</span></a></li>
-		
-			<li><a href="/categories/Web-Application-Security/">Web Application Security<span>6</span></a></li>
-		
-			<li><a href="/categories/Web-Applications/">Web Applications<span>4</span></a></li>
-		
-			<li><a href="/categories/Web-Customization/">Web Customization<span>2</span></a></li>
-		
-			<li><a href="/categories/Web-Development/">Web Development<span>4</span></a></li>
-		
-			<li><a href="/categories/Web-Scraping/">Web Scraping<span>14</span></a></li>
-		
-			<li><a href="/categories/Webhooks/">Webhooks<span>2</span></a></li>
-		
-			<li><a href="/categories/Webpage-Rendering/">Webpage Rendering<span>2</span></a></li>
-		
-			<li><a href="/categories/Website-Resources/">Website Resources<span>2</span></a></li>
-		
-			<li><a href="/categories/Wi-Fi-Troubleshooting/">Wi-Fi Troubleshooting<span>2</span></a></li>
-		
-			<li><a href="/categories/WiFi/">WiFi<span>1</span></a></li>
-		
-			<li><a href="/categories/Window-Management/">Window Management<span>4</span></a></li>
-		
-			<li><a href="/categories/Windows/">Windows<span>2</span></a></li>
-		
-			<li><a href="/categories/Windows-10-Performance/">Windows 10 Performance<span>2</span></a></li>
-		
-			<li><a href="/categories/Yoga/">Yoga<span>2</span></a></li>
-		
-			<li><a href="/categories/YouTube-Monetization/">YouTube Monetization<span>2</span></a></li>
-		
-			<li><a href="/categories/Zhihu/">Zhihu<span>2</span></a></li>
-		
-			<li><a href="/categories/anti-censorship/">anti-censorship<span>2</span></a></li>
-		
-			<li><a href="/categories/bilibili/">bilibili<span>2</span></a></li>
-		
-			<li><a href="/categories/book-scanning/">book scanning<span>2</span></a></li>
-		
-			<li><a href="/categories/brainwave-translation/">brainwave translation<span>2</span></a></li>
-		
-			<li><a href="/categories/copyright/">copyright<span>2</span></a></li>
-		
-			<li><a href="/categories/ctf-competitions/">ctf competitions<span>2</span></a></li>
-		
-			<li><a href="/categories/data-security/">data security<span>2</span></a></li>
-		
-			<li><a href="/categories/deobfustication/">deobfustication<span>2</span></a></li>
-		
-			<li><a href="/categories/filename-issues/">filename issues<span>2</span></a></li>
-		
-			<li><a href="/categories/fire-prevention/">fire_prevention<span>2</span></a></li>
-		
-			<li><a href="/categories/gaming/">gaming<span>2</span></a></li>
-		
-			<li><a href="/categories/hacking/">hacking<span>2</span></a></li>
-		
-			<li><a href="/categories/hardware-simulator/">hardware_simulator<span>2</span></a></li>
-		
-			<li><a href="/categories/iOS-device-control/">iOS device control<span>2</span></a></li>
-		
-			<li><a href="/categories/javascript/">javascript<span>2</span></a></li>
-		
-			<li><a href="/categories/macOS/">macOS<span>2</span></a></li>
-		
-			<li><a href="/categories/noise-generation/">noise_generation<span>2</span></a></li>
-		
-			<li><a href="/categories/npm/">npm<span>2</span></a></li>
-		
-			<li><a href="/categories/package-managers/">package_managers<span>2</span></a></li>
-		
-			<li><a href="/categories/podcasts/">podcasts<span>2</span></a></li>
-		
-			<li><a href="/categories/pwntools/">pwntools<span>2</span></a></li>
-		
-			<li><a href="/categories/search-engines/">search_engines<span>2</span></a></li>
-		
-			<li><a href="/categories/seo-tools/">seo_tools<span>2</span></a></li>
-		
-			<li><a href="/categories/strategies-for-defeating-deduplicate-algorithms/">strategies for defeating deduplicate algorithms<span>2</span></a></li>
-		
-			<li><a href="/categories/systemd/">systemd<span>2</span></a></li>
-		
-			<li><a href="/categories/text-mining/">text-mining<span>2</span></a></li>
-		
-			<li><a href="/categories/video-sites/">video_sites<span>2</span></a></li>
-		
-			<li><a href="/categories/viral-strategies/">viral_strategies<span>2</span></a></li>
-		
-			<li><a href="/categories/vulnerability-discovery/">vulnerability_discovery<span>1</span></a></li>
-		
-		</ul>
-	</div>
-
-		
-			
-	<div class="widget">
-		<h4>Tag Cloud</h4>
-		<ul class="tag_box inline list-unstyled">		
-		
-			<li><a href="/tags/Java-JVM/">Java/JVM<span>1</span></a></li>
-		
-			<li><a href="/tags/locate-file/">locate file<span>2</span></a></li>
-		
-			<li><a href="/tags/dynamic-resources/">dynamic resources<span>2</span></a></li>
-		
-			<li><a href="/tags/supervisord/">supervisord<span>2</span></a></li>
-		
-			<li><a href="/tags/Sourcehunt/">Sourcehunt<span>2</span></a></li>
-		
-			<li><a href="/tags/public-key-generation/">public key generation<span>2</span></a></li>
-		
-			<li><a href="/tags/DeepLocker/">DeepLocker<span>2</span></a></li>
-		
-			<li><a href="/tags/Ultraviolet/">Ultraviolet<span>2</span></a></li>
-		
-			<li><a href="/tags/subtitles/">subtitles<span>2</span></a></li>
-		
-			<li><a href="/tags/Reloading/">Reloading<span>2</span></a></li>
-		
-			<li><a href="/tags/push-js/">push.js<span>2</span></a></li>
-		
-			<li><a href="/tags/puppies/">puppies<span>2</span></a></li>
-		
-			<li><a href="/tags/pandoc/">pandoc<span>2</span></a></li>
-		
-			<li><a href="/tags/BERT-NER/">BERT-NER<span>2</span></a></li>
-		
-			<li><a href="/tags/gaming-logic/">gaming logic<span>2</span></a></li>
-		
-			<li><a href="/tags/mpython3/">mpython3<span>2</span></a></li>
-		
-			<li><a href="/tags/user-solutions/">user solutions<span>2</span></a></li>
-		
-			<li><a href="/tags/platform-specific-instructions/">platform-specific instructions<span>2</span></a></li>
-		
-			<li><a href="/tags/virtualization/">virtualization<span>2</span></a></li>
-		
-			<li><a href="/tags/pymetasploit/">pymetasploit<span>2</span></a></li>
-		
-		
-		   <li><a href="/tags">...<span>2367</span></a></li>
-		 
-		</ul>
-	</div>
-
-
-		
-			
-<div class="widget">
-  <h4>Recent Posts</h4>
-  <ul class="entry list-unstyled">
-    
-      <li>
-        <a href="/2023/12/26/32219f38-dc6e-4219-8626-6f68d7f08772/"  title="A compilation of various projects related to Cybergod, which are clones from different GitHub repositories such as Q-Star, QStarLearning, open_qstar, Video-Pre-Training, SingularGPT, GPT-4V-Act, gpt-eyes, self-operating-computer, gpt4v-browsing, CogVLM, and AppAgent. These projects aim to develop various tools and models for diverse purposes within the Cybergod framework." ><i class="fa fa-file-o"></i>cybergod related projects</a>
-      </li>
-    
-      <li>
-        <a href="/2023/12/26/94043d9a-08e0-43ba-8c58-876d65a7f546/"  title="A compilation of various projects related to Cybergod, which are clones from different GitHub repositories such as Q-Star, QStarLearning, open_qstar, Video-Pre-Training, SingularGPT, GPT-4V-Act, gpt-eyes, self-operating-computer, gpt4v-browsing, CogVLM, and AppAgent. These projects aim to develop various tools and models for diverse purposes within the Cybergod framework." ><i class="fa fa-file-o"></i>cybergod related projects</a>
-      </li>
-    
-      <li>
-        <a href="/2023/12/22/001f5273-9edf-4108-8139-8035186da6ba/"  title="This text delves into the process of (de)obfustication, which encompasses techniques such as adding or removing redundant code and employing packers like Themida, Code Virtualizer, VMProtect, and ExeCryptor. The article furnishes details on a PDF and GitHub topics addressing protectors and junk code generators, along with a guide on utilizing IdA Pro for removing unnecessary code." ><i class="fa fa-file-o"></i>(de)obfustication, junk cod...</a>
-      </li>
-    
-      <li>
-        <a href="/2023/12/22/002a30c9-b48c-4035-8369-cf5265f8344a/"  title="RSIBreak is a smartwatch app designed to prevent RSI injuries. It is compatible with WearOS and Apple alternatives, offering customization options such as 3D printed cases from Shapeways or DIY solutions on macOS. Additionally, alternatives like BreakTimer are available for various platforms." ><i class="fa fa-file-o"></i>RSIBreak, Break Reminder</a>
-      </li>
-    
-      <li>
-        <a href="/2023/12/22/002dd458-e9b8-4128-abe7-7b11ec870fc7/"  title="The article discusses an open API for generating cat-themed content through the website &#39;cataas.com&#39;. This platform offers a range of options to create and personalize images featuring cats, making it an entertaining and engaging service." ><i class="fa fa-file-o"></i>开放api 信息来源</a>
-      </li>
-    
-  </ul>
-</div>
-
-		
 			
 <div class="widget">
 	<h4>Links</h4>
@@ -1382,6 +321,14 @@
 	
 		<li><i class="fa fa-github"></i><a href="http://www.github.com/james4ever0" title="My Github account" target="_blank"]);">My Github</a></li>
 	
+		<li><i class="fa fa-book"></i><a href="https://samoyedsun.github.io/" title="Samoyedsun's Blog" target="_blank"]);">Samoyedsun&#39;s Blog</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="http://atlant1c.cn/" title="Atlant1c's Blog" target="_blank"]);">Atlant1c&#39;s Blog</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="https://www.gregoryuan.com/" title="Gregoryuan's Blog" target="_blank"]);">Gregoryuan&#39;s Blog</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="https://yubingtao.netlify.app/" title="Yubingtao's Blog" target="_blank"]);">Yubingtao&#39;s Blog</a></li>
+	
 	</ul>
 </div>
 
@@ -1397,7 +344,7 @@
   </div>
   <div class="container-narrow">
     <footer> <p>
-  &copy; 2023 James Brown
+  &copy; 2024 James Brown
   
       with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
 </p> </footer>
@@ -1410,15 +357,15 @@
   <span>▲</span> 
 </a>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/search.js"></script> 
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
@@ -1432,28 +379,12 @@
 	 if (search_path.length == 0) {
 	 	search_path = "search.xml";
 	 }
-	 var path = "/" + search_path;
+	 var path = "/blog/" + search_path;
      searchFunc(path, 'local-search-input', 'local-search-result');
    </script>
 
 
 <!-- syntax highlighting -->
-
-  <script>
-  marked.setOptions({
-    highlight: function (code, lang) {
-        return hljs.highlightAuto(code).value;
-    }
-  });
-  function Highlighting(){
-    var markdowns = document.getElementsByClassName('markdown');
-    for(var i=0;i<markdowns.length;i++){
-        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
-    }
-  }
-  window.addEventListener('DOMContentLoaded', Highlighting, false);
-  window.addEventListener('load', Highlighting, false);
-  </script>
 
 
 </body>

@@ -116,6 +116,65 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2024-07-19 </div>
+			<div class="article-title"><a href="/blog/2024/07/19/32f77638-8d8b-4c48-9ecb-a519adfc6fbe/" title="This guide walks you through installing lightweight Kubernetes clusters, either microk8s or k0s. It covers enabling DNS and multiple registries, provides recommendations for mirror sites in different regions, offers runtime configurations, and gives troubleshooting tips to ensure a smooth setup process.">Install Microk8S</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>network policy:</p>
+<p><a target="_blank" rel="noopener" href="https://minikube.sigs.k8s.io/docs/handbook/network_policy/">https://minikube.sigs.k8s.io/docs/handbook/network_policy/</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.tigera.io/calico/latest/network-policy/get-started/calico-policy/calico-network-policy">https://docs.tigera.io/calico/latest/network-policy/get-started/calico-policy/calico-network-policy</a></p>
+<p>persistent volume:</p>
+<p><a target="_blank" rel="noopener" href="https://minikube.sigs.k8s.io/docs/handbook/persistent_volumes/">https://minikube.sigs.k8s.io/docs/handbook/persistent_volumes/</a></p>
+<hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo snap install --classic microk8s</span><br><span class="line">sudo microk8s <span class="built_in">enable</span> dns:&lt;dns_ip&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>config files are at <code>/var/snap/microk8s/current</code>, and you need to replace all <code>docker.io</code> with some docker mirror to prevent init errors.</p>
+<p>run <code>microk8s inspect</code> to get errors like hostname casing, and missing file like <code>/var/snap/microk8s/current/var/kubernetes/backend/localnode.yaml</code></p>
+<p>you need to configure multiple registries for <code>docker.io</code> and <code>registry.k8s.io</code> under <code>/var/snap/microk8s/current/args/certs.d</code></p>
+<p>in order to use some mirror site which does not support <code>/v2</code> url, you have to add <code>override_path = true</code> in config</p>
+<p>mirror sites:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/docker-mirrors/website">https://github.com/docker-mirrors/website</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/cmliu/CF-Workers-docker.io/issues/8">https://github.com/cmliu/CF-Workers-docker.io/issues/8</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/kubesre/docker-registry-mirrors">https://github.com/kubesre/docker-registry-mirrors</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lawrenceching/gitbook/blob/master/docker-repositories-in-china.md">https://github.com/lawrenceching/gitbook/blob/master/docker-repositories-in-china.md</a></p>
+<p>reference:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/containerd/containerd/blob/main/docs/hosts.md">https://github.com/containerd/containerd/blob/main/docs/hosts.md</a></p>
+<p><a target="_blank" rel="noopener" href="https://microk8s.io/docs/registry-private">https://microk8s.io/docs/registry-private</a></p>
+<hr>
+<p>install k3s</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -sfL https://get.k3s.io &gt; k3s_setup.sh</span><br><span class="line"><span class="comment"># replace the line if GITHUB_URL to some github mirror instead</span></span><br><span class="line">bash k3s_setup.sh</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>k3s mirror</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -sfL https://rancher-mirror.rancher.cn/k3s/k3s-install.sh | INSTALL_K3S_MIRROR=cn sh -​</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>registry config:</p>
+<p><a target="_blank" rel="noopener" href="https://docs.k3s.io/installation/private-registry">https://docs.k3s.io/installation/private-registry</a></p>
+<hr>
+<p>k0s install:</p>
+<p><a target="_blank" rel="noopener" href="https://docs.k0sproject.io/stable/install/">https://docs.k0sproject.io/stable/install/</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -sSLf https://get.k0s.sh | sudo sh</span><br><span class="line">sudo k0s install controller --single</span><br><span class="line">sudo k0s start</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>config:</p>
+<p><a target="_blank" rel="noopener" href="https://docs.k0sproject.io/stable/runtime/">https://docs.k0sproject.io/stable/runtime/</a></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/07/19/32f77638-8d8b-4c48-9ecb-a519adfc6fbe/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2023-12-03 </div>
 			<div class="article-title"><a href="/blog/2023/12/03/2f3128b0-1db9-4ac3-b437-f6247e04c1d6/" title="This article discusses the use of Huggingface mirror sites to resolve network issues. It provides information on full and partial mirror site options, including https://hf-mirror.com/ for a complete mirror and https://aliendao.cn/#/ for a partial mirror.">Huggingface Mirror Sites</a></div>
 		</h3>

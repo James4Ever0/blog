@@ -123,8 +123,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-09-12 </div>
-			<div class="article-title"><a href="/blog/2022/09/12/2e4b90b1-68e4-4f5c-97f6-c9edf7664594/" title="The pydantic schema can be used to describe a class in Python. In this case, the `Description` class is defined as a base model. The summary provided describes the purpose and functionality of the `pyscenedetect` library, which assists with dynamically detecting scenes in videos while accounting for possible issues like splicing and video gradients. A code snippet demonstrating how to use this library and FFmpeg to identify and segment a video into scenes is also provided.">Use Pyscenedetect Dynamically In Program</a></div>
+			<div class="date"> 2022-12-02 </div>
+			<div class="article-title"><a href="/blog/2022/12/02/1d8a8c2a-8d9b-4199-83e5-7f842fdc3c78/" title="This article focuses on the concept of &#39;waf bypass&#39;, which involves evading web application firewalls. It highlights a tool called SafeLine from Chaitin, and provides links to resources such as a cheatsheet from hacken.io on how to bypass WAFs and a related Burp Suite Bapp for waf bypass.">Unlocking Web Application Firewall Evasion: A Comprehensive Guide</a></div>
 		</h3>
 	
 
@@ -135,16 +135,14 @@
   <div class="row">
 	
 	
-		<p>对于单纯拼接起来的视频 这个算法就如同手术刀一样精准</p>
-<p>首尾有可能有一两帧看起来不太对 但是可以通过调节start和end来修正</p>
-<p>警惕频繁转场的视频 它们可能是属于同一个小片段的 但是如果不打乱顺序有可能会触发版权识别问题</p>
-<p>即使选出来了可以使用的片段 对于同一个视频的制作过程 依旧要隔一段时间采样 <strong>比如两个片段间隔至少5秒</strong> 不要单纯的把所有片段一次性提取出来 避免内容重复和版权问题</p>
-<p>当然对于有渐变 转场的视频 可能需要用其他的检测方法</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scenedetect <span class="keyword">import</span> open_video, SceneManager, split_video_ffmpeg</span><br><span class="line"><span class="keyword">from</span> scenedetect.detectors <span class="keyword">import</span> ContentDetector</span><br><span class="line"><span class="keyword">from</span> scenedetect.video_splitter <span class="keyword">import</span> split_video_ffmpeg</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">split_video_into_scenes</span>(<span class="params">video_path, threshold=<span class="number">27.0</span></span>):</span><br><span class="line"><span class="comment"># Open our video, create a scene manager, and add a detector.</span></span><br><span class="line">video = open_video(video_path)</span><br><span class="line">scene_manager = SceneManager()</span><br><span class="line">scene_manager.add_detector(</span><br><span class="line">ContentDetector(threshold=threshold))</span><br><span class="line">scene_manager.detect_scenes(video, show_progress=<span class="literal">True</span>)</span><br><span class="line">scene_list = scene_manager.get_scene_list()</span><br><span class="line">split_video_ffmpeg(video_path, scene_list, show_progress=<span class="literal">True</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+		<h1 id="waf-bypass"><a href="#waf-bypass" class="headerlink" title="waf bypass"></a>waf bypass</h1><p><a target="_blank" rel="noopener" href="https://github.com/chaitin/SafeLine">https://github.com/chaitin/SafeLine</a></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://hacken.io/discover/how-to-bypass-waf-hackenproof-cheat-sheet/">how to bypass waf cheatsheet by hacken.io</a></p>
+<p><a target="_blank" rel="noopener" href="https://portswigger.net/bappstore/ae2611da3bbc4687953a1f4ba6a4e04c">bapp for waf bypass</a></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/09/12/2e4b90b1-68e4-4f5c-97f6-c9edf7664594/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/12/02/1d8a8c2a-8d9b-4199-83e5-7f842fdc3c78/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -154,8 +152,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-09-12 </div>
-			<div class="article-title"><a href="/blog/2022/09/12/1300032f-7668-4190-8172-c2aba3659c68/" title="This article explores ways to improve the speed of website browsing, parsing, and scraping using elinks/lynx and Python. It introduces open-source tools like NewsCrawl for sentiment analysis and General News Extractor for news content extraction. Additionally, it covers customizing headless puppeteer/phantomjs and utilizing readability and jsdom to enhance the process.">Elinks/Lynx With Python: How To Speed Up Headless Website Browsing/Parsing/Scraping With Cookies</a></div>
+			<div class="date"> 2022-12-02 </div>
+			<div class="article-title"><a href="/blog/2022/12/02/cc1e47b5-db3d-41e0-a6b3-a489fb104747/" title="This article provides an overview of several Python libraries and resources available for working with the Nmap network scanning tool. It covers python3-nmap, nmapthon, and python-nmap, along with their respective documentation, allowing readers to choose the best option for their needs.">Exploring Python Libraries And Resources For Nmap Network Scanning</a></div>
 		</h3>
 	
 
@@ -166,23 +164,13 @@
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://github.com/casual-silva/NewsCrawl">newscrawl</a> 狠心开源企业级舆情新闻爬虫项目：支持任意数量爬虫一键运行、爬虫定时任务、爬虫批量删除；爬虫一键部署；爬虫监控可视化; 配置集群爬虫分配策略；👉 现成的docker一键部署文档已为大家踩坑</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/GeneralNewsExtractor/GeneralNewsExtractor/">general news extractor</a> for extracting main content of news, articles</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip3 install gne</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>first of all, set it up with a <strong>normal</strong> user agent</p>
-<p>even better, we can chain it with some customized headless puppeteer&#x2F;phantomjs (do not load video data), dump the dom when ready, and use elinks&#x2F;lynx to analyze the dom tree.</p>
-<p>to test if the recommendation bar shows up:</p>
-<p><code>https://v.qq.com/x/page/m0847y71q98.html</code></p>
-<p>to make web page more readable:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/luin/readability">https://github.com/luin/readability</a></p>
-<p>load webpage headlessly:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/jsdom/jsdom">https://github.com/jsdom/jsdom</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/ryanpetrello/python-zombie">https://github.com/ryanpetrello/python-zombie</a></p>
+		<h1 id="nmap-python-scripting"><a href="#nmap-python-scripting" class="headerlink" title="nmap python scripting"></a>nmap python scripting</h1><p><a target="_blank" rel="noopener" href="https://pypi.org/project/python3-nmap/">python3-nmap</a> and <a target="_blank" rel="noopener" href="https://nmap.readthedocs.io/en/latest/nmap.html">doc</a></p>
+<p><a target="_blank" rel="noopener" href="https://nmapthon.readthedocs.io/en/latest/simple_information.html">doc of nmapthon</a> python scriptable nse</p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/python-nmap/">python-nmap</a></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/09/12/1300032f-7668-4190-8172-c2aba3659c68/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/12/02/cc1e47b5-db3d-41e0-a6b3-a489fb104747/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -192,8 +180,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-09-12 </div>
-			<div class="article-title"><a href="/blog/2022/09/12/d299ccd2-0d77-4c1c-837d-43186ec641a7/" title="This article showcases the versatile capabilities of FFmpeg, a powerful tool for speeding up encoding processes and offering features such as V4L2 device video encoding, frame conversion to PNG, re-encoding bypass, H.26 exporting, HDR video conversion, frame extraction, audio/video data retrieval, AVI/FLV to MP3 conversion, and custom audio quality parameters.">Exploring Ffmpeg&#39;S Advanced Encoding, Conversion, And Audio Functionality</a></div>
+			<div class="date"> 2022-12-02 </div>
+			<div class="article-title"><a href="/blog/2022/12/02/8607d8b7-fd3c-4196-a19b-b315a7454cd5/" title="This blog post delves into Metasploit Python scripting, providing a tutorial for those interested. It also highlights two projects related to this subject: pymetasploit3 and pymetasploit. The latter is described as a comprehensive MSFRPC library.">Mastering Metasploit Python Scripting: Tutorial And Projects</a></div>
 		</h3>
 	
 
@@ -204,31 +192,13 @@
   <div class="row">
 	
 	
-		<h1 id="ffmpeg-one-liners"><a href="#ffmpeg-one-liners" class="headerlink" title="ffmpeg one liners"></a>ffmpeg one liners</h1><h1 id="For-all-snippets-check-documentation-for-details-and-settings"><a href="#For-all-snippets-check-documentation-for-details-and-settings" class="headerlink" title="For all snippets, check documentation for details and settings."></a>For all snippets, check documentation for details and settings.</h1><h2 id="speed-up-ffmpeg-encoding"><a href="#speed-up-ffmpeg-encoding" class="headerlink" title="speed up ffmpeg encoding"></a>speed up ffmpeg encoding</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39981360/article/details/111807188">ffmpeg speedup cli flags</a></p>
-<p><code>ffmpeg -threads 4 -crf 28 -preset ultrafast</code></p>
-<h1 id="encode-video-from-a-V4L2-device-using-specified-settings"><a href="#encode-video-from-a-V4L2-device-using-specified-settings" class="headerlink" title="encode video from a V4L2 device, using specified settings."></a>encode video from a V4L2 device, using specified settings.</h1><h1 id="x265-worked-somewhat-better-here-and-produced-less-skips-although-uses-10x-CPU-compared-to-x264"><a href="#x265-worked-somewhat-better-here-and-produced-less-skips-although-uses-10x-CPU-compared-to-x264" class="headerlink" title="x265 worked somewhat better here and produced less skips (although uses 10x CPU compared to x264)"></a>x265 worked somewhat better here and produced less skips (although uses 10x CPU compared to x264)</h1><p>ffmpeg -f video4linux2 -framerate 30 -input_format mjpeg -video_size 1920x1080 -i &#x2F;dev&#x2F;video6 -c:v libx265 -preset ultrafast -c:a none -crf 20 out.mp4</p>
-<h1 id="Convert-a-raw-YUYV422-frame-from-my-USB-“microscope”-to-PNG"><a href="#Convert-a-raw-YUYV422-frame-from-my-USB-“microscope”-to-PNG" class="headerlink" title="Convert a raw YUYV422 frame from my USB “microscope” to PNG:"></a>Convert a raw YUYV422 frame from my USB “microscope” to PNG:</h1><h1 id="other-valid-pixel-formats-are-e-g-rgb24-or-yuv420p"><a href="#other-valid-pixel-formats-are-e-g-rgb24-or-yuv420p" class="headerlink" title="other valid pixel formats are e.g. rgb24 or yuv420p"></a>other valid pixel formats are e.g. rgb24 or yuv420p</h1><p>ffmpeg -f rawvideo -video_size 2592x1944 -pixel_format yuyv422 -i input_yuyv422_2592x1944.dat -f image2 output.png</p>
-<h1 id="copy-a-portion-of-a-video-copying-and-not-recoding-Might-need-to-use-the-same-container-as-the-input"><a href="#copy-a-portion-of-a-video-copying-and-not-recoding-Might-need-to-use-the-same-container-as-the-input" class="headerlink" title="copy a portion of a video, copying and not recoding. Might need to use the same container as the input"></a>copy a portion of a video, copying and not recoding. Might need to use the same container as the input</h1><p>ffmpeg -i $input -ss $seek_to_seconds -t $output_length -c:v copy -c:a copy $output</p>
-<h1 id="Export-and-show-h-264-MVs"><a href="#Export-and-show-h-264-MVs" class="headerlink" title="Export and show h.264 MVs"></a>Export and show h.264 MVs</h1><p>ffplay -flags2 +export_mvs input.mkv -vf codecview&#x3D;mv&#x3D;pf+bf+bb</p>
-<h1 id="Show-motion-vector-estimate-on-any-input"><a href="#Show-motion-vector-estimate-on-any-input" class="headerlink" title="Show motion vector estimate on any input:"></a>Show motion vector estimate on any input:</h1><p>ffplay $input -vf mestimate&#x3D;epzs:mb_size&#x3D;16:search_param&#x3D;32,codecview&#x3D;mv&#x3D;pf+bf+bb</p>
-<h1 id="Select-one-frame-every-10-set-presentation-time-stamp-to-10x-0-1-PTS-deshake-do-not-copy-audio"><a href="#Select-one-frame-every-10-set-presentation-time-stamp-to-10x-0-1-PTS-deshake-do-not-copy-audio" class="headerlink" title="Select one frame every 10, set presentation time stamp to 10x (0.1*PTS), deshake, do not copy audio"></a>Select one frame every 10, set presentation time stamp to 10x (0.1*PTS), deshake, do not copy audio</h1><p>ffmpeg -i MOV_3147.mp4 -vf ‘select&#x3D;not(mod(n,10))’,setpts&#x3D;0.1*PTS,deshake&#x3D;edge&#x3D;blank:rx&#x3D;64:ry&#x3D;64:blocksize&#x3D;4:contrast&#x3D;31 -tune grain -crf 17 -an wolken-2-deshake.mkv</p>
-<h1 id="Extreme-high-quality-deshake"><a href="#Extreme-high-quality-deshake" class="headerlink" title="Extreme high quality deshake:"></a>Extreme high quality deshake:</h1><p>ffmpeg -i input.mkv -vf ‘select&#x3D;not(mod(n,20))’,setpts&#x3D;0.05*PTS,mestimate&#x3D;hexbs,vidstabdetect&#x3D;shakiness&#x3D;10:result&#x3D;transforms.trf</p>
-<p>ffmpeg -i input.mkv -vf ‘select&#x3D;not(mod(n,20))’,setpts&#x3D;0.05*PTS,mestimate&#x3D;hexbs,vidstabtransform&#x3D;crop&#x3D;black:smoothing&#x3D;0:optzoom&#x3D;0</p>
-<h1 id="or-for-pass-2"><a href="#or-for-pass-2" class="headerlink" title="or for pass 2"></a>or for pass 2</h1><p>ffmpeg -i MOV_3147.mp4 -vf ‘select&#x3D;not(mod(n,20))’,setpts&#x3D;0.05*PTS,vidstabtransform&#x3D;crop&#x3D;black:smoothing&#x3D;180:optzoom&#x3D;0:interpol&#x3D;bicubic -an -vcodec libx265 -crf 16 -tune grain wolken-2-deshake.mkv</p>
-<h1 id="Tonemap-a-ITU-2020-HDR-high-gamut-ususally-4K-video-to-ITU-709-1080p"><a href="#Tonemap-a-ITU-2020-HDR-high-gamut-ususally-4K-video-to-ITU-709-1080p" class="headerlink" title="Tonemap a ITU.2020 (HDR, high gamut, ususally 4K) video to ITU.709 (1080p)"></a>Tonemap a ITU.2020 (HDR, high gamut, ususally 4K) video to ITU.709 (1080p)</h1><h1 id="Also-see-https-stevens-li-guides-video-converting-hdr-to-sdr-with-ffmpeg"><a href="#Also-see-https-stevens-li-guides-video-converting-hdr-to-sdr-with-ffmpeg" class="headerlink" title="Also see: https://stevens.li/guides/video/converting-hdr-to-sdr-with-ffmpeg/"></a>Also see: <a target="_blank" rel="noopener" href="https://stevens.li/guides/video/converting-hdr-to-sdr-with-ffmpeg/">https://stevens.li/guides/video/converting-hdr-to-sdr-with-ffmpeg/</a></h1><p>ffmpeg -i file.mkv -vf zscale&#x3D;t&#x3D;linear:npl&#x3D;100,format&#x3D;gbrpf32le,zscale&#x3D;p&#x3D;bt709,tonemap&#x3D;tonemap&#x3D;hable,zscale&#x3D;t&#x3D;bt709:m&#x3D;bt709:r&#x3D;tv,format&#x3D;yuv420p -crf 20 -acodec copy output.mkv</p>
-<h1 id="Extract-all-frames-as-jpg"><a href="#Extract-all-frames-as-jpg" class="headerlink" title="Extract all frames as .jpg"></a>Extract all frames as <pattern>.jpg</h1><p>ffmpeg -r 1 -i file.mp4 -r 1 frames_%05d.jpg</p>
-<h1 id="Create-video-from-all-the-frames-missing-any-codec-spec"><a href="#Create-video-from-all-the-frames-missing-any-codec-spec" class="headerlink" title="Create video from all the frames (missing any codec spec):"></a>Create video from all the frames (missing any codec spec):</h1><p>ffmpeg -r 30 -i frames_%05d.jpg output.mp4</p>
-<h3 id="XXX-the-following-where-copied-from"><a href="#XXX-the-following-where-copied-from" class="headerlink" title="XXX the following where copied from"></a>XXX the following where copied from</h3><h3 id="https-hbish-com-ffmpeg-one-liners"><a href="#https-hbish-com-ffmpeg-one-liners" class="headerlink" title="https://hbish.com/ffmpeg-one-liners/"></a><a target="_blank" rel="noopener" href="https://hbish.com/ffmpeg-one-liners/">https://hbish.com/ffmpeg-one-liners/</a></h3><h1 id="Get-infomation-for-a-audio-video"><a href="#Get-infomation-for-a-audio-video" class="headerlink" title="Get infomation for a audio&#x2F;video"></a>Get infomation for a audio&#x2F;video</h1><p>ffmpeg -i file.mp3</p>
-<h1 id="Convert-video-into-images"><a href="#Convert-video-into-images" class="headerlink" title="Convert video into images"></a>Convert video into images</h1><p>ffmpeg -i video.avi image_output%d.jpg</p>
-<h1 id="Split-audio-files"><a href="#Split-audio-files" class="headerlink" title="Split audio files"></a>Split audio files</h1><h1 id="Generate-a-section-of-the-audio-from-the-30-second-mark-start-for-15-seconds-duration"><a href="#Generate-a-section-of-the-audio-from-the-30-second-mark-start-for-15-seconds-duration" class="headerlink" title="Generate a section of the audio from the 30 second mark (start) for 15 seconds (duration)"></a>Generate a section of the audio from the 30 second mark (start) for 15 seconds (duration)</h1><p>ffmpeg -f mp3 -i input.mp3 -t 00:00:30 -ss 00:00:15 output.mp3</p>
-<h1 id="Covert-avi-to-animated-gif"><a href="#Covert-avi-to-animated-gif" class="headerlink" title="Covert avi to animated gif"></a>Covert avi to animated gif</h1><p>ffmpeg -i video.avi output.gif</p>
-<h1 id="Add-audio-to-a-video-file"><a href="#Add-audio-to-a-video-file" class="headerlink" title="Add audio to a video file"></a>Add audio to a video file</h1><p>ffmpeg -i music.mp3 -i video.avi output.mpg</p>
-<h1 id="Extract-audio-from-video-file”-Useful-for-extracting-music-from-youtube-videos"><a href="#Extract-audio-from-video-file”-Useful-for-extracting-music-from-youtube-videos" class="headerlink" title="Extract audio from video file”&gt;## Useful for extracting music from youtube videos"></a>Extract audio from video file”&gt;## Useful for extracting music from youtube videos</h1><h1 id="avi-to-mp3"><a href="#avi-to-mp3" class="headerlink" title="avi to mp3"></a>avi to mp3</h1><p>ffmpeg -i video.avi -vn -ar 44100 -ac 2 -ab 192k -f mp3 output.mp3</p>
-<h1 id="flv-to-mp3"><a href="#flv-to-mp3" class="headerlink" title="flv to mp3"></a>flv to mp3</h1><p>ffmpeg -i video.flv -ar 44100 -ac 2 -ab 192k -f mp3 output.mp3</p>
+		<h1 id="metasploit-python-scripting"><a href="#metasploit-python-scripting" class="headerlink" title="metasploit python scripting"></a>metasploit python scripting</h1><p><a target="_blank" rel="noopener" href="https://infosecaddicts.com/python-and-metasploit/">pymetasploit tutorial</a></p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/pymetasploit3/">pymetasploit3</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/allfro/pymetasploit">pymetasploit</a> full fledged msfrpc library</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/09/12/d299ccd2-0d77-4c1c-837d-43186ec641a7/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/12/02/8607d8b7-fd3c-4196-a19b-b315a7454cd5/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -238,8 +208,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-09-11 </div>
-			<div class="article-title"><a href="/blog/2022/09/11/2842d760-78aa-4a8b-8d28-aca75f0d4785/" title="This article delves into motion vector extraction, scene change detection, subtitle removal, and frame interpolation using PyAV with FFmpeg. Additionally, it covers FFmpeg&#39;s image resizing algorithms such as &#39;sinc&#39;, &#39;lanczos&#39;, and &#39;spline&#39;. The article also explores logging options, rounding methods, chroma interpolation, luma/chroma component handling, and the &#39;bitexact&#39; option for exact pixel handling.">Motion Vector Estimation, Motion Vector Export, Ffmpeg Advanced Usage</a></div>
+			<div class="date"> 2022-12-02 </div>
+			<div class="article-title"><a href="/blog/2022/12/02/6739d000-d0ef-4766-a294-6187bfe50ff7/" title="BurpSuite Pro is a comprehensive web application security tool designed to identify common vulnerabilities and 0day exploits in dynamic web applications. With its ability to be cracked, it offers an extra layer of protection against potential threats. Additionally, a Python unofficial API client is available for enhanced functionality and customization.">Cracking Burpsuite Pro: Exploiting Web App Vulnerabilities With Python Api Client</a></div>
 		</h3>
 	
 
@@ -250,74 +220,15 @@
   <div class="row">
 	
 	
-		<h1 id="motion-verctor-estimation-motion-vector-export-ffmpeg-advanced-usage"><a href="#motion-verctor-estimation-motion-vector-export-ffmpeg-advanced-usage" class="headerlink" title="motion verctor estimation, motion vector export, ffmpeg advanced usage"></a>motion verctor estimation, motion vector export, ffmpeg advanced usage</h1><h2 id="use-cases"><a href="#use-cases" class="headerlink" title="use cases"></a>use cases</h2><p>to detect hard-coded subtitles, crop the region and detect sudden changes</p>
-<p>can also use pyscenedetect to do the job</p>
-<h2 id="pyav"><a href="#pyav" class="headerlink" title="pyav"></a>pyav</h2><p><a target="_blank" rel="noopener" href="https://pyav.org/docs/stable/">docs</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip3 install av</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="remove-detect-silence"><a href="#remove-detect-silence" class="headerlink" title="remove&#x2F;detect silence"></a>remove&#x2F;detect silence</h2><p>… silencedetect     A-&gt;A       Detect silence.</p>
-<p>… silenceremove     A-&gt;A       Remove silence.</p>
-<h2 id="frame-interpolate"><a href="#frame-interpolate" class="headerlink" title="frame interpolate"></a>frame interpolate</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -y -i <span class="string">&quot;/root/Desktop/works/pyjom/tests/random_giphy_gifs/samoyed.gif&quot;</span> \</span><br><span class="line">-vf <span class="string">&quot;minterpolate,scale=w=iw*2:h=ih*2:flags=lanczos,hqdn3d&quot;</span> \</span><br><span class="line">-r 60 ffmpeg_samoyed.mp4</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="motion-estimation"><a href="#motion-estimation" class="headerlink" title="motion estimation"></a>motion estimation</h2><p>to get mosaic motion vectors and visualize:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i <span class="string">&quot;/root/Desktop/works/pyjom/tests/random_giphy_gifs/samoyed.gif&quot;</span> \</span><br><span class="line">-vf <span class="string">&quot;mestimate=epzs:mb_size=16:search_param=7, codecview=mv=pf+bf+bb&quot;</span>  \</span><br><span class="line">mestimate_output.mp4 -y</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="get-help"><a href="#get-help" class="headerlink" title="get help"></a>get help</h2><h3 id="on-specific-filter"><a href="#on-specific-filter" class="headerlink" title="on specific filter:"></a>on specific filter:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -h filter=showspectrumpic</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="on-all-filters"><a href="#on-all-filters" class="headerlink" title="on all filters:"></a>on all filters:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -filters</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="crop-detection-picture-in-picture-PIP-detection"><a href="#crop-detection-picture-in-picture-PIP-detection" class="headerlink" title="crop detection, picture in picture (PIP) detection"></a>crop detection, picture in picture (PIP) detection</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i <span class="string">&quot;/root/Desktop/works/pyjom/samples/video/LiEIfnsvn.mp4&quot;</span> \</span><br><span class="line">-vf <span class="string">&quot;mestimate,cropdetect=mode=mvedges,metadata=mode=print&quot;</span> \</span><br><span class="line">-f null -</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="scene-change-detection"><a href="#scene-change-detection" class="headerlink" title="scene change detection"></a><a target="_blank" rel="noopener" href="https://brontosaurusrex.github.io/2019/03/11/ffmpeg-scene-detection/">scene change detection</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -hide_banner -i <span class="string">&quot;<span class="variable">$file</span>&quot;</span> -an \</span><br><span class="line">-filter:v \</span><br><span class="line"><span class="string">&quot;select=&#x27;gt(scene,0.2)&#x27;,showinfo&quot;</span> \</span><br><span class="line">-f null \</span><br><span class="line">- 2&gt;&amp;1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="extract-motion-vectors"><a href="#extract-motion-vectors" class="headerlink" title="extract motion vectors"></a>extract motion vectors</h2><p>ffmpeg can produce motion vector estimation but it is not exportable, only for internal use.</p>
-<p>mp4 format provides motion vector information thus maybe we need not to use GPU to get those ‘optical flow’ data.</p>
-<h3 id="extract-by-using-ffmpeg-apis"><a href="#extract-by-using-ffmpeg-apis" class="headerlink" title="extract by using ffmpeg apis"></a>extract by using ffmpeg apis</h3><p><a target="_blank" rel="noopener" href="https://github.com/LukasBommes/mv-extractor">mv-extractor</a> Extract frames and motion vectors from H.264 and MPEG-4 encoded video.</p>
-<h3 id="extract-from-mp4-file"><a href="#extract-from-mp4-file" class="headerlink" title="extract from mp4 file"></a>extract from mp4 file</h3><p><a target="_blank" rel="noopener" href="https://github.com/vadimkantorov/mpegflow">mpegflow</a> for easy extraction of motion vectors stored in video files</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/jishnujayakumar/MV-Tractus">mv-tractus</a>: A simple tool to extract motion vectors from h264 encoded videos.</p>
-<h2 id="take-screenshot-at-time"><a href="#take-screenshot-at-time" class="headerlink" title="take screenshot at time:"></a><a target="_blank" rel="noopener" href="https://write.corbpie.com/taking-screenshot-with-ffmpeg/#:~:text=To%20take%20a%20screenshot%20or%20save%20a%20frame,means%20the%20frame%20number%20at%20the%20time%20specified.">take screenshot at time:</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -ss 01:10:35 -i invideo.mp4 -vframes 1 -q:v 3 screenshot.jpg</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="video-denoise-filters"><a href="#video-denoise-filters" class="headerlink" title="video denoise filters:"></a>video denoise filters:</h2><p>dctdnoiz fftdnoiz hqdn3d nlmeans owdenoise removegrain vaguedenoiser nlmeans_opencl yaepblur</p>
-<h2 id="super-resolution-resampling"><a href="#super-resolution-resampling" class="headerlink" title="super-resolution, resampling:"></a>super-resolution, resampling:</h2><h3 id="deeplearning-model-tensorflow"><a href="#deeplearning-model-tensorflow" class="headerlink" title="deeplearning model, tensorflow"></a>deeplearning model, tensorflow</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">env</span> LD_LIBRARY_PATH=/root/anaconda3/pkgs/cudatoolkit-10.0.130-0/lib/:/root/anaconda3/pkgs/cudnn-7.6.5-cuda10.0_0/lib/:<span class="variable">$LD_LIBRARY_PATH</span> \</span><br><span class="line">ffmpeg -i <span class="string">&quot;/root/Desktop/works/pyjom/samples/video/LiEIfnsvn.mp4&quot;</span> \</span><br><span class="line">-y -vf \</span><br><span class="line"><span class="string">&quot;sr=dnn_backend=tensorflow:model=./sr/espcn.pb,yaepblur&quot;</span> \</span><br><span class="line">supertest.mp4</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="use-standard-scale-method"><a href="#use-standard-scale-method" class="headerlink" title="use standard scale method:"></a>use standard scale method:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -y -i <span class="string">&quot;/root/Desktop/works/pyjom/tests/random_giphy_gifs/samoyed.gif&quot;</span>\</span><br><span class="line">-vf <span class="string">&quot;minterpolate,scale=w=iw*2:h=ih*2:flags=lanczos,hqdn3d&quot;</span> \</span><br><span class="line">-r 60 ffmpeg_samoyed.mp4</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="options"><a href="#options" class="headerlink" title="options:"></a>options:</h3><p>‘fast_bilinear’</p>
-<p>Select fast bilinear scaling algorithm.</p>
-<p>‘bilinear’</p>
-<p>Select bilinear scaling algorithm.</p>
-<p>‘bicubic’</p>
-<p>Select bicubic scaling algorithm.</p>
-<p>‘experimental’</p>
-<p>Select experimental scaling algorithm.</p>
-<p>‘neighbor’</p>
-<p>Select nearest neighbor rescaling algorithm.</p>
-<p>‘area’</p>
-<p>Select averaging area rescaling algorithm.</p>
-<p>‘bicublin’</p>
-<p>Select bicubic scaling algorithm for the luma component, bilinear for chroma components.</p>
-<p>‘gauss’</p>
-<p>Select Gaussian rescaling algorithm.</p>
-<p>‘sinc’</p>
-<p>Select sinc rescaling algorithm.</p>
-<p>‘lanczos’</p>
-<p>Select Lanczos rescaling algorithm. The default width (alpha) is 3 and can be changed by setting param0.</p>
-<p>‘spline’</p>
-<p>Select natural bicubic spline rescaling algorithm.</p>
-<p>‘print_info’</p>
-<p>Enable printing&#x2F;debug logging.</p>
-<p>‘accurate_rnd’</p>
-<p>Enable accurate rounding.</p>
-<p>‘full_chroma_int’</p>
-<p>Enable full chroma interpolation.</p>
-<p>‘full_chroma_inp’</p>
-<p>Select full chroma input.</p>
-<p>‘bitexact’</p>
-<p>Enable bitexact output.</p>
+		<h1 id="burpsuite-Pro-cracked-keygen"><a href="#burpsuite-Pro-cracked-keygen" class="headerlink" title="burpsuite Pro cracked keygen"></a>burpsuite Pro cracked keygen</h1><p>this makes me think of metasploit pro.</p>
+<p>burpsuite pro contains burp webapp scanner, will scan for common vulnerabilities, 0day exploits for highly dynamic webapps.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/d3417/BurpSuite-Pro-2021-Cracked">burpsuite pro 2021 keygen</a></p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/burpsuite/">python unofficial burpsuite api client</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/478151736">burpsuite 2022 crack</a></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/09/11/2842d760-78aa-4a8b-8d28-aca75f0d4785/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/12/02/6739d000-d0ef-4766-a294-6187bfe50ff7/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -327,8 +238,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-09-11 </div>
-			<div class="article-title"><a href="/blog/2022/09/11/40045752-3d9f-448c-81f9-83bf56fa84ec/" title="This article discusses a range of datasets suitable for deep learning, classification, and evaluation tasks. It highlights a collection of 100 audio and video datasets, a website specifically dedicated to video datasets, as well as the YouTube-8m dataset. These resources are valuable for AI projects involving data analysis and machine learning duties.">Unlocking The Power Of Ai: Exploring Deep Learning Datasets And Resources</a></div>
+			<div class="date"> 2022-11-29 </div>
+			<div class="article-title"><a href="/blog/2022/11/29/77ef81a1-4a56-4508-aa63-4872cf4370d5/" title="A list of potential zero-day exploits and vulnerabilities in school management systems, including links to resources for understanding and mitigating the &#39;edusrc 0day&#39; and &#39;bluecms 0day&#39; issues.">Discovering Zero-Day Exploits And Vulnerabilities In School Management Systems</a></div>
 		</h3>
 	
 
@@ -339,13 +250,13 @@
   <div class="row">
 	
 	
-		<h1 id="datasets-for-deeplearning-classification-and-evaluation"><a href="#datasets-for-deeplearning-classification-and-evaluation" class="headerlink" title="datasets for deeplearning, classification and evaluation"></a>datasets for deeplearning, classification and evaluation</h1><p><a target="_blank" rel="noopener" href="https://www.twine.net/blog/100-audio-and-video-datasets/">100 audio and video datasets</a></p>
-<p><a target="_blank" rel="noopener" href="http://videodatasets.org/">video datasets</a></p>
-<p>youtube8m</p>
+		<h1 id="0day-exploit-finder-recon"><a href="#0day-exploit-finder-recon" class="headerlink" title="0day exploit finder recon"></a>0day exploit finder recon</h1><p><a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1707131222599879140&wfr=spider&for=pc&searchword=%E6%80%8E%E4%B9%88%E6%8C%960day">学校后台漏洞</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_50464560/article/details/116419318">edusrc 0day</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/G208_522/article/details/123507319">bluecms 0day</a></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/09/11/40045752-3d9f-448c-81f9-83bf56fa84ec/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/11/29/77ef81a1-4a56-4508-aa63-4872cf4370d5/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -355,8 +266,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-09-11 </div>
-			<div class="article-title"><a href="/blog/2022/09/11/9917abc2-2a6a-4232-85a0-889a59d77595/" title="This article discusses Giphy&#39;s API and SDK keys, implementation details, and provides access to documentation and libraries for using their gif services. The comments offer insights on how to effectively integrate Giphy&#39;s offerings into various projects.">Random Giphy Gifs</a></div>
+			<div class="date"> 2022-11-29 </div>
+			<div class="article-title"><a href="/blog/2022/11/29/d4c5ec30-c75d-4838-a2c4-ca2cf6bb30cb/" title="This article discusses the exploitation of the Log4j vulnerability using Fofa API, offering resources for effective search and query techniques.">Exploiting Log4J Vulnerability With Fofa Api: A Comprehensive Guide</a></div>
 		</h3>
 	
 
@@ -367,38 +278,26 @@
   <div class="row">
 	
 	
-		<h2 id="gif-ratings"><a href="#gif-ratings" class="headerlink" title="gif ratings"></a>gif ratings</h2><p><a target="_blank" rel="noopener" href="https://support.giphy.com/hc/en-us/articles/360058840971-Content-Rating">official doc</a></p>
-<p>vulgar rate:</p>
-<p>r &gt; pg-13 &gt; pg &gt; g</p>
-<p>while ‘y’ means accepting all shits, not ‘youth’ nor ‘young’</p>
-<h2 id="implementation"><a href="#implementation" class="headerlink" title="implementation"></a>implementation</h2><p>giphy has many extensible apis. i guess most media platforms are all the same (complex enough), but we have to start somewhere though…</p>
-<p>giphy has ‘clips’ now. clips are gifs with sound, just like short videos.</p>
-<p>beta key limitations:</p>
-<p>1000 requests per day, 42 requests per hour</p>
-<p><del>or just use the public beta key? does that subject to the rate limit?</del></p>
-<p>this public beta key is trashed.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="variable constant_">PUBLIC_BETA_API_KEY</span> = <span class="string">&#x27;dc6zaTOxFJmzC&#x27;</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>is this public api key? maybe it is both api and sdk key.</p>
-<p>Gc7131jiJuvI7IdN0HZ1D7nh0ow5BU6g</p>
-<p>api keys:</p>
-<p>IoJVsWoxDPKBr6gOcCgOPWAB25773hqP</p>
-<p>lTRWAEGHjB1AkfO0sk2XTdujaPB5aH7X</p>
-<p>sdk keys:</p>
-<p>6esYBEm9OG3wAifbBFZ2mA0Ml6Ic0rvy</p>
-<p>sXpGFDGZs0Dv1mmNFvYaGUvYwKX0PWIh</p>
-<p>to use api:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/austinkelleher/giphy-api">https://github.com/austinkelleher/giphy-api</a></p>
-<p>to use sdk:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Giphy/giphy-js/blob/master/packages/fetch-api/README.md">https://github.com/Giphy/giphy-js/blob/master/packages/fetch-api/README.md</a></p>
-<p>find public api keys inside html:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_MOBILE_API_KEY</span> = <span class="string">&quot;L8eXbxrbPETZxlvgXN9kIEzQ55Df04v0&quot;</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_WEB_API_KEY</span> = <span class="string">&quot;Gc7131jiJuvI7IdN0HZ1D7nh0ow5BU6g&quot;</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_FOUR_O_FOUR_API_KEY</span> = <span class="string">&quot;MRwXFtxAnaHo3EUMrSefHWmI0eYz5aGe&quot;</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_STORIES_AND_GIPHY_TV_API_KEY</span> = <span class="string">&quot;3eFQvabDx69SMoOemSPiYfh9FY0nzO9x&quot;</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_DEFAULT_API_SERVICE_KEY</span> = <span class="string">&quot;5nt3fDeGakBKzV6lHtRM1zmEBAs6dsIc&quot;</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_GET_POST_HEADERS_KEY</span> = <span class="string">&quot;e0771ed7b244ec9c942bea646ad08e6bf514f51a&quot;</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_MEDIUM_BLOG_API_KEY</span> = <span class="string">&quot;i3dev0tcpgvcuaocfmdslony2q9er7tvfndxcszm&quot;</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">GIPHY_FE_EMBED_KEY</span> = <span class="string">&quot;eDs1NYmCVgdHvI1x0nitWd5ClhDWMpRE&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>search for ‘ear flops’ to locate the tags in ‘samoyed.html’</p>
+		<h1 id="My-fruitful-heist-attempt-with-fofa"><a href="#My-fruitful-heist-attempt-with-fofa" class="headerlink" title="My fruitful heist attempt with fofa"></a>My fruitful heist attempt with fofa</h1><p>Fofa api requires membership. I don’t want to enroll.</p>
+<p>You first test on your vulnerable machine&#x2F;app, develop scanner, exploiter and listener, then mass exploit to millions.</p>
+<p>All recorded here: <code>hack_all_the_thing/tests/get_log4j_vuln</code></p>
+<p><a target="_blank" rel="noopener" href="https://www.zoomeye.org/searchResult?q=log4j2&page=2&pageSize=20">zoomeye search for log4j</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.seebug.org/">seebug</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.shodan.io/search?query=log4j2">shodan query for log4j2 (or anything)</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_36001828/article/details/117729361?spm=1001.2101.3001.6650.2&utm_medium=distribute.wap_relevant.none-task-blog-2~default~CTRLIST~Rate-2-117729361-blog-121949437.wap_blog_relevant_default&depth_1-utm_source=distribute.wap_relevant.none-task-blog-2~default~CTRLIST~Rate-2-117729361-blog-121949437.wap_blog_relevant_default">狮子鱼团购 fofa查询漏洞</a></p>
+<p><a target="_blank" rel="noopener" href="https://hackertarget.com/sqlmap-post-request-injection/">Sqlmap post data inject</a></p>
+<p>To generate password dictionary without oom: <code>itertools.product(chrs, repeat=r)</code></p>
+<p><a target="_blank" rel="noopener" href="https://fofa.info/result?qbase64=YXBwPSJMb2c0ajIi&page=2&page_size=10">search log4j2 in browser after login</a></p>
+<p><a target="_blank" rel="noopener" href="https://fofa.info/hosts/121.199.46.85">info page of my first target</a> (login first!)</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/460403187?utm_id=0">fofa usage examples</a></p>
+<p><a target="_blank" rel="noopener" href="http://121.199.46.85:8888/admin/mylogin">My first target login page</a></p>
+<p><a target="_blank" rel="noopener" href="https://zww.gzjd.gov.cn/spa/spa/sdms?code=_PX5ips91MzPkvJJg--sfxzDdwAh0BDrBYbxPVSDXb8&state=STATE">gov site?</a></p>
+<p><a target="_blank" rel="noopener" href="https://gitee.com/xiaobingby/bing-upms/tree/master/src/test/java/com/xiaobingby">Bing-upms</a> the system used by my first target</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/topics/password-dictionaries">password dictionary topic in github</a></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/09/11/9917abc2-2a6a-4232-85a0-889a59d77595/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/11/29/d4c5ec30-c75d-4838-a2c4-ca2cf6bb30cb/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -408,8 +307,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-09-10 </div>
-			<div class="article-title"><a href="/blog/2022/09/10/afb0e7a8-9f05-497b-b492-baf9b4ca5821/" title="This article delves into techniques for circumventing internet limitations, obtaining YouTube video downloads, and web scraping from restricted sites. It suggests employing platforms like Binder as replacements to Google Colab, while also examining an assortment of Continuous Integration (CI) services offered by GitHub and other providers including CircleCI and Azure Pipelines. The article emphasizes the significance of accessing results promptly through coding.">Gfw Circumvention, Download Youtube Videos, Scrape Banned Websites</a></div>
+			<div class="date"> 2022-11-29 </div>
+			<div class="article-title"><a href="/blog/2022/11/29/b787c379-0a24-41f4-9f5e-40c1e7349186/" title="HackTheBox is a cybersecurity platform that provides users with a virtual hacking environment for practice and training. Unlike traditional CTF competitions, HackTheBox features real servers to enhance the learning experience. While there are alternatives such as 11topbestalternatives.com/hack-the-box/ and alternativeto.net/software/hack-the-box/, the platform can be accessed through its official website. Additionally, numerous writeups and guides are available online to assist users in their training.">Hackthebox</a></div>
 		</h3>
 	
 
@@ -420,17 +319,21 @@
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://mybinder.org/">binder</a> as colab alternative</p>
-<p>apart from kaggle, you can also use github actions, devops and more, if only we can get the results in time with code.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/marketplace?category=continuous-integration">github integrated ci platforms</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/cirruslabs/cirrus-ci-web/blob/master/schema.gql">cirrus graphql spec</a> with artifact info</p>
-<p><a target="_blank" rel="noopener" href="https://docs.github.com/en/rest/actions/artifacts#download-an-artifact">github actions api: download artifact</a></p>
-<p><a target="_blank" rel="noopener" href="https://circleci.com/docs/api/v1/index.html#artifacts">circleci: artifact</a></p>
-<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/rest/api/azure/devops/pipelines/artifacts?view=azure-devops-rest-6.0">azure pipelines: artifacts</a></p>
+		<p>这是一个靶场 和一般的CTF不一样 是有真的服务器在里面的</p>
+<p><a target="_blank" rel="noopener" href="https://discord.gg/senmmDM">discord chats</a></p>
+<h2 id="alternatives"><a href="#alternatives" class="headerlink" title="alternatives"></a>alternatives</h2><p><a target="_blank" rel="noopener" href="https://www.topbestalternatives.com/hack-the-box/">11 hack the box alternatives</a></p>
+<p><a target="_blank" rel="noopener" href="https://alternativeto.net/software/hack-the-box/">9 alternatives from alternativesto</a></p>
+<h2 id="usage"><a href="#usage" class="headerlink" title="usage"></a>usage</h2><p><a target="_blank" rel="noopener" href="https://www.hackthebox.com/?ref=parrotsec">official website</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45894840/article/details/123613510">usage</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_53263789/article/details/124892879">hackthebox 2022 writeup</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/162809412?utm_id=0">hackthebox october</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/371548694?utm_id=0">内网靶机渗透</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/333928748?utm_id=0">靶场练习</a></p>
+<p>你也可以用metasploitable进行练习</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/09/10/afb0e7a8-9f05-497b-b492-baf9b4ca5821/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/11/29/b787c379-0a24-41f4-9f5e-40c1e7349186/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -440,8 +343,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-09-09 </div>
-			<div class="article-title"><a href="/blog/2022/09/09/91b05803-40c8-47ad-ab8a-c323e236195b/" title="This article highlights the significance of adhering to copyright laws and avoiding circumvention while drawing content from large fan communities. It emphasizes the importance of properly citing sources and specifying the background music used, ensuring compliance with legal guidelines.">Copyright Issues Circumvention</a></div>
+			<div class="date"> 2022-11-29 </div>
+			<div class="article-title"><a href="/blog/2022/11/29/80ecad66-1b58-4a5e-ba26-d351c54dbaa6/" title="This article highlights various Hacker Forums and cybersecurity websites that offer valuable resources and tools to professionals in the field, including but not limited to: Leakbase, Breached, Xss, phrack.org, whitehats.com, nhs8.com, packetstormsecurity.com, and securityfocus.com.">hacker forums</a></div>
 		</h3>
 	
 
@@ -452,12 +355,236 @@
   <div class="row">
 	
 	
-		<p>only mention sources from major leagues (#fans &gt; 5k)</p>
-<p>mention the bgm you are using</p>
+		<p>some hacker forums like leakbase has <a target="_blank" rel="noopener" href="https://leakbase.cc/forums/-/index.rss">rss feed</a></p>
+<p>leakbase has <a target="_blank" rel="noopener" href="https://leakbase.cc/forums/proxy/">proxy section</a> in which you may find fresh proxy lists (may not work in mainland, but who knows?)</p>
+<p>search with the name or link of these forums in github and you will get more info about hacking.</p>
+<p><a target="_blank" rel="noopener" href="https://robbing.cash/">a bunch of hacker forums</a>, including:</p>
+<p><a href="breached.vc">Breached</a></p>
+<p><a href="xss.is">Xss</a></p>
+<p><a href="exploit.in">Exploit</a></p>
+<p><a target="_blank" rel="noopener" href="https://0x00sec.org/">0x00sec</a></p>
+<p><a target="_blank" rel="noopener" href="https://lolz.guru/">lolz</a></p>
+<p><a target="_blank" rel="noopener" href="https://leakzone.net/">Leakzone</a></p>
+<p><a target="_blank" rel="noopener" href="https://enclave.cc/">Enclave</a></p>
+<p><a target="_blank" rel="noopener" href="https://dublikat.cc/">dublikat</a></p>
+<p><a target="_blank" rel="noopener" href="https://vlmi.ws/">Vlmi</a></p>
+<p><a target="_blank" rel="noopener" href="https://omrt.cc/">Omrt</a></p>
+<p><a href="nulled.to">Nulled</a></p>
+<p><a target="_blank" rel="noopener" href="https://cracked.to/">Cracked</a></p>
+<p><a target="_blank" rel="noopener" href="https://coockie.pro/">Coockie</a></p>
+<p><a target="_blank" rel="noopener" href="https://altenens.is/">Altenens</a></p>
+<p><a target="_blank" rel="noopener" href="https://bidencash.cc/">Bidencash</a></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://wooyun.hctrah.com/">wooyun.org mirror site</a> wooyun is dead&#x2F;closed since 2016</p>
+<p>social engineering is just a fancy name for spotting candidates, hooking up, gaining trust and doing shit.</p>
+<p>in hacking we must be multilingual, as this shit is really hard to get right.</p>
+<p>you would read them sometime do you? you would collect info from these sites do you? you would search for things when you need it do you?</p>
+<p>You would like forums for dark web? Forum for hacking?</p>
+<p>你要的是社工库 提取出来的账号密码库 用来撞库？百度谷歌 QQ 百度云盘 github 磁力种子搜索</p>
+<p>when not reached, make sure you are in the channel!</p>
+<p>Offensive Community</p>
+<p>安全脉搏</p>
+<p>网络尖刀</p>
+<p>习科论坛</p>
+<p>红黑联盟</p>
+<p>黑客X档案</p>
+<p>Alternative to ‘raid forum’: visit it in archive.org!</p>
+<p>看雪论坛</p>
+<p>乌云论坛（archive里面看吧）</p>
+<p>吾爱破解</p>
+<p>3dm</p>
+<p>freebuf</p>
+<p>Hack Today</p>
+<p>GreySec Forums</p>
+<p>世界中文黑客论坛</p>
+<p>90Sec</p>
+<p>T00LS</p>
+<p><a target="_blank" rel="noopener" href="https://jaq.alibaba.com/community/index">https://jaq.alibaba.com/community/index</a></p>
+<p><a target="_blank" rel="noopener" href="http://bobao.360.cn/index/index">http://bobao.360.cn/index/index</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ichunqiu.com/">https://www.ichunqiu.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://pentesterlab.com/">https://pentesterlab.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://xianzhi.aliyun.com/forum/">https://xianzhi.aliyun.com/forum/</a></p>
+<p><a target="_blank" rel="noopener" href="http://lab.seclover.com/">http://lab.seclover.com/</a></p>
+<p>腾讯玄武实验室</p>
+<p><a target="_blank" rel="noopener" href="http://xlab.tencent.com/cn/">http://xlab.tencent.com/cn/</a></p>
+<p><a target="_blank" rel="noopener" href="https://xss.is/">xss.is</a></p>
+<p><a target="_blank" rel="noopener" href="https://cracked.io/">cracked.io</a></p>
+<p><a target="_blank" rel="noopener" href="https://breached.vc/">Breached forum</a> and <a target="_blank" rel="noopener" href="http://breached65xqh64s7xbkvqgg7bmj4nj7656hcb7x4g42x753r7zmejqd.onion/">onion</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.nulled.to/">nulled</a></p>
+<p><a href="dreadytofatroptsdj6io7l3xptbet6onoyno2yv7jicoxknyazubrad.onion">dread</a> (forum)</p>
+<p><a target="_blank" rel="noopener" href="https://leakbase.cc/">leakbase</a> forum leaked database</p>
+<p><a target="_blank" rel="noopener" href="https://exploit.in/">exploit.in</a> in russian</p>
+<p><a target="_blank" rel="noopener" href="http://hacktownpagdenbb.onion/">hacktown</a> hacking tutorial</p>
+<p><a target="_blank" rel="noopener" href="https://hackforums.net/">hackforums</a> site offline? another web archive shit?</p>
+<p><a target="_blank" rel="noopener" href="https://evilzone.org/">evilzone</a></p>
+<p>cryptbb is dead?</p>
+<p>freehacks dead?</p>
+<p>CrackingKing dead?</p>
+<p><a target="_blank" rel="noopener" href="http://envoys5appps3bin.onion/">envoy</a> dead?</p>
+<p><a target="_blank" rel="noopener" href="http://fahue6hb7odzns36vfoi2dqfvqvjq4btt7vo52a67jivmyz6a6h3vzqd.onion/">helium</a> dead?</p>
+<p>HackADay</p>
+<p>Exploit Database</p>
+<p>Tinkernut</p>
+<p>Dark Web Forum</p>
+<p>Jean Valjean forum</p>
+<p>Carding Team</p>
+<p>BiTSHACK</p>
+<p>SecList</p>
+<p>0Day</p>
+<p>HackerPlace</p>
+<p>0x00sec</p>
+<p>Hack5 Forums</p>
+<p>BHF</p>
+<p>Hack This Site</p>
+<p>KickAss</p>
+<p>Breaking Bad</p>
+<p>Packet Storm</p>
+<p>OpenSC</p>
+<p>HackMac</p>
+<p>Enigma Group</p>
+<p>Rohitab</p>
+<p>Ethical Hacker</p>
+<p>Cracking Forum</p>
+<p>Crackmes de</p>
+<p>Binary Revolution Hacking Forums</p>
+<p>Hack Hound</p>
+<p>Hellbound Hackers</p>
+<p><a href="ftp://www.ly2008.com/">ftp://www.ly2008.com</a></p>
+<p>用户名:ly2008</p>
+<p>密码:ly2008</p>
+<p><a target="_blank" rel="noopener" href="http://discovery0.blog.hexun.com/3271892_d.html">http://discovery0.blog.hexun.com/3271892_d.html</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.hackerxfiles.net/">http://www.hackerxfiles.net/</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.nohack.cn/">http://www.nohack.cn/</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.hacker.com.cn/">http://www.hacker.com.cn/</a></p>
+<p><a href="ftp://fseandxy1@y667.com/">ftp://fseandxy1@y667.com/</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.mmbest.com/SoftList/Catalog8/SoftList_Time_1.html">http://www.mmbest.com/SoftList/Catalog8/SoftList_Time_1.html</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.it-is.com.cn/dh/">http://www.it-is.com.cn/dh/</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.20cn.net/cgi-bin/download/down.cgi?list=passwd">http://www.20cn.net/cgi-bin/download/down.cgi?list=passwd</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.98919.com/index.html">http://www.98919.com/index.html</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.muvip119.net/2/index.html">http://www.muvip119.net/2/index.html</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.anqn.com/">http://www.anqn.com/</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.hf110.com/">http://www.hf110.com</a></p>
+<p><a target="_blank" rel="noopener" href="http://down.juntuan.net/index.html">http://down.juntuan.net/index.html</a></p>
+<p><a target="_blank" rel="noopener" href="http://new.shockhack.net/index.asp">http://new.shockhack.net/index.asp</a></p>
+<p><a target="_blank" rel="noopener" href="http://dx.hackbase.com/">http://dx.hackbase.com/</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.chinahonker.com/index.htm">http://www.chinahonker.com/index.htm</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.cnhacker.com/">http://www.cnhacker.com/</a></p>
+<p><a target="_blank" rel="noopener" href="http://77169.org/index.html">http://77169.org/index.html</a></p>
+<p>legionhiden4dqh4.onion - Let’s start with HeLL Reloaded, probably the only one that isn’t just awful. where Tor Carding Forum (TCF) members who weren’t arrested when it was seized are now dwelling! Not operated by the same people behind the original HeLL, but after the original was seized, some of the moderators and members made this site.</p>
+<p>exoduockgfq3ikf7.onion Ex0du$, Pretty mediocre forum, lots of shitty banking botnets being sold. Also ransomeware is the big thing recently, so of course that’s being sold. The code is HILARIOUS. RansomWare coded in visual basic, Java, C# and AutoIT v3! Great.</p>
+<p>damagelabraahzcu.onion - DamageLabs primarily russian forum, looks like there’s not much interesting going on here either. They have a good collection of pirated programming books.</p>
+<p>darkod3eeziu3w5p.onion - looks like a really dead forum.</p>
+<p>dublik2uqiorycsj.onion - dublik russian forum</p>
+<p>forohpysho2t5mjs.onion - another random forum</p>
+<p>1、独自等待：<a target="_blank" rel="noopener" href="https://www.waitalone.cn/">https://www.waitalone.cn/</a></p>
+<p>2、中国红客联盟：<a target="_blank" rel="noopener" href="https://www.ihonker.org/forum.php">https://www.ihonker.org/forum.php</a></p>
+<p>3、安全沙漏：<a target="_blank" rel="noopener" href="https://www.secsilo.com/about">https://www.secsilo.com/about</a></p>
+<p>4、易安在线：<a target="_blank" rel="noopener" href="https://www.e365.info/">https://www.e365.info/</a></p>
+<p>5、铁匠运维网：<a target="_blank" rel="noopener" href="http://www.tiejiang.org/">http://www.tiejiang.org/</a></p>
+<p>6、吾爱漏洞：<a target="_blank" rel="noopener" href="http://www.52bug.cn/">http://www.52bug.cn/</a></p>
+<p>7、破晓团队：<a target="_blank" rel="noopener" href="http://www.secbug.org/">http://www.secbug.org/</a></p>
+<p>8、黑白网：<a target="_blank" rel="noopener" href="http://www.heibai.org/178.html">http://www.heibai.org/178.html</a></p>
+<p>9、安全客：<a target="_blank" rel="noopener" href="https://www.anquanke.com/">https://www.anquanke.com/</a></p>
+<p>10、E安全：<a target="_blank" rel="noopener" href="https://www.easyaq.com/">https://www.easyaq.com/</a></p>
+<p>11、漏洞时代：<a target="_blank" rel="noopener" href="http://0day5.com/">http://0day5.com/</a></p>
+<p>12、猫头鹰：<a target="_blank" rel="noopener" href="http://www.mottoin.com/">http://www.mottoin.com/</a></p>
+<p>13、华域联盟论坛：<a target="_blank" rel="noopener" href="https://www.cnhackhy.com/forum.php">https://www.cnhackhy.com/forum.php</a></p>
+<p>14、逆向未来：<a target="_blank" rel="noopener" href="https://www.pd521.com/">https://www.pd521.com/</a></p>
+<p>15、邪恶八进制：<a target="_blank" rel="noopener" href="https://forum.eviloctal.com/">https://forum.eviloctal.com/</a></p>
+<p>16、飘云阁：<a target="_blank" rel="noopener" href="https://www.chinapyg.com/">https://www.chinapyg.com/</a></p>
+<p>17、红黑联盟：<a target="_blank" rel="noopener" href="http://bbs.2cto.com/">http://bbs.2cto.com/</a></p>
+<p>18、技术宅的世界：<a target="_blank" rel="noopener" href="https://www.0xaa55.com/">https://www.0xaa55.com/</a></p>
+<p>19、安全牛：<a target="_blank" rel="noopener" href="https://www.aqniu.com/">https://www.aqniu.com/</a></p>
+<p>20、兄弟论坛：<a target="_blank" rel="noopener" href="http://hackxd.com/">http://hackxd.com/</a></p>
+<p>21、零日安全：<a target="_blank" rel="noopener" href="https://www.jmpoep.com/">https://www.jmpoep.com/</a></p>
+<p>22、南域剑盟：<a target="_blank" rel="noopener" href="http://www.98exe.net/">http://www.98exe.net/</a></p>
+<p>23、黑基论坛：<a target="_blank" rel="noopener" href="http://www.safebase.cn/">http://www.safebase.cn/</a></p>
+<p>24、网络攻防小组（WLGF）：<a target="_blank" rel="noopener" href="http://www.nsoad.com/">http://www.nsoad.com/</a></p>
+<p>25、黑吧安全网：<a target="_blank" rel="noopener" href="http://www.myhack58.com/">http://www.myhack58.com/</a></p>
+<p>26、幽灵学院：<a target="_blank" rel="noopener" href="http://www.41443.com/">http://www.41443.com/</a></p>
+<p>纵观黑客发展史，大可分为三代：</p>
+<p>第一代：专门从事计算机、网络，其代表组织为“绿色兵团”（1996年—1998年）</p>
+<p>第二代：网络爱好者和在校学生.其代表组织为“中国黑客联盟”（1998年—2000年）</p>
+<p>第三代：在校学生，其代表组织为“红客联盟”，“中国鹰派”（2000年—今）</p>
+<p>以下为几个典型的黑客组织：</p>
+<p>●安全焦点（代表人：冰河）网址：<a target="_blank" rel="noopener" href="http://www.xfocus.net/">www.xfocus.net</a></p>
+<p>●绿色兵团（已解散）（代表人：龚蔚）</p>
+<p>●中国鹰派联盟（代表人：老鹰）网址：<a target="_blank" rel="noopener" href="http://www.chinaeagle.org/">www.chinaeagle.org</a>   博客：blog.sina.com.cn&#x2F;u&#x2F;1262168602</p>
+<p>●小榕工作室（代表人：小榕）网址：<a target="_blank" rel="noopener" href="http://www.netxeyes.com/">www.netxeyes.com</a></p>
+<p>●第八军团（代表人：陈三公子）网址：<a target="_blank" rel="noopener" href="http://www.sec520.com/">www.sec520.com</a></p>
+<p>●邪恶八进制（代表人：冰血封情）网址：forum.eviloctal.com</p>
+<p>●黑客基地（代表人：孤独剑客）网址：<a target="_blank" rel="noopener" href="http://www.hackbase.com/">www.hackbase.com</a></p>
+<p>●华夏黑客同盟（代表人:怪狗）网址：<a target="_blank" rel="noopener" href="http://www.77169.com/">www.77169.com</a></p>
+<p>●牧民网安（代表人：牧民战天）网址：<a target="_blank" rel="noopener" href="http://www.hack006.com/">www.hack006.com</a></p>
+<p>●黑客防线 网址：<a target="_blank" rel="noopener" href="http://www.hacker.com.cn/">www.hacker.com.cn</a></p>
+<p>国外黑客组织站点及介绍黑客知识的网站：</p>
+<p>●<a target="_blank" rel="noopener" href="http://www.security.nnov.ru/%EF%BC%8C%E4%BF%84%E7%BD%97%E6%96%AF%E7%9A%84%E4%B8%80%E4%B8%AA%E5%AE%89%E5%85%A8%E7%AB%99%E7%82%B9">http://www.security.nnov.ru/，俄罗斯的一个安全站点</a></p>
+<p>●<a target="_blank" rel="noopener" href="http://chess.eecs.berkeley.edu/trust/%E5%8A%A0%E5%B7%9E%E5%A4%A7%E5%AD%A6%E4%BC%AF%E5%85%8B%E5%88%A9%E5%88%86%E6%A0%A1%E2%80%9C%E6%99%AE%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6%E5%B0%8F%E7%BB%84%E2%80%9D%E7%BD%91%E7%AB%99">http://chess.eecs.berkeley.edu/trust/加州大学伯克利分校“普安全技术研究小组”网站</a></p>
+<p>●<a target="_blank" rel="noopener" href="http://www.io.com/.vkp%E7%9A%84%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%EF%BC%8Clinux%E5%AE%89%E5%85%A8%E6%96%B9%E9%9D%A2%E7%9A%84%E4%B8%93%E4%B8%9A%E4%BA%BA%E5%91%98(%E7%A8%8B%E5%BA%8F%E5%91%98)">http://www.io.com/.vkp的个人主页，linux安全方面的专业人员(程序员)</a>.</p>
+<p>●<a target="_blank" rel="noopener" href="http://linsec.ca/%E5%8A%A0%E6%8B%BF%E5%A4%A7%E4%B8%80%E4%B8%AA%E4%B8%BB%E8%A6%81%E6%94%B6%E9%9B%86linux%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E6%96%87%E6%A1%A3%E8%B5%84%E6%96%99%E7%9A%84%E7%AB%99%E7%82%B9">http://linsec.ca/加拿大一个主要收集linux安全相关的文档资料的站点</a>, 也包括其它类Unix系统如OpenBSD, Mac OS X等.</p>
+<p>●<a target="_blank" rel="noopener" href="http://www.rootsecure.net/%E4%B8%80%E4%B8%AA%E4%B8%93%E9%97%A8%E4%B8%BA%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98%E5%92%8C%E9%BB%91%E5%AE%A2%E6%8F%90%E4%BE%9B%E5%AE%89%E5%85%A8%E6%96%B0%E9%97%BB%E7%9A%84%E7%BD%91%E7%AB%99%EF%BC%8C%E6%88%90%E7%AB%8B%E4%BA%8E2002%E5%B9%B49%E6%9C%888%E6%97%A5">http://www.rootsecure.net/一个专门为系统管理员和黑客提供安全新闻的网站，成立于2002年9月8日</a></p>
+<p>●<a target="_blank" rel="noopener" href="http://astalavista.box.sk.著名的软件破解网站/">http://astalavista.box.sk.著名的软件破解网站</a></p>
+<p>●auscert.org.au.一个很棒的黑客工具和入侵攻击的搜索网站</p>
+<p>●<a target="_blank" rel="noopener" href="http://www.elitehackers.info/.%E4%B8%BA%E5%8D%9A%E5%AD%A6%E7%9A%84%E9%BB%91%E5%AE%A2%E6%8F%90%E4%BE%9B%E7%9A%84%E4%BF%A1%E6%81%AF%E5%85%AC%E5%91%8A%E7%89%8C%EF%BC%8C%E6%98%AF%E4%B8%8A%E4%BA%86%E7%AD%89%E7%BA%A7%E7%9A%84%E9%BB%91%E5%AE%A2%E5%8E%BB%E7%9A%84%E5%9C%B0%E6%96%B9%E3%80%82%E5%8F%AF%E6%89%BE%E5%88%B0%E6%9C%80%E6%96%B0%E7%9A%84%E5%85%A5%E4%BE%B5%E6%94%BB%E5%87%BB%E5%8F%8A%E5%AF%B9%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95">http://www.elitehackers.info/.为博学的黑客提供的信息公告牌，是上了等级的黑客去的地方。可找到最新的入侵攻击及对解决办法</a></p>
+<p>●<a href="ftp://ftp.nec.com/.%E5%9C%A8/pub/securit%E7%9B%AE%E5%BD%95%E4%B8%8B%E9%9D%A2%E5%8C%85%E5%90%AB%E4%B8%80%E4%B8%AA%E5%B7%A8%E5%A4%A7%E7%9A%84%E5%B7%A5%E5%85%B7%E5%BA%93">ftp://ftp.nec.com/.在/pub/securit目录下面包含一个巨大的工具库</a></p>
+<p>●ftp.win.tue.nl.在&#x2F;pub&#x2F;securit目录下包含巨大的安全工具库</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.neohapsis.com/">http://www.neohapsis.com/</a> 内容极为丰富</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.deadly.org/">http://www.deadly.org/</a> 大量关于OpenBSD的资料文档教程</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.guninski.com/">http://www.guninski.com/</a> 安全专家Guninski的主页，有大量由系统漏洞</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.sysinternals.com/">http://www.sysinternals.com</a> 有很好的windows下的工具及源代码</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.securityflaw.com/bible/">http://www.securityflaw.com/bible/</a> 入侵检测等文档整理较好的站点</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.secinf.net/">http://www.secinf.net/</a> 网络安全方面的大量文档</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.incident-response.org/">http://www.incident-response.org</a> 入侵反应，数据恢复工具等</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.securityfocus.com/">http://www.securityfocus.com/</a> 安全资料整合最好的站</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.project.honeynet.org/">http://www.project.honeynet.org/</a> 由安全界一帮牛人组织的一个project</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.packetstormsecurity.com/">http://www.packetstormsecurity.com</a> 资料全面的安全站</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.securityportal.com/">http://www.securityportal.com/</a> 还可以看看的安全站</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.ussrback.com/">http://www.ussrback.com/</a> 比较活跃的安全站</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.attrition.org/">http://www.attrition.org/</a> 内容全面的安全站</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.wiretrip.net/rfp/2/index.asp">http://www.wiretrip.net/rfp/2/index.asp</a> rfp的安全主页，提供权威的安全信息</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.antionline.com/">http://www.antionline.com/</a> 有些特色栏目的安全站</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.eeye.com/">http://www.eeye.com/</a> eeye公司的主页，提供权威性的安全建议和工具</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.insecure.org/">http://www.insecure.org/</a> Fyodor的主页，nmap的老家，还有exploit</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.atstake.com/">http://www.atstake.com/</a> @stack公司的主页，提供权威的安全建议</p>
+<p>国外安全 <a target="_blank" rel="noopener" href="http://www.bugnet.com/">http://www.bugnet.com/</a> 提供漏洞修补</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://lsd-pl.net/">http://lsd-pl.net/</a> LsD的站,最新最有效的exploit</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.s0ftpj.org/">http://www.s0ftpj.org</a> 提供一些水平很高的小工具</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://phrack.org/">http://phrack.org/</a> Phrack的主页，经典的黑客技术电子杂志</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.w00w00.org/">http://www.w00w00.org/</a> w00w00组织的主页</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://mixter.void.ru/">http://mixter.void.ru/</a> Mixter的个人主页，不少有用的工具</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.thehackerschoice.com/">http://www.thehackerschoice.com/</a> THC黑客组织的页面，很好的安全文档和工具</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.win2000mag.net/">www.win2000mag.net</a> Windows &amp; .NET Magazine Network 绝对专业的站点，文章都是一流的</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.2600.com/">http://www.2600.com/</a> 2600 Magazine</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.experts-exchange.com/">www.experts-exchange.com</a> 全球有名的社区</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.is-it-true.org/">www.is-it-true.org</a> 类似于FAQ的站点，资源丰富</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.mixter.warrior2k.com/">www.mixter.warrior2k.com</a> mixter security</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.liun.hektik.org/">www.liun.hektik.org</a> Long Island our Underground Networks</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.ussrback.com/">www.ussrback.com</a> ussr is back</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.securiteam.com/">www.securiteam.com</a> 非常好的安全文章漏洞利用工具下载站点</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.lsd-pl.net/">www.lsd-pl.net</a> The Last Stage of Delirium Research Group</p>
+<p>国外黑客 www. neworder.box.sk Box Network team</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.sysinternals.com/">www.sysinternals.com</a> sysinternals</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.webattack.com/">www.webattack.com</a> WebAttack Inc</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://www.blackhat.com/">www.blackhat.com</a> Black Hat, Inc</p>
+<p>国外黑客 <a target="_blank" rel="noopener" href="http://p.ulh.as/">http://p.ulh.as</a> pulhas</p>
+<p><a target="_blank" rel="noopener" href="http://www.hack.co.za/">http://www.hack.co.za</a> (国外著名黑客站点，较全的Exploit库)</p>
+<p><a target="_blank" rel="noopener" href="http://www.phrack.org/">http://www.phrack.org</a> (经典的黑客技术电子杂志)</p>
+<p><a target="_blank" rel="noopener" href="http://www.antionline.com/">http://www.antionline.com</a> (国外经典黑客站点)</p>
+<p><a target="_blank" rel="noopener" href="http://whitehats.com/">http://whitehats.com</a> (白帽子网站，有最新的规则库下载，关于Snort等)</p>
+<p><a target="_blank" rel="noopener" href="http://lsd-pl.net/">http://lsd-pl.net</a> (发布最新的Exploit程序)</p>
+<p><a target="_blank" rel="noopener" href="http://www.nhs8.com/">http://www.nhs8.com/</a> 神刀网</p>
+<p><a target="_blank" rel="noopener" href="http://packetstormsecurity.com/">http://packetstormsecurity.com</a> (国外著名漏洞库，有大量exploit程序)</p>
+<p><a target="_blank" rel="noopener" href="http://oliver.efri.hr/~crv/security/bugs/list.html">http://oliver.efri.hr/~crv/security/bugs/list.html</a> (有整理好的最新漏洞库供下载)</p>
+<p><a target="_blank" rel="noopener" href="http://astalavista.box.sk/">http://astalavista.box.sk</a> (著名的软件破解网站)</p>
+<p><a target="_blank" rel="noopener" href="http://www.thehackerschoice.com/">http://www.thehackerschoice.com</a> (THC黑客组织的站点，有很多资料和工具)</p>
+<p><a target="_blank" rel="noopener" href="http://www.insecure.org/">http://www.insecure.org</a> (Fyoderr的个人站点,即Nmap的老家)</p>
+<p><a target="_blank" rel="noopener" href="http://www.securityfocus.com/">http://www.securityfocus.com/</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.milw0rm.com/">http://www.milw0rm.com/</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.metasploit.com/">http://www.metasploit.com/</a></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/09/09/91b05803-40c8-47ad-ab8a-c323e236195b/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/11/29/80ecad66-1b58-4a5e-ba26-d351c54dbaa6/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -467,8 +594,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-09-08 </div>
-			<div class="article-title"><a href="/blog/2022/09/08/997dc98a-8883-482a-9b93-d3cff49e984f/" title="This article explores the use of special control characters in conjunction with &#39;expect send&#39; commands, providing a deeper understanding of their functionality and purpose. For more detailed information, refer to the accompanying blog post.">Expect Send Special Control Chars</a></div>
+			<div class="date"> 2022-11-28 </div>
+			<div class="article-title"><a href="/blog/2022/11/28/b7f08b1f-e6c0-4c0a-b740-b9d4b7fed842/" title="This article highlights popular AI libraries and tools for different tasks, such as recommendation systems (Surprise, LightFM), time series forecasting (Prophet), subword embeddings (Bpemb), and more including XGBoost, Chakin, H2O AutoML, Awesome H2O, Numenta&#39;s Nupic doc, DESlib, and TFlearn. Each library is explained in detail to help readers understand their features and capabilities.">Exploring Popular Ai Libraries And Tools For Various Tasks</a></div>
 		</h3>
 	
 
@@ -479,11 +606,25 @@
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34114823/article/details/91765887?spm=1001.2101.3001.6650.4&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-4-91765887-blog-49175707.pc_relevant_multi_platform_whitelistv5&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-4-91765887-blog-49175707.pc_relevant_multi_platform_whitelistv5&utm_relevant_index=9">reference blog</a></p>
+		<h1 id="popular-AI-libraries"><a href="#popular-AI-libraries" class="headerlink" title="popular AI libraries"></a>popular AI libraries</h1><p>thers’s something missing in the agi field.</p>
+<p><a target="_blank" rel="noopener" href="https://xgboost.readthedocs.io/en/stable/get_started.html">xgboost binary classification</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Hironsan/awesome-embedding-models">awesome embedding models</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/chakki-works/chakin">chakin: simple downloader for embedding models</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/bheinzerling/bpemb">bpemb: pretrained subword embeddings for many languages</a></p>
+<p><a target="_blank" rel="noopener" href="https://facebook.github.io/prophet/docs/quick_start.html#python-api">prophet python tutorial time series forcast</a></p>
+<p><a target="_blank" rel="noopener" href="http://tflearn.org/">tflearn: high level wrappers for tensorflow</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.h2o.ai/h2o/latest-stable/h2o-docs/automl.html">h2o automl docs</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/h2oai/awesome-h2o">awesome h2o</a> for h2o beginners</p>
+<p><a target="_blank" rel="noopener" href="http://nupic.docs.numenta.org/stable/index.html">numenta nupic doc</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Menelau/DESlib">deslib</a> dynamic classifier and ensemble library</p>
+<h2 id="recommendation-system"><a href="#recommendation-system" class="headerlink" title="recommendation system"></a>recommendation system</h2><p><a target="_blank" rel="noopener" href="https://github.com/muricoca/crab">crab</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/NicolasHug/Surprise">surprise</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ocelma/python-recsys">python recsys</a> recommendation system</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lyst/lightfm">lightfm</a> recsys</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/09/08/997dc98a-8883-482a-9b93-d3cff49e984f/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/11/28/b7f08b1f-e6c0-4c0a-b740-b9d4b7fed842/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -493,8 +634,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-09-08 </div>
-			<div class="article-title"><a href="/blog/2022/09/08/7246fc7e-4d68-4e59-9c24-593920bedc40/" title="This article discusses the process of calling Java code from Python using jpype or pyjnius libraries, allowing for seamless integration between the two languages. Additionally, it covers the usage of the com.github.pemistahl.lingua.api library to detect the language within a given text.">Calling Java From Python</a></div>
+			<div class="date"> 2022-11-28 </div>
+			<div class="article-title"><a href="/blog/2022/11/28/09ef4b96-05fa-40e2-89ff-98a4ec64a961/" title="This article delves into the creation of anonymous payment methods and the usage of masked email addresses for activities such as generating magnet links, producing password-protected adult content or software with viruses. It offers insights into techniques to protect privacy and carry out potentially sensitive transactions.">Mastering Anonymous Payment Methods And Disguised Email Addresses</a></div>
 		</h3>
 	
 
@@ -505,16 +646,12 @@
   <div class="row">
 	
 	
-		<p>using <a target="_blank" rel="noopener" href="https://jpype.readthedocs.io/en/latest/userguide.html?highlight=jar#class-paths">jpype</a> or <a target="_blank" rel="noopener" href="https://github.com/kivy/pyjnius">pyjnius</a></p>
-<p>sample code for jpype:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> jpype <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> jpype.imports <span class="comment"># this is needed! shit.</span></span><br><span class="line">addClassPath(<span class="string">&quot;/root/Desktop/works/pyjom/tests/karaoke_effects/classpath/lingua.jar&quot;</span>)</span><br><span class="line">startJVM(getDefaultJVMPath())</span><br><span class="line">java.lang.System.out.println(<span class="string">&quot;Calling Java Print from Python using Jpype!&quot;</span>)</span><br><span class="line"><span class="keyword">from</span> com.github.pemistahl.lingua.api <span class="keyword">import</span> *</span><br><span class="line"><span class="comment"># detector = LanguageDetectorBuilder.fromAllLanguages().withLowAccuracyMode().build()</span></span><br><span class="line">detector = LanguageDetectorBuilder.fromAllLanguages().build() <span class="comment"># 3.5GB just for detecting language! it is somehow crazy.</span></span><br><span class="line">sample = <span class="string">&#x27;hello world&#x27;</span></span><br><span class="line">result = detector.detectLanguageOf(sample)</span><br><span class="line"><span class="built_in">print</span>(result, <span class="built_in">type</span>(result)) <span class="comment"># &lt;java class &#x27;com.github.pemistahl.lingua.api.Language&#x27;&gt;</span></span><br><span class="line"><span class="comment"># but we can convert it into string.</span></span><br><span class="line">strResult = <span class="built_in">str</span>(result)</span><br><span class="line"><span class="built_in">print</span>(strResult, <span class="built_in">type</span>(strResult))</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;CALLING MATH: %d&quot;</span> % math.sqrt(<span class="number">4</span>))</span><br><span class="line">shutdownJVM()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>sample for pyjnius:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> jnius_config</span><br><span class="line"><span class="comment"># jnius_config.add_options(&#x27;-Xrs&#x27;, &#x27;-Xmx4096&#x27;)</span></span><br><span class="line">jnius_config.set_classpath(<span class="string">&#x27;.&#x27;</span>, <span class="string">&quot;/root/Desktop/works/pyjom/tests/karaoke_effects/classpath/lingua.jar&quot;</span>)</span><br><span class="line"><span class="keyword">import</span> jnius</span><br><span class="line">jnius.autoclass(<span class="string">&#x27;java.lang.System&#x27;</span>).out.println(<span class="string">&#x27;Hello world&#x27;</span>)</span><br><span class="line">detector = jnius.autoclass(<span class="string">&#x27;com.github.pemistahl.lingua.api.LanguageDetectorBuilder&#x27;</span>).fromAllLanguages().build()</span><br><span class="line">sample = <span class="string">&#x27;hello world&#x27;</span></span><br><span class="line">result = detector.detectLanguageOf(sample)</span><br><span class="line"><span class="built_in">print</span>(result, <span class="built_in">type</span>(result))</span><br><span class="line"><span class="comment"># breakpoint()</span></span><br><span class="line">strResult = result.toString()</span><br><span class="line"><span class="built_in">print</span>(strResult, <span class="built_in">type</span>(strResult))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+		<h1 id="modify-create-magnet-links-create-porn-videos-some-important-contents-with-password-with-payment-method-or-provide-software-for-free-with-virus"><a href="#modify-create-magnet-links-create-porn-videos-some-important-contents-with-password-with-payment-method-or-provide-software-for-free-with-virus" class="headerlink" title="modify&#x2F;create magnet links, create porn videos&#x2F;some important contents with password with payment method, or provide software for free with virus"></a>modify&#x2F;create magnet links, create porn videos&#x2F;some important contents with password with payment method, or provide software for free with virus</h1><p>you do not want to expose yourself. use anonymous email or disposable contact methods.</p>
+<p>payment methods also have to be anonymous.</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/09/08/7246fc7e-4d68-4e59-9c24-593920bedc40/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/11/28/09ef4b96-05fa-40e2-89ff-98a4ec64a961/#more" class="btn btn-default more">Read More</a>
 </div>
 
            

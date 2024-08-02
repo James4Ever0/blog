@@ -197,7 +197,7 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2022-07-09 </div>
-			<div class="article-title"><a href="/blog/2022/07/09/cd5256e9-1cff-409b-9b65-63b9939f0047/" title="Bilibili APIs allow developers to create tools and applications in various languages like Python for tasks such as video uploading, user account management, and more.">哔哩哔哩 接口 Bilibili Apis</a></div>
+			<div class="article-title"><a href="/blog/2022/07/09/fe382d8c-9d48-4445-85fa-ecc16608ecfe/" title="This article discusses Bilibili APIs and the tools available for accessing them, such as different API collections and Python libraries like fake_useragent and curl-cffi. These tools help in making requests to Bilibili APIs.">哔哩哔哩 接口 Bilibili Apis</a></div>
 		</h3>
 	
 
@@ -208,7 +208,14 @@
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://github.com/biliup/biliup">bilibili上传工具 biliup</a></p>
+		<p>哔哩哔哩对user agent有校验 要使用浏览器的UA或者fake_useragent的UA</p>
+<p>生成随机的<code>dm_*</code>参数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="string">&quot;dm_img_list&quot;</span>: <span class="string">&quot;[]&quot;</span>,  <span class="comment"># 鼠标/键盘操作记录</span></span><br><span class="line"><span class="string">&quot;dm_img_str&quot;</span>: <span class="string">&quot;&quot;</span>.join(random.sample(dm_rand, <span class="number">2</span>)),</span><br><span class="line"><span class="string">&quot;dm_cover_img_str&quot;</span>: <span class="string">&quot;&quot;</span>.join(random.sample(dm_rand, <span class="number">2</span>)),</span><br><span class="line"><span class="string">&quot;dm_img_inter&quot;</span>: <span class="string">&#x27;&#123;&quot;ds&quot;:[],&quot;wh&quot;:[0,0,0],&quot;of&quot;:[0,0,0]&#125;&#x27;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>合成<code>wbi</code>校验数据的算法没有变化</p>
+<p>如果有必要的话，用<code>curl-cffi</code>对抗tls fingerprinting</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://github.com/biliup/biliup">bilibili上传工具 biliup</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/Hsury/Bilibili-Toolkit">bilibili toolkit</a></p>
 <p>api合集</p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv3430609/">https://www.bilibili.com/read/cv3430609/</a></p>
@@ -220,13 +227,13 @@
 <p><a target="_blank" rel="noopener" href="https://github.com/SocialSisterYi/bilibili-API-collect">https://github.com/SocialSisterYi/bilibili-API-collect</a></p>
 <p>python api</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/MoyuScript/bilibili-api">https://github.com/MoyuScript/bilibili-api</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Nemo2011/bilibili-api">https://github.com/Nemo2011/bilibili-api</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Nemo2011/bilibili-api">https://github.com/Nemo2011/bilibili-api</a> (current)</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/Vespa314/bilibili-api">https://github.com/Vespa314/bilibili-api</a></p>
 <p><a target="_blank" rel="noopener" href="https://nemo2011.github.io/bilibili-api/#/examples/interactive_video">提交视频剧情树</a></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/07/09/cd5256e9-1cff-409b-9b65-63b9939f0047/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/07/09/fe382d8c-9d48-4445-85fa-ecc16608ecfe/#more" class="btn btn-default more">Read More</a>
 </div>
 
 	       

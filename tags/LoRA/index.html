@@ -116,6 +116,75 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2023-05-04 </div>
+			<div class="article-title"><a href="/blog/2023/05/04/d361bf81-d50c-4031-af5e-cf0d860f5bff/" title="This article provides detailed information on a wide range of topics, including creating tokenizers and embeddings using ChatGPT-derived projects, remotely controlling OBS, handling complex neural networks, generating multimodal data output, utilizing LoRA for AI model performance improvement, annotating datasets, developing task-specific embeddings in classification models, working with various libraries for managing neural networks, considering VNC server factors, using `webdav-cli`, recording video on Ubuntu ARM VM, adjusting display settings in UTM VMs, and resizing UTM VM disks via virtio disk resizing and Gparted.">Agi That Controls Computer</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>make specialized (in RPA) tokenizer and embedding for this new model. add new words to the tokenizer.</p>
+<hr>
+<p>you can just boot ubuntu&#x2F;kali&#x2F;parrot iso without installing.</p>
+<p>but that would make us embarrasing. we need to check for the option.</p>
+<hr>
+<p>use ChatGPT-derived projects for localized propaganda on CyberGod and The Frozen Forest.</p>
+<h2 id="obs-remote-control"><a href="#obs-remote-control" class="headerlink" title="obs remote control"></a>obs remote control</h2><p>using <a target="_blank" rel="noopener" href="https://github.com/obsproject/obs-websocket">obs-websocket</a> you can use python to do real scripting. but first spin up obs first (with websocket related commandline arguments)</p>
+<p>launch obs in minimized way <code>obs --minimize-to-tray</code> or just using xvfb.</p>
+<p>you can also write and load scripts for obs, run on custom intervals and conditions.</p>
+<h2 id="audio-recording"><a href="#audio-recording" class="headerlink" title="audio recording"></a>audio recording</h2><p>your OS may go slient if you want to record audio from “speakers”</p>
+<hr>
+<p>using pyaudio, on macos, you need blackhole for sending all audio to oblivion, thus able to be recorded.</p>
+<p>on Linux, you need audio loopback device.</p>
+<p>run: <code>sudo modprobe snd-aloop</code></p>
+<p>you use <code>hw:1:0</code> or “Analog Device Output” for slient output&#x2F;speaker, and use <code>hw:1:1</code> or “Analog Device Input” for recording.</p>
+<h2 id="benchmarks"><a href="#benchmarks" class="headerlink" title="benchmarks"></a>benchmarks</h2><p>it is always a mystery for us to develop the right ML model. however, we can setup guidelines of good performance over specific task.</p>
+<p>automate the benchmark, setup metrics. there could be more room for trials and imagination.</p>
+<h2 id="encoding"><a href="#encoding" class="headerlink" title="encoding"></a>encoding</h2><p>use hfft&#x2F;rfft to transform multipart inputs (special bits, different part of mouse coords (x, y, dx, dy))</p>
+<p>if you want to use complex number as RNN input, you may need to swap ViT for ComplexConv2D, but maybe you just need a few.</p>
+<hr>
+<p>libraries that handle complex neural networks:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/wavefrontshaping/complexPyTorch">complexPyTorch</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/soumickmj/pytorch-complex">pytorch-complex</a></p>
+<h2 id="multimodal"><a href="#multimodal" class="headerlink" title="multimodal"></a>multimodal</h2><p>do our model have to output multimodal data?</p>
+<p>if you combine some “special” bits along with token embeding by ihfft, you may have to retrain the entire damn network. also in order to make way for special bits, you may have to introduce extra linear layer.</p>
+<hr>
+<p>some may prefer “LoRA”? by only introducing few tunable params and changing the overall output?</p>
+<hr>
+<p>we may not annotate anything in our dataset. in contrast, we will set goals and make multiple interfaces for our model to explore.</p>
+<hr>
+<p>you can add special task specific embedding before passing to main model, then minus that task specific embedding after passing to classification model.</p>
+<h2 id="file-sharing-and-communication"><a href="#file-sharing-and-communication" class="headerlink" title="file sharing and communication"></a>file sharing and communication</h2><p>make sure you don’t share important files as read&#x2F;write on VM.</p>
+<hr>
+<p>you may host some “execution server” on UTM VMs. you may expose your very large hard disk using WebDAV server. i think x11vnc and other vnc server may suffice for linux, but we always want to listen to the real operational data, including human operation&#x2F;intervention, not just those in VNC protocols.</p>
+<hr>
+<p>WebDAV servers:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mar10/wsgidav">wsgidav</a> (python)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wsgidav --host=192.168.64.1 --port=8081 --root=<span class="string">&quot;/Volumes/Toshiba XG3/works/agi_computer_control&quot;</span>  --auth=anonymous</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/svtslv/webdav-cli">webdav-cli</a> （nodejs)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">webdav-cli --host=192.168.64.1 --port=8081 --username=root --password=root --path=<span class="string">&quot;/Volumes/Toshiba XG3/works/agi_computer_control&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="video-recording"><a href="#video-recording" class="headerlink" title="video recording"></a>video recording</h2><p>for Ubuntu ARM VM, <code>mss</code> failed on wayland but <code>pyautogui</code> works in both cases. write one python script to pipe raw images to ffmpeg for better compression ratio by shell. the final video is not “time-accurate”. it is frame by frame, matched with timestamps.</p>
+<hr>
+<p>forcing ubuntu to use xorg by: <code>sudo vim /etc/gdm3/custom.conf</code></p>
+<h2 id="resize-UTM-VM-disks"><a href="#resize-UTM-VM-disks" class="headerlink" title="resize UTM VM disks"></a>resize UTM VM disks</h2><p>you need to first resize the virtio disk in utm setting, then resize partition by using gparted, then <a target="_blank" rel="noopener" href="https://www.albertyw.com/note/resizing-ubuntu-utm#:~:text=For%20an%20Ubuntu%20guest%20OS%20running%20a%20default,be%20corrected%20by%20w%20%28rite%29%20warning%20More%20items">update the device mapper</a></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2023/05/04/d361bf81-d50c-4031-af5e-cf0d860f5bff/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2023-04-02 </div>
 			<div class="article-title"><a href="/blog/2023/04/02/bf0b54c7-e6fb-459e-8cd0-4a605ff8b56c/" title="This article highlights the use of GGML, LoRA, and LangChain to improve LLM inference on standard hardware by overcoming storage and computation limitations. Quantization techniques are employed, and an API is implemented to retrieve tokens from a server for matching behavior. The provided reference projects focus on conversational LLMs.">Chatgpt Local Version</a></div>
 		</h3>

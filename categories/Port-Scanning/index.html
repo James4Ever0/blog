@@ -1,0 +1,308 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Port Scanning | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/blog/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/blog/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+<!-- title -->
+<div class="page-header page-header-inverse ">
+  <h1 class="archive-title-category title title-inverse ">Port Scanning</h1>
+</div>
+
+<div class="row page">
+  <!-- cols -->
+  
+  <div class="col-md-9">
+	
+
+	  <div id="top_search"></div>
+
+      
+         <!-- display as entry -->
+	     <div class="mypage">
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-05-08 </div>
+			<div class="article-title"><a href="/blog/2024/05/08/bb7c7352-d3e0-452f-a213-4ff0b389e602/" title="This article explains common Nmap flags used for port scanning, including TCP SYN Scan, TCP Connect Scan, UDP Scan, and Port Specification. It also covers how to utilize these flags to detect open ports and customize scan speed/aggressiveness with options for OS detection, script scanning, and timing templates.">Common Nmap Flags</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>Typically, if one wants to detect port somehow dropped by cloud service providers like AWS, the flag <code>-sS</code> or SYN stealth scan shall be enough.</p>
+<p>Further info can be collected once the port has been confirmed open.</p>
+<hr>
+<ol>
+<li><strong>-sS (TCP SYN Scan)</strong>:</li>
+</ol>
+<ul>
+<li>This flag instructs Nmap to perform a TCP SYN scan, also known as a half-open scan. It sends SYN packets to the target ports and analyzes the responses to determine which ports are open, closed, or filtered.</li>
+</ul>
+<ol start="2">
+<li><strong>-sT (TCP Connect Scan)</strong>:</li>
+</ol>
+<ul>
+<li>This flag tells Nmap to perform a TCP connect scan, in which Nmap completes the full TCP three-way handshake to determine the state of the target ports.</li>
+</ul>
+<ol start="3">
+<li><strong>-sU (UDP Scan)</strong>:</li>
+</ol>
+<ul>
+<li>This flag enables Nmap to perform a UDP scan, used to identify open UDP ports on the target system. UDP scans can be slower than TCP scans due to the stateless nature of the UDP protocol.</li>
+</ul>
+<ol start="4">
+<li><strong>-p (Port Specification)</strong>:</li>
+</ol>
+<ul>
+<li>The <code>-p</code> flag allows you to specify which ports to scan. You can specify individual ports, ranges of ports, or combination of both. For example, <code>-p 1-1000</code> scans ports 1 through 1000.</li>
+</ul>
+<ol start="5">
+<li><strong>-A (Aggressive Scan)</strong>:</li>
+</ol>
+<ul>
+<li>The <code>-A</code> flag enables OS detection, version detection, script scanning, and traceroute. It’s a comprehensive option that provides detailed information about the target.</li>
+</ul>
+<ol start="6">
+<li><strong>-O (Enable OS Detection)</strong>:</li>
+</ol>
+<ul>
+<li>This flag instructs Nmap to attempt to determine the operating system running on the target host based on various characteristics observed during the scan.</li>
+</ul>
+<ol start="7">
+<li><strong>-v (Verbose Output)</strong>:</li>
+</ol>
+<ul>
+<li>The <code>-v</code> flag increases the verbosity of Nmap’s output, providing more detailed information about the scan process.</li>
+</ul>
+<ol start="8">
+<li><strong>-T (Timing Template)</strong>:</li>
+</ol>
+<ul>
+<li>The <code>-T</code> flag allows you to specify the timing template for the scan. Options range from 0 (paranoid) to 5 (insane), affecting the speed and aggressiveness of the scan.</li>
+</ul>
+<ol start="9">
+<li><strong>-O (Output to File)</strong>:</li>
+</ol>
+<ul>
+<li>The <code>-o</code> flag allows you to specify the output format and destination for the scan results. For example, <code>-oN scan_results.txt</code> saves the output in normal format to a file named <code>scan_results.txt</code>.</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/05/08/bb7c7352-d3e0-452f-a213-4ff0b389e602/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+	     </div>
+	     <div>
+	       <center>
+	         <div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+	       </center>
+	     </div>	
+      
+
+</div> <!-- col-md-9/col-md-12 -->
+
+
+<div class="col-md-3">
+	<div id="sidebar">
+	
+			
+  <div id="site_search">
+   <div class="form-group">
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="Search" class="st-search-input st-default-search-input form-control"/>
+   </div>  
+  <div id="local-search-result"></div>
+  </div>
+
+
+		
+			
+<div class="widget">
+	<h4>Links</h4>
+	<ul class="blogroll list-unstyled">
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/agi_computer_control/" title="Autonomous computer agent" target="_blank"]);">Project Cybergod</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/pyjom/" title="Media content automation" target="_blank"]);">Project Pyjom</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/prometheous/" title="Automated documentation, AI+IR(RAG)" target="_blank"]);">Project Prometheus</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/pyjom/" title="Media Content Automation" target="_blank"]);">Project Pyjom</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/my_blog_source/" title="Source code of my blog"" target="_blank"]);">Blog Source Code</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="http://www.github.com/james4ever0" title="My Github account" target="_blank"]);">My Github</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="https://samoyedsun.github.io/" title="Samoyedsun's Blog" target="_blank"]);">Samoyedsun&#39;s Blog</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="http://atlant1c.cn/" title="Atlant1c's Blog" target="_blank"]);">Atlant1c&#39;s Blog</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="https://www.gregoryuan.com/" title="Gregoryuan's Blog" target="_blank"]);">Gregoryuan&#39;s Blog</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="https://yubingtao.netlify.app/" title="Yubingtao's Blog" target="_blank"]);">Yubingtao&#39;s Blog</a></li>
+	
+	</ul>
+</div>
+
+
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2024 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/blog/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+
+</body>
+</html>

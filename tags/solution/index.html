@@ -116,6 +116,35 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2024-05-29 </div>
+			<div class="article-title"><a href="/blog/2024/05/29/5d443ff2-665d-42a0-a3d1-8cf09c27035d/" title="This article discusses a problem with the ParrotSec security image in Docker, where executing `msfconsole` is not possible. The solution provided involves changing directories and running the binary from its correct location.">Strange Behavior Within Docker Containers</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>The default directory after starting parrotsec container is the filesystem root directory, which cannot run <code>msfconsole</code>. Change to home directory using <code>cd</code> and run metasploit afterwards.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run --<span class="built_in">rm</span> -it -w /root parrotsec/security</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>Symlinked files are not working properly from the start. Taking <code>msfconsole</code> for example, when running container from image <code>parrotsec/security</code>, it will get stuck if we immediately execute <code>msfconsole</code> once logged in, but we can mitigate the problem by first change into the directory where <code>msfconsole</code> really locates, then execute it from there.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">docker run --<span class="built_in">rm</span> -it parrotsec/security</span><br><span class="line"><span class="comment"># it will stuck</span></span><br><span class="line">msfconsole</span><br><span class="line"><span class="comment"># note the following will also stuck</span></span><br><span class="line">/usr/share/metasploit-framework/msfconsole</span><br><span class="line"><span class="comment"># instead let&#x27;s first change directory</span></span><br><span class="line"><span class="built_in">cd</span> /usr/share/metasploit-framework</span><br><span class="line"><span class="comment"># then invoke the binary</span></span><br><span class="line">./msfconsole</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/05/29/5d443ff2-665d-42a0-a3d1-8cf09c27035d/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2023-07-05 </div>
 			<div class="article-title"><a href="/blog/2023/07/05/2325b342-1a2d-4d11-a5f6-df35c62f65a9/" title="The text dives into a Python encoding problem encountered on Windows systems. It proposes two solutions: running the interpreter with the `-X utf8=1` flag or setting `sys.flags.utf8_mode`. This ensures proper handling of Unicode characters and eliminates any potential encoding issues in Python scripts.">Python Encoding Issue</a></div>
 		</h3>

@@ -116,6 +116,120 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2024-07-21 </div>
+			<div class="article-title"><a href="/blog/2024/07/21/7e278413-28ba-4422-8cd1-1145ab1c2f2c/" title="This article provides a comprehensive guide on building, uploading, and loading Docker images for Kubernetes-based microk8s or Minikube. Additionally, it covers the process of importing images specifically for lightweight K3s distribution that utilizes the Docker container runtime.">K8S Load Docker Image</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>first of all, you can build and upload docker image to registry.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker login</span><br><span class="line">docker build -t &lt;username&gt;/&lt;imagename&gt;:&lt;tag&gt; -f &lt;dockerfile&gt; &lt;resource_path&gt;</span><br><span class="line">docker push &lt;username&gt;/&lt;imagename&gt;:&lt;tag&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>you can upload to docker.io or microk8s provided local registry.</p>
+<p><a target="_blank" rel="noopener" href="https://microk8s.io/docs/registry-built-in">https://microk8s.io/docs/registry-built-in</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># for microk8s the registry address is localhost:32000</span></span><br><span class="line">docker tag &lt;imagename&gt; &lt;registry_addr&gt;/&lt;imagename&gt;</span><br><span class="line">docker push &lt;registry_addr&gt;/&lt;imagename&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>you can also build image with minikube:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">minikube image build -t &lt;imagename&gt; -f &lt;dockerfile_path&gt; &lt;resource_path&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>load image exported with <code>docker save &lt;image&gt;:&lt;tag&gt;</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ref: https://minikube.sigs.k8s.io/docs/commands/image/</span></span><br><span class="line"><span class="comment"># remember to set a tag to the image imported</span></span><br><span class="line"><span class="comment"># or set the imagePullPolicy to Never</span></span><br><span class="line"><span class="comment"># ref: https://iximiuz.com/en/posts/kubernetes-kind-load-docker-image/</span></span><br><span class="line">minikube image load &lt;image_filepath&gt;/&lt;docker_image_name&gt;</span><br><span class="line">microk8s images import &lt;image_filepath&gt;</span><br><span class="line">microk8s ctr image import &lt;image_filepath&gt;</span><br><span class="line">k3s ctr image import &lt;image_filepath&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://blog.scottlowe.org/2020/01/25/manually-loading-container-images-with-containerd/">https://blog.scottlowe.org/2020/01/25/manually-loading-container-images-with-containerd/</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.k3s.io/installation/registry-mirror#pushing-images">https://docs.k3s.io/installation/registry-mirror#pushing-images</a></p>
+<hr>
+<p>you can also configure k8s to use docker as container runtime instead.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/canonical/microk8s/issues/287">https://github.com/canonical/microk8s/issues/287</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.k3s.io/advanced#using-docker-as-the-container-runtime">https://docs.k3s.io/advanced#using-docker-as-the-container-runtime</a></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/07/21/7e278413-28ba-4422-8cd1-1145ab1c2f2c/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-07-04 </div>
+			<div class="article-title"><a href="/blog/2024/07/04/2fa65266-e8d2-46cc-827a-5f6a744295f9/" title="The text outlines several methods to keep a Docker container continuously operational using commands like &#39;docker run -d&#39;, &#39;tail -f /dev/null&#39;, &#39;sleep infinity&#39;, and &#39;nc -l -p &lt;port&gt;&#39;. These commands help maintain the Docker container&#39;s functionality and ensure that it remains running without stopping or terminating.">Keep Docker Container Running</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -d &lt;image_name&gt; <span class="built_in">tail</span> -f /dev/null</span><br><span class="line">docker run -d &lt;image_name&gt; <span class="built_in">sleep</span> infinity</span><br><span class="line">docker run -dt &lt;image_name&gt;</span><br><span class="line">docker run -dt &lt;image_name&gt; <span class="built_in">cat</span></span><br><span class="line">docker run -d &lt;image_name&gt; nc -l -p &lt;port&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/07/04/2fa65266-e8d2-46cc-827a-5f6a744295f9/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-03-30 </div>
+			<div class="article-title"><a href="/blog/2024/03/30/54412af5-1dc4-425c-9754-1ad0504e139d/" title="This article explains how to use Proot-Distro on Termux to install Kali and Blackarch Linux. It compares Podman with Docker for faster image pulling speed, discusses granting container permissions for network scanning commands, and suggests using Github searches for finding relevant Docker images. Additionally, it provides guidance on utilizing Kali and Blackarch Linux Docker images on Ubuntu with Docker and recommends updating installed Blackarch for better performance.">Hacker Virtual Machines, Containers</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>on termux you use <a target="_blank" rel="noopener" href="https://github.com/termux/proot-distro"><code>proot-distro</code></a> for installing kali and blackarch linux.</p>
+<p>install via  <code>apt install proot-distro</code></p>
+<hr>
+<p>use podman over docker, since we do not need gpu here, and want faster pulling speed.</p>
+<p>recent version of podman requires extra layer of domain&#x2F;index specification before searching and pulling images.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">podman search docker.io/kali</span><br><span class="line">podman pull docker.io/kalilinux/kali-rolling</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>if you want to run network scanning commands like <code>nmap</code>, you would grant the container sufficient permissions:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">podman run --cap-add=NET_RAW --cap-add=NET_ADMIN --<span class="built_in">rm</span> -it docker.io/parrotsec/security</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><a target="_blank" rel="noopener" href="https://docs.rapid7.com/metasploit/metasploitable-2-exploitability-guide/">metasploitable2</a>, <a target="_blank" rel="noopener" href="https://parrotsec.org/docs/cloud/parrot-on-docker/">parrot linux</a> also have docker images. more cybersecurity&#x2F;ctf related images to be found.</p>
+<p>run this query in search engines:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">site:github.com cybersecurity docker images</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/VaultSEC/osint">https://github.com/VaultSEC/osint</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/PberAcademy/Dockerimages">https://github.com/PberAcademy/Dockerimages</a></p>
+<hr>
+<p>on ubuntu you use docker for pulling <a target="_blank" rel="noopener" href="https://www.kali.org/docs/containers/official-kalilinux-docker-images/">kali</a> and <a target="_blank" rel="noopener" href="https://github.com/BlackArch/blackarch-docker">blackarch</a> linux images. latest images are pushed to docker hub.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo docker pull kalilinux/kali-rolling</span><br><span class="line"><span class="comment"># kali-rolling does not contain all packages</span></span><br><span class="line"><span class="comment"># run inside container: apt update &amp;&amp; apt install -y kali-linux-headless</span></span><br><span class="line">sudo docker pull blackarchlinux/blackarch</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>it is always recommend to update and upgrade the blackarch you installed.</p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/03/30/54412af5-1dc4-425c-9754-1ad0504e139d/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2023-10-05 </div>
 			<div class="article-title"><a href="/blog/2023/10/05/4df79ade-d538-4df2-9a6e-7840343648e1/" title="This article guides you through the process of configuring Docker to pull images from a specific mirror, such as baidubce.com, instead of the default docker.io. The article also explains that the configuration may not work until you explicitly pull from the specified mirror.">Force To Use Docker Mirror Instead Of Pulling From Docker.Io</a></div>
 		</h3>
@@ -177,7 +291,7 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2022-12-11 </div>
-			<div class="article-title"><a href="/blog/2022/12/11/12351f6e-92f7-41a9-9c3e-1cad4c2c9366/" title="This article delves into the practicalities of using Docker, addressing various tasks like logging into MySQL, configuring databases, managing volumes, optimizing pip URLs, exporting/importing containers, tweaking port mappings, creating custom networks, assigning IPs, and troubleshooting container communication problems. Comments A and B provide valuable insights and tips for efficient Docker usage.">Docker Usage Issues</a></div>
+			<div class="article-title"><a href="/blog/2022/12/11/ac63ba4a-94ee-4d29-8569-f773120915fc/" title="This article offers solutions for various Docker-related problems, including reducing image size, diagnosing and resolving connectivity issues, managing volumes effectively, and assigning IP addresses to containers. It further explains how to determine the IP address of a container using the `docker inspect` command, which can be useful when communicating without port mappings.">Docker Usage Issues</a></div>
 		</h3>
 	
 
@@ -188,7 +302,43 @@
   <div class="row">
 	
 	
-		<p>login mysql with empty password then execute command to make it remotely available:</p>
+		<p>use slim toolkit to shrink docker image size</p>
+<hr>
+<p>with iptable, you can constrain docker container network</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo iptables -I DOCKER-USER -d &lt;ip_range&gt; -j DROP</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>it does not work if you block all local ip ranges.</p>
+<hr>
+<p>to use host provided proxy servers, one can set environment variables before running containers.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -e http_proxy=&lt;proxy_addr&gt; -e https_proxy=&lt;proxy_addr&gt; -e all_proxy=&lt;proxy_addr&gt; -e no_proxy=&lt;bypass_addrs&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>or better, use <a target="_blank" rel="noopener" href="https://github.com/tun2proxy/tun2proxy"><code>tun2proxy</code></a> (linux only)</p>
+<p>run server:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -v /dev/net/tun:/dev/net/tun --sysctl net.ipv6.conf.default.disable_ipv6=0 --cap-add NET_ADMIN --name tun2proxy tun2proxy --proxy &lt;proto&gt;://[username[:password]@]host:port</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>container forced to use proxy:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --network <span class="string">&quot;container:tun2proxy&quot;</span> &lt;image_name&gt;[:tag]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>with docker for mac, you can use the following domain name to get host and gateway ip:</p>
+<ul>
+<li><p>host.docker.internal</p>
+</li>
+<li><p>gateway.docker.internal</p>
+</li>
+</ul>
+<p>for podman:</p>
+<ul>
+<li><p>host.containers.internal</p>
+</li>
+<li><p>gateway.containers.internal</p>
+</li>
+</ul>
+<hr>
+<p>latest docker mirror:</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/704011584">https://zhuanlan.zhihu.com/p/704011584</a></p>
+<hr>
+<p>login mysql with empty password then execute command to make it remotely available:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot --password= -e <span class="string">&quot;grant all privileges on *.* to root@&#x27;%&#x27; identified by &#x27;&#x27; with grant option; commit;&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>create volume and attach volume to container, since containers will be reset after system restarts.</p>
@@ -223,7 +373,7 @@
 
 	
 	</div>
-  <a type="button" href="/blog/2022/12/11/12351f6e-92f7-41a9-9c3e-1cad4c2c9366/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/12/11/ac63ba4a-94ee-4d29-8569-f773120915fc/#more" class="btn btn-default more">Read More</a>
 </div>
 
 	       

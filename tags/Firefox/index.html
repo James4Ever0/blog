@@ -116,6 +116,71 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2024-07-28 </div>
+			<div class="article-title"><a href="/blog/2024/07/28/0279a34e-d05d-4687-9963-0e1cbc182ebf/" title="This article offers guidance on minimizing RAM consumption in web browsers like Firefox. It suggests enabling the &#39;browser.tabs.unloadOnLowMemory&#39; setting within &#39;about:config&#39; and installing the &#39;Auto Tab Discard&#39; extension to automatically dismiss idle tabs.">Reducing Ram Usage In Browsers: Tips For Firefox</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="Suspend-unused-tabs-to-save-RAM"><a href="#Suspend-unused-tabs-to-save-RAM" class="headerlink" title="Suspend unused tabs to save RAM"></a>Suspend unused tabs to save RAM</h1><p>enable <code>browser.tabs.unloadOnLowMemory</code> in <code>about:config</code> for Firefox</p>
+<p>install <code>Auto Tab Discard</code> browser plugin</p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/07/28/0279a34e-d05d-4687-9963-0e1cbc182ebf/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-05-27 </div>
+			<div class="article-title"><a href="/blog/2024/05/27/72b43039-86e6-4bb6-a438-27927eb45991/" title="This article explores anonymous browsing techniques, such as utilizing container-based and remote desktop connected browsers, Docker images for Firefox, and configuring fonts for Unicode support. It also provides guidance on various online resources related to anonymous browsing.">Anonymous Browsers</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>hysteria protocol is currently uncensored and undetected.</p>
+<hr>
+<p>There are three kinds of anonymous browsers.</p>
+<ul>
+<li>Container based, remote desktop connected browsers</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">docker pull linuxserver/firefox</span><br><span class="line"><span class="comment"># valina base image, without Unicode support</span></span><br><span class="line">docker run -d --name firefox_browser --<span class="built_in">rm</span> --expose 3000:3000 linuxserver/firefox</span><br><span class="line"><span class="comment"># configure `/System/Library/Fonts` to be available in Docker.app first then run this command</span></span><br><span class="line">docker run -v /System/Library/Fonts:/usr/share/fonts:ro --name firefox_browser -d --<span class="built_in">rm</span> -p 3000:3000 linuxserver/firefox</span><br><span class="line"><span class="comment"># Ubuntu and other Linux</span></span><br><span class="line">docker run -v /usr/share/fonts:/usr/share/fonts:ro --name firefox_browser -d --<span class="built_in">rm</span> -p 3000:3000 linuxserver/firefox</span><br><span class="line"><span class="comment"># official Unicode support</span></span><br><span class="line">docker run -e DOCKER_MODS=linuxserver/mods:universal-package-install -e INSTALL_PACKAGES=font-noto-cjk -e LC_ALL=zh_CN.UTF-8 --name firefox_browser -d --<span class="built_in">rm</span> -p 3000:3000 linuxserver/firefox</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Container based, browser-in-browser emulation</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://github.com/titaniumnetwork-dev/Ultraviolet-App/wiki/Deploy-via-terminal">https://github.com/titaniumnetwork-dev/Ultraviolet-App/wiki/Deploy-via-terminal</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/BrowserBox/BrowserBox">https://github.com/BrowserBox/BrowserBox</a></p>
+<p><a target="_blank" rel="noopener" href="https://browse.cloudtabs.net/signupless_session">https://browse.cloudtabs.net/signupless_session</a></p>
+<ul>
+<li>Builtin anonymous browser like Tor browser</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/05/27/72b43039-86e6-4bb6-a438-27927eb45991/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2023-04-05 </div>
 			<div class="article-title"><a href="/blog/2023/04/05/75081e5b-3fa5-4857-8ae1-47a472634c24/" title="This article discusses methods for capturing data from web pages and chat messages while ensuring privacy. It covers browser extensions like the &#39;Comprehensive Research&#39; series, copying tabs as Markdown in Chrome and Firefox, addressing an Android issue, and providing file path information.">Comprehensive Page Dump From Multiple Devices</a></div>
 		</h3>

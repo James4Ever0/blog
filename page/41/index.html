@@ -123,8 +123,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-06-03 </div>
-			<div class="article-title"><a href="/blog/2022/06/03/1c787b18-5280-4e45-bca9-93d623ecc506/" title="This article, titled &#39;传播学 1&#39; in Chinese, is believed to be the first installment of a series on propagation science or theory. It delves into the fundamental principles and concepts governing this field, providing readers with an in-depth understanding of its core foundations.">传播学</a></div>
+			<div class="date"> 2022-08-10 </div>
+			<div class="article-title"><a href="/blog/2022/08/10/780c5692-84c6-44f2-b4e2-327db6bc1adf/" title="This article introduces &#39;Tab-Session Manager&#39;, a tool that allows users to manage their browser sessions by integrating with Google account. The software is capable of offline syncing without relying on Google Cloud and works on newly opened tabs. However, it does not seem to integrate with existing tabs.">Sync Tabs Across Different Browsers</a></div>
 		</h3>
 	
 
@@ -135,10 +135,12 @@
   <div class="row">
 	
 	
-		<h1 id="传播学-1"><a href="#传播学-1" class="headerlink" title="传播学 1"></a>传播学 1</h1>
+		<p><a target="_blank" rel="noopener" href="https://github.com/sienori/Tab-Session-Manager">tab session manager</a> needs google account to operate, while it can still do offline syncing without google cloud.</p>
+<p>seems that it can only hook up with newly opened tabs instead of existing ones.</p>
+
 	
 	</div>
-  <a type="button" href="/blog/2022/06/03/1c787b18-5280-4e45-bca9-93d623ecc506/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/10/780c5692-84c6-44f2-b4e2-327db6bc1adf/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -148,8 +150,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-06-03 </div>
-			<div class="article-title"><a href="/blog/2022/06/03/8a652ecb-7ffd-4f52-9e41-b206349a2a41/" title="The MySQL cheatsheet is a handy resource for quickly referencing various usage scenarios and essential tasks in database management, including creating tables, modifying table structure, deleting/retrieving data, working with constraints, and utilizing SQL functions.">Mysql Cheatsheet</a></div>
+			<div class="date"> 2022-08-09 </div>
+			<div class="article-title"><a href="/blog/2022/08/09/dceb3026-9060-4172-9ef5-319678c7e104/" title="This article provides detailed instructions on how to install and run x11vnc on a Kali Linux system. However, it also recommends using Nomachine instead due to its NX-based foundation. The article includes a password and various example command lines for proper execution.">X11Vnc Test On Kali</a></div>
 		</h3>
 	
 
@@ -160,186 +162,14 @@
   <div class="row">
 	
 	
-		<p>MySQL Reference Card</p>
-<p>Version: 0.1</p>
-<p>Author: ProgM4c</p>
-<p>Attribute Types</p>
-<p>Numbers</p>
-<p>Name</p>
-<p>Coded on</p>
-<p>Name</p>
-<p>Coded on</p>
-<p>TINYINT</p>
-<p>1 byte</p>
-<p>FLOAT(W, D)</p>
-<p>4 bytes</p>
-<p>SMALLINT</p>
-<p>2 bytes</p>
-<p>DOUBLE(W, D)</p>
-<p>8 bytes</p>
-<p>MEDIUMINT</p>
-<p>3 bytes</p>
-<p>W: width(number of digits with the ‘.’)</p>
-<p>D: number of decimals</p>
-<p>INT</p>
-<p>4 bytes</p>
-<p>BIGINT</p>
-<p>8 bytes</p>
-<p>Parameters:</p>
-<p>• UNSIGNED</p>
-<p>• ZEROFILL</p>
-<p>Coded on:</p>
-<p>• SIGNED :</p>
-<p>• UNSIGNED:</p>
-<p>Strings (between ‘ ‘)</p>
-<p>Name</p>
-<p>Size</p>
-<p>CHAR(M)</p>
-<p>String with fixed size, 1 &lt;&#x3D; M &lt;&#x3D; 255</p>
-<p>VARCHAR(M)</p>
-<p>String with variable size, 1 &lt;&#x3D; M &lt;&#x3D; 255</p>
-<p>TINYTEXT</p>
-<p>Max length &#x3D; 255</p>
-<p>TEXT</p>
-<p>Max length &#x3D; 65535</p>
-<p>MEDIUMTEXT</p>
-<p>Max length &#x3D; 16777215</p>
-<p>LONGTEXT</p>
-<p>Max length &#x3D; 4294967295</p>
-<p>DECIMAL(M, D)</p>
-<p>Simulate a floating point number in a string format</p>
-<p>Date and Time</p>
-<p>Name</p>
-<p>Format</p>
-<p>DATE</p>
-<p>AAAA-MM-JJ</p>
-<p>DATETIME</p>
-<p>AAAA-MM-JJ HH:MM:SS</p>
-<p>TIMESTAMP</p>
-<p>AAAAMMJJHHMMSS</p>
-<p>TIMESTAMP(M)</p>
-<p>First M characters of a TIMESTAMP</p>
-<p>TIME</p>
-<p>HH:MM:SS</p>
-<p>YEAR</p>
-<p>AAAA</p>
-<p>ENUM: take one value in the defined list (can be NULL)</p>
-<p>syntax:</p>
-<p>attr_name ENUM(‘value1’, ‘value2’, …) {NULL | NOT NULL}</p>
-<p>Database queries</p>
-<p>create a database</p>
-<p>CREATE DATABASE [IF NOT EXISTS] <db_name>;</p>
-<p>delete  a database</p>
-<p>DROP DATABSE [IF EXISTS] <db_name>;</p>
-<p>rename a database</p>
-<p>ALTER DATABASE <db_name> RENAME <db_new_name>;</p>
-<p>list databases</p>
-<p>SHOW DATABASES;</p>
-<p>select a database</p>
-<p>USE <db_name>;</p>
-<p>Table queries</p>
-<p>show a table</p>
-<p>SHOW TABLES;</p>
-<p>rename a table</p>
-<p>ALTER TABLE <table_name> RENAME <new_name>;</p>
-<p>describe a table</p>
-<p>DESCRIBE <table>;</p>
-<p>delete a table</p>
-<p>DROP TABLE <table_name>;</p>
-<p>type of constraints</p>
-<p>• NOT NULL</p>
-<p>• UNIQUE</p>
-<p>• PRIMARY KEY &#x3D; NOT NULL + UNIQUE</p>
-<p>• FOREIGN KEY</p>
-<p>• CHECK</p>
-<p>• DEFAULT</p>
-<p>• AUTO_INCREMENT</p>
-<p>create a table</p>
-<p>CREATE TABLE <table_name> (</p>
-<p><attr1> <datatype1>(size) <constraints>,</p>
-<p><attr1> <datatype1>(size) <constraints>,</p>
-<p>…</p>
-<p>PRIMARY KEY(<pk>)</p>
-<p>);</p>
-<p>add &#x2F; delete a constraints</p>
-<p>ALTER TABLE <table_name> ADD CONSTRAINT <const_name> TYPEOFCONSTRAINT (<attr1>, …)</p>
-<p>ALTER TABLE <table_name> DROP [CONSTRAINT <const_name> | TYPEOFCONSTRAINT <const_name>];</p>
-<p>Modify table structure</p>
-<p>add &#x2F; delete attribute</p>
-<p>ALTER TABLE <table_name> ADD <attr> <type> [FIRST|AFTER <other_attr>];</p>
-<p>ALTER TABLE <table_name> DROP <attr> ;</p>
-<p>add &#x2F; delete default value to an column</p>
-<p>ALTER TABLE <table_name> ALTER <attr> {SET DEFAULT <default_value>|DROP DEFAULT};</p>
-<p>change definition of an attribute without&#x2F;with renaming it</p>
-<p>ALTER TABLE <table_name> MODIFY <attr_name> <new_type>;</p>
-<p>ALTER TABLE <table_name> CHANGE <attr_name> <attr_new_name> <new_type>;</p>
-<p>Inserting data</p>
-<p>INSERT INTO <table_name>(<col1>, <col2>, …) VALUES (<val1>, <val2>, …);</p>
-<p>Modifying data</p>
-<p>UPDATE <table_name></p>
-<p>SET <field1> &#x3D; <val1>, <field2> &#x3D; <val2>, …</p>
-<p>WHERE <condition>;</p>
-<p>Deleting data</p>
-<p>DELETE FROM <table_name> WHERE <condition>;</p>
-<p>Retrieving data</p>
-<p>Select statement</p>
-<p>SELECT [ DISTINCT ] attributs</p>
-<p>[ INTO OUTFILE fichier ]</p>
-<p>[ FROM relation ]</p>
-<p>[ WHERE condition ]</p>
-<p>[ GROUP BY attributs [ ASC | DESC ] ]</p>
-<p>[ HAVING condition ]</p>
-<p>[ ORDER BY attributs ]</p>
-<p>[ LIMIT [a,] b ]</p>
-<p>operators in a where clause</p>
-<p>&#x3D;</p>
-<p>Equal</p>
-<p>&lt;&gt;</p>
-<p>Not equal. Note: In some versions of SQL this operator may be written as !&#x3D;</p>
-<blockquote>
-</blockquote>
-<p>Greater than</p>
-<p>&lt;</p>
-<p>Less than</p>
-<blockquote>
-<p>&#x3D;</p>
-</blockquote>
-<p>Greater than or equal</p>
-<p>&lt;&#x3D;</p>
-<p>Less than or equal</p>
-<p>BETWEEN</p>
-<p>Between an inclusive range</p>
-<p>LIKE</p>
-<p>Search for a pattern (‘%’ any sequence of characters ‘_’ any character)</p>
-<p>[NOT] IN</p>
-<p>To specify multiple possible values for a column</p>
-<p>IS [NOT] NULL</p>
-<p>To check if the value of a column is NULL or not</p>
-<p>AND OR NOT</p>
-<p>Filter records based on more than once condition</p>
-<p>Sub-requests</p>
-<p>SELECT * FROM <table> WHERE prix &gt; (SELECT MIN(prix) FROM tab2)</p>
-<p>SELECT * FROM <table> WHERE nom NOT IN (SELECT nom FROM tab2)</p>
-<p>SELECT * FROM <table> WHERE prix &gt; ALL (SELECT prix FROM tab2) (sup. à ttes les valeurs)</p>
-<p>SELECT * FROM <table> WHERE prix &gt; ANY (SELECT prix FROM tab2) (sup. à au moins 1)</p>
-<p>SQL aliases on column &#x2F; table</p>
-<p>SELECT <column> AS <col_alias> FROM <table>		(alias a result)</p>
-<p>SELECT <column> FROM <table> AS <new_name>		(alias a table name)</p>
-<p>SQL functions</p>
-<p>AVG()		- (moyenne)</p>
-<p>COUNT()	- (nombre d’élément)</p>
-<p>MAX()		- (maximum)</p>
-<p>MIN()		- (minimum)</p>
-<p>SUM()		- (somme)</p>
-<p>UCASE()</p>
-<p>LCASE()</p>
-<p>LEN()</p>
-<p>NOW()</p>
-<p>FORMAT()</p>
+		<p>better use nomachine instead, which is based on nx</p>
+<p>password: 472831</p>
+<p>commands:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># necessary env for gui target, though may not suitable for xvfb</span></span><br><span class="line"><span class="built_in">export</span> XAUTHORITY=/root/.Xauthority</span><br><span class="line"><span class="built_in">export</span> DISPLAY=:1</span><br><span class="line"><span class="comment"># kill previous running x11vnc, if exists</span></span><br><span class="line">joker list | grep x11vnc | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span> | xargs -iabc <span class="built_in">kill</span> -s KILL abc</span><br><span class="line"><span class="comment"># launch new vnc</span></span><br><span class="line">joker x11vnc -threads -forever -rfbauth /root/.vnc/passwd</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/06/03/8a652ecb-7ffd-4f52-9e41-b206349a2a41/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/09/dceb3026-9060-4172-9ef5-319678c7e104/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -349,8 +179,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-06-03 </div>
-			<div class="article-title"><a href="/blog/2022/06/03/66e8b272-cb07-4ec9-a59e-cff0c3cb654a/" title="This reference link leads to a MongoDB cheatsheet, which can be accessed via the given URL: https://www.mongodb.com/developer/products/mongodb/cheat-sheet/. The cheatsheet provides a quick and easy way to remember essential commands and concepts related to MongoDB.">Mongodb Cheatsheet</a></div>
+			<div class="date"> 2022-08-09 </div>
+			<div class="article-title"><a href="/blog/2022/08/09/7b4c3b5b-427d-45d2-9daf-caf2dea62597/" title="This article introduces several open-source tools for image and video data labeling, such as OpenLabeler, Anno-Mage, CATMAID, and makesense.ai. Additionally, it covers 2D/3D tools that can be applied to various applications, including neural morphology and LIDAR datasets.">Awesome-Data-Labeling</a></div>
 		</h3>
 	
 
@@ -361,1285 +191,116 @@
   <div class="row">
 	
 	
-		<p>use redability.js reader mode or elinks to render this shit:</p>
-<p><a target="_blank" rel="noopener" href="https://www.mongodb.com/developer/products/mongodb/cheat-sheet/">https://www.mongodb.com/developer/products/mongodb/cheat-sheet/</a></p>
-
-	
-	</div>
-  <a type="button" href="/blog/2022/06/03/66e8b272-cb07-4ec9-a59e-cff0c3cb654a/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2022-06-03 </div>
-			<div class="article-title"><a href="/blog/2022/06/03/3b098fd5-4426-426b-abeb-730e82f568f7/" title="This article provides a comprehensive Redis Cheatsheet that covers fundamental Redis commands, essential operations, advanced features like batch operations, hashes, counters, and list manipulation. It also includes settings for performance and memory optimization, database management tools, replication setup, performance testing, monitoring slow queries, and managing multiple databases using Twemproxy or Codis.">Redis Cheatsheet</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p>Redis Cheat Sheet</p>
-<p>When you encounter a Redis instance and you quickly want to learn about the setup you just need a few simple commands to peak into the setup. Of course it doesn’t hurt to look at the official full command documentation, but below is a listing just for sysadmins.</p>
-<p>Accessing Redis</p>
-<p>CLI</p>
-<p>First thing to know is that you can use “telnet” (usually on Redis default port 6379)</p>
-<p>telnet localhost 6379</p>
-<p>or the Redis CLI client</p>
-<p>redis-cli</p>
-<p>to connect to Redis. The advantage of redis-cli is that you have a help interface and command line history.</p>
-<p>CLI Queries</p>
-<p>Here is a short list of some basic data extraction commands:</p>
-<p>Type	Syntax and Explanation</p>
-<p>Tracing	monitor Watch current live commands. Use with care when on production. Cancel with Ctrl-C.</p>
-<p>Slow Queries	slowlog get 25 Print top 25 slow queries</p>
-<p>slowlog len</p>
-<p>slowlog reset</p>
-<p>Search &#x2F; List All Keys	keys &lt;pattern Use with care when on production!</p>
-<p>keys myprefix*</p>
-<p>keys <em>pattern</em></p>
-<p>keys *mysuffix</p>
-<p>keys [a-c]* Use grep like expressions</p>
-<p>Generic Key Handling	del <key> Delete key</p>
-<p>dump <key> Serialize key</p>
-<p>exists <key> Check for key</p>
-<p>expire <key> <seconds> Set key TTL</p>
-<p>Working with scalar types	get <key></p>
-<p>set <key> <value></p>
-<p>setnx <key> <value> Set key value only if key does not exist</p>
-<p>Batch commands:</p>
-<p>mget <key> <key> …</p>
-<p>mset <key> <value> <key> <value></p>
-<p>Working with counters	incr <key></p>
-<p>decr <key></p>
-<p>Redis Lists	lrange <key> <start> <stop> Accessing lists</p>
-<p>lrange mylist 0 -1 Output all elements</p>
-<p>lindex mylist 5 Get 5th element</p>
-<p>llen mylist Get list length</p>
-<p>lpush mylist “value” Push “value” to list</p>
-<p>lpush mylist 5 Push number 5 to list</p>
-<p>rpush mylist “value” Push “value” to beginning (unshift)</p>
-<p>lpushx mylist 6 Only push if mylist exists</p>
-<p>rpushx mylist 7</p>
-<p>lpop mylist Remove+return value from list</p>
-<p>rpop mylist Remove+return value from start (shift)</p>
-<p>lrem mylist 1 “value” Remove ‘value’ count times</p>
-<p>lset mylist 2 6 Set 3rd element to value 6</p>
-<p>ltrim <key> <start> <stop></p>
-<p>Working with Redis Hashes	hexists myhash field1 Check if hash key exists</p>
-<p>hget myhash field1 Get key value</p>
-<p>hdel myhash field2 Delete key</p>
-<p>hset myhash field1 “value” Set key with “value”</p>
-<p>hsetnx myhash field1 “value”</p>
-<p>hgetall myhash Get all hash content</p>
-<p>hkeys myhash List all keys</p>
-<p>hlen myhash List number of keys</p>
-<p>Batch commands:</p>
-<p>hmget <key> <key> … Get multiple keys</p>
-<p>hmset <key> <value> <key> <value> … Set multiple keys</p>
-<p>Counter commands</p>
-<p>hincrby myhash field1 1</p>
-<p>hincrby myhash field1 5</p>
-<p>hincrby myhash field1 -1</p>
-<p>hincrbrfloat myhash field2 1.123445</p>
-<p>CLI Scripting</p>
-<p>For scripting just pass commands to “redis-cli”. For example:</p>
-<p>$ redis-cli INFO | grep connected</p>
-<p>connected_clients:2</p>
-<p>connected_slaves:0</p>
-<p>$</p>
-<p>Server Statistics</p>
-<p>The statistics command is “INFO” and will give you an output as following.</p>
-<p>$ redis-cli INFO</p>
-<p>redis_version:2.2.12</p>
-<p>redis_git_sha1:00000000</p>
-<p>redis_git_dirty:0</p>
-<p>arch_bits:64</p>
-<p>multiplexing_api:epoll</p>
-<p>process_id:8353</p>
-<p>uptime_in_seconds:2592232</p>
-<p>uptime_in_days:30</p>
-<p>lru_clock:809325</p>
-<p>used_cpu_sys:199.20</p>
-<p>used_cpu_user:309.26</p>
-<p>used_cpu_sys_children:12.04</p>
-<p>used_cpu_user_children:1.47</p>
-<p>connected_clients:2         # &lt;—- connection count</p>
-<p>connected_slaves:0</p>
-<p>client_longest_output_list:0</p>
-<p>client_biggest_input_buf:0</p>
-<p>blocked_clients:0</p>
-<p>used_memory:6596112</p>
-<p>used_memory_human:6.29M         # &lt;—- memory usage</p>
-<p>used_memory_rss:17571840</p>
-<p>mem_fragmentation_ratio:2.66</p>
-<p>use_tcmalloc:0</p>
-<p>loading:0</p>
-<p>aof_enabled:0</p>
-<p>changes_since_last_save:0</p>
-<p>bgsave_in_progress:0</p>
-<p>last_save_time:1371241671</p>
-<p>bgrewriteaof_in_progress:0</p>
-<p>total_connections_received:118</p>
-<p>total_commands_processed:1091</p>
-<p>expired_keys:441</p>
-<p>evicted_keys:0</p>
-<p>keyspace_hits:6</p>
-<p>keyspace_misses:1070</p>
-<p>hash_max_zipmap_entries:512</p>
-<p>hash_max_zipmap_value:64</p>
-<p>pubsub_channels:0</p>
-<p>pubsub_patterns:0</p>
-<p>vm_enabled:0</p>
-<p>role:master             # &lt;—- master&#x2F;slave in replication setup</p>
-<p>db0:keys&#x3D;91,expires&#x3D;88</p>
-<p>Changing Runtime Configuration</p>
-<p>The command</p>
-<p>CONFIG GET *</p>
-<p>gives you a list of all active configuration variables you can change. The output might look like this:</p>
-<p>redis 127.0.0.1:6379&gt; CONFIG GET *</p>
-<ol>
-<li><p>“dir”</p>
+		<p>A curated list of awesome data labeling tools</p>
+<h4 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h4><ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/tzutalin/labelImg">labelImg</a> - LabelImg is a graphical image annotation tool and label object bounding boxes in images</p>
 </li>
-<li><p>“&#x2F;var&#x2F;lib&#x2F;redis”</p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/opencv/cvat">CVAT</a> - Powerful and efficient Computer Vision Annotion Tool</p>
 </li>
-<li><p>“dbfilename”</p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/wkentaro/labelme">labelme</a> - Image Polygonal Annotation with Python</p>
 </li>
-<li><p>“dump.rdb”</p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/microsoft/VoTT">VoTT</a> - An open source annotation and labeling tool for image and video assets</p>
 </li>
-<li><p>“requirepass”</p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/NaturalIntelligence/imglab">imglab</a> - A web based tool to label images for objects that can be used to train dlib or other object detectors</p>
 </li>
-<li><p>(nil)</p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/AlexeyAB/Yolo_mark">Yolo_mark</a> - GUI for marking bounded boxes of objects in images for training neural network Yolo v3 and v2</p>
 </li>
-<li><p>“masterauth”</p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/abreheret/PixelAnnotationTool">PixelAnnotationTool</a> - Software that allows you to manually and quickly annotate images in directories</p>
 </li>
-<li><p>(nil)</p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/Cartucho/OpenLabeling">OpenLabeling</a> - Label images and video for Computer Vision applications</p>
 </li>
-<li><p>“maxmemory”</p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/bit-bots/imagetagger">imagetagger</a> - An open source online platform for collaborative image labeling</p>
 </li>
-<li><p>“0”</p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/AlturosDestinations/Alturos.ImageAnnotation">Alturos.ImageAnnotation</a> - A collaborative tool for labeling image data</p>
 </li>
-<li><p>“maxmemory-policy”</p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/jveitchmichaelis/deeplabel">deeplabel</a> - A cross-platform image annotation tool for machine learning</p>
 </li>
-<li><p>“volatile-lru”</p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/medtagger/MedTagger">MedTagger</a> - A collaborative framework for annotating medical datasets using crowdsourcing.</p>
 </li>
-<li><p>“maxmemory-samples”</p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/Labelbox/Labelbox">Labelbox</a> - Labelbox is the fastest way to annotate data to build and ship computer vision applications</p>
 </li>
-<li><p>“3”</p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/jaxony/turktool">turktool</a> - A modern React app for scalable bounding box annotation of images</p>
 </li>
-<li><p>“timeout”</p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/buni-rock/Pixie">Pixie</a> - Pixie is a GUI annotation tool which provides the bounding box, polygon, free drawing and semantic segmentation object labelling</p>
 </li>
-<li><p>“300”</p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/kinhong/OpenLabeler">OpenLabeler</a> - OpenLabeler is an open source desktop application for annotating objects for AI appplications</p>
 </li>
-<li><p>“appendonly”</p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/virajmavani/semi-auto-image-annotation-tool">Anno-Mage</a> - A Semi Automatic Image Annotation Tool which helps you in annotating images by suggesting you annotations for 80 object classes using a pre-trained model</p>
 </li>
-<li><p>“no”</p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/catmaid/CATMAID">CATMAID</a> - Collaborative Annotation Toolkit for Massive Amounts of Image Data</p>
 </li>
-<li><p>“no-appendfsync-on-rewrite”</p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/SkalskiP/make-sense">make-sense</a> - makesense.ai is a free to use online tool for labelling photos</p>
 </li>
-<li><p>“no”</p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/l3p-cv/lost">LOST</a> - Design your own smart Image Annotation process in a web-based environment</p>
 </li>
-<li><p>“appendfsync”</p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/recogito/annotorious">Annotorious</a> - A JavaScript library for image annotation.</p>
 </li>
-<li><p>“everysec”              # &lt;—- how often fsync() is called</p>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/cvhciKIT/sloth">Sloth</a> - Tool for labeling image and video data for computer vision research.</p>
 </li>
-<li><p>“save”</p>
-</li>
-<li><p>“900 1 300 10 60 10000”     # &lt;—- how often Redis dumps in background</p>
-</li>
-<li><p>“slave-serve-stale-data”</p>
-</li>
-<li><p>“yes”</p>
-</li>
-<li><p>“hash-max-zipmap-entries”</p>
-</li>
-<li><p>“512”</p>
-</li>
-<li><p>“hash-max-zipmap-value”</p>
-</li>
-<li><p>“64”</p>
-</li>
-<li><p>“list-max-ziplist-entries”</p>
-</li>
-<li><p>“512”</p>
-</li>
-<li><p>“list-max-ziplist-value”</p>
-</li>
-<li><p>“64”</p>
-</li>
-<li><p>“set-max-intset-entries”</p>
-</li>
-<li><p>“512”</p>
-</li>
-<li><p>“slowlog-log-slower-than”</p>
-</li>
-<li><p>“10000”</p>
-</li>
-<li><p>“slowlog-max-len”</p>
-</li>
-<li><p>“64”</p>
-</li>
-</ol>
-<p>Note that keys and values are alternating and you can change each key by issuing a “CONFIG SET” command like:</p>
-<p>CONFIG SET timeout 900</p>
-<p>Such a change will be effective instantly. When changing values consider also updating the redis configuration file.</p>
-<p>Databases</p>
-<p>Multiple Databases</p>
-<p>Redis has a concept of separated namespaces called “databases”. You can select the database number you want to use with “SELECT”. By default the database with index 0 is used. So issuing</p>
-<p>redis 127.0.0.1:6379&gt; SELECT 1</p>
-<p>OK</p>
-<p>redis 127.0.0.1:6379[1]&gt;</p>
-<p>switches to the second database. Note how the prompt changed and now has a “[1]” to indicate the database selection. To find out how many databases there are you might want to run redis-cli from the shell:</p>
-<p>$ redis-cli INFO | grep ^db</p>
-<p>db0:keys&#x3D;91,expires&#x3D;88</p>
-<p>db1:keys&#x3D;1,expires&#x3D;0</p>
-<p>Dropping Databases</p>
-<p>To drop the currently selected database run</p>
-<p>FLUSHDB</p>
-<p>to drop all databases at once run</p>
-<p>FLUSHALL</p>
-<p>Replication</p>
-<p>Checking for Replication</p>
-<p>To see if the instance is a replication slave or master issue</p>
-<p>redis 127.0.0.1:6379&gt; INFO</p>
-<p>[…]</p>
-<p>role:master</p>
-<p>and watch for the “role” line which shows either “master” or “slave”. Starting with version 2.8 the “INFO” command also gives you per slave replication status looking like this</p>
-<p>slave0:ip&#x3D;127.0.0.1,port&#x3D;6380,state&#x3D;online,offset&#x3D;281,lag&#x3D;0</p>
-<p>Setting up Replication</p>
-<p>If you quickly need to set up replication just issue</p>
-<p>SLAVEOF <IP> <port></p>
-<p>on a machine that you want to become slave of the given IP. It will immediately get values from the master. Note that this instance will still be writable. If you want it to be read-only change the redis config file (only available in most recent version, e.g. not on Debian). To revert the slave setting run</p>
-<p>SLAVEOF NO ONE</p>
-<p>Performance Testing</p>
-<p>Benchmark</p>
-<p>Install the Redis tools and run the provided benchmarking tool</p>
-<p>redis-benchmark -h <host> [-p <port>]</p>
-<p>If you are migrating from&#x2F;to memcached protocol check out how to run the same benchmark for any key value store with memcached protocol.</p>
-<p>Debugging Latency</p>
-<p>First measure system latency on your Redis server with</p>
-<p>redis-cli –intrinsic-latency 100</p>
-<p>and then sample from your Redis clients with</p>
-<p>redis-cli –latency -h <host> -p <port></p>
-<p>If you have problems with high latency check if transparent huge pages are disabled. Disable it with</p>
-<p>echo never &gt; &#x2F;sys&#x2F;kernel&#x2F;mm&#x2F;transparent_hugepage&#x2F;enabled</p>
-<p>Dump Database Backup</p>
-<p>As Redis allows RDB database dumps in background, you can issue a dump at any time. Just run:</p>
-<p>BGSAVE</p>
-<p>When running this command Redis will fork and the new process will dump into the “dbfilename” configured in the Redis configuration without the original process being blocked. Of course the fork itself might cause an interruption. Use “LASTSAVE” to check when the dump file was last updated. For a simple backup solution just backup the dump file. If you need a synchronous save run “SAVE” instead of “BGSAVE”.</p>
-<p>Listing Connections</p>
-<p>Starting with version 2.4 you can list connections with</p>
-<p>CLIENT LIST</p>
-<p>and you can terminate connections with</p>
-<p>CLIENT KILL <IP>:<port></p>
-<p>Monitoring Traffic</p>
-<p>The propably most useful command compared to memcached where you need to trace network traffic is the “MONITOR” command which will dump incoming commands in real time.</p>
-<p>redis 127.0.0.1:6379&gt; MONITOR</p>
-<p>OK</p>
-<p>1371241093.375324 “monitor”</p>
-<p>1371241109.735725 “keys” “*”</p>
-<p>1371241152.344504 “set” “testkey” “1”</p>
-<p>1371241165.169184 “get” “testkey”</p>
-<p>additionally use “SLOWLOG” to track the slowest queries in an interval. For example</p>
-<p>SLOWLOG RESET</p>
-<h1 id="wait-for-some-time"><a href="#wait-for-some-time" class="headerlink" title="wait for some time"></a>wait for some time</h1><p>SLOWLOG GET 25</p>
-<p>and get the 25 slowest command during this time.</p>
-<p>Sharding with proxies</p>
-<p>There are two major proxy solutions</p>
-<p>Twemproxy (aka nutcracker, by Twitter)</p>
-<p>Codis</p>
-
-	
-	</div>
-  <a type="button" href="/blog/2022/06/03/3b098fd5-4426-426b-abeb-730e82f568f7/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2022-06-03 </div>
-			<div class="article-title"><a href="/blog/2022/06/03/71e31f75-b989-4ac8-b4e8-ee024d5ac047/" title="This Neo4j Cypher Cheatsheet provides a comprehensive overview of essential graph query operations and advanced features, focusing on user management, transaction handling, and large dataset queries. It is specifically designed for Enterprise Edition users with role-based privilege management.">Neo4J Refcard</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<h1 id="Neo4j-Refcard-Cheatsheet-Reference-Card"><a href="#Neo4j-Refcard-Cheatsheet-Reference-Card" class="headerlink" title="Neo4j Refcard Cheatsheet Reference Card"></a>Neo4j Refcard Cheatsheet Reference Card</h1><p><a target="_blank" rel="noopener" href="https://gist.github.com/DaniSancas/1d5265fc159a95ff457b940fc5046887">gist</a></p>
-<p>Neo4j Cypher Refcard 4.4</p>
-<p>Legend</p>
-<p>Read</p>
-<p>Write</p>
-<p>General</p>
-<p>Functions</p>
-<p>Schema</p>
-<p>Performance</p>
-<p>Multidatabase</p>
-<p>Security</p>
-<p>Syntax</p>
-<p>Read query structure</p>
-<p>[USE]</p>
-<p>[MATCH WHERE]</p>
-<p>[OPTIONAL MATCH WHERE]</p>
-<p>[WITH [ORDER BY] [SKIP] [LIMIT]]</p>
-<p>RETURN [ORDER BY] [SKIP] [LIMIT]</p>
-<p>MATCH</p>
-<p>MATCH (n:Person)-[:KNOWS]-&gt;(m:Person)</p>
-<p>WHERE n.name &#x3D; ‘Alice’</p>
-<p>Node patterns can contain labels and properties.</p>
-<p>MATCH (n)–&gt;(m)</p>
-<p>Any pattern can be used in MATCH.</p>
-<p>MATCH (n {name: ‘Alice’})–&gt;(m)</p>
-<p>Patterns with node properties.</p>
-<p>MATCH p &#x3D; (n)–&gt;(m)</p>
-<p>Assign a path to p.</p>
-<p>OPTIONAL MATCH (n)-[r]-&gt;(m)</p>
-<p>Optional pattern: nulls will be used for missing parts.</p>
-<p>WHERE</p>
-<p>WHERE n.property &lt;&gt; $value</p>
-<p>Use a predicate to filter. Note that WHERE is always part of a MATCH, OPTIONAL MATCH or WITH clause. Putting it after a different clause in a query will alter what it does.</p>
-<p>WHERE EXISTS {</p>
-<p>MATCH (n)–&gt;(m) WHERE n.age &#x3D; m.age</p>
-<p>}</p>
-<p>Use an existential subquery to filter.</p>
-<p>Write-only query structure</p>
-<p>[USE]</p>
-<p>(CREATE | MERGE)*</p>
-<p>[SET|DELETE|REMOVE|FOREACH]*</p>
-<p>[RETURN [ORDER BY] [SKIP] [LIMIT]]</p>
-<p>Read-write query structure</p>
-<p>[USE]</p>
-<p>[MATCH WHERE]</p>
-<p>[OPTIONAL MATCH WHERE]</p>
-<p>[WITH [ORDER BY] [SKIP] [LIMIT]]</p>
-<p>(CREATE | MERGE)*</p>
-<p>[SET|DELETE|REMOVE|FOREACH]*</p>
-<p>[RETURN [ORDER BY] [SKIP] [LIMIT]]</p>
-<p>CREATE</p>
-<p>CREATE (n {name: $value})</p>
-<p>Create a node with the given properties.</p>
-<p>CREATE (n $map)</p>
-<p>Create a node with the given properties.</p>
-<p>UNWIND $listOfMaps AS properties</p>
-<p>CREATE (n) SET n &#x3D; properties</p>
-<p>Create nodes with the given properties.</p>
-<p>CREATE (n)-[r:KNOWS]-&gt;(m)</p>
-<p>Create a relationship with the given type and direction; bind a variable to it.</p>
-<p>CREATE (n)-[:LOVES {since: $value}]-&gt;(m)</p>
-<p>Create a relationship with the given type, direction, and properties.</p>
-<p>SET</p>
-<p>SET n.property1 &#x3D; $value1,</p>
-<p>n.property2 &#x3D; $value2</p>
-<p>Update or create a property.</p>
-<p>SET n &#x3D; $map</p>
-<p>Set all properties. This will remove any existing properties.</p>
-<p>SET n +&#x3D; $map</p>
-<p>Add and update properties, while keeping existing ones.</p>
-<p>SET n:Person</p>
-<p>Adds a label Person to a node.</p>
-<p>Import</p>
-<p>LOAD CSV FROM</p>
-<p>‘<a target="_blank" rel="noopener" href="https://neo4j.com/docs/cypher-refcard/4.4/csv/artists.csv">https://neo4j.com/docs/cypher-refcard/4.4/csv/artists.csv</a>‘ AS line</p>
-<p>CREATE (:Artist {name: line[1], year: toInteger(line[2])})</p>
-<p>Load data from a CSV file and create nodes.</p>
-<p>LOAD CSV WITH HEADERS FROM</p>
-<p>‘<a target="_blank" rel="noopener" href="https://neo4j.com/docs/cypher-refcard/4.4/csv/artists-with-headers.csv">https://neo4j.com/docs/cypher-refcard/4.4/csv/artists-with-headers.csv</a>‘ AS line</p>
-<p>CREATE (:Artist {name: line.Name, year: toInteger(line.Year)})</p>
-<p>Load CSV data which has headers.</p>
-<p>USING PERIODIC COMMIT 500</p>
-<p>LOAD CSV WITH HEADERS FROM</p>
-<p>‘<a target="_blank" rel="noopener" href="https://neo4j.com/docs/cypher-refcard/4.4/csv/artists-with-headers.csv">https://neo4j.com/docs/cypher-refcard/4.4/csv/artists-with-headers.csv</a>‘ AS line</p>
-<p>CREATE (:Artist {name: line.Name, year: toInteger(line.Year)})</p>
-<p>Commit the current transaction after every 500 rows when importing large amounts of data.</p>
-<p>LOAD CSV FROM</p>
-<p>‘<a target="_blank" rel="noopener" href="https://neo4j.com/docs/cypher-refcard/4.4/csv/artists-fieldterminator.csv">https://neo4j.com/docs/cypher-refcard/4.4/csv/artists-fieldterminator.csv</a>‘</p>
-<p>AS line FIELDTERMINATOR ‘;’</p>
-<p>CREATE (:Artist {name: line[1], year: toInteger(line[2])})</p>
-<p>Use a different field terminator, not the default which is a comma (with no whitespace around it).</p>
-<p>LOAD CSV FROM</p>
-<p>‘<a target="_blank" rel="noopener" href="https://neo4j.com/docs/cypher-refcard/4.4/csv/artists.csv">https://neo4j.com/docs/cypher-refcard/4.4/csv/artists.csv</a>‘ AS line</p>
-<p>RETURN DISTINCT file()</p>
-<p>Returns the absolute path of the file that LOAD CSV is processing, returns null if called outside of LOAD CSV context.</p>
-<p>LOAD CSV FROM</p>
-<p>‘<a target="_blank" rel="noopener" href="https://neo4j.com/docs/cypher-refcard/4.4/csv/artists.csv">https://neo4j.com/docs/cypher-refcard/4.4/csv/artists.csv</a>‘ AS line</p>
-<p>RETURN linenumber()</p>
-<p>Returns the line number that LOAD CSV is currently processing, returns null if called outside of LOAD CSV context.</p>
-<p>Operators</p>
-<p>General</p>
-<p>DISTINCT, ., []</p>
-<p>Mathematical</p>
-<p>+, -, *, &#x2F;, %, ^</p>
-<p>Comparison</p>
-<p>&#x3D;, &lt;&gt;, &lt;, &gt;, &lt;&#x3D;, &gt;&#x3D;, IS NULL, IS NOT NULL</p>
-<p>Boolean</p>
-<p>AND, OR, XOR, NOT</p>
-<p>String</p>
-<ul>
-<li></li>
 </ul>
-<p>List</p>
-<p>+, IN, [x], [x .. y]</p>
-<p>Regular Expression</p>
-<p>&#x3D;~</p>
-<p>String matching</p>
-<p>STARTS WITH, ENDS WITH, CONTAINS</p>
-<p>null</p>
-<p>null is used to represent missing&#x2F;undefined values.</p>
-<p>null is not equal to null. Not knowing two values does not imply that they are the same value. So the expression null &#x3D; null yields null and not true. To check if an expression is null, use IS NULL.</p>
-<p>Arithmetic expressions, comparisons and function calls (except coalesce) will return null if any argument is null.</p>
-<p>An attempt to access a missing element in a list or a property that doesn’t exist yields null.</p>
-<p>In OPTIONAL MATCH clauses, nulls will be used for missing parts of the pattern.</p>
-<p>Patterns</p>
-<p>(n:Person)</p>
-<p>Node with Person label.</p>
-<p>(n:Person:Swedish)</p>
-<p>Node with both Person and Swedish labels.</p>
-<p>(n:Person {name: $value})</p>
-<p>Node with the declared properties.</p>
-<p>()-[r {name: $value}]-()</p>
-<p>Matches relationships with the declared properties.</p>
-<p>(n)–&gt;(m)</p>
-<p>Relationship from n to m.</p>
-<p>(n)–(m)</p>
-<p>Relationship in any direction between n and m.</p>
-<p>(n:Person)–&gt;(m)</p>
-<p>Node n labeled Person with relationship to m.</p>
-<p>(m)&lt;-[:KNOWS]-(n)</p>
-<p>Relationship of type KNOWS from n to m.</p>
-<p>(n)-[:KNOWS|LOVES]-&gt;(m)</p>
-<p>Relationship of type KNOWS or of type LOVES from n to m.</p>
-<p>(n)-[r]-&gt;(m)</p>
-<p>Bind the relationship to variable r.</p>
-<p>(n)-[*1..5]-&gt;(m)</p>
-<p>Variable length path of between 1 and 5 relationships from n to m.</p>
-<p>(n)-[*]-&gt;(m)</p>
-<p>Variable length path of any number of relationships from n to m. (See Performance section.)</p>
-<p>(n)-[:KNOWS]-&gt;(m {property: $value})</p>
-<p>A relationship of type KNOWS from a node n to a node m with the declared property.</p>
-<p>shortestPath((n1:Person)-[*..6]-(n2:Person))</p>
-<p>Find a single shortest path.</p>
-<p>allShortestPaths((n1:Person)-[*..6]-&gt;(n2:Person))</p>
-<p>Find all shortest paths.</p>
-<p>size((n)–&gt;()–&gt;())</p>
-<p>Count the paths matching the pattern.</p>
-<p>USE</p>
-<p>USE myDatabase</p>
-<p>Select myDatabase to execute query, or query part, against.</p>
-<p>USE neo4j</p>
-<p>MATCH (n:Person)-[:KNOWS]-&gt;(m:Person)</p>
-<p>WHERE n.name &#x3D; ‘Alice’</p>
-<p>MATCH query executed against neo4j database.</p>
-<p>SHOW FUNCTIONS and PROCEDURES</p>
-<p>SHOW FUNCTIONS</p>
-<p>Listing all available functions.</p>
-<p>SHOW PROCEDURES EXECUTABLE YIELD name</p>
-<p>List all procedures that can be executed by the current user and return only the name of the procedures.</p>
-<p>SHOW and TERMINATE TRANSACTIONS</p>
-<p>SHOW TRANSACTIONS</p>
-<p>Listing all available transactions.</p>
-<p>TERMINATE TRANSACTIONS ‘neo4j-transaction-42’</p>
-<p>Terminate the transaction with ID neo4j-transaction-42.</p>
-<p>Labels</p>
-<p>CREATE (n:Person {name: $value})</p>
-<p>Create a node with label and property.</p>
-<p>MERGE (n:Person {name: $value})</p>
-<p>Matches or creates unique node(s) with the label and property.</p>
-<p>SET n:Spouse:Parent:Employee</p>
-<p>Add label(s) to a node.</p>
-<p>MATCH (n:Person)</p>
-<p>Matches nodes labeled Person.</p>
-<p>MATCH (n:Person)</p>
-<p>WHERE n.name &#x3D; $value</p>
-<p>Matches nodes labeled Person with the given name.</p>
-<p>WHERE (n:Person)</p>
-<p>Checks the existence of the label on the node.</p>
-<p>labels(n)</p>
-<p>Labels of the node.</p>
-<p>REMOVE n:Person</p>
-<p>Remove the label from the node.</p>
-<p>Maps</p>
-<p>{name: ‘Alice’, age: 38,</p>
-<p>address: {city: ‘London’, residential: true}}</p>
-<p>Literal maps are declared in curly braces much like property maps. Lists are supported.</p>
-<p>WITH {person: {name: ‘Anne’, age: 25}} AS p</p>
-<p>RETURN p.person.name</p>
-<p>Access the property of a nested map.</p>
-<p>MERGE (p:Person {name: $map.name})</p>
-<p>ON CREATE SET p &#x3D; $map</p>
-<p>Maps can be passed in as parameters and used either as a map or by accessing keys.</p>
-<p>MATCH (matchedNode:Person)</p>
-<p>RETURN matchedNode</p>
-<p>Nodes and relationships are returned as maps of their data.</p>
-<p>map.name, map.age, map.children[0]</p>
-<p>Map entries can be accessed by their keys. Invalid keys result in an error.</p>
-<p>Functions</p>
-<p>coalesce(n.property, $defaultValue)</p>
-<p>The first non-null expression.</p>
-<p>timestamp()</p>
-<p>Milliseconds since midnight, January 1, 1970 UTC.</p>
-<p>id(nodeOrRelationship)</p>
-<p>The internal id of the relationship or node.</p>
-<p>toInteger($expr)</p>
-<p>Converts the given input into an integer if possible; otherwise it returns null.</p>
-<p>toFloat($expr)</p>
-<p>Converts the given input into a floating point number if possible; otherwise it returns null.</p>
-<p>toBoolean($expr)</p>
-<p>Converts the given input into a boolean if possible; otherwise it returns null.</p>
-<p>keys($expr)</p>
-<p>Returns a list of string representations for the property names of a node, relationship, or map.</p>
-<p>properties($expr)</p>
-<p>Returns a map containing all the properties of a node or relationship.</p>
-<p>Spatial functions</p>
-<p>point({x: $x, y: $y})</p>
-<p>Returns a point in a 2D cartesian coordinate system.</p>
-<p>point({latitude: $y, longitude: $x})</p>
-<p>Returns a point in a 2D geographic coordinate system, with coordinates specified in decimal degrees.</p>
-<p>point({x: $x, y: $y, z: $z})</p>
-<p>Returns a point in a 3D cartesian coordinate system.</p>
-<p>point({latitude: $y, longitude: $x, height: $z})</p>
-<p>Returns a point in a 3D geographic coordinate system, with latitude and longitude in decimal degrees, and height in meters.</p>
-<p>point.distance(point({x: $x1, y: $y1}), point({x: $x2, y: $y2}))</p>
-<p>Returns a floating point number representing the linear distance between two points. The returned units will be the same as those of the point coordinates, and it will work for both 2D and 3D cartesian points.</p>
-<p>point.distance(point({latitude: $y1, longitude: $x1}), point({latitude: $y2, longitude: $x2}))</p>
-<p>Returns the geodesic distance between two points in meters. It can be used for 3D geographic points as well.</p>
-<p>Temporal functions</p>
-<p>date(“2018-04-05”)</p>
-<p>Returns a date parsed from a string.</p>
-<p>localtime(“12:45:30.25”)</p>
-<p>Returns a time with no time zone.</p>
-<p>time(“12:45:30.25+01:00”)</p>
-<p>Returns a time in a specified time zone.</p>
-<p>localdatetime(“2018-04-05T12:34:00”)</p>
-<p>Returns a datetime with no time zone.</p>
-<p>datetime(“2018-04-05T12:34:00[Europe&#x2F;Berlin]”)</p>
-<p>Returns a datetime in the specified time zone.</p>
-<p>datetime({epochMillis: 3360000})</p>
-<p>Transforms 3360000 as a UNIX Epoch time into a normal datetime.</p>
-<p>date({year: $year, month: $month, day: $day})</p>
-<p>All of the temporal functions can also be called with a map of named components. This example returns a date from year, month and day components. Each function supports a different set of possible components.</p>
-<p>datetime({date: $date, time: $time})</p>
-<p>Temporal types can be created by combining other types. This example creates a datetime from a date and a time.</p>
-<p>date({date: $datetime, day: 5})</p>
-<p>Temporal types can be created by selecting from more complex types, as well as overriding individual components. This example creates a date by selecting from a datetime, as well as overriding the day component.</p>
-<p>WITH date(“2018-04-05”) AS d</p>
-<p>RETURN d.year, d.month, d.day, d.week, d.dayOfWeek</p>
-<p>Accessors allow extracting components of temporal types.</p>
-<p>Duration functions</p>
-<p>duration(“P1Y2M10DT12H45M30.25S”)</p>
-<p>Returns a duration of 1 year, 2 months, 10 days, 12 hours, 45 minutes and 30.25 seconds.</p>
-<p>duration.between($date1,$date2)</p>
-<p>Returns a duration between two temporal instances.</p>
-<p>WITH duration(“P1Y2M10DT12H45M”) AS d</p>
-<p>RETURN d.years, d.months, d.days, d.hours, d.minutes</p>
-<p>Returns 1 year, 14 months, 10 days, 12 hours and 765 minutes.</p>
-<p>WITH duration(“P1Y2M10DT12H45M”) AS d</p>
-<p>RETURN d.years, d.monthsOfYear, d.days, d.hours, d.minutesOfHour</p>
-<p>Returns 1 year, 2 months, 10 days, 12 hours and 45 minutes.</p>
-<p>date(“2015-01-01”) + duration(“P1Y1M1D”)</p>
-<p>Returns a date of 2016-02-02. It is also possible to subtract durations from temporal instances.</p>
-<p>duration(“PT30S”) * 10</p>
-<p>Returns a duration of 5 minutes. It is also possible to divide a duration by a number.</p>
-<p>CONSTRAINT</p>
-<p>CREATE CONSTRAINT FOR (p:Person)</p>
-<p>REQUIRE p.name IS UNIQUE</p>
-<p>Create a unique property constraint on the label Person and property name. If any other node with that label is updated or created with a name that already exists, the write operation will fail. This constraint will create an accompanying index.</p>
-<p>CREATE CONSTRAINT uniqueness FOR (p:Person)</p>
-<p>REQUIRE (p.firstname, p.age) IS UNIQUE</p>
-<p>Create a unique property constraint with the name uniqueness on the label Person and properties firstname and age. If any other node with that label is updated or created with a firstname and age combination that already exists, the write operation fails. This constraint creates an accompanying index.</p>
-<p>CREATE CONSTRAINT FOR (p:Person)</p>
-<p>REQUIRE p.surname IS UNIQUE</p>
-<p>OPTIONS {indexProvider: ‘native-btree-1.0’}</p>
-<p>Create a unique property constraint on the label Person and property surname with the index provider native-btree-1.0 for the accompanying index.</p>
-<p>CREATE CONSTRAINT FOR (p:Person)</p>
-<p>REQUIRE p.name IS NOT NULL</p>
-<p>(★) Create a node property existence constraint on the label Person and property name, throws an error if the constraint already exists. If a node with that label is created without a name, or if the name property is removed from an existing node with the Person label, the write operation will fail.</p>
-<p>CREATE CONSTRAINT node_exists IF NOT EXISTS FOR (p:Person)</p>
-<p>REQUIRE p.name IS NOT NULL</p>
-<p>(★) If a node property existence constraint on the label Person and property name or any constraint with the name node_exists already exist then nothing happens. If no such constraint exists, then it will be created.</p>
-<p>CREATE CONSTRAINT FOR ()-[l:LIKED]-()</p>
-<p>REQUIRE l.when IS NOT NULL</p>
-<p>(★) Create a relationship property existence constraint on the type LIKED and property when. If a relationship with that type is created without a when, or if the when property is removed from an existing relationship with the LIKED type, the write operation will fail.</p>
-<p>CREATE CONSTRAINT relationship_exists FOR ()-[l:LIKED]-()</p>
-<p>REQUIRE l.since IS NOT NULL</p>
-<p>(★) Create a relationship property existence constraint with the name relationship_exists on the type LIKED and property since. If a relationship with that type is created without a since, or if the since property is removed from an existing relationship with the LIKED type, the write operation will fail.</p>
-<p>SHOW UNIQUE CONSTRAINTS YIELD *</p>
-<p>List all unique constraints.</p>
-<p>CREATE CONSTRAINT FOR (p:Person)</p>
-<p>REQUIRE (p.firstname, p.surname) IS NODE KEY</p>
-<p>(★) Create a node key constraint on the label Person and properties firstname and surname. If a node with that label is created without both firstname and surname or if the combination of the two is not unique, or if the firstname and&#x2F;or surname properties on an existing node with the Person label is modified to violate these constraints, the write operation fails. This constraint creates an accompanying index.</p>
-<p>CREATE CONSTRAINT node_key FOR (p:Person)</p>
-<p>REQUIRE p.firstname IS NODE KEY</p>
-<p>(★) Create a node key constraint with the name node_key on the label Person and property firstname. If a node with that label is created without the firstname property or if the value is not unique, or if the firstname property on an existing node with the Person label is modified to violate these constraints, the write operation fails. This constraint creates an accompanying index.</p>
-<p>CREATE CONSTRAINT node_key_with_config FOR (p:Person)</p>
-<p>REQUIRE (p.name, p.age) IS NODE KEY</p>
-<p>OPTIONS {indexConfig: {<code>spatial.wgs-84.min</code>: [-100.0, -100.0], <code>spatial.wgs-84.max</code>: [100.0, 100.0]}}</p>
-<p>(★) Create a node key constraint with the name node_key_with_config on the label Person, properties name and age, and given spatial.wgs-84 settings for the accompanying b-tree index. The other index settings will have their default values.</p>
-<p>DROP CONSTRAINT uniqueness</p>
-<p>Dropping the constraint with the name uniqueness, throws an error if the constraint does not exist. If the constraint has an accompanying index, that is also dropped.</p>
-<p>DROP CONSTRAINT uniqueness IF EXISTS</p>
-<p>Dropping the constraint with the name uniqueness if it exists, does nothing if it does not exist. If the constraint has an accompanying index, that is also dropped.</p>
-<p>Database management</p>
-<p>CREATE OR REPLACE DATABASE myDatabase</p>
-<p>(★) Create a database named myDatabase. If a database with that name exists, then the existing database is deleted and a new one created.</p>
-<p>ALTER DATABASE myDatabase SET ACCESS READ ONLY</p>
-<p>(★) Modify a database named myDatabase to be read-only.</p>
-<p>STOP DATABASE myDatabase</p>
-<p>(★) Stop the database myDatabase.</p>
-<p>START DATABASE myDatabase</p>
-<p>(★) Start the database myDatabase.</p>
-<p>CREATE ALIAS myAlias FOR DATABASE myDatabase</p>
-<p>(★) Create an alias myAlias for the database with name myDatabase.</p>
-<p>ALTER ALIAS myAlias SET DATABASE TARGET myDatabase</p>
-<p>(★) Alter the alias myAlias to target the database with name myDatabase.</p>
-<p>DROP ALIAS myAlias FOR DATABASE</p>
-<p>(★) Drop the database alias myAlias.</p>
-<p>SHOW DATABASES</p>
-<p>List all databases in the system and information about them.</p>
-<p>SHOW DATABASES</p>
-<p>YIELD name, currentStatus</p>
-<p>WHERE name CONTAINS ‘my’ AND currentStatus &#x3D; ‘online’</p>
-<p>List information about databases, filtered by name and online status and further refined by conditions on these.</p>
-<p>SHOW DATABASE myDatabase</p>
-<p>List information about the database myDatabase.</p>
-<p>SHOW DEFAULT DATABASE</p>
-<p>List information about the default database.</p>
-<p>SHOW HOME DATABASE</p>
-<p>List information about the current users home database.</p>
-<p>DROP DATABASE myDatabase IF EXISTS</p>
-<p>(★) Delete the database myDatabase, if it exists.</p>
-<p>User management</p>
-<p>CREATE USER alice SET PASSWORD $password</p>
-<p>Create a new user and a password. This password must be changed on the first login.</p>
-<p>ALTER USER alice SET PASSWORD $password CHANGE NOT REQUIRED</p>
-<p>Set a new password for a user. This user will not be required to change this password on the next login.</p>
-<p>ALTER USER alice IF EXISTS SET PASSWORD CHANGE REQUIRED</p>
-<p>If the specified user exists, force this user to change their password on the next login.</p>
-<p>ALTER USER alice SET STATUS SUSPENDED</p>
-<p>(★) Change the user status to suspended. Use SET STATUS ACTIVE to reactivate the user.</p>
-<p>ALTER USER alice SET HOME DATABASE otherDb</p>
-<p>(★) Change the home database of user to otherDb. Use REMOVE HOME DATABASE to unset the home database for the user and fallback to the default database.</p>
-<p>ALTER CURRENT USER SET PASSWORD FROM $old TO $new</p>
-<p>Change the password of the logged-in user. The user will not be required to change this password on the next login.</p>
-<p>SHOW CURRENT USER</p>
-<p>List the currently logged-in user, their status, roles and whether they need to change their password.</p>
-<p>(★) Status and roles are Enterprise Edition only.</p>
-<p>SHOW USERS</p>
-<p>List all users in the system, their status, roles and if they need to change their password.</p>
-<p>(★) Status and roles are Enterprise Edition only.</p>
-<p>SHOW USERS</p>
-<p>YIELD user, suspended</p>
-<p>WHERE suspended &#x3D; true</p>
-<p>List users in the system, filtered by their name and status and further refined by whether they are suspended.</p>
-<p>(★) Status is Enterprise Edition only.</p>
-<p>RENAME USER alice TO alice_delete</p>
-<p>Rename the user alice to alice_delete.</p>
-<p>DROP USER alice_delete</p>
-<p>Delete the user.</p>
-<p>(★) Role management</p>
-<p>CREATE ROLE my_role</p>
-<p>Create a role.</p>
-<p>CREATE ROLE my_second_role IF NOT EXISTS AS COPY OF my_role</p>
-<p>Create a role named my_second_role, unless it already exists, as a copy of the existing my_role.</p>
-<p>RENAME ROLE my_second_role TO my_other_role</p>
-<p>Rename a role named my_second_role to my_other_role.</p>
-<p>GRANT ROLE my_role, my_other_role TO alice</p>
-<p>Assign roles to a user.</p>
-<p>REVOKE ROLE my_other_role FROM alice</p>
-<p>Remove a specified role from a user.</p>
-<p>SHOW ROLES</p>
-<p>List all roles in the system.</p>
-<p>SHOW ROLES</p>
-<p>YIELD role</p>
-<p>WHERE role CONTAINS ‘my’</p>
-<p>List roles, filtered by the name of the role and further refined by whether the name contains ‘my’.</p>
-<p>SHOW POPULATED ROLES WITH USERS</p>
-<p>List all roles that are assigned to at least one user in the system, and the users assigned to those roles.</p>
-<p>DROP ROLE my_role</p>
-<p>Delete a role.</p>
-<p>(★) Graph read privileges</p>
-<p>GRANT TRAVERSE ON GRAPH * NODES * TO my_role</p>
-<p>Grant traverse privilege on all nodes and all graphs to a role.</p>
-<p>DENY READ {prop} ON GRAPH foo RELATIONSHIP Type TO my_role</p>
-<p>Deny read privilege on a specified property, on all relationships with a specified type in a specified graph, to a role.</p>
-<p>GRANT MATCH {*} ON HOME GRAPH ELEMENTS Label TO my_role</p>
-<p>Grant read privilege on all properties and traverse privilege in the home graph, to a role. Here, both privileges apply to all nodes and relationships with a specified label&#x2F;type in the graph.</p>
-<p>(★) Graph write privileges</p>
-<p>GRANT CREATE ON GRAPH * NODES Label TO my_role</p>
-<p>Grant create privilege on all nodes with a specified label in all graphs to a role.</p>
-<p>DENY DELETE ON GRAPH neo4j TO my_role</p>
-<p>Deny delete privilege on all nodes and relationships in a specified graph to a role.</p>
-<p>REVOKE SET LABEL Label ON GRAPH * FROM my_role</p>
-<p>Revoke set label privilege for the specified label on all graphs to a role.</p>
-<p>GRANT REMOVE LABEL * ON GRAPH foo TO my_role</p>
-<p>Grant remove label privilege for all labels on a specified graph to a role.</p>
-<p>DENY SET PROPERTY {prop} ON GRAPH foo RELATIONSHIPS Type TO my_role</p>
-<p>Deny set property privilege on a specified property, on all relationships with a specified type in a specified graph, to a role.</p>
-<p>GRANT MERGE {*} ON GRAPH * NODES Label TO my_role</p>
-<p>Grant merge privilege on all properties, on all nodes with a specified label in all graphs, to a role.</p>
-<p>REVOKE WRITE ON GRAPH * FROM my_role</p>
-<p>Revoke write privilege on all graphs from a role.</p>
-<p>DENY ALL GRAPH PRIVILEGES ON GRAPH foo TO my_role</p>
-<p>Deny all graph privileges privilege on a specified graph to a role.</p>
-<p>(★) SHOW PRIVILEGES</p>
-<p>SHOW PRIVILEGES AS COMMANDS</p>
-<p>List all privileges in the system as Cypher commands.</p>
-<p>SHOW PRIVILEGES</p>
-<p>List all privileges in the system, and the roles that they are assigned to.</p>
-<p>SHOW PRIVILEGES</p>
-<p>YIELD role, action, access</p>
-<p>WHERE role &#x3D; ‘my_role’</p>
-<p>List information about privileges, filtered by role, action and access and further refined by the name of the role.</p>
-<p>SHOW ROLE my_role PRIVILEGES AS COMMANDS</p>
-<p>List all privileges assigned to a role as Cypher commands.</p>
-<p>SHOW ROLE my_role, my_second_role PRIVILEGES AS COMMANDS</p>
-<p>List all privileges assigned to each of the multiple roles as Cypher commands.</p>
-<p>SHOW USER alice PRIVILEGES AS COMMANDS</p>
-<p>List all privileges of a user, and the role that they are assigned to as Cypher commands.</p>
-<p>SHOW USER PRIVILEGES AS COMMANDS</p>
-<p>List all privileges of the currently logged in user, and the role that they are assigned to as Cypher commands.</p>
-<p>RETURN</p>
-<p>RETURN *</p>
-<p>Return the value of all variables.</p>
-<p>RETURN n AS columnName</p>
-<p>Use alias for result column name.</p>
-<p>RETURN DISTINCT n</p>
-<p>Return unique rows.</p>
-<p>ORDER BY n.property</p>
-<p>Sort the result.</p>
-<p>ORDER BY n.property DESC</p>
-<p>Sort the result in descending order.</p>
-<p>SKIP $skipNumber</p>
-<p>Skip a number of results.</p>
-<p>LIMIT $limitNumber</p>
-<p>Limit the number of results.</p>
-<p>SKIP $skipNumber LIMIT $limitNumber</p>
-<p>Skip results at the top and limit the number of results.</p>
-<p>RETURN count(*)</p>
-<p>The number of matching rows. See Aggregating functions for more.</p>
-<p>WITH</p>
-<p>MATCH (user)-[:FRIEND]-(friend)</p>
-<p>WHERE user.name &#x3D; $name</p>
-<p>WITH user, count(friend) AS friends</p>
-<p>WHERE friends &gt; 10</p>
-<p>RETURN user</p>
-<p>The WITH syntax is similar to RETURN. It separates query parts explicitly, allowing you to declare which variables to carry over to the next part.</p>
-<p>MATCH (user)-[:FRIEND]-(friend)</p>
-<p>WITH user, count(friend) AS friends</p>
-<p>ORDER BY friends DESC</p>
-<p>SKIP 1</p>
-<p>LIMIT 3</p>
-<p>RETURN user</p>
-<p>ORDER BY, SKIP, and LIMIT can also be used with WITH.</p>
-<p>UNION</p>
-<p>MATCH (a)-[:KNOWS]-&gt;(b)</p>
-<p>RETURN b.name</p>
-<p>UNION</p>
-<p>MATCH (a)-[:LOVES]-&gt;(b)</p>
-<p>RETURN b.name</p>
-<p>Returns the distinct union of all query results. Result column types and names have to match.</p>
-<p>MATCH (a)-[:KNOWS]-&gt;(b)</p>
-<p>RETURN b.name</p>
-<p>UNION ALL</p>
-<p>MATCH (a)-[:LOVES]-&gt;(b)</p>
-<p>RETURN b.name</p>
-<p>Returns the union of all query results, including duplicated rows.</p>
-<p>MERGE</p>
-<p>MERGE (n:Person {name: $value})</p>
-<p>ON CREATE SET n.created &#x3D; timestamp()</p>
-<p>ON MATCH SET</p>
-<p>n.counter &#x3D; coalesce(n.counter, 0) + 1,</p>
-<p>n.accessTime &#x3D; timestamp()</p>
-<p>Match a pattern or create it if it does not exist. Use ON CREATE and ON MATCH for conditional updates.</p>
-<p>MATCH (a:Person {name: $value1}),</p>
-<p>(b:Person {name: $value2})</p>
-<p>MERGE (a)-[r:LOVES]-&gt;(b)</p>
-<p>MERGE finds or creates a relationship between the nodes.</p>
-<p>MATCH (a:Person {name: $value1})</p>
-<p>MERGE</p>
-<p>(a)-[r:KNOWS]-&gt;(b:Person {name: $value3})</p>
-<p>MERGE finds or creates paths attached to the node.</p>
-<p>DELETE</p>
-<p>DELETE n, r</p>
-<p>Delete a node and a relationship.</p>
-<p>DETACH DELETE n</p>
-<p>Delete a node and all relationships connected to it.</p>
-<p>MATCH (n)</p>
-<p>DETACH DELETE n</p>
-<p>Delete all nodes and relationships from the database.</p>
-<p>REMOVE</p>
-<p>REMOVE n:Person</p>
-<p>Remove a label from n.</p>
-<p>REMOVE n.property</p>
-<p>Remove a property.</p>
-<p>FOREACH</p>
-<p>FOREACH (r IN relationships(path) |</p>
-<p>SET r.marked &#x3D; true)</p>
-<p>Execute a mutating operation for each relationship in a path.</p>
-<p>FOREACH (value IN coll |</p>
-<p>CREATE (:Person {name: value}))</p>
-<p>Execute a mutating operation for each element in a list.</p>
-<p>CALL subquery</p>
-<p>CALL {</p>
-<p>MATCH (p:Person)-[:FRIEND_OF]-&gt;(other:Person) RETURN p, other</p>
-<p>UNION</p>
-<p>MATCH (p:Child)-[:CHILD_OF]-&gt;(other:Parent) RETURN p, other</p>
-<p>}</p>
-<p>This calls a subquery with two union parts. The result of the subquery can afterwards be post-processed.</p>
-<p>CALL procedure</p>
-<p>CALL db.labels() YIELD label</p>
-<p>This shows a standalone call to the built-in procedure db.labels to list all labels used in the database. Note that required procedure arguments are given explicitly in brackets after the procedure name.</p>
-<p>CALL db.labels() YIELD *</p>
-<p>Standalone calls may use YIELD * to return all columns.</p>
-<p>CALL java.stored.procedureWithArgs</p>
-<p>Standalone calls may omit YIELD and also provide arguments implicitly via statement parameters, e.g. a standalone call requiring one argument input may be run by passing the parameter map {input: ‘foo’}.</p>
-<p>CALL db.labels() YIELD label</p>
-<p>RETURN count(label) AS count</p>
-<p>Calls the built-in procedure db.labels inside a larger query to count all labels used in the database. Calls inside a larger query always requires passing arguments and naming results explicitly with YIELD.</p>
-<p>Lists</p>
-<p>[‘a’, ‘b’, ‘c’] AS list</p>
-<p>Literal lists are declared in square brackets.</p>
-<p>size($list) AS len, $list[0] AS value</p>
-<p>Lists can be passed in as parameters.</p>
-<p>range($firstNum, $lastNum, $step) AS list</p>
-<p>range() creates a list of numbers (step is optional), other functions returning lists are: labels(), nodes(), relationships().</p>
-<p>MATCH p &#x3D; (a)-[:KNOWS*]-&gt;()</p>
-<p>RETURN relationships(p) AS r</p>
-<p>The list of relationships comprising a variable length path can be returned using named paths and relationships().</p>
-<p>RETURN matchedNode.list[0] AS value,</p>
-<p>size(matchedNode.list) AS len</p>
-<p>Properties can be lists of strings, numbers or booleans.</p>
-<p>list[$idx] AS value,</p>
-<p>list[$startIdx..$endIdx] AS slice</p>
-<p>List elements can be accessed with idx subscripts in square brackets. Invalid indexes return null. Slices can be retrieved with intervals from start_idx to end_idx, each of which can be omitted or negative. Out of range elements are ignored.</p>
-<p>UNWIND $names AS name</p>
-<p>MATCH (n {name: name})</p>
-<p>RETURN avg(n.age)</p>
-<p>With UNWIND, any list can be transformed back into individual rows. The example matches all names from a list of names.</p>
-<p>MATCH (a)</p>
-<p>RETURN [(a)–&gt;(b) WHERE b.name &#x3D; ‘Bob’ | b.age]</p>
-<p>Pattern comprehensions may be used to do a custom projection from a match directly into a list.</p>
-<p>MATCH (person)</p>
-<p>RETURN person { .name, .age}</p>
-<p>Map projections may be easily constructed from nodes, relationships and other map values.</p>
-<p>Predicates</p>
-<p>n.property &lt;&gt; $value</p>
-<p>Use comparison operators.</p>
-<p>toString(n.property) &#x3D; $value</p>
-<p>Use functions.</p>
-<p>n.number &gt;&#x3D; 1 AND n.number &lt;&#x3D; 10</p>
-<p>Use boolean operators to combine predicates.</p>
-<p>1 &lt;&#x3D; n.number &lt;&#x3D; 10</p>
-<p>Use chained operators to combine predicates.</p>
-<p>n:Person</p>
-<p>Check for node labels.</p>
-<p>variable IS NOT NULL</p>
-<p>Check if something is not null, e.g. that a property exists.</p>
-<p>n.property IS NULL OR n.property &#x3D; $value</p>
-<p>Either the property does not exist or the predicate is true.</p>
-<p>n.property &#x3D; $value</p>
-<p>Non-existing property returns null, which is not equal to anything.</p>
-<p>n[“property”] &#x3D; $value</p>
-<p>Properties may also be accessed using a dynamically computed property name.</p>
-<p>n.property STARTS WITH ‘Tim’ OR</p>
-<p>n.property ENDS WITH ‘n’ OR</p>
-<p>n.property CONTAINS ‘goodie’</p>
-<p>String matching.</p>
-<p>n.property &#x3D;~ ‘Tim.*’</p>
-<p>String regular expression matching.</p>
-<p>(n)-[:KNOWS]-&gt;(m)</p>
-<p>Ensure the pattern has at least one match.</p>
-<p>NOT (n)-[:KNOWS]-&gt;(m)</p>
-<p>Exclude matches to (n)-[:KNOWS]-&gt;(m) from the result.</p>
-<p>n.property IN [$value1, $value2]</p>
-<p>Check if an element exists in a list.</p>
-<p>List predicates</p>
-<p>all(x IN coll WHERE x.property IS NOT NULL)</p>
-<p>Returns true if the predicate is true for all elements in the list.</p>
-<p>any(x IN coll WHERE x.property IS NOT NULL)</p>
-<p>Returns true if the predicate is true for at least one element in the list.</p>
-<p>none(x IN coll WHERE x.property IS NOT NULL)</p>
-<p>Returns true if the predicate is false for all elements in the list.</p>
-<p>single(x IN coll WHERE x.property IS NOT NULL)</p>
-<p>Returns true if the predicate is true for exactly one element in the list.</p>
-<p>CASE</p>
-<p>CASE n.eyes</p>
-<p>WHEN ‘blue’ THEN 1</p>
-<p>WHEN ‘brown’ THEN 2</p>
-<p>ELSE 3</p>
-<p>END</p>
-<p>Return THEN value from the matching WHEN value. The ELSE value is optional, and substituted for null if missing.</p>
-<p>CASE</p>
-<p>WHEN n.eyes &#x3D; ‘blue’ THEN 1</p>
-<p>WHEN n.age &lt; 40 THEN 2</p>
-<p>ELSE 3</p>
-<p>END</p>
-<p>Return THEN value from the first WHEN predicate evaluating to true. Predicates are evaluated in order.</p>
-<p>List expressions</p>
-<p>size($list)</p>
-<p>Number of elements in the list.</p>
-<p>reverse($list)</p>
-<p>Reverse the order of the elements in the list.</p>
-<p>head($list)</p>
-<p>Get the first element of the list. Return null for an empty list. Eqivalent to the list indexing $list[0].</p>
-<p>last($list)</p>
-<p>Get the last element of the list. Return null for an empty list. Eqivalent to the list indexing $list[-1].</p>
-<p>tail($list)</p>
-<p>Get all elements except for the first element. Return [] for an empty list. Eqivalent to the list slice $list[1..]. Out-of-bound slices are truncated to an empty list [].</p>
-<p>[x IN list | x.prop]</p>
-<p>A list of the value of the expression for each element in the original list.</p>
-<p>[x IN list WHERE x.prop &lt;&gt; $value]</p>
-<p>A filtered list of the elements where the predicate is true.</p>
-<p>[x IN list WHERE x.prop &lt;&gt; $value | x.prop]</p>
-<p>A list comprehension that filters a list and extracts the value of the expression for each element in that list.</p>
-<p>reduce(s &#x3D; “”, x IN list | s + x.prop)</p>
-<p>Evaluate expression for each element in the list, accumulate the results.</p>
-<p>Path functions</p>
-<p>length(path)</p>
-<p>The number of relationships in the path.</p>
-<p>nodes(path)</p>
-<p>The nodes in the path as a list.</p>
-<p>relationships(path)</p>
-<p>The relationships in the path as a list.</p>
-<p>[x IN nodes(path) | x.prop]</p>
-<p>Extract properties from the nodes in a path.</p>
-<p>Mathematical functions</p>
-<p>abs($expr)</p>
-<p>The absolute value.</p>
-<p>rand()</p>
-<p>Returns a random number in the range from 0 (inclusive) to 1 (exclusive), [0,1). Returns a new value for each call. Also useful for selecting a subset or random ordering.</p>
-<p>round($expr)</p>
-<p>Round to the nearest integer; ceil() and floor() find the next integer up or down.</p>
-<p>sqrt($expr)</p>
-<p>The square root.</p>
-<p>sign($expr)</p>
-<p>0 if zero, -1 if negative, 1 if positive.</p>
-<p>sin($expr)</p>
-<p>Trigonometric functions also include cos(), tan(), cot(), asin(), acos(), atan(), atan2(), and haversin(). All arguments for the trigonometric functions should be in radians, if not otherwise specified.</p>
-<p>degrees($expr), radians($expr), pi()</p>
-<p>Converts radians into degrees; use radians() for the reverse, and pi() for π.</p>
-<p>log10($expr), log($expr), exp($expr), e()</p>
-<p>Logarithm base 10, natural logarithm, e to the power of the parameter, and the value of e.</p>
-<p>String functions</p>
-<p>toString($expression)</p>
-<p>String representation of the expression.</p>
-<p>replace($original, $search, $replacement)</p>
-<p>Replace all occurrences of search with replacement. All arguments must be expressions.</p>
-<p>substring($original, $begin, $subLength)</p>
-<p>Get part of a string. The subLength argument is optional.</p>
-<p>left($original, $subLength),</p>
-<p>right($original, $subLength)</p>
-<p>The first part of a string. The last part of the string.</p>
-<p>trim($original), lTrim($original),</p>
-<p>rTrim($original)</p>
-<p>Trim all whitespace, or on the left or right side.</p>
-<p>toUpper($original), toLower($original)</p>
-<p>UPPERCASE and lowercase.</p>
-<p>split($original, $delimiter)</p>
-<p>Split a string into a list of strings.</p>
-<p>reverse($original)</p>
-<p>Reverse a string.</p>
-<p>size($string)</p>
-<p>Calculate the number of characters in the string.</p>
-<p>Relationship functions</p>
-<p>type(a_relationship)</p>
-<p>String representation of the relationship type.</p>
-<p>startNode(a_relationship)</p>
-<p>Start node of the relationship.</p>
-<p>endNode(a_relationship)</p>
-<p>End node of the relationship.</p>
-<p>id(a_relationship)</p>
-<p>The internal id of the relationship.</p>
-<p>Aggregating functions</p>
-<p>count(*)</p>
-<p>The number of matching rows.</p>
-<p>count(variable)</p>
-<p>The number of non-null values.</p>
-<p>count(DISTINCT variable)</p>
-<p>All aggregating functions also take the DISTINCT operator, which removes duplicates from the values.</p>
-<p>collect(n.property)</p>
-<p>List from the values, ignores null.</p>
-<p>sum(n.property)</p>
-<p>Sum numerical values. Similar functions are avg(), min(), max().</p>
-<p>percentileDisc(n.property, $percentile)</p>
-<p>Discrete percentile. Continuous percentile is percentileCont(). The percentile argument is from 0.0 to 1.0.</p>
-<p>stDev(n.property)</p>
-<p>Standard deviation for a sample of a population. For an entire population use stDevP().</p>
-<p>INDEX</p>
-<p>CREATE INDEX FOR (p:Person) ON (p.name)</p>
-<p>Create a b-tree index on nodes with label Person and property name.</p>
-<p>CREATE INDEX index_name FOR ()-[k:KNOWS]-() ON (k.since)</p>
-<p>Create a b-tree index with the name index_name on relationships with type KNOWS and property since.</p>
-<p>CREATE INDEX FOR (p:Person) ON (p.surname)</p>
-<p>OPTIONS {indexProvider: ‘native-btree-1.0’, indexConfig: {<code>spatial.cartesian.min</code>: [-100.0, -100.0], <code>spatial.cartesian.max</code>: [100.0, 100.0]}}</p>
-<p>Create a b-tree index on nodes with label Person and property surname with the index provider native-btree-1.0 and given spatial.cartesian settings. The other index settings will have their default values.</p>
-<p>CREATE INDEX FOR (p:Person) ON (p.name, p.age)</p>
-<p>Create a composite b-tree index on nodes with label Person and the properties name and age, throws an error if the index already exist.</p>
-<p>CREATE INDEX IF NOT EXISTS FOR (p:Person) ON (p.name, p.age)</p>
-<p>Create a composite b-tree index on nodes with label Person and the properties name and age if it does not already exist, does nothing if it did exist.</p>
-<p>CREATE LOOKUP INDEX lookup_index_name FOR (n) ON EACH labels(n)</p>
-<p>Create a token lookup index with the name lookup_index_name on nodes with any label.</p>
-<p>CREATE LOOKUP INDEX FOR ()-[r]-() ON EACH type(r)</p>
-<p>Create a token lookup index on relationships with any relationship type.</p>
-<p>CREATE FULLTEXT INDEX node_fulltext_index_name FOR (n:Friend) ON EACH [n.name]</p>
-<p>OPTIONS {indexConfig: {<code>fulltext.analyzer</code>: ‘swedish’}}</p>
-<p>Create a fulltext index on nodes with the name node_fulltext_index_name and analyzer swedish. Fulltext indexes on nodes can only be used by from the procedure db.index.fulltext.queryNodes. The other index settings will have their default values.</p>
-<p>CREATE FULLTEXT INDEX rel_fulltext_index_name FOR ()-[r:HAS_PET|BROUGHT_PET]-() ON EACH [r.since, r.price]</p>
-<p>Create a fulltext index on relationships with the name rel_fulltext_index_name. Fulltext indexes on relationships can only be used by from the procedure db.index.fulltext.queryRelationships.</p>
-<p>CREATE TEXT INDEX FOR (f:Friend) ON (f.email)</p>
-<p>Create a text index on nodes with label Friend and property email.</p>
-<p>CREATE TEXT INDEX text_index_name FOR ()-[h:HAS_PET]-() ON (h.favoriteToy)</p>
-<p>Create a text index with the name text_index_name on relationships with type HAS_PET and property favoriteToy.</p>
-<p>SHOW INDEXES</p>
-<p>List all indexes.</p>
-<p>MATCH (n:Person) WHERE n.name &#x3D; $value</p>
-<p>An BTREE index can be automatically used for the equality comparison. Note that for example toLower(n.name) &#x3D; $value will not use an index.</p>
-<p>MATCH (n:Person) WHERE n.name &#x3D; “Alice”</p>
-<p>An TEXT index can be automatically used for the equality comparison when comparing to a string. Note that for example toLower(n.name) &#x3D; “string” does not use an index.</p>
-<p>MATCH (n:Person)</p>
-<p>WHERE n.name &lt; “Bob”</p>
-<p>An index can automatically be used for range predicates. Note that a TEXT index is only used if the predicate compares the property with a string.</p>
-<p>MATCH (n:Person)</p>
-<p>WHERE n.name IN [$value]</p>
-<p>An index can automatically be used for the IN list checks.</p>
-<p>MATCH (n:Person)</p>
-<p>WHERE n.name IN [‘Bob’, ‘Alice’]</p>
-<p>An TEXT index can automatically be used for the IN list checks when all elements in the list are strings.</p>
-<p>MATCH (n:Person)</p>
-<p>WHERE n.name &#x3D; $value and n.age &#x3D; $value2</p>
-<p>A composite index can be automatically used for equality comparison of both properties. Note that there needs to be predicates on all properties of the composite index for it to be used.</p>
-<p>MATCH (n:Person)</p>
-<p>USING INDEX n:Person(name)</p>
-<p>WHERE n.name &#x3D; $value</p>
-<p>Index usage can be enforced when Cypher uses a suboptimal index, or more than one index should be used.</p>
-<p>DROP INDEX index_name</p>
-<p>Drop the index named index_name, throws an error if the index does not exist.</p>
-<p>DROP INDEX index_name IF EXISTS</p>
-<p>Drop the index named index_name if it exists, does nothing if it does not exist.</p>
-<p>Performance</p>
-<p>Use parameters instead of literals when possible. This allows Cypher to re-use your queries instead of having to parse and build new execution plans.</p>
-<p>Always set an upper limit for your variable length patterns. It’s possible to have a query go wild and touch all nodes in a graph by mistake.</p>
-<p>Return only the data you need. Avoid returning whole nodes and relationships — instead, pick the data you need and return only that.</p>
-<p>Use PROFILE &#x2F; EXPLAIN to analyze the performance of your queries. See Query Tuning for more information on these and other topics, such as planner hints.</p>
-<p>(★) Database privileges</p>
-<p>GRANT ACCESS ON DATABASE * TO my_role</p>
-<p>Grant privilege to access and run queries against all databases to a role.</p>
-<p>GRANT START ON DATABASE * TO my_role</p>
-<p>Grant privilege to start all databases to a role.</p>
-<p>GRANT STOP ON DATABASE * TO my_role</p>
-<p>Grant privilege to stop all databases to a role.</p>
-<p>GRANT CREATE INDEX ON DATABASE foo TO my_role</p>
-<p>Grant privilege to create indexes on a specified database to a role.</p>
-<p>GRANT DROP INDEX ON DATABASE foo TO my_role</p>
-<p>Grant privilege to drop indexes on a specified database to a role.</p>
-<p>GRANT SHOW INDEX ON DATABASE * TO my_role</p>
-<p>Grant privilege to show indexes on all databases to a role.</p>
-<p>DENY INDEX MANAGEMENT ON DATABASE bar TO my_role</p>
-<p>Deny privilege to create and drop indexes on a specified database to a role.</p>
-<p>GRANT CREATE CONSTRAINT ON DATABASE * TO my_role</p>
-<p>Grant privilege to create constraints on all databases to a role.</p>
-<p>DENY DROP CONSTRAINT ON DATABASE * TO my_role</p>
-<p>Deny privilege to drop constraints on all databases to a role.</p>
-<p>DENY SHOW CONSTRAINT ON DATABASE foo TO my_role</p>
-<p>Deny privilege to show constraints on a specified database to a role.</p>
-<p>REVOKE CONSTRAINT ON DATABASE * FROM my_role</p>
-<p>Revoke granted and denied privileges to create and drop constraints on all databases from a role.</p>
-<p>GRANT CREATE NEW LABELS ON DATABASE * TO my_role</p>
-<p>Grant privilege to create new labels on all databases to a role.</p>
-<p>DENY CREATE NEW TYPES ON DATABASE foo TO my_role</p>
-<p>Deny privilege to create new relationship types on a specified database to a role.</p>
-<p>REVOKE GRANT CREATE NEW PROPERTY NAMES ON DATABASE bar FROM my_role</p>
-<p>Revoke the grant privilege to create new property names on a specified database from a role.</p>
-<p>GRANT NAME MANAGEMENT ON HOME DATABASE TO my_role</p>
-<p>Grant privilege to create labels, relationship types, and property names on the home database to a role.</p>
-<p>GRANT ALL ON DATABASE baz TO my_role</p>
-<p>Grant privilege to access, create and drop indexes and constraints, create new labels, types and property names on a specified database to a role.</p>
-<p>GRANT SHOW TRANSACTION (*) ON DATABASE foo TO my_role</p>
-<p>Grant privilege to list transactions and queries from all users on a specified database to a role.</p>
-<p>DENY TERMINATE TRANSACTION (user1, user2) ON DATABASES * TO my_role</p>
-<p>Deny privilege to kill transactions and queries from user1 and user2 on all databases to a role.</p>
-<p>REVOKE GRANT TRANSACTION MANAGEMENT ON HOME DATABASE FROM my_role</p>
-<p>Revoke the granted privilege to list and kill transactions and queries from all users on the home database from a role.</p>
-<p>(★) Role management privileges</p>
-<p>GRANT CREATE ROLE ON DBMS TO my_role</p>
-<p>Grant the privilege to create roles to a role.</p>
-<p>GRANT RENAME ROLE ON DBMS TO my_role</p>
-<p>Grant the privilege to rename roles to a role.</p>
-<p>GRANT DROP ROLE ON DBMS TO my_role</p>
-<p>Grant the privilege to delete roles to a role.</p>
-<p>DENY ASSIGN ROLE ON DBMS TO my_role</p>
-<p>Deny the privilege to assign roles to users to a role.</p>
-<p>DENY REMOVE ROLE ON DBMS TO my_role</p>
-<p>Deny the privilege to remove roles from users to a role.</p>
-<p>REVOKE DENY SHOW ROLE ON DBMS FROM my_role</p>
-<p>Revoke the denied privilege to show roles from a role.</p>
-<p>GRANT ROLE MANAGEMENT ON DBMS TO my_role</p>
-<p>Grant all privileges to manage roles to a role.</p>
-<p>(★) User management privileges</p>
-<p>GRANT CREATE USER ON DBMS TO my_role</p>
-<p>Grant the privilege to create users to a role.</p>
-<p>GRANT RENAME USER ON DBMS TO my_role</p>
-<p>Grant the privilege to rename users to a role.</p>
-<p>DENY ALTER USER ON DBMS TO my_role</p>
-<p>Deny the privilege to alter users to a role.</p>
-<p>REVOKE SET PASSWORDS ON DBMS FROM my_role</p>
-<p>Revoke the granted and denied privileges to alter users’ passwords from a role.</p>
-<p>REVOKE GRANT SET USER STATUS ON DBMS FROM my_role</p>
-<p>Revoke the granted privilege to alter the account status of users from a role.</p>
-<p>GRANT SET USER HOME DATABASE ON DBMS TO my_role</p>
-<p>Grant the privilege alter the home database of users to a role.</p>
-<p>GRANT DROP USER ON DBMS TO my_role</p>
-<p>Grant the privilege to delete users to a role.</p>
-<p>REVOKE DENY SHOW USER ON DBMS FROM my_role</p>
-<p>Revoke the denied privilege to show users from a role.</p>
-<p>GRANT USER MANAGEMENT ON DBMS TO my_role</p>
-<p>Grant all privileges to manage users to a role.</p>
-<p>(★) Database management privileges</p>
-<p>GRANT CREATE DATABASE ON DBMS TO my_role</p>
-<p>Grant the privilege to create databases and aliases to a role.</p>
-<p>REVOKE DENY DROP DATABASE ON DBMS FROM my_role</p>
-<p>Revoke the denied privilege to delete databases and aliases from a role.</p>
-<p>REVOKE GRANT ALTER DATABASE ON DBMS FROM my_role</p>
-<p>Revoke the granted privilege to alter databases and aliases from a role.</p>
-<p>GRANT SET DATABASE ACCESS ON DBMS TO my_role</p>
-<p>Granted privilege to set database access mode to a role.</p>
-<p>DENY DATABASE MANAGEMENT ON DBMS TO my_role</p>
-<p>Deny all privileges to manage databases and aliases to a role.</p>
-<p>(★) Privilege management privileges</p>
-<p>GRANT SHOW PRIVILEGE ON DBMS TO my_role</p>
-<p>Grant the privilege to show privileges to a role.</p>
-<p>DENY ASSIGN PRIVILEGE ON DBMS TO my_role</p>
-<p>Deny the privilege to assign privileges to roles to a role.</p>
-<p>REVOKE GRANT REMOVE PRIVILEGE ON DBMS FROM my_role</p>
-<p>Revoke the granted privilege to remove privileges from roles from a role.</p>
-<p>REVOKE PRIVILEGE MANAGEMENT ON DBMS FROM my_role</p>
-<p>Revoke all granted and denied privileges for manage privileges from a role.</p>
-<p>(★) DBMS privileges</p>
-<p>GRANT ALL ON DBMS TO my_role</p>
-<p>Grant privilege to perform all role, user, database, alias, privilege, procedure, function, and impersonation management to a role.</p>
-<p>DENY IMPERSONATE (alice) ON DBMS TO my_role</p>
-<p>Deny privilege to impersonate the specified user to a role.</p>
-<p>(★) Functionality available in Neo4j Enterprise Edition.</p>
-
-	
-	</div>
-  <a type="button" href="/blog/2022/06/03/71e31f75-b989-4ac8-b4e8-ee024d5ac047/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2022-06-03 </div>
-			<div class="article-title"><a href="/blog/2022/06/03/2ebabef9-0a65-4a24-b90c-76d29c54b21f/" title="This article explains the use of Neo4j for indexing, querying relationships, and creating recommendation systems using customer ratings and cosine similarity calculations. The comments provide code examples, update node properties, and cover static/dynamic value access in maps and lists for sorting and filtering items by topics or properties.">Neo4J Learning Notes</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p><a target="_blank" rel="noopener" href="https://neo4j.com/download">neo4j desktop</a> provide free multi graph databases support, enable you to create and use multiple graph datases at once</p>
-<p>to query undirected relationships:</p>
-<p>match () – (p) return p</p>
-<p>create fulltext index</p>
-<p>create fulltext index lucene for (n:Person) on each [n.title, n.description]</p>
-<p>call db.index.fulltext.queryNodes(“titlesAndDescriptions”, “Full Metal Jacket”) yield node, score return node, score</p>
-<p>calculate customer rating cosine similarity for recommendation:</p>
-<p><a target="_blank" rel="noopener" href="https://neo4j.com/graphgists/northwind-recommendation-engine">https://neo4j.com/graphgists/northwind-recommendation-engine</a></p>
-<p>match (c1:customer)-[r1:rated]-(:product)-[r2:rated]-(c2:customer)</p>
-<p>with sum(r1.score*r2.score) as dot_product,</p>
-<p>sqrt(reduce(x&#x3D;0, a in r1.score | x+a^2)) as r1_length,</p>
-<p>sqrt(reduce(y&#x3D;0, b in r2.score | y+b^2)) as r2_length</p>
-<p>merge (c1)-[s:similarity}]-(c2)</p>
-<p>set s +&#x3D;  {score:dot_product&#x2F;(r1_length*r2_length)</p>
-<p>use collect to turn maps into lists:</p>
-<p>match (p) return collect(p.names)</p>
-<p>exist subquery:</p>
-<p>match (n:Person) where exists {</p>
-<p>match (n) –(t:Tech)</p>
-<p>where size((t)-[:likes]-(:Person)) &gt;2</p>
-<p>}</p>
-<p>return n.name</p>
-<p>list comprehension:</p>
-<p>return [x in range(0,10) where x%3 &#x3D; 0| x&#x2F;2] as list</p>
-<p>return [x in range(0,10) where not x in range(4,10) |x ] as list</p>
-<p>to use conditional matches or regular expressions:</p>
-<p>match () – (p) where p.name in [“helen”] or p.name &#x3D;~ “.<em>chinese.</em>“ return p</p>
-<p>create index on properties:</p>
-<p>create index for (n:Category) on (n.categoryName)</p>
-<p>asterisks:</p>
-<p>load csv:</p>
-<p>load csv with headers from “<a target="_blank" rel="noopener" href="http://localhost/person.csv">http://localhost/person.csv</a>“ as line</p>
-<p>call {with line</p>
-<p>merge (n:person {id: toInteger(line.id)})</p>
-<p>set n.name &#x3D; line.name</p>
-<p>} in transactions of 2 rows</p>
-<p>count nodes:</p>
-<p>match (n) return count(n)</p>
-<p>match relationship patterns:</p>
-<p>match (n) -[:friend|hater*3]-&gt;(p) return p limit 20</p>
-<p>node can have multiple labels, while relationship can only have one type, both specified after the colon.</p>
-<p>simple case expression:</p>
-<p>match(n)</p>
-<p>return</p>
-<p>case n.eyes</p>
-<p>when “blue” then 1</p>
-<p>when “brown” then 2</p>
-<p>else 3</p>
-<p>end as result</p>
-<p>generic case expression</p>
-<p>match (n)</p>
-<p>return</p>
-<p>case</p>
-<p>when n.eyes &#x3D; “blue” then 1</p>
-<p>when n.age &gt; 40 then 2</p>
-<p>else 3 &#x2F;&#x2F; if without else then return null</p>
-<p>end as result</p>
-<p>inequality symbol: &lt;&gt;</p>
-<p>mutating updating node properties:</p>
-<p>match(n)</p>
-<p>set n+&#x3D;{name:”helen”} &#x2F;&#x2F; if using &#x3D; the properties will be totally replaced instead of update.</p>
-<p>return n.name</p>
-<p>merge can only ensure the existance of one node or pattern at a time, no comma</p>
-<p>plus can concatenate strings</p>
-<p>tenporal dataformat can be used as numbers to compute.</p>
-<p>Map operators</p>
-<p>. for static value access by key, [] for dynamic value access by key</p>
-<p>List operators</p>
-<ul>
-<li>for concatenation, IN to check existence of an element in a list, [] for accessing element(s) dynamically</li>
+<h4 id="Text"><a href="#Text" class="headerlink" title="Text"></a>Text</h4><ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/jiesutd/YEDDA">YEDDA</a> - A Lightweight Collaborative Text Span Annotation Tool (Chunking, NER, etc.). ACL best demo nomination.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/planbrothers/ml-annotate">ML-Annotate</a> - Label text data for machine learning purposes. ML-Annotate supports binary, multi-label and multi-class labeling.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/d5555/TagEditor">TagEditor</a> - Annotation tool for spaCy</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/RTIInternational/SMART">SMART</a> - Smarter Manual Annotation for Resource-constrained collection of Training data</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/etalab/piaf">PIAF</a> - A Question-Answering annotation tool</p>
+</li>
 </ul>
-<p>recommendation steps:</p>
-<p>first find targets by meta relatonships</p>
-<p>next sort recommendation by frequency, ratings or occurance</p>
-<p>third filter items by topics or properties</p>
+<h4 id="Audio"><a href="#Audio" class="headerlink" title="Audio"></a>Audio</h4><ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/ritazh/EchoML">EchoML</a> - Play, visualize, and annotate your audio files</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/CrowdCurio/audio-annotator">audio-annotator</a> - A JavaScript interface for annotating and labeling audio files.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/hipstas/audio-labeler">audio-labeler</a> - An in-browser app for labeling audio clips at random, using Docker and Flask.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/katspaugh/wavesurfer.js">wavesurfer.js</a> - Simple annotations tool, check the example.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/bbc/peaks.js">peak.js</a> - Browser-based audio waveform visualisation and UI component for interacting with audio waveforms, developed by BBC UK.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/praat/praat">Praat</a> - Doing Phonetics By Computer</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://aubio.org/">Aubio</a> - Tool designed for the extraction of annotations from audio signals.</p>
+</li>
+</ul>
+<h4 id="Video"><a href="#Video" class="headerlink" title="Video"></a>Video</h4><ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/alexandre01/UltimateLabeling">UltimateLabeling</a> - A multi-purpose Video Labeling GUI in Python with integrated SOTA detector and tracker</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/cvondrick/vatic">VATIC</a> - VATIC is an online video annotation tool for computer vision research that crowdsources work to Amazon’s Mechanical Turk.</p>
+</li>
+</ul>
+<h4 id="Time-Series"><a href="#Time-Series" class="headerlink" title="Time Series"></a>Time Series</h4><ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/baidu/Curve">Curve</a> - Curve is an open-source tool to help label anomalies on time-series data</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/Microsoft/TagAnomaly">TagAnomaly</a> - Anomaly detection analysis and labeling tool, specifically for multiple time series (one time series per category)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/CrowdCurio/time-series-annotator">time-series-annotator</a> - The CrowdCurio Time Series Annotation Library implements classification tasks for time series.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/avenix/WDK">WDK</a> - The Wearables Development Toolkit (WDK) is a set of tools to facilitate the development of activity recognition applications with wearable devices.</p>
+</li>
+</ul>
+<h4 id="3D"><a href="#3D" class="headerlink" title="3D"></a>3D</h4><ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/scalableminds/webknossos">webKnossos</a> - webKnossos is an open-source web-based tool for visualizing, annotating, and sharing large 3D image datasets. It features fast 3D data browsing, skeleton (line-segment) annotations, segmentation and proof-reading tools, mesh visualization, and collaboration features. The public instance <a target="_blank" rel="noopener" href="https://webknossos.org/">webknossos.org</a> hosts a collection of published datasets and can be used without a local setup.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/knossos-project/knossos">KNOSSOS</a> - KNOSSOS is a software tool for the visualization and annotation of 3D image data and was developed for the rapid reconstruction of neural morphology and connectivity.</p>
+</li>
+</ul>
+<h4 id="Lidar"><a href="#Lidar" class="headerlink" title="Lidar"></a>Lidar</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/Hitachi-Automotive-And-Industry-Lab/semantic-segmentation-editor">semantic-segmentation-editor</a> - Web labelling tool for camera and LIDAR data</li>
+</ul>
+<h4 id="MultiDomain"><a href="#MultiDomain" class="headerlink" title="MultiDomain"></a>MultiDomain</h4><ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/heartexlabs/label-studio">Label Studio</a> - Label Studio is a configurable data annotation tool that works with different data types</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://dataturks.com/">Dataturks</a> - Dataturks support E2E tagging of data items like video, images (classification, segmentation and labelling) and text (full length document annotations for PDF, Doc, Text etc) for ML projects.</p>
+</li>
+</ul>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/06/03/2ebabef9-0a65-4a24-b90c-76d29c54b21f/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/09/7b4c3b5b-427d-45d2-9daf-caf2dea62597/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -1649,8 +310,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-06-02 </div>
-			<div class="article-title"><a href="/blog/2022/06/02/87b67abb-5976-4e4b-8dce-8279a62107ad/" title="This article explores the various forms of content found on popular social media platforms and delves into the process of web scraping to extract data for analysis. Additionally, it discusses strategies to mitigate advertising impact within these platforms.">Social Media Platforms</a></div>
+			<div class="date"> 2022-08-09 </div>
+			<div class="article-title"><a href="/blog/2022/08/09/c5f9bccf-7662-4477-a3b2-1954708b1ec7/" title="The article provides a detailed explanation of a Python script designed to find an unused local port and store it in Redis. It demonstrates the implementation using redis-py and the Python Redis library, making it easy for developers to understand and utilize this method for their projects.">Find An Unused Random Local Port And Announce It On Redis</a></div>
 		</h3>
 	
 
@@ -1661,13 +322,23 @@
   <div class="row">
 	
 	
-		<p>收集总结流行的或者网页端的social media platform 方便爬取 mitm 发广告 智能交互</p>
-<p>从social media的本源分析 有广播 报纸 电视 邮件 wiki BBS（论坛） 贴吧 博客 即时通讯 流媒体推送 订阅 内容平台</p>
-<p>从形式上分析 有文章 评论 动态 聊天 视频 音频 图片</p>
+		<p>issues were found when launching apps on fixed ports.</p>
+<p>maybe you should create this entry inside your <code>lazero</code> package? no need for uploading to pypi, just keep it under <code>pyjom</code> and leave a local install script there.</p>
+<p>make sure all related services are going to launch after the <code>redis_service.service</code> target. on macos or windows this may vary.</p>
+<p>allocate multiple unused ports at once or they may overlap.</p>
+<p>abandon ports found on redis.</p>
+<p>python to get unused port:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">getUnusedLocalhostPort</span>():</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">These were &quot;Borrowed&quot; from YCM.</span></span><br><span class="line"><span class="string">See https://github.com/Valloric/YouCompleteMe</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">sock = socket.socket()</span><br><span class="line"><span class="comment"># This tells the OS to give us any free port in the range [1024 - 65535]</span></span><br><span class="line">sock.bind((<span class="string">&quot;&quot;</span>, <span class="number">0</span>))</span><br><span class="line">port = sock.getsockname()[<span class="number">1</span>]</span><br><span class="line">sock.close()</span><br><span class="line"><span class="keyword">return</span> port</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>install redis-py:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install redis</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>python send port to redis:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line">r = redis.Redis(</span><br><span class="line">host=<span class="string">&#x27;hostname&#x27;</span>,</span><br><span class="line">port=port,</span><br><span class="line">password=<span class="string">&#x27;password&#x27;</span>)</span><br><span class="line"><span class="comment"># open a connection to Redis</span></span><br><span class="line">port = getUnusedLocalhostPort()</span><br><span class="line">r.<span class="built_in">set</span>(<span class="string">&#x27;programPort&#x27;</span>, port)</span><br><span class="line">value = r.get(<span class="string">&#x27;programPort&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(value)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/06/02/87b67abb-5976-4e4b-8dce-8279a62107ad/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/09/c5f9bccf-7662-4477-a3b2-1954708b1ec7/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -1677,8 +348,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-06-01 </div>
-			<div class="article-title"><a href="/blog/2022/06/01/aa0cab80-26f8-4c9f-80ef-eb0ef006b887/" title="This article discusses the process of organizing directories using Termux and compares it with alternatives like Meilisearch, which consumes a lot of RAM. The author considers an alternative solution - ripgrep (rg) for faster searching, and provides an example shared on GitHub and various file-sharing platforms.">Bookmark Browsing History Collection</a></div>
+			<div class="date"> 2022-08-09 </div>
+			<div class="article-title"><a href="/blog/2022/08/09/80ba2937-9af5-49cf-8308-4848160a9ec1/" title="This article provides instructions for managing systemd services and viewing logs on Linux. It includes sample configuration files for various applications such as frpc, pyjom_webdav_rclone, clash_fastgithub, tujia_scraper_qq_bot, tempthrottle, and sync_git_repos_syncdog.">Systemd On Linux, Maintainence Details</a></div>
 		</h3>
 	
 
@@ -1689,17 +360,32 @@
   <div class="row">
 	
 	
-		<h1 id="Bookmark-Browsing-Directory-Tree-Browsing-History-Collection"><a href="#Bookmark-Browsing-Directory-Tree-Browsing-History-Collection" class="headerlink" title="Bookmark Browsing Directory Tree Browsing History Collection"></a>Bookmark Browsing Directory Tree Browsing History Collection</h1><p>Using Kali forensic tool. (turned out not needed. just some googling for answers)</p>
-<p>do you need to export your own good old notes? i mean mi notes. 2 phone numbers, 2 accounts. one with physical storage. the other you may want to download the mi note app and extract in the same way.</p>
-<p>Organized under modifier termux ~&#x2F;works&#x2F;bookmark_dirtree_traverse. search via rg.</p>
-<p>maybe we can organize directory trees using other methods, like some javascript library with both a search tool and a browsing tool. we can host a search engine via javascript, only static resources and client side computation.</p>
-<p>this client side search engine usage example can be found at &#x2F;data&#x2F;data&#x2F;com.termux&#x2F;files&#x2F;home&#x2F;storage&#x2F;shared&#x2F;works&#x2F;milkshake_server and .&#x2F;external&#x2F;milkshake_server. the js searching library is called fuse.js.</p>
-<p>I have made this into meilisearch, and i have backed it up to github&#x2F;james4ever0&#x2F;notes2 and aliyunpan and baiduyunpan. desktop search experience is better. meilisearch consume too much ram. i consider to find alternatives with less ram consumption.</p>
-<p>using rg will be much faster.</p>
+		<h2 id="view-full-logs"><a href="#view-full-logs" class="headerlink" title="view full logs"></a>view full logs</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">journalctl -u &lt;serviceName&gt;.service</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="create-install-restart-reload"><a href="#create-install-restart-reload" class="headerlink" title="create, install, restart, reload"></a>create, install, restart, reload</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/systemd/system</span><br><span class="line">create &lt;serviceName&gt;.service</span><br><span class="line">systemctl <span class="built_in">enable</span> &lt;serviceName&gt;.service</span><br><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl start &lt;serviceName&gt;.service</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="sample-systemd-service-config-files"><a href="#sample-systemd-service-config-files" class="headerlink" title="sample systemd service config files"></a>sample systemd service config files</h2><p>maybe we should add some autorestart configs at it?</p>
+<p>frpc_service.service</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[<span class="title class_">Unit</span>]</span><br><span class="line"><span class="title class_">Description</span>=frpc service, expose ssh, webdav and code-server ports</span><br><span class="line"><span class="title class_">Wants</span>=network.<span class="property">target</span></span><br><span class="line"><span class="title class_">After</span>=syslog.<span class="property">target</span> network-online.<span class="property">target</span></span><br><span class="line">[<span class="title class_">Service</span>]</span><br><span class="line"><span class="title class_">Type</span>=simple</span><br><span class="line"><span class="title class_">User</span>=root</span><br><span class="line"><span class="title class_">ExecStart</span>=<span class="regexp">/root/</span>frp_client_linux/frp_0<span class="number">.36</span>.2_linux_amd64/frpc -c frpc.<span class="property">ini</span></span><br><span class="line"><span class="title class_">WorkingDirectory</span>=<span class="regexp">/root/</span>frp_client_linux/frp_0<span class="number">.36</span>.2_linux_amd64</span><br><span class="line"><span class="title class_">Restart</span>=on-failure</span><br><span class="line"><span class="title class_">RestartSec</span>=<span class="number">10</span></span><br><span class="line"><span class="title class_">KillMode</span>=process</span><br><span class="line">[<span class="title class_">Install</span>]</span><br><span class="line"><span class="title class_">WantedBy</span>=multi-user.<span class="property">target</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>pyjom_webdav_rclone_service.service</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[<span class="title class_">Unit</span>]</span><br><span class="line"><span class="title class_">Description</span>=rclone webdav served on pyjom, after the disk is mounted</span><br><span class="line">[<span class="title class_">Service</span>]</span><br><span class="line"><span class="title class_">User</span>=root</span><br><span class="line"><span class="title class_">ExecStart</span>=<span class="regexp">/usr/</span>bin/python3 mount_help_and_serve_pyjom.<span class="property">py</span></span><br><span class="line"><span class="title class_">WorkingDirectory</span>=<span class="regexp">/root/</span><span class="title class_">Desktop</span>/works/restore_sessions</span><br><span class="line">[<span class="title class_">Install</span>]</span><br><span class="line"><span class="title class_">WantedBy</span>=multi-user.<span class="property">target</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>tempthrottle.service</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[<span class="title class_">Unit</span>]</span><br><span class="line"><span class="title class_">Description</span>=temperature control, cpu temperature under <span class="number">60</span> celsius</span><br><span class="line">[<span class="title class_">Service</span>]</span><br><span class="line"><span class="title class_">User</span>=root</span><br><span class="line"><span class="title class_">ExecStart</span>=<span class="regexp">/usr/</span>bin/python3 tempthrottle_daemon.<span class="property">py</span></span><br><span class="line"><span class="title class_">WorkingDirectory</span>=<span class="regexp">/root/</span><span class="title class_">Desktop</span>/works/restore_sessions</span><br><span class="line">[<span class="title class_">Install</span>]</span><br><span class="line"><span class="title class_">WantedBy</span>=multi-user.<span class="property">target</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>clash_fastgithub.service</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[<span class="title class_">Unit</span>]</span><br><span class="line"><span class="title class_">Description</span>=<span class="title class_">Clash</span> <span class="title class_">Fastgithub</span> <span class="title class_">Proxy</span></span><br><span class="line"><span class="title class_">After</span>=network.<span class="property">target</span></span><br><span class="line">[<span class="title class_">Service</span>]</span><br><span class="line"><span class="title class_">Type</span>=simple</span><br><span class="line"><span class="title class_">Restart</span>=always</span><br><span class="line"><span class="title class_">ExecStart</span>=<span class="regexp">/usr/</span>bin/clash -d /etc/clash</span><br><span class="line">[<span class="title class_">Install</span>]</span><br><span class="line"><span class="title class_">WantedBy</span>=multi-user.<span class="property">target</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>tujia_scraper_qq_bot.service</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[<span class="title class_">Unit</span>]</span><br><span class="line"><span class="title class_">Description</span>=two crucial <span class="attr">services</span>: tujia scraper, qq bot</span><br><span class="line"><span class="title class_">Wants</span>=network.<span class="property">target</span></span><br><span class="line"><span class="title class_">After</span>=syslog.<span class="property">target</span> network-online.<span class="property">target</span></span><br><span class="line">[<span class="title class_">Service</span>]</span><br><span class="line"><span class="title class_">Environment</span>=<span class="string">&quot;DISPLAY=:1&quot;</span></span><br><span class="line"><span class="title class_">Environment</span>=<span class="string">&quot;XAUTHORITY=/root/.Xauthority&quot;</span></span><br><span class="line"><span class="title class_">User</span>=root</span><br><span class="line"><span class="title class_">ExecStart</span>=<span class="regexp">/usr/</span>bin/python3 main_daemon.<span class="property">py</span></span><br><span class="line"><span class="title class_">WorkingDirectory</span>=<span class="regexp">/root/</span><span class="title class_">Desktop</span>/works/restore_sessions</span><br><span class="line">[<span class="title class_">Install</span>]</span><br><span class="line"><span class="title class_">WantedBy</span>=graphical.<span class="property">target</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>sync_git_repos_syncdog.service</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[<span class="title class_">Unit</span>]</span><br><span class="line"><span class="title class_">Description</span>=syncdog (server), to sync things to the cloud (github)</span><br><span class="line"><span class="title class_">Wants</span>=sshd.<span class="property">service</span></span><br><span class="line"><span class="title class_">Wants</span>=network.<span class="property">target</span></span><br><span class="line">[<span class="title class_">Service</span>]</span><br><span class="line"><span class="title class_">User</span>=root</span><br><span class="line"><span class="title class_">ExecStart</span>=<span class="regexp">/usr/</span>bin/python3 syncdog_test.<span class="property">py</span></span><br><span class="line"><span class="title class_">WorkingDirectory</span>=<span class="regexp">/root/</span><span class="title class_">Desktop</span>/works/sync_git_repos</span><br><span class="line">[<span class="title class_">Install</span>]</span><br><span class="line"><span class="title class_">WantedBy</span>=multi-user.<span class="property">target</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/06/01/aa0cab80-26f8-4c9f-80ef-eb0ef006b887/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/09/80ba2937-9af5-49cf-8308-4848160a9ec1/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -1709,8 +395,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-06-01 </div>
-			<div class="article-title"><a href="/blog/2022/06/01/7228a776-7b77-4765-96ca-29a000acd589/" title="In this text, the user is given instructions on how to copy their Kiwi Browser bookmarks from an Android device to a new location. The command &#39;sudo cp&#39; is used along with a specific file path to accomplish this task. The date provided is June 1st, 2022.">Kiwi Browser Bookmarks</a></div>
+			<div class="date"> 2022-08-08 </div>
+			<div class="article-title"><a href="/blog/2022/08/08/63eeaf5e-73d1-4bed-b5a6-320ac4a831a0/" title="AI-generated art is showcased in various styles by DiT diffusion, Scribble-diffusion, and NVIDIA&#39;s AI Paint which utilizes Imagen-Pytorch. These techniques feature diverse styles such as retro futurism, pastel punk, and cats wearing glasses. Resources for constructing prompts are available, with support provided by PaddleHub on GitHub.">Disco Diffusion And Ai Art</a></div>
 		</h3>
 	
 
@@ -1721,12 +407,50 @@
   <div class="row">
 	
 	
-		<h1 id="Kiwi-Browser-Bookmarks-2022-6-1"><a href="#Kiwi-Browser-Bookmarks-2022-6-1" class="headerlink" title="Kiwi Browser Bookmarks 2022&#x2F;6&#x2F;1"></a>Kiwi Browser Bookmarks 2022&#x2F;6&#x2F;1</h1><p>location:</p>
-<p>sudo cp &#x2F;data&#x2F;user&#x2F;0&#x2F;com.kiwibrowser.browser&#x2F;app_chrome&#x2F;bookmarks.html .</p>
+		<p><a target="_blank" rel="noopener" href="https://github.com/showlab/Tune-A-Video">tune-a-video</a> first recognize video content, then tweak it to fit the need</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/microsoft/unilm/tree/master/textdiffuser">textdiffuser</a></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://github.com/comfyanonymous/ComfyUI">ComfyUI</a>: A powerful and modular stable diffusion GUI.</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://civitai.com/">civitai</a> is a place for sharing stable diffusion models like <a target="_blank" rel="noopener" href="https://civitai.com/models/9409/anything-v5-or-anything-diffusion-original">anything v5</a> and <a target="_blank" rel="noopener" href="https://civitai.com/models/21666/surreality">surreality</a> and ai arts.</p>
+<hr>
+<p>now you can use <a target="_blank" rel="noopener" href="https://github.com/Mikubill/sd-webui-controlnet">controlnet</a> to enhance the generation, give the figure skeleton. <a target="_blank" rel="noopener" href="https://huggingface.co/blog/controlnet">huggingface introduction</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/kakaobrain/karlo">karlo</a>: dalle2 replicate, <a target="_blank" rel="noopener" href="https://huggingface.co/spaces/kakaobrain/karlo">karlo huggingface space</a>, text to image (can be used for semantic search)</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/LAION-AI/dalle2-laion">dalle2-laion</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/facebookresearch/DiT">DiT</a> diffusion with transformer</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/adobe-research/custom-diffusion">custom diffusion</a> rlhf?</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/replicate/scribble-diffusion">scribble-diffusion</a> turn sketch into drawings</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/apple/ml-stable-diffusion">stable diffusion on macos</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jamriska/ebsynth">video generation ebsynth</a></p>
+<p>字体普遍画的很拉 需要用专门的ocr强化训练字体</p>
+<p>fontdiffusion?</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/antonin-wattel/font-diffusion">font-diffusion</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/qwegat/StableDiffusionFontGenerating">stable diffusion font generating</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/uchidalab/fontdesign_gan">fontdesign gan</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/builtree/handwrite">handwrite</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/erikbern/deep-fonts">deep fonts</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/divamgupta/diffusionbee-stable-diffusion-ui">diffusionbee</a> stable diffusion for macos m1</p>
+<p>QQ搜索 <a target="_blank" rel="noopener" href="https://h5.tu.qq.com/web/ai-2d/cartoon/guest?parent_trace_id=e96b4d5c-5ca6-f76c-b035-af0d2ddbaed6&current_channel=link&root_channel=qq_sousuo&level=1&result_video=undefined&result_poster=undefined&mid=&result_mode=image&result_image_downgrading=https://activity.tu.qq.com/mqq/ai_painting_anime/share/8bbf62a0-6da0-11ed-8069-5254002d809c.jpg">异次元的我</a> 免费画画 AI合成 (seems this can only be opened within qq, currently)</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/koishijs/novelai-bot">novel-ai-bot</a></p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/hakurei/waifu-diffusion%EF%BC%8C%E8%BF%99%E4%B8%AAai%E6%98%AF%E5%8F%AF%E4%BB%A5%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E7%9A%84%EF%BC%8C%E7%94%B5%E8%84%91%E9%85%8D%E7%BD%AE%E5%8F%AF%E4%BB%A5%E7%9A%84%E6%9C%8B%E5%8F%8B%E4%BB%AC%E8%AF%95%E8%AF%95">https://huggingface.co/hakurei/waifu-diffusion，这个ai是可以本地部署的，电脑配置可以的朋友们试试</a></p>
+<p>novelai 有泄露的模型</p>
+<p>imagen</p>
+<p>dreambooth</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/borisdayma/dalle-mini">dalle-mini</a>, with <a target="_blank" rel="noopener" href="https://huggingface.co/spaces/dalle-mini/dalle-mini">space</a> hosted on huggingface</p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/spaces/PaddlePaddle/ERNIE-ViLG">中文版DALL-E</a> is not open sourced (yet). it provides api for evaluation</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> gradio <span class="keyword">as</span> gr</span><br><span class="line"><span class="keyword">import</span> paddlehub <span class="keyword">as</span> hub</span><br><span class="line">model = hub.Module(name=<span class="string">&#x27;ernie_vilg&#x27;</span>)</span><br><span class="line">language_translation_model = hub.Module(name=<span class="string">&#x27;baidu_translate&#x27;</span>)</span><br><span class="line">language_recognition_model = hub.Module(name=<span class="string">&#x27;baidu_language_recognition&#x27;</span>)</span><br><span class="line">style_list = [<span class="string">&#x27;水彩&#x27;</span>,<span class="string">&#x27;油画&#x27;</span>, <span class="string">&#x27;粉笔画&#x27;</span>, <span class="string">&#x27;卡通&#x27;</span>, <span class="string">&#x27;蜡笔画&#x27;</span>, <span class="string">&#x27;儿童画&#x27;</span>, <span class="string">&#x27;探索无限&#x27;</span>]</span><br><span class="line">tips = &#123;<span class="string">&quot;en&quot;</span>: <span class="string">&quot;Tips: The input text will be translated into Chinese for generation&quot;</span>,</span><br><span class="line"><span class="string">&quot;jp&quot;</span>: <span class="string">&quot;ヒント: 入力テキストは生成のために中国語に翻訳されます&quot;</span>,</span><br><span class="line"><span class="string">&quot;kor&quot;</span>: <span class="string">&quot;힌트: 입력 텍스트는 생성을 위해 중국어로 번역됩니다&quot;</span>&#125;</span><br><span class="line">count = <span class="number">0</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">translate_language</span>(<span class="params">text_prompts</span>):</span><br><span class="line"><span class="keyword">global</span> count</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">count += <span class="number">1</span></span><br><span class="line">tips_text = <span class="literal">None</span></span><br><span class="line">language_code = language_recognition_model.recognize(text_prompts)</span><br><span class="line"><span class="keyword">if</span> language_code != <span class="string">&#x27;zh&#x27;</span>:</span><br><span class="line">text_prompts = language_translation_model.translate(text_prompts, language_code, <span class="string">&#x27;zh&#x27;</span>)</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">error_text = <span class="built_in">str</span>(e)</span><br><span class="line"><span class="keyword">return</span> &#123;status_text:error_text, language_tips_text:gr.update(visible=<span class="literal">False</span>)&#125;</span><br><span class="line"><span class="keyword">if</span> language_code <span class="keyword">in</span> tips:</span><br><span class="line">tips_text = tips[language_code]</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">tips_text = tips[<span class="string">&#x27;en&#x27;</span>]</span><br><span class="line"><span class="keyword">if</span> language_code == <span class="string">&#x27;zh&#x27;</span>:</span><br><span class="line"><span class="keyword">return</span> &#123;language_tips_text:gr.update(visible=<span class="literal">False</span>), translated_language:text_prompts, trigger_component: gr.update(value=count, visible=<span class="literal">False</span>)&#125;</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"><span class="keyword">return</span> &#123;language_tips_text:gr.update(visible=<span class="literal">True</span>, value=tips_text), translated_language:text_prompts, trigger_component:  gr.update(value=count, visible=<span class="literal">False</span>)&#125;</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">inference</span>(<span class="params">text_prompts, style_indx</span>):</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">style = style_list[style_indx]</span><br><span class="line">results = model.generate_image(</span><br><span class="line">text_prompts=text_prompts, style=style, visualization=<span class="literal">False</span>)</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">error_text = <span class="built_in">str</span>(e)</span><br><span class="line"><span class="keyword">return</span> &#123;status_text:error_text, gallery:<span class="literal">None</span>&#125;</span><br><span class="line"><span class="keyword">return</span> &#123;status_text:<span class="string">&#x27;Success&#x27;</span>, gallery:results[:<span class="number">6</span>]&#125;</span><br><span class="line">title=<span class="string">&quot;ERNIE-ViLG&quot;</span></span><br><span class="line">description=<span class="string">&quot;ERNIE-ViLG model, which supports text-to-image task.&quot;</span></span><br><span class="line">css = <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">.gradio-container &#123;</span></span><br><span class="line"><span class="string">font-family: &#x27;IBM Plex Sans&#x27;, sans-serif;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">.gr-button &#123;</span></span><br><span class="line"><span class="string">color: white;</span></span><br><span class="line"><span class="string">border-color: black;</span></span><br><span class="line"><span class="string">background: black;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">input[type=&#x27;range&#x27;] &#123;</span></span><br><span class="line"><span class="string">accent-color: black;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">.dark input[type=&#x27;range&#x27;] &#123;</span></span><br><span class="line"><span class="string">accent-color: #dfdfdf;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">.container &#123;</span></span><br><span class="line"><span class="string">max-width: 730px;</span></span><br><span class="line"><span class="string">margin: auto;</span></span><br><span class="line"><span class="string">padding-top: 1.5rem;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">#gallery &#123;</span></span><br><span class="line"><span class="string">min-height: 22rem;</span></span><br><span class="line"><span class="string">margin-bottom: 15px;</span></span><br><span class="line"><span class="string">margin-left: auto;</span></span><br><span class="line"><span class="string">margin-right: auto;</span></span><br><span class="line"><span class="string">border-bottom-right-radius: .5rem !important;</span></span><br><span class="line"><span class="string">border-bottom-left-radius: .5rem !important;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">#gallery&gt;div&gt;.h-full &#123;</span></span><br><span class="line"><span class="string">min-height: 20rem;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">.details:hover &#123;</span></span><br><span class="line"><span class="string">text-decoration: underline;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">.gr-button &#123;</span></span><br><span class="line"><span class="string">white-space: nowrap;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">.gr-button:focus &#123;</span></span><br><span class="line"><span class="string">border-color: rgb(147 197 253 / var(--tw-border-opacity));</span></span><br><span class="line"><span class="string">outline: none;</span></span><br><span class="line"><span class="string">box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);</span></span><br><span class="line"><span class="string">--tw-border-opacity: 1;</span></span><br><span class="line"><span class="string">--tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);</span></span><br><span class="line"><span class="string">--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px var(--tw-ring-offset-width)) var(--tw-ring-color);</span></span><br><span class="line"><span class="string">--tw-ring-color: rgb(191 219 254 / var(--tw-ring-opacity));</span></span><br><span class="line"><span class="string">--tw-ring-opacity: .5;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">.footer &#123;</span></span><br><span class="line"><span class="string">margin-bottom: 45px;</span></span><br><span class="line"><span class="string">margin-top: 35px;</span></span><br><span class="line"><span class="string">text-align: center;</span></span><br><span class="line"><span class="string">border-bottom: 1px solid #e5e5e5;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">.footer&gt;p &#123;</span></span><br><span class="line"><span class="string">font-size: .8rem;</span></span><br><span class="line"><span class="string">display: inline-block;</span></span><br><span class="line"><span class="string">padding: 0 10px;</span></span><br><span class="line"><span class="string">transform: translateY(10px);</span></span><br><span class="line"><span class="string">background: white;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">.dark .footer &#123;</span></span><br><span class="line"><span class="string">border-color: #303030;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">.dark .footer&gt;p &#123;</span></span><br><span class="line"><span class="string">background: #0b0f19;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">.prompt h4&#123;</span></span><br><span class="line"><span class="string">margin: 1.25em 0 .25em 0;</span></span><br><span class="line"><span class="string">font-weight: bold;</span></span><br><span class="line"><span class="string">font-size: 115%;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">block = gr.Blocks(css=css)</span><br><span class="line">examples = [</span><br><span class="line">[</span><br><span class="line"><span class="string">&#x27;戴着眼镜的猫&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;油画(Oil painting)&#x27;</span></span><br><span class="line">],</span><br><span class="line">[</span><br><span class="line"><span class="string">&#x27;A cat with glasses&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;油画(Oil painting)&#x27;</span></span><br><span class="line">],</span><br><span class="line">[</span><br><span class="line"><span class="string">&#x27;眼鏡をかけた猫&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;油画(Oil painting)&#x27;</span></span><br><span class="line">],</span><br><span class="line">[</span><br><span class="line"><span class="string">&#x27;안경을 쓴 고양이&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;油画(Oil painting)&#x27;</span></span><br><span class="line">],</span><br><span class="line">[</span><br><span class="line"><span class="string">&#x27;日落时的城市天际线,史前遗迹风格&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;油画(Oil painting)&#x27;</span></span><br><span class="line">],</span><br><span class="line">[</span><br><span class="line"><span class="string">&#x27;一只猫坐在椅子上，戴着一副墨镜, low poly 风格&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;卡通(Cartoon)&#x27;</span></span><br><span class="line">],</span><br><span class="line">[</span><br><span class="line"><span class="string">&#x27;A cat sitting on a chair, wearing a pair of sunglasses, low poly style&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;油画(Oil painting)&#x27;</span></span><br><span class="line">],</span><br><span class="line">[</span><br><span class="line"><span class="string">&#x27;猫が椅子に座ってサングラスをかけている、low polyスタイル&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;油画(Oil painting)&#x27;</span></span><br><span class="line">],</span><br><span class="line">[</span><br><span class="line"><span class="string">&#x27;고양이 한 마리가 의자에 앉아 선글라스를 끼고 low poly 스타일을 하고 있다&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;油画(Oil painting)&#x27;</span></span><br><span class="line">],</span><br><span class="line">[</span><br><span class="line"><span class="string">&#x27;一只猫坐在椅子上，戴着一副墨镜,秋天风格&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;探索无限(Explore infinity)&#x27;</span></span><br><span class="line">],</span><br><span class="line">[</span><br><span class="line"><span class="string">&#x27;蒙娜丽莎，赛博朋克，宝丽来，33毫米,蒸汽波艺术&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;探索无限(Explore infinity)&#x27;</span></span><br><span class="line">],</span><br><span class="line">[</span><br><span class="line"><span class="string">&#x27;一只猫坐在椅子上，戴着一副墨镜,海盗风格&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;探索无限(Explore infinity)&#x27;</span></span><br><span class="line">],</span><br><span class="line">[</span><br><span class="line"><span class="string">&#x27;一条由闪电制成的令人敬畏的龙,概念艺术&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;探索无限(Explore infinity)&#x27;</span></span><br><span class="line">],</span><br><span class="line">[</span><br><span class="line"><span class="string">&#x27;An awesome dragon made of lightning, conceptual art&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;油画(Oil painting)&#x27;</span></span><br><span class="line">],</span><br><span class="line">[</span><br><span class="line"><span class="string">&#x27;稲妻で作られた畏敬の念を抱かせる竜、コンセプトアート&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;油画(Oil painting)&#x27;</span></span><br><span class="line">],</span><br><span class="line">[</span><br><span class="line"><span class="string">&#x27;번개로 만든 경외스러운 용, 개념 예술&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;油画(Oil painting)&#x27;</span></span><br><span class="line">],</span><br><span class="line">[</span><br><span class="line"><span class="string">&#x27;梵高猫头鹰,蒸汽波艺术&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;探索无限(Explore infinity)&#x27;</span></span><br><span class="line">],</span><br><span class="line">[</span><br><span class="line"><span class="string">&#x27;萨尔瓦多·达利描绘古代文明的超现实主义梦幻油画,写实风格&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;探索无限(Explore infinity)&#x27;</span></span><br><span class="line">],</span><br><span class="line">[</span><br><span class="line"><span class="string">&#x27;夕阳日落时，阳光落在云层上，海面波涛汹涌，风景，胶片感&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;探索无限(Explore infinity)&#x27;</span></span><br><span class="line">],</span><br><span class="line">[</span><br><span class="line"><span class="string">&#x27;Sunset, the sun falls on the clouds, the sea is rough, the scenery is filmy&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;油画(Oil painting)&#x27;</span></span><br><span class="line">],</span><br><span class="line">[</span><br><span class="line"><span class="string">&#x27;夕日が沈むと、雲の上に太陽の光が落ち、海面は波が荒く、風景、フィルム感&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;油画(Oil painting)&#x27;</span></span><br><span class="line">],</span><br><span class="line">[</span><br><span class="line"><span class="string">&#x27;석양이 질 때 햇빛이 구름 위에 떨어지고, 해수면의 파도가 용솟음치며, 풍경, 필름감&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;油画(Oil painting)&#x27;</span></span><br><span class="line">],</span><br><span class="line">]</span><br><span class="line"><span class="keyword">with</span> block:</span><br><span class="line">gr.HTML(</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">&lt;div style=&quot;text-align: center; max-width: 650px; margin: 0 auto;&quot;&gt;</span></span><br><span class="line"><span class="string">&lt;div</span></span><br><span class="line"><span class="string">style=&quot;</span></span><br><span class="line"><span class="string">display: inline-flex;</span></span><br><span class="line"><span class="string">gap: 0.8rem;</span></span><br><span class="line"><span class="string">font-size: 1.75rem;</span></span><br><span class="line"><span class="string">margin-bottom: 10px;</span></span><br><span class="line"><span class="string">margin-left: 220px;</span></span><br><span class="line"><span class="string">justify-content: center;</span></span><br><span class="line"><span class="string">&quot;</span></span><br><span class="line"><span class="string">&gt;</span></span><br><span class="line"><span class="string">&lt;a href=&quot;https://github.com/PaddlePaddle/PaddleHub&quot;&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/22424850/187387422-f6c9ccab-7fda-416e-a24d-7d6084c46f67.jpg&quot; alt=&quot;Paddlehub&quot; width=&quot;40%&quot;&gt;&lt;/a&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br><span class="line"><span class="string">&lt;div</span></span><br><span class="line"><span class="string">style=&quot;</span></span><br><span class="line"><span class="string">display: inline-flex;</span></span><br><span class="line"><span class="string">align-items: center;</span></span><br><span class="line"><span class="string">gap: 0.8rem;</span></span><br><span class="line"><span class="string">font-size: 1.75rem;</span></span><br><span class="line"><span class="string">margin-bottom: 10px;</span></span><br><span class="line"><span class="string">justify-content: center;</span></span><br><span class="line"><span class="string">&quot;&gt;</span></span><br><span class="line"><span class="string">&lt;a href=&quot;https://github.com/PaddlePaddle/PaddleHub&quot;&gt;&lt;h1 style=&quot;font-weight: 900; margin-bottom: 7px;&quot;&gt;</span></span><br><span class="line"><span class="string">ERNIE-ViLG Demo</span></span><br><span class="line"><span class="string">&lt;/h1&gt;&lt;/a&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br><span class="line"><span class="string">&lt;p style=&quot;margin-bottom: 10px; font-size: 94%&quot;&gt;</span></span><br><span class="line"><span class="string">ERNIE-ViLG is a state-of-the-art text-to-image model that generates</span></span><br><span class="line"><span class="string">images from Chinese text.</span></span><br><span class="line"><span class="string">&lt;/p&gt;</span></span><br><span class="line"><span class="string">&lt;a href=&quot;https://github.com/PaddlePaddle/PaddleHub&quot;&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/22424850/188184795-98605a22-9af2-4106-827b-e58548f8892f.png&quot; alt=&quot;star Paddlehub&quot; width=&quot;100%&quot;&gt;&lt;/a&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">with</span> gr.Group():</span><br><span class="line"><span class="keyword">with</span> gr.Box():</span><br><span class="line"><span class="keyword">with</span> gr.Row().style(mobile_collapse=<span class="literal">False</span>, equal_height=<span class="literal">True</span>):</span><br><span class="line">text = gr.Textbox(</span><br><span class="line">label=<span class="string">&quot;Prompt&quot;</span>,</span><br><span class="line">show_label=<span class="literal">False</span>,</span><br><span class="line">max_lines=<span class="number">1</span>,</span><br><span class="line">placeholder=<span class="string">&quot;Enter your prompt, multiple languages are supported now.&quot;</span>,</span><br><span class="line">).style(</span><br><span class="line">border=(<span class="literal">True</span>, <span class="literal">False</span>, <span class="literal">True</span>, <span class="literal">True</span>),</span><br><span class="line">rounded=(<span class="literal">True</span>, <span class="literal">False</span>, <span class="literal">False</span>, <span class="literal">True</span>),</span><br><span class="line">container=<span class="literal">False</span>,</span><br><span class="line">)</span><br><span class="line">btn = gr.Button(<span class="string">&quot;Generate image&quot;</span>).style(</span><br><span class="line">margin=<span class="literal">False</span>,</span><br><span class="line">rounded=(<span class="literal">False</span>, <span class="literal">True</span>, <span class="literal">True</span>, <span class="literal">False</span>),</span><br><span class="line">)</span><br><span class="line">language_tips_text = gr.Textbox(label=<span class="string">&quot;language tips&quot;</span>, show_label=<span class="literal">False</span>, visible=<span class="literal">False</span>, max_lines=<span class="number">1</span>)</span><br><span class="line">styles = gr.Dropdown(label=<span class="string">&quot;风格(style)&quot;</span>, choices=[<span class="string">&#x27;水彩(Watercolor)&#x27;</span>,<span class="string">&#x27;油画(Oil painting)&#x27;</span>, <span class="string">&#x27;粉笔画(Chalk drawing)&#x27;</span>, <span class="string">&#x27;卡通(Cartoon)&#x27;</span>, <span class="string">&#x27;蜡笔画(Crayon drawing)&#x27;</span>, <span class="string">&#x27;儿童画(Children\&#x27;s drawing)&#x27;</span>, <span class="string">&#x27;探索无限(Explore infinity)&#x27;</span>], value=<span class="string">&#x27;探索无限(Explore infinity)&#x27;</span>, <span class="built_in">type</span>=<span class="string">&quot;index&quot;</span>)</span><br><span class="line">gallery = gr.Gallery(</span><br><span class="line">label=<span class="string">&quot;Generated images&quot;</span>, show_label=<span class="literal">False</span>, elem_id=<span class="string">&quot;gallery&quot;</span></span><br><span class="line">).style(grid=[<span class="number">2</span>, <span class="number">3</span>], height=<span class="string">&quot;auto&quot;</span>)</span><br><span class="line">status_text = gr.Textbox(</span><br><span class="line">label=<span class="string">&quot;处理状态(Process status)&quot;</span>,</span><br><span class="line">show_label=<span class="literal">True</span>,</span><br><span class="line">max_lines=<span class="number">1</span>,</span><br><span class="line">interactive=<span class="literal">False</span></span><br><span class="line">)</span><br><span class="line">trigger_component = gr.Textbox(vaule=<span class="string">&quot;&quot;</span>, visible=<span class="literal">False</span>) <span class="comment"># This component is used for triggering inference funtion.</span></span><br><span class="line">translated_language = gr.Textbox(vaule=<span class="string">&quot;&quot;</span>, visible=<span class="literal">False</span>)</span><br><span class="line">ex = gr.Examples(examples=examples, fn=translate_language, inputs=[text], outputs=[language_tips_text, status_text, trigger_component, translated_language], cache_examples=<span class="literal">False</span>)</span><br><span class="line">ex.dataset.headers = [<span class="string">&quot;&quot;</span>]</span><br><span class="line">text.submit(translate_language, inputs=[text], outputs=[language_tips_text, status_text, trigger_component, translated_language])</span><br><span class="line">btn.click(translate_language, inputs=[text], outputs=[language_tips_text, status_text, trigger_component, translated_language])</span><br><span class="line">trigger_component.change(fn=inference, inputs=[translated_language, styles], outputs=[status_text, gallery])</span><br><span class="line">gr.HTML(</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">&lt;div class=&quot;prompt&quot;&gt;</span></span><br><span class="line"><span class="string">&lt;p&gt;&lt;h4&gt;Prompt公式&lt;/h4&gt;</span></span><br><span class="line"><span class="string">&lt;span&gt; Prompt = [形容词] [主语] ，[细节设定]， [修饰语或者艺术家]。 &lt;/span&gt;</span></span><br><span class="line"><span class="string">关于各部分的构造方式和效果，可以参考&lt;a href=&quot;https://github.com/PaddlePaddle/PaddleHub/blob/develop/modules/image/text_to_image/ernie_vilg/README.md#四-prompt-指南&quot; style=&quot;text-decoration: underline;&quot; target=&quot;_blank&quot;&gt;YouPromptMe指南&lt;/a&gt;。</span></span><br><span class="line"><span class="string">更多的模型，请关注&lt;a href=&quot;https://github.com/PaddlePaddle/PaddleHub&quot; style=&quot;text-decoration: underline;&quot; target=&quot;_blank&quot;&gt; PaddleHub 官方Repo &lt;/a&gt;， 如果你觉得不错，请star收藏吧。</span></span><br><span class="line"><span class="string">&lt;p&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; width=&quot;90&quot; height=&quot;20&quot;&gt;&lt;style&gt;a:hover #llink&#123;fill:url(#b);stroke:#ccc&#125;a:hover #rlink&#123;fill:#4183c4&#125;&lt;/style&gt;&lt;linearGradient id=&quot;a&quot; x2=&quot;0&quot; y2=&quot;100%&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#fcfcfc&quot; stop-opacity=&quot;0&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-opacity=&quot;.1&quot;/&gt;&lt;/linearGradient&gt;&lt;linearGradient id=&quot;b&quot; x2=&quot;0&quot; y2=&quot;100%&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#ccc&quot; stop-opacity=&quot;.1&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-opacity=&quot;.1&quot;/&gt;&lt;/linearGradient&gt;&lt;g stroke=&quot;#d5d5d5&quot;&gt;&lt;rect stroke=&quot;none&quot; fill=&quot;#fcfcfc&quot; x=&quot;0.5&quot; y=&quot;0.5&quot; width=&quot;54&quot; height=&quot;19&quot; rx=&quot;2&quot;/&gt;&lt;rect x=&quot;60.5&quot; y=&quot;0.5&quot; width=&quot;29&quot; height=&quot;19&quot; rx=&quot;2&quot; fill=&quot;#fafafa&quot;/&gt;&lt;rect x=&quot;60&quot; y=&quot;7.5&quot; width=&quot;0.5&quot; height=&quot;5&quot; stroke=&quot;#fafafa&quot;/&gt;&lt;path d=&quot;M60.5 6.5 l-3 3v1 l3 3&quot; stroke=&quot;d5d5d5&quot; fill=&quot;#fafafa&quot;/&gt;&lt;/g&gt;&lt;image x=&quot;5&quot; y=&quot;3&quot; width=&quot;14&quot; height=&quot;14&quot; xlink:href=&quot;data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMTgxNzE3IiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+R2l0SHViPC90aXRsZT48cGF0aCBkPSJNMTIgLjI5N2MtNi42MyAwLTEyIDUuMzczLTEyIDEyIDAgNS4zMDMgMy40MzggOS44IDguMjA1IDExLjM4NS42LjExMy44Mi0uMjU4LjgyLS41NzcgMC0uMjg1LS4wMS0xLjA0LS4wMTUtMi4wNC0zLjMzOC43MjQtNC4wNDItMS42MS00LjA0Mi0xLjYxQzQuNDIyIDE4LjA3IDMuNjMzIDE3LjcgMy42MzMgMTcuN2MtMS4wODctLjc0NC4wODQtLjcyOS4wODQtLjcyOSAxLjIwNS4wODQgMS44MzggMS4yMzYgMS44MzggMS4yMzYgMS4wNyAxLjgzNSAyLjgwOSAxLjMwNSAzLjQ5NS45OTguMTA4LS43NzYuNDE3LTEuMzA1Ljc2LTEuNjA1LTIuNjY1LS4zLTUuNDY2LTEuMzMyLTUuNDY2LTUuOTMgMC0xLjMxLjQ2NS0yLjM4IDEuMjM1LTMuMjItLjEzNS0uMzAzLS41NC0xLjUyMy4xMDUtMy4xNzYgMCAwIDEuMDA1LS4zMjIgMy4zIDEuMjMuOTYtLjI2NyAxLjk4LS4zOTkgMy0uNDA1IDEuMDIuMDA2IDIuMDQuMTM4IDMgLjQwNSAyLjI4LTEuNTUyIDMuMjg1LTEuMjMgMy4yODUtMS4yMy42NDUgMS42NTMuMjQgMi44NzMuMTIgMy4xNzYuNzY1Ljg0IDEuMjMgMS45MSAxLjIzIDMuMjIgMCA0LjYxLTIuODA1IDUuNjI1LTUuNDc1IDUuOTIuNDIuMzYuODEgMS4wOTYuODEgMi4yMiAwIDEuNjA2LS4wMTUgMi44OTYtLjAxNSAzLjI4NiAwIC4zMTUuMjEuNjkuODI1LjU3QzIwLjU2NSAyMi4wOTIgMjQgMTcuNTkyIDI0IDEyLjI5N2MwLTYuNjI3LTUuMzczLTEyLTEyLTEyIi8+PC9zdmc+&quot;/&gt;&lt;g aria-hidden=&quot;false&quot; fill=&quot;#333&quot; text-anchor=&quot;middle&quot; font-family=&quot;Helvetica Neue,Helvetica,Arial,sans-serif&quot; text-rendering=&quot;geometricPrecision&quot; font-weight=&quot;700&quot; font-size=&quot;110px&quot; line-height=&quot;14px&quot;&gt;&lt;a target=&quot;_blank&quot; xlink:href=&quot;https://github.com/PaddlePaddle/PaddleHub&quot;&gt;&lt;text aria-hidden=&quot;true&quot; x=&quot;355&quot; y=&quot;150&quot; fill=&quot;#fff&quot; transform=&quot;scale(.1)&quot; textLength=&quot;270&quot;&gt;Stars&lt;/text&gt;&lt;text x=&quot;355&quot; y=&quot;140&quot; transform=&quot;scale(.1)&quot; textLength=&quot;270&quot;&gt;Stars&lt;/text&gt;&lt;rect id=&quot;llink&quot; stroke=&quot;#d5d5d5&quot; fill=&quot;url(#a)&quot; x=&quot;.5&quot; y=&quot;.5&quot; width=&quot;54&quot; height=&quot;19&quot; rx=&quot;2&quot;/&gt;&lt;/a&gt;&lt;a target=&quot;_blank&quot; xlink:href=&quot;https://github.com/PaddlePaddle/PaddleHub/stargazers&quot;&gt;&lt;rect width=&quot;30&quot; x=&quot;60&quot; height=&quot;20&quot; fill=&quot;rgba(0,0,0,0)&quot;/&gt;&lt;text aria-hidden=&quot;true&quot; x=&quot;745&quot; y=&quot;150&quot; fill=&quot;#fff&quot; transform=&quot;scale(.1)&quot; textLength=&quot;210&quot;&gt;8.4k&lt;/text&gt;&lt;text id=&quot;rlink&quot; x=&quot;745&quot; y=&quot;140&quot; transform=&quot;scale(.1)&quot; textLength=&quot;210&quot;&gt;8.4k&lt;/text&gt;&lt;/a&gt;&lt;/g&gt;&lt;/svg&gt;&lt;/p&gt;</span></span><br><span class="line"><span class="string">同时，可以在 &lt;a href=&quot;https://aistudio.baidu.com/aistudio/projectdetail/4462918&quot;, style=&quot;text-decoration: underline;&quot; target=&quot;_blank&quot;&gt; aistudio &lt;/a&gt; 上使用免费的GPU体验更多案例。</span></span><br><span class="line"><span class="string">&lt;/p&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br><span class="line"><span class="string">&lt;div class=&quot;prompt&quot;&gt;</span></span><br><span class="line"><span class="string">&lt;p&gt;&lt;h4&gt;Prompt format&lt;/h4&gt;</span></span><br><span class="line"><span class="string">&lt;span&gt; Prompt = [adjective] [object], [details], [styles or artists]. &lt;/span&gt;</span></span><br><span class="line"><span class="string">For more details, please refer to &lt;a href=&quot;https://github.com/PaddlePaddle/PaddleHub/blob/develop/modules/image/text_to_image/ernie_vilg/README.md#四-prompt-指南&quot; style=&quot;text-decoration: underline;&quot; target=&quot;_blank&quot;&gt;YouPromptMe Guide&lt;/a&gt;.</span></span><br><span class="line"><span class="string">There are more interesting models in PaddleHub, if you think it&#x27;s great, welcome to star &lt;a href=&quot;https://github.com/PaddlePaddle/PaddleHub&quot; style=&quot;text-decoration: underline;&quot; target=&quot;_blank&quot;&gt; PaddleHub&lt;/a&gt;.</span></span><br><span class="line"><span class="string">&lt;p&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; width=&quot;90&quot; height=&quot;20&quot;&gt;&lt;style&gt;a:hover #llink&#123;fill:url(#b);stroke:#ccc&#125;a:hover #rlink&#123;fill:#4183c4&#125;&lt;/style&gt;&lt;linearGradient id=&quot;a&quot; x2=&quot;0&quot; y2=&quot;100%&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#fcfcfc&quot; stop-opacity=&quot;0&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-opacity=&quot;.1&quot;/&gt;&lt;/linearGradient&gt;&lt;linearGradient id=&quot;b&quot; x2=&quot;0&quot; y2=&quot;100%&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#ccc&quot; stop-opacity=&quot;.1&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-opacity=&quot;.1&quot;/&gt;&lt;/linearGradient&gt;&lt;g stroke=&quot;#d5d5d5&quot;&gt;&lt;rect stroke=&quot;none&quot; fill=&quot;#fcfcfc&quot; x=&quot;0.5&quot; y=&quot;0.5&quot; width=&quot;54&quot; height=&quot;19&quot; rx=&quot;2&quot;/&gt;&lt;rect x=&quot;60.5&quot; y=&quot;0.5&quot; width=&quot;29&quot; height=&quot;19&quot; rx=&quot;2&quot; fill=&quot;#fafafa&quot;/&gt;&lt;rect x=&quot;60&quot; y=&quot;7.5&quot; width=&quot;0.5&quot; height=&quot;5&quot; stroke=&quot;#fafafa&quot;/&gt;&lt;path d=&quot;M60.5 6.5 l-3 3v1 l3 3&quot; stroke=&quot;d5d5d5&quot; fill=&quot;#fafafa&quot;/&gt;&lt;/g&gt;&lt;image x=&quot;5&quot; y=&quot;3&quot; width=&quot;14&quot; height=&quot;14&quot; xlink:href=&quot;data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMTgxNzE3IiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+R2l0SHViPC90aXRsZT48cGF0aCBkPSJNMTIgLjI5N2MtNi42MyAwLTEyIDUuMzczLTEyIDEyIDAgNS4zMDMgMy40MzggOS44IDguMjA1IDExLjM4NS42LjExMy44Mi0uMjU4LjgyLS41NzcgMC0uMjg1LS4wMS0xLjA0LS4wMTUtMi4wNC0zLjMzOC43MjQtNC4wNDItMS42MS00LjA0Mi0xLjYxQzQuNDIyIDE4LjA3IDMuNjMzIDE3LjcgMy42MzMgMTcuN2MtMS4wODctLjc0NC4wODQtLjcyOS4wODQtLjcyOSAxLjIwNS4wODQgMS44MzggMS4yMzYgMS44MzggMS4yMzYgMS4wNyAxLjgzNSAyLjgwOSAxLjMwNSAzLjQ5NS45OTguMTA4LS43NzYuNDE3LTEuMzA1Ljc2LTEuNjA1LTIuNjY1LS4zLTUuNDY2LTEuMzMyLTUuNDY2LTUuOTMgMC0xLjMxLjQ2NS0yLjM4IDEuMjM1LTMuMjItLjEzNS0uMzAzLS41NC0xLjUyMy4xMDUtMy4xNzYgMCAwIDEuMDA1LS4zMjIgMy4zIDEuMjMuOTYtLjI2NyAxLjk4LS4zOTkgMy0uNDA1IDEuMDIuMDA2IDIuMDQuMTM4IDMgLjQwNSAyLjI4LTEuNTUyIDMuMjg1LTEuMjMgMy4yODUtMS4yMy42NDUgMS42NTMuMjQgMi44NzMuMTIgMy4xNzYuNzY1Ljg0IDEuMjMgMS45MSAxLjIzIDMuMjIgMCA0LjYxLTIuODA1IDUuNjI1LTUuNDc1IDUuOTIuNDIuMzYuODEgMS4wOTYuODEgMi4yMiAwIDEuNjA2LS4wMTUgMi44OTYtLjAxNSAzLjI4NiAwIC4zMTUuMjEuNjkuODI1LjU3QzIwLjU2NSAyMi4wOTIgMjQgMTcuNTkyIDI0IDEyLjI5N2MwLTYuNjI3LTUuMzczLTEyLTEyLTEyIi8+PC9zdmc+&quot;/&gt;&lt;g aria-hidden=&quot;false&quot; fill=&quot;#333&quot; text-anchor=&quot;middle&quot; font-family=&quot;Helvetica Neue,Helvetica,Arial,sans-serif&quot; text-rendering=&quot;geometricPrecision&quot; font-weight=&quot;700&quot; font-size=&quot;110px&quot; line-height=&quot;14px&quot;&gt;&lt;a target=&quot;_blank&quot; xlink:href=&quot;https://github.com/PaddlePaddle/PaddleHub&quot;&gt;&lt;text aria-hidden=&quot;true&quot; x=&quot;355&quot; y=&quot;150&quot; fill=&quot;#fff&quot; transform=&quot;scale(.1)&quot; textLength=&quot;270&quot;&gt;Stars&lt;/text&gt;&lt;text x=&quot;355&quot; y=&quot;140&quot; transform=&quot;scale(.1)&quot; textLength=&quot;270&quot;&gt;Stars&lt;/text&gt;&lt;rect id=&quot;llink&quot; stroke=&quot;#d5d5d5&quot; fill=&quot;url(#a)&quot; x=&quot;.5&quot; y=&quot;.5&quot; width=&quot;54&quot; height=&quot;19&quot; rx=&quot;2&quot;/&gt;&lt;/a&gt;&lt;a target=&quot;_blank&quot; xlink:href=&quot;https://github.com/PaddlePaddle/PaddleHub/stargazers&quot;&gt;&lt;rect width=&quot;30&quot; x=&quot;60&quot; height=&quot;20&quot; fill=&quot;rgba(0,0,0,0)&quot;/&gt;&lt;text aria-hidden=&quot;true&quot; x=&quot;745&quot; y=&quot;150&quot; fill=&quot;#fff&quot; transform=&quot;scale(.1)&quot; textLength=&quot;210&quot;&gt;8.4k&lt;/text&gt;&lt;text id=&quot;rlink&quot; x=&quot;745&quot; y=&quot;140&quot; transform=&quot;scale(.1)&quot; textLength=&quot;210&quot;&gt;8.4k&lt;/text&gt;&lt;/a&gt;&lt;/g&gt;&lt;/svg&gt;&lt;/p&gt;</span></span><br><span class="line"><span class="string">Besides, you can use free GPU resourses in &lt;a href=&quot;https://aistudio.baidu.com/aistudio/projectdetail/4462918&quot;, style=&quot;text-decoration: underline;&quot; target=&quot;_blank&quot;&gt; aistudio &lt;/a&gt; to enjoy more cases, have fun.</span></span><br><span class="line"><span class="string">&lt;/p&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">)</span><br><span class="line">gr.Markdown(</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">在&quot;探索无限&quot;的风格模式下，画作的真实风格完全可以由你的prompt来决定。下面是一些参考案例:</span></span><br><span class="line"><span class="string">In &quot;Explore infinity&quot; style mode, how the image looks like is totally up to your prompt. Below are some cases:</span></span><br><span class="line"><span class="string">### 复古未来主义风格</span></span><br><span class="line"><span class="string">| ![00472_000_一只猫坐在椅子上，戴着一副墨镜,复古未来主义风格](https://raw.githubusercontent.com/OleNet/YouPromptMe/gh-pages/you-prompt-me/images/art-style-1024/00472_000_一只猫坐在椅子上，戴着一副墨镜,复古未来主义风格.jpg) | ![00472_000_日落时的城市天际线,复古未来主义风格](https://raw.githubusercontent.com/OleNet/YouPromptMe/gh-pages/you-prompt-me/images/art-style-1024/00472_000_日落时的城市天际线,复古未来主义风格.jpg) |</span></span><br><span class="line"><span class="string">| ------------------------------------------------------------ | ------------------------------------------------------------ |</span></span><br><span class="line"><span class="string">| 一只猫坐在椅子上，戴着一副墨镜,复古未来主义风格              | 日落时的城市天际线,复古未来主义风格                          |</span></span><br><span class="line"><span class="string">### 粉彩朋克风格</span></span><br><span class="line"><span class="string">| ![00017_004_一只猫坐在椅子上，戴着一副墨镜，粉彩朋克风格](https://raw.githubusercontent.com/OleNet/YouPromptMe/gh-pages/you-prompt-me/images/art-style-1024/00017_004_一只猫坐在椅子上，戴着一副墨镜，粉彩朋克风格.jpg) | ![00029_001_日落时的城市天际线，粉彩朋克风格](https://raw.githubusercontent.com/OleNet/YouPromptMe/gh-pages/you-prompt-me/images/art-style-1024/00029_001_日落时的城市天际线，粉彩朋克风格.jpg) |</span></span><br><span class="line"><span class="string">| ------------------------------------------------------------ | ------------------------------------------------------------ |</span></span><br><span class="line"><span class="string">| 一只猫坐在椅子上，戴着一副墨镜,粉彩朋克风格                  | 日落时的城市天际线,粉彩朋克风格                              |</span></span><br><span class="line"><span class="string">### 史前遗迹风格</span></span><br><span class="line"><span class="string">| ![00443_005_一只猫坐在椅子上，戴着一副墨镜,史前遗迹风格](https://raw.githubusercontent.com/OleNet/YouPromptMe/gh-pages/you-prompt-me/images/art-style-1024/00443_005_一只猫坐在椅子上，戴着一副墨镜,史前遗迹风格.jpg) | ![00443_005_日落时的城市天际线,史前遗迹风格](https://raw.githubusercontent.com/OleNet/YouPromptMe/gh-pages/you-prompt-me/images/art-style-1024/00443_005_日落时的城市天际线,史前遗迹风格.jpg) |</span></span><br><span class="line"><span class="string">| ------------------------------------------------------------ | ------------------------------------------------------------ |</span></span><br><span class="line"><span class="string">| 一只猫坐在椅子上，戴着一副墨镜,史前遗迹风格                  | 日落时的城市天际线,史前遗迹风格                              |</span></span><br><span class="line"><span class="string">### 波普艺术风格</span></span><br><span class="line"><span class="string">| ![00434_005_一只猫坐在椅子上，戴着一副墨镜,波普艺术风格](https://raw.githubusercontent.com/OleNet/YouPromptMe/gh-pages/you-prompt-me/images/art-style-1024/00434_005_一只猫坐在椅子上，戴着一副墨镜,波普艺术风格.jpg) | ![00434_002_日落时的城市天际线,波普艺术风格](https://raw.githubusercontent.com/OleNet/YouPromptMe/gh-pages/you-prompt-me/images/art-style-1024/00434_002_日落时的城市天际线,波普艺术风格.jpg) |</span></span><br><span class="line"><span class="string">| ------------------------------------------------------------ | ------------------------------------------------------------ |</span></span><br><span class="line"><span class="string">| 一只猫坐在椅子上，戴着一副墨镜,波普艺术风格                  | 日落时的城市天际线,后世界末日风格                            |</span></span><br><span class="line"><span class="string">### 迷幻风格</span></span><br><span class="line"><span class="string">| ![00451_000_一只猫坐在椅子上，戴着一副墨镜,迷幻药风格](https://raw.githubusercontent.com/OleNet/YouPromptMe/gh-pages/you-prompt-me/images/art-style-1024/00451_000_一只猫坐在椅子上，戴着一副墨镜,迷幻药风格.jpg) | ![00451_001_日落时的城市天际线,迷幻药风格](https://raw.githubusercontent.com/OleNet/YouPromptMe/gh-pages/you-prompt-me/images/art-style-1024/00451_001_日落时的城市天际线,迷幻药风格.jpg) |</span></span><br><span class="line"><span class="string">| ------------------------------------------------------------ | ------------------------------------------------------------ |</span></span><br><span class="line"><span class="string">| 一只猫坐在椅子上，戴着一副墨镜,迷幻风格                      | 日落时的城市天际线,迷幻风格                                  |</span></span><br><span class="line"><span class="string">### &lt;u&gt;[更多内容...](https://github.com/PaddlePaddle/PaddleHub/blob/develop/modules/image/text_to_image/ernie_vilg/README.md#四-prompt-指南)([Explore more...](https://github.com/PaddlePaddle/PaddleHub/blob/develop/modules/image/text_to_image/ernie_vilg/README.md#四-prompt-指南))&lt;/u&gt;</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">)</span><br><span class="line">gr.HTML(<span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">&lt;div class=&quot;footer&quot;&gt;</span></span><br><span class="line"><span class="string">&lt;p&gt;Model by &lt;a href=&quot;https://github.com/PaddlePaddle/PaddleHub&quot; style=&quot;text-decoration: underline;&quot; target=&quot;_blank&quot;&gt;PaddleHub&lt;/a&gt; and &lt;a href=&quot;https://wenxin.baidu.com&quot; style=&quot;text-decoration: underline;&quot; target=&quot;_blank&quot;&gt;文心大模型&lt;/a&gt; - Gradio Demo by 🤗 Hugging Face</span></span><br><span class="line"><span class="string">&lt;/p&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span>)</span><br><span class="line">block.queue(concurrency_count=<span class="number">128</span>).launch()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/AssemblyAI-Examples/MinImagen">text to image minimal example</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jina-ai/discoart">https://github.com/jina-ai/discoart</a></p>
+<p>dalle-2</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/CompVis/stable-diffusion">stable diffusion as dalle2 alternative</a></p>
+<p>nvidia provided ai paint tool</p>
+<p>text to image:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lucidrains/imagen-pytorch">https://github.com/lucidrains/imagen-pytorch</a></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/06/01/7228a776-7b77-4765-96ca-29a000acd589/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/08/63eeaf5e-73d1-4bed-b5a6-320ac4a831a0/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -1736,8 +460,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-06-01 </div>
-			<div class="article-title"><a href="/blog/2022/06/01/b472fe36-c1ae-440c-b2dd-3a6b950d7dff/" title="This article explains a method for capturing Github data by utilizing proxies and VPNs, along with tools like mitmproxy, pcapdroid, and gh_stars_export to handle accounts requiring cookies or credentials.">Github Bookmarks From James4Deutschland</a></div>
+			<div class="date"> 2022-08-08 </div>
+			<div class="article-title"><a href="/blog/2022/08/08/dea7a90b-a628-430f-b08c-130cbffef2c5/" title="This article provides a method to view someone&#39;s blocked Soul social media profile by using a provided link with potential expiration dates and limitations in searching or traversing the platform. It also suggests using tools like Frida or Radare2 for more freedom of access, but mentions potential risks and limitations.">Soul查看被拉黑之后对方的空间</a></div>
 		</h3>
 	
 
@@ -1748,12 +472,141 @@
   <div class="row">
 	
 	
-		<h1 id="Github-Bookmarks-from-James4deutschland-2022-6-1"><a href="#Github-Bookmarks-from-James4deutschland-2022-6-1" class="headerlink" title="Github Bookmarks from James4deutschland 2022&#x2F;6&#x2F;1"></a>Github Bookmarks from James4deutschland 2022&#x2F;6&#x2F;1</h1><p>consider using proxy and vpn to do the capturing. mitmproxy and pcapdroid.</p>
-<p>for accounts with cookies or credentials, you can use custom tool like gh_stars_export.</p>
+		<p>这个人的空间链接目前可以访问@2022 september 4</p>
+<p>可以在被拉黑了之后快速点击右上角的分享链接 分享到其他人 其他群里面 或者点击生成链接 即可<a target="_blank" rel="noopener" href="https://w12.soulsmile.cn/activity/#/web/user?targetUserIdEcpt=V2tDVVBvMVVuQlBWVlgvZUh1NEExdz09&userIdEcpt=V2tDVVBvMVVuQlBWVlgvZUh1NEExdz09&shareUserId=dlh1V3ZDbVBsQ2JWVlgvZUh1NEExdz09&titleNum=2&sec=B6QhUWMfVN9d1gb0vEoLCLaY7UPvMN5m">在浏览器里面查看这个人的动态</a> 但是不知道这个链接有没有时效性 现在看起来就是一堆乱码 app里面的分享也不知道有没有时效性</p>
+<p>不知道能不能搜索或者遍历 如果不能的话只能黑进去了 不过那样的话出来的数据肯定更多</p>
+<p>要知道被拉黑，本地肯定有用户的ID， 有了ID就可以拿过去到其他新注册的Soul账号上面使用 通过底层api访问</p>
+<p>可以考虑用Frida或者网上的一些脚本来分析破解SoulAPP 单独使用Frida估计不能利用Python遍历 还是需要破解协议证书才可以自由访问</p>
+<p><a target="_blank" rel="noopener" href="https://frida.re/docs/examples/windows/">frida usage, code examples for windows</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ifding/radare2-tutorial">radare2 tutorial with code</a></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/06/01/b472fe36-c1ae-440c-b2dd-3a6b950d7dff/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/08/dea7a90b-a628-430f-b08c-130cbffef2c5/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2022-08-08 </div>
+			<div class="article-title"><a href="/blog/2022/08/08/4a155226-8aa5-4d6c-b799-00088190b9d6/" title="This article delves into the process of identifying languages in videos through the utilization of various tools, such as SpeechRecognition, paddlespeech, Google Cloud ML, EasyOCR, langid, textcat, and more. These tools facilitate language detection in both audio and textual content within videos.">识别视频语言</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p><a target="_blank" rel="noopener" href="https://speechbrain.github.io/">speechbrain</a> has features of Speech Recognition, Speaker Recognition, Speech Enhancement, Speech Processing, Multi Microphone Processing, Text-to-Speech, and also supports Spoken Language Understanding, Language Modeling, Diarization, Speech Translation, Language Identification, Voice Activity Detection, Sound classification, Grapheme-to-Phoneme, and many others.</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>视频里面的语言分为图片上面打出来的字幕以及人说的话</p>
+<p>涉及到的问题分别为： 图片文字的语言分类 以及音频语言分类</p>
+<h2 id="音频识别"><a href="#音频识别" class="headerlink" title="音频识别"></a>音频识别</h2><p>online speech recognition</p>
+<p>pip install SpeechRecognition</p>
+<p>offline, need to provide language id:</p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/automatic-speech-recognition/">https://pypi.org/project/automatic-speech-recognition/</a></p>
+<p>use paddlespeech if possible, for chinese and english</p>
+<h2 id="图片语言识别"><a href="#图片语言识别" class="headerlink" title="图片语言识别"></a>图片语言识别</h2><p>use google cloud to detect language type in image:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/deduced/ml-ocr-lang-detection">https://github.com/deduced/ml-ocr-lang-detection</a></p>
+<p>Detects and Recognizes text and font language in an image</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/JAIJANYANI/Language-Detection-in-Image">https://github.com/JAIJANYANI/Language-Detection-in-Image</a></p>
+<p>图片语言文字分类 可以用easyocr实现 加载多个模型 比如 中文加英文加日语 b站其他语言的可能也不怎么受欢迎 最多再加韩语</p>
+<p>可以从视频简介 标题 链接里面提取出句子 每个句子进行语言分类 确定要使用的OCR模型 也有可能出现描述语言和视频图片文字语言不一致的情况</p>
+<p>wolfram language提供了一个图片分类器 分类出来的结果可能很有意思 可以结合苹果的图片关注区域生成器来结合使用</p>
+<p>ImageIdentify[pictureObj]</p>
+<p>这个方法还支持subcategory分类 支持多输出 具体看文档</p>
+<p><a target="_blank" rel="noopener" href="https://www.imageidentify.com/about/how-it-works">https://www.imageidentify.com/about/how-it-works</a></p>
+<p>wolfram支持cloud deploy 到wolfram cloud不过那样可能不行</p>
+<h2 id="文本语言识别分类"><a href="#文本语言识别分类" class="headerlink" title="文本语言识别分类"></a>文本语言识别分类</h2><p><a target="_blank" rel="noopener" href="https://github.com/pemistahl/lingua">lingua</a> performs good in short text, can be used in java or kotlin</p>
+<p>supporting detecting different languages:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ropensci/cld2">cld2</a> containing useful vectors containing text spans <a target="_blank" rel="noopener" href="https://pypi.org/project/pycld2/">python binding</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pycld2 <span class="keyword">as</span> cld2</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>text_content = <span class="string">&quot;&quot;&quot; A accès aux chiens et aux frontaux qui lui ont été il peut consulter et modifier ses collections et exporter Cet article concerne le pays européen aujourd’hui appelé République française.</span></span><br><span class="line"><span class="string">Pour d’autres usages du nom France, Pour une aide rapide et effective, veuiller trouver votre aide dans le menu ci-dessus.</span></span><br><span class="line"><span class="string">Welcome, to this world of Data Scientist. Today is a lovely day.&quot;&quot;&quot;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_, _, _, detected_language = cld2.detect(text_content,  returnVectors=<span class="literal">True</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(detected_language)</span><br><span class="line">((<span class="number">0</span>, <span class="number">323</span>, <span class="string">&#x27;FRENCH&#x27;</span>, <span class="string">&#x27;fr&#x27;</span>), (<span class="number">323</span>, <span class="number">64</span>, <span class="string">&#x27;ENGLISH&#x27;</span>, <span class="string">&#x27;en&#x27;</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/google/cld3">original cld3</a> is designed for chromium and it relies on chromium code to run</p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/gcld3/">official cld3 python bindings</a></p>
+<p>additional Python language related library from geeksforgeeks:</p>
+<p><a target="_blank" rel="noopener" href="https://textblob.readthedocs.io/en/dev/">textblob</a> is a natural language processing toolkit</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> textblob <span class="keyword">import</span> TextBlob</span><br><span class="line">text = <span class="string">&quot;это компьютерный портал для гиков. It was a beautiful day .&quot;</span></span><br><span class="line">lang = TextBlob(text)</span><br><span class="line"><span class="built_in">print</span>(lang.detect_language())</span><br><span class="line"><span class="comment"># ru</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/saffsd/langid.py">langid</a> performs good in short text</p>
+<p><a target="_blank" rel="noopener" href="https://cran.r-project.org/package=textcat">textcat (r package)</a></p>
+<p>google language detection library in python: langdetect</p>
+<p>javascript:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/wooorm/franc">https://github.com/wooorm/franc</a></p>
+<p>python version of franc:</p>
+<p>pyfranc</p>
+<p>wlatlang.org provides whatlang-rs as rust package, also whatlang-py as python bindings</p>
+
+	
+	</div>
+  <a type="button" href="/blog/2022/08/08/4a155226-8aa5-4d6c-b799-00088190b9d6/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2022-08-08 </div>
+			<div class="article-title"><a href="/blog/2022/08/08/4ee9b9a5-ef24-455a-b9df-283da2e89908/" title="This text explores the concept of focusing and zooming on objects within a video using pytweening, an easing/tweening function collection. The portal-zoomer tool is introduced for cropping videos to include only human regions. It also suggests that other libraries such as ffmpeg or vidpy/mltframework may have similar functionalities.">Tweening For Object Focus, Zoom To Object, Zoom To Video Roi</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>focus on person only, crop video and leave only human region untouched:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ConceptCodes/portal-zoomer">https://github.com/ConceptCodes/portal-zoomer</a></p>
+<p>focus&#x2F;zoom on given object using <a target="_blank" rel="noopener" href="https://pypi.org/project/pytweening/">pytweening, a easing&#x2F;tweening function collection</a>.</p>
+<p>to tell you, pytweening is initially developed for pyautogui (by the same author at least), probably for evading AI detection, passing captcha or somehow, but it could also be used in animation rendering.</p>
+<p>or just use ffmpeg. you need to handcraft those formulas anyway.</p>
+<p>does vidpy&#x2F;mltframework and some other libs supports that? requires investigation.</p>
+
+	
+	</div>
+  <a type="button" href="/blog/2022/08/08/4ee9b9a5-ef24-455a-b9df-283da2e89908/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2022-08-08 </div>
+			<div class="article-title"><a href="/blog/2022/08/08/5902663e-ca51-4206-8344-b9b6e7aa8d6b/" title="This article provides a step-by-step guide on how to mount NTFS volumes on MacOS using a command-line tool, along with troubleshooting tips for fixing issues when the app is not functioning properly. The instructions cover the process of unmounting and remounting a specific volume to ensure smooth performance.">Macos Mount Ntfs Volumes</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>macos mount ntfs read-only by default.</p>
+<p>code from <a target="_blank" rel="noopener" href="https://mounty.app/">mounty.app</a></p>
+<p>mounty is somehow not working so manual remount is needed.</p>
+<p>one needs to click the remount button to mount it again under <code>/Users/jamesbrown/.mounty/Toshiba3000</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo umount /Volumes/Toshiba3000</span><br><span class="line">sudo <span class="built_in">mkdir</span> /Volumes/Toshiba3000; sudo mount -t ntfs -o rw,auto,nobrowse /dev/&lt;diskIdentifier&gt; /Volumes/Toshiba3000</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2022/08/08/5902663e-ca51-4206-8344-b9b6e7aa8d6b/#more" class="btn btn-default more">Read More</a>
 </div>
 
            

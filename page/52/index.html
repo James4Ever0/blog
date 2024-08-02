@@ -123,8 +123,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-01-30 </div>
-			<div class="article-title"><a href="/blog/2022/01/30/92ca2c5c-a049-4e28-a1b9-357e5c1c9b1b/" title="This article discusses a dynamic classification system that assigns numerical values to categories and employs a retrieval-based attention network, such as the RETRO model, for regression tests in fields like the stock market or platforms like bilibili. This innovative approach offers potential benefits in various industries by enabling more accurate predictions and analysis based on real-time data.">Dynamic Classification System</a></div>
+			<div class="date"> 2022-05-31 </div>
+			<div class="article-title"><a href="/blog/2022/05/31/2e414550-b993-4f73-9a3b-5f847af8b4fe/" title="This article compares two methods for detecting and removing watermarks. Comment A focuses on video watermarks using specific transforms/models, while Comment B emphasizes local contrast enhancement for subtle watermark detection improvements.">Video Delogo_Inpainting</a></div>
 		</h3>
 	
 
@@ -135,14 +135,56 @@
   <div class="row">
 	
 	
-		<p>If present in current categories, choose a number.</p>
-<p>otherwise, provide a name. number will be automatically assigned.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/lucidrains/RETRO-pytorch">retrieval based attention net</a></p>
-<p>regression test in stock market, which can also apply to bilibili</p>
+		<h1 id="Video-delogo-inpainting"><a href="#Video-delogo-inpainting" class="headerlink" title="Video delogo&#x2F;inpainting"></a>Video delogo&#x2F;inpainting</h1><p>propainter remove watermark with tracking, entity segmentation</p>
+<p>you can use <a target="_blank" rel="noopener" href="https://github.com/LAION-AI/LAION-5B-WatermarkDetection">clip</a> for watermark detection, but you don’t know where. fuck. you better train it yourself.</p>
+<p><a target="_blank" rel="noopener" href="https://wandb.ai/arkseal/laion-watermark-detection/artifacts/model/model/f88165bb9d2cbccc51b5">watermark detection model</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> timm</span><br><span class="line"><span class="comment"># all other pytorch imports</span></span><br><span class="line"><span class="comment"># Not used but necessary when running on images</span></span><br><span class="line">transforms = T.Compose([</span><br><span class="line">T.Resize((<span class="number">256</span>, <span class="number">256</span>)),</span><br><span class="line">T.ToTensor(),</span><br><span class="line">T.Normalize([<span class="number">0.485</span>, <span class="number">0.456</span>, <span class="number">0.406</span>], [<span class="number">0.229</span>, <span class="number">0.224</span>, <span class="number">0.225</span>])</span><br><span class="line">])</span><br><span class="line"><span class="comment"># Create model</span></span><br><span class="line">model = timm.create_model(<span class="string">&#x27;efficientnet_b3a&#x27;</span>, pretrained=<span class="literal">False</span>, num_classes=<span class="number">2</span>)</span><br><span class="line">model.classifier = nn.Sequential(</span><br><span class="line">nn.Linear(in_features=<span class="number">1536</span>, out_features=<span class="number">625</span>),</span><br><span class="line">nn.ReLU(),</span><br><span class="line">nn.Dropout(p=<span class="number">0.3</span>),</span><br><span class="line">nn.Linear(in_features=<span class="number">625</span>, out_features=<span class="number">256</span>),</span><br><span class="line">nn.ReLU(),</span><br><span class="line">nn.Linear(in_features=<span class="number">256</span>, out_features=<span class="number">2</span>)</span><br><span class="line">)</span><br><span class="line"><span class="comment"># Load model weights</span></span><br><span class="line">state_dict = torch.load(<span class="string">&#x27;./model.pt&#x27;</span>)</span><br><span class="line">model.load_state_dict(state_dict).<span class="built_in">eval</span>().to(device)</span><br><span class="line"><span class="comment"># Sample Image</span></span><br><span class="line">im = torch.randn(<span class="number">8</span>, <span class="number">3</span>, <span class="number">256</span>, <span class="number">256</span>)</span><br><span class="line"><span class="keyword">with</span> torch.no_grad():</span><br><span class="line">pred = model(im)</span><br><span class="line">syms = F.softmax(pred, dim=<span class="number">1</span>).detach().cpu().numpy().tolist()</span><br><span class="line"><span class="keyword">for</span> water_sym, clear_sym <span class="keyword">in</span> syms:</span><br><span class="line"><span class="comment"># Do whatever you want with the watermark simlarity</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="image-local-contrast-enhancement-for-removing-hard-to-detect-watermarks"><a href="#image-local-contrast-enhancement-for-removing-hard-to-detect-watermarks" class="headerlink" title="image local contrast enhancement, for removing hard-to-detect watermarks"></a>image local contrast enhancement, for removing hard-to-detect watermarks</h2><p>maybe you can use the same trick (context preserving sliding window) from your search engine to here (image preprocessing)!</p>
+<p>paddleocr识别效果最好 可以识别水印位置 以及文字</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Tejesh-Raut/Image-Linear-Contrast-Stretching-HE-AHE-CLAHE-Gray-Scale-Transformation">Linear Contrast Stretching, HE, AHE, CLAHE of an image using matlab</a></p>
+<p>Histogram Equalization (HE)</p>
+<p>Adaptive Histogram Equalization (AHE)</p>
+<p>Contrast Limited Adaptive Histogram Equalisation (CLAHE)</p>
+<p>experiment path:</p>
+<p><code>pyjom/tests/remove_subtle_watermark_local_contrast_ocr</code></p>
+<p><a target="_blank" rel="noopener" href="https://cn.bing.com/search?q=image+local+contrast&qs=n&form=QBRE&sp=-1&pq=image+local+contrast&sc=2-20&sk=&cvid=55BB4B6B6AE74F8FA6271F34C6201403&ghsh=0&ghacc=0&ghpl=">bing query for image local contrast</a></p>
+<p><a target="_blank" rel="noopener" href="https://darktable-org.github.io/luadocs/lua.scripts.manual/scripts/examples/api_version">darktable lua api and scripting</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.darktable.org/usermanual/development/en/module-reference/processing-modules/local-contrast/">darktable local contrast</a> darktable is an open-sourced photography postprocessing software</p>
+<p>configurations:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">details: 443</span><br><span class="line">highlights: 36</span><br><span class="line">shadows: 25</span><br><span class="line">midtone range: 0.16</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://imagej.net/plugins/clahe">imagej clahe local contrast enhancement</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/tunai/l2uwe">l2uwe</a> L^2UWE: A Framework for the Efficient Enhancement of Low-Light Underwater Images Using Local Contrast and Multi-Scale Fusion written in matlab</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/pengyan510/glcae">glcae</a> Global and Local Contrast Adaptive Enhancement for Non-uniform Illumination Color Images in python</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/tahanimadmad/CNN-Based-X-ray-Morphological-Decomposition-">CNN-Based-X-ray-Morphological-Decomposition</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/search?p=2&q=image+local+contrast&type=Repositories">github query for local image contrast</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Auggen21/image_processing_basics">image processing basics</a> Image Reading, writing, histogram, histogram equalization, local histogram equalization, low pass filter, high pass filter, geometrical transformation</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Dinista/Contrast-Normalization">contrast normalization</a> is an implementation that applies local contrast normalization to images in matlab</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/topics/contrast-enhancement?l=python">contrast enhancement</a> as a github topic</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/VincentStimper/mclahe">mclahe</a> NumPy and Tensorflow implementation of the Multidimensional Contrast Limited Adaptive Histogram Equalization (MCLAHE) procedure</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/AIM-Harvard/DeepContrast">deepcontrast</a> A deep learning-based fully-automatic intravenous contrast detection tool for head-and-neck and chest CT scans.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/swz30/MIRNetv2">mirnetv2</a> (TPAMI 2022) Learning Enriched Features for Fast Image Restoration and Enhancement. Results on Defocus Deblurring, Denoising, Super-resolution, and image enhancement</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lafith/pymusica">pymusica</a> is a contrast enhancement approach involving non linear mapping of Laplacian pyramid.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Mamdasn/imWeightedThresholdedheq">imWeightedThresholdedheq</a> attempts to enhance contrast of a given image or video by employing a method called weighted thresholded histogram equalization (WTHE).</p>
+<p><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/wand-local_contrast-function-python/">imagemagick wand local_contrast function</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/dimimal/dual_gamma_clahe">dual gamma clahe</a> Automatic Contrast-Limited Adaptive Histogram Equalization With Dual Gamma Correction</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Mamdasn/imhblpce">imhblpce</a> attempts to enhance contrast of a given image by employing a method called HBLPCE.</p>
+<p><a target="_blank" rel="noopener" href="https://ww2.mathworks.cn/help/images/ref/localcontrast.html">matlab localcontrast for image</a></p>
+<h2 id="global-contrast-enhancement"><a href="#global-contrast-enhancement" class="headerlink" title="global contrast enhancement"></a>global contrast enhancement</h2><p><a target="_blank" rel="noopener" href="https://github.com/Mamdasn/im2dhisteq">im2dhiseq</a>  attempts to enhance contrast of a given image by equalizing its two dimensional histogram.</p>
+<h2 id="previous-research"><a href="#previous-research" class="headerlink" title="previous research"></a>previous research</h2><p>deeplearning_inpainting:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Sanster/lama-cleaner">https://github.com/Sanster/lama-cleaner</a></p>
+<p>ffmpeg delogo:</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/2eb1811b5fc6">https://www.jianshu.com/p/2eb1811b5fc6</a></p>
+<p><a target="_blank" rel="noopener" href="https://hhsprings.bitbucket.io/docs/programming/examples/ffmpeg/blurring_unsharping/delogo_removelogo.html">https://hhsprings.bitbucket.io/docs/programming/examples/ffmpeg/blurring_unsharping/delogo_removelogo.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://securitronlinux.com/debian-testing/remove-a-logo-from-a-video-easily-with-ffmpeg/">https://securitronlinux.com/debian-testing/remove-a-logo-from-a-video-easily-with-ffmpeg/</a></p>
+<p>opencv inpainting&#x2F;blurring with edge blending</p>
+<p>opencv morphlogical operations:</p>
+<p><a target="_blank" rel="noopener" href="https://pyimagesearch.com/2021/04/28/opencv-morphological-operations/">https://pyimagesearch.com/2021/04/28/opencv-morphological-operations/</a></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/01/30/92ca2c5c-a049-4e28-a1b9-357e5c1c9b1b/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/05/31/2e414550-b993-4f73-9a3b-5f847af8b4fe/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -152,8 +194,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-01-28 </div>
-			<div class="article-title"><a href="/blog/2022/01/28/e692f07e-e16c-4137-af62-2defeef1acc8/" title="This article delves into the utilization of molecular dynamics simulations with tools such as pymatgen, lammps, and openFF. It discusses interatomic potentials and force field generation processes in organic chemistry. Additionally, it covers accessing density data from multiple sources.">Polymer Chemistry Mixture</a></div>
+			<div class="date"> 2022-05-31 </div>
+			<div class="article-title"><a href="/blog/2022/05/31/aa8d7a4c-8554-4045-b60b-e45d331ada07/" title="This article offers a collection of resources for learning algorithms, compilers, and programming. It includes introductions to the Algorithms book in Python, official CLRS 4th edition Python code, alternative Python implementations of CLRS, SICP in Python, and unofficial Python versions of the Algorithms 4th edition.">Algorithms Compilers Sicp Clrs Ct4S</a></div>
 		</h3>
 	
 
@@ -164,125 +206,23 @@
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="http://www.cheminfo.org/">http://www.cheminfo.org/</a></p>
-<p>interatomic potentials:</p>
-<p><a target="_blank" rel="noopener" href="https://www.ctcms.nist.gov/potentials/">https://www.ctcms.nist.gov/potentials/</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/351829537">https://zhuanlan.zhihu.com/p/351829537</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.ctcms.nist.gov/potentials/system/C-H-O/">https://www.ctcms.nist.gov/potentials/system/C-H-O/</a></p>
-<p><a target="_blank" rel="noopener" href="https://atb.uq.edu.au/index.py?tab=structure_search">https://atb.uq.edu.au/index.py?tab=structure_search</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/dwsideriusNIST/LAMMPS_Examples">https://github.com/dwsideriusNIST/LAMMPS_Examples</a></p>
-<p>opensmog smog2.provides force field generation tool</p>
-<p>run simulation under given temperature, pressure and get density</p>
-<p>openmm</p>
-<p>generate force field on the fly:</p>
-<p>from openff.toolkit.topology import Molecule</p>
-<p>molecule &#x3D; Molecule.from_smiles(‘c1ccccc1’)</p>
-<p><a target="_blank" rel="noopener" href="https://www.catalysis-hub.org/">https://www.catalysis-hub.org</a></p>
-<p>pymatgen contains polymer generator to lammps:</p>
-<p>pymatgen.io.lammps.utils</p>
-<p>simulating reaction in molecular dynamics:</p>
-<p><a target="_blank" rel="noopener" href="https://www.reacter.org/">https://www.reacter.org</a></p>
-<p>implemented in lammps fix bond&#x2F;react method</p>
-<p><a href="mailto:&#114;&#x61;&#x6e;&#x64;&#x6f;&#109;&#46;&#x72;&#97;&#x6e;&#x64;&#111;&#109;&#x76;&#x6f;&#105;&#100;&#x6d;&#x61;&#105;&#x6c;&#x40;&#101;&#x72;&#x69;&#x6e;&#x65;&#46;&#101;&#109;&#x61;&#105;&#x6c;">&#114;&#x61;&#x6e;&#x64;&#x6f;&#109;&#46;&#x72;&#97;&#x6e;&#x64;&#111;&#109;&#x76;&#x6f;&#105;&#100;&#x6d;&#x61;&#105;&#x6c;&#x40;&#101;&#x72;&#x69;&#x6e;&#x65;&#46;&#101;&#109;&#x61;&#105;&#x6c;</a> (pending approval)</p>
-<p>seen polymer names on lammps demo website:</p>
-<p><a target="_blank" rel="noopener" href="https://lammps.org/pictures.html#reactphoto">https://lammps.org/pictures.html#reactphoto</a></p>
-<p><a target="_blank" rel="noopener" href="https://docs.lammps.org/Intro_features.html">https://docs.lammps.org/Intro_features.html</a></p>
-<p>If you are a new computational chemist I would advise you to use ASE, it is not only useful for nanoparticles, I’m using it nearly every day.</p>
-<p>patent:</p>
-<p><a target="_blank" rel="noopener" href="https://bulkdata.uspto.gov/">https://bulkdata.uspto.gov/</a></p>
-<p><a target="_blank" rel="noopener" href="http://chemdataextractor.org/results/26088052-3833-41ea-98f1-0a8a3fb2c341">http://chemdataextractor.org/results/26088052-3833-41ea-98f1-0a8a3fb2c341</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/50559712">https://www.zhihu.com/question/50559712</a></p>
-<p>moltemplate, packmol</p>
-<p>vmd: lammps data file visualization</p>
-<p>build input file for lammps:</p>
-<p><a target="_blank" rel="noopener" href="https://atomsk.univ-lille.fr/">https://atomsk.univ-lille.fr/</a></p>
-<p>get retrosynthesis training data on picture search engines</p>
-<p>octa: predict polymer properties</p>
-<p><a target="_blank" rel="noopener" href="https://octa.jp/references/examples/">https://octa.jp/references/examples/</a></p>
-<p>Link: [5]<a target="_blank" rel="noopener" href="http://oexchange.org/spec/0.8/rel/related-target">http://oexchange.org/spec/0.8/rel/related-target</a></p>
-<p>You can try [33]<a target="_blank" rel="noopener" href="https://spaya.ai/">https://spaya.ai/</a> it is a retro-synthetic analysis</p>
-<p>[37]Http:&#x2F;&#x2F;<a target="_blank" rel="noopener" href="http://www.orgsyn.org/">www.orgsyn.org/</a></p>
-<p>[41]Http:&#x2F;&#x2F;<a target="_blank" rel="noopener" href="http://www.orgsyn.org/">www.orgsyn.org/</a></p>
-<p>[45]Http:&#x2F;&#x2F;<a target="_blank" rel="noopener" href="http://www.organic-chemistry.org/">www.organic-chemistry.org/</a></p>
-<p>Try this interesting blog: [49]<a target="_blank" rel="noopener" href="http://totallysynthetic.com/blog/">http://totallysynthetic.com/blog/</a></p>
-<p>And also this website: [50]<a target="_blank" rel="noopener" href="http://chemistrybydesign.oia.arizona.edu/">http://chemistrybydesign.oia.arizona.edu/</a></p>
-<p>[54]<a target="_blank" rel="noopener" href="http://www.chemspider.com/">http://www.chemspider.com/</a></p>
-<p>[58]<a target="_blank" rel="noopener" href="https://pubchem.ncbi.nlm.nih.gov/search">https://pubchem.ncbi.nlm.nih.gov/search</a></p>
-<p>Organic Syntheses Website: &lt;[62]<a target="_blank" rel="noopener" href="http://www.orgsyn.org/">http://www.orgsyn.org</a></p>
-<p>Organic Chemistry Portal: &lt;[63]<a target="_blank" rel="noopener" href="http://www.organic-chemistry.org/abstracts">http://www.organic-chemistry.org/abstracts</a></p>
-<p>Chemsynthesis: [64]<a target="_blank" rel="noopener" href="http://www.chemsynthesis.com/">http://www.chemsynthesis.com</a></p>
-<p>ChemExper: [65]<a target="_blank" rel="noopener" href="https://www.chemexper.com/">https://www.chemexper.com</a></p>
-<p>Pub Chem compound: [67]<a target="_blank" rel="noopener" href="http://pubchem.ncbi.nlm.nih.gov/">http://pubchem.ncbi.nlm.nih.gov</a></p>
-<p>E-molecules: [68]<a target="_blank" rel="noopener" href="http://www.emolecules.com/">http://www.emolecules.com</a></p>
-<p>Chemspider: [69]<a target="_blank" rel="noopener" href="http://www.chemspider.com/">http://www.chemspider.com</a></p>
-<p>Reaxys: [70]<a target="_blank" rel="noopener" href="https://www.reaxys.com/">https://www.reaxys.com/</a></p>
-<p>SciFinder: [71]<a target="_blank" rel="noopener" href="http://www.cas.org/">http://www.cas.org</a>,</p>
-<p>STN: [72]<a target="_blank" rel="noopener" href="https://stnweb.cas.org/">https://stnweb.cas.org/</a></p>
-<p>[76]<a target="_blank" rel="noopener" href="http://www.chemspider.com/">http://www.chemspider.com</a></p>
-<p>[80]<a target="_blank" rel="noopener" href="https://www.vulcanchem.com/">https://www.vulcanchem.com/</a></p>
-<p><a target="_blank" rel="noopener" href="https://moltemplate.org/">https://moltemplate.org</a></p>
-<p><a target="_blank" rel="noopener" href="https://chemdataextractor.org/">https://chemdataextractor.org</a></p>
-<p>gromacs: creating polymer structure</p>
-<p><a target="_blank" rel="noopener" href="http://www.gromacs.org/Documentation_of_outdated_versions/How-tos/Polymers">http://www.gromacs.org/Documentation_of_outdated_versions/How-tos/Polymers</a></p>
-<p>latest gromacs documentation:</p>
-<p><a target="_blank" rel="noopener" href="https://manual.gromacs.org/documentation/">https://manual.gromacs.org/documentation/</a></p>
-<p>online organic chemistry textbook:</p>
-<p><a target="_blank" rel="noopener" href="https://www2.chemistry.msu.edu/faculty/reusch/virttxtjml/intro1.htm">https://www2.chemistry.msu.edu/faculty/reusch/virttxtjml/intro1.htm</a></p>
-<p>openbabel can only run normally on x86 platforms. so do other cheminfo packages.</p>
-<p>sources of organic synthesis</p>
-<p><a target="_blank" rel="noopener" href="https://www.organic-chemistry.org/">https://www.organic-chemistry.org</a></p>
-<p><a target="_blank" rel="noopener" href="http://www.orgsyn.org/">http://www.orgsyn.org</a></p>
-<p>What is matsci.org?</p>
-<p>matsci.org is a community forum for the discussion of anything materials science, with a focus on computational materials science research. Its members are typically from academic research institutions and universities.</p>
-<p>People that currently help run matsci.org include maintainers of the following codes and collaborations:</p>
-<p>OVITO</p>
-<p>GULP</p>
-<p>DL_POLY</p>
-<p>OPTIMADE</p>
-<p>pyiron</p>
-<p>hiphive</p>
-<p>ASE</p>
-<p>MPDS</p>
-<p>iFermi</p>
-<p>LAMMPS</p>
-<p>MaRDA</p>
-<p>exciting</p>
-<p>JARVIS</p>
-<p>and members of the following research groups:</p>
-<p>Hacking Materials Group</p>
-<p>Persson Group</p>
-<p>Materials Virtual Lab</p>
-<p>Materials Intelligence</p>
-<p>translate bigsmiles into smiles</p>
-<p>polymer database:</p>
-<p>PolyInfo and NIST Synthetic Polymer MALDI Recipes database</p>
-<p>USPEX</p>
-<p>chemdraw chemoffice indraw spaya.ai</p>
-<p>reaxys scifinder-n</p>
-<p>marvin sketch pka</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/PKUMDL-AI/AutoSynRoute">https://github.com/PKUMDL-AI/AutoSynRoute</a></p>
-<p>polymer simulation:</p>
-<p>material studio</p>
-<p>amsterdam modeling suite</p>
-<p>cp2k orca</p>
-<p><a target="_blank" rel="noopener" href="https://orcaforum.kofo.mpg.de/app.php/portal">https://orcaforum.kofo.mpg.de/app.php/portal</a></p>
-<p>chemistry in stack exchange:</p>
-<p><a target="_blank" rel="noopener" href="https://chemistry.stackexchange.com/">https://chemistry.stackexchange.com/</a></p>
-<p>polymer retrosynthesis using retro*:</p>
-<p>seq2seq-retro mlp-retro polyretro-uspto</p>
-<p>deepchem, chempy(inorganic)</p>
-<p>avogadro: import openbabel files</p>
-<p>odachi: decompose target molecular into source molecular, highlight the potential bond</p>
-<p>rdkit: python chemistry informatic</p>
-<p>polymer informatic</p>
-<p>ab initio chemistry:</p>
-<p>lammps, quantum espresso, nwchem, gamess, uspex</p>
-<p>from <a target="_blank" rel="noopener" href="https://www.webmol.net/">https://www.webmol.net</a>:</p>
-<p>Gamess, Gaussian, MolPro, Mopac, NWChem, Orca, PQS, PSI, Q-Chem, TeraChem, Tinker, Quantum Expresso, and VASP</p>
+		<p><a target="_blank" rel="noopener" href="https://the-algorithms.com/">the algorithms</a></p>
+<p>introduction to algorithms clrs 4th edition in python:</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/466819939">https://zhuanlan.zhihu.com/p/466819939</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/James4Ever0/CLRS-Python-Implementation">official clrs 4th edition python code</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/GenoWong/IntroductionToAlgorithms/blob/main/Introduction.to.Algorithms.4th.pdf">clrs 4th pdf</a></p>
+<p>clrs 3th edition python code:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/tonywangcn/Introduction-to-Algorithms-3rd-Edition-python-code">https://github.com/tonywangcn/Introduction-to-Algorithms-3rd-Edition-python-code</a></p>
+<p>sicp in python gitbooks:</p>
+<p><a target="_blank" rel="noopener" href="https://wizardforcel.gitbooks.io/sicp-in-python/content/18.html">https://wizardforcel.gitbooks.io/sicp-in-python/content/18.html</a></p>
+<p>algorithms 4th edition official java unofficial python code:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/kevin-wayne/algs4">https://github.com/kevin-wayne/algs4</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/shellfly/algs4-py">https://github.com/shellfly/algs4-py</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/itu-algorithms/itu.algs4">https://github.com/itu-algorithms/itu.algs4</a></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/01/28/e692f07e-e16c-4137-af62-2defeef1acc8/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/05/31/aa8d7a4c-8554-4045-b60b-e45d331ada07/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -292,8 +232,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-01-21 </div>
-			<div class="article-title"><a href="/blog/2022/01/21/7f9c5998-c8d1-44a6-a2a6-c1c3a799d5dd/" title="Mingming is a tool that generates a list of unique random numbers between 1-1000, removes any duplicates, and sorts the resulting list. This process ensures an unbiased distribution for assigning participants to different survey groups.">Algorithm</a></div>
+			<div class="date"> 2022-05-31 </div>
+			<div class="article-title"><a href="/blog/2022/05/31/55cc27e9-42da-45d6-8687-40b2d4ef833d/" title="TypeMonkey is a JavaScript-based solution that serves as an alternative to OSS (Open Scripting Standard), enabling users to modify existing code on web pages. It can be explored at nostarsnow.github.io/2019/01/20/typemonkey, and the project&#39;s code is available on GitHub at github.com/nostarsnow/typeMonkey.js.">Typemonkey 字说 Oss Alternative</a></div>
 		</h3>
 	
 
@@ -304,67 +244,13 @@
   <div class="row">
 	
 	
-		<h1 id="Algorithm-Python"><a href="#Algorithm-Python" class="headerlink" title="Algorithm Python"></a>Algorithm Python</h1><p>描述</p>
-<p>明明想在学校中请一些同学一起做一项问卷调查，为了实验的客观性，他先用计算机生成了 N 个 1 到 1000 之间的随机整数（ N≤1000 ），对于其中重复的数字，只保留一个，把其余相同的数去掉，不同的数对应着不同的学生的学号。然后再把这些数从小到大排序，按照排好的顺序去找同学做调查。请你协助明明完成“去重”与“排序”的工作(同一个测试用例里可能会有多组数据(用于不同的调查)，希望大家能正确处理)。</p>
-<p>注：测试用例保证输入参数的正确性，答题者无需验证。测试用例不止一组。</p>
-<p>当没有新的输入时，说明输入结束。</p>
-<p>数据范围： 1 \le n \le 1000 \1≤n≤1000  ，输入的数字大小满足 1 \le val \le 500 \1≤val≤500</p>
-<p>输入描述：</p>
-<p>注意：输入可能有多组数据(用于不同的调查)。每组数据都包括多行，第一行先输入随机整数的个数 N ，接下来的 N 行再输入相应个数的整数。具体格式请看下面的”示例”。</p>
-<p>输出描述：</p>
-<p>返回多行，处理后的结果</p>
-<p>示例1</p>
-<p>输入：3</p>
-<p>2</p>
-<p>2</p>
-<p>1</p>
-<p>11</p>
-<p>10</p>
-<p>20</p>
-<p>40</p>
-<p>32</p>
-<p>67</p>
-<p>40</p>
-<p>20</p>
-<p>89</p>
-<p>300</p>
-<p>400</p>
-<p>15复制</p>
-<p>输出：1</p>
-<p>2</p>
-<p>10</p>
-<p>15</p>
-<p>20</p>
-<p>32</p>
-<p>40</p>
-<p>67</p>
-<p>89</p>
-<p>300</p>
-<p>400复制</p>
-<p>说明：示例1包含了两个小样例！！</p>
-<p>输入解释：</p>
-<p>第一个数字是3，也即这个小样例的N&#x3D;3，说明用计算机生成了3个1到1000之间的随机整数，接下来每行一个随机数字，共3行，也即这3个随机数字为：</p>
-<p>2</p>
-<p>2</p>
-<p>1</p>
-<p>所以第一个小样例的输出为：</p>
-<p>1</p>
-<p>2</p>
-<p>第二个小样例的第一个数字为11，也即…(类似上面的解释)…</p>
-<p>所以第二个小样例的输出为：</p>
-<p>10</p>
-<p>15</p>
-<p>20</p>
-<p>32</p>
-<p>40</p>
-<p>67</p>
-<p>89</p>
-<p>300</p>
-<p>400</p>
+		<p>javascript version in web:</p>
+<p><a target="_blank" rel="noopener" href="https://nostarsnow.github.io/2019/01/20/typemonkey/">https://nostarsnow.github.io/2019/01/20/typemonkey/</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/nostarsnow/typeMonkey.js">https://github.com/nostarsnow/typeMonkey.js</a></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/01/21/7f9c5998-c8d1-44a6-a2a6-c1c3a799d5dd/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/05/31/55cc27e9-42da-45d6-8687-40b2d4ef833d/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -374,8 +260,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-01-20 </div>
-			<div class="article-title"><a href="/blog/2022/01/20/ff18b1f8-a2a1-41d5-951b-42d5d1eb20f4/" title="In this assignment, students are tasked with categorizing antimicrobial and antibiofilm peptide sequences using feature extraction techniques by the due date of January 25, 2020. Throughout the process, students must submit daily reports and compile a final PDF report for evaluation. The grading criteria and additional opportunities for earning extra credit are specified.">Dna Cancer Prediction</a></div>
+			<div class="date"> 2022-05-31 </div>
+			<div class="article-title"><a href="/blog/2022/05/31/bf760350-ca1d-4029-ae38-368cad3d1cc4/" title="The text explores Optical Flow, a technique used in computer vision to estimate motion between frames of video sequences. It highlights &#39;flownet&#39; by NVIDIA, an optical flow SDK compatible with most Turing GPUs but excluding GTX1650(tu117). Additionally, it introduces mmflow from OpenMMLab, available at the provided link.">Optical Flow</a></div>
 		</h3>
 	
 
@@ -386,141 +272,14 @@
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://github.com/davidanastasiu/coen-342-wi22">https://github.com/davidanastasiu/coen-342-wi22</a></p>
-<p>PR1: Peptide Classification</p>
-<p>Published Date:</p>
-<p>Jan. 12, 2020, 5:00 p.m.</p>
-<p>Deadline Date:</p>
-<p>Jan. 25, 2020, 11:59 p.m.</p>
-<p>Description:</p>
-<hr>
-<p>This is an individual assignment.</p>
-<hr>
-<p>Overview and Assignment Goals:</p>
-<p>The objectives of this assignment are the following:</p>
-<p></p>
-<p>Create feed-forward neural networks and train them using your own codes and</p>
-<p>frameworks.</p>
-<p></p>
-<p>Experiment with different feature extraction techniques.</p>
-<p></p>
-<p>Think about dealing with imbalanced data.</p>
-<p>Detailed Description:</p>
-<p>Develop predictive neural networks that can determine, given an antibacterial peptide,</p>
-<p>whether it is also an antibiofilm peptide.</p>
-<p>“Proteins are large biomolecules, or macromolecules, consisting of one or more long</p>
-<p>chains of amino acid residues. Proteins perform a vast array of functions within organisms,</p>
-<p>including catalysing metabolic reactions, DNA replication, responding to stimuli, providing</p>
-<p>structure to cells, and organisms, and transporting molecules from one location to another.</p>
-<p>Proteins differ from one another primarily in their sequence of amino acids, which is</p>
-<p>dictated by the nucleotide sequence of their genes, and which usually results in protein</p>
-<p>folding into a specific three-dimensional structure that determines its activity.</p>
-<p>A linear chain of amino acid residues is called a polypeptide. A protein contains at least</p>
-<p>one long polypeptide. Short polypeptides, containing less than 20-30 residues, are rarely</p>
-<p>considered to be proteins and are commonly called peptides. […] The sequence of amino</p>
-<p>acid residues in a protein is defined by the sequence of a gene, which is encoded in the</p>
-<p>genetic code. In general, the genetic code specifies 20 standard amino acids; […] Proteins</p>
-<p>can also work together to achieve a particular function, and they often associate to form</p>
-<p>stable protein complexes.” [Wikipedia, Accessed 2020-02-07,</p>
-<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Protein]">https://en.wikipedia.org/wiki/Protein]</a></p>
-<p>Biofilms are tightly-connected multicellular communities of microorganisms encased in self-</p>
-<p>secreted extra-cellular matrices. They are currently one of the major causes of disease for</p>
-<p>two main reasons. First, roughly 75% of all human infections are caused by biofilms.</p>
-<p>Second, due to the robust multicellular cellular matrix structure, they are resistant both to</p>
-<p>the host defense mechanisms and to traditional antimicrobial compounds (antibiotics).</p>
-<p>Thus, it is important to identify peptide sequences that are not only antimicrobial (can</p>
-<p>destroy or render inert the invading microorganism), but also antibiofilm (can penetrate the</p>
-<p>extra-cellular matrix so it can get to the microorganism in the first place).</p>
-<p>You have been provided with a training set (train.dat) and a test set (test.dat) consisting of</p>
-<p>peptide sequences, one per line in the file. Peptides are encoded as strings with characters</p>
-<p>from an alphabet of 20 characters, each representing an amino-acid residue. The training</p>
-<p>set also includes the label for each sequence as 1 (antibiofilm) or -1 (not antibiofilm) as the</p>
-<p>first character in each line of the training file, separated from the sequence by a tab (\t)</p>
-<p>character.</p>
-<p>The input to your classifiers will not be the peptides themselves, but rather features</p>
-<p>extracted from the peptides. Two simple approaches for feature extraction are the bag-of-</p>
-<p>words and the k-mer models you should have learned about in Data Mining or Machine</p>
-<p>Learning, where a word is one of the amino-acids in the peptide. You should not use any</p>
-<p>additional external data in this assignment.</p>
-<p>Note that the dataset is imbalanced. We will Matthews’s correlation coefficient (MCC) as</p>
-<p>evaluation metric for this assignment, which, similar to the F-1 score, combines aspects of</p>
-<p>the result’s sensitivity and specificity. Given the normal confusion matrix resulting from</p>
-<p>comparing the predicted and true classes of the test samples, MCC is defined as,</p>
-<p>Programs:</p>
-<p>You are required to write two separate programs for the classification. The first may only</p>
-<p>use basic Python structures (from numpy or scipy) and you should implement your own</p>
-<p>functions for training the neural network. This is also the program you will use to make CLP</p>
-<p>submissions. In addition, you should write a second program that uses a deep learning</p>
-<p>framework of your choice to train the neural network. The structure of the network may be</p>
-<p>the same or different from the one you created in the first program. You will present results</p>
-<p>from this program (which should be at least as good as those from the first program) in</p>
-<p>your report.</p>
-<p>Considerations:</p>
-<ul>
-<li><p>Try extracting different features from the peptide strings.</p>
-</li>
-<li><p>Consider oversampling the negative class to fix the apparent imbalance.</p>
-</li>
-<li><p>Try out different network configurations and activation functions.</p>
-</li>
-<li><p>Consider regularization as a way to keep weights balanced in the network.</p>
-</li>
-</ul>
-<p>Data Description:</p>
-<p>The training dataset consists of 1566 records and the test dataset consists of 392 records.</p>
-<p>We provide you with the training class labels and the test labels are held out. Your task is</p>
-<p>to predict those labels for the peptides in the test set and create a test.txt file containing</p>
-<p>those labels, which you will submit to CLP. Note that CLP only accepts files with extensions</p>
-<p>.txt or .dat for your predicted labels, and .py or .ipynb or .zip or .tgz for codes.</p>
-<p>Rules:</p>
-<p></p>
-<p>This is an individual assignment. Discussion of broad level strategies are allowed but</p>
-<p>any copying of prediction files and source codes will result in an honor code violation.</p>
-<p></p>
-<p>You are allowed 5 submissions per day.</p>
-<p></p>
-<p>After the submission deadline, only your chosen or last submission is considered for</p>
-<p>the leaderboard.</p>
-<p>Deliverables:</p>
-<p></p>
-<p>Valid submissions to the Leader Board website: <a target="_blank" rel="noopener" href="https://clp.engr.scu.edu/">https://clp.engr.scu.edu</a> (username is</p>
-<p>your SCU username and your password is your SCU password).</p>
-<p>Canvas Submission for the report:</p>
-<p></p>
-<p>Include a 2-page, single-spaced report describing details regarding the steps you</p>
-<p>followed for feature extraction, designing your neural network, and training your model.</p>
-<p>The report should be in PDF format and the file should be called report.pdf. The report</p>
-<p>needs to be structured as a technical report (title, abstract, introduction, sections,</p>
-<p>conclusion), be free from grammatical errors, and use standard page and font sizes (letter</p>
-<p>size page, 10 or 11 pt font). Be sure to include the following in the report:</p>
-<ol>
-<li><p>Name and SCU ID.</p>
-</li>
-<li><p>Rank &amp; MCC-score for your submission (at the time of writing the report). If</p>
-</li>
-</ol>
-<p>you chose not to see the leaderboard, state so.</p>
-<ol start="3">
-<li></li>
-</ol>
-<p>Your approach.</p>
-<ol start="4">
-<li></li>
-</ol>
-<p>Your methodology of choosing the approach and associated parameters.</p>
-<p> Ensure you submitted the correct code on CLP that matches your output.</p>
-<p> Zip up your report and codes for both programs in an archive called <SCU_ID>.zip or</p>
-<p><SCU_ID>.tgz and submit the archive to Canvas.</p>
-<p>Grading:</p>
-<p>Grading for the Assignment will be split on your implementation (70%) and report (30%).</p>
-<p>Extra credit (1% of final grade) will be awarded to the top-3 performing algorithms. Note</p>
-<p>that extra credit throughout the semester will be tallied outside of Canvas and will be added</p>
-<p>to the final grade at the end of the semester.</p>
-<p>Files: available on Canvas.</p>
+		<p>flownet nvidia</p>
+<p>nvidia optical flow sdk supports all turing gpus (like gtx1660) and above except for gtx1650(tu117).</p>
+<p>mmflow from openmmlab:</p>
+<p><a target="_blank" rel="noopener" href="https://mmflow.readthedocs.io/en/latest/">https://mmflow.readthedocs.io/en/latest/</a></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/01/20/ff18b1f8-a2a1-41d5-951b-42d5d1eb20f4/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/05/31/bf760350-ca1d-4029-ae38-368cad3d1cc4/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -530,8 +289,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-01-13 </div>
-			<div class="article-title"><a href="/blog/2022/01/13/539635e2-6d22-4724-b845-7193510385b5/" title="This article offers insights into treating insomnia by recommending various methods, including stretching exercises, adjusting diet, and maintaining a consistent sleep schedule. Additionally, it suggests using smart home technology to simulate natural light rhythms for waking up. The text also provides information on how to control lamp intensity with Arduino.">Sleepless In Bed 失眠治疗法</a></div>
+			<div class="date"> 2022-05-31 </div>
+			<div class="article-title"><a href="/blog/2022/05/31/af91bf33-e6ac-4eb7-ac15-2969d7ce9ae0/" title="This article delves into the world of automatic video generation, exploring various methods and tools that facilitate the creation of diverse content such as YouTube videos, short films, Twitch compilations, TikTok videos, and more. Techniques covered include using templates, images, background music (BGM), voiceovers, filtering, effects, subtitling, single video editing, and transforming text into voiceovers.">全自动电影解说软件介绍</a></div>
 		</h3>
 	
 
@@ -542,22 +301,53 @@
   <div class="row">
 	
 	
-		<p>床上躺的太久 考虑伸展你的腿部 手部 拔筋</p>
-<p>吃饭吃太多 可以用勒肚子的方法 把裤子提高一些 这样只能吃包子 煎饼之类的 不能吃大餐 哪怕饿了一晚上也不能吃</p>
-<p>根据知乎 应该按照节律调整光照 但是在房间里只能模拟光照</p>
-<p>在规定时间上床睡觉 确保黑暗 安静</p>
-<p>在快起床的时候 渐进的提高光照 提高声音音量 辅助起床</p>
-<p>属于智能家居的范畴 智能家居代码</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/home-assistant/core">https://github.com/home-assistant/core</a></p>
-<p>自动调灯泡亮度 智能灯泡需要手工焊接串口转USB的板子 或者用arduino 树莓派实现</p>
-<p><a target="_blank" rel="noopener" href="https://duino4projects.com/project-auto-intensity-control-of-street-light-using-arduino/amp/">https://duino4projects.com/project-auto-intensity-control-of-street-light-using-arduino/amp/</a></p>
-<p><a target="_blank" rel="noopener" href="https://forum.arduino.cc/t/how-to-control-a-lamps-intensity/57081">https://forum.arduino.cc/t/how-to-control-a-lamps-intensity/57081</a></p>
-<p>By simply working in bed, lying down or not, using pillow or not, sore ass or not, I somehow lose sleep in bed.</p>
-<p>Don’t know how to explain, but this is simply true. I admit many people have lost their sleep in bed too, but never comfortable to do so. I am somehow better than them.</p>
+		<h1 id="全自动电影解说软件介绍-全自动短视频合成"><a href="#全自动电影解说软件介绍-全自动短视频合成" class="headerlink" title="全自动电影解说软件介绍 全自动短视频合成"></a>全自动电影解说软件介绍 全自动短视频合成</h1><p>自媒体自学网 新媒体运营 自动化运营 混剪：</p>
+<p><a target="_blank" rel="noopener" href="https://www.zmtzxw.com/">https://www.zmtzxw.com</a></p>
+<p>generate video from plain text using beatdetectorforgames:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/FireFragment/video-generator">https://github.com/FireFragment/video-generator</a></p>
+<p>youtube reddit text to speech video generator:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/HA6Bots/Automatic-Youtube-Reddit-Text-To-Speech-Video-Generator-and-Uploader">https://github.com/HA6Bots/Automatic-Youtube-Reddit-Text-To-Speech-Video-Generator-and-Uploader</a></p>
+<p>twitch clip compilation:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/HA6Bots/Twitch-Clips-Compilation-Generator-TCCG-">https://github.com/HA6Bots/Twitch-Clips-Compilation-Generator-TCCG-</a></p>
+<p>slideshow video generator:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/oknoorap/vidshow">https://github.com/oknoorap/vidshow</a></p>
+<p>best of twitch video generator:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/BayoDev/Twitch-Best-Of-Gen">https://github.com/BayoDev/Twitch-Best-Of-Gen</a></p>
+<p>video generator by scraping reddit videos and comments:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/charlypoirier/redditube">https://github.com/charlypoirier/redditube</a></p>
+<p>youtube video generation based on watson natural languahe understanding and google image search:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/rhenriquea/ai-video-generator">https://github.com/rhenriquea/ai-video-generator</a></p>
+<p>tiktok video compilation based on custom filters:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/HA6Bots/TikTok-Compilation-Video-Generator">https://github.com/HA6Bots/TikTok-Compilation-Video-Generator</a></p>
+<p>12个搬运手法：</p>
+<p>去水印 放大缩小 镜像 抽帧 加滤镜 加特效 调色 调速 转场 调整视频顺序 加画中画 其他视频元素</p>
+<p>文案加字幕 朗读方案：</p>
+<p><a target="_blank" rel="noopener" href="https://m.baidu.com/video/page?pd=video_page&nid=9603074179371472094&sign=5664314656417860263&word=%E8%87%AA%E5%8A%A8%E5%90%88%E6%88%90%E8%A7%86%E9%A2%91&oword=%E8%87%AA%E5%8A%A8%E5%90%88%E6%88%90%E8%A7%86%E9%A2%91&atn=index&frsrcid=4185&ext=%7B%22jsy%22:1%7D&top=%7B%22sfhs%22:1,%22_hold%22:2%7D&sl=4&fr0=A&fr1=A&ms=1&lid=12061699393737547668&referlid=12061699393737547668&frorder=6&_t=1653970095475">https://m.baidu.com/video/page?pd=video_page&amp;nid=9603074179371472094&amp;sign=5664314656417860263&amp;word=自动合成视频&amp;oword=自动合成视频&amp;atn=index&amp;frsrcid=4185&amp;ext=%7B&quot;jsy&quot;%3A1%7D&amp;top=%7B&quot;sfhs&quot;%3A1%2C&quot;_hold&quot;%3A2%7D&amp;sl=4&amp;fr0=A&amp;fr1=A&amp;ms=1&amp;lid=12061699393737547668&amp;referlid=12061699393737547668&amp;frorder=6&amp;_t=1653970095475</a></p>
+<p>知乎方案，模板加图片，BGM，配音</p>
+<p>文章自动生成视频，幕言 自动打轴（force alignment）：</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/218000255">https://zhuanlan.zhihu.com/p/218000255</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.muyanpeiyin.com/?zhihu">https://www.muyanpeiyin.com/?zhihu</a></p>
+<p>5种方式生成原创视频：</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/140075360?from_voters_page=true">https://zhuanlan.zhihu.com/p/140075360?from_voters_page=true</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/119422109">https://zhuanlan.zhihu.com/p/119422109</a></p>
+<p><a target="_blank" rel="noopener" href="https://m.baidu.com/video/page?pd=video_page&nid=11383613456893718608&sign=855254448776210471&word=AI%E5%85%A8%E8%87%AA%E5%8A%A8%E5%89%AA%E8%BE%91%E8%BD%AF%E4%BB%B6%EF%BC%9A2%E5%88%86%E9%92%9F%E8%87%AA%E5%8A%A8%E5%90%88%E6%88%90%E4%B8%80%E4%B8%AA%E5%BD%B1%E8%A7%86%E8%A7%A3%E8%AF%B4%E8%A7%86%E9%A2%91%EF%BC%8C%E6%89%B9%E9%87%8F%E6%95%88%E7%8E%87%E9%AB%98&oword=%E8%87%AA%E5%8A%A8%E5%90%88%E6%88%90%E8%A7%86%E9%A2%91&atn=index&frsrcid=5373&ext=%7B%22jsy%22:1%7D&top=%7B%22sfhs%22:1,%22_hold%22:2%7D&sl=4&fr0=A&fr1=C&title=AI%E5%85%A8%E8%87%AA%E5%8A%A8%E5%89%AA%E8%BE%91%E8%BD%AF%E4%BB%B6%EF%BC%9A2%E5%88%86%E9%92%9F%E8%87%AA%E5%8A%A8%E5%90%88%E6%88%90%E4%B8%80%E4%B8%AA%E5%BD%B1%E8%A7%86%E8%A7%A3%E8%AF%B4%E8%A7%86%E9%A2%91%EF%BC%8C%E6%89%B9%E9%87%8F%E6%95%88%E7%8E%87%E9%AB%98&lid=12061699393737547668&ms=1&_t=1653971026899">https://m.baidu.com/video/page?pd=video_page&amp;nid=11383613456893718608&amp;sign=855254448776210471&amp;word=AI全自动剪辑软件：2分钟自动合成一个影视解说视频，批量效率高&amp;oword=自动合成视频&amp;atn=index&amp;frsrcid=5373&amp;ext=%7B&quot;jsy&quot;%3A1%7D&amp;top=%7B&quot;sfhs&quot;%3A1%2C&quot;_hold&quot;%3A2%7D&amp;sl=4&amp;fr0=A&amp;fr1=C&amp;title=AI全自动剪辑软件：2分钟自动合成一个影视解说视频，批量效率高&amp;lid=12061699393737547668&amp;ms=1&amp;_t=1653971026899</a></p>
+<p>模式一：单视频+文案</p>
+<p>一个视频配一个文案，软件将自动把文案转化成字幕以及真人发音，把视频和字幕添加到视频上</p>
+<p>此模式适合电影解说，新闻讲解等等</p>
+<p>模式二：多视频+文案</p>
+<p>多个视频会随机合成一个视频,然后把文案转化成字幕以及真人发音，把视频和字幕添加到视频上</p>
+<p>此模式适合抖音带货等</p>
+<p>模式三：多图片+文案</p>
+<p>多个图片会随机合成一个视频,然后把文案转化成字幕以及真人发音，把视频和字幕添加到视频上</p>
+<p>此模式适合大批量却又苦于找不到视频素材的情况</p>
+<p>模式四：单视频混剪</p>
+<p>适合抖音带货，或者搬运类的影视混剪</p>
+<p>模式五：文字转语音</p>
+<p>现在头条也出了音频的创作专区，应广大用户的需求，添加这个功能，将txt文件批量放入video目录即可。</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/01/13/539635e2-6d22-4724-b845-7193510385b5/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/05/31/af91bf33-e6ac-4eb7-ac15-2969d7ce9ae0/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -567,8 +357,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-01-12 </div>
-			<div class="article-title"><a href="/blog/2022/01/12/d9c1869c-ab8b-4796-ba3d-7b5ab0a586ce/" title="This article emphasizes the significance of disconnecting from technology and nurturing personal development through yoga, Tai Chi, and fostering a healthy equilibrium between digital and physical engagements.">Yoga &amp; Taichi</a></div>
+			<div class="date"> 2022-05-31 </div>
+			<div class="article-title"><a href="/blog/2022/05/31/a6b9f5ae-ee71-49a4-b9d0-b87da1180e8a/" title="AI-based NSFW detection utilizes image classification, profanity filters, and violence detection through techniques such as SVM and CNNs, with a focus on bloody images. Content moderation tools involve text/image filters, evasion methods, and political considerations.">Deepnude Censorship Nsfw Safesearch</a></div>
 		</h3>
 	
 
@@ -579,14 +369,76 @@
   <div class="row">
 	
 	
-		<p>Cannot staying here forever coding shit. The issue is that we are too absorbed to seek for challenge, forgetting the way back, forgetting how we get this far.</p>
-<p>Cyberspace is exciting, but human does not evolve inside chips. In order to get things back on track, you need to forget about everything artificial.</p>
-<p>No matter how smart you are, creating a place  needless to  move at all is dangerous and not possible. You must know when to leave and what to do without seeing code at all.</p>
-<p>stretching in bed is possible via the handle on the desk. so elegent design isn’t it. i’ve had it long time ago.</p>
+		<p><a target="_blank" rel="noopener" href="https://github.com/LAION-AI/CLIP-based-NSFW-Detector">clip-based-nsfw-detector</a></p>
+<p>you can turn on&#x2F;off safesearch by changing ip to iran. is there better options, doing this programmatically?</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/anupamchugh/iowncode/tree/master/NSFWCreateMLImageClassifier/NSFWCreateMLImageClassifier">nsfw createml imageclassifier</a> with pretrained model</p>
+<p>敏感词过滤器 also need a high speed censor engine using trie, also in diffferent language(like english or japanese)</p>
+<p>english profanity:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/snguyenthanh/better_profanity">https://github.com/snguyenthanh/better_profanity</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zacanger/profane-words">https://github.com/zacanger/profane-words</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/MauriceButler/badwords">https://github.com/MauriceButler/badwords</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/vzhou842/profanity-check">https://github.com/vzhou842/profanity-check</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/coffee-and-fun/google-profanity-words">https://github.com/coffee-and-fun/google-profanity-words</a></p>
+<p>chinese profanity:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/gaohuifeng/sensitive-word-filter">https://github.com/gaohuifeng/sensitive-word-filter</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lunzima/profanities.txt">https://github.com/lunzima/profanities.txt</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/nyx1987/forbiddenwords">https://github.com/nyx1987/forbiddenwords</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/insoxin/bannedwords">https://github.com/insoxin/bannedwords</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/chason777777/mgck">https://github.com/chason777777/mgck</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/k5h9999/keywordfilter">https://github.com/k5h9999/keywordfilter</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/tomzhang/bannedwords">https://github.com/tomzhang/bannedwords</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/observerss/textfilter">https://github.com/observerss/textfilter</a> （需要回看历史 查看git历史）</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/aojiaotage/text-censor">https://github.com/aojiaotage/text-censor</a></p>
+<p>deepnude nsfw nude picture detection:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yuanxiaosc/DeepNude-an-Image-to-Image-technology/blob/master/README-ZH.md">https://github.com/yuanxiaosc/DeepNude-an-Image-to-Image-technology/blob/master/README-ZH.md</a></p>
+<p>videoaudit 视频审核框架<a target="_blank" rel="noopener" href="https://github.com/minitrill/VideoAudit">https://github.com/minitrill/VideoAudit</a></p>
+<p>nsfw: not safe for work, inappropriate content, porn, offensive</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/rockyzhengwu/nsfw">https://github.com/rockyzhengwu/nsfw</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/alex000kim/nsfw_data_scraper">https://github.com/alex000kim/nsfw_data_scraper</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yahoo/open_nsfw">https://github.com/yahoo/open_nsfw</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Rayraegah/nsfw_japan">https://github.com/Rayraegah/nsfw_japan</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/fishsup/nsfw-image-classification">https://github.com/fishsup/nsfw-image-classification</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yangbisheng2009/nsfw-resnet">https://github.com/yangbisheng2009/nsfw-resnet</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/GantMan/nsfw_model">https://github.com/GantMan/nsfw_model</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/devzwy/open_nsfw_android">https://github.com/devzwy/open_nsfw_android</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/infinitered/nsfwjs">https://github.com/infinitered/nsfwjs</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/nsfw-filter/nsfw-filter">https://github.com/nsfw-filter/nsfw-filter</a></p>
+<p>nudity, violence and drug</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/amshrbo/nsfw-detection">https://github.com/amshrbo/nsfw-detection</a></p>
+<p>to train these networks, suitable datasets are required.</p>
+<p>找训练集 找涉政 涉黄 暴力血腥图片训练集 找类似的文字训练集 百度aistudio可能有 github可能有 百度一下也可能有</p>
+<p>同样的思路 情绪 情感打分也可以这样打分 根据不同的训练集进行打分</p>
+<p>github violence detection:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/topics/violence-detection">https://github.com/topics/violence-detection</a></p>
+<p>Bloody Image Classification with Global and Local Features</p>
+<p><a target="_blank" rel="noopener" href="https://www.researchgate.net/publication/309365631_Bloody_Image_Classification_with_Global_and_Local_Features">https://www.researchgate.net/publication/309365631_Bloody_Image_Classification_with_Global_and_Local_Features</a></p>
+<p>Object content understanding in images and videos draws more and more attention nowadays. However, only few existing methods have addressed the problem of bloody scene detection in images. Along with the widespread popularity of the Internet, violent contents have affected our daily life. In this paper, we propose region-based techniques to identify a color image being bloody or not. Firstly, we have established a new dataset containing 25431 bloody images and 25431 non-bloody images. These annotated images are derived from the Violent Scenes Dataset, a public shared dataset for violent scenes detection in Hollywood movies and web videos. Secondly, we design a bloody image classification method with global visual features using Support Vector Machines. Thirdly, we also construct a novel bloody region identification approach using Convolutional Neural Networks. Finally, comparative experiments show that bloody image classification with local features is more effective.</p>
+<p>search for nsfw filter providers on google&#x2F;kaggle</p>
+<p>kaggle nsfw image dataset</p>
+<p><a target="_blank" rel="noopener" href="https://www.kaggle.com/datasets/laxmansingh/nsfw-images-data">https://www.kaggle.com/datasets/laxmansingh/nsfw-images-data</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.kaggle.com/datasets/drakedtrex/my-nsfw-dataset/code">https://www.kaggle.com/datasets/drakedtrex/my-nsfw-dataset/code</a></p>
+<p>search for nsfw image&#x2F;text on github:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/alex000kim/nsfw_data_scraper">https://github.com/alex000kim/nsfw_data_scraper</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/nsfw-filter/nsfw-filter">https://github.com/nsfw-filter/nsfw-filter</a></p>
+<p>nsfwjs</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/arufian/Image-Censor-Lightning-Web-Component">https://github.com/arufian/Image-Censor-Lightning-Web-Component</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/enymuss/censorText">https://github.com/enymuss/censorText</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/fmsky/resnet50_inappropriate_content_detect">https://github.com/fmsky/resnet50_inappropriate_content_detect</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/CheranMahalingam/Image_Content_Moderation">https://github.com/CheranMahalingam/Image_Content_Moderation</a></p>
+<p>文本审核框架：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/minitrill/TextAudit">https://github.com/minitrill/TextAudit</a></p>
+<p>规避文本审查：有可能是加密了 但是人眼可以识别</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/kallydev/shutup">https://github.com/kallydev/shutup</a></p>
+<p>nudenet based inappropriate image censoring</p>
+<p>ocr based word censoring</p>
+<p>politics</p>
+<p>涉及政治：领导人 人脸识别 图标识别</p>
+<p>violence</p>
+<p>血腥暴力：图像识别</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/01/12/d9c1869c-ab8b-4796-ba3d-7b5ab0a586ce/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/05/31/a6b9f5ae-ee71-49a4-b9d0-b87da1180e8a/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -596,8 +448,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-01-12 </div>
-			<div class="article-title"><a href="/blog/2022/01/12/d390aaa5-3e74-45e7-ae34-f71cc492652e/" title="This text outlines a programming assignment that involves developing a program called Ecosim, which requires implementing various object-oriented concepts such as inheritance, aggregation/composition, polymorphism, and encapsulation. The instructions emphasize the importance of clear documentation, utilizing git for progress tracking, and writing tests specifically for the Vector2D class.">Ecosim</a></div>
+			<div class="date"> 2022-05-31 </div>
+			<div class="article-title"><a href="/blog/2022/05/31/b09071dd-8ddc-4a64-b82e-2378ef495706/" title="The text focuses on Deepfake Face Swap technologies, covering notable software like DeepFaceLab, Faceswap, and SimSwap. These tools facilitate advanced video generation with face swaps and single model transformations.">Deepfake face swap</a></div>
 		</h3>
 	
 
@@ -608,24 +460,16 @@
   <div class="row">
 	
 	
-		<p>• You must demonstrate multiple examples of inheritance.</p>
-<p>You may need to include classes that were not mentioned to demonstrate appropriate inheritance relationships.</p>
-<p>• You must demonstrate multiple examples of aggregation&#x2F;composition&#x2F;association. You may need to create lists of animals or tiles in the EcoSim class.</p>
-<p>• You must create methods not mentioned in the text above.</p>
-<p>• You must include one more type of animal, and one more plant in your program.</p>
-<p>• You must demonstrate polymorphism by calling overridden methods, or by checking the types of objects.</p>
-<p>• You must demonstrate good encapsulation by making dangerous variables private or protected and providing getter or setter methods to them.</p>
-<p>• You must include     str	and  repr	methods for each class. You may print(self) or print(animals) to help you with debugging.</p>
-<p>• You must update your UML diagram written in part 1 and submit it with your code.</p>
-<p>• Your code must be documented appropriately using docstrings.</p>
-<p>• You must make at least 10 commits using git with appropriate comments.</p>
-<p>You must use git version control to keep track of your progress during implementation. Only a local git repository is required in this assignment. You are not required to use an online repository, but if you choose to, please make sure your online repository is private. You should perform regular commits as you implement features and fix errors. Your commit comments should be short and reflect the changes that were made.</p>
-<p>• You must write a unit test for the game.Vector2D class.</p>
-<p>You will find Vector2D in the game.py file. You must create a new file called test_vector2d.py and write a test method for each of the following methods in Vector2D: add, subtract, scale, length, distance, normalize. You may either use the unittest or the pytest modules. Each test method should call those methods two times using different arguments: one safe set of arguments, and one dangerous set of arguments.</p>
+		<p>deepfacelab leading software for faceswap video generation:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/iperov/DeepFaceLab">https://github.com/iperov/DeepFaceLab</a></p>
+<p>faceswap:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/deepfakes/faceswap">https://github.com/deepfakes/faceswap</a></p>
+<p>arbitrary face swap on one single model:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/neuralchen/SimSwap">https://github.com/neuralchen/SimSwap</a></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/01/12/d390aaa5-3e74-45e7-ae34-f71cc492652e/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/05/31/b09071dd-8ddc-4a64-b82e-2378ef495706/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -635,8 +479,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-01-11 </div>
-			<div class="article-title"><a href="/blog/2022/01/11/145b40e6-6e07-4e15-bb1d-e174632d5147/" title="This article provides an overview of Network Attached Storage (NAS) devices, which are designed for efficiently downloading large media files such as movies. The content also covers NAS setups and their compatibility with different platforms to optimize movie downloads.">Nas With Movie Download</a></div>
+			<div class="date"> 2022-05-31 </div>
+			<div class="article-title"><a href="/blog/2022/05/31/97da2a2b-82c0-492b-871e-c55484e369fc/" title="The project, available on GitHub, is a creative application of AI that converts static images into dance videos. It comes with MMD format conversion tools and an online demo for users to experience the transformation. Additionally, it includes video examples showcasing its capabilities, and utilizes the CoNR group chat for collaboration and updates.">Jiggy Boring Still Image To Funny Dance Video 跳舞 舞蹈</a></div>
 		</h3>
 	
 
@@ -647,13 +491,31 @@
   <div class="row">
 	
 	
-		<p>Primary function of NAS is to download massive amount of (media) files. The NAS setup guides include many platforms to download movies.</p>
-<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/22129197/answer/1050613901">https://www.zhihu.com/question/22129197/answer/1050613901</a></p>
-<p>NAS is different from server, which may have thr same storage capacity but much more computational power.</p>
+		<h1 id="Jiggy-boring-still-image-to-funny-dance-video"><a href="#Jiggy-boring-still-image-to-funny-dance-video" class="headerlink" title="Jiggy boring still image to funny dance video"></a>Jiggy boring still image to funny dance video</h1><p>最新版代码:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/transpchan/Live3D-v2">https://github.com/transpchan/Live3D-v2</a></p>
+<p>MMD 格式转换工具：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/KurisuMakise004/MMD2UDP">https://github.com/KurisuMakise004/MMD2UDP</a></p>
+<p>官网：<a target="_blank" rel="noopener" href="https://transpchan.github.io/live3d/">https://transpchan.github.io/live3d/</a></p>
+<p>Colab:<a target="_blank" rel="noopener" href="https://colab.research.google.com/github/transpchan/Live3D-v2/blob/main/notebook.ipynb">https://colab.research.google.com/github/transpchan/Live3D-v2/blob/main/notebook.ipynb</a></p>
+<p>CoNR群：362985749</p>
+<p>【[ai绘画]仅用4张图片合成一段舞蹈视频-哔哩哔哩】 <a target="_blank" rel="noopener" href="https://b23.tv/NaF20nA">https://b23.tv/NaF20nA</a></p>
+<p>用到的资料和项目地址</p>
+<p>BV19V4y1x7bJ</p>
+<p>GitHub：<a target="_blank" rel="noopener" href="https://github.com/megvii-research/CoNR">https://github.com/megvii-research/CoNR</a></p>
+<p>GitHub：<a target="_blank" rel="noopener" href="https://github.com/KurisuMakise004/MMD2UDP">https://github.com/KurisuMakise004/MMD2UDP</a></p>
+<p>配音：基于VITS的弥希miki音声：BV1vW4y1e7bn</p>
+<p>bgm：风神少女</p>
+<p>视频如果有什么不对的地方，欢迎指出(<em>^▽^</em>)</p>
+<p>侵删</p>
+<p>still image to dancing</p>
+<p>everybody dance now:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/carolineec/EverybodyDanceNow">https://github.com/carolineec/EverybodyDanceNow</a></p>
+<p>edn pytorch implenentation:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Lotayou/everybody_dance_now_pytorch">https://github.com/Lotayou/everybody_dance_now_pytorch</a></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/01/11/145b40e6-6e07-4e15-bb1d-e174632d5147/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/05/31/97da2a2b-82c0-492b-871e-c55484e369fc/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -663,8 +525,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-01-10 </div>
-			<div class="article-title"><a href="/blog/2022/01/10/63e21eb0-28a4-4b7d-96b5-c545b0cdf9ca/" title="This article explains how to set up personal SSH keys for Gitee, a code hosting platform. It also discusses a Gitee note repository and the availability of GitJournal download which can be installed using Anbox.">Setup Gitee Ssh Keys For Gitjournal</a></div>
+			<div class="date"> 2022-05-29 </div>
+			<div class="article-title"><a href="/blog/2022/05/29/7da1cb0b-eb29-4636-b7b9-7384098ef379/" title="This tutorial provides an overview of different natural language processing (NLP) techniques for text classification. It covers a range of methods, including BERT-NER, ALBERT-NER, GPT2-generation, BiLSTM+Attention, TextCNN, and TextGCN. These techniques are applicable to both Chinese and English languages, making it a valuable resource for developers working with diverse language datasets.">Mastering Text Classification: Exploring Nlp Techniques With Bert-Ner, Albert-Ner, Gpt2, And More</a></div>
 		</h3>
 	
 
@@ -675,16 +537,25 @@
   <div class="row">
 	
 	
-		<p>https:&#x2F;gitee.com&#x2F;profile&#x2F;sshkeys</p>
-<p>personal ssh keys. not deploy keys under specific project settings.</p>
-<p><a target="_blank" rel="noopener" href="https://gitee.com/n5366871df2f3/notes">https://gitee.com/n5366871df2f3/notes</a></p>
-<p>gitjournal download:</p>
-<p>install apps on anbox:</p>
-<p>this thing is built on top of  flutter,  which  could also be  avaliable for windows. also it is free on all pro  features.</p>
+		<h1 id="GAN-for-NLP-text-generation"><a href="#GAN-for-NLP-text-generation" class="headerlink" title="GAN for NLP text generation"></a>GAN for NLP text generation</h1><p>GAN Journey:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/nutllwhy/gan-journey">https://github.com/nutllwhy/gan-journey</a></p>
+<p>NLPGNN:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/kyzhouhzau/NLPGNN">https://github.com/kyzhouhzau/NLPGNN</a></p>
+<p>Examples (See tests for more details):</p>
+<p>BERT-NER (Chinese and English Version)</p>
+<p>BERT-CRF-NER (Chinese and English Version)</p>
+<p>BERT-CLS (Chinese and English Version)</p>
+<p>ALBERT-NER (Chinese and English Version)</p>
+<p>ALBERT-CLS (Chinese and English Version)</p>
+<p>GPT2-generation (English Version)</p>
+<p>Bilstm+Attention (Chinese and English Version)</p>
+<p>TextCNN(Chinese and English Version)</p>
+<p>GCN, GAN, GIN, GraphSAGE (Base on message passing)</p>
+<p>TextGCN and TextSAGE for text classification</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/01/10/63e21eb0-28a4-4b7d-96b5-c545b0cdf9ca/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/05/29/7da1cb0b-eb29-4636-b7b9-7384098ef379/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -694,8 +565,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-01-10 </div>
-			<div class="article-title"><a href="/blog/2022/01/10/f131dd9f-364f-40cc-a6ba-2930322cf89f/" title="This article discusses the compatibility of popular apps like QQ, WeChat, and DingTalk on Linux and Windows operating systems. It explores methods such as using a virtual machine or HTTP screen sharing to access these apps on unsupported platforms. Furthermore, it introduces the &#39;Anbox&#39; project, which has potential applications in Windows, as well as referencing the Deepin derivative container.">Agile Freelancing</a></div>
+			<div class="date"> 2022-05-29 </div>
+			<div class="article-title"><a href="/blog/2022/05/29/b44f882c-c640-464c-a6bf-14331cdf7fa9/" title="This article discusses the use of three automated essay grading tools: LSTM Grading, Essay Scoring, and Neural Essay Assessor. These tools utilize Recurrent Neural Networks (RNN) to evaluate the quality of essays, providing an efficient and reliable method for assessing written work.">Essay Grading</a></div>
 		</h3>
 	
 
@@ -706,13 +577,16 @@
   <div class="row">
 	
 	
-		<p>Apps like QQ, Wechat, Dingtalk can be launched on linux, windows.</p>
-<p>闲鱼要anbox 在 Windows上面需要虚拟机 或者直接http投屏就可以 也可以监控的</p>
-<p>deepin derivative container</p>
+		<p>LSTM grading:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yetianpro/automated-essay-grading-by-RNN">https://github.com/yetianpro/automated-essay-grading-by-RNN</a></p>
+<p>essay scoring:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mankadronit/Automated-Essay--Scoring">https://github.com/mankadronit/Automated-Essay--Scoring</a></p>
+<p>Neural Essay Assessor:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/nusnlp/nea">https://github.com/nusnlp/nea</a></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/01/10/f131dd9f-364f-40cc-a6ba-2930322cf89f/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/05/29/b44f882c-c640-464c-a6bf-14331cdf7fa9/#more" class="btn btn-default more">Read More</a>
 </div>
 
            

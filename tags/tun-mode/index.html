@@ -1,0 +1,289 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>tun mode | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/blog/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/blog/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+<!-- title -->
+<div class="page-header page-header-inverse ">
+  <h1 class="archive-title-tag title title-inverse ">tun mode</h1>
+</div>
+
+<div class="row page">
+  <!-- cols -->
+  
+  <div class="col-md-9">
+	
+
+	  <div id="top_search"></div>
+
+      
+         <!-- display as entry -->
+	     <div class="mypage">
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-07-24 </div>
+			<div class="article-title"><a href="/blog/2024/07/24/39ca99f1-e47a-4b86-b113-a908bb03ef11/" title="This comprehensive guide provides detailed instructions on setting up a Kubernetes isolated pod proxy with Clash using tun mode, while ensuring restricted intranet access through NetworkPolicy. Additionally, it walks you through the process of creating a VPN, routing traffic via the VPN, and configuring Clash for an isolated proxy server.">Setting Up Isolated Pod Proxy With Clash And Vpn In Kubernetes</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="k8s-isolated-pod-proxy-setup"><a href="#k8s-isolated-pod-proxy-setup" class="headerlink" title="k8s isolated pod proxy setup"></a>k8s isolated pod proxy setup</h1><p>you need to disable intranet access with <code>NetworkPolicy</code></p>
+<p>find more info about intranet ranges here:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/langgenius/dify/blob/main/docker/ssrf_proxy/squid.conf.template">https://github.com/langgenius/dify/blob/main/docker/ssrf_proxy/squid.conf.template</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.squid-cache.org/Doc/config/acl/">http://www.squid-cache.org/Doc/config/acl/</a></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">networking.k8s.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">NetworkPolicy</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">deny-intranet-egress</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">podSelector:</span></span><br><span class="line"><span class="attr">matchLabels:</span></span><br><span class="line"><span class="attr">app:</span> <span class="string">hello-world</span></span><br><span class="line"><span class="attr">policyTypes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">Egress</span></span><br><span class="line"><span class="attr">egress:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">to:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">ipBlock:</span></span><br><span class="line"><span class="attr">cidr:</span> <span class="string">::/0</span></span><br><span class="line"><span class="attr">except:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">fc00::/7</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">fe80::/10</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">ipBlock:</span></span><br><span class="line"><span class="attr">cidr:</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span><span class="string">/0</span></span><br><span class="line"><span class="attr">except:</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span><span class="string">/8</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">10.0</span><span class="number">.0</span><span class="number">.0</span><span class="string">/8</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">100.64</span><span class="number">.0</span><span class="number">.0</span><span class="string">/10</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">169.254</span><span class="number">.0</span><span class="number">.0</span><span class="string">/16</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">172.16</span><span class="number">.0</span><span class="number">.0</span><span class="string">/12</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">192.168</span><span class="number">.0</span><span class="number">.0</span><span class="string">/16</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>if you do not want to use <code>tun</code> routing and rely on application specific proxy adaptors, you can <code>export</code> environment variables at:</p>
+<ul>
+<li><p><code>/etc/profile</code> or <code>/etc/profile.d/proxy.sh</code></p>
+</li>
+<li><p><code>~/.bashrc</code></p>
+</li>
+</ul>
+<hr>
+<p>use clash tun mode by <code>config.yaml</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">interface-name:</span> <span class="string">en0</span> <span class="comment"># 与 `tun.auto-detect-interface` 冲突</span></span><br><span class="line"><span class="attr">tun:</span></span><br><span class="line"><span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">stack:</span> <span class="string">system</span> <span class="comment"># or gvisor</span></span><br><span class="line"><span class="comment"># dns-hijack:</span></span><br><span class="line"><span class="comment">#   - 8.8.8.8:53</span></span><br><span class="line"><span class="comment">#   - tcp://8.8.8.8:53</span></span><br><span class="line"><span class="comment">#   - any:53</span></span><br><span class="line"><span class="comment">#   - tcp://any:53</span></span><br><span class="line"><span class="attr">auto-route:</span> <span class="literal">true</span> <span class="comment"># manage `ip route` and `ip rules`</span></span><br><span class="line"><span class="attr">auto-redir:</span> <span class="literal">true</span> <span class="comment"># manage nftable REDIRECT</span></span><br><span class="line"><span class="attr">auto-detect-interface:</span> <span class="literal">true</span> <span class="comment"># 与 `interface-name` 冲突</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>ref:</p>
+<p><a target="_blank" rel="noopener" href="https://clash.wiki/premium/tun-device.html">https://clash.wiki/premium/tun-device.html</a></p>
+<hr>
+<p>by the most you would create a <code>tun</code> device, then route all traffic to the device after you have installed necessary softwares.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ip tuntap add mode tun dev tun0</span><br><span class="line">ip addr add 198.18.0.1/15 dev tun0</span><br><span class="line">ip <span class="built_in">link</span> <span class="built_in">set</span> dev tun0 up</span><br><span class="line"><span class="comment"># download tun2socks</span></span><br><span class="line"><span class="comment"># https://github.com/xjasonlyu/tun2socks</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>you need to use the default gateway otherwise you will not be able to reach the dns.</p>
+<p>the default gateway will differ from nodes. it is recommended to fetch it from <code>ip route</code></p>
+<p>for ubuntu containers you would run <code>apt install iproute2</code> first</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">DNS_IP=8.8.8.8</span><br><span class="line">GATEWAY_IP=$(ip route | grep default | grep -oE <span class="string">&quot;\b([0-9]&#123;1,3&#125;\.)&#123;3&#125;[0-9]&#123;1,3&#125;\b&quot;</span>)</span><br><span class="line">DEFAULT_ROUTE=$(ip route | grep default | sed -E <span class="string">&#x27;s/( metric.*)?$/ metric 100/g;&#x27;</span>)</span><br><span class="line">DEFAULT_NET_DEVICE=$(ip route | grep default | grep -oP <span class="string">&#x27;(?&lt;=dev )\w+&#x27;</span>)</span><br><span class="line"><span class="comment"># run with root privilege</span></span><br><span class="line">ip route delete default</span><br><span class="line">ip route add <span class="variable">$DEFAULT_ROUTE</span></span><br><span class="line">ip route add default dev via 198.18.0.1 tun0</span><br><span class="line">ip route add <span class="variable">$DNS_IP</span> via <span class="variable">$GATEWAY_IP</span> dev <span class="variable">$DEFAULT_NET_DEVICE</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>then launch <code>tun2socks</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./tun2socks -interface <span class="variable">$DEFAULT_NET_DEVICE</span> -device tun://tun0 -proxy &lt;proxy_protocol&gt;://&lt;proxy_address&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>to disable the tun network you can run:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ip route delete default dev tun0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>you need to configure the <code>dnsPolicy</code> to <code>None</code> in manifest otherwise it would add the cluster dns ip to <code>/etc/resolv.conf</code>, slowing down the lookup process and making it very hard to change during the runtime.</p>
+<p>not every domain shall be reached via public proxies, unless it is graranteed to not be discovered by the gfw.</p>
+<p>the full network isolation scheme can be shown below:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">internet interface</span><br><span class="line">|</span><br><span class="line">intranet-isolated proxy server (hysteria)</span><br><span class="line">|</span><br><span class="line">cluster service with clusterIP</span><br><span class="line">|</span><br><span class="line">isolated socks5 server with only access</span><br><span class="line">to the hysteria service clusterIP and port</span><br><span class="line">|</span><br><span class="line">local socks5 service with clusterIP</span><br><span class="line">|</span><br><span class="line">isolated tun-routed pod with only access</span><br><span class="line">to socks5 service clusterIP and port</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/07/24/39ca99f1-e47a-4b86-b113-a908bb03ef11/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+	     </div>
+	     <div>
+	       <center>
+	         <div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+	       </center>
+	     </div>	
+      
+
+</div> <!-- col-md-9/col-md-12 -->
+
+
+<div class="col-md-3">
+	<div id="sidebar">
+	
+			
+  <div id="site_search">
+   <div class="form-group">
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="Search" class="st-search-input st-default-search-input form-control"/>
+   </div>  
+  <div id="local-search-result"></div>
+  </div>
+
+
+		
+			
+<div class="widget">
+	<h4>Links</h4>
+	<ul class="blogroll list-unstyled">
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/agi_computer_control/" title="Autonomous computer agent" target="_blank"]);">Project Cybergod</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/pyjom/" title="Media content automation" target="_blank"]);">Project Pyjom</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/prometheous/" title="Automated documentation, AI+IR(RAG)" target="_blank"]);">Project Prometheus</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/pyjom/" title="Media Content Automation" target="_blank"]);">Project Pyjom</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/my_blog_source/" title="Source code of my blog"" target="_blank"]);">Blog Source Code</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="http://www.github.com/james4ever0" title="My Github account" target="_blank"]);">My Github</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="https://samoyedsun.github.io/" title="Samoyedsun's Blog" target="_blank"]);">Samoyedsun&#39;s Blog</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="http://atlant1c.cn/" title="Atlant1c's Blog" target="_blank"]);">Atlant1c&#39;s Blog</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="https://www.gregoryuan.com/" title="Gregoryuan's Blog" target="_blank"]);">Gregoryuan&#39;s Blog</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="https://yubingtao.netlify.app/" title="Yubingtao's Blog" target="_blank"]);">Yubingtao&#39;s Blog</a></li>
+	
+	</ul>
+</div>
+
+
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2024 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/blog/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+
+</body>
+</html>

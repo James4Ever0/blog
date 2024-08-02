@@ -123,8 +123,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-05-28 </div>
-			<div class="article-title"><a href="/blog/2022/05/28/4cbbac90-b140-4000-87fe-920853239932/" title="This article explores different methods of frame interpolation, a technique aimed at producing smoother videos. It discusses approaches such as AnimeInterp and NVIDIA&#39;s unsupervised video interpolation, which can help create more fluid and continuous visuals.">Mastering Frame Interpolation Techniques For Smooth Videos</a></div>
+			<div class="date"> 2022-07-16 </div>
+			<div class="article-title"><a href="/blog/2022/07/16/def99a95-93e1-4413-b38d-e7a2d548938f/" title="This guide provides a detailed explanation on how to upload large repositories to GitHub or Gitee, while excluding specific file types like Xonsh and YAML. The guide also covers the process of deploying SSH keys for enhanced security, automating sync processes using Visual Studio Code, and utilizing file locks for various tasks to ensure data integrity.">Github Gitee 大文件大型Repo如何上传</a></div>
 		</h3>
 	
 
@@ -135,16 +135,23 @@
   <div class="row">
 	
 	
-		<h1 id="Frame-Interpolation"><a href="#Frame-Interpolation" class="headerlink" title="Frame Interpolation"></a>Frame Interpolation</h1><p>anime interpolation:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/lisiyao21/AnimeInterp">https://github.com/lisiyao21/AnimeInterp</a></p>
-<p>nvidia unsupervised frame interpolation:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/NVIDIA/unsupervised-video-interpolation">https://github.com/NVIDIA/unsupervised-video-interpolation</a></p>
-<p>smoother videos by frame interpolation:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/midnightripper/Video-Interpolation-for-creating-smoother-videos">https://github.com/midnightripper/Video-Interpolation-for-creating-smoother-videos</a></p>
+		<p>using github&#x2F;gitee apis with watchdog.</p>
+<p>exclude xonsh yaml(.yml) files</p>
+<p>if you decide to upload the thing to github privately, and to sync among devices, then you need to deploy and share your ssh key.</p>
+<p>run git related command after opened the vscode repeatedly, just like notable.</p>
+<p>before git submodule .git folder deletion you may record the remote origin url to somewhere in the base folder.</p>
+<p>you could patch the vscode launcher somehow, read the working directory to determine to repeatedly sync or not.</p>
+<p>git init is a manual process.</p>
+<p>also you might need five filelocks: one for main loop process running,  one for git sync, one for local sync, two for remote sync.</p>
+<p>use <code>$@</code> or <code>$*</code> will do to pass arguments to the vscode binary.</p>
+<p>首先不能follow symlink</p>
+<p>其次忽略二进制文件 忽略特定后缀以外的文件</p>
+<p>第一次建立的时候 递归扫描所有文件 去除大文件 append到.gitignore根目录下面</p>
+<p>下一次 git add .之前 利用git的功能寻找有变化的文件目录 把大文件目录append到.gitignore里面</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/05/28/4cbbac90-b140-4000-87fe-920853239932/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/07/16/def99a95-93e1-4413-b38d-e7a2d548938f/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -154,8 +161,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-05-28 </div>
-			<div class="article-title"><a href="/blog/2022/05/28/4ede8deb-5415-4b95-9e45-98a7b3803ff4/" title="This text serves as a comprehensive guide for installing and utilizing Hugo, a widely-used blog generator. It offers step-by-step instructions on how to download and set up the software, along with recommendations on selecting and implementing various themes to enhance your Hugo blog.">Master Hugo: A Comprehensive Guide To Installing And Theming Your Blog</a></div>
+			<div class="date"> 2022-07-15 </div>
+			<div class="article-title"><a href="/blog/2022/07/15/8c890a9d-8296-4e96-aa70-638d203fa821/" title="This article explores the use of AI and templates to generate various content, ensuring originality by avoiding plagiarism. It introduces tools like textrank4zh, Google Translate, and paraphrasing software for enhancing content quality.">模板创作模式 自媒体 洗稿</a></div>
 		</h3>
 	
 
@@ -166,553 +173,45 @@
   <div class="row">
 	
 	
-		<h1 id="Hugo-the-blog-generator"><a href="#Hugo-the-blog-generator" class="headerlink" title="Hugo the blog generator"></a>Hugo the blog generator</h1><p>install hugo:</p>
-<p><a target="_blank" rel="noopener" href="https://gohugo.io/getting-started/installing/">https://gohugo.io/getting-started/installing/</a></p>
-<p>install hugo from snap:</p>
-<p>snap install hugo –channel&#x3D;extended</p>
-<p>install on debian&#x2F;ubuntu:</p>
-<p>apt-get install hugo</p>
-<p>hugo themes:</p>
-<p><a target="_blank" rel="noopener" href="https://themes.gohugo.io/">https://themes.gohugo.io</a></p>
-<p>how to create hugo blog:</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/cumi7754/article/details/108101980">https://blog.csdn.net/cumi7754/article/details/108101980</a></p>
-
-	
-	</div>
-  <a type="button" href="/blog/2022/05/28/4ede8deb-5415-4b95-9e45-98a7b3803ff4/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2022-05-28 </div>
-			<div class="article-title"><a href="/blog/2022/05/28/1a72366a-bea2-4321-bc39-b127110a423a/" title="This article provides guidance on creating a chat environment for conducting Man-in-the-Middle (MITM) attacks, along with suggesting tools and APIs to access data from various social media platforms like Reddit, Tumblr, Discord, Twitter, Facebook, and Instagram. By following the instructions in this article, you&#39;ll be able to effectively execute MITM attacks and gather valuable information from these popular social media networks.">Im Mitm 聊天软件Mitm</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<h1 id="IM-MITM-聊天软件-MITM"><a href="#IM-MITM-聊天软件-MITM" class="headerlink" title="IM MITM 聊天软件 MITM"></a>IM MITM 聊天软件 MITM</h1><p>better do this in virtual enviorment without using any real world platform, just your own IM enviorment like a self-hosted IRC or something.</p>
-<p>is there any existing solution like telegram-mitm or twitter mitm?</p>
-<p>lua twitter automation, found on luarocks:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/leafo/lua-twitter">https://github.com/leafo/lua-twitter</a></p>
-<p>scraper of tumblr, pinterest, youtube, reddit using api:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/ScriptSmith/socialreaper">https://github.com/ScriptSmith/socialreaper</a></p>
-<p>youtube search and youtube comment scraper</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/alexmercerind/youtube-search-python">https://github.com/alexmercerind/youtube-search-python</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/egbertbouman/youtube-comment-downloader">https://github.com/egbertbouman/youtube-comment-downloader</a></p>
-<p>youtube, youtube transcribe and youtube music api</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/srcecde/python-youtube-api">https://github.com/srcecde/python-youtube-api</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/sigma67/ytmusicapi">https://github.com/sigma67/ytmusicapi</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/jdepoix/youtube-transcript-api">https://github.com/jdepoix/youtube-transcript-api</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/youtube/api-samples">https://github.com/youtube/api-samples</a></p>
-<p>reddit scraper and analyzer</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/casperbh96/Web-Scraping-Reddit">https://github.com/casperbh96/Web-Scraping-Reddit</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/umitkaanusta/reddit-detective">https://github.com/umitkaanusta/reddit-detective</a></p>
-<p>reddit api</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/praw-dev/praw">https://github.com/praw-dev/praw</a></p>
-<p>tumblr api</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/tumblr/pytumblr">https://github.com/tumblr/pytumblr</a></p>
-<p>tumblr scraper</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/henan715/tumblrScrapy">https://github.com/henan715/tumblrScrapy</a></p>
-<p>discord bot api:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/discordjs/discord.js">https://github.com/discordjs/discord.js</a></p>
-<p>twitter api</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/python-twitter-tools/twitter">https://github.com/python-twitter-tools/twitter</a></p>
-<p>twitter scraper</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/bisguzar/twitter-scraper">https://github.com/bisguzar/twitter-scraper</a></p>
-<p>facebook api:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Schmavery/facebook-chat-api">https://github.com/Schmavery/facebook-chat-api</a></p>
-<p>facebook scraper:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/kevinzg/facebook-scraper">https://github.com/kevinzg/facebook-scraper</a></p>
-<p>instagram api:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/facebookarchive/python-instagram">https://github.com/facebookarchive/python-instagram</a></p>
-<p>instagram scraper:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/huaying/instagram-crawler">https://github.com/huaying/instagram-crawler</a></p>
-<p>topic analysis among recent frequent conversations</p>
-<p>procedures:</p>
-<p>1.add two friends (active) and bridge them</p>
-<p>2.intercept them, filter insecure data like screenshots, identities and explicit contents, and analyze needs (probably with your generated response)?</p>
-<p>3.send intentional Ads and fix the conversation in three sentences.</p>
-
-	
-	</div>
-  <a type="button" href="/blog/2022/05/28/1a72366a-bea2-4321-bc39-b127110a423a/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2022-05-28 </div>
-			<div class="article-title"><a href="/blog/2022/05/28/f51c92c0-ee87-44d6-8fc1-6356d1f6f5b0/" title="This article discusses strategies for improving live streaming voice quality using software tools such as OBS, Cantabile, and Voicemeeter Banana. It also highlights MoeTTS for language mixing and custom data training, providing download links and suggesting learning from experienced content creators.">变声软件 Morphvox Alternatives</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p><a target="_blank" rel="noopener" href="https://github.com/CorentinJ/Real-Time-Voice-Cloning">Real Time Voice Cloning</a> by CorentinJ</p>
-<p>感谢关注，UP在B站制作各种AI变声器模型。</p>
-<p>AI白菜原创变声器软件下载链接：</p>
-<p><a target="_blank" rel="noopener" href="https://huggingface.co/lj1995/VoiceConversionWebUI/resolve/main/vits_vc_gpu.7z">https://huggingface.co/lj1995/VoiceConversionWebUI/resolve/main/vits_vc_gpu.7z</a></p>
-<p>有超级会员的建议下度盘</p>
-<p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1EyM7SzFUpxlemJlrqaJbdQ">https://pan.baidu.com/s/1EyM7SzFUpxlemJlrqaJbdQ</a></p>
-<p>提取码j24b</p>
-<p>已开源的模型在线使用链接（很久以前了）：</p>
-<p><a target="_blank" rel="noopener" href="https://huggingface.co/spaces/innnky/trump">https://huggingface.co/spaces/innnky/trump</a></p>
-<p><a target="_blank" rel="noopener" href="https://huggingface.co/spaces/innnky/nanami">https://huggingface.co/spaces/innnky/nanami</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/skygongque/tts/blob/main/python_cli_demo/readme.md">白嫖微软azure tts</a></p>
-<p>API下线，原因见动态。</p>
-<p>推理脚本</p>
-<p>声线转换：<a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/1W6aoDMuTku8EDTuH7-okVaj-6kzbXz1m">https://colab.research.google.com/drive/1W6aoDMuTku8EDTuH7-okVaj-6kzbXz1m</a></p>
-<p>TTS：<a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/1kpHzOHfWqM4pXxUiqxON9SvDTOeXGNI1">https://colab.research.google.com/drive/1kpHzOHfWqM4pXxUiqxON9SvDTOeXGNI1</a></p>
-<p>声线转换模型：<a target="_blank" rel="noopener" href="https://obs.baimianxiao.cn/share/obs/sankagenkeshi/G_1293000.pth">https://obs.baimianxiao.cn/share/obs/sankagenkeshi/G_1293000.pth</a></p>
-<p>TTS模型（多人物）：<a target="_blank" rel="noopener" href="https://obs.baimianxiao.cn/share/obs/sankagenkeshi/G_809000.pth">https://obs.baimianxiao.cn/share/obs/sankagenkeshi/G_809000.pth</a></p>
-<p>VITS仓库地址 <a target="_blank" rel="noopener" href="https://github.com/jaywalnut310/vits/">https://github.com/jaywalnut310/vits/</a></p>
-<p>本模型迭代1300 Epochs</p>
-<p>使用2xA100训练六天，效果还可以。</p>
-<p>感谢国家超级计算广州中心提供的算力支持。</p>
-<p>猫雷唱歌</p>
-<p>在线使用demo（45秒限制）：<a target="_blank" rel="noopener" href="https://huggingface.co/spaces/innnky/nyaru-svc2.0">https://huggingface.co/spaces/innnky/nyaru-svc2.0</a></p>
-<p>模型github链接：<a target="_blank" rel="noopener" href="https://github.com/innnky/so-vits-svc">https://github.com/innnky/so-vits-svc</a></p>
-<p>自己训练数据集、离线使用、一键训练、一键合成：<a target="_blank" rel="noopener" href="https://github.com/IceKyrin/sovits_guide">https://github.com/IceKyrin/sovits_guide</a></p>
-<p>本模型训练使用数据集：猫雷歌回1小时+杂谈回6小时；opencpop5小时 虚拟歌手云灏 半小时</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/CjangCjengh/MoeGoe">moegoe</a></p>
-<p>多种语言混合tts</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/coqui-ai/TTS">multilingual tts dl models</a></p>
-<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/luoyily/MoeTTS">https://github.com/luoyily/MoeTTS</a></p>
-<p>MoeTTS V1.2.1 Update</p>
-<p>适配Windows DPI缩放</p>
-<p>加入中文g2p工具</p>
-<p>加入FFmepg 音频转换工具</p>
-<p>支持批量合成</p>
-<p>支持自定义文件名</p>
-<p>支持VITS语速调节</p>
-<p>修复日语g2p gbk错误</p>
-<p>支持主题切换</p>
-<p>GUI设计优化：</p>
-<p>弃用原项目中的text模块，重写了text to sequence，使用无需再替换symbols，无需替换cleaners 实现模型解压即用</p>
-<p>加入专用配置文件，目前仅用于指定模型symbols</p>
-<p>（另外我这莫得中文模型，去隔壁CjangCjengh那边薅了一个来为视频配音</p>
-<p>基于StarGANv2-VC的声音转换模型</p>
-<p>声音质量当然赶不上VITS这种基于TTS的VC，但效果已经挺不错的了。转换后的语音噪音大应该不是StarGAN的问题i，而是</p>
-<p>后面接的vocoder（用的ParallelWaveGAN）。本来想使用HiFi-GAN的，但找到的预训练模型都和StarGAN不适配，我也不想</p>
-<p>自己从头训一个HiFi-GAN……</p>
-<p>Colab Demo:</p>
-<p><a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/1Xpn9yKBuJD59llXNJOrdUpFuiQNkwDqo?usp=sharing">https://colab.research.google.com/drive/1Xpn9yKBuJD59llXNJOrdUpFuiQNkwDqo?usp=sharing</a></p>
-<p>Github：</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Francis-Komizu/StarGANv2-VC">https://github.com/Francis-Komizu/StarGANv2-VC</a></p>
-<p>vits可以模仿声优的声线</p>
-<p>softvc vits联合模型</p>
-<p>Colab demo:</p>
-<p><a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/1OjfH2zpRkLFRp92aU6jAGhqZNopfZMjC?usp=sharing">https://colab.research.google.com/drive/1OjfH2zpRkLFRp92aU6jAGhqZNopfZMjC?usp=sharing</a></p>
-<p>项目代码：</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Francis-Komizu/Sovits">https://github.com/Francis-Komizu/Sovits</a></p>
-<p>歌曲变声 男的需要提高八度再变声 softvc Vits</p>
-<p><a target="_blank" rel="noopener" href="https://huggingface.co/spaces/innnky/soft-vits-singingvc">猫雷歌曲变声器</a> singingvoiceconversion</p>
-<p>派蒙在COLAB上面训练的notebook：</p>
-<p>派蒙语音合成地址：</p>
-<p><a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/1HDV84t3N-yUEBXN8dDIDSv6CzEJykCLw#scrollTo=oiPvCIJ_MHot">https://colab.research.google.com/drive/1HDV84t3N-yUEBXN8dDIDSv6CzEJykCLw#scrollTo=oiPvCIJ_MHot</a></p>
-<p>请注意不要输入英文标点符号（忘记改了）[脱单doge]。切勿商用或进行18+、暴力、血腥内容传播</p>
-<p><a target="_blank" rel="noopener" href="https://space.bilibili.com/327540506?share_medium=android&share_source=copy_link&bbid=XY1BB721B1F97348DBDE4297FE1B4ABE26BAA&ts=1662563765437">这个人</a>还在训练其他人物的语音</p>
-<p>b站有这些插件如何下载的教程</p>
-<p>宿主：Studio One 5</p>
-<p>降噪插件：RX系列Voice De-noise（可替换）</p>
-<p>变声插件：LittleAlterBoy（不可替换）（是目前变声插件的最优选择，实在不行，老版本的Auto Tune也可以）</p>
-<p>压缩器、去齿音：肥波系列Pro-C2,Pro-DS（可替换）</p>
-<p>EQ均衡器：肥波系列Pro-Q3（可替换）</p>
-<p>（再推荐一个soothe2，简单说这个插件可以让声音更自然一些，但是比较贵，可以搜索教学视频了解一下。）</p>
-<p>最后，有问题可以在评论区，私信问我，看到的话会给予解答。</p>
-<p>视频内BGM：</p>
-<p>Fluffing a Duck–Kevin MacLeod</p>
-<p>ひとときの安らぎ–上松範康</p>
-<p>边境之国的半夏迷梦–花之祭P</p>
-<p>ぽかぽかうさぎ日和–川田瑠夏</p>
-<p>リンゴ日和～The Wolf Whistling Song–ROCKY CHACK</p>
-<h2 id="vits变声"><a href="#vits变声" class="headerlink" title="vits变声"></a>vits变声</h2><p><a target="_blank" rel="noopener" href="https://github.com/w4123/vits">https://github.com/w4123/vits</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/w4123/vits">白嫖原神语音 有对如何训练原神语音作出的修改</a> 想白嫖<a target="_blank" rel="noopener" href="http://233366.proxy.nscc-gz.cn:8888/?text=%E4%BD%A0%E5%A5%BD&speaker=%E6%B4%BE%E8%92%99">访问demo的api</a> 这个模型读英语不行 可能需要原神英文语音包吧 当然也可以直接考虑变声器模型 读阿拉伯数字也不可以 如何把非汉字内容变为可以读的内容</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Ailln/cn2an">阿拉伯数字转汉字</a> 从<a target="_blank" rel="noopener" href="https://github.com/fighting41love/funNLP">funnlp</a>看到的</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Vextil/Wwise-Unpacker/releases">原神语音包解压</a></p>
-<p><a target="_blank" rel="noopener" href="https://bbs.mihoyo.com/ys/search/4?keyword=%E8%AF%AD%E9%9F%B3%E5%8C%85">米游社 原神语音包</a></p>
-<p><a target="_blank" rel="noopener" href="https://genshin.honeyhunterworld.com/ayaka_002/?lang=EN#delim_5">obtain all genshin impact voices in all languages in quotes, with text</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/CSUSTers/mys-voice-genshin">genshin voice scraper with text, also have scraped voice and text inside</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/ChrisBryann/GenshinSoundList">genshin limited english voice</a></p>
-<h2 id="tactron2-变声-训练"><a href="#tactron2-变声-训练" class="headerlink" title="tactron2 变声 训练"></a>tactron2 变声 训练</h2><p>MoeTTS是一个Tacotron2&#x2F;HifiGAN模型+编译好的GUI版本发布仓库 有多个语音包</p>
-<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/luoyily/MoeTTS">https://github.com/luoyily/MoeTTS</a></p>
-<p>主要的vst变声插件：</p>
-<p>变声插件以及其他VST的选择，大家可以参考上一篇专栏，本人现在用的是Avox Mutator调整声调，Little Alterboy调整共振峰的搭配：</p>
-<p><a target="_blank" rel="noopener" href="https://sakurane-sachi.booth.pm/items/1236505">gachikoe! core</a> sign in with pixiv to download for free</p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/mobile?id=6275919&from=articleDetail">VST机架 变声 设置教程</a></p>
-<p>需要多个vst插件相互连接</p>
-<p>可能只适合个别声音 如果是野生音源 需要预处理 再进行输入</p>
-<p>本篇教程是上一篇教程的延续，咕咕了大半年的我也做了很多新的尝试，本篇文章包含的内容是：1. 介绍一个免费的更加适合直播用途的机架Cantabile（替代Reaper）；2.  介绍目前咱自己调出来的，可以实现比较自然变声效果的VST链。关于如何使用OBS矫正变声器延迟导致的与模型嘴型、歌回时伴奏不同步的问题，我会在下一期中介绍（我真的不会再咕咕半年了）。</p>
-<p>关于Voicemeeter与声卡配置的补充</p>
-<p>请参照上一期，完成硬件设备以及Voicemeeter Banana的配置（重要！），Reaper的部分用下文的Cantabile代替~</p>
-<p>本文中将会使用上一篇专栏中外置声卡的Asio驱动+第二张声卡（或者使用电脑自带的输出，比如一般电脑都有Realtek High Definition Audio）的方案。打开Voicemeeter的设置界面，在Output A1中点击ASIO设备的名称的话，会跳出声卡的配置界面：</p>
-<p>点击红框处</p>
-<p>声卡配置界面 - 采样率（Sample Rage）</p>
-<p>声卡配置界面 - 缓存大小（Buffer Size）</p>
-<p>采样率建议选择48kHz足够满足直播用途，太高的话会提高音频处理时的资源占用；如果在之后配置完变声器发现有爆音的现象，可以尝试提高Buffer Size（推荐512左右）。需要注意的是，Voicemeeter的ASIO方案虽然效率很高但可能是因为驱动的原因，并不适用于所有声卡，比如Focusrite的Scarlett系列。咱财力有限，只测试了Steinberg的UR系列声卡，不过在官方论坛上暂时也只看到了对Focusrite驱动支持问题的反馈，所以理论上大部分常用的声卡应该没有问题（大概</p>
-<p>至此，前期准备完成！</p>
-<p>Cantabile配置</p>
-<p>下载地址：<a target="_blank" rel="noopener" href="https://www.cantabilesoftware.com/download/">https://www.cantabilesoftware.com/download/</a></p>
-<p>下载Stable Build并完成安装后，根据自己的操作系统选择运行64位&#x2F;32位版本，选择Cantabile Lite版本（免费）。如果要求注册账户，按照步骤使用邮箱完成注册后，会在邮箱内收到注册码，使用注册码激活即可。</p>
-<p>选择“Cantabile 3 Lite”</p>
-<p>进入Cantabile后，在菜单中选择Tools→Options，在Audio Engine中选择ASIO - Voicemeeter Virtual ASIO：</p>
-<p>Audio Engine</p>
-<p>将Audio Ports如下图配置（先按照上一篇专栏配置好Voicemeeter哦）：</p>
-<p>Audio Ports</p>
-<p>同时在下面的Plugin Options中选择Add→Browse可以添加自己安装VST插件的文件夹，然后等待扫描完成，这样才可以使用已经安装的插件：</p>
-<p>Plugins Options</p>
-<p>在Cantabile的主界面中黑色部分右键选择Insert Plugin可以插入插件，右键已经插入的插件选择Delete可以删除该插件。实现变声器需要的插件的连接方法也非常简单，从Main Microphone拖出一条线到第一个插件的Stereo &#x2F; Mono in，再将插件的Stereo &#x2F; Mono Out连接到下一个插件的Stereo &#x2F; Mono in，一直到最后一个插件的Stereo &#x2F; Mono Out连接到Main Speakers。这样连接的原理很简单，就是将一个插件处理完的音频继续交由下一个插件处理，打到叠加的效果。下图是一个示例：</p>
-<p>插件连接示例</p>
-<p>为了方便监听效果，记得按照上一篇教程Voicemeeter配置部分的最后所说，保持Voicemeeter开启，点亮Voicemeeter绿框中的A2与B2，将Main Microphone到Main Speaker的线路连通应该就能从Voicemeeter右上角A2你选择的设备中听到此时经过处理的声音了，如果未连通应该是不会听到任何声音的。</p>
-<p>至此，Cantabile配置完成！</p>
-<p>搭建变声器所需插件</p>
-<p>首先，介绍一下在搭建变声器的过程中需要的插件，下载与购买地址在文章末尾。在保证效果的前提下咱已经尽量把插件的选择精简，比如Waves、Soundtoys、Fabfilter的插件有捆绑包而不需要一个个购买，文章里没有提到的插件大家也可以自己玩一玩。个人的配置方案会在后文贴出：</p>
-<p>（一）变声器插件（当然是必选）</p>
-<p>经过一大堆尝试（Elastique Pitch，KeroVee，Antares Throat，等等…），效果最让咱满意的是来自Soundtoys的Little Alter Boy（售价$99，很贵，某些地方可以搜到Soundtoys的插件合辑但希望大家可以支持正版）。可以用的替代品是插件版的Gachikoe，需要加入作者桜音さち老师的Fanbox才能下载，要求一个月1000日元，下载完了可以取消，同样尽量支持作者~</p>
-<p>变声器插件调节的是人声的音调（Pitch）以及共振峰（Formant）。在很多变声器插件中，Pitch的范围是-12到+12。一个八度有12个半音，从降一个八度到升一个八度，就是-12到+12这个范围的含义。咱推荐把Pitch直接调到+12，因为升高一个八度的话在歌回时不必另外对歌曲进行降调操作。相应的Formant请通过监听自己的声音慢慢调节，一般在3-4左右。如果想要自然一些并且不介意声音低沉一些的话，低一些的Pitch也是可以的。如何在OBS中进行对声音延迟的校正，让变声处理后的声音与耳机里听到的伴奏同步输出咱会写在下一篇专栏里~</p>
-<p>（二）均衡器 &#x2F; EQ（强烈推荐）</p>
-<p>简单来说，均衡器调整的是各个频段的响度。由于男生和女生发生结构导致的响度分布不同，在调整音调的之前之后，我们都需要用到均衡器，不然可能会导致中频过强等问题。本人用的EQ是Fabfilter Pro Q3。</p>
-<p>（三） 降噪器 &#x2F; De-noiser（强烈推荐）</p>
-<p>降噪器自然是为了处理噪声。在通过变声器之前，一些噪声可能并不刺耳，甚至可能都不会被注意到，但是在经过了变声器处理后，一些中低频的噪声会随着音调提高而变得刺耳，比如风声和电流声。因此，在声音通过变声器之前咱通常会放一个降噪器。本人用的是Waves WNS 1。</p>
-<p>（四）限制器 &#x2F; Limiter（强烈推荐）</p>
-<p>限制器是其实可以说是压缩器的一种，将超出声音阈值的部分完全削除。在输出之前加一个-1分贝左右的限制器可以防止爆音以及大音量造成的失真保护观众的耳膜。咱用的是Waves Vcomp压缩器附带的限制器。</p>
-<p>（五）Roth-AIR（推荐）</p>
-<p>Roth-AIR是一个免费的、增加声音“空气感”的插件。本质上来说，应该属于EQ，但是使用非常方便（其实只需要调节一个旋钮）并且效果很好因此单独列出，咱在EQ之后会继续用Roth-Air调节高频。</p>
-<p>（六）齿音消除器 &#x2F; De-esser（推荐）</p>
-<p>所谓齿音，是在说话或者唱歌时，开口说“嘶”、“次”这些音节时的尖锐声音。这些声音同样也会被变声器放大而变得刺耳。解决方法的方法，一种是使用插件，一种时给麦克风加上防喷网，也可结合使用。咱用的是防喷网+Waves DeEsser。</p>
-<p>（七）压缩器 &#x2F; Compressor（可选）</p>
-<p>压缩器是当声音强度超过一定阈值时，对超出部分按照一定的比例进行响度衰减，以此减小声音的动态范围，同时不同的压缩器也会给声音带来不同的音染。希望让自己的声音更加饱满或者和麦克风距离忽近忽远导致声音忽大忽小的小伙伴可以尝试一下这类插件。本人在VST链最后加了Waves Vcomp插件。</p>
-<p>介绍完毕，可以正式开工了！</p>
-<p>正式配置变声器</p>
-<p>大致的VST链顺序：</p>
-<p>输入→降噪器→均衡器1→变声器→齿音消除器→EQ2→RothAIR→压缩器→输出</p>
-<p>Cantabile配置</p>
-<p>降噪插件的参数可以在自己不说话的情况下，点击频谱图右边的Suggest，会自动适配参数：</p>
-<p>WNS 1 参数设置</p>
-<p>第一个均衡器的配置，个人方案，请根据自己情况调节：</p>
-<p>均衡器参数设置</p>
-<p>变声器的配置，个人方案，请根据自己情况调节：</p>
-<p>变声器配置</p>
-<p>齿音消除器，第二个均衡器，RothAIR以及最后的压缩器参数就不贴图了，各位自己根据自己的声音多做尝试吧~</p>
-<p>变声器教程完结！撒花！</p>
-<p>一些大家可能会问的问题：</p>
-<p>Q：只要有变声器就好了吗？</p>
-<p>A：并不是，想要达到最好的效果还是需要控制自己的说话方式以及呼吸，之后可能会出专门的专栏讨论这个问题。</p>
-<p>Q：这个方案的缺点？</p>
-<p>A：资源占用不低，且有较大的延迟，不适合直播时监听变声过后的效果，因此需要练习把握住自己的语气。至于直播时变声器延迟导致的与伴奏不同步，与模型嘴型不同步我会在下期讲解怎么解决（咕咕咕）。以及，正版的插件价格很贵土真好吃，但还是希望大家尽可能支持正版。至于值不值得，大家可以听一下效果演示再做决定~</p>
-<p>Q：除了文中提到的软件，是否有更好的选择？</p>
-<p>A：有。本人自用的机架是Gig Performer 3（$149），价格贵但是更加稳定，对VST3插件的支持更好。以及，Waves插件之外，iZotope全家桶的效果也很好，但是因为巨大的延迟，比起直播更加适合后期处理，有兴趣和钱的话可以研究一下。</p>
-<p>写在最后的话：</p>
-<p>首先，咱只是一个爱好者，并不是什么后期调音man，甚至耳朵也很木，但我写在这里的是我自己目前为止研究出来的，毫无保留的最佳方案。当然，这个方案有着巨大的改进余地，希望它能抛砖引玉，各位有更好的方案希望能不吝分享。写这篇专栏的原因是在搜寻的过程中看到了不少效果尚不尽如人意的变声器，甚至有打着“免费变声器”、“主播同款”名号的视频，提供QQ群号，提供破解的机架下载，然后推荐声卡，最后再收费调音，被质疑调完音效果仍然不好就消失换个号继续，所谓的演示视频也很明显是由一男一女分开录音的。当然，这些也是个别现象，我还是遇见了很多前辈们有启发性的视频，但大家还是要对这类陷阱提高警惕~</p>
-<p>最后，谢谢看到这里的你！祝早日成为美少女</p>
-<p>Soundtoys官网：</p>
-<p><a target="_blank" rel="noopener" href="https://www.soundtoys.com/">https://www.soundtoys.com/</a></p>
-<p>Gachikoe插件版Fanbox链接：</p>
-<p><a target="_blank" rel="noopener" href="https://sakuranesachi.fanbox.cc/posts/498211">https://sakuranesachi.fanbox.cc/posts/498211</a></p>
-<p>Roth-AIR官网：</p>
-<p><a target="_blank" rel="noopener" href="https://www.danielrothmann.com/#downloads">https://www.danielrothmann.com/#downloads</a></p>
-<p>Fabfilter官网：</p>
-<p><a target="_blank" rel="noopener" href="https://www.fabfilter.com/">https://www.fabfilter.com/</a></p>
-<p>Waves插件官网：</p>
-<p><a target="_blank" rel="noopener" href="https://www.waves.com/">https://www.waves.com/</a></p>
-<p>xidada’s tts:</p>
-<p><a target="_blank" rel="noopener" href="https://huggingface.co/spaces/X*i-J*i*nP*i*n*g/X*i-J*i*nP*i*n*g-TTS">https://huggingface.co/spaces/X*i-J*i*nP*i*n*g/X*i-J*i*nP*i*n*g-TTS</a> # remove asterisks!</p>
-<p>哔哩哔哩上看到的免费变声器</p>
-<p>下载地址：</p>
-<p><a target="_blank" rel="noopener" href="https://yuanqiyinpin.github.io/">https://yuanqiyinpin.github.io/</a></p>
-<p>本机架为二次开源软件，优点是占用率滴，不吃电脑配置，上手简单，免费使用</p>
-<p>SoundTouch</p>
-<p>萝莉音 青年音</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/jrising/pysoundtouch">https://github.com/jrising/pysoundtouch</a></p>
-<p>gan based voice changer:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/yl4579/StarGANv2-VC">https://github.com/yl4579/StarGANv2-VC</a></p>
-<p>install crossover to run windows app on linux</p>
-<p>compile crossover from source on macos(code avaliable from official website):</p>
-<p><a target="_blank" rel="noopener" href="https://gist.github.com/Alex4386/4cce275760367e9f5e90e2553d655309">https://gist.github.com/Alex4386/4cce275760367e9f5e90e2553d655309</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.codeweavers.com/crossover/source">https://www.codeweavers.com/crossover/source</a></p>
-<p>变声器一般是vst类型的</p>
-<p>run vst on linux headlessly:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/hq9000/cython-vst-loader">https://github.com/hq9000/cython-vst-loader</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/hq9000/py_headless_daw">https://github.com/hq9000/py_headless_daw</a></p>
-<p>linux vst wrapper&#x2F;bridge:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/osxmidi/LinVst">https://github.com/osxmidi/LinVst</a></p>
-<p>VST bridge for Windows vst on Linux</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/abique/vst-bridge">https://github.com/abique/vst-bridge</a></p>
-<p>use vst 2.4 on macos with obs studio:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/obsproject/obs-vst">https://github.com/obsproject/obs-vst</a></p>
-<p>pyvst vst wrapper for windows:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/mbrucher/PyVST">https://github.com/mbrucher/PyVST</a></p>
-<p>python vst2 wrapper for windows:</p>
-<p><a target="_blank" rel="noopener" href="https://pypi.org/project/neil-vst/">https://pypi.org/project/neil-vst/</a></p>
-<p>yabridge use windows vst3, vst2 plugins on linux using wine, with reaper:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/robbert-vdh/yabridge">https://github.com/robbert-vdh/yabridge</a></p>
-<p>lyrebird voice changer for linux gtk3:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/lyrebird-voice-changer/lyrebird">https://github.com/lyrebird-voice-changer/lyrebird</a></p>
-<p>voice changer based on MHW Audio Modding Tool (not recommended):</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/ItsBurpee/MHWVoiceChanger">https://github.com/ItsBurpee/MHWVoiceChanger</a></p>
-<p>mozilla voice changer and visualizer based on  web api:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/mdn/voice-change-o-matic">https://github.com/mdn/voice-change-o-matic</a></p>
-<p>Real time voice changer in python:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/symphonly/figaro">https://github.com/symphonly/figaro</a></p>
-<p>Pyvoicechanger:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/juancarlospaco/pyvoicechanger">https://github.com/juancarlospaco/pyvoicechanger</a></p>
-<p>change the Pitch of the voice:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/wittymindstech/change-voice-pitch">https://github.com/wittymindstech/change-voice-pitch</a></p>
-<p>change pitch in real time:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/jmt329/PitchShifter">https://github.com/jmt329/PitchShifter</a></p>
-
-	
-	</div>
-  <a type="button" href="/blog/2022/05/28/f51c92c0-ee87-44d6-8fc1-6356d1f6f5b0/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2022-05-28 </div>
-			<div class="article-title"><a href="/blog/2022/05/28/fe79cdf7-de00-4775-8f79-ab2f150078a3/" title="Code Batch Change Tool, or Code Refactor Tool, is a novel sed-like tool designed for refactoring and rewriting code in multiple programming languages. It offers language independence through platforms like comby.dev and language-specific tools, including jscodeshift for JavaScript and various Python options such as Redbaron, Bowler, refactor, and Google&#39;s Pasta.">Code Batch Change Tool, Code Refactor Tool (The New Sed)</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<h2 id="design-pattern"><a href="#design-pattern" class="headerlink" title="design pattern"></a>design pattern</h2><p><a target="_blank" rel="noopener" href="https://github.com/luoweifu/PyDesignPattern">PyDesignPattern</a> Design Pattern that described by Python, This is the source code for the book of Everybody Know Design Patterns.</p>
-<h2 id="language-independent"><a href="#language-independent" class="headerlink" title="language independent"></a>language independent</h2><p><a target="_blank" rel="noopener" href="https://comby.dev/docs/get-started">comby.dev</a> multiple language support</p>
-<p><a target="_blank" rel="noopener" href="https://semgrep.dev/docs/cli-reference/">semgrep</a></p>
-<h2 id="language-specific"><a href="#language-specific" class="headerlink" title="language specific"></a>language specific</h2><h3 id="javascript"><a href="#javascript" class="headerlink" title="javascript"></a>javascript</h3><p><a target="_blank" rel="noopener" href="https://www.toptal.com/javascript/write-code-to-rewrite-your-code">jscodeshift</a> refactor rewrite javascript code</p>
-<h3 id="python"><a href="#python" class="headerlink" title="python"></a>python</h3><p><a target="_blank" rel="noopener" href="https://github.com/PyCQA/redbaron">redbaron repo</a> and <a target="_blank" rel="noopener" href="https://redbaron.readthedocs.io/en/latest/tuto.html#">doc</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/facebookincubator/Bowler">bowler</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/isidentical/refactor">refactor</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/google/pasta">pasta</a></p>
-
-	
-	</div>
-  <a type="button" href="/blog/2022/05/28/fe79cdf7-de00-4775-8f79-ab2f150078a3/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2022-05-28 </div>
-			<div class="article-title"><a href="/blog/2022/05/28/437a4dba-188a-4aa2-894d-b6016227678f/" title="This article explores various image search tools, including general and GIF searches, browser plugins, tutorials for using them effectively, meta search engines for finding specific elements like fonts or anime scenes, and how to locate these resources through image-based searches.">Similar Image Search</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p>image local search by similarity:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/ProvenanceLabs/image-match">https://github.com/ProvenanceLabs/image-match</a></p>
-<p>anime image search by scene:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/soruly/trace.moe">https://github.com/soruly/trace.moe</a></p>
-<p>bing image search:</p>
-<p><a target="_blank" rel="noopener" href="https://cn.bing.com/visualsearch/Microsoft/SimilarImages">https://cn.bing.com/visualsearch/Microsoft/SimilarImages</a></p>
-<p><a target="_blank" rel="noopener" href="https://cn.bing.com/visualsearch">https://cn.bing.com/visualsearch</a></p>
-<p>sougou shitu:</p>
-<p><a target="_blank" rel="noopener" href="https://pic.sogou.com/shitu/index.html">https://pic.sogou.com/shitu/index.html</a></p>
-<p>baidu shitu:</p>
-<p>shitu.baidu.com</p>
-<p>google image search:</p>
-<p><a target="_blank" rel="noopener" href="https://gfsoso.soik.top/shitu.html">https://gfsoso.soik.top/shitu.html</a></p>
-<p>yandex image search:</p>
-<p><a target="_blank" rel="noopener" href="https://yandex.com/images/">https://yandex.com/images/</a></p>
-<p>image search websites:</p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/52693499">https://zhuanlan.zhihu.com/p/52693499</a></p>
-<p>tutorial on image search, gif search, image enlargement, browser plugins:</p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv8688532">https://www.bilibili.com/read/cv8688532</a></p>
-<p>duososo shitu(include other meta search engines):</p>
-<p><a target="_blank" rel="noopener" href="http://duososo.com/index_shitu.php">http://duososo.com/index_shitu.php</a></p>
-<p>zhihu image search websites:</p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/25610099">https://zhuanlan.zhihu.com/p/25610099</a></p>
-<p>find font by images(not working qiuziti.com):</p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/25440271?refer=wnsouba">https://zhuanlan.zhihu.com/p/25440271?refer=wnsouba</a></p>
-<p>find bangumi segments by image:</p>
-<p>还有一个telegram bot 叫 WhatAnimeBot</p>
-<p><a target="_blank" rel="noopener" href="https://whatanime.ga/">https://whatanime.ga/</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/25313498">https://zhuanlan.zhihu.com/p/25313498</a></p>
-
-	
-	</div>
-  <a type="button" href="/blog/2022/05/28/437a4dba-188a-4aa2-894d-b6016227678f/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2022-05-28 </div>
-			<div class="article-title"><a href="/blog/2022/05/28/ca55270b-02a3-4943-92b2-b4d595e3e9d7/" title="This article explores the utilization of AI techniques, specifically PaddleGAN, for colorizing images and videos. Additionally, it highlights other tools and GitHub repositories available for image colorization.">Ai上色</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<h1 id="AI上色-ffmpeg去特定颜色-调色"><a href="#AI上色-ffmpeg去特定颜色-调色" class="headerlink" title="AI上色 ffmpeg去特定颜色 调色"></a>AI上色 ffmpeg去特定颜色 调色</h1><p><a target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/projectdetail/1161285?channelType=0&channel=0">可能和GAN有关</a></p>
-<p>use paddlegan for coloring</p>
-<p>可以去掉血腥色情 暴力可能不行 需要剪辑</p>
-<p>FFmpeg remove color:</p>
-<p><a target="_blank" rel="noopener" href="https://video.stackexchange.com/questions/33588/using-ffmpeg-can-i-remove-the-color-from-an-area-of-the-video">https://video.stackexchange.com/questions/33588/using-ffmpeg-can-i-remove-the-color-from-an-area-of-the-video</a></p>
-<p><a target="_blank" rel="noopener" href="http://johnriselvato.com/ffmpeg-how-to-remove-all-colors-except-one-from-a-video/">http://johnriselvato.com/ffmpeg-how-to-remove-all-colors-except-one-from-a-video/</a></p>
-<p>face coloring:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Xu-Justin/Grayscale-Face-Coloring">https://github.com/Xu-Justin/Grayscale-Face-Coloring</a></p>
-<p>nvidia coloring:</p>
-<p><a target="_blank" rel="noopener" href="https://developer.nvidia.com/blog/easily-colorize-black-and-white-photos-with-ai/">https://developer.nvidia.com/blog/easily-colorize-black-and-white-photos-with-ai/</a></p>
-<p>github topic on image colorization:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/topics/image-colorization">https://github.com/topics/image-colorization</a></p>
-<p>github repos on image colorization:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/rrupeshh/Auto-Colorization-Of-GrayScale-Image">https://github.com/rrupeshh/Auto-Colorization-Of-GrayScale-Image</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/aDouladiris/Grayscale-Image-Colorization">https://github.com/aDouladiris/Grayscale-Image-Colorization</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/aakaashjois/Colorizing-Grayscale-Images">https://github.com/aakaashjois/Colorizing-Grayscale-Images</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/emilwallner/Coloring-greyscale-images">https://github.com/emilwallner/Coloring-greyscale-images</a></p>
-<p>curated list on image colorization:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/oskar-j/awesome-image-coloring">https://github.com/oskar-j/awesome-image-coloring</a></p>
-
-	
-	</div>
-  <a type="button" href="/blog/2022/05/28/ca55270b-02a3-4943-92b2-b4d595e3e9d7/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2022-05-27 </div>
-			<div class="article-title"><a href="/blog/2022/05/27/32bab4e2-46bb-47a4-86a3-e7bc41b1025e/" title="This article highlights the potential of Graph Neural Networks in various applications such as personalized ranking, social network analysis, NLP, content categorization, and predicting missing links. It also discusses open-source Python libraries that can be used for implementing these use cases.">推荐系统 Gnn</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p>1、muricoca&#x2F;crab</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/muricoca/crab">https://github.com/muricoca/crab</a></p>
-<p>2、ibayer&#x2F;fastFM</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/ibayer/fastFM">https://github.com/ibayer/fastFM</a></p>
-<p>3、Mendeley&#x2F;mrec</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/mendeley/mrec">https://github.com/mendeley/mrec</a></p>
-<p>4、MrChrisJohnson&#x2F;logistic-mf</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/MrChrisJohnson/logistic-mf">https://github.com/MrChrisJohnson/logistic-mf</a></p>
-<p>5、jadianes&#x2F;winerama-recommender-tutorial</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/jadianes/winerama-recommender-tutorial">https://github.com/jadianes/winerama-recommender-tutorial</a></p>
-<p>6、ocelma&#x2F;python-recsys</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/ocelma/python-recsys">https://github.com/ocelma/python-recsys</a></p>
-<p>7、benfred&#x2F;implicit</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/benfred/implicit">https://github.com/benfred/implicit</a></p>
-<p>8、lyst&#x2F;lightfm</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/lyst/lightfm">https://github.com/lyst/lightfm</a></p>
-<p>9、python-recsys&#x2F;crab</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/python-recsys/crab">https://github.com/python-recsys/crab</a></p>
-<p>10、NicolasHug&#x2F;Surprise</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/NicolasHug/Surprise">https://github.com/NicolasHug/Surprise</a></p>
+		<p>在编写抖音文案的时候 用<a target="_blank" rel="noopener" href="https://www.doubao.com/">豆包</a>来洗稿 提示词：改写下面的文章 查重率不超过30%</p>
 <hr>
-<p>linkedin <a target="_blank" rel="noopener" href="https://github.com/linkedin/gdmix">gdmix</a> simple and memory effective personalized ranking</p>
-<p>datawhale <a target="_blank" rel="noopener" href="https://github.com/datawhalechina/fun-rec">fun-rec 推荐系统入门教程</a></p>
-<p>datawhale <a target="_blank" rel="noopener" href="https://github.com/datawhalechina/torch-rechub">rechub</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/jina-ai/clip-as-service">image to text, text to image, clip as image&#x2F;text embeddings</a></p>
-<p><a target="_blank" rel="noopener" href="https://awesomeopensource.com/project/alibaba/DeepRec">deep recommendation using tensorflow 1.15</a></p>
-<p><a target="_blank" rel="noopener" href="https://medium.com/analytics-vidhya/how-create-image-recomendation-system-3dcc5edf1597">image recommendation system</a></p>
-<p>不同的人有不同喜好</p>
-<p>不同的人和不同的人说话</p>
-<p>不同的产品有不同的特征</p>
-<p>不同的产品和不同的产品被一起推荐</p>
-<p>人对产品的接受度</p>
-<p>youzan has an ai platform called trexpark, offering chinese NLP and image models pretrained from e-commerce databases.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/youzanai/trexpark">https://github.com/youzanai/trexpark</a></p>
-<p>session based recommendation system:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/CRIPAC-DIG/SR-GNN">https://github.com/CRIPAC-DIG/SR-GNN</a></p>
-<p>decide the feedback embeddings:</p>
-<p><a target="_blank" rel="noopener" href="https://huggingface.co/youzanai/bert-product-comment-chinese">https://huggingface.co/youzanai/bert-product-comment-chinese</a></p>
-<p>conversational embeddings:</p>
-<p><a target="_blank" rel="noopener" href="https://huggingface.co/youzanai/bert-customer-message-chinese">https://huggingface.co/youzanai/bert-customer-message-chinese</a></p>
-<p>neo4j developer build a recommendation engine:</p>
-<p><a target="_blank" rel="noopener" href="https://neo4j.com/developer/cypher/guide-build-a-recommendation-engine/">https://neo4j.com/developer/cypher/guide-build-a-recommendation-engine/</a></p>
-<p>torch_geometric(PyG) documentation:</p>
-<p><a target="_blank" rel="noopener" href="https://pytorch-geometric.readthedocs.io/en/latest/modules/nn.html#torch_geometric.nn.conv.GatedGraphConv">https://pytorch-geometric.readthedocs.io/en/latest/modules/nn.html#torch_geometric.nn.conv.GatedGraphConv</a></p>
-<p>setup GCN using PyG:</p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/400078504">https://zhuanlan.zhihu.com/p/400078504</a></p>
-<p>tagspace text classification via hashtags:</p>
-<p><a target="_blank" rel="noopener" href="https://paddlerec.readthedocs.io/en/latest/models/contentunderstanding/tagspace.html">https://paddlerec.readthedocs.io/en/latest/models/contentunderstanding/tagspace.html</a></p>
-<p>gnn is based on basic data&#x2F;label models and provide high-level reasoning and predictions.</p>
-<p>neo4j graph academy practical usage:</p>
-<p><a target="_blank" rel="noopener" href="https://graphacademy.neo4j.com/categories/">https://graphacademy.neo4j.com/categories/</a></p>
-<p><a target="_blank" rel="noopener" href="https://neo4j.com/graphacademy/training-iga-40/12-iga-40-ingredient-analysis/">https://neo4j.com/graphacademy/training-iga-40/12-iga-40-ingredient-analysis/</a></p>
-<p>video segments have different features and orders. predict missing links. predict categories semi-supervised or unsupervised.</p>
-<p>video-image-text-music correlation and predict internal relationships, categories.</p>
-<p>recommendation system:</p>
-<p>paddlerec(multimodal), torchrec(cuda&#x3D;&#x3D;11.3, build failed due to unable to find ATen from torch&#x2F;include.)</p>
-<p><a target="_blank" rel="noopener" href="https://neo4j.com/docs/graph-data-science/current/end-to-end-examples/fastrp-knn-example/">https://neo4j.com/docs/graph-data-science/current/end-to-end-examples/fastrp-knn-example/</a></p>
-<p>link prediction:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Orbifold/pyg-link-prediction/blob/main/run.py">https://github.com/Orbifold/pyg-link-prediction/blob/main/run.py</a></p>
-<p>how to use pyg for link prediction:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/pyg-team/pytorch_geometric/issues/634">https://github.com/pyg-team/pytorch_geometric/issues/634</a></p>
-<p>dgl, install from source, with link prediction:</p>
-<p><a target="_blank" rel="noopener" href="https://docs.dgl.ai/tutorials/blitz/4_link_predict.html">https://docs.dgl.ai/tutorials/blitz/4_link_predict.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/dmlc/dgl">https://github.com/dmlc/dgl</a></p>
-<p><a target="_blank" rel="noopener" href="https://docs.dgl.ai/guide_cn/training-link.html#guide-cn-training-link-prediction">https://docs.dgl.ai/guide_cn/training-link.html#guide-cn-training-link-prediction</a></p>
-<p>gnn intro:</p>
-<p><a target="_blank" rel="noopener" href="https://cnvrg.io/graph-neural-networks/">https://cnvrg.io/graph-neural-networks/</a></p>
-<p>gnn applications:</p>
-<p>Node classification: The objective here is to predict the labels of nodes by considering the labels of their neighbors.</p>
-<p>Link prediction: In this case, the goal is to predict the relationship between various entities in a graph. This can for example be applied in prediction connections for social networks.</p>
-<p>Graph clustering: This involves dividing the nodes of a graph into clusters. The partitioning can be done based on edge weights or edge distances or by considering the graphs as objects and grouping similar objects together.</p>
-<p>Graph classification: This entails classifying a graph into a category. This can be applied in social network analysis and categorizing documents in natural language processing. Other applications in NLP include text classification, extracting semantic relationships between texts, and sequence labeling.</p>
-<p>Computer vision: In the computer vision world, GNNs can be used to generate regions of interest for object detection. They can also be used in image classification whereby a scene graph is generated. The scene generation model then identifies objects in the image and the semantic relationship between them. Other applications in this field include interaction detection and region classification.</p>
+<p>媒体的意义和AI类似 别人知道的就不要发了 有可能出错 别人不知道的就发 有可能有用 在兴趣圈周围探索 拓宽视野</p>
+<h2 id="网页转文章"><a href="#网页转文章" class="headerlink" title="网页转文章"></a>网页转文章</h2><p>readbility.js</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Nixes/PageScraper">pagescraper</a> in php</p>
+<p><code>elinks -dump &lt;url&gt;</code></p>
+<p>可以把一个文字或者其他类型的内容当成模板 其他文字 视频 图片当作素材 根据模板收集素材 形成内容 注意素材不能是模板本身 素材不能单一 不然被认定为抄袭</p>
+<p>文章洗稿 基于标题和context生成段落：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yangjianxin1/CPM">https://github.com/yangjianxin1/CPM</a></p>
+<p>bert mask:</p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/fnlp/bart-base-chinese">https://huggingface.co/fnlp/bart-base-chinese</a></p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/hfl/chinese-macbert-base">https://huggingface.co/hfl/chinese-macbert-base</a></p>
+<p>chinese paraphrase:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ZhuiyiTechnology/roformer">https://github.com/ZhuiyiTechnology/roformer</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ZhuiyiTechnology/simbert">https://github.com/ZhuiyiTechnology/simbert</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ZhuiyiTechnology/WoBERT">可能不是paraphrase模型</a></p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/lijingxin/mt5-for-zh-paraphrase/tree/main">https://huggingface.co/lijingxin/mt5-for-zh-paraphrase/tree/main</a></p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/facebook/m2m100_418M">https://huggingface.co/facebook/m2m100_418M</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jiangnanboy/chinese_sentence_paraphrase">https://github.com/jiangnanboy/chinese_sentence_paraphrase</a></p>
+<p>chinese summarize generator:</p>
+<p>一般抽取式的提取 都需要有gpt生成器在中间插入一些句子</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Thefreelittle/article/details/121342813">hanlp自带抽取文本方案</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bbsmax.com/A/pRdB0nQGJn/">抽取式文本摘要</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/downw/summrization">bart t5 pegasus中文文本摘要 有训练数据集</a> <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43718786/article/details/119741580">训练教程</a></p>
+<p>一直在想怎么能正确高效的处理seo中，采集的文章怎么去伪原创和洗稿。如果是人工操作的话，那就太麻烦了。采集下来的文章不进行伪原创又害怕被飓风算法命中。</p>
+<p>1，tr算法提取摘要再人工重组新的文章。</p>
+<p>正好今天发现了python中的textrank4zh库，依赖于jieba、numpy和networkx库，可以通过tr算法进行文章的摘要提取。然后根据摘要再人工洗稿，整合成一篇全新的文章。</p>
+<p>测试一篇蚂蜂窝上面的问答，蚂蜂窝问答下面是有很多个答主的内容，通过python爬取所有内容，然后再利用tr算法提取摘要，根据摘要进行重组出一篇新的文章。这样基本上可以成功躲避飓风算法。</p>
+<p>先安装依赖库，然后再利用tr4进行摘要提取。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> textrank4zh <span class="keyword">import</span> TextRank4Keyword, TextRank4Sentence</span><br><span class="line">content = <span class="string">&quot;&quot;</span> <span class="comment"># 这里是python采集下来的content html内容</span></span><br><span class="line">text = re.sub(<span class="string">&#x27;&lt;.*?&gt;&#x27;</span>,<span class="string">&#x27;&#x27;</span>,content)</span><br><span class="line">text = re.sub(<span class="string">r&#x27;\s&#x27;</span>,<span class="string">&#x27;&#x27;</span>,text)</span><br><span class="line">zy = <span class="string">&#x27;&#x27;</span></span><br><span class="line">tr4s = TextRank4Sentence()</span><br><span class="line">tr4s.analyze(text=text, lower=<span class="literal">True</span>, source = <span class="string">&#x27;all_filters&#x27;</span>)</span><br><span class="line"><span class="comment"># 可修改num值，设置摘要长度。</span></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> tr4s.get_key_sentences(num=<span class="number">10</span>):</span><br><span class="line">zy = zy + item.sentence</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>2，利用google翻译双向翻译洗稿</p>
+<p>之前有接触一个所谓人工智能洗稿的网站小发猫，说的是利用NLP算法进行洗稿，本来我以为洗稿只有同义词替换这个办法。</p>
+<p>后来研究了一下小发猫，我首先觉得这个绝对不是利用什么所谓的NLP算法来洗稿，研究了一下发现可能是利用google翻译进行双向翻译，就是先中文翻译英文，然后再拿翻译出来的英文再翻译成中文。</p>
+<p>自己也开发了一个这样的伪原创工具，发现其实并不好用。如果不仔细读，这样双向翻译出来的文章还能读，但是仔细读的话。其实语法习惯还有用词根本不准确，甚至有些情况还改变了这句话原有的语义。</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/05/27/32bab4e2-46bb-47a4-86a3-e7bc41b1025e/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/07/15/8c890a9d-8296-4e96-aa70-638d203fa821/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -722,8 +221,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-05-24 </div>
-			<div class="article-title"><a href="/blog/2022/05/24/b6f93dd7-a741-44ee-92bd-8021bea75c77/" title="This article focuses on video analysis using popular frameworks PyTorch and Keras. It offers a range of resources to perform tasks such as classification and summarization, along with access to a pretrained model zoo for further customization. Additionally, it provides a link to a helpful video feature extractor tool.">视频分析处理 剧本生成</a></div>
+			<div class="date"> 2022-07-15 </div>
+			<div class="article-title"><a href="/blog/2022/07/15/e1fee6ca-f126-4189-99b4-b23fbaf9fa23/" title="This article highlights various accessibility tools and frameworks like Pyatspi, dogtail Gnome, Appium Linux Accessibility, and Pywinauto. It also stresses the significance of readbility.js and Meilisearch for enhancing web history search and incorporating a11y into Firefox and GNOME&#39;s ATK browsers.">Pyatspi Dogtail Gnome Accessibility Gui Inspect Tool For Linux A11Y</a></div>
 		</h3>
 	
 
@@ -734,84 +233,48 @@
   <div class="row">
 	
 	
-		<h1 id="视频分析处理-视频摘要-剧本生成"><a href="#视频分析处理-视频摘要-剧本生成" class="headerlink" title="视频分析处理 视频摘要 剧本生成"></a>视频分析处理 视频摘要 剧本生成</h1><p>自动抠像 最新 2022 较小的性能消耗：</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/hkchengrex/XMem">https://github.com/hkchengrex/XMem</a></p>
-<p>我fork的项目：<a target="_blank" rel="noopener" href="https://github.com/ProphetHJK/XMem">https://github.com/ProphetHJK/XMem</a></p>
-<p>我fork后添加了一些小工具，包括绿幕生成，蒙版视频生成，中文教程等</p>
-<p>simple video captioning:</p>
-<p><a target="_blank" rel="noopener" href="https://pythonawesome.com/a-simple-implementation-of-video-captioning/">https://pythonawesome.com/a-simple-implementation-of-video-captioning/</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/232525/videocaptioning.pytorch?ref=pythonawesome.com">https://github.com/232525/videocaptioning.pytorch?ref=pythonawesome.com</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/xiadingZ/video-caption.pytorch">https://github.com/xiadingZ/video-caption.pytorch</a></p>
-<p>3d cnn for video classification:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/kcct-fujimotolab/3DCNN">https://github.com/kcct-fujimotolab/3DCNN</a></p>
-<p>end-to-end video image classification by facebook:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/facebookresearch/ClassyVision">https://github.com/facebookresearch/ClassyVision</a></p>
-<p>video understanding models and datasets:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/sujiongming/awesome-video-understanding">https://github.com/sujiongming/awesome-video-understanding</a></p>
-<p>video classification dataset:</p>
-<p>​video_type_dict​ ​&#x3D;​ {​’360VR’​: ​’VR’​, ​’4k’​: ​’4K’​, ​’Technology’​: ​’科技’​, ​’Sport’​: ​’运动’​, ​’Timelapse’​: ​’延时’​,</p>
-<p>​’Aerial’​: ​’航拍’​, ​’Animals’​: ​’动物’​, ​’Sea’​: ​’大海’​, ​’Beach’​: ​’海滩’​, ​’space’​: ​’太空’​,</p>
-<p>​’stars’​: ​’星空’​, ​’City’​: ​’城市’​, ​’Business’​: ​’商业’​, ​’Underwater’​: ​’水下摄影’​,</p>
-<p>​’Wedding’​: ​’婚礼’​, ​’Archival’​: ​’档案’​, ​’Backgrounds’​: ​’背景’​, ​’Alpha Channel’​: ​’透明通道’​,</p>
-<p>​’Intro’​: ​’开场’​, ​’Celebration’​: ​’庆典’​, ​’Clouds’​: ​’云彩’​, ​’Corporate’​: ​’企业’​,</p>
-<p>​’Explosion’​: ​’爆炸’​, ​’Film’​: ​’电影镜头’​, ​’Green Screen’​: ​’绿幕’​, ​’Military’​: ​’军事’​,</p>
-<p>​’Nature’​: ​’自然’​, ​’News’​: ​’新闻’​, ​’R3d’​: ​’R3d’​, ​’Romantic’​: ​’浪漫’​, ​’Abstract’​: ​’抽象’​}</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/yuanxiaosc/Multimodal-short-video-dataset-and-baseline-classification-model">https://github.com/yuanxiaosc/Multimodal-short-video-dataset-and-baseline-classification-model</a></p>
-<p>rnn for human action recognization:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/stuarteiffert/RNN-for-Human-Activity-Recognition-using-2D-Pose-Input">https://github.com/stuarteiffert/RNN-for-Human-Activity-Recognition-using-2D-Pose-Input</a></p>
-<p>video script introduction and generation:</p>
-<p><a target="_blank" rel="noopener" href="https://sharetxt.live/blog/how-to-generate-a-youtube-video-script-with-ai#:~:text=%20How%20to%20use%20Chibi.ai%20to%20create%20a,scan%20through%20your%20text%20and%20generate...%20More%20">https://sharetxt.live/blog/how-to-generate-a-youtube-video-script-with-ai#:~:text=%20How%20to%20use%20Chibi.ai%20to%20create%20a,scan%20through%20your%20text%20and%20generate...%20More%20</a></p>
-<p>fight detection using pose estimation and rnn:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/imsoo/fight_detection">https://github.com/imsoo/fight_detection</a></p>
-<p>video summarizer to summarized video based on video feature:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Lalit-ai/Video-Summary-Generator">https://github.com/Lalit-ai/Video-Summary-Generator</a></p>
-<p>awesome action recognition:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/jinwchoi/awesome-action-recognition">https://github.com/jinwchoi/awesome-action-recognition</a></p>
-<p>temporal model for video understanding:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/mit-han-lab/temporal-shift-module">https://github.com/mit-han-lab/temporal-shift-module</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/mit-han-lab/temporal-shift-module">https://github.com/mit-han-lab/temporal-shift-module</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/yjxiong/tsn-pytorch">https://github.com/yjxiong/tsn-pytorch</a></p>
-<p>time space attention for video understanding(timesformer):</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/facebookresearch/TimeSformer">https://github.com/facebookresearch/TimeSformer</a></p>
-<p>video understanding by alibaba:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/alibaba-mmai-research/pytorch-video-understanding">https://github.com/alibaba-mmai-research/pytorch-video-understanding</a></p>
-<p>video object segmentation:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/yoxu515/aot-benchmark?ref=pythonawesome.com">https://github.com/yoxu515/aot-benchmark?ref=pythonawesome.com</a></p>
-<p>video scene segmentation:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/kakaobrain/bassl?ref=pythonawesome.com">https://github.com/kakaobrain/bassl?ref=pythonawesome.com</a></p>
-<p>mmaction detect actions in video:</p>
-<p><a target="_blank" rel="noopener" href="https://pythonawesome.com/an-open-source-toolbox-for-video-understanding-based-on-pytorch/">https://pythonawesome.com/an-open-source-toolbox-for-video-understanding-based-on-pytorch/</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/open-mmlab/mmaction2">https://github.com/open-mmlab/mmaction2</a></p>
-<p>dense video captioning:</p>
-<p><a target="_blank" rel="noopener" href="https://www.opensourceagenda.com/projects/dense-video-captioning-pytorch">https://www.opensourceagenda.com/projects/dense-video-captioning-pytorch</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.opensourceagenda.com/projects/dense-video-captioning-pytorch">https://www.opensourceagenda.com/projects/dense-video-captioning-pytorch</a></p>
-<p>seq2seq video captioning:</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013010889/article/details/80087601">https://blog.csdn.net/u013010889/article/details/80087601</a></p>
-<p>2d cnn with LSTM video classification:</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43493208/article/details/104387182">https://blog.csdn.net/qq_43493208/article/details/104387182</a></p>
-<p>spp-net for image shape unification:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/peace195/sppnet">https://github.com/peace195/sppnet</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/yueruchen/sppnet-pytorch">https://github.com/yueruchen/sppnet-pytorch</a></p>
-<p>running pretrained pytorchvideo video classification model from zoo:</p>
-<p><a target="_blank" rel="noopener" href="https://pytorchvideo.org/docs/tutorial_torchhub_inference">https://pytorchvideo.org/docs/tutorial_torchhub_inference</a></p>
-<p>pytorchvideo model zoo:</p>
-<p><a target="_blank" rel="noopener" href="https://pytorchvideo.readthedocs.io/en/latest/model_zoo.html">https://pytorchvideo.readthedocs.io/en/latest/model_zoo.html</a></p>
-<p>(arxiv) end to end generative pretraining multimodal video captioning mv-gpt:</p>
-<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2201.08264v1">https://arxiv.org/abs/2201.08264v1</a></p>
-<p>video captioning using encoder-decoder:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Shreyz-max/Video-Captioning">https://github.com/Shreyz-max/Video-Captioning</a></p>
-<p>video captioning video2text keras implementation:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/alvinbhou/Video2Text">https://github.com/alvinbhou/Video2Text</a></p>
-<p>video summarization:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/shruti-jadon/Video-Summarization-using-Keyframe-Extraction-and-Video-Skimming">https://github.com/shruti-jadon/Video-Summarization-using-Keyframe-Extraction-and-Video-Skimming</a></p>
-<p>pytorch_video video classification:</p>
-<p><a target="_blank" rel="noopener" href="https://pytorchvideo.org/docs/tutorial_classification">https://pytorchvideo.org/docs/tutorial_classification</a></p>
-<p>video feature extractor:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/hobincar/pytorch-video-feature-extractor">https://github.com/hobincar/pytorch-video-feature-extractor</a></p>
+		<p>does appium have linux accessibility implementation?</p>
+<p>windows a11y:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/blackrosezy/gui-inspect-tool">https://github.com/blackrosezy/gui-inspect-tool</a></p>
+<p>pywinauto</p>
+<p>bookmark_history_search sucks. it does not include webpage summaries, only title, which makes searching the history very hard. the solution is to use readbility.js to visit and summarize these pages, and update these documents in meilisearch.</p>
+<p>a11y is the general term for accessibility, for web browsers like firefox. however, there’s implementation for gnome internally.</p>
+<p>linux a11y:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/shubhamvasaikar/Auto-GUI-Testing">https://github.com/shubhamvasaikar/Auto-GUI-Testing</a></p>
+<p>gnome accessibility toolkit(atk)</p>
+<p><a target="_blank" rel="noopener" href="https://gitlab.gnome.org/GNOME/pyatspi2">https://gitlab.gnome.org/GNOME/pyatspi2</a></p>
+<p><a target="_blank" rel="noopener" href="https://gitlab.com/dogtail/dogtail">https://gitlab.com/dogtail/dogtail</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.freedesktop.org/wiki/Accessibility/PyAtSpi2Example/">https://www.freedesktop.org/wiki/Accessibility/PyAtSpi2Example/</a></p>
+<p>accessibility implementation in different toolkits:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/GNOME/at-spi2-core/blob/e83d5558d2fbded5b345b0af254f26865e148e49/devel-docs/toolkits.md">https://github.com/GNOME/at-spi2-core/blob/e83d5558d2fbded5b345b0af254f26865e148e49/devel-docs/toolkits.md</a></p>
+<p>Toolkits that use the DBus APIs directly</p>
+<p>GTK4</p>
+<p>Sources: gtk4&#x2F;gtk&#x2F;a11y</p>
+<p>Qt5</p>
+<p>Sources: qtbase&#x2F;src&#x2F;gui&#x2F;accessible&#x2F;linux</p>
+<p>WebKit</p>
+<p>Sources: WebKit&#x2F;Source&#x2F;WebCore&#x2F;accessibility&#x2F;atspi</p>
+<p>Toolkits that use ATK</p>
+<p>GTK3</p>
+<p>Sources: gtk3&#x2F;gtk&#x2F;a11y</p>
+<p>gnome-shell &#x2F; St &#x2F; via clutter’s cally</p>
+<p>Sources: mutter&#x2F;clutter&#x2F;clutter&#x2F;cally</p>
+<p>Mozilla Firefox</p>
+<p>Sources: gecko-dev&#x2F;accessible&#x2F;atk</p>
+<p>Chromium</p>
+<p>Uses both ATK and libatspi?</p>
+<p>Sources:</p>
+<p>chromium&#x2F;ui&#x2F;accessibility&#x2F;platform&#x2F;<em>auralinux</em> (atk)</p>
+<p>chromium&#x2F;ui&#x2F;accessibility&#x2F;platform&#x2F;inspect&#x2F;<em>auralinux</em> (atspi)</p>
+<p>chromium&#x2F;content&#x2F;browser&#x2F;accessibility&#x2F;<em>auralinux</em> (atspi and atk)</p>
+<p>LibreOffice</p>
+<p>Sources: LibreOffice&#x2F;core&#x2F;vcl&#x2F;unx&#x2F;gtk3&#x2F;a11y</p>
+<p>Java Swing - via java-atk-wrapper</p>
+<p>Sources: java-atk-wrapper</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/05/24/b6f93dd7-a741-44ee-92bd-8021bea75c77/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/07/15/e1fee6ca-f126-4189-99b4-b23fbaf9fa23/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -821,8 +284,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-05-24 </div>
-			<div class="article-title"><a href="/blog/2022/05/24/677b72f2-f2b0-44f1-a181-724286a16fc1/" title="The article discusses an open API for generating cat-themed content through the website &#39;cataas.com&#39;. This platform offers a range of options to create and personalize images featuring cats, making it an entertaining and engaging service.">开放Api 信息来源</a></div>
+			<div class="date"> 2022-07-14 </div>
+			<div class="article-title"><a href="/blog/2022/07/14/4887de13-b333-4e89-b106-dcf7ddcef5cf/" title="This article dives into various techniques for optimizing chatbot performance, including extending synonym dictionaries, managing training data, and utilizing GPT-2 for server optimization, feedback mechanisms, content promotion, CPU usage, backpropagation, and filters. The comments provide valuable insights on how to improve the efficiency of chatbots.">复读机 Chatbot</a></div>
 		</h3>
 	
 
@@ -833,13 +296,501 @@
   <div class="row">
 	
 	
-		<p>cat as a service not infinite user provided content:</p>
-<p><a target="_blank" rel="noopener" href="https://cataas.com/#/">https://cataas.com/#/</a></p>
-<p><a target="_blank" rel="noopener" href="https://cataas.com/cat/gif/says/Hello?filter=sepia&color=orange&size=40&type=or">https://cataas.com/cat/gif/says/Hello?filter=sepia&amp;color=orange&amp;size=40&amp;type=or</a></p>
+		<p>利用带时间戳的QQ消息 提取和天气有关的内容 根据历史天气预报推断群友位置</p>
+<p>根据聊天记录推断群友位置</p>
+<p>测试聊天机器人的方式就是对聊 测试自媒体可以用自动测试 假数据进行测试</p>
+<p>带二维码的图片 二维码对比度要低 避免被qq管家撤回</p>
+<p>classify bilibili video which users recommend, then train the model against recent chats and topics with video tags</p>
+<p>for our potential viewers, you may send them popular&#x2F;hot things, place trackers (短链接统计) on those links, guess their favourites.</p>
+<p>you may fool bilibili trackers, official parameter-based trackers.</p>
+<p>对于qq上面聊骚的可以发a片给他们</p>
+<p>get bilibili user email address by asking them from chat. if they give the email address, send setu as gift (regularly?)</p>
+<p>of course you need to pass uid to us. either by parameters or by asking.</p>
+<p>建立用户画像 cache足够多的信息 总结出来足够精确的话题 标签</p>
+<p>发点啥吸引人的 提供某种服务 不然就会被踢</p>
+<p>大晚上的不要说话 大家都睡觉 说话容易被踢</p>
+<p>一般被引用的图片 发图之后被回复 图片下面比较激烈的回复代表着图片质量比较好 要取决于图片具体内容进行分类</p>
+<p>note: in order to install libraries and dependencies, you need ubuntu inside termux. create shortcuts and alias to launch ubuntu. link files and directories to ububtu proot filesystem. also never attempt to update kali since that will break shit, especially for bumping python versions.</p>
+<h2 id="时序数据库"><a href="#时序数据库" class="headerlink" title="时序数据库"></a>时序数据库</h2><p><a target="_blank" rel="noopener" href="https://docs.tdengine.com/develop/stream/">tdengine stream processing</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.influxdata.com/influxdb/v2.3/api-guide/tutorials/python/">influxdb python client</a></p>
+<h2 id="智能问答"><a href="#智能问答" class="headerlink" title="智能问答"></a>智能问答</h2><p><a target="_blank" rel="noopener" href="https://github.com/l11x0m7/book-of-qna-code">智能问答与深度学习 附带代码</a></p>
+<h2 id="近义词"><a href="#近义词" class="headerlink" title="近义词"></a>近义词</h2><p><a target="_blank" rel="noopener" href="https://www.tutorialspoint.com/natural_language_toolkit/natural_language_toolkit_looking_up_words_in_wordnet.htm#:~:text=To%20get%20a%20list%20of%20Synsets%2C%20we%20can,follows%20%E2%88%92%20from%20nltk.corpus%20import%20wordnet%20as%20wn">use wordnet to find hyponyms and antonyms</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/nltk/nltk/issues/2972">find antonyms for chinese with wordnet</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/chatopera/Synonyms">中文近义词</a> 以及<a target="_blank" rel="noopener" href="https://github.com/chatopera/Synonyms/issues/5">如何扩充词库</a></p>
+<h2 id="话题建模-句向量"><a href="#话题建模-句向量" class="headerlink" title="话题建模 句向量"></a>话题建模 句向量</h2><p><a target="_blank" rel="noopener" href="https://www.qblocks.cloud/blog/best-nlp-libraries-python">10 nlp libraries</a></p>
+<p><a target="_blank" rel="noopener" href="https://radimrehurek.com/gensim/models/word2vec.html">gensim word2vec</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/python-word-embedding-using-word2vec/">word embedding using word2vec</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.askpython.com/python-modules/gensim-word2vec">gensym word2vec complete guide</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/dbf10744bde0">go-cqhttp 自定义合并转发消息 生成不存在的合并转发消息</a></p>
+<ul>
+<li><p><input disabled="" type="checkbox"> 
+渐进式领红包 对于某个群 先是两分钟（左右）之后领一次 领不到就时间减半下一次再领 如果领到了就不减半 最快6秒领 不能再减了 防止某些群为了检测机器人而发红包</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+处理信息不要流水线处理 放在messagepool里面 要有重要度排序 相关性排序</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+QQ漂流瓶机器人 捡漂流瓶API</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+改回群昵称 总有些脑瘫喜欢给我乱起名 一天检查一次 模仿其他人的群昵称 看看有没有能用的马甲</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+mitm Chatbot</p>
+</li>
+</ul>
+<p>chatbot frameworks:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/sld/convai-bot-1337">convai-bot 1337</a> the best hybrid convai bot</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ash47/OmegleMiddleMan">omeglemiddleman</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/gunthercox/ChatterBot">chatterbot</a> able to learn while having conversation</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/nlpia/nlpia-bot">qary: nlpia-bot</a> a hybrid framework for developing chatbot by mannings</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/olegberman/mitm-omegle">mitm-omegle</a> watch strangers talk</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/alfredfrancis/ai-chatbot-framework">ai chatbot framework</a></p>
+<ul>
+<li><p><input disabled="" type="checkbox"> 
+用sentence bert做search based dialog 替代levenshtein 最好是asymetrical semantic search</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+有人有测试红包外挂的红包 可能有“test”、“测试”、“别抢”、“不要”之类的字眼 这种红包不要抢 抢了飞机票</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+群聊的下一句话不一定是上一句话的回答 训练模型寻找句子相关性 计算相关度 以及句子顺序</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+对接小冰</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+<strong>管理员&#x2F;群主在的时候 或者管理员经常出现的群里面 不要冒泡 不然容易被封</strong></p>
+</li>
+</ul>
+<p>转发的图片 至少要在之前一小时以内或更长时间内没有被重复发送才行 同一个信息内也不能出现重复图片 否则不发送这个信息（很有可能是广告）</p>
+<p>有二维码不发送 有网址不发送</p>
+<p>图片里面的文字要是有广告也是不能要的</p>
+<p>文字信息不要广告 用简单分类器</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mtianyan/FunpySpiderSearchEngine">个性化搜索推荐 elasticsearch</a></p>
+<p>按照老毛的思想 要一边造谣一边辟谣 一边承认一边否定 同样的话颠三倒四可以说无数遍 也可以选择不说 这样可以和很多的类似故事杂交</p>
+<ul>
+<li><p><input disabled="" type="checkbox"> 
+处理私聊信息 每回复一个人就清除他的所有历史发言 每隔一段时间处理其中的一个人 不会相互挤占 只有在不闲聊的时候处理私聊信息 特定的人不能进行私聊</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+白天聊天 收集数据 晚上离线训练 （此逻辑可以推广到任意的机器学习驱动的平台）</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+增加训练数据的context 不要只是一问一答 总语句数量要增加</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+占用系统显卡训练的时候 需要专门acquire一个filelock 表示大量资源被占用 系统忙</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+选取质量好有情感的聊天样本 长短适中 不要广告不要偏激违禁词 去掉表情包 去掉链接 清洗数据 同时模型用于对话的时候不要输入输出一些违禁词 可以通过话题建模进一步细分归类对话数据之间的联系</p>
+</li>
+</ul>
+<p>schedule the training on minute basis first for complete test, then schedule it on fixed time per day.</p>
+<p>for qq client: dump 500 continual sentences when adding one new while holding the filelock, do not block or stop running if GPT not responding</p>
+<p>for gpt2 server: (where to train? how to prevent maching from burning? for how long?)</p>
+<p>rename the dataset while holding the filelock</p>
+<p>always keep the latest 2 models, remove those not readable first, then delete older ones.</p>
+<p>if train on CPU, still need to limit training time, sleep while doing so. GPU for sure we need sleep during training, and do not use VRAM for other applications.</p>
+<ul>
+<li><p><input disabled="" type="checkbox"> 
+把”汪汪”翻译成表情包 同时可以随机添加其他表情</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+根据实时群聊数据训练gpt2</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+根据离线群聊数据训练gpt2</p>
+</li>
+</ul>
+<p>自动骂人</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/liuke-wuhan/ZuAnBot">https://github.com/liuke-wuhan/ZuAnBot</a></p>
+<ul>
+<li><p><input disabled="" type="checkbox"> 
+添加一个FileLock在gpt2 main server里面 不要让多个对话同时进行处理</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+在人多的群里面少说话 具体表现为每次说话的时间间隔变长 次数变少 同时要注意 聊天内容过于严肃 专业的群尽量不要水</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/docs/transformers/model_doc/dialogpt">dialogpt documentation</a></p>
+<p>闲聊chitchat dialog bot training framework by facebook:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/facebookresearch/ParlAI">https://github.com/facebookresearch/ParlAI</a></p>
+<p>debug the consecutive group reply thresholding protocol</p>
+<p>reply according to individual description and group description</p>
+<ul>
+<li><p><input disabled="" type="checkbox"> 
+同时推广自己和别人的视频或者内容 收集推荐反馈 同时逐步减小推荐别人视频或者内容的频率</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+推广视频的时候可以加入别人的视频高赞评论 动态的GIF 音频 或者是短视频 然后再发送xml</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+增加复读图片的功能 增加chatlocal返回图片的功能</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+增加反馈功能 根据发言之后群里面的回复来确定发言是否有益</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+用txtai或者其他information retrieval (semantic search, smart search)语义查找工具来代替levenshtein的history based reply logic 查找时要包括上下文</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+复读机不能使得死群活起来 但是主动推送可以 推送长的 自言自语的对话到群里面 不能是同一个群 主题要相关 filter out too negative ones</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+拉人到别的群里面来 最好是多个号不共享群但是话题有交集的人</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+add <code>involution</code> option, allow to append unqualified replies to input message, separated by space.</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+add extend conversation option, allow to reply more than one sentence at a time (proper delay needed) -&gt; could be achieved by using GPT2 alike generation model</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+可以给群友点赞</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+可以发语音</p>
+</li>
+</ul>
+<p>每次对话输入的context不能太小 不然看起来假</p>
+<ul>
+<li><input disabled="" type="checkbox"> 添加复读原句子的功能 触发条件为sentiment</li>
+</ul>
+<p>往群里面发b站视频广告的话 最好和群聊主题相关 和最近接收到的消息相关 同时频率不能太高 要设置全局的counter 群聊每发送一条消息trigger一次counter counter mod period &#x3D;&#x3D; 0 的时候就执行发广告命令 同时可以考虑渲染任务 和发广告的逻辑要解耦合 同时访问一片数据 比如redis 根据最近聊到的内容制作和上传视频 不能在同一个群里面以太快的频率发送相同视频 相同的视频必须间隔一段时间再往其他群发送 最好用schedule库实现 方法内部要实现delay或者放弃schedule的效果</p>
+<p>如果群聊被踢 可以考虑换头像 换昵称 更改个人资料 然后重新申请 同样可以考虑更改b站的信息 用外网网红信息来填充自己的信息 更改资料频率和申请频率都需要控制 需要单独设置每天的quota quota保存在文件里面 申请的信息最好用ai生成 或者paraphrase一下 或者到网上搜索 收集相关内容 先训练一下 头像可以全网到处爬 可以选择二次元头像（动漫头识别）对比度高的 可以是类似头像 不能是系统默认头像不然太过无聊 可以和群聊主题相关 资料抄别人的 别的群里面的 抄该群群成员的资料 或者别的群的资料 不能是管理员资料</p>
+<ul>
+<li><input disabled="" type="checkbox"> 根据模板生成下一句 不要直接生成 素材可以是群公告 群主题 接收到的信息</li>
+</ul>
+<p>模板生成要和新词发现结合</p>
+<p>模板生成 paraphraser可以和chatlocal或者repeater结合</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> re</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.split(<span class="string">r&quot;(abc|acd)&quot;</span>,<span class="string">&quot;aaabcaaacdaaa&quot;</span>)</span><br><span class="line">[<span class="string">&#x27;aa&#x27;</span>, <span class="string">&#x27;abc&#x27;</span>, <span class="string">&#x27;aa&#x27;</span>, <span class="string">&#x27;acd&#x27;</span>, <span class="string">&#x27;aaa&#x27;</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>word=<span class="string">&quot;aaabcaaacdaaa&quot;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>word=<span class="string">&quot;aaabcaaacdaaa&quot;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.escape(<span class="string">&quot;abc&quot;</span>)</span><br><span class="line"><span class="string">&#x27;abc&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>re.escape(<span class="string">&quot;efgh&quot;</span>)</span><br><span class="line"><span class="string">&#x27;efgh&#x27;</span></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>可以拆分句子为列表</p>
+<ul>
+<li><input disabled="" type="checkbox"> 去除经常生成的话语 比如你好之类的</li>
+</ul>
+<p>挑选levenshtein距离大于0（不能是它本身）的上一句，排序 选择10句 根据情绪激烈程度（正负皆可 去掉过于负面的）排序 输出第一名 选择下一句作为回答 然后记录这个回答在机器人的回答历史中</p>
+<p>句子如果是取同一个group里面的 不能太recent 起码距离要有50个句子的距离</p>
+<p>文字 图片 视频 都可以搜索百度 搜狗 中文搜索api 根据相关度和情绪来排序 （语种一致）回答文字或者多媒体</p>
+<p>拆分大句子为小句子 依次放入 注意要过滤掉广告 一般广告比较长 有链接？</p>
+<ul>
+<li><p><input disabled="" type="checkbox"> 
+输入的内容不能有违禁词否则不回答</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+输出内容的时候不能有违禁词语 放进来的可以违禁 或者用拼音或者拆字转换这些违禁词语 保证上下文一致性 文本审查</p>
+</li>
+</ul>
+<p>bad chinese -&gt; letter(pinyin initials) -&gt; leetspeek</p>
+<p>下一次挑选的时候自动过滤掉这些下一句在历史回答里面的句子对</p>
+<p>那个lock 要限制自身的读取&#x2F;删除操作以及新消息的append操作</p>
+<ul>
+<li><input disabled="" type="checkbox"> 关于情绪激烈程度 如何提高生成器的情绪激烈度 做一个鉴别器 可以选择性的不去back propagate情绪不激烈的生成结果 或者直接用鉴别器筛选输入的语料</li>
+</ul>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/05/24/677b72f2-f2b0-44f1-a181-724286a16fc1/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/07/14/4887de13-b333-4e89-b106-dcf7ddcef5cf/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2022-07-14 </div>
+			<div class="article-title"><a href="/blog/2022/07/14/b77b6a03-11cb-401c-86bf-cd72715aaa70/" title="This article delves into the world of AI chatbot development and deployment, exploring popular platforms like Heroku and Google App Engine. Additionally, it highlights useful API tools such as Hugging Face and PaddlePaddle to enhance your chatbot&#39;s functionality.">Chatbot, Self-Hosted Model, Cloud Deploy, Cloud Services, Free Website Hosting Service</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p><a target="_blank" rel="noopener" href="https://vercel.com/">vercel</a> hosts frontend only apps, could be useful if you want.</p>
+<p>可以提取关键词然后到百度必应上面搜索 获取相关内容 注意语种一致性</p>
+<p>search huggingface with julia or python:</p>
+<p>huggingface_hub(python)</p>
+<p>可以用huggingface的api来翻译 对接英文的chatbot (blenderbot, dialo-gpt)</p>
+<p>add timeout to these api requests</p>
+<p>可以把训练好的中文chatbot放到huggingface上面去 用kaggle放</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yangjianxin1/GPT2-chitchat">https://github.com/yangjianxin1/GPT2-chitchat</a></p>
+<p>could use this method to generate title for videos. i mean generally.</p>
+<p>could host the model on huggingface, or baidu aistudio, heroku or your own machine</p>
+<p>configure accelerated inference on huggingface (free for cpu, paid gpu):</p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/docs/api-inference/quicktour">https://huggingface.co/docs/api-inference/quicktour</a></p>
+<p>huggingface inference apis:</p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/inference-api">https://huggingface.co/inference-api</a></p>
+<p>huggingface conversational (chatbot) models:</p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/models?pipeline_tag=conversational&sort=downloads">https://huggingface.co/models?pipeline_tag=conversational&amp;sort=downloads</a></p>
+<p>heroku, use fastapi as interface:</p>
+<p><a target="_blank" rel="noopener" href="https://fastapi.tiangolo.com/">https://fastapi.tiangolo.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.kaggle.com/getting-started/208405">https://www.kaggle.com/getting-started/208405</a></p>
+<p><a target="_blank" rel="noopener" href="https://signup.heroku.com/">https://signup.heroku.com</a></p>
+<p>heroku alternatives:</p>
+<p>back4app, google app engine</p>
+<p>aistudio api, maybe you need to train or find a paddpepaddle based chatbot:</p>
+<p><a target="_blank" rel="noopener" href="https://ai.baidu.com/ai-doc/AISTUDIO/bk3e382cq#%E5%88%9B%E5%BB%BA%E5%9C%A8%E7%BA%BFapi%E6%9C%8D%E5%8A%A1">https://ai.baidu.com/ai-doc/AISTUDIO/bk3e382cq#创建在线api服务</a></p>
+<p>一个项目可以创建至多五个沙盒服务, 并选择其中一个沙盒服务部署为线上服务.</p>
+<p>沙盒服务如果连续超过24小时无调用将自动调整为暂停状态.</p>
+<p>线上服务如果连续超过14天无调用将自动调整为暂停状态.</p>
+<p>paddlenlp</p>
+<p><a target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/projectdetail/3723144?channelType=0&channel=0">https://aistudio.baidu.com/aistudio/projectdetail/3723144?channelType=0&amp;channel=0</a></p>
+<p>paddlepaddle chat model:</p>
+<p>plato2</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/Knover">https://github.com/PaddlePaddle/Knover</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/Knover/tree/develop/projects/PLATO-2">https://github.com/PaddlePaddle/Knover/tree/develop/projects/PLATO-2</a></p>
+<p><a target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/projectdetail/1886227?channelType=0&channel=0">https://aistudio.baidu.com/aistudio/projectdetail/1886227?channelType=0&amp;channel=0</a></p>
+<p>中文chatbot:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zhaoyingjun/chatbot">https://github.com/zhaoyingjun/chatbot</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Dimsmary/Ossas_ChatBot">https://github.com/Dimsmary/Ossas_ChatBot</a></p>
+<p>教程</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lcdevelop/ChatBotCourse">https://github.com/lcdevelop/ChatBotCourse</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/fendouai/Awesome-Chatbot">https://github.com/fendouai/Awesome-Chatbot</a></p>
+<p>语料库</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/codemayq/chinese_chatbot_corpus">https://github.com/codemayq/chinese_chatbot_corpus</a></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2022/07/14/b77b6a03-11cb-401c-86bf-cd72715aaa70/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2022-07-14 </div>
+			<div class="article-title"><a href="/blog/2022/07/14/f8de6157-4e2e-49e7-8d1b-8860e4e8184a/" title="This article explains how to connect a HarmonyOS device&#39;s logs to MySQL, providing the necessary login credentials and log file structure. It also provides guidance on decompressing .gz files and understanding their format for analysis.">Harmonyos Device Log To Mysql</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>mysql path:</p>
+<p>jdbc:mysql:&#x2F;&#x2F;10.33.163.33:3306&#x2F;HTS_DB?characterEncoding&#x3D;UTF-8</p>
+<p>root</p>
+<p>pipeline@123</p>
+<p>Logs Path:</p>
+<p>&#x2F;data&#x2F;data&#x2F;Local&#x2F;DeviceTest&#x2F;20220406163617_hts_project&#x2F;resources&#x2F;HTS&#x2F;android-hts&#x2F;logs</p>
+<p>under logs:</p>
+<p>%Y.%m.%d_%H.%M.%S_<serial_number></p>
+<p>select the latest folder</p>
+<p>under selected folder:</p>
+<p>device_logcat_test_<serial_number>_<unknownInteger>.txt.gz</p>
+<p>decompress using: (before that os.chdir to the selected folder)</p>
+<p>gzip -d <file></p>
+<p>does the decompression remove the .gz file?</p>
+<p>it will.</p>
+<p>log format per line:</p>
+<p>DfxTestLog: A1<testName>_<testName2_contain_test_serial>_DfxTestTime &#x3D; <value> datai&#x3D;4</p>
+<p>from 1 to 13:</p>
+<p>A1test1..4</p>
+<p>A2test5</p>
+<p>A3test1..2</p>
+<p>B1test1</p>
+<p>B2test4..6</p>
+<p>D1test1</p>
+<p>M1test1</p>
+<p>Tables:</p>
+<p>Performance_Baseline_Info</p>
+<p>testValue date(%Y-%m-%d) hmsVersion(HMSCore660319) baselineId_id deviceId_id(1,2,4,3,5) deviceType(phone&lt;-1|wearable&lt;-2|car&lt;-4|tv&lt;-3|ecodevice&lt;-5)</p>
+<p>Performance_Daily_Data</p>
+<p>id features indicators baseValue</p>
+<p>Performance_Device_Info</p>
+<p>id(to the deviceId_id) model type sn cpu</p>
+
+	
+	</div>
+  <a type="button" href="/blog/2022/07/14/f8de6157-4e2e-49e7-8d1b-8860e4e8184a/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2022-07-14 </div>
+			<div class="article-title"><a href="/blog/2022/07/14/7407631d-b486-4c90-9577-45486922b9b1/" title="This article explores SEO strategies for targeting low competition keywords, maximizing conversion rates and trade-off prices. It also covers black hat practices and alternative methods without a website. Additionally, the article delves into utilizing n-gram analysis in Python to cluster keywords for video content optimization by analyzing click rates and play counts.">Seo 蓝海词 竞争度</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="SEO-蓝海词-飙升词-竞争度-搜索人气-转化率-成交价（视频长度）"><a href="#SEO-蓝海词-飙升词-竞争度-搜索人气-转化率-成交价（视频长度）" class="headerlink" title="SEO 蓝海词 飙升词 竞争度 搜索人气 转化率 成交价（视频长度）"></a>SEO 蓝海词 飙升词 竞争度 搜索人气 转化率 成交价（视频长度）</h1><p>we need suggestion, related topics, also search results.</p>
+<p>can be used in title generation.</p>
+<p>title&#x2F;message as query (-&gt; keyword -&gt; suggested query) -&gt; search results -&gt; extract response&#x2F;title</p>
+<p>suggestion, trending topics&#x2F;keywords</p>
+<p>black hat seo, <a target="_blank" rel="noopener" href="https://www.blackhatworld.com/forums/black-hat-seo.28/">https://www.blackhatworld.com/forums/black-hat-seo.28/</a></p>
+<p>paste your link ‘elsewhere’, submit your link to search engine somehow, visit your link from search engine somehow</p>
+<h2 id="seo-without-website"><a href="#seo-without-website" class="headerlink" title="seo without website"></a>seo without website</h2><p>write a blog on github?</p>
+<p>create short links and submit them to search engine</p>
+<p>get query count, perform n-gram analysis</p>
+<p><a target="_blank" rel="noopener" href="https://www.aeripret.com/ngrams-analysis-seo/">https://www.aeripret.com/ngrams-analysis-seo/</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.pemavor.com/seo-keyword-clustering-with-python/">https://www.pemavor.com/seo-keyword-clustering-with-python/</a></p>
+<p>i have bookmarked links for further use on macbook chrome.</p>
+<p><a target="_blank" rel="noopener" href="https://advertools.readthedocs.io/en/master/readme.html">advertools</a> is a professional SEO library, productivity &amp; analysis tools to scale your online marketing</p>
+<p>可以用分析股价的方法分析搜索关键词 其中股价对应搜索频率（实时） 播放量对应成交量（实时）也可能不对 反正这个模型肯定要先收集数据然后再建模 画k线 当然也不必完全拘泥于全盘还原 收集到的数据能反映实际情况 得到最优解 也就是发个视频预估播放量最大就行 用深度学习模型</p>
+<p>寻找潜在爆款话题 标签</p>
+<p>快排参数 上首页</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/sopify-bot/seo">https://github.com/sopify-bot/seo</a></p>
+<p>分为主动点击 换IP点击</p>
+<p>以及优化自身关键词 被动优化两种方式</p>
+<p>蓝海词可以从零开始做 可以由现有词语延伸 可以寻找已有的蓝海词</p>
+<p>蓝海词是产品关键词的一种，又被称为“零少词”、“长尾词”。具体是指前台具备一定买家搜索热度，但供应商发布产品较少，通常该词下对应的精确匹配产品数量不超过3页，因而同行竞争度较低的关键词。一旦供应商能准确使用这些词语，并能结合信息质量发布一条合格的产品信息，将获得曝光和点击的快速提升</p>
+<p>红海泛指竞争相当激烈的市场。在红海中，产业边界是明晰和确定的，游戏的竞争规则是已知的。身处红海的企业试图表现得超过竞争对手，以攫取已知需求下的更大市场份额</p>
+<p>淘宝标题撰写技巧：标题流量的3架马车，飙升词+蓝海词+销量卡位词</p>
+<p>什么是飙升词？就是在短时间内热度迅速攀升，并且持续上升的词！</p>
+<p>蓝海词就是那些搜索热度非常高，但这个词下面的在线产品却很少的词。</p>
+<p>这种词可以让我们避免和红海大词竞争，获取很多隐藏流量！</p>
+<p>淘宝界面除了能够综合排序之外，我们还能通过销量来排序。</p>
+<p>关键词卡位就是 寻找点击量和你差不多的视频 商品所拥有的关键词语 标签 这样按照播放量排序的时候就会排到这些视频中间</p>
+
+	
+	</div>
+  <a type="button" href="/blog/2022/07/14/7407631d-b486-4c90-9577-45486922b9b1/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2022-07-13 </div>
+			<div class="article-title"><a href="/blog/2022/07/13/626df2db-8eab-47d9-852d-5f8dfc3d3319/" title="The text discusses various GitHub repositories focused on face recognition technology, offering different implementations and resources for creating facial recognition systems using diverse programming languages and frameworks.">人脸识别 Face Recognition</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p><a target="_blank" rel="noopener" href="https://github.com/ZhaoJ9014/face.evoLVe">https://github.com/ZhaoJ9014/face.evoLVe</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/timesler/facenet-pytorch">https://github.com/timesler/facenet-pytorch</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/JDAI-CV/FaceX-Zoo">https://github.com/JDAI-CV/FaceX-Zoo</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/justadudewhohacks/face-api.js">https://github.com/justadudewhohacks/face-api.js</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/cmusatyalab/openface">https://github.com/cmusatyalab/openface</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/davidsandberg/facenet">https://github.com/davidsandberg/facenet</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ageitgey/face_recognition">https://github.com/ageitgey/face_recognition</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jerry1900/faceRecognition">https://github.com/jerry1900/faceRecognition</a></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2022/07/13/626df2db-8eab-47d9-852d-5f8dfc3d3319/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2022-07-13 </div>
+			<div class="article-title"><a href="/blog/2022/07/13/1c5d0334-defa-4c85-8fc4-11f67ce8b29b/" title="The text provides resources for generating topics, discovering trends, and detecting new words using tools like BERT documentation, Chinese segment augmentation Github repositories, and a Naive Bayes classifier.">Topic Generation 话题发现 趋势发现 热点发现</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="Topic-Generation-话题发现-趋势发现-热点发现-文本分类"><a href="#Topic-Generation-话题发现-趋势发现-热点发现-文本分类" class="headerlink" title="Topic Generation 话题发现 趋势发现 热点发现 文本分类"></a>Topic Generation 话题发现 趋势发现 热点发现 文本分类</h1><p><a target="_blank" rel="noopener" href="https://huggingface.co/docs/transformers/model_doc/bert">bert documentation</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/MaartenGr/BERTopic">https://github.com/MaartenGr/BERTopic</a></p>
+<p>新词发现（可用于挖掘热点 热词 蓝海词）</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zhanzecheng/Chinese_segment_augment">https://github.com/zhanzecheng/Chinese_segment_augment</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/bojone/word-discovery">https://github.com/bojone/word-discovery</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/blmoistawinde/HarvestText">https://github.com/blmoistawinde/HarvestText</a></p>
+<p>文本分类 文本匹配 文本检索</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lining0806/Naive-Bayes-Classifier">https://github.com/lining0806/Naive-Bayes-Classifier</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/649453932/Bert-Chinese-Text-Classification-Pytorch">https://github.com/649453932/Bert-Chinese-Text-Classification-Pytorch</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/gaussic/text-classification-cnn-rnn">https://github.com/gaussic/text-classification-cnn-rnn</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yongzhuo/Keras-TextClassification">https://github.com/yongzhuo/Keras-TextClassification</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/youthpasses/bayes_classifier">https://github.com/youthpasses/bayes_classifier</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Roshanson/TextInfoExp">https://github.com/Roshanson/TextInfoExp</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/aceimnorstuvwxz/toutiao-multilevel-text-classfication-dataset">https://github.com/aceimnorstuvwxz/toutiao-multilevel-text-classfication-dataset</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/CementMaker/cnn_lstm_for_text_classify">https://github.com/CementMaker/cnn_lstm_for_text_classify</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/hellonlp/classifier_multi_label_textcnn">https://github.com/hellonlp/classifier_multi_label_textcnn</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/cjymz886/text-cnn">https://github.com/cjymz886/text-cnn</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/terrifyzhao/bert-utils">https://github.com/terrifyzhao/bert-utils</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/649453932/Chinese-Text-Classification-Pytorch">https://github.com/649453932/Chinese-Text-Classification-Pytorch</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/HappyShadowWalker/ChineseTextClassify">https://github.com/HappyShadowWalker/ChineseTextClassify</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/XqFeng-Josie/TextCNN">https://github.com/XqFeng-Josie/TextCNN</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/tensorlayer/text-antispam">https://github.com/tensorlayer/text-antispam</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/MachineLP/TextMatch">https://github.com/MachineLP/TextMatch</a></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2022/07/13/1c5d0334-defa-4c85-8fc4-11f67ce8b29b/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2022-07-13 </div>
+			<div class="article-title"><a href="/blog/2022/07/13/2a7bee76-2907-44b8-b8bf-618d474e061e/" title="The comments provide insights on different video creation methods, tools, and open-source software options for Linux and JavaScript libraries like three.js and anime.js. Additionally, they discuss the use of LibreOffice Impress in combination with synfig, blender, or three.js for animations and suggest collecting search terms from Bing and Daojia for effective query formation.">Powerpoint 比较视频制作方法 Animation Software Oss Scriptable Flipcard</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<ul>
+<li><input disabled="" type="checkbox"> 看看别人的数据来源是什么</li>
+</ul>
+<p>知乎神回答 知乎同类回答 排行榜 github排行榜 同类内容</p>
+<p>比较视频可以用段落总结关键词来做</p>
+<p><a target="_blank" rel="noopener" href="https://sourceforge.net/directory/graphics/graphics/animation/os%3Alinux/">free open source animation software for linux, by sourceforge.net</a></p>
+<p><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/three-js.mirror/">three.js</a> javascript 3d library</p>
+<p><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/typed-js.mirror/">typed.js</a> imitate typing animation</p>
+<p><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/anime-js.mirror/">anime.js</a> javascript animation engine</p>
+<p>synfig 2d vector based animation library</p>
+<p><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/countup-js.mirror/">countup.js</a> animate counting up to a number</p>
+<p><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/vivus-js.mirror/">vivus.js</a> drawing animation imitator</p>
+<p>Libreoffice Impress或者其他的动画工具 制作视频 比如synfig blender three.js</p>
+<p><a target="_blank" rel="noopener" href="https://ask.libreoffice.org/t/convert-impress-presentation-to-video/33952">https://ask.libreoffice.org/t/convert-impress-presentation-to-video/33952</a></p>
+<p><a target="_blank" rel="noopener" href="https://ask.libreoffice.org/t/how-to-turn-libreoffice-impress-into-video-mp4-format/20589">https://ask.libreoffice.org/t/how-to-turn-libreoffice-impress-into-video-mp4-format/20589</a></p>
+<p>同样的 可以制作冷知识问答的动画视频 通过收集百度 bing搜索相关词语 如果是问句 问题 就拿来搜索 如果出现了放大版本的句子就收集下来 就是回答</p>
+
+	
+	</div>
+  <a type="button" href="/blog/2022/07/13/2a7bee76-2907-44b8-b8bf-618d474e061e/#more" class="btn btn-default more">Read More</a>
 </div>
 
            

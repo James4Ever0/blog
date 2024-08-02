@@ -123,8 +123,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-07-09 </div>
-			<div class="article-title"><a href="/blog/2022/07/09/cd5256e9-1cff-409b-9b65-63b9939f0047/" title="Bilibili APIs allow developers to create tools and applications in various languages like Python for tasks such as video uploading, user account management, and more.">哔哩哔哩 接口 Bilibili Apis</a></div>
+			<div class="date"> 2022-08-25 </div>
+			<div class="article-title"><a href="/blog/2022/08/25/af109850-a641-43b8-becc-f8fcc89cde1e/" title="This article explores techniques for scanning images and documents containing mathematical formulas using non-max suppression and image search libraries such as Chargrid OCR or Image Match, ensuring compliance with copyright laws while minimizing manual formatting.">Scan This Picture And Index The Whole Video/Document/Ppt/Textbook!</a></div>
 		</h3>
 	
 
@@ -135,25 +135,24 @@
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://github.com/biliup/biliup">bilibili上传工具 biliup</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Hsury/Bilibili-Toolkit">bilibili toolkit</a></p>
-<p>api合集</p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv3430609/">https://www.bilibili.com/read/cv3430609/</a></p>
-<p>官方接口文档</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/fython/BilibiliAPIDocs">https://github.com/fython/BilibiliAPIDocs</a></p>
-<p>直播api</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/lovelyyoshino/Bilibili-Live-API">https://github.com/lovelyyoshino/Bilibili-Live-API</a></p>
-<p>野生api收集</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/SocialSisterYi/bilibili-API-collect">https://github.com/SocialSisterYi/bilibili-API-collect</a></p>
-<p>python api</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/MoyuScript/bilibili-api">https://github.com/MoyuScript/bilibili-api</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Nemo2011/bilibili-api">https://github.com/Nemo2011/bilibili-api</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Vespa314/bilibili-api">https://github.com/Vespa314/bilibili-api</a></p>
-<p><a target="_blank" rel="noopener" href="https://nemo2011.github.io/bilibili-api/#/examples/interactive_video">提交视频剧情树</a></p>
+		<h2 id="non-max-suppression-in-combining-similar-bounding-boxes"><a href="#non-max-suppression-in-combining-similar-bounding-boxes" class="headerlink" title="non-max suppression in combining similar bounding boxes"></a>non-max suppression in combining similar bounding boxes</h2><p>the lib:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> imutils.object_detection <span class="keyword">import</span> non_max_suppression</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="basically-greek-letters"><a href="#basically-greek-letters" class="headerlink" title="basically greek letters"></a>basically greek letters</h2><p>maybe you can document another great range of symbols by just enabling the system to search in greek?</p>
+<p>could also search among math symbols, do <a target="_blank" rel="noopener" href="https://github.com/chungkwong/MathOCR">math ocr</a>.</p>
+<h2 id="kindly-reminders"><a href="#kindly-reminders" class="headerlink" title="kindly reminders"></a>kindly reminders</h2><p>when building python c++ libraries without xcode, please add commandline header files like this:</p>
+<p>in order to have this during build:</p>
+<p><code>/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/Headers/Python.h</code><br>we need to do:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">ln</span> -s /Library/Developer/CommandLineTools /Applications/Xcode.app/Contents/Developer</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="search-by-image-instead-of-cranking-latex-out"><a href="#search-by-image-instead-of-cranking-latex-out" class="headerlink" title="search by image instead of cranking latex out"></a>search by image instead of cranking latex out</h2><h3 id="image-search-libraries"><a href="#image-search-libraries" class="headerlink" title="image search libraries"></a>image search libraries</h3><p>character level optical char segmentation called <a target="_blank" rel="noopener" href="https://github.com/akkshita/chargrid-ocr">chargrid ocr</a><br><a target="_blank" rel="noopener" href="https://github.com/ProvenanceLabs/image-match">image match used for copyright violation detection, using phash algorithm</a></p>
+<h2 id="get-the-latex-out"><a href="#get-the-latex-out" class="headerlink" title="get the latex out"></a>get the latex out</h2><h3 id="first-detect-the-location-of-math-formula"><a href="#first-detect-the-location-of-math-formula" class="headerlink" title="first detect the location of math formula"></a>first detect the location of math formula</h3><p><a target="_blank" rel="noopener" href="https://github.com/MaliParag/ScanSSD">scanning single shot detection for math formulas</a><br><a target="_blank" rel="noopener" href="https://github.com/MaliParag/TFD-ICDAR2019">dataset for math symbol detection</a><br><a target="_blank" rel="noopener" href="https://github.com/Binhhp/detector-scan-image">detect different part of document with yolov3</a><br><a target="_blank" rel="noopener" href="https://github.com/divya1211/math-expression-detection">math expression detection</a></p>
+<h3 id="next-find-the-tool-for-picture-to-latex-conversion"><a href="#next-find-the-tool-for-picture-to-latex-conversion" class="headerlink" title="next find the tool for picture to latex conversion"></a>next find the tool for picture to latex conversion</h3><p>新开源的Python工具——Pix2Text (P2T)，目标是 Mathpix 的Python开源替代品，现在可以识别截图中的数学公式并转换为Latex表示，也可以识别图片中的中英文文字。在线Demo： <a target="_blank" rel="noopener" href="https://huggingface.co/spaces/breezedeus/pix2text">https://huggingface.co/spaces/breezedeus/pix2text</a> 。 Github: <a target="_blank" rel="noopener" href="https://github.com/breezedeus/pix2text">https://github.com/breezedeus/pix2text</a> ，Gitee: <a target="_blank" rel="noopener" href="https://gitee.com/breezedeus/pix2text">https://gitee.com/breezedeus/pix2text</a> 。<br><a target="_blank" rel="noopener" href="https://github.com/DexterLei/Math-OCR">attention based math ocr</a><br><a target="_blank" rel="noopener" href="https://github.com/yixuanzhou/image2latex">gui of image2latex</a><br><a target="_blank" rel="noopener" href="https://github.com/ritheshkumar95/im2latex-tensorflow">im2latex-tensorflow</a><br><a target="_blank" rel="noopener" href="https://github.com/harvardnlp/im2markup/">im2markup with only nvidia support</a> using torch, model for latex conversion can be found <a target="_blank" rel="noopener" href="https://im2markup.yuntiandeng.com/model/latex/final-model">here</a><br><a target="_blank" rel="noopener" href="https://github.com/kingyiusuen/image-to-latex">deeplearning picture to latex</a><br><a target="_blank" rel="noopener" href="https://github.com/lukas-blecher/LaTeX-OCR">pix2tex</a><br><a target="_blank" rel="noopener" href="https://pix2tex.readthedocs.io/en/latest/pix2tex.html#pix2tex-api-package">using pix2tex</a><br><a target="_blank" rel="noopener" href="https://github.com/LinXueyuanStdio/LaTeX_OCR_PRO">中文公式 手写公式识别 需要进一步训练</a><br><a target="_blank" rel="noopener" href="https://github.com/qs956/Latex_OCR_Pytorch">中文 手写 pytorch版本</a></p>
+<h2 id="mask-latex-area-and-get-conventional-things-out"><a href="#mask-latex-area-and-get-conventional-things-out" class="headerlink" title="mask latex area and get conventional things out"></a>mask latex area and get conventional things out</h2><p><a target="_blank" rel="noopener" href="https://github.com/JaidedAI/EasyOCR">easyocr with pytorch support</a></p>
+<h2 id="search-the-formula"><a href="#search-the-formula" class="headerlink" title="search the formula"></a>search the formula</h2><p><a target="_blank" rel="noopener" href="https://github.com/AzizAlqasem/FormulaLab">formula search based on sympy</a><br>can we render latex to picture with sympy?<br><a target="_blank" rel="noopener" href="https://github.com/kerryz/latexsymbolsearch">latex search engine</a></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/07/09/cd5256e9-1cff-409b-9b65-63b9939f0047/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/25/af109850-a641-43b8-becc-f8fcc89cde1e/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -163,8 +162,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-07-08 </div>
-			<div class="article-title"><a href="/blog/2022/07/08/35f90ef1-eaad-42cc-bbb8-6291de7982b3/" title="This code snippet defines a compare function that allows for cutting music segments based on lyrics and BPM (beats per minute). The function uses two variables, seg_low and seg_high, to determine the allowed segment range. Candidates are sorted by nearby lyrics and BPM, with lyrics given priority.">Cut Music Scenes With Lyrics And Bpm</a></div>
+			<div class="date"> 2022-08-23 </div>
+			<div class="article-title"><a href="/blog/2022/08/23/5cf4e7ec-9e3f-4cbc-b9b1-d527016511c7/" title="The text explores the concept that acquiring substantial amounts of information is crucial for accomplishment in diverse domains, and highlights the distinction between strong and weak correlations.">关于人类发展规律和需求的随想</a></div>
 		</h3>
 	
 
@@ -175,13 +174,11 @@
   <div class="row">
 	
 	
-		<h1 id="Cut-Music-Segments-With-Lyrics-and-BPM"><a href="#Cut-Music-Segments-With-Lyrics-and-BPM" class="headerlink" title="Cut Music Segments With Lyrics and BPM"></a>Cut Music Segments With Lyrics and BPM</h1><p>def compare(a,b,reverse&#x3D;False):</p>
-<p>seg_low, seg_high &#x3D; get_allowed_segments(bpm, low, high, tolerance&#x3D;0.8) # the tolerance is compared with a common function called compare. it can be customized to output only value &gt;&#x3D;1 or vice versa.</p>
-<p>candidates &#x3D; sorted_lyrics_nearby_bpm_candidates + sorted_remained_bpm_candidates # priortize lyrics candidates.</p>
+		<p>人需要获得海量信息然后才能在某些领域取得成就 这个相互关系有强相关和弱相关的范畴</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/07/08/35f90ef1-eaad-42cc-bbb8-6291de7982b3/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/23/5cf4e7ec-9e3f-4cbc-b9b1-d527016511c7/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -191,8 +188,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-07-08 </div>
-			<div class="article-title"><a href="/blog/2022/07/08/3f3a1f00-f206-40c6-97d5-e29f5edf877e/" title="This article provides instructions on how to set up a man-in-the-middle (MITM) proxy on an Android device using mitmproxy and access various API endpoints for Soul app data, such as user profiles, recent moments, hot instant moments, and audio playlists.">Soul Api</a></div>
+			<div class="date"> 2022-08-23 </div>
+			<div class="article-title"><a href="/blog/2022/08/23/dc967e4c-afe7-4d27-963a-26757c6aa479/" title="This article explores different search techniques, such as collaborative filtering and recommendation engines, along with random and heuristic libraries. It delves into scraping Twitch chat and predicting memes, detecting trending topics or videos using official APIs, recursive searching with filters and updates, topic modeling via Gensim, and identifying fake news in web browsers.">递归搜索 启发式搜索</a></div>
 		</h3>
 	
 
@@ -203,42 +200,33 @@
   <div class="row">
 	
 	
-		<h1 id="Soul-APIs"><a href="#Soul-APIs" class="headerlink" title="Soul APIs"></a>Soul APIs</h1><p><a target="_blank" rel="noopener" href="https://www.freesion.com/article/9811692393/">soul绕过ssl双向验证</a> justTRUSTME(xposed)加上反编译SDK获取证书密码 <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38316655/article/details/104176882">backup blog</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.trickster.dev/post/setting-up-mitmproxy-with-android/">use adb to setup mitmproxy on android</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/Library/Android/sdk/platform-tools/</span><br><span class="line"><span class="comment"># Get the hash of the mitmproxy-ca certificate.</span></span><br><span class="line">openssl x509 -inform PEM -subject_hash_old -<span class="keyword">in</span> ~/.mitmproxy/mitmproxy-ca.pem | <span class="built_in">head</span> -1</span><br><span class="line"><span class="comment"># We will use this hash value, append &#x27;.0&#x27; (dot zero) and use this as the filename for the resulting Android certificate</span></span><br><span class="line"><span class="built_in">cat</span> ~/.mitmproxy/mitmproxy-ca.pem &gt; c8750f0d.0</span><br><span class="line">openssl x509 -inform PEM -text -<span class="keyword">in</span> ~/.mitmproxy/mitmproxy-ca.pem -out /dev/null &gt;&gt; c8750f0d.0</span><br><span class="line"><span class="comment"># In an other terminal, we will start the emulator with writable /system volume</span></span><br><span class="line"><span class="built_in">cd</span> ~/Library/Android/sdk/emulator/</span><br><span class="line"><span class="comment"># In order to launch an available avd, we list them first.</span></span><br><span class="line">./emulator -list-avds</span><br><span class="line">./emulator -writable-system @Pixel_3a_XL_API_28</span><br><span class="line"><span class="comment"># We go back to the first terminal and we use adb tool to transfert the certificate</span></span><br><span class="line">adb root</span><br><span class="line">adb push c8750f0d.0 /storage/emulated/0/Download</span><br><span class="line"><span class="comment"># Then, we will mount the volume and get access to the shell</span></span><br><span class="line">adb shell mount -o rw,remount /;</span><br><span class="line">adb shell</span><br><span class="line"><span class="comment"># In the device Android shell, we will move the certificate inside the system partition in the folder &#x27;/system/etc/security/&#x27;</span></span><br><span class="line"><span class="built_in">cp</span> /storage/emulated/0/Download/c8750f0d.0 /system/etc/security/cacerts/</span><br><span class="line"><span class="built_in">chmod</span> 644 /system/etc/security/cacerts/c8750f0d.0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+		<h2 id="collaborative-filtering-recommendation-engine"><a href="#collaborative-filtering-recommendation-engine" class="headerlink" title="collaborative filtering, recommendation engine"></a>collaborative filtering, recommendation engine</h2><p><a target="_blank" rel="noopener" href="https://neo4j.com/blog/collaborative-filtering-creating-teams/">neo4j tutorial on recommendation engine</a></p>
+<h2 id="random-search-libraries"><a href="#random-search-libraries" class="headerlink" title="random search libraries"></a>random search libraries</h2><p><a target="_blank" rel="noopener" href="https://github.com/imdadahad/find-random-spotify-songs/blob/master/spotify_client.py">spotify randomizer</a></p>
+<h2 id="heuristic-search-libraries"><a href="#heuristic-search-libraries" class="headerlink" title="heuristic search libraries"></a>heuristic search libraries</h2><p><a target="_blank" rel="noopener" href="https://github.com/epeguero/twitch-meme-scraper">twitch chat scraper and meme prediction heuristic</a></p>
+<h2 id="how-to-find-trending-topics-or-videos"><a href="#how-to-find-trending-topics-or-videos" class="headerlink" title="how to find trending topics or videos?"></a>how to find trending topics or videos?</h2><p>you can check the same set of video and plot their historical stats, or use official ‘trending’ api to find out.</p>
+<h2 id="find-‘random’-videos-of-certain-topic"><a href="#find-‘random’-videos-of-certain-topic" class="headerlink" title="find ‘random’ videos of certain topic:"></a>find ‘random’ videos of certain topic:</h2><p>search for playlists, collect recommendations</p>
+<p>apply to some video feeding apis or official api like giphy</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/384614837">heuristic search, graph search intro</a></p>
+<p>use heuristic recursive search, apply random parameters, find related keywords, apply filters and update weights</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/pipisorry/article/details/46447561">topic modeling using gensim</a></p>
+<p><a target="_blank" rel="noopener" href="https://hackernoon.com/nlp-tutorial-topic-modeling-in-python-with-bertopic-372w35l9">bertopic tutorial</a> can predict topics of new document and get topic similarity</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip3 install bertopic</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>可能的系统设置</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">su -c settings list global | grep proxy</span><br><span class="line">global_http_proxy_exclusion_list=</span><br><span class="line">global_http_proxy_host=</span><br><span class="line">global_http_proxy_port=0</span><br><span class="line">global_proxy_pac_url=</span><br><span class="line">http_proxy=:0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>灵魂测试卡片信息，获取签名*</p>
-<p><a target="_blank" rel="noopener" href="https://api.soulapp.cn/html/measureResult/info/v2?userIdEcpt=%E5%8A%A0%E5%AF%86%E7%94%A8%E6%88%B7ID">https://api.soulapp.cn/html/measureResult/info/v2?userIdEcpt=加密用户ID</a></p>
-<p>用户头像和签名等信息*</p>
-<p><a target="_blank" rel="noopener" href="https://api-h5.soulapp.cn/html/v2/user/info?userIdEcpt=%E5%8A%A0%E5%AF%86%E7%94%A8%E6%88%B7ID">https://api-h5.soulapp.cn/html/v2/user/info?userIdEcpt=加密用户ID</a></p>
-<p>单条瞬间展开信息*</p>
-<p><a target="_blank" rel="noopener" href="https://api-h5.soulapp.cn/html/v3/post/detail?postIdEcpt=%E5%8A%A0%E5%AF%86%E7%9E%AC%E9%97%B4ID">https://api-h5.soulapp.cn/html/v3/post/detail?postIdEcpt=加密瞬间ID</a></p>
-<p>单条瞬间展开页面*</p>
-<p><a target="_blank" rel="noopener" href="https://w3.soulapp-inc.cn/activity/#/web/topic/detail?postIdEcpt=%E5%8A%A0%E5%AF%86%E7%9E%AC%E9%97%B4ID">https://w3.soulapp-inc.cn/activity/#/web/topic/detail?postIdEcpt=加密瞬间ID</a></p>
-<p>用户发布瞬间信息，只有最新的10条*</p>
-<p><a target="_blank" rel="noopener" href="https://api-h5.soulapp.cn/html/v2/post/homepage?userIdEcpt=%E5%8A%A0%E5%AF%86%E7%94%A8%E6%88%B7ID">https://api-h5.soulapp.cn/html/v2/post/homepage?userIdEcpt=加密用户ID</a></p>
-<p>用户发布瞬间页面，只有最新的10条*</p>
-<p><a target="_blank" rel="noopener" href="https://w3.soulapp-inc.cn/activity/#/web/user?userIdEcpt=%E5%8A%A0%E5%AF%86%E7%94%A8%E6%88%B7ID">https://w3.soulapp-inc.cn/activity/#/web/user?userIdEcpt=加密用户ID</a></p>
-<p>获取热门瞬间，只有最新的30条*</p>
-<p><a target="_blank" rel="noopener" href="https://api-h5.soulapp.cn/html/v2/post/hot?pageIndex=1%EF%BC%88%E5%89%8D3%E9%A1%B5%EF%BC%89">https://api-h5.soulapp.cn/html/v2/post/hot?pageIndex=1（前3页）</a></p>
-<p>获取标签的瞬间信息，只有最新的30条*</p>
-<p><a target="_blank" rel="noopener" href="https://api-h5.soulapp.cn/html/v2/tag/post?tagIdEcpt=%E5%8A%A0%E5%AF%86%E6%A0%87%E7%AD%BEID">https://api-h5.soulapp.cn/html/v2/tag/post?tagIdEcpt=加密标签ID</a></p>
-<p>获取标签的瞬间页面，只有最新的30条*</p>
-<p><a target="_blank" rel="noopener" href="https://w3.soulapp-inc.cn/activity/#/web/tag?tagIdEcpt=%E5%8A%A0%E5%AF%86%E6%A0%87%E7%AD%BEID">https://w3.soulapp-inc.cn/activity/#/web/tag?tagIdEcpt=加密标签ID</a></p>
-<p>随机播放音频信息，随机几首*</p>
-<p><a target="_blank" rel="noopener" href="https://api-h5.soulapp.cn/html/v2/post/orimusicList/recommend">https://api-h5.soulapp.cn/html/v2/post/orimusicList/recommend</a></p>
-<p>设置超萌捏脸页面*</p>
-<p><a target="_blank" rel="noopener" href="https://app.soulapp.cn/avator/#/avatar/create?sex=1&version=3.10.0">https://app.soulapp.cn/avator/#/avatar/create?sex=1&amp;version=3.10.0</a></p>
-<p>注销账号页面*</p>
-<p><a target="_blank" rel="noopener" href="https://app.soulapp.cn/app/#/account">https://app.soulapp.cn/app/#/account</a></p>
-<p><a target="_blank" rel="noopener" href="https://app.soulapp.cn/app/#/destroy">https://app.soulapp.cn/app/#/destroy</a></p>
+<p>可以事先设定好目标 不管这个搜没搜到 都要奖励搜索成功的那次过程 比如老头环和elden ring的对应关系</p>
+<p>有没有相关的工具？名字是什么？</p>
+<p>recursive text search engine</p>
+<p>Heuristic Text Search Engine</p>
+<p>free pdf: <a target="_blank" rel="noopener" href="https://academic.oup.com/jcmc/article/12/3/778/4582966?login=false">Heuristic and Systematic Use of Search Engines</a></p>
+<p>it’s like <a target="_blank" rel="noopener" href="https://gpt3demo.com/apps/webgpt">webgpt</a>, which has <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2112.09332.pdf">arxiv pdf paper</a></p>
+<p><a target="_blank" rel="noopener" href="https://openai.com/alignment/">openai alignment research</a> is to make artificial general intelligence (AGI) aligned with human values and follow human intent.</p>
+<p>there’s also a <a target="_blank" rel="noopener" href="https://github.com/meghu2791/evaluateNeuralFakenewsDetectors">fake news detector inside web browser</a></p>
+<p>搜索一个词 拿到感兴趣的继续搜下一个</p>
+<p>把你搜索的过程记录下来 搜集信息寻找关联的过程记录下来 然后交给ai进行离线训练</p>
+<p>同时可以把你创建内容 组织结构的过程记录下来 交给ai离线训练 适用于[template based content generator](.&#x2F;pyjom schedules.md)</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/07/08/3f3a1f00-f206-40c6-97d5-e29f5edf877e/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/23/dc967e4c-afe7-4d27-963a-26757c6aa479/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -248,8 +236,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-07-07 </div>
-			<div class="article-title"><a href="/blog/2022/07/07/ae1c2d03-8a12-4754-9acf-3ddbfb9304b6/" title="This article offers a solution to the problem of Nautilus file manager hanging during search operations. The proposed fix involves deleting the &#39;~/.cache/tracker&#39; folder, which should resolve the issue.">Nautilus Hangs When Searching</a></div>
+			<div class="date"> 2022-08-22 </div>
+			<div class="article-title"><a href="/blog/2022/08/22/ba662518-ad5e-4f7c-a657-c6d49067a408/" title="This text discusses a method to create 3D models from multiple similar images and generate a 3D video using the tool &#39;3d-moments&#39;. The process involves analyzing the images to extract depth information, which is then used to build a 3D model. This technology has various applications in industries like gaming, architecture, and film making.">Generating 3D Models From Images With The 3D-Moments Tool</a></div>
 		</h3>
 	
 
@@ -260,11 +248,12 @@
   <div class="row">
 	
 	
-		<p>delete ~&#x2F;.cache&#x2F;tracker</p>
+		<h1 id="2d转3d-图片生成3d模型"><a href="#2d转3d-图片生成3d模型" class="headerlink" title="2d转3d 图片生成3d模型"></a>2d转3d 图片生成3d模型</h1><p>几张类似的图片 生成一个3d的视频</p>
+<p><a target="_blank" rel="noopener" href="https://3d-moments.github.io/">https://3d-moments.github.io</a></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/07/07/ae1c2d03-8a12-4754-9acf-3ddbfb9304b6/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/22/ba662518-ad5e-4f7c-a657-c6d49067a408/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -274,8 +263,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-07-05 </div>
-			<div class="article-title"><a href="/blog/2022/07/05/d498d6d0-d797-4645-b5e0-07aac9c435bd/" title="This article provides a detailed guide on how to resize VMDK files in Oracle VirtualBox on Windows 7 using either command prompt or GParted Live CD. The process involves downloading the GParted ISO, creating a new virtual machine, resizing partitions, and applying changes.">How To Extend Vmdk In Oracle Virtualbox</a></div>
+			<div class="date"> 2022-08-22 </div>
+			<div class="article-title"><a href="/blog/2022/08/22/7cd366cf-6054-44e0-acd1-bf1b2c03286e/" title="PySpice is a hardware simulator that leverages ngspice and xyce as backend tools, allowing users to simulate various electronic components such as MOS, JFET, diodes, and more.">Hardware Simulator</a></div>
 		</h3>
 	
 
@@ -286,54 +275,11 @@
   <div class="row">
 	
 	
-		<h1 id="how-to-extend-resize-vmdk-in-oracle-virtualbox"><a href="#how-to-extend-resize-vmdk-in-oracle-virtualbox" class="headerlink" title="how to extend&#x2F;resize vmdk in oracle virtualbox"></a>how to extend&#x2F;resize vmdk in oracle virtualbox</h1><p>win 7 扩容:</p>
-<p>开始菜单 计算机 右键 管理 存储 磁盘管理</p>
-<p>original article:</p>
-<p><a target="_blank" rel="noopener" href="https://www.patricia-anong.com/blog/2017/11/1/extend-vmdk-on-virtualbox">https://www.patricia-anong.com/blog/2017/11/1/extend-vmdk-on-virtualbox</a></p>
-<p>When I first started using Oracle VirtualBox, I would mostly stick with the default options when creating a virtual machine. I soon realized, that wouldn’t work for RDBMS installations, and although I would just add new virtual disk drives, I started to have unused or 100% full disks on some VMs. Rather than delete the VM, I decided to learn how to extend the existing disks, the steps are listed below:</p>
-<p>Note: The Oracle Virtualbox Hypervisor is installed on a Windows OS</p>
-<p>Open a command prompt:</p>
-<p>Change directories to the VirtualBox Installation</p>
-<p>cd C:\Program Files\oracle\VirtualBox</p>
-<p>List the info on the disk you want to resize</p>
-<p>VBoxManage showhdinfo “C:\Users\panong\VirtualBox VMs\CENTOS-6.7\D0.vmdk”</p>
-<p>Run the command to resize:</p>
-<p>VBoxManage modifyhd “C:\Users\panong\VirtualBox VMs\CENTOS-6.7\D0.vmdk” –resize 50000</p>
-<p>6.png</p>
-<p>If you receive the error below, then you will have to create a new disk, clone the data on the existing disk to the new disk and then delete the original disk:</p>
-<p>7.png</p>
-<p>Create a new VMDK “dynamic” disk</p>
-<p>VBoxManage createhd –filename “C:\Users\panong\VirtualBox VMs\CENTOS-6.7\D11.vmdk” –size 50000</p>
-<p>Clone old disk to the newly created disk</p>
-<p>VBoxManage clonehd “C:\Users\panong\VirtualBox VMs\CENTOS-6.7\D0.vmdk” –existing “C:\Users\panong\VirtualBox VMs\CENTOS-6.7\D11.vmdk”</p>
-<p>Release the old disk</p>
-<p>Go to Virtualbox Media Manager —&gt; Select D0.vmdk —&gt; Click the “Release” option.</p>
-<p>Note: DO NOT DELETE IT YET</p>
-<p>Add the new disk to the Virtual Machine</p>
-<p>Open the Machine folder and check the permission of the created hard disk. If it doesn’t have the proper permission then it gives error while attaching to the machine</p>
-<p>Open the Settings of the Virtual Machine —-&gt; Storage —&gt; Add Hardisk —–&gt; Select the hard disk that was just created.</p>
-<p>Make sure to remove all disks, then add the new one first to be &#x2F;dev&#x2F;sda.</p>
-<p>You’re not done yet! If you start the VM now, the disk space will not be present since it has not yet been presented and allocated to your Linux Server.</p>
-<p>To allocate the new disk, you will need to use GParted - a GUI for editing disk partitions.</p>
-<p>To download GParted, go to <a target="_blank" rel="noopener" href="http://gparted.sourceforge.net/livecd.php">http://gparted.sourceforge.net/livecd.php</a> to download the ISO file named GParted Live CD (Be sure to get the current version based on the architecture of your OS e.g. 32-bit vs 64-bit).</p>
-<p>Create a new virtual machine for the GParted ISO on a Linux OS. Select Do not add a Hard Drive and ignore the warning.</p>
-<p>Select the GParted VM, go to Settings —–&gt; Storage —–&gt; Controller: IDE Controller —–&gt; Add a new CD&#x2F;DVD. Add the GParted ISO file as the first item under Controller: IDE section and delete any additional empty disk slots. Add the disk that you wish to resize( C:\Users\panong\VirtualBox VMs\CENTOS-6.7\D11.vmdk) under the Controller: SATA Controller section —–&gt; OK.</p>
-<p>Start the GParted VM —-&gt; GParted Live. Do not change any of the default settings. Press the power button on the GParted VM to start it.</p>
-<p>Now, you should have made a backup of your vdi at this point. If you haven’t go back and do that – so many things can go wrong here and you are on your own!</p>
-<p>If it is any partition other than &#x2F;dev&#x2F;sda1 you can right-click the partition you wish to resize and choose Resize&#x2F;Move.</p>
-<p>IF YOU PREFER TO CREATE A NEW PARTITION WITH THE ADDITIONAL DISK SPACE YOU NEED TO CREATE A PARTITION:</p>
-<p>Device —-&gt; Create Partition Table</p>
-<p>It should be back to main screen, click on New —-&gt; Add (it should have selected all the free space - 20000MiB) —-&gt; Add</p>
-<p>You should see it now listed as New partition #1 not unallocated anymore.</p>
-<p>Click on Apply at the top of the GUI, then confirm again by clicking Apply. Click Close. You should now see the disk listed as &#x2F;dev&#x2F;sda# with 20Gb.</p>
-<p>Exit the GParted VM.</p>
-<p>Log on to the VM for the disk you just resized and everything should be functional and the &#x2F;dev&#x2F;sda drive should show the new size of 50Gb.</p>
-<p>Delete the Original Disk Drive</p>
-<p>Click the Remove option - this allows you to keep the HDD without deleting it from the system if you choose.</p>
+		<p><a target="_blank" rel="noopener" href="https://pypi.org/project/PySpice/">pyspice</a> uses <a target="_blank" rel="noopener" href="https://ngspice.sourceforge.io/extras.html">ngspice</a> and <a target="_blank" rel="noopener" href="https://xyce.sandia.gov/">xyce</a> as backend, capable of simulating MOS, JFET, diode and more</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/07/05/d498d6d0-d797-4645-b5e0-07aac9c435bd/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/22/7cd366cf-6054-44e0-acd1-bf1b2c03286e/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -343,8 +289,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-07-04 </div>
-			<div class="article-title"><a href="/blog/2022/07/04/bc4961f2-6efe-48f6-95ac-161076408834/" title="This article delves into email verification techniques and strategies, along with methods to send mass emails or SMS anonymously. It highlights platforms like mailcat and theHarvester for collecting emails, APIs for SMS flooding, and Telegram bots for efficient marketing.">Email Scraper, 自动发短信 邮件 自动接收短信 接收邮件 Mail Sms Automatic Sending Ad Broadcasting, Email Verification, Sms Verification, Sms Login, Email Login, Temp Mail, Email Osint</a></div>
+			<div class="date"> 2022-08-22 </div>
+			<div class="article-title"><a href="/blog/2022/08/22/f8398512-6f0b-433a-ad9f-89f730d636f4/" title="This Python script utilizes SymPy for performing various interval operations. It allows you to manage, merge, and sort sets of intervals, detect overlaps, convert continuous data into intervals, solve unions, filter short intervals, and transform interval sets into tuples. The provided functions enable you to obtain a merged interval tuple list and easily handle and manipulate interval sets.">连续区间 离散区间 从离散数据中获得离散区间 交并补</a></div>
 		</h3>
 	
 
@@ -355,99 +301,34 @@
   <div class="row">
 	
 	
-		<h2 id="email"><a href="#email" class="headerlink" title="email"></a>email</h2><h3 id="email-OSINT"><a href="#email-OSINT" class="headerlink" title="email OSINT"></a>email OSINT</h3><p>OSINT&#x2F;recon 其实就是社工 但是一般人喜欢把社工库和社工分开 因为社工库是社工收集来的数据集合 而社工则是一个过程</p>
-<p>loading&#x2F;transforming leaked txt files will be time-consuming. use pypy to speedup the process. use database specific batch processing method to import the data.</p>
-<p><a target="_blank" rel="noopener" href="https://followthemoney.readthedocs.io/en/latest/fragments.html">entity fragmentation in followthmoney</a> is kind of for “entity recognition in multiple social platforms”, suitable for finding patterns&#x2F;clients in large leaked databases.</p>
-<h4 id="email-collector"><a href="#email-collector" class="headerlink" title="email collector"></a>email collector</h4><p><a target="_blank" rel="noopener" href="https://github.com/iojw/socialscan">socialscan</a> Python library for accurately querying username and email usage on online platforms</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/s0md3v/Zen">Zen</a> collect email on github</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/soxoj/maigret">maigret</a> a powerful fork of <a target="_blank" rel="noopener" href="https://github.com/sherlock-project/sherlock">sherlock</a> (customizable, finding accounts by username, but only <a target="_blank" rel="noopener" href="https://github.com/sherlock-project/sherlock/blob/master/sites.md">having 300+ sites</a> ) with 2000+ sites</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Taonn/EmailAll">emailAll</a> collect email by passing domain</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Josue87/EmailFinder">emailfinder</a> find email by domain</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/laramies/theHarvester">theHarvestor</a> email, subdomain and names collector</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/sea-god/gitscan/blob/master/gitscan.py">gitscan</a> scan for email and password (if possible) with predefined domains and rules by searching github</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/mxrch/ghunt">ghunt</a> needs companion browser plugin to get credentials. can collect info on given email</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/wuseman/EMAGNET">EMAGNET</a> collect database leaks, email and password from recent pastebin records</p>
-<h4 id="leaked-email-and-data"><a href="#leaked-email-and-data" class="headerlink" title="leaked email and data"></a>leaked email and data</h4><p>occrp (anti corruption &amp; crime) aleph is a bad source for getting email (anonymous&#x2F;unauthorized user can only get hundreds, having no clue what the email relates to). however, it has a tool called <a target="_blank" rel="noopener" href="https://followthemoney.readthedocs.io/">follow the money</a> which works with csv files and exports cypher to neo4j</p>
-<h5 id="leaks-on-github"><a href="#leaks-on-github" class="headerlink" title="leaks on github"></a>leaks on github</h5><p>search for leaked database on github</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/guptaofficial17/Linkedin-Leak-2021/blob/main/Leak/Leak.txt">linkedin database leak 2021</a> (hate mega since it has download quota)</p>
-<h5 id="leaks-from-forums"><a href="#leaks-from-forums" class="headerlink" title="leaks from forums"></a>leaks from forums</h5><p>you typically find links to these databases on <code>anonfiles.com</code> (or else), so query like <code>site:anonfiles.com email rar</code> in duckduckgo (no DMCA censorship)</p>
-<p><a target="_blank" rel="noopener" href="https://breached.vc/Announcement-Database-Index">breachedforum’s index</a> contains “credits only” threads which requires 4-8 credits to unlock. to get credits you need to create thread (which will earn 0 credit) and get 1 credit per reply. post to trivial threads like manga.</p>
-<p>in <a target="_blank" rel="noopener" href="https://leakbase.cc/">leakbase</a> you earn credits and download leaked databases easier. it has <a target="_blank" rel="noopener" href="https://t.me/leakbase_official">official telegram bot</a> claims to leak free databases everyday.</p>
-<h5 id="telegram-bots"><a href="#telegram-bots" class="headerlink" title="telegram bots"></a>telegram bots</h5><p>find telegram bots collection in <a target="_blank" rel="noopener" href="https://www.privacys.club/">privacy.club</a> (only OSINT bots) and <a target="_blank" rel="noopener" href="https://www.ff98sha.me/archives/147">here</a> (with many other bots)</p>
-<p><a target="_blank" rel="noopener" href="https://t.me/bailansgbot">摆烂bot</a> 永久免费</p>
-<p><a target="_blank" rel="noopener" href="https://t.me/SGKmainNEWbot?start=IVT1073A377">SGKmainNEWbot</a></p>
-<p><a target="_blank" rel="noopener" href="https://t.me/sgkmainbot?start=IVT7FBE782B">sgkmainbot</a></p>
-<p>(gone?) <a target="_blank" rel="noopener" href="https://t.me/FreeSGKbot?start=SGKETRAYJU">FreeSGKbot</a></p>
-<p><a target="_blank" rel="noopener" href="https://t.me/s/FreeSGKbot4?before=123">FreeSGKbot4</a></p>
-<p><a target="_blank" rel="noopener" href="https://t.me/KernelBugXBot">KernelBugXBot</a></p>
-<h5 id="download-links"><a href="#download-links" class="headerlink" title="download links"></a>download links</h5><p>although i find many leaked databases as torrent, but those torrent search engines usually collect video&#x2F;movies instead of anything related to leaked database.</p>
-<p><a target="_blank" rel="noopener" href="http://4563.org/?p=201481">44.65GB QQ 微博社工库</a> or <a target="_blank" rel="noopener" href="https://github.com/qq8e/qq">qq8e&#x2F;qq</a> 基本上传的就是这个了 或许可以在QQ群里面找到一些别的社工库 使用这个数据库的还有 <a target="_blank" rel="noopener" href="http://qb.shegongk.com/">q绑</a> (有反调试 带去水印工具 但是其实这个到处都有吧) <a target="_blank" rel="noopener" href="https://privacy.aiuys.com/">aiuys’s retrofit</a> 后台是<a target="_blank" rel="noopener" href="https://github.com/Chordp/privacy">privacy</a> (只是部分的可以导入 其他的自行处理)</p>
-<p>Using aMule on macOS, Kad is firewalled (2.2.1 works well <a target="_blank" rel="noopener" href="http://bugs.amule.org/view.php?id=1368">said by people</a>, but I’d not use macOS), reason unclear. Maybe on Linux or Windows it will be different.</p>
-<p>Some (dead) links of other databases in ed2k emule format:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">ed2k://|file|2010.06-江西移动全库-408万-access.7z|1329999527|5231E1EC5EE1123C6E694AD6399F9807|h=DORZC7XFNG63ZWX6C3RSN3Q7CWZXG5G4|/</span><br><span class="line">ed2k://|file|2012.01-千脑-70万-csv.rar|34017079|A30DD3EF32C03C86E71032CDCA1C5EF9|h=2Z7TKJED7P2NJCKUCINNHMWLXV3KVVS4|/</span><br><span class="line">ed2k://|file|2012.02-AcFun-15万-txt.rar|2241909|C2439FAB2BC7322273DE5D512A530A83|h=QJWQ3LWZ3UFJMPQHPD6WGXYYZHPRLQ43|/</span><br><span class="line">ed2k://|file|2012.03-圆通数据库-mssql.rar|127496748|75F92807F541FB0EBB4773BA83D5157A|h=YAOCNQEUXCNBBTIM226NNZLJA7SMMSDS|/</span><br><span class="line">ed2k://|file|2012.07-yahoo-45万-txt.bz2|6871089|8769EC2314C1AF2C98237DF58C7076D2|h=VSJ52KZ6O6JUZNZKXKT7F3LRXHBKJKMN|/</span><br><span class="line">ed2k://|file|2012.08-小米论坛-828万-mysql.rar|518891223|87704FEA5B191C21F605A0C135BAF98E|h=6UQWS3OQ4VGUXLYW2L6H6TL2GKZOJAUA|/</span><br><span class="line">ed2k://|file|2012.08-小米论坛-828万-txt.rar|361627120|2ED96D2F0E515321F67A31E84DC77B3C|h=UNNVFRMNWNP7UAIXZ6Y6AFCKOLBFJILW|/</span><br><span class="line">ed2k://|file|2013.04-DNF-700万-mysql.zip|306178725|169CE4FA4D4F467BCB7F8297CE6EE032|h=C3KZ6C637ARBAPD5UNF2YMYMT5LTS2UK|/</span><br><span class="line">ed2k://|file|2013.08-酒店开房记录-2000万-excel.rar|610164988|26F994CA1ABA72051ECE497F9AB7959A|h=EDLQDIHSRAJHB5SVNDQVMNPHOXVO3XB6|/</span><br><span class="line">ed2k://|file|2013.08-酒店开房记录-2000万-mssql.bak|8030079488|6FCCDC6DE213DC72A4EFEE19AF2FC1AC|h=5YJSQJY46OYKYMQA5P4G3DUAQGATYDFI|/</span><br><span class="line">ed2k://|file|2014.08-企业400号段数据-mssql.rar|46506453|4F44726413F3B9F9F701635FB498EAAB|h=LP47JMAJGOX233HQR2V3K673G7LE22RI|/</span><br><span class="line">ed2k://|file|2014.08-台湾某财经电视台数据库-2014-txt.zip|53519|95160AAE4A9E3074BACB04C606C0748F|h=3KQJJ4ADWKNOGNJIZIICBXQ5SLPD62R5|/</span><br><span class="line">ed2k://|file|2014.08-房产网-11万-sql.7z|6095432|D99DE175A27D179A5EB9F34D2D975FB0|h=2GN2RLDSDDVZ4POQZVIEJODQJVH2CJ4G|/</span><br><span class="line">ed2k://|file|2014.09-mail.ru邮箱地址-466万-txt.7z|30715779|5247DC686608FD2317A31E8BA67899F4|h=DFVLYBFEQQLDZSXIEOWHWY2BMA5DKDBO|/</span><br><span class="line">ed2k://|file|2014.09-yandex.ru-100万-txt.zip|16200283|80C4A344D51DBAE12F0A0D50202E9313|h=RA2KA6RRGELDAMXBAKXVFI3W7SIJ6TEE|/</span><br><span class="line">ed2k://|file|2014.12-12306-13万-txt.7z|4470710|7B25F299C7862BFA855B63B04BB00E2A|h=VURCVAXE4UVFI2TOIEC6DIZUBSYELY76|/</span><br><span class="line">ed2k://|file|2016.04-卡塔尔国家银行QNB-csv.zip|534384790|D7D81061307568AE47A3EE6C894D6C6C|h=VRQGQASTAHXFRGBZXAAIABVTFJRRIV7G|/</span><br><span class="line">ed2k://|file|2016.04-土耳其公民数据mernis-5000万-sql.gz|1555520122|22B660CB494D89FC84198A6EEA66E3B6|h=HYBIW22P3G56CUB7RR34CJVD7RKO34BS|/</span><br><span class="line">ed2k://|file|2011.03-多玩游戏网-800万-txt.rar|227441723|F8388A178222518978550D3E64B6129B|h=XMR2CYVQI3HOMKVRGUCCFGYZ3JVHKLCG|/</span><br><span class="line">ed2k://|file|2011.03-当当网买家信息-101万-Excel.zip|7822098|1F66086AE57B74D69BF75A2EF7900B2E|h=VRWZME24KH7UTIF3HPTCO5V5KNTEHUAQ|/</span><br><span class="line">ed2k://|file|2011.04-766游戏网-12万-sql.rar|5031951|BBE2D87564A2A8E4B083B57C697FD24E|h=DUFDLSY2A4F5SPZMMCN5JP7TE2HWA4EV|/</span><br><span class="line">ed2k://|file|2011.04-IS语音-969万-txt.zip|177030850|B153DDF9FE16EFFF30C589664592F85A|h=HCB5NVNHVGVGKMDCS7HXHI4MNQASG5SY|/</span><br><span class="line">ed2k://|file|2011.04-亚马逊中国买家信息-20万.zip|7570413|356D9E9C07D62243EF8A62745819E85C|h=BXLWB7OFKIFTCSCUU4Y47DHMX67GF7DO|/</span><br><span class="line">ed2k://|file|2011.04-凡客诚品买家信息-20万-Excel.zip|7784030|AEC527EA7E816DBD75FF92B0C26BC480|h=VXC2RO23H23OCZISUXTEO62RTVHGQFPZ|/</span><br><span class="line">ed2k://|file|2011.04-爱拍游戏网-1100万-txt.zip|267845795|87F9FFE887B0F53CAFD2A11205CB6C52|h=G6AQRSNJ7CHDTX5MTV6RYGB2OHYOAEXA|/</span><br><span class="line">ed2k://|file|2011.05-木蚂蚁-13万-sql.zip|8598547|680F8999D4E27174553D1C11118DF978|h=5G2YZ7Z6RAQ5M5XUNCEFNX7ZYAITMZPZ|/</span><br><span class="line">ed2k://|file|2011.07-土木在线-540万-sql.zip|645903048|4ED3B64224752DE3AB11B11D2FD9DA06|h=UL3F74NI266IR4IHI7UHDKMZRQMX3PFX|/</span><br><span class="line">ed2k://|file|2011.10-178游戏网-1000万-txt.rar|108534783|FFCD04A52339701C8CB5197BDCF9F4DC|h=C2UYTR264YXVM6NSJNUV5R2PC5VZNAYU|/</span><br><span class="line">ed2k://|file|2011.10-CSDN.NET-600万-sql.rar|109942505|A29D9468556CF73AFB48A3A8427629DC|h=VTPXT56G3BGRTHBROKQEWW6XAQTMYPLZ|/</span><br><span class="line">ed2k://|file|2011.10-嘟嘟牛-66277-txt.rar|215666725|EF7187E33A8EBD9FD806343B7B1CAA82|h=Z5YU2Z6P6GUT5DUKQ6L4X5YFMZZNZ4YZ|/</span><br><span class="line">ed2k://|file|2011.11-7k7k小游戏-2000万-txt.rar|203648704|6EB70910C1C193F5BE04610B503EF4A0|h=Y4ITT7C5Z5LOOREJPWXA25TM2NLKEEDX|/</span><br><span class="line">ed2k://|file|2011.11-人人网-500万-txt.rar|51969611|8CD19B7A2EB9F1F74CB8BFBDE7BD144D|h=SDNOOZCYR6PXZIRZTZPEICNRNZ67BQJJ|/</span><br><span class="line">ed2k://|file|2011.12-天涯社区-4000万-txt.rar|493480455|E4E0CFD85E2A783A3C3BD2539AA28FC3|h=4FB7J7QPRWRIPX7QWWTYVZCKMWDZ5VIQ|/</span><br><span class="line">ed2k://|file|2011.12-淘宝买家卖家邮箱-2500万-txt.zip|135534861|F40C3C9F32F2C30B1A2484FAB3CB1257|h=GLUDUAAYPAALG3GPHD4EHT5OB6V6WBVB|/</span><br><span class="line">ed2k://|file|2012.10-QQ精准客户名单-4500万-txt.rar|131416815|134F81AA90B27F55818E7A521D3CB35B|h=NRF2HAH2IXDT635UV6NDEGSA2HSOSSHZ|/</span><br><span class="line">ed2k://|file|2012.06-LinkedIn-16737万-txt.rar|7503170474|A50C488915FC70E1DE644AA5F3432D6F|h=E2NEXLXOOA6PONPKUGVRVIMEU54EC6P4|/</span><br><span class="line">ed2k://|file|2013.06-Myspace.com-36021万-txt.7z|12419587039|A1B14F88891885D636DE9F642A3E06DF|h=3QBXWEHRBUSUEWJOSHCF47B7HEC4Q5BM|/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+		<p>离散区间的获得可以用边界条件判定 即最近n个连续的概率大于多少 容忍值为多少 最近n个小于多少直接作为结束边界的条件 也可以用convolution Gaussian blur</p>
+<p>离散区间交并补可以转化为连续区间交并补 更简单省事</p>
+<p>如果要做下面的运算 建议用第三方库 比如wolfram swi-prolog的clpr sympy</p>
+<p>连续区间交并补 先排序 设置首末端的操作 然后进行相应区间选取 进行下一步操作直到结束 输出总的结果</p>
+<h2 id="combining-similar-nearby-bounding-boxes-suppressing-near-duplicate-bounding-boxes-over-short-time"><a href="#combining-similar-nearby-bounding-boxes-suppressing-near-duplicate-bounding-boxes-over-short-time" class="headerlink" title="combining similar&#x2F;nearby bounding boxes, suppressing near duplicate bounding boxes over short time"></a>combining similar&#x2F;nearby bounding boxes, suppressing near duplicate bounding boxes over short time</h2><p><a href="./textbook!.md">see here</a></p>
+<p>you can merge a group of things, then analyze them over time using object tracker, tweening them.</p>
+<h2 id="Discrete-Interval-Set-Union-Solvers"><a href="#Discrete-Interval-Set-Union-Solvers" class="headerlink" title="Discrete Interval Set Union Solvers"></a>Discrete Interval Set Union Solvers</h2><p>you may want to filter out short intervals. mind the lopen&#x2F;ropen interval after intersection or difference operation.</p>
+<p>you may also want to quantize these intervals, set them to nearest possible points. 用到某采样率 还是根本不用吧 就是属于那个区间的离散点上面执行相应的操作变化 但是那个区间如何划分 怎么把离散点归类到不同区间里面 完全是其他的逻辑需要做的事情 一般同类别的区间不能相交 但是之后再考虑吧 怎么用呢 所有的全部弄到一个列表里面 还是选取最小的那个来用？</p>
+<p>category with different groups -&gt; subcategories</p>
+<p>first the sample set:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import sympy</span><br><span class="line"><span class="comment"># make sure every subset is ordered.</span></span><br><span class="line">mSet = [(1.0,1.1,1.2),(2.4,2.5,2.6)]</span><br><span class="line">mSet2 = [(0.9,1.05,1.15),(2.45,2.55,2.65,2.75)]</span><br><span class="line"><span class="comment"># convert to intervals first please?</span></span><br><span class="line">mSetIntervals = [(x[0],x[-1]) <span class="keyword">for</span> x <span class="keyword">in</span> mSet]</span><br><span class="line">mSet2Intervals = [(x[0],x[-1]) <span class="keyword">for</span> x <span class="keyword">in</span> mSet2]</span><br><span class="line"><span class="comment"># additional check: these intervals cannot overlap!</span></span><br><span class="line">def checkOverlap(intervalTupleList):</span><br><span class="line">unionInterval = sympy.EmptySet <span class="comment"># shall be empty here.</span></span><br><span class="line"><span class="keyword">for</span> start, end <span class="keyword">in</span> intervalTupleList:</span><br><span class="line">newInterval = sympy.Interval(start,end)</span><br><span class="line">isOverlapped = (sympy.EmptySet == unionInterval.intersect(newInterval))</span><br><span class="line"><span class="keyword">if</span> isOverlapped:</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;INTERVAL&quot;</span>, newInterval, <span class="string">&quot;OVERLAPPED!&quot;</span>)</span><br><span class="line"><span class="built_in">return</span> isOverlapped</span><br><span class="line">unionInterval += newInterval</span><br><span class="line"><span class="built_in">return</span> False</span><br><span class="line">assert not checkOverlap(mSetIntervals)</span><br><span class="line">assert not checkOverlap(mSet2Intervals)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h4 id="check-registration-account-with-email"><a href="#check-registration-account-with-email" class="headerlink" title="check registration account with email"></a>check registration account with email</h4><p><a target="_blank" rel="noopener" href="https://github.com/CreditTone/regchecker">reg007 counterpart</a> only check if that account “exists”, but no actual account shown. <a target="_blank" rel="noopener" href="https://github.com/search?p=1&q=reg007.com&type=Code">search for reg007 on github</a> you will get a bunch of links relating to OSINT.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/megadose/holehe">holehe</a> only check if an email address is registered as account elsewhere using “forget my password” APIs.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/n0tr00t/Sreg">sreg</a> is found from a collection of <a target="_blank" rel="noopener" href="https://github.com/jay900323/securitytools">security tools</a>, which is a deprecated tool for getting registration status with phone&#x2F;email&#x2F;username on multiple chinese platforms.</p>
-<h4 id="email-account-verifier"><a href="#email-account-verifier" class="headerlink" title="(email) account verifier"></a>(email) account verifier</h4><p>Usually it only verify existance of given email, like <a target="_blank" rel="noopener" href="https://tools.verifyemailaddress.io/">emailhippo</a> (100 requests free per day per ip), or <a target="_blank" rel="noopener" href="https://github.com/WildSiphon/Mailfoguess">mailforguess</a> checking “gmail”,”laposte”,”protonmail”,”yahoo” emails</p>
-<p>Some of them verify email with password: <a target="_blank" rel="noopener" href="https://github.com/MachineKillin/Email-Account-Generator-Checker/blob/main/main.py">verify email address and password with API of my.com</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/khast3x/h8mail">h8mail</a> email osint tool, can chase and link to social profile, with many API-key required free services</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/alpkeskin/mosint">mosint</a> automated email osint tool, requires many API keys.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/megadose/ignorant">ignorant</a> checks if a phone number is used for snapchat&#x2F;instagram</p>
-<h3 id="email-connectors-client"><a href="#email-connectors-client" class="headerlink" title="email connectors&#x2F;client"></a>email connectors&#x2F;client</h3><p><a target="_blank" rel="noopener" href="https://github.com/ShellCode33/ProtonMail">proton mail unofficial client in python</a></p>
-<h3 id="email-registration"><a href="#email-registration" class="headerlink" title="email registration"></a>email registration</h3><h4 id="yandexmail-account-creator"><a href="#yandexmail-account-creator" class="headerlink" title="yandexmail account creator"></a><a target="_blank" rel="noopener" href="https://github.com/hendrikbgr/YandexMail-Account-Creator">yandexmail account creator</a></h4><p>before it was using 2captcha, now using <a target="_blank" rel="noopener" href="https://5sim.net/">5sim</a> to receive sms</p>
-<p>only login such account through pop3 and imap to prevent revocation</p>
-<h4 id="outlook-email-generator"><a href="#outlook-email-generator" class="headerlink" title="outlook email generator"></a><a target="_blank" rel="noopener" href="https://github.com/MatrixTM/OutlookGen">outlook email generator</a></h4><p>using 2captcha and anycaptcha for captcha solving (paid)</p>
-<h4 id="protonmail-email-generator"><a href="#protonmail-email-generator" class="headerlink" title="protonmail email generator"></a><a target="_blank" rel="noopener" href="https://github.com/baum1810/protonmail-generator">protonmail email generator</a></h4><p>using noptcha or <a target="_blank" rel="noopener" href="https://nopecha.com/">nopecha</a> browser extension (free for 100 captcha solves per day) solving hcaptcha, recaptcha. this extension cannot be used with proxy.</p>
-<h4 id="muumuu-which-reminds-me-of-someone-email-registration-using-2captcha-selenium-and-pyautogui"><a href="#muumuu-which-reminds-me-of-someone-email-registration-using-2captcha-selenium-and-pyautogui" class="headerlink" title="muumuu (which reminds me of someone) email registration using 2captcha, selenium and pyautogui"></a><a target="_blank" rel="noopener" href="https://github.com/KenshiroSugiyama/automation_email_create/blob/main/create.py">muumuu (which reminds me of someone) email registration using 2captcha, selenium and pyautogui</a></h4><p>I place the list under <code>/root/.muumuu_emails</code></p>
-<p>the <a target="_blank" rel="noopener" href="https://muumuu-mail.com/">muumuu mail</a> is programmatically connectable using account and password. seems it is using default ports for these services. <a href="pop3.muumuu-mail.com">POP3</a> is for both sending and receiving. <a href="imap4.muumuu-mail.com">IMAP</a> is for receiving. <a href="smtp.muumuu-mail.com">SMTP</a> is for sending.</p>
-<p>this guy’s code is full of hacks. seems only being able to run on his own computer and will break on slightest errors.</p>
-<p>he stored potential password combinations and also registered accounts (need testing, some may not work) on <a target="_blank" rel="noopener" href="https://docs.google.com/spreadsheets/d/1GPpVKAA1okFjpifE494Ax4laHYQ5XaMvIZ6CQByPD_Y/edit#gid=0">this google doc</a>. you can download the sheet named “Sheet1” by <a target="_blank" rel="noopener" href="https://docs.google.com/spreadsheets/d/1GPpVKAA1okFjpifE494Ax4laHYQ5XaMvIZ6CQByPD_Y/gviz/tq?tqx=out:csv&sheet=Sheet1">this api</a>, which adds double quotes and takes more space than exported from web interfaces, method described <a target="_blank" rel="noopener" href="https://chewett.co.uk/blog/2445/how-to-use-an-api-to-download-a-google-docs-sheets-spreadsheet-as-csv/">here</a>.</p>
-<h3 id="receiving-only-email-services"><a href="#receiving-only-email-services" class="headerlink" title="receiving-only email services"></a>receiving-only email services</h3><h4 id="temp-email"><a href="#temp-email" class="headerlink" title="temp email"></a>temp email</h4><p><a target="_blank" rel="noopener" href="https://tempumail.com/mailbox">tempumail</a> get free temp edu email</p>
-<h4 id="erine-email"><a href="#erine-email" class="headerlink" title="erine.email"></a><a target="_blank" rel="noopener" href="https://erine.email/">erine.email</a></h4><p>email proxy for resending email to you, which I used for github registration (but with a very high block rate without proxy)</p>
-<h3 id="email-aliasing-for-sending"><a href="#email-aliasing-for-sending" class="headerlink" title="email aliasing for sending"></a>email aliasing for sending</h3><p>icloud’s “hide my email” service seems only provide few email aliases. but according to <a target="_blank" rel="noopener" href="https://github.com/rtunazzz/hidemyemail-generator">3rd party icloud alias generator</a> (cannot be used for chinese version of icloud) you can generate at least 10 aliases. or use <a target="_blank" rel="noopener" href="https://github.com/liej6799/hidemyemail-api">hidemyemail-api</a> to login with pyicloud and get aliases as API service. account registered from web without logged in any apple device (maybe virtualbox -&gt; macos has a shot?) will not have email service.</p>
-<p>to send email from alias, you can try setting “FROM” address as your alias via smtp protocol, but the credential shall stay the same. the working approach could be platform specific</p>
-<p>yahoo provides the most email alias up to 500, but 10 for send only emails. however to get one yahoo account one needs offshore phone numbers.</p>
-<h3 id="email-collection-email-scraping"><a href="#email-collection-email-scraping" class="headerlink" title="email collection, email scraping"></a>email collection, email scraping</h3><p>searching for “site:pastebin.com @yahoo.com” to get some email addresses, also searching in github might help as well.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/sharsil/mailcat">mailcat</a> find email address by nickname (check if deliverable?)</p>
-<p><a target="_blank" rel="noopener" href="https://awesomeopensource.com/project/laramies/theHarvester">theharvestor: email harvestor</a></p>
-<p><a target="_blank" rel="noopener" href="https://awesomeopensource.com/project/Taonn/EmailAll">email collector</a></p>
-<p><a target="_blank" rel="noopener" href="https://awesomeopensource.com/project/bit4woo/teemo">domain and email collector</a></p>
-<h3 id="email-marketing"><a href="#email-marketing" class="headerlink" title="email marketing"></a>email marketing</h3><p>use other’s links&#x2F;contents to increase diversity and increase anonymity. put your related contents among them.</p>
-<p>email marketing is quantity over quality. know your customers’ preferences and behaviors (language, country, life schedule (by year? month? week? time in a day?)) by linking their accounts on other platforms, telemetry.</p>
-<p>email bulk senders are equipped with email templates, statistics (like opened or not, click data monitoring)</p>
-<p>vary your email style and content unless you want to get blocked&#x2F;trashed by servers</p>
-<h4 id="email-templates"><a href="#email-templates" class="headerlink" title="email templates"></a>email templates</h4><p><a target="_blank" rel="noopener" href="https://github.com/premail/premail">premail</a> is an easy-to-use component-based build system for <a target="_blank" rel="noopener" href="https://mjml.io/">MJML</a>, the email templating language</p>
-<h2 id="SMS"><a href="#SMS" class="headerlink" title="SMS"></a>SMS</h2><h3 id="sending-SMS"><a href="#sending-SMS" class="headerlink" title="sending SMS"></a>sending SMS</h3><p>发送短信 邮件 第一步是收集目标的邮箱和手机号码 收集目标ID 可从社工库中获取 可以根据社工的metadata决定推送内容类别</p>
-<h4 id="SMS-flooding"><a href="#SMS-flooding" class="headerlink" title="SMS flooding"></a>SMS flooding</h4><p>smsboom by whalefall 远程获取的api 不知道是干啥的 有待研究</p>
-<p>这个的原理是收集了大量发验证码到目标的手机号的api</p>
-<p>repo转移到了openethan下面</p>
-<p>考虑破解这些网站 获取它们的短信验证所需要的credential</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/WhaleFell/SMSBoom">https://github.com/WhaleFell/SMSBoom</a></p>
-<h4 id="sending-SMS-with-content"><a href="#sending-SMS-with-content" class="headerlink" title="sending SMS with content"></a>sending SMS with content</h4><p>send sms 1 per day per ip (you might use tor to do ip switching):</p>
-<p><a target="_blank" rel="noopener" href="https://textbelt.com/">https://textbelt.com/</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/HACK3RY2J/Anon-SMS">https://github.com/HACK3RY2J/Anon-SMS</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/typpo/textbelt">https://github.com/typpo/textbelt</a></p>
-<p>freesms: (don’t work for my phone number as recipient though, but I found <a target="_blank" rel="noopener" href="https://github.com/search?q=afreesms.com&type=code">some interesting projects</a> on github relating to free SMS sending, <a target="_blank" rel="noopener" href="https://github.com/seadog007/FreeSMS-OCR">some using OCR</a> to crack captcha and access API)</p>
-<p><a target="_blank" rel="noopener" href="https://www.afreesms.com/freesms/">https://www.afreesms.com/freesms/</a></p>
-<p>yoy might want phone number lists for sending ads via free sms providers</p>
-<p>shows [number]@139.com is the only email2sms gateway in china</p>
-<p><a target="_blank" rel="noopener" href="https://email2sms.info/">https://email2sms.info</a></p>
-<p>list of email2sms providers:</p>
-<p><a target="_blank" rel="noopener" href="https://www.howtogeek.com/howto/27051/use-email-to-send-text-messages-sms-to-mobile-phones-for-free/">https://www.howtogeek.com/howto/27051/use-email-to-send-text-messages-sms-to-mobile-phones-for-free/</a></p>
-<p><a target="_blank" rel="noopener" href="http://www.mutube.com/projects/open-email-to-sms/gateway-list/">http://www.mutube.com/projects/open-email-to-sms/gateway-list/</a></p>
-<p><a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/List_of_carriers_providing_Email_or_Web_to_SMS">http://en.wikipedia.org/wiki/List_of_carriers_providing_Email_or_Web_to_SMS</a></p>
-<h3 id="receiving-SMS"><a href="#receiving-SMS" class="headerlink" title="receiving SMS"></a>receiving SMS</h3><h4 id="paid-sms-receiving"><a href="#paid-sms-receiving" class="headerlink" title="paid sms receiving"></a>paid sms receiving</h4><p><a target="_blank" rel="noopener" href="https://5sim.net/">5sim</a> paid sms receive service worldwide</p>
-<h4 id="free-sms-receiving"><a href="#free-sms-receiving" class="headerlink" title="free sms receiving"></a>free sms receiving</h4><p><a target="_blank" rel="noopener" href="https://github.com/linabellbiu/sms-auto-regist">sms auto regist</a> is written in go, utilizing <code>yunjiema.top</code> for sms receiving</p>
-<p>online sms receivers are not so reliable (not even usable for yahoo registration), and those found from google searches (like <a target="_blank" rel="noopener" href="https://www.freereceivesms.com/">free receive sms</a> (这个网站有反js调试 <a target="_blank" rel="noopener" href="http://learnspider.evilrecluse.top/">打开debugger自动暂停执行</a>), which has simple interface for fetching data, and you can <a target="_blank" rel="noopener" href="https://github.com/search?q=freereceivesms.com&type=code">search this site on github</a> to get more sources and potential API adaptors like <a target="_blank" rel="noopener" href="https://github.com/anroots/disposable-phonebook/blob/769bc2b23071ba4c854a00a5012cf5c2b7a2036f/dphonebook/lib/providers/free_receive_sms_com.py">disposable phonebook</a>) have chances to get registered yahoo accounts.</p>
-<h2 id="account-registration-helpers-verification-captcha-solving-proxies"><a href="#account-registration-helpers-verification-captcha-solving-proxies" class="headerlink" title="account registration helpers: verification, captcha solving, proxies"></a>account registration helpers: verification, captcha solving, proxies</h2><p><a target="_blank" rel="noopener" href="https://github.com/Dionis1902/AccountGeneratorHelper">account generator helper</a> including:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Temp email services</span><br><span class="line">Receive SMS</span><br><span class="line">Generate data</span><br><span class="line">Proxy parser</span><br><span class="line">Captcha solving</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>then pool and sort all the boundaries of converted intervals:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mPoints = mSetIntervalBoundaries + mSet2IntervalBoundaries</span><br><span class="line">mPoints = list(<span class="built_in">set</span>(mPoints))</span><br><span class="line">mPoints.<span class="built_in">sort</span>()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h3 id="proxies"><a href="#proxies" class="headerlink" title="proxies"></a>proxies</h3><p><a target="_blank" rel="noopener" href="https://www.proxy-cheap.com/">Proxy-Cheap</a> pay by data amount</p>
+<h3 id="with-sympy"><a href="#with-sympy" class="headerlink" title="with sympy"></a>with sympy</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># all the same</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="with-less-sympy"><a href="#with-less-sympy" class="headerlink" title="with less sympy"></a>with less sympy</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># all the same</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Continual-Interval-Set-Union-Solvers"><a href="#Continual-Interval-Set-Union-Solvers" class="headerlink" title="Continual Interval Set Union Solvers"></a>Continual Interval Set Union Solvers</h2><p>you must be able to explicitly point out different group index of different category. maybe you can just do it in all-new subcategories?</p>
+<h3 id="less-exponential-solution-here"><a href="#less-exponential-solution-here" class="headerlink" title="less exponential solution here?"></a>less exponential solution here?</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># basically the same example.</span></span><br><span class="line"><span class="comment"># assume no overlapping here.</span></span><br><span class="line">import sympy</span><br><span class="line">def unionToTupleList(myUnion):</span><br><span class="line">unionBoundaries = list(myUnion.boundary)</span><br><span class="line">unionBoundaries.<span class="built_in">sort</span>()</span><br><span class="line">leftBoundaries = unionBoundaries[::2]</span><br><span class="line">rightBoundaries = unionBoundaries[1::2]</span><br><span class="line"><span class="built_in">return</span> list(zip(leftBoundaries, rightBoundaries))</span><br><span class="line">def tupleSetToUncertain(mSet):</span><br><span class="line">mUncertain = None</span><br><span class="line"><span class="keyword">for</span> start, end <span class="keyword">in</span> mSet:</span><br><span class="line"><span class="keyword">if</span> mUncertain is None:</span><br><span class="line">mUncertain = sympy.Interval(start,end)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">mUncertain += sympy.Interval(start,end)</span><br><span class="line">typeUncertain = <span class="built_in">type</span>(mUncertain)</span><br><span class="line"><span class="built_in">return</span> mUncertain, typeUncertain</span><br><span class="line">def mergeOverlappedInIntervalTupleList(intervalTupleList):</span><br><span class="line">mUncertain, _ = tupleSetToUncertain(intervalTupleList)</span><br><span class="line">mUncertainBoundaryList = list(mUncertain.boundary)</span><br><span class="line">mUncertainBoundaryList.<span class="built_in">sort</span>()</span><br><span class="line">mergedIntervalTupleList = list(zip(mUncertainBoundaryList[::2], mUncertainBoundaryList[1::2]))</span><br><span class="line"><span class="built_in">return</span> mergedIntervalTupleList</span><br><span class="line">mSet = mergeOverlappedInIntervalTupleList([(0,1), (2,3)])</span><br><span class="line">mSet2 = mergeOverlappedInIntervalTupleList([(0.5,1.5),(1.6,2.5)])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;MSET&quot;</span>, mSet)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;MSET2&quot;</span>, mSet2)</span><br><span class="line">mSetCandidates = [mSet, mSet2]</span><br><span class="line">mSetUnified = [x <span class="keyword">for</span> y <span class="keyword">in</span> mSetCandidates <span class="keyword">for</span> x <span class="keyword">in</span> y]</span><br><span class="line">leftBoundaryList = <span class="built_in">set</span>([x[0] <span class="keyword">for</span> x <span class="keyword">in</span> mSetUnified])</span><br><span class="line">rightBoundaryList = <span class="built_in">set</span>([x[1] <span class="keyword">for</span> x <span class="keyword">in</span> mSetUnified])</span><br><span class="line"><span class="comment"># they may freaking overlap.</span></span><br><span class="line"><span class="comment"># if want nearby-merge strategy, simply just expand all intervals, merge them with union and shrink the individual intervals inside union respectively.</span></span><br><span class="line">markers = &#123;<span class="string">&quot;enter&quot;</span>:&#123;k:[] <span class="keyword">for</span> k <span class="keyword">in</span> leftBoundaryList&#125;, <span class="string">&quot;exit&quot;</span>:&#123;k:[] <span class="keyword">for</span> k <span class="keyword">in</span> rightBoundaryList&#125;&#125;</span><br><span class="line"><span class="keyword">for</span> index, mSetCandidate <span class="keyword">in</span> enumerate(mSetCandidates):</span><br><span class="line">leftBoundaryListOfCandidate = [x[0] <span class="keyword">for</span> x <span class="keyword">in</span> mSetCandidate]</span><br><span class="line">rightBoundaryListOfCandidate = [x[1] <span class="keyword">for</span> x <span class="keyword">in</span> mSetCandidate]</span><br><span class="line"><span class="keyword">for</span> leftBoundaryOfCandidate <span class="keyword">in</span> leftBoundaryListOfCandidate:</span><br><span class="line">markers[<span class="string">&quot;enter&quot;</span>][leftBoundaryOfCandidate].append(index) <span class="comment"># remap this thing!</span></span><br><span class="line"><span class="keyword">for</span> rightBoundaryOfCandidate <span class="keyword">in</span> rightBoundaryListOfCandidate:</span><br><span class="line">markers[<span class="string">&quot;exit&quot;</span>][rightBoundaryOfCandidate].append(index) <span class="comment"># remap this thing!</span></span><br><span class="line"><span class="comment"># now, iterate through the boundaries of mSetUnified.</span></span><br><span class="line">unifiedBoundaryList = leftBoundaryList.union(rightBoundaryList) <span class="comment"># call me a set instead of a list please? now we must sort this thing</span></span><br><span class="line">unifiedBoundaryList = list(unifiedBoundaryList)</span><br><span class="line">unifiedBoundaryList.<span class="built_in">sort</span>()</span><br><span class="line">unifiedBoundaryMarks = &#123;&#125;</span><br><span class="line">finalMappings = &#123;&#125;</span><br><span class="line"><span class="comment"># print(&quot;MARKERS&quot;, markers)</span></span><br><span class="line"><span class="comment"># breakpoint()</span></span><br><span class="line"><span class="keyword">for</span> index, boundary <span class="keyword">in</span> enumerate(unifiedBoundaryList):</span><br><span class="line">previousMark = unifiedBoundaryMarks.get(index-1, [])</span><br><span class="line">enterList = markers[<span class="string">&quot;enter&quot;</span>].get(boundary,[])</span><br><span class="line">exitList = markers[<span class="string">&quot;exit&quot;</span>].get(boundary,[])</span><br><span class="line">currentMark = <span class="built_in">set</span>(previousMark + enterList).difference(<span class="built_in">set</span>(exitList))</span><br><span class="line">currentMark = list(currentMark)</span><br><span class="line">unifiedBoundaryMarks.update(&#123;index:currentMark&#125;)</span><br><span class="line"><span class="comment"># now, handle the change? or not?</span></span><br><span class="line"><span class="comment"># let&#x27;s just deal those empty ones, shall we?</span></span><br><span class="line"><span class="keyword">if</span> previousMark == []: <span class="comment"># inside it is empty range.</span></span><br><span class="line"><span class="comment"># elif currentMark == []:</span></span><br><span class="line"><span class="keyword">if</span> index == 0: <span class="built_in">continue</span> <span class="comment"># just the start, no need to note this down.</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">finalMappings.update(&#123;<span class="string">&quot;empty&quot;</span>:finalMappings.get(<span class="string">&quot;empty&quot;</span>,[])+[(unifiedBoundaryList[index-1], boundary)]&#125;)</span><br><span class="line"><span class="comment"># the end of previous mark! this interval belongs to previousMark</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">key = previousMark.copy()</span><br><span class="line">key.sort()</span><br><span class="line">key = tuple(key)</span><br><span class="line">finalMappings.update(&#123;key:finalMappings.get(key,[])+[(unifiedBoundaryList[index-1], boundary)]&#125;)</span><br><span class="line"><span class="comment"># also the end of previous mark! belongs to previousMark.</span></span><br><span class="line"><span class="comment">### NOW THE FINAL OUTPUT ###</span></span><br><span class="line">finalCats = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> finalMappings.items():</span><br><span class="line"><span class="comment"># value is an array containing subInterval tuples.</span></span><br><span class="line">value = mergeOverlappedInIntervalTupleList(value)</span><br><span class="line">finalCats.update(&#123;key: value&#125;)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;______________FINAL CATS______________&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(finalCats)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="sympy-solution"><a href="#sympy-solution" class="headerlink" title="sympy solution"></a>sympy solution</h3><p>sympy seems to provide support for discrete and continuous interval? will that save any damn time anyway? i’m afraid no? maybe there’s a way!</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> sympy</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">unionToTupleList</span>(<span class="params">myUnion</span>):</span><br><span class="line"><span class="comment">#  seriously wrong. this will fuck up.</span></span><br><span class="line">unionBoundaries = <span class="built_in">list</span>(myUnion.boundary)</span><br><span class="line">unionBoundaries.sort()</span><br><span class="line">leftBoundaries = unionBoundaries[::<span class="number">2</span>]</span><br><span class="line">rightBoundaries = unionBoundaries[<span class="number">1</span>::<span class="number">2</span>]</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">list</span>(<span class="built_in">zip</span>(leftBoundaries, rightBoundaries))</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">tupleSetToUncertain</span>(<span class="params">mSet</span>):</span><br><span class="line">mUncertain = <span class="literal">None</span></span><br><span class="line"><span class="keyword">for</span> start, end <span class="keyword">in</span> mSet:</span><br><span class="line"><span class="keyword">if</span> mUncertain <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">mUncertain = sympy.Interval(start,end)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">mUncertain += sympy.Interval(start,end)</span><br><span class="line">typeUncertain = <span class="built_in">type</span>(mUncertain)</span><br><span class="line"><span class="keyword">return</span> mUncertain, typeUncertain</span><br><span class="line"><span class="comment"># borrowed from above code.</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mergeOverlappedInIntervalTupleList</span>(<span class="params">intervalTupleList</span>):</span><br><span class="line">mUncertain, _ = tupleSetToUncertain(intervalTupleList)</span><br><span class="line">mUncertainBoundaryList = <span class="built_in">list</span>(mUncertain.boundary)</span><br><span class="line">mUncertainBoundaryList.sort()</span><br><span class="line"><span class="comment">#  print(mUncertain)</span></span><br><span class="line"><span class="comment">#  print(mUncertainBoundaryList)</span></span><br><span class="line">mergedIntervalTupleList = <span class="built_in">list</span>(<span class="built_in">zip</span>(mUncertainBoundaryList[::<span class="number">2</span>], mUncertainBoundaryList[<span class="number">1</span>::<span class="number">2</span>]))</span><br><span class="line"><span class="comment"># print(mergedIntervalTupleList)</span></span><br><span class="line"><span class="keyword">return</span> mergedIntervalTupleList</span><br><span class="line">mSet = [(<span class="number">0</span>,<span class="number">1</span>), (<span class="number">2</span>,<span class="number">3</span>)]</span><br><span class="line">mUncertain, typeUncertain = tupleSetToUncertain(mSet)</span><br><span class="line">unrolledMSet = <span class="built_in">list</span>(mUncertain.boundary)</span><br><span class="line"><span class="comment"># can be either sympy.sets.sets.Interval of sympy.sets.sets.Union</span></span><br><span class="line">mSet2 = [(<span class="number">0.5</span>,<span class="number">1.5</span>),(<span class="number">1.6</span>,<span class="number">2.5</span>)]</span><br><span class="line">mUncertain2, typeUncertain2 = tupleSetToUncertain(mSet2)</span><br><span class="line">unrolledMSet2 = <span class="built_in">list</span>(mUncertain2.boundary)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;MSET&quot;</span>, mSet)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;MSET2&quot;</span>, mSet2)</span><br><span class="line"><span class="comment">############################################################</span></span><br><span class="line"><span class="comment"># hypothetical mSet2 and mUncertain2! please complete the hypothetical shit and make it runnable!</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">checkCommon</span>(<span class="params">subInterval, masterInterval</span>):</span><br><span class="line"><span class="keyword">return</span> subInterval == sympy.Intersection(subInterval, masterInterval)</span><br><span class="line">mUncertains = [mUncertain, mUncertain2]</span><br><span class="line">subIntervals = <span class="built_in">list</span>(<span class="built_in">set</span>(unrolledMSet2 + unrolledMSet))</span><br><span class="line">subIntervals.sort()</span><br><span class="line">subIntervals = <span class="built_in">zip</span>(subIntervals[:-<span class="number">1</span>], subIntervals[<span class="number">1</span>:])</span><br><span class="line">subIntervals = <span class="built_in">list</span>(subIntervals)</span><br><span class="line"><span class="comment">#  breakpoint()</span></span><br><span class="line"><span class="comment"># for subIntervals, it&#x27;s still not real interval but tuple at above line.</span></span><br><span class="line">reversedCats = &#123;&#125;</span><br><span class="line"><span class="keyword">import</span> functools</span><br><span class="line">subIntervalUnion = functools.reduce(<span class="keyword">lambda</span> a,b: a+b, mUncertains)</span><br><span class="line"><span class="keyword">for</span> subIntervalIndex, (start, end) <span class="keyword">in</span> <span class="built_in">enumerate</span>(subIntervals):</span><br><span class="line">subIntervalCandidate = sympy.Interval(start, end)</span><br><span class="line">reverseIndex = [] <span class="comment"># there must be at least one such index.</span></span><br><span class="line"><span class="keyword">for</span> index, uncertainCandidate <span class="keyword">in</span> <span class="built_in">enumerate</span>(mUncertains):</span><br><span class="line"><span class="keyword">if</span> checkCommon(subIntervalCandidate, uncertainCandidate):</span><br><span class="line">reverseIndex.append(index) <span class="comment"># this is the index of the in-common set of the original set list</span></span><br><span class="line">reversedCats.update(&#123;subIntervalIndex:reverseIndex&#125;) <span class="comment"># need to sort and index? or not to sort because this is already done?</span></span><br><span class="line">normalCats = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> k,v <span class="keyword">in</span> reversedCats.items():</span><br><span class="line">v.sort()</span><br><span class="line">v = <span class="built_in">tuple</span>(v)</span><br><span class="line">normalCats.update(&#123;v:normalCats.get(v, [])+[k]&#125;)</span><br><span class="line"><span class="comment"># we only get interval, not the actural union period!</span></span><br><span class="line"><span class="comment"># how to get interval elements out of union structure for hell sake?</span></span><br><span class="line">finalCats = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> k,v <span class="keyword">in</span> normalCats.items():</span><br><span class="line"><span class="comment"># now k is the original set index list, representing belonging of the below union.</span></span><br><span class="line"><span class="comment">#  print(subIntervals)</span></span><br><span class="line"><span class="comment">#  print(index)</span></span><br><span class="line"><span class="comment">#  print(v)</span></span><br><span class="line"><span class="comment">#  breakpoint()</span></span><br><span class="line">mFinalUnionCandidate = [subIntervals[index] <span class="keyword">for</span> index <span class="keyword">in</span> v]</span><br><span class="line"><span class="comment">## REPLACED ##</span></span><br><span class="line"><span class="comment"># mFinalUnionCandidate, _ = tupleSetToUncertain(mFinalUnionCandidate)</span></span><br><span class="line"><span class="comment">##### union to tuple list, could be replaced #####</span></span><br><span class="line"><span class="comment">#mFinalUnionCandidateBoundaryList = list(mFinalUnionCandidate.boundary)</span></span><br><span class="line"><span class="comment">#left_bounds, right_bounds = mFinalUnionCandidateBoundaryList[0::2],mFinalUnionCandidateBoundaryList[1::2] # check it dammit! not sure how to step the list properly?</span></span><br><span class="line"><span class="comment">#mFinalIntervalListCandidate = list(zip(left_bounds, right_bounds))</span></span><br><span class="line"><span class="comment"># mFinalIntervalListCandidate = unionToTupleList(mFinalUnionCandidate)</span></span><br><span class="line"><span class="comment">##### union to tuple list, could be replaced #####</span></span><br><span class="line"><span class="comment">## REPLACED ##</span></span><br><span class="line"><span class="comment"># print(&quot;M_FINAL_UNION_CANDIDATE&quot;,mFinalUnionCandidate)</span></span><br><span class="line">mFinalIntervalListCandidate = mergeOverlappedInIntervalTupleList(mFinalUnionCandidate)</span><br><span class="line"><span class="comment"># print(&quot;M_FINAL_INTERVAL_LIST_CANDIDATE&quot;, mFinalIntervalListCandidate)</span></span><br><span class="line"><span class="comment"># breakpoint()</span></span><br><span class="line">finalCats.update(&#123;k:mFinalIntervalListCandidate.copy()&#125;)</span><br><span class="line"><span class="comment"># this whole calculation could just be exponential. goddamn it?</span></span><br><span class="line"><span class="comment"># before that, we need to get the &quot;empty&quot; out. but is that really necessary? i think it is, as an important feature.</span></span><br><span class="line"><span class="comment">#  subIntervalsStart, subIntervalsEnd = subIntervals[0][0], subIntervals[-1][-1]</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#  relativeCompleteInterval = sympy.Interval(subIntervalsStart, subIntervalsEnd)</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># subIntervalUnion</span></span><br><span class="line"><span class="comment">#  emptyIntervalUnion = relativeCompleteInterval - subIntervalUnion # really uncertain if it is just a union or not.</span></span><br><span class="line"><span class="comment">#  emptyIntervalTupleList = unionToTupleList(emptyIntervalUnion)</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#  finalCats.update(&#123;&quot;empty&quot;:emptyIntervalTupleList&#125;)</span></span><br><span class="line">finalCats.update(&#123;<span class="string">&quot;empty&quot;</span>:finalCats[()]&#125;)</span><br><span class="line"><span class="keyword">del</span> finalCats[()]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;_____FINAL CATS_____&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(finalCats)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/07/04/bc4961f2-6efe-48f6-95ac-161076408834/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/22/f8398512-6f0b-433a-ad9f-89f730d636f4/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -457,8 +338,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-07-01 </div>
-			<div class="article-title"><a href="/blog/2022/07/01/95f9a20e-c7a4-44c8-82f1-e132b275ce71/" title="This text provides instructions on how to enable the capability for multiple simultaneous Remote Desktop Protocol (RDP) sessions on Windows systems. This can be achieved by utilizing a modified termsrv.dll file, which allows users to connect and access resources concurrently.">Enable Multiple Concurrent Rdp Sessions On Windows</a></div>
+			<div class="date"> 2022-08-20 </div>
+			<div class="article-title"><a href="/blog/2022/08/20/189a6753-7a2e-41bf-ac22-ffb8eacdbb88/" title="This article compares various OCR (Optical Character Recognition) tools like tesseract.js, ChineseOCR, chineseocr_lite, TrWebOCR, paddleocr, easyocr, and PearOCR. These tools support multiple languages, different text directions, and handwriting recognition with varying capabilities.">Ocr Tools</a></div>
 		</h3>
 	
 
@@ -469,12 +350,18 @@
   <div class="row">
 	
 	
-		<p>universal termsrv.dll patch</p>
-<p>use patched termsrv.dll</p>
+		<p>tesseract</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/naptha/tesseract.js">tesseract.js</a> with 100+ language support, still need to predefine language type</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/chineseocr/chineseocr">chineseocr</a>, with arbitrary text direction and rubust handwriting recognization support</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/DayBreak-u/chineseocr_lite">lightweight chinese ocr model</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/alisen39/TrWebOCR">efficient ocr python lib based on tr</a></p>
+<p>paddleocr</p>
+<p>easyocr</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/PearOCR/website">pearocr</a> client side webpage&#x2F;browser based ocr</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/07/01/95f9a20e-c7a4-44c8-82f1-e132b275ce71/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/20/189a6753-7a2e-41bf-ac22-ffb8eacdbb88/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -484,8 +371,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-06-27 </div>
-			<div class="article-title"><a href="/blog/2022/06/27/3ed23d4c-5ee5-4e64-a6e7-72a199d45a16/" title="The article focuses on a project called &#34;Speedup Tujia Scraping&#34;. It explains how to identify the request that sets the cookie and recommends using DIRECT for other requests while directing only that specific request to GLOBAL.">SpeedUp Tujia Scraping</a></div>
+			<div class="date"> 2022-08-19 </div>
+			<div class="article-title"><a href="/blog/2022/08/19/2b133d53-19ab-4052-9e44-f678d96bba8b/" title="The user expresses dissatisfaction with the usability and comfort of their MacBook Air, mentioning that they need to use multiple props and pillows for a suitable position and still encounter instability.">Macbook Air Usage Notes</a></div>
 		</h3>
 	
 
@@ -496,11 +383,13 @@
   <div class="row">
 	
 	
-		<p>Find which request sets the cookie, then do all other requests using DIRECT, route only that request to GLOBAL.</p>
+		<h2 id="notes-on-macbook-air"><a href="#notes-on-macbook-air" class="headerlink" title="notes on macbook air"></a>notes on macbook air</h2><p>this damn thing sucks, in every aspect. i am getting tired of it.</p>
+<h2 id="the-body-position-of-using-this-thing"><a href="#the-body-position-of-using-this-thing" class="headerlink" title="the body position of using this thing"></a>the body position of using this thing</h2><p>raise my legs with multiple pillows, put this thing on my hip and lean on a triangular shaped pile of pillows.</p>
+<p>still not ideal but pretty close. in order to make this laptop not sliping down my hip i need to fill the gap between laptop and my belly with clothes. need to support my arms with some toys.</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/06/27/3ed23d4c-5ee5-4e64-a6e7-72a199d45a16/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/19/2b133d53-19ab-4052-9e44-f678d96bba8b/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -510,8 +399,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-06-24 </div>
-			<div class="article-title"><a href="/blog/2022/06/24/cf600d42-239d-4c45-a499-2d70359d0735/" title="The article discusses a project called &#39;Sound Effects&#39;, which is associated with Spotify&#39;s pedalboard feature. This project offers support for VST plugins and allows users to create custom sound effects, enhancing their music listening experience.">Sound Effects</a></div>
+			<div class="date"> 2022-08-18 </div>
+			<div class="article-title"><a href="/blog/2022/08/18/7c3ffac4-91bd-4954-ba5a-485023f390fc/" title="The text suggests creating a v2ray configuration that supports multiple clients and servers, all connecting through a single outbound network. This setup is designed to replicate the functionality of the onion router.">A Good/Bad Proposal On V2Ray</a></div>
 		</h3>
 	
 
@@ -522,12 +411,13 @@
   <div class="row">
 	
 	
-		<p>spotify&#x2F;pedalboard</p>
-<p>support vst plugins, create sound effects</p>
+		<p>clash has <code>relay</code> config option which functions like proxychains.</p>
+<hr>
+<p>suggest to enable multiple v2ray client&#x2F;servers which talk to each other but only visit the network with one single outbound. maybe like the onion router.</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/06/24/cf600d42-239d-4c45-a499-2d70359d0735/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/18/7c3ffac4-91bd-4954-ba5a-485023f390fc/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -537,8 +427,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2022-06-19 </div>
-			<div class="article-title"><a href="/blog/2022/06/19/e73d34b3-d72e-4a03-8669-fd669b27d68a/" title="This blog post delves into Playwright&#39;s handling of request headers and cookies, with a focus on the context.cookies() method as an effective solution for addressing cookie-related challenges.">Playwright Intercept Request Header Cookie</a></div>
+			<div class="date"> 2022-08-18 </div>
+			<div class="article-title"><a href="/blog/2022/08/18/0eba6e9a-5283-4413-a07d-a1f792c4d2e2/" title="The article discusses Backup Schedules for a system, covering both offline backups to disk and online backups to cloud disks. It also provides guidance on setting up notification systems and determining timetables for regular intervals of execution.">backup schedules</a></div>
 		</h3>
 	
 
@@ -549,13 +439,26 @@
   <div class="row">
 	
 	
-		<p>cookie not found on request event handler.</p>
-<p>cookie can be obtained via context.cookies()</p>
-<p>router</p>
+		<h2 id="offline-backup"><a href="#offline-backup" class="headerlink" title="offline backup"></a>offline backup</h2><ul>
+<li><p><input disabled="" type="checkbox"> 
+schedule pyjom on alpharetta backup to disk every 12 hours</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+set a notice to let me execute time machine backup every 1 week (next scheduled backup: thu aug 18)</p>
+</li>
+</ul>
+<h2 id="online-backup"><a href="#online-backup" class="headerlink" title="online backup"></a>online backup</h2><ul>
+<li><p><input disabled="" type="checkbox"> 
+send systemwide notification if aliyun disk token expires, with reacquiring method broadcasted</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+schedule pyjom on alpharetta backup to cloud disks every 12 hours</p>
+</li>
+</ul>
 
 	
 	</div>
-  <a type="button" href="/blog/2022/06/19/e73d34b3-d72e-4a03-8669-fd669b27d68a/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/08/18/0eba6e9a-5283-4413-a07d-a1f792c4d2e2/#more" class="btn btn-default more">Read More</a>
 </div>
 
            

@@ -1,0 +1,342 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Quantatitive Financial Stock Market Analysis | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="This article explores the use of software like gs-quant, PyPortfolioOpt and open source code in Python/Julia for quantitative financial stock market analysis. It discusses data sources from pandas_datareader and tushare and provides links to various tools such as pyalgotrade, quantaxis, vn.py, talib and Superalgos which offer agent-based modeling, high-frequency trading capabilities, reinforcement learning, and real-time processing.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Quantatitive Financial Stock Market Analysis"/>
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/blog/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/blog/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> Quantatitive Financial Stock Market Analysis</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>This article explores the use of software like gs-quant, PyPortfolioOpt and open source code in Python&#x2F;Julia for quantitative financial stock market analysis. It discusses data sources from pandas_datareader and tushare and provides links to various tools such as pyalgotrade, quantaxis, vn.py, talib and Superalgos which offer agent-based modeling, high-frequency trading capabilities, reinforcement learning, and real-time processing.</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <h1 id="quantative-financial-stock-market-analysis"><a href="#quantative-financial-stock-market-analysis" class="headerlink" title="quantative financial stock market analysis"></a>quantative financial stock market analysis</h1><p><a target="_blank" rel="noopener" href="https://github.com/goldmansachs/gs-quant">gs-quant</a></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://github.com/robertmartin8/PyPortfoiloOpt">pyportfolioopt</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ampl/amplpyfinance">amplfinance</a></p>
+<hr>
+<p>造模拟炒股软件 走势跟着大盘 收集用户交易数据</p>
+<p>随机假设买卖点 随机假设成交 构成无数虚拟账户交易 或者用某种假设原理拆分不同来源的买卖单</p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/blog/time-series-transformers">time-series-transformers</a> huggingface blog</p>
+<p>深入浅出Python量化交易 <a target="_blank" rel="noopener" href="https://www.wqyunpan.com/resourceDetail.html?id=257365&openId=oUgl9wSv5p1X-HH-MnP4jFvTIlHM&qrcodeId=219912&sign=ZTVkOGM1MGRhZDJjLTE2NjE3NjA4MDQyNzQ=">配套代码</a></p>
+<h2 id="数据来源"><a href="#数据来源" class="headerlink" title="数据来源"></a>数据来源</h2><p><code>pandas_datareader</code> by yahoo 是国外股票的数据</p>
+<p><code>tushare</code> 国内股票数据</p>
+<h2 id="模型建立"><a href="#模型建立" class="headerlink" title="模型建立"></a>模型建立</h2><p><a target="_blank" rel="noopener" href="https://quantecon.org/">open source code for economics modeling in python&#x2F;julia</a></p>
+<p><a target="_blank" rel="noopener" href="https://sinyi-chou.github.io/python-pandas-pipe/#:~:text=Pipe%20is%20a%20method%20in%20pandas.DataFrame%20capable%20of,can%20be%20combined%20with%20method%20chaining%20without%20nesting.">pandas pipe</a> for streamline processing of real time data</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/385094015">time series forcast</a></p>
+<p>有类似的软件 我下载到windows上面过 (agent based simulation&#x2F;agent based modeling) called <a href="">altreva adaptive modeler</a></p>
+<p><a target="_blank" rel="noopener" href="https://pythonhosted.org/fms/">fms</a></p>
+<p>还原持仓的对象 每一个账户都要详细分析 分析每个账户什么时候买入 卖出 还有不买入 不卖出 观望的那些人 所有人都要还原</p>
+<h2 id="实盘接口"><a href="#实盘接口" class="headerlink" title="实盘接口"></a>实盘接口</h2><p><strong>tools for high frequency trading</strong> <strong>low latency trading tool</strong></p>
+<p><strong>高频交易工具</strong> <strong>低延迟交易工具</strong></p>
+<p>要抢涨停板 网络必须要好 下单速度要快</p>
+<p>joinquant</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/shidenggui/easytrader">easytrader</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.iguuu.com/e">实盘易 支持多个客户端</a> 服务端要钱的 sdk都是服务端的client</p>
+<h2 id="tools"><a href="#tools" class="headerlink" title="tools"></a>tools</h2><p><a target="_blank" rel="noopener" href="https://github.com/mpquant/MyTT">mytt 通达信公式转换器</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/cedricporter/funcat">funcat 通达信公式转换器</a></p>
+<h2 id="models-and-frameworks"><a href="#models-and-frameworks" class="headerlink" title="models and frameworks"></a>models and frameworks</h2><p>general reinforcement learning:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/DLR-RM/stable-baselines3">https://github.com/DLR-RM/stable-baselines3</a></p>
+<p>crypto trading bot, support all crypto trading markets:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/freqtrade/freqtrade">https://github.com/freqtrade/freqtrade</a></p>
+<p>qlib by microsoft, quantatitive financial analysis:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/microsoft/qlib">https://github.com/microsoft/qlib</a></p>
+<p>reinforcement financial deep learning package:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/AI4Finance-Foundation/FinRL">https://github.com/AI4Finance-Foundation/FinRL</a></p>
+<p>openbb_terminal:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/OpenBB-finance/OpenBBTerminal">https://github.com/OpenBB-finance/OpenBBTerminal</a></p>
+<p>zipline</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/quantopian/zipline">https://github.com/quantopian/zipline</a></p>
+<p>pyalgotrade</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/gbeced/pyalgotrade">https://github.com/gbeced/pyalgotrade</a></p>
+<p>quantaxis:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yutiansut/QUANTAXIS">https://github.com/yutiansut/QUANTAXIS</a></p>
+<p>vn.py:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/vnpy/vnpy">https://github.com/vnpy/vnpy</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.vnpy.com/docs/">https://www.vnpy.com/docs/</a></p>
+<p>talib:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mrjbq7/ta-lib">https://github.com/mrjbq7/ta-lib</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.programcreek.com/python/example/92322/talib.EMA?msclkid=425d0f6cb5dd11ec9da2a03aa72194cd">https://www.programcreek.com/python/example/92322/talib.EMA?msclkid=425d0f6cb5dd11ec9da2a03aa72194cd</a></p>
+<p>superalgos:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Superalgos/Superalgos">https://github.com/Superalgos/Superalgos</a></p>
+<p><a target="_blank" rel="noopener" href="https://superalgos.org/">https://superalgos.org</a></p>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/blog/2022/06/09/b65aa0df-7114-4f0d-a099-68f7b1eaa809/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/blog/2022/06/09/9f4f592d-2051-441c-815a-0213551c3ae0/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2022-06-09 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/blog/categories/Quantitative-Trading-Platforms/">Quantitative Trading Platforms<span>2</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/blog/tags/financial/">financial<span>3</span></a></li> <li><a href="/blog/tags/market/">market<span>1</span></a></li> <li><a href="/blog/tags/quantative-trading/">quantative trading<span>1</span></a></li> <li><a href="/blog/tags/RL/">RL<span>2</span></a></li> <li><a href="/blog/tags/stock-market/">stock market<span>2</span></a></li> <li><a href="/blog/tags/trading/">trading<span>1</span></a></li>
+
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2024 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/blog/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+
+</body>
+</html>

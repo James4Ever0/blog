@@ -116,6 +116,37 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2024-07-26 </div>
+			<div class="article-title"><a href="/blog/2024/07/26/47372e0e-9f4a-4590-af31-cbfe5ca2c39d/" title="This article guides you through the process of copying an encrypted Linux installation to a new disk. It explains how to use the &#39;dd&#39; command in the terminal to clone the source disk to the target disk, and then resize the encrypted partition, root partition, and swap partition using either KDE Partition Manager or following a manual guide provided in the link.">How To Clone And Resize Encrypted Linux Installation</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="copy-encrypted-linux-install-to-new-disk"><a href="#copy-encrypted-linux-install-to-new-disk" class="headerlink" title="copy encrypted linux install to new disk"></a>copy encrypted linux install to new disk</h1><p>perform a bit-by-bit clone to new disk</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">dd</span> <span class="keyword">if</span>=&lt;source_disk_device&gt; of=&lt;target_disk_device&gt; bs=4M status=progress</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>remember to detach the old disk and enlarge the system partition on new disk</p>
+<hr>
+<p>in kde partiton manager, you can resize both the encrypted partition and the root partition as well as the swap partition (install tools prompted by name)</p>
+<p>follow the guide here to do it manually:</p>
+<p><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Resizing_LVM-on-LUKS">https://wiki.archlinux.org/title/Resizing_LVM-on-LUKS</a></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/07/26/47372e0e-9f4a-4590-af31-cbfe5ca2c39d/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2022-12-18 </div>
 			<div class="article-title"><a href="/blog/2022/12/18/d175841d-b8e3-41a9-8527-4c2d05192ba4/" title="This tutorial teaches you how to forcefully unmount disks by killing the process using it, handling lazy unmounts, and force unmounting on NFS. It provides detailed explanations and examples for each method.">Unmount Disks Forcefully</a></div>
 		</h3>

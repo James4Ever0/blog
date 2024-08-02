@@ -1,0 +1,255 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>HTTP methods | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/blog/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/blog/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+<!-- title -->
+<div class="page-header page-header-inverse ">
+  <h1 class="archive-title-tag title title-inverse ">HTTP methods</h1>
+</div>
+
+<div class="row page">
+  <!-- cols -->
+  
+  <div class="col-md-9">
+	
+
+	  <div id="top_search"></div>
+
+      
+         <!-- display as entry -->
+	     <div class="mypage">
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-03-05 </div>
+			<div class="article-title"><a href="/blog/2024/03/05/d957cf01-4d60-428e-9897-fafbb9f246c4/" title="This article provides a step-by-step guide on how to set up a Flask application with Gunicorn, implement extra authentication headers support, enable both GET and POST HTTP methods, and create a response chunk generation function.">Routing Requests With Flask, With Extra Authentication Headers</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>Run the following like:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip3 install gunicorn</span><br><span class="line">gunicorn --<span class="built_in">bind</span> localhost:8001 &lt;file_name_without_extension&gt;:app</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, Response, request</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line">parser = argparse.ArgumentParser(description=<span class="string">&#x27;Argument Parser with Default Parameters&#x27;</span>)</span><br><span class="line">parser.add_argument(<span class="string">&#x27;--source_port&#x27;</span>, <span class="built_in">type</span>=<span class="built_in">int</span>, default=<span class="number">8000</span>, <span class="built_in">help</span>=<span class="string">&#x27;Source Port Number&#x27;</span>)</span><br><span class="line">args, _ = parser.parse_known_args()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Source Port:&quot;</span>, args.source_port)</span><br><span class="line">source_port = args.source_port</span><br><span class="line">app = Flask(__name__)</span><br><span class="line">sess = requests.Session()</span><br><span class="line">AUTH_TOKEN = <span class="string">&quot;auth_token&quot;</span></span><br><span class="line">AUTH_HEADER_KEY = <span class="string">&quot;Auth&quot;</span></span><br><span class="line">GET = <span class="string">&quot;GET&quot;</span></span><br><span class="line">POST = <span class="string">&quot;POST&quot;</span></span><br><span class="line">ALLOWED_METHODS = [GET, POST]</span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span>, defaults=&#123;<span class="string">&#x27;path&#x27;</span>: <span class="string">&#x27;&#x27;</span>&#125;, methods=ALLOWED_METHODS</span>)</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&lt;path:path&gt;&#x27;</span>, methods=ALLOWED_METHODS</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">chat_completions</span>(<span class="params">path</span>):</span><br><span class="line">url = <span class="string">f&#x27;http://localhost:<span class="subst">&#123;source_port&#125;</span><span class="subst">&#123;request.full_path&#125;</span>&#x27;</span></span><br><span class="line"><span class="comment"># full path is prefixed with /</span></span><br><span class="line">request_headers = <span class="built_in">dict</span>(request.headers)</span><br><span class="line">auth = request_headers.get(AUTH_HEADER_KEY, <span class="literal">None</span>)</span><br><span class="line"><span class="keyword">if</span> auth != AUTH_TOKEN:</span><br><span class="line"><span class="keyword">return</span> Response(json.dumps(&#123;<span class="string">&quot;state&quot;</span>: <span class="string">&quot;unauthorized&quot;</span>, <span class="string">&quot;message&quot;</span>: <span class="string">&quot;Unauthorized access&quot;</span>&#125;), status = <span class="number">401</span>)</span><br><span class="line">no_auth_headers = &#123;k:v <span class="keyword">for</span> k,v <span class="keyword">in</span> request_headers.items() <span class="keyword">if</span> k !=AUTH_HEADER_KEY&#125;</span><br><span class="line"><span class="keyword">if</span> request.method == GET:</span><br><span class="line">response = sess.get(url, stream=<span class="literal">True</span>, headers=no_auth_headers)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">response = sess.post(url, stream=<span class="literal">True</span>, headers=no_auth_headers, data=request.data, files=request.files, json=request.json)</span><br><span class="line"><span class="comment"># form is not accepted.</span></span><br><span class="line"><span class="comment"># response = sess.post(url, stream=True, headers=no_auth_headers, data=request.data, form=request.form, files=request.files, json=request.json)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">generate</span>():</span><br><span class="line"><span class="keyword">for</span> chunk <span class="keyword">in</span> response.iter_content(chunk_size=<span class="number">1024</span>):</span><br><span class="line"><span class="keyword">yield</span> chunk</span><br><span class="line"><span class="keyword">return</span> Response(generate(), content_type=response.headers[<span class="string">&#x27;content-type&#x27;</span>], headers = <span class="built_in">dict</span>(response.headers))</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">app.run()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/03/05/d957cf01-4d60-428e-9897-fafbb9f246c4/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+	     </div>
+	     <div>
+	       <center>
+	         <div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+	       </center>
+	     </div>	
+      
+
+</div> <!-- col-md-9/col-md-12 -->
+
+
+<div class="col-md-3">
+	<div id="sidebar">
+	
+			
+  <div id="site_search">
+   <div class="form-group">
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="Search" class="st-search-input st-default-search-input form-control"/>
+   </div>  
+  <div id="local-search-result"></div>
+  </div>
+
+
+		
+			
+<div class="widget">
+	<h4>Links</h4>
+	<ul class="blogroll list-unstyled">
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/agi_computer_control/" title="Autonomous computer agent" target="_blank"]);">Project Cybergod</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/pyjom/" title="Media content automation" target="_blank"]);">Project Pyjom</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/prometheous/" title="Automated documentation, AI+IR(RAG)" target="_blank"]);">Project Prometheus</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/pyjom/" title="Media Content Automation" target="_blank"]);">Project Pyjom</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/james4ever0/my_blog_source/" title="Source code of my blog"" target="_blank"]);">Blog Source Code</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="http://www.github.com/james4ever0" title="My Github account" target="_blank"]);">My Github</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="https://samoyedsun.github.io/" title="Samoyedsun's Blog" target="_blank"]);">Samoyedsun&#39;s Blog</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="http://atlant1c.cn/" title="Atlant1c's Blog" target="_blank"]);">Atlant1c&#39;s Blog</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="https://www.gregoryuan.com/" title="Gregoryuan's Blog" target="_blank"]);">Gregoryuan&#39;s Blog</a></li>
+	
+		<li><i class="fa fa-book"></i><a href="https://yubingtao.netlify.app/" title="Yubingtao's Blog" target="_blank"]);">Yubingtao&#39;s Blog</a></li>
+	
+	</ul>
+</div>
+
+
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2024 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/blog/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+
+</body>
+</html>

@@ -116,6 +116,70 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2024-05-12 </div>
+			<div class="article-title"><a href="/blog/2024/05/12/8488cce3-4170-4d90-bc4a-ab700a07bd2e/" title="This article provides a step-by-step guide on how to install the `sysstat` package and use the `sar -u` command to view CPU usage history, enabling users to monitor and analyze their system&#39;s performance.">Viewing Cpu Usage History With Sysstat And The Sar Command</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="View-history-CPU-usage-statistics"><a href="#View-history-CPU-usage-statistics" class="headerlink" title="View history CPU usage statistics"></a>View history CPU usage statistics</h1><p>First install <code>sysstat</code> package, then run <code>sar -u</code></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/05/12/8488cce3-4170-4d90-bc4a-ab700a07bd2e/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-01-14 </div>
+			<div class="article-title"><a href="/blog/2024/01/14/70062f91-44e2-4bf4-8694-40957d48c0ce/" title="Learn how to measure system responsiveness and temperature using Python, set alert thresholds for notifications, and install monitoring software as a daemon on various devices.">System Lagging Alert, Temperature Alert In Arbitrary Device</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>The system sometimes feels lagging, less responsive. The only way to fix is to reboot.</p>
+<p>Although monitor task completion time is helpful, but not general enough.</p>
+<p>Simple hack:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">measure_system_responsiveness</span>():</span><br><span class="line">start_time = time.time()</span><br><span class="line">subprocess.run(</span><br><span class="line">[<span class="string">&quot;echo&quot;</span>, <span class="string">&quot;hello&quot;</span>], capture_output=<span class="literal">True</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>, check=<span class="literal">True</span></span><br><span class="line">)</span><br><span class="line">end_time = time.time()</span><br><span class="line">exec_time = end_time - start_time</span><br><span class="line">exec_per_second = <span class="number">1</span> / exec_time</span><br><span class="line"><span class="keyword">return</span> exec_per_second</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Lagging related package:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt install nohang oomd psi-notify</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>Temperature monitoring packages:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pip3 install gpustat</span><br><span class="line">pip3 install pyspectator</span><br><span class="line">apt install lm-sensor <span class="comment"># sensors -j</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Create temperature statistics (high, low, mean) for all crucial components.</p>
+<p>Set alert threshold, only trigger alert if temperature reoccurs for several times.</p>
+<p>Send <code>ntfy.sh</code> notification as well as making audible alerts.</p>
+<p>Notification shall specify device name, component name, current temperature, threshold, statistics.</p>
+<p>Every device shall be equipped with this software as daemon, be it smartphone, MacBook, Linux PC, Windows PC.</p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/01/14/70062f91-44e2-4bf4-8694-40957d48c0ce/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2023-08-13 </div>
 			<div class="article-title"><a href="/blog/2023/08/13/c69512a3-e382-4ae7-ac79-6f927d4885a8/" title="This Resource Utilization Monitor Tool is specifically designed for Linux systems, providing features such as htop to track RAM usage and processes, along with s-tui for monitoring CPU/GPU temperatures. It is a helpful tool for keeping an eye on system resources in real-time.">resource utilization monitor tool</a></div>
 		</h3>

@@ -1,0 +1,339 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Export Repl Command History To Script File | Blog of James Brown</title>
+  <meta name="author" content="James Brown">
+  
+  <meta name="description" content="The article delves into exporting and visualizing command history in Xonsh, a Python-like programming language. It explores various methods for achieving this, including using the script command, %history magic, nbterm, jpterm, recording on *nix platforms, and more. Additionally, it discusses session details such as exit codes, timestamps, environment variables, and general terminal recording.">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Export Repl Command History To Script File"/>
+  <meta property="og:site_name" content="Blog of James Brown"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/blog/atom.xml" title="Blog of James Brown" type="application/atom+xml">
+  
+  
+    <link href="/blog/favicon.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/blog/css/themes/cerulean.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/blog/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/blog/js/jquery-2.0.3.min.js"></script>
+  
+  
+  <!-- analytics -->
+  
+
+
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <nav id="main-nav" class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/blog/">Blog of James Brown</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/blog/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/blog/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> Export Repl Command History To Script File</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <p>The article delves into exporting and visualizing command history in Xonsh, a Python-like programming language. It explores various methods for achieving this, including using the script command, %history magic, nbterm, jpterm, recording on *nix platforms, and more. Additionally, it discusses session details such as exit codes, timestamps, environment variables, and general terminal recording.</p>
+			
+		 </div> <!-- alert -->
+	  		
+
+	  <p>xonsh has rich history per session which includes session id, command exit code, timestamp, environment variables etc.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># view input history</span></span><br><span class="line"><span class="built_in">history</span></span><br><span class="line"><span class="comment"># view history file save path</span></span><br><span class="line"><span class="built_in">history</span> file</span><br><span class="line"><span class="comment"># commit history to file</span></span><br><span class="line"><span class="built_in">history</span> flush</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>To view the commands:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &lt;history_json_file&gt; | jq .data.cmds</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>general purpose terminal recorder, available in most *nix platforms:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">script &lt;record_filename&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>to render the recorded file as plain text, run the following python script:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyte</span><br><span class="line">typescript_path = <span class="string">&quot;mytypescript.log&quot;</span></span><br><span class="line">output_path = <span class="string">&quot;typescript_plain.log&quot;</span></span><br><span class="line"><span class="comment"># Specify the desired screen dimensions (columns x rows)</span></span><br><span class="line">columns = <span class="number">80</span> <span class="comment"># please remember the columns for godsake.</span></span><br><span class="line"><span class="comment"># if you think it would be slow, use pypy instead.</span></span><br><span class="line">rows = <span class="number">100000</span> <span class="comment"># what could go wrong now?</span></span><br><span class="line"><span class="comment"># Create a Screen object with the specified dimensions</span></span><br><span class="line">screen = pyte.Screen(columns, rows)</span><br><span class="line"><span class="comment"># Create a ByteStream to handle ANSI control codes</span></span><br><span class="line">stream = pyte.ByteStream(screen)</span><br><span class="line">typescript_bytes = <span class="built_in">open</span>(typescript_path,<span class="string">&#x27;rb&#x27;</span>).read()</span><br><span class="line"><span class="comment"># Insert ANSI control codes</span></span><br><span class="line">stream.feed(typescript_bytes)</span><br><span class="line"><span class="comment"># Get the content with ANSI control codes</span></span><br><span class="line">content = screen.display</span><br><span class="line">plain_content =<span class="string">&quot;\n&quot;</span>.join(content).strip()</span><br><span class="line"><span class="comment"># Write the content to a file</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(output_path, <span class="string">&quot;w+&quot;</span>) <span class="keyword">as</span> file:</span><br><span class="line">file.write(plain_content)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>for ipython one use <code>%history</code> for viewing history.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># view current session history</span></span><br><span class="line">%history</span><br><span class="line"><span class="comment"># write to file</span></span><br><span class="line">%history -f ipython_output.log</span><br><span class="line"><span class="comment"># view all history across all sessions</span></span><br><span class="line">%history -g</span><br><span class="line"><span class="comment"># view specific session history, like session 1</span></span><br><span class="line">%history <span class="number">1</span>/</span><br><span class="line"><span class="comment"># -o for showing output, -p for appending &quot;&gt;&gt;&gt;&quot; in front of input lines, -t for translating magic functions into valid python code</span></span><br><span class="line">%history -opt</span><br><span class="line"><span class="comment"># for more, type the %quickref command and type /hist&lt;Enter&gt;</span></span><br><span class="line"><span class="comment"># detailed reference can be found in %magic</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>terminal jupyter notebook</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/davidbrochart/nbterm">nbterm</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/davidbrochart/jpterm">jpterm</a> original rewrite of nbterm, with textualize</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://davidbrochart.github.io/jpterm/plugins/notebook_editor/#keybindings">keybindings</a></p>
+</li>
+</ul>
+<hr>
+<p>运行py的交互式命令行 如果想输出最近的操作 可以运行下面的代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># please define &quot;history_output_path&quot; beforehand</span></span><br><span class="line"><span class="keyword">import</span> readline</span><br><span class="line"><span class="comment"># Get the total number of history items in the current session</span></span><br><span class="line">history_length = readline.get_current_history_length()</span><br><span class="line"><span class="comment"># Iterate over each history item and print the command</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(history_output_path, <span class="string">&#x27;w+&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, history_length + <span class="number">1</span>):</span><br><span class="line">item = readline.get_history_item(i)</span><br><span class="line"><span class="built_in">print</span>(item)</span><br><span class="line">f.write(item+<span class="string">&quot;\n&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在pdb中 或者在breakpoint断点中 只能获取到当前会话的历史</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> readline; <span class="built_in">print</span>([readline.get_history_item(i+<span class="number">1</span>) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(readline.get_current_history_length())])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>Hackers are good at converting arbitrary actions into scripts.</p>
+<p>At every step below we need file records.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Thoughs -&gt; Actions -&gt; Scripts -&gt; Programs -&gt; Systems</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Human learn from trial and error, which is the origin of every good program, and REPL can be a better place than web based jupyter notebook. So we might want to find some command line alternative to jupyter.</p>
+<p>Typically we need history, command output, filter out those errorneous commands, and save the output.</p>
+<hr>
+<p>R has that functionality.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># only current session history is keeped.</span></span><br><span class="line">saveHistory<span class="punctuation">(</span><span class="string">&quot;history.R&quot;</span><span class="punctuation">)</span></span><br><span class="line"><span class="comment"># view history in popup</span></span><br><span class="line">history<span class="punctuation">(</span><span class="punctuation">)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>metasploit history file location: <code>~/.msf4/history</code></p>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+		<li class="prev"><a href="/blog/2024/03/31/8da24805-6532-40b1-bb36-23edc91406c5/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+        <li><a href="/blog/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+          <li class="next"><a href="/blog/2024/03/31/a9195f8f-4cd8-4a15-ad6b-782a9b437b0a/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2024-03-31 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/blog/categories/Command-History/">Command History<span>1</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/blog/tags/Xonsh/">Xonsh<span>1</span></a></li> <li><a href="/blog/tags/command-history/">command history<span>1</span></a></li> <li><a href="/blog/tags/exporting-command-history/">exporting command history<span>1</span></a></li> <li><a href="/blog/tags/viewing-command-history/">viewing command history<span>1</span></a></li> <li><a href="/blog/tags/script/">script<span>2</span></a></li> <li><a href="/blog/tags/history-magic/">%history magic<span>1</span></a></li> <li><a href="/blog/tags/nbterm/">nbterm<span>1</span></a></li> <li><a href="/blog/tags/jpterm/">jpterm<span>1</span></a></li>
+
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2024 James Brown
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/blog/js/jquery.imagesloaded.min.js"></script>
+<script src="/blog/js/gallery.js"></script>
+<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/blog/js/main.js"></script>
+<script src="/blog/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/blog/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+
+</body>
+</html>

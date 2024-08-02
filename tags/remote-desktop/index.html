@@ -117,7 +117,7 @@
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2022-03-04 </div>
-			<div class="article-title"><a href="/blog/2022/03/04/d291d8e6-3355-43ab-90e9-b62c17f5ac1f/" title="This article discusses different remote computer connection software options including NoMachine NX, FreeNX, Moonlight, parsec, ssh-rdp, x11vnc, vncviewer, sunshine host, and openstream-server that are compatible with both Windows and Linux hosts. Additionally, it introduces a hardware solution, the KVM switch, which supports audio redirection and separate USB ports.">Worth Trying Remote Computer Connection</a></div>
+			<div class="article-title"><a href="/blog/2022/03/04/0c758f6f-cb2b-4e2e-935c-65c572439243/" title="This article explores remote computer access techniques, such as using x11vnc and pikvm for graphical interfaces, ControlMaster for persistent SSH connections, and port forwarding for secure access. Additionally, it suggests utilizing high-quality KVM switches with audio redirection and separate USB ports as hardware solutions to enhance the overall experience.">Worth Trying Remote Computer Connection</a></div>
 		</h3>
 	
 
@@ -128,7 +128,28 @@
   <div class="row">
 	
 	
-		<p>NoMachine NX</p>
+		<p>x11vnc can proxy existing x11 desktop on web.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install x11vnc</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>for hardware kvm over ip, there is pikvm swite for turning rpi3b+ into ipkvm and armkvm series that are dedicated low cost ipkvm hardwares.</p>
+<hr>
+<p>to persist ssh connection:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh -o ControlMaster=auto -o ControlPersist=<span class="built_in">yes</span> -o BatchMode=<span class="built_in">yes</span> user@hostname</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>ssh port forwarding:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># requires sudo</span></span><br><span class="line">sudo ssh -v -N -L &lt;local_addr&gt;:&lt;remote_addr&gt; -R &lt;remote_addr&gt;:&lt;local_addr&gt; &lt;user&gt;@&lt;remote_host&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>remote or local address must at least have port number specified, optionally with host address like: <code>[host]:&lt;port&gt;</code></p>
+<p><code>-L</code> opens a local port at local address and forward to remote address. <code>-R</code> opens a remote port at remote address and forward to local address. <code>-N</code> disable the tty connection. <code>-v</code> shows the debug info.</p>
+<hr>
+<p>enable pubkey authentication for nomachine:</p>
+<p>first generate the key with <code>ssh-keygen</code>, copy your pubkey content at <code>.ssh/id_rsa.pub</code> (local host) to remote host at <code>~/.nx/config/authorized.crt</code>, one pubkey per line.</p>
+<p>next change the setting <code>AcceptedAuthenticationMethods</code> as <code>NX-private-key</code> in file <code>/usr/NX/etc/server.cfg</code> at remote host.</p>
+<p>no need to restart the service. change your connection method to key based authentication and select the private key file path.</p>
+<hr>
+<p>NoMachine NX</p>
 <p>FreeNX</p>
 <p>Moonlight for NVIDIA Windows</p>
 <p>parsec for windows&#x2F;macos host</p>
@@ -147,7 +168,7 @@
 
 	
 	</div>
-  <a type="button" href="/blog/2022/03/04/d291d8e6-3355-43ab-90e9-b62c17f5ac1f/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2022/03/04/0c758f6f-cb2b-4e2e-935c-65c572439243/#more" class="btn btn-default more">Read More</a>
 </div>
 
 	       

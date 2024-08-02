@@ -123,8 +123,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-10-06 </div>
-			<div class="article-title"><a href="/blog/2023/10/06/812f34a6-0f53-4523-b04e-3c7bd5eaafae/" title="This article provides instructions for activating Windows and Microsoft Office, as well as installing them in a VirtualBox environment. It also includes a link to a blog post with more detailed steps. The website mentioned is massgrave.dev.">Windows &amp; Office Activation, Install Windows In Virtualbox</a></div>
+			<div class="date"> 2024-07-01 </div>
+			<div class="article-title"><a href="/blog/2024/07/01/a7a584b6-b421-4c75-b3ca-f5b6814629c5/" title="This article provides instructions on how to prevent unauthorized access to a Linux system by utilizing the `ufw` and `firewalld` tools. It explains the steps needed for both tools, including the necessary commands to deny connections from specific IP ranges and port numbers.">Block Unauthorized Access By Firewall</a></div>
 		</h3>
 	
 
@@ -135,12 +135,15 @@
   <div class="row">
 	
 	
-		<p>visit: <a target="_blank" rel="noopener" href="https://massgrave.dev/">massgrave</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44323306/article/details/122009436">steps before installing windows to virtualbox</a></p>
+		<p><code>ufw</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw deny from &lt;ip_range&gt; port &lt;port&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>firewalld</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo firewall-cmd --add-rich-rule=<span class="string">&#x27;rule family=&quot;ipv4&quot; source address=&quot;&lt;ip_range&gt;&quot; port protocol=&quot;tcp&quot; port=&quot;&lt;port&gt;&quot; drop&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 	
 	</div>
-  <a type="button" href="/blog/2023/10/06/812f34a6-0f53-4523-b04e-3c7bd5eaafae/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2024/07/01/a7a584b6-b421-4c75-b3ca-f5b6814629c5/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -150,8 +153,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-10-05 </div>
-			<div class="article-title"><a href="/blog/2023/10/05/4df79ade-d538-4df2-9a6e-7840343648e1/" title="This article guides you through the process of configuring Docker to pull images from a specific mirror, such as baidubce.com, instead of the default docker.io. The article also explains that the configuration may not work until you explicitly pull from the specified mirror.">Force To Use Docker Mirror Instead Of Pulling From Docker.Io</a></div>
+			<div class="date"> 2024-07-01 </div>
+			<div class="article-title"><a href="/blog/2024/07/01/25908300-e695-4d20-beb9-6bf02ec11e63/" title="When using `chardet` for detecting character encodings, a low confidence mark can cause decoding issues. To mitigate this, specify &#39;error&#39; with options like &#39;ignore&#39;, &#39;replace&#39;, or &#39;xmlcharrefreplace&#39; to handle the decoding problems.">Python Continue Decoding Despite Error</a></div>
 		</h3>
 	
 
@@ -162,15 +165,13 @@
   <div class="row">
 	
 	
-		<p>even if you configure <code>/etc/docker/daemon.json</code> like this (note: you still need to do this):</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span> <span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span></span><br><span class="line"><span class="punctuation">[</span><span class="string">&quot;https://mirror.baidubce.com&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>it is not fully working until:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo -E docker pull mirror.baidubce.com/significantgravitas/auto-gpt</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+		<p>When using <code>chardet</code> you may get some confidence mark over a particular file. If that number is below one then you may face issues when decoding.</p>
+<p>Specify <code>error=&lt;error_handle_strategy&gt;</code> can mitigate this issue.</p>
+<p>The default is ‘strict’ meaning that encoding errors raise a UnicodeEncodeError.  Other possible values are ‘ignore’, ‘replace’ and ‘xmlcharrefreplace’ as well as any other name registered with codecs.register_error that can handle UnicodeEncodeErrors.</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2023/10/05/4df79ade-d538-4df2-9a6e-7840343648e1/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2024/07/01/25908300-e695-4d20-beb9-6bf02ec11e63/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -180,8 +181,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-10-04 </div>
-			<div class="article-title"><a href="/blog/2023/10/04/f65f508f-260b-484f-92e0-dfce948c5925/" title="This article discusses various tools for monitoring CPU and GPU temperatures across different platforms. The tools mentioned include Archey4, Osx-core-temp, Apple_sensors, Smctemp, Coretemp, and Psensor.">Cpu/Gpu Temperature Monitor</a></div>
+			<div class="date"> 2024-06-24 </div>
+			<div class="article-title"><a href="/blog/2024/06/24/a12cdd5f-a603-4f55-af21-467e0c6decf5/" title="The article provides a list of 16 free port-forwarding services and introduces &#39;greenhouse,&#39; which is a self-hosted reverse SSH service that allows access to localhost publicly by utilizing tunneling and supporting various protocols such as HTTPS, TCP, UDP, and SSH for port forwarding.">List Of Free Local Service Port Forwarder</a></div>
 		</h3>
 	
 
@@ -192,18 +193,51 @@
   <div class="row">
 	
 	
-		<p>we’ve got <a target="_blank" rel="noopener" href="https://github.com/HorlogeSkynet/archey4">archey4</a>, a cross-platform sysinfo gather tool, with info on temperature monitor tools</p>
-<h2 id="macos"><a href="#macos" class="headerlink" title="macos"></a>macos</h2><p><a target="_blank" rel="noopener" href="https://github.com/lavoiesl/osx-cpu-temp">osx-core-temp</a> for old intel macs</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/fermion-star/apple_sensors/">apple_sensors</a> and <a target="_blank" rel="noopener" href="https://github.com/narugit/smctemp">smctemp</a> for m1 and newer macs</p>
-<p>place this under <code>/opt/homebrew/bin/osx-cpu-temp</code> to run archey4 with cpu temperature:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">smctemp -c</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><p><a target="_blank" rel="noopener" href="https://www.alcpu.com/CoreTemp/">coretemp</a></p>
-<h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><p><a target="_blank" rel="noopener" href="https://github.com/chinf/psensor">psensor</a></p>
+		<p>[List of freemium port-forwarding services](</p>
+<p><a target="_blank" rel="noopener" href="https://gist.github.com/SomajitDey/efd8f449a349bcd918c120f37e67ac00">https://gist.github.com/SomajitDey/efd8f449a349bcd918c120f37e67ac00</a>)</p>
+<p>Useful for accessing a computer that does not have a public IP address, over the internet. The machine can be behind multiple firewalls and NATs.</p>
+<ol>
+<li><p><a target="_blank" rel="noopener" href="https://www.gsocket.io/">Global socket or gsocket</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://localhost.run/">localhost.run</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pipeto.me/">github.com&#x2F;jpschroeder&#x2F;pipe-to-me</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://getuplink.de/">getuplink.de</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://localtunnel.github.io/www/">localtunnel.me</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://localxpose.io/">localXpose.io</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://telebit.cloud/">telebit.cloud</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://ngrok.com/">ngrok.com</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pagekite.net/">pagekite.net</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://openport.io/">openport.io</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://portmap.io/">portmap.io</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://packetriot.com/">packetriot.com</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://sshreach.me/">sshreach.me</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://burrow.io/">burrow.io</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/beame-insta-ssl">beame-insta-ssl</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://tunnelto.dev/">tunnelto.dev</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://greenhouse.server.garden/">greenhouse</a></p>
+</li>
+</ol>
+<p><strong>Self-hosted</strong>: <a target="_blank" rel="noopener" href="https://github.com/antoniomika/sish">https://github.com/antoniomika/sish</a></p>
+<p><strong>Keywords</strong>: <em>public localhost</em>; <em>reverse ssh service</em>; <em>expose localhost</em>; <em>tunnelling</em>; <em>https&#x2F;tcp&#x2F;udp&#x2F;ssh</em> <em>port forwarding</em></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2023/10/04/f65f508f-260b-484f-92e0-dfce948c5925/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2024/06/24/a12cdd5f-a603-4f55-af21-467e0c6decf5/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -213,8 +247,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-09-30 </div>
-			<div class="article-title"><a href="/blog/2023/09/30/1c544953-b6de-4ea3-b76e-75911c518bd0/" title="This article highlights the significance of performing online tasks within a virtual machine to ensure security and safeguard physical machines from unidentified applications.">网上接单注意</a></div>
+			<div class="date"> 2024-06-23 </div>
+			<div class="article-title"><a href="/blog/2024/06/23/2339ae60-e96d-4d20-b59b-c01a56d6ffe8/" title="This article delves into the configuration of SSH, specifically using chisel port forwarding for systemd services. It also provides tips on troubleshooting and enhancing connection stability with n2n. The main focus is on establishing access to all ports between local machines while dealing with limited internet port availability.">Intrisic Sshd Configuration Errors</a></div>
 		</h3>
 	
 
@@ -225,204 +259,249 @@
   <div class="row">
 	
 	
-		<p>不管什么单子 必须在虚拟机里面跑</p>
-<p>不得物理机运行未知应用程序 否则就会出事</p>
+		<p>if you want to use ssh port forwarding as systemd service, keep in mind that the default user for execution is root, and you need to use the public key of root to login.</p>
+<p>or you can change the user executing the task in service config:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[System]</span><br><span class="line">User=xxx</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-	
-	</div>
-  <a type="button" href="/blog/2023/09/30/1c544953-b6de-4ea3-b76e-75911c518bd0/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2023-09-29 </div>
-			<div class="article-title"><a href="/blog/2023/09/29/ea0a5ae1-86b7-44d7-9bb9-bcc5c115f2a0/" title="This article discusses the secure setup of virtual or Docker environments for agents like Autogpt, Open Interpreter, and Cybergod. It emphasizes the importance of isolation, fixed-size mountpoints, and self-contracts in crypto exchanges to ensure a safe and efficient user experience.">Prerequisites For Running Autogpt/Open Intepreter And Multimodal Computer Agents (Such As Cybergod), Targets, And Similar Projects Collections</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p><a target="_blank" rel="noopener" href="https://github.com/kyegomez/Kosmos2.5">kosmos-2.5</a></p>
-<h2 id="prerequisites"><a href="#prerequisites" class="headerlink" title="prerequisites"></a>prerequisites</h2><p>run these things under virtual machine or docker, with a fixed size mountpoint. keep all ports of your local machine isolated from the agent.</p>
-<p>when you need it to process anything, just use the mountpoint as the only data exchange location. do not let anything executable spit out from it. do not run anything generated by it programmatically.</p>
-<h2 id="targets"><a href="#targets" class="headerlink" title="targets"></a>targets</h2><p>contracts shall be based on crypto exchange. self-contract shall be introduced, and for those don’t do self-contract or external contracts often their currency could inflate.</p>
-<p>self-training: in the form of task &amp; proof</p>
-<p>multi-agent training: (contract) similar to self-training, with cross-validation</p>
-<h2 id="projects"><a href="#projects" class="headerlink" title="projects"></a>projects</h2><p><a target="_blank" rel="noopener" href="https://github.com/Significant-Gravitas/AutoGPT">autogpt</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/KillianLucas/open-interpreter">open-interpreter</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/James4Ever0/agi_computer_control">cybergod</a></p>
-
-	
-	</div>
-  <a type="button" href="/blog/2023/09/29/ea0a5ae1-86b7-44d7-9bb9-bcc5c115f2a0/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2023-09-29 </div>
-			<div class="article-title"><a href="/blog/2023/09/29/4318df33-8a8f-42e6-a17c-de965ad7ae4e/" title="This user discusses various ways to customize or modify the appearance of a website called &#34;bilibili&#34; using tools like Dark Reader and filter mode toggles.">Bilibili Dark Reader Mod</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p>maybe toggle the filter mode triggers will help?</p>
-<p>or stylus? other modding tools?</p>
-
-	
-	</div>
-  <a type="button" href="/blog/2023/09/29/4318df33-8a8f-42e6-a17c-de965ad7ae4e/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2023-09-26 </div>
-			<div class="article-title"><a href="/blog/2023/09/26/75fd1bdc-d4f5-43d7-9f20-6a4029f05b18/" title="This article discusses various process monitoring and notification tools like watchdogd, supervisord, gosuv, push.js, apprise, and python-pushover, as well as dashboard tools such as Reportr/dashboard, d2-admin, termui, plotly/dash, and Parallels/rq-dashboard.">Process Monitoring And Notification Tools: A Comprehensive List</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<h1 id="process-monitor-supervise-notification-pusher-dashboard"><a href="#process-monitor-supervise-notification-pusher-dashboard" class="headerlink" title="process monitor&#x2F;supervise &amp; notification pusher &amp; dashboard"></a>process monitor&#x2F;supervise &amp; notification pusher &amp; dashboard</h1><h2 id="process-monitor"><a href="#process-monitor" class="headerlink" title="process monitor"></a>process monitor</h2><p><a target="_blank" rel="noopener" href="https://github.com/troglobit/watchdogd">https://github.com/troglobit/watchdogd</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/ochinchina/supervisord">https://github.com/ochinchina/supervisord</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/codeskyblue/gosuv">https://github.com/codeskyblue/gosuv</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Supervisor/superlance">https://github.com/Supervisor/superlance</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/immortal/immortal">https://github.com/immortal/immortal</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/catern/supervise">https://github.com/catern/supervise</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/ihaiker/sudis">https://github.com/ihaiker/sudis</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/rahiel/supervisor-alert">https://github.com/rahiel/supervisor-alert</a></p>
-<h2 id="notification-pusher"><a href="#notification-pusher" class="headerlink" title="notification pusher"></a>notification pusher</h2><p><a target="_blank" rel="noopener" href="https://github.com/Nickersoft/push.js">https://github.com/Nickersoft/push.js</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/caronc/apprise">https://github.com/caronc/apprise</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Thibauth/python-pushover">https://github.com/Thibauth/python-pushover</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/liiight/notifiers">https://github.com/liiight/notifiers</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/YuriyLisovskiy/pynotifier">https://github.com/YuriyLisovskiy/pynotifier</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/SeTeM/pync">https://github.com/SeTeM/pync</a></p>
-<h2 id="dashboard"><a href="#dashboard" class="headerlink" title="dashboard"></a>dashboard</h2><p><a target="_blank" rel="noopener" href="https://github.com/Reportr/dashboard">https://github.com/Reportr/dashboard</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/d2-projects/d2-admin">https://github.com/d2-projects/d2-admin</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/gizak/termui">https://github.com/gizak/termui</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/plotly/dash">https://github.com/plotly/dash</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Parallels/rq-dashboard">https://github.com/Parallels/rq-dashboard</a></p>
-
-	
-	</div>
-  <a type="button" href="/blog/2023/09/26/75fd1bdc-d4f5-43d7-9f20-6a4029f05b18/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2023-09-26 </div>
-			<div class="article-title"><a href="/blog/2023/09/26/3bda6569-50ca-44c1-a21c-b1575bfa27ae/" title="This article provides a guide on how to preserve system stability while detaching and reattaching Linux disks using the `mount --bind` command, ensuring data consistency and seamless disk management.">Maintaining Stability With Mount --Bind: Detaching And Reattaching Linux Disks</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<h1 id="linux-disk-detach-and-reattach-how-to-maintain-stability"><a href="#linux-disk-detach-and-reattach-how-to-maintain-stability" class="headerlink" title="linux disk detach and reattach, how to maintain stability"></a>linux disk detach and reattach, how to maintain stability</h1><p>use <code>mount --bind</code></p>
-
-	
-	</div>
-  <a type="button" href="/blog/2023/09/26/3bda6569-50ca-44c1-a21c-b1575bfa27ae/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2023-09-21 </div>
-			<div class="article-title"><a href="/blog/2023/09/21/cba7c9c1-43f4-46d6-9eed-b25c02a5eba4/" title="Ntfy is a service that enables users to publish messages through message queues and monitor statuses on a dashboard, providing an efficient way to manage and track notifications.">Introducing Ntfy: A Service For Publishing Messages And Monitoring Statuses On A Dashboard</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<h1 id="message-publishing-message-queue-status-viewer-dashboard"><a href="#message-publishing-message-queue-status-viewer-dashboard" class="headerlink" title="message publishing, message queue, status viewer, dashboard"></a>message publishing, message queue, status viewer, dashboard</h1><p>ntfy</p>
-
-	
-	</div>
-  <a type="button" href="/blog/2023/09/21/cba7c9c1-43f4-46d6-9eed-b25c02a5eba4/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2023-09-17 </div>
-			<div class="article-title"><a href="/blog/2023/09/17/33d90b35-c9ea-4d42-bd9b-172fbe0e0ace/" title="This text provides guidelines for designing AI systems, advocating for an agent-based approach rather than a role-based one. It highlights the usage of tools like LangChain, Autogen, Agently, and ModelScope-Agent, as well as emphasizing the importance of thinking like an expert, setting example goals, and allowing the AI to self-improve.">Guidelines On Designing Ai Systems</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p>shall we design the agent system based on ‘distance’ instead of ‘role’? in that case, only words that make sense and continue more often will appear together, and vice versa.</p>
 <hr>
-<p>multi-agent orchestration:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/langchain-ai/langchain">langchain</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/microsoft/autogen">autogen</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Maplemx/Agently">agently</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/modelscope/modelscope-agent">ModelScope-Agent</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jpillora/chisel"><code>chisel</code></a> can be used for port forwarding by http compared with <code>wstunnel</code>, able to survive <code>nginx</code> (still need to configure websocket upgrades).</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># server, allowing reverse port forwarding</span></span><br><span class="line">chisel server -p &lt;port&gt; --auth &lt;user&gt;:&lt;pass&gt; --reverse</span><br><span class="line"><span class="comment"># client</span></span><br><span class="line">chisel client --auth &lt;user&gt;:&lt;pass&gt; &lt;protocol&gt;://&lt;url&gt; &lt;local_addr&gt;:&lt;remote_addr&gt; R:&lt;remote_addr&gt;:&lt;local_addr&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <hr>
-<p>you must think like an expert and show some example or direction as reasonable goals if you want it to perform specific task.</p>
-<p>you must give it enough degree of freedom if you want it to self-improve and become conscious.</p>
+<p>if you want to have multiple host sharing same ip because of proxy forwarding or different network locations, then you need to change the system host mapping file.</p>
+<p>in linux and macos it is at <code>/etc/hosts</code></p>
+<p>in windows, <code>C:\Windows\System32\drivers\etc\hosts</code></p>
+<p>you need to configure the host file on the proxy machine if you want to avoid name clashes with proxies. these host names can be less informative to hide the intent.</p>
+<hr>
+<p>on latest ubuntu 24.04 the sshd config includes files under <code>/etc/ssh/sshd_config.d</code> which has a file named <code>50-cloud-init.conf</code> has the line overriding any other setting afterwords.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PasswordAuthentication yes</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>you need to change both <code>/etc/ssh/sshd_config</code> and this file to disable password authentication.</p>
+<hr>
+<p><code>-R</code> will not allow you to open <code>0.0.0.0</code> port on remote machine unless you configure something in <code>/etc/ssh/sshd_config</code> like below.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">AllowTcpForwarding yes</span><br><span class="line">GatewayPorts clientspecified</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>if not, use <code>socat</code> to finally deliver the forwarded remote local port to remote public port.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">socat TCP-LISTEN:&lt;lport&gt;,reuseaddr,fork TCP:&lt;rhost&gt;:&lt;rport&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>port forwarding failure can be corrected.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># get the process pid of the port</span></span><br><span class="line">sudo lsof -i :&lt;port&gt;</span><br><span class="line">lsof -i :&lt;port&gt;</span><br><span class="line"><span class="comment"># kill the process</span></span><br><span class="line"><span class="built_in">kill</span> &lt;port&gt;</span><br><span class="line"><span class="comment"># rerun lsof to check if the port is freed</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><code>n2n</code> can be in handy if you do not have too many ports on internet and still want to access all ports in between your local machines.</p>
+<hr>
+<p>if connection is unstable, use <code>-o ServerAliveInterval=60 -o ServerAliveCountMax=3</code> to extend the timeout period.</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2023/09/17/33d90b35-c9ea-4d42-bd9b-172fbe0e0ace/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2024/06/23/2339ae60-e96d-4d20-b59b-c01a56d6ffe8/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-06-21 </div>
+			<div class="article-title"><a href="/blog/2024/06/21/769c7273-8398-4fdc-b09b-ebd46896349c/" title="This guide outlines the process of relocating Conda&#39;s user data directory to a different disk, creating a symbolic link, and updating configuration files without disrupting functionality. Users are urged to back up their data beforehand, while also addressing the need for appropriate permissions and manual or scripted fixes for broken symlinks.">Migrate Conda Installation Folder</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>To copy the entire Conda user data directory to another disk and then create a symbolic link back to the original place, you can follow these steps:</p>
+<p>Identify the Conda user data directory: This is typically located at <code>~/.conda</code> or <code>~/miniconda3</code> or <code>~/anaconda3</code>, depending on how you installed Conda. You can find the exact path by running <code>conda info --envs</code> and looking for the envs dirs entry.</p>
+<p>Copy the directory to the new location: Use rsync to copy the directory, as it will preserve the file permissions and symbolic links. Here’s an example command:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rsync -avh --progress ~/.conda /path/to/new/location/conda_data_backup</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Replace <code>/path/to/new/location/conda_data_backup</code> with the actual path where you want to copy the directory on the other disk.</p>
+<p>Create a symbolic link: Once the copy is complete, you can create a symbolic link from the original location to the new one. First, you may need to remove the original directory or move it to a different name. Here’s how you can do it:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> ~/.conda ~/.conda_old  <span class="comment"># Rename the original directory</span></span><br><span class="line"><span class="built_in">ln</span> -s /path/to/new/location/conda_data_backup ~/.conda  <span class="comment"># Create the symlink</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Make sure to replace <code>~/.conda</code> with the actual path to your Conda user data directory and <code>/path/to/new/location/conda_data_backup</code> with the path to the copied directory on the new disk.</p>
+<p>Test the setup: Before deleting the old directory, test your new setup to ensure everything is working correctly. Activate your Conda environments and run some commands to verify that packages are accessible and that you can install new ones.</p>
+<p>Clean up: If everything works as expected, you can now delete the old directory:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf ~/.conda_old</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Update Conda’s configuration: Conda may have configuration files that reference the old directory. You should update these to reflect the new location. You can find Conda configuration files in <code>~/.condarc</code> or <code>~/condarc</code> and in the Conda environment directories themselves.</p>
+<p>Verify the symlinks within the directory: If there are relative symlinks within the Conda user data directory that are now broken due to the move, you will need to fix them. You can use the find command to locate broken symlinks:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find /path/to/new/location/conda_data_backup -<span class="built_in">type</span> l -<span class="built_in">ls</span> | grep <span class="string">&#x27; No such file or directory&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Then, you can either manually fix these symlinks or use a script to update their paths accordingly.</p>
+<p>By following these steps, you should be able to move your Conda user data directory to another disk and create a symbolic link back to the original location without losing any functionality. Remember to back up your data before making any changes, and ensure that you have the necessary permissions to create symbolic links and write to the new location.</p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/06/21/769c7273-8398-4fdc-b09b-ebd46896349c/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-06-19 </div>
+			<div class="article-title"><a href="/blog/2024/06/19/5f0cafc9-9eb9-4cb3-b106-af69965de47e/" title="The article provides instructions on running GUI programs with cron in Linux and monitoring root filesystem disk usage using `notify-send` and setting environment variables. It also includes a script for disk usage monitoring that sends alerts when the root filesystem has less than 10% free space.">Run Gui Programs Under Cron, Monitor Root Filesystem Disk Usage And Send Alarm</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>the ultimate solution:</p>
+<p>copy all current user environment variables to crontab.</p>
+<hr>
+<p>to run <code>notify-send</code> you have to set <code>DBUS_SESSION_BUS_ADDRESS</code></p>
+<hr>
+<p>to run other gui programs you set <code>DISPLAY</code> and <code>XAUTHORITY</code></p>
+<hr>
+<p><code>wall</code> works for <code>tmux</code> and ssh sessions but not <code>gnome-terminal</code>.</p>
+<p>in kde everything works fine. install konsole instead.</p>
+<hr>
+<p>script for monitoring disk usage:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">used_percentage=$(<span class="built_in">df</span> / | awk <span class="string">&#x27;NR==2 &#123;sub(/%/, &quot;&quot;, $5); print $5&#125;&#x27;</span>)</span><br><span class="line">alarm_message=<span class="string">&quot;Root filesystem has less than 10% free space.&quot;</span></span><br><span class="line"><span class="comment"># Compare the percentage with the number 90</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$used_percentage</span>&quot;</span> -lt 90 ]; <span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Disk is ok.&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">wall <span class="variable">$alarm_message</span></span><br><span class="line">notify-send <span class="variable">$alarm_message</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/06/19/5f0cafc9-9eb9-4cb3-b106-af69965de47e/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-06-13 </div>
+			<div class="article-title"><a href="/blog/2024/06/13/84b2ccda-a800-4949-bc8b-dba2af12d6f7/" title="This article provides detailed instructions on securing SSH with public key authentication, and suggests using free FRP providers. It includes a TOML configuration example for &#39;ssh_service&#39; type, recommends Masscan for discovering open ports, and proposes potential candidates to consider.">Frp Usage</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>ssh port must be secured with pubkey only authentication</p>
+<p>search for <code>free frp</code> or <code>frp 免费</code> to get free frp providers</p>
+<p>use <code>masscan</code> over these servers to find open ports and candidates</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">serverAddr</span> = <span class="string">&quot;frp.freefrp.net&quot;</span></span><br><span class="line"><span class="attr">serverPort</span> = <span class="number">7000</span></span><br><span class="line"><span class="attr">auth.method</span> = <span class="string">&quot;token&quot;</span></span><br><span class="line"><span class="attr">auth.token</span> = <span class="string">&quot;freefrp.net&quot;</span></span><br><span class="line"><span class="section">[[proxies]]</span></span><br><span class="line"><span class="attr">name</span> = <span class="string">&quot;ssh_service&quot;</span></span><br><span class="line"><span class="attr">type</span> = <span class="string">&quot;tcp&quot;</span></span><br><span class="line"><span class="attr">localIP</span> = <span class="string">&quot;127.0.0.1&quot;</span></span><br><span class="line"><span class="attr">localPort</span> = <span class="number">22</span></span><br><span class="line"><span class="attr">remotePort</span> = &lt;remote_port&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/06/13/84b2ccda-a800-4949-bc8b-dba2af12d6f7/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-06-11 </div>
+			<div class="article-title"><a href="/blog/2024/06/11/9e5f8942-ea8f-4b1d-b9bc-6ba48513ef52/" title="Learn how to sit comfortably by finding the right foot support and evenly distributing pressure across your buttocks and hips.">The Way To Sit Comfortably</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>You need to find support of your feet on the ground by strenching your legs at the right amount and distribute the pressure evenly from your butt to your hip.</p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/06/11/9e5f8942-ea8f-4b1d-b9bc-6ba48513ef52/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-06-09 </div>
+			<div class="article-title"><a href="/blog/2024/06/09/76e14b41-9042-40d7-8097-4bb77809ae1f/" title="This article explains how to use UFW (Uncomplicated Firewall) to block incoming connections on all ports for increased security, especially when accessing public WiFi networks. The article provides instructions on how to configure and test the effectiveness of UFW using another computer.">Secure Your Online Activity With Ufw: Blocking Incoming Connections On All Ports</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="UFW-access-control"><a href="#UFW-access-control" class="headerlink" title="UFW access control"></a>UFW access control</h1><p>when using long range public wifi it matters to block every port from incoming connections.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw default deny</span><br><span class="line">sudo ufw prepend reject <span class="keyword">in</span> on &lt;intetfece name&gt;</span><br><span class="line">sudo ufw restart</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>when configuration is done, remember to restart ufw and reconnect existing interfaces.</p>
+<p>although remote clients are blocked, self-issued connections are not. so be sure to use another computer for testing ufw effectiveness before and after configuration.</p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/06/09/76e14b41-9042-40d7-8097-4bb77809ae1f/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-06-08 </div>
+			<div class="article-title"><a href="/blog/2024/06/08/85e40a4f-6b4b-4c8b-b154-18d91e006880/" title="This article discusses methods for obtaining dynamic IP addresses through various techniques such as router manipulation, proxies, or hacking neighboring Wi-Fi networks. It also stresses the importance of using a dedicated machine and not leaving any personal information to avoid traceability. Additionally, it notes that public Wi-Fi may have weaker signals due to multiple clients.">Several Ways To Have Dynamic Ip Addresses</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<ul>
+<li><p>restart main router using scheduled power switches</p>
+</li>
+<li><p>use router with global proxy functionality</p>
+</li>
+<li><p>use local proxy with socks5 and proxychains</p>
+</li>
+<li><p>use powerful wifi card, wifi signal amplifier and yagi antenna to crack and connect to neighboring wifi</p>
+</li>
+</ul>
+<hr>
+<p>having dynamic ip addresses is just part of the procedure. to leave no trace you have to use a dedicated machine with dedicated network connection, doing nothing relevant to personal info.</p>
+<hr>
+<p>public wifi will have less signal if clients are too many.</p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/06/08/85e40a4f-6b4b-4c8b-b154-18d91e006880/#more" class="btn btn-default more">Read More</a>
 </div>
 
            

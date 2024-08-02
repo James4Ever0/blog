@@ -116,6 +116,39 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2024-07-21 </div>
+			<div class="article-title"><a href="/blog/2024/07/21/cf60c137-bc18-49af-9985-080e62ba10e8/" title="This article provides a detailed guide on installing the official Kubernetes Python library, setting up configuration paths, and showcasing its usage through code examples. It also includes an example of listing pods&#39; IP addresses across different namespaces using CoreV1Api.">Mastering Kubernetes Python Library: Installation, Configuration, And Pods Listing Examples</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="k8s-python-api-library"><a href="#k8s-python-api-library" class="headerlink" title="k8s python api library"></a>k8s python api library</h1><p>install the official library with <code>pip install kubernetes</code></p>
+<hr>
+<p>the default api config path for k8s is at <code>~/.kube/config</code></p>
+<p><code>k3s</code> is at <code>/etc/rancher/k3s/k3s.yaml</code></p>
+<p><code>microk8s</code> is at <code>/var/snap/microk8s/current/credentials/kubelet.config</code></p>
+<p>you can also set <code>KUBECONFIG</code> environment variable to let <code>kubernetes</code> python library know where the config is</p>
+<hr>
+<p>to use it:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/kubernetes-client/python/blob/master/kubernetes/README.md">https://github.com/kubernetes-client/python/blob/master/kubernetes/README.md</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> kubernetes <span class="keyword">import</span> client, config</span><br><span class="line"><span class="comment"># Configs can be set in Configuration class directly or using helper utility</span></span><br><span class="line">config_path = ...</span><br><span class="line">config.load_kube_config(config_path)</span><br><span class="line">v1 = client.CoreV1Api()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Listing pods with their IPs:&quot;</span>)</span><br><span class="line">ret = v1.list_pod_for_all_namespaces(watch=<span class="literal">False</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> ret.items:</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;%s\t%s\t%s&quot;</span> % (i.status.pod_ip, i.metadata.namespace, i.metadata.name))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/07/21/cf60c137-bc18-49af-9985-080e62ba10e8/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2023-10-05 </div>
 			<div class="article-title"><a href="/blog/2023/10/05/4df79ade-d538-4df2-9a6e-7840343648e1/" title="This article guides you through the process of configuring Docker to pull images from a specific mirror, such as baidubce.com, instead of the default docker.io. The article also explains that the configuration may not work until you explicitly pull from the specified mirror.">Force To Use Docker Mirror Instead Of Pulling From Docker.Io</a></div>
 		</h3>

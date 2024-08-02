@@ -116,6 +116,62 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2024-06-23 </div>
+			<div class="article-title"><a href="/blog/2024/06/23/2339ae60-e96d-4d20-b59b-c01a56d6ffe8/" title="This article delves into the configuration of SSH, specifically using chisel port forwarding for systemd services. It also provides tips on troubleshooting and enhancing connection stability with n2n. The main focus is on establishing access to all ports between local machines while dealing with limited internet port availability.">Intrisic Sshd Configuration Errors</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>if you want to use ssh port forwarding as systemd service, keep in mind that the default user for execution is root, and you need to use the public key of root to login.</p>
+<p>or you can change the user executing the task in service config:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[System]</span><br><span class="line">User=xxx</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><a target="_blank" rel="noopener" href="https://github.com/jpillora/chisel"><code>chisel</code></a> can be used for port forwarding by http compared with <code>wstunnel</code>, able to survive <code>nginx</code> (still need to configure websocket upgrades).</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># server, allowing reverse port forwarding</span></span><br><span class="line">chisel server -p &lt;port&gt; --auth &lt;user&gt;:&lt;pass&gt; --reverse</span><br><span class="line"><span class="comment"># client</span></span><br><span class="line">chisel client --auth &lt;user&gt;:&lt;pass&gt; &lt;protocol&gt;://&lt;url&gt; &lt;local_addr&gt;:&lt;remote_addr&gt; R:&lt;remote_addr&gt;:&lt;local_addr&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>if you want to have multiple host sharing same ip because of proxy forwarding or different network locations, then you need to change the system host mapping file.</p>
+<p>in linux and macos it is at <code>/etc/hosts</code></p>
+<p>in windows, <code>C:\Windows\System32\drivers\etc\hosts</code></p>
+<p>you need to configure the host file on the proxy machine if you want to avoid name clashes with proxies. these host names can be less informative to hide the intent.</p>
+<hr>
+<p>on latest ubuntu 24.04 the sshd config includes files under <code>/etc/ssh/sshd_config.d</code> which has a file named <code>50-cloud-init.conf</code> has the line overriding any other setting afterwords.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PasswordAuthentication yes</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>you need to change both <code>/etc/ssh/sshd_config</code> and this file to disable password authentication.</p>
+<hr>
+<p><code>-R</code> will not allow you to open <code>0.0.0.0</code> port on remote machine unless you configure something in <code>/etc/ssh/sshd_config</code> like below.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">AllowTcpForwarding yes</span><br><span class="line">GatewayPorts clientspecified</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>if not, use <code>socat</code> to finally deliver the forwarded remote local port to remote public port.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">socat TCP-LISTEN:&lt;lport&gt;,reuseaddr,fork TCP:&lt;rhost&gt;:&lt;rport&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>port forwarding failure can be corrected.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># get the process pid of the port</span></span><br><span class="line">sudo lsof -i :&lt;port&gt;</span><br><span class="line">lsof -i :&lt;port&gt;</span><br><span class="line"><span class="comment"># kill the process</span></span><br><span class="line"><span class="built_in">kill</span> &lt;port&gt;</span><br><span class="line"><span class="comment"># rerun lsof to check if the port is freed</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><code>n2n</code> can be in handy if you do not have too many ports on internet and still want to access all ports in between your local machines.</p>
+<hr>
+<p>if connection is unstable, use <code>-o ServerAliveInterval=60 -o ServerAliveCountMax=3</code> to extend the timeout period.</p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/06/23/2339ae60-e96d-4d20-b59b-c01a56d6ffe8/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2023-10-10 </div>
 			<div class="article-title"><a href="/blog/2023/10/10/1a302f7a-16bb-4627-a871-e1744bf92f04/" title="This article provides a detailed explanation of how to run scripts before and after system events such as startup, suspend, and shutdown. It covers using the `@reboot` command with `crontab -e` for startup event management and explains how to write scripts in `/lib/systemd/system-*` directories for handling other system events.">Mastering System Events: Script Execution With @Reboot And Systemd</a></div>
 		</h3>

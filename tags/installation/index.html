@@ -116,6 +116,220 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2024-07-24 </div>
+			<div class="article-title"><a href="/blog/2024/07/24/2ff88d41-c9fc-4af0-84ba-ef10cf603ef6/" title="This article provides step-by-step instructions to help you remove X11 and Qt dependencies from your Ubuntu system, turning it into a headless setup. By following these instructions, you can optimize your Ubuntu installation for servers or other environments where a graphical user interface is not required.">How To Remove X11 And Qt Dependencies For A Headless Ubuntu System</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="Make-desktop-ubuntu-headless"><a href="#Make-desktop-ubuntu-headless" class="headerlink" title="Make desktop ubuntu headless"></a>Make desktop ubuntu headless</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get purge libx11.* libqt.*</span><br><span class="line">sudo apt-get autoremove -y</span><br><span class="line">sudo apt-get clean</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/07/24/2ff88d41-c9fc-4af0-84ba-ef10cf603ef6/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-07-24 </div>
+			<div class="article-title"><a href="/blog/2024/07/24/7cc3c7ad-0a27-4bc6-b0e9-0eb12b94196a/" title="This article provides a step-by-step guide to setting up a k8s worker cluster using k3s, including instructions on joining the master node and configuration file details. It also introduces an automated installation tool called k3sup for installing k3s clusters via SSH connections. Furthermore, it offers insights into setting up a high-availability embedded datastore in a multi-server cluster.">Setting Up A K8S Worker Cluster With K3S: Instructions, Configuration Files, And Automated Installation Tool</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="k8s-worker-cluster-setup"><a href="#k8s-worker-cluster-setup" class="headerlink" title="k8s worker cluster setup"></a>k8s worker cluster setup</h1><p>k3s has different ways to form a cluster than <code>kubeadm join</code>.</p>
+<p><a target="_blank" rel="noopener" href="https://docs.k3s.io/quick-start">https://docs.k3s.io/quick-start</a></p>
+<p>k3s specifies the init command in <code>/etc/systemd/system/k3s.service</code>. (<code>k3s-agent.service</code> if installed as agent) usually it is <code>k3s server</code>.</p>
+<p>you need to change it to <code>k3s agent</code> in order to join the master node, or pass additional environment variables <code>K3S_URL=https://&lt;node_ip&gt;:6443</code> and <code>K3S_TOKEN=&lt;node-token&gt;</code> while running k3s installation script.</p>
+<p>the node token is at <code>/var/lib/rancher/k3s/server/node-token</code></p>
+<p>the agent node still needs to configure registry mirrors at <code>/etc/rancher/k3s/registries.yaml</code> for successfully pulling images</p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://github.com/alexellis/k3sup">k3sup</a> can automatically install k3s cluster using ssh connection</p>
+<hr>
+<p>multi server cluster setup:</p>
+<p><a target="_blank" rel="noopener" href="https://docs.k3s.io/datastore/ha-embedded">https://docs.k3s.io/datastore/ha-embedded</a></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/07/24/7cc3c7ad-0a27-4bc6-b0e9-0eb12b94196a/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-07-24 </div>
+			<div class="article-title"><a href="/blog/2024/07/24/287e1737-26f8-4db2-867c-6bf4a900940b/" title="This article outlines the steps and considerations for installing Kubevirt, a virtual machine platform built on Kubernetes. It covers crucial components, installation procedures, and compatibility considerations when using Microk8s as the underlying Kubernetes distribution.">Installing And Configuring Kubevirt On Microk8S</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="install-kubevirt"><a href="#install-kubevirt" class="headerlink" title="install kubevirt"></a>install kubevirt</h1><p>do not install it on microk8s</p>
+<hr>
+<p>install windows on kubevirt:</p>
+<p><a target="_blank" rel="noopener" href="https://charlottemach.com/2020/11/03/windows-kubevirt-k3s.html">https://charlottemach.com/2020/11/03/windows-kubevirt-k3s.html</a></p>
+<hr>
+<p><code>VirtualMachine</code> is like <code>Deployment</code> while <code>VirtualMachineInstance</code> is like <code>Pod</code></p>
+<hr>
+<p>export kubeconfig file path to <code>~/.bashrc</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> KUBECONFIG=&lt;kubeconfig_filepath&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>download and modify the manifests</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># prefer ustc and azure mirrors of quay.io</span></span><br><span class="line"><span class="built_in">export</span> VERSION=$(curl -s https://api.github.com/repos/kubevirt/kubevirt/releases | grep tag_name | grep -v -- <span class="string">&#x27;-rc&#x27;</span> | <span class="built_in">head</span> -1 | awk -F<span class="string">&#x27;: &#x27;</span> <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | sed <span class="string">&#x27;s/,//&#x27;</span> | xargs)</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$VERSION</span></span><br><span class="line">curl -OLk https://github.com/kubevirt/kubevirt/releases/download/<span class="variable">$&#123;VERSION&#125;</span>/kubevirt-operator.yaml</span><br><span class="line">curl -OLk https://github.com/kubevirt/kubevirt/releases/download/<span class="variable">$&#123;VERSION&#125;</span>/kubevirt-cr.yaml</span><br><span class="line"><span class="built_in">export</span> VERSION=$(curl -s https://api.github.com/repos/kubevirt/containerized-data-importer/releases | grep tag_name | grep -v -- <span class="string">&#x27;-rc&#x27;</span> | <span class="built_in">head</span> -1 | awk -F<span class="string">&#x27;: &#x27;</span> <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | sed <span class="string">&#x27;s/,//&#x27;</span> | xargs)</span><br><span class="line">curl -LkO https://ghproxy.net/github.com/kubevirt/containerized-data-importer/releases/download/<span class="variable">$VERSION</span>/cdi-operator.yaml</span><br><span class="line">curl -LkO https://ghproxy.net/github.com/kubevirt/containerized-data-importer/releases/download/<span class="variable">$VERSION</span>/cdi-cr.yaml</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>check if it works</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl get pods -n kubevirt</span><br><span class="line">kubectl get vmi</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>install virtctl</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># get the download address from: https://github.com/kubevirt/kubevirt/releases/</span></span><br><span class="line">curl -LkO &lt;download_address&gt;</span><br><span class="line">sudo <span class="built_in">mv</span> &lt;downloaded_binary&gt; /usr/bin/virtctl</span><br><span class="line">sudo <span class="built_in">chmod</span> +x /usr/bin/virtctl</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>create vm (already with tun device inside)</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># init_vm.yaml</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">kubevirt.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">VirtualMachine</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">&lt;vm_name&gt;</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">runStrategy:</span> <span class="string">Always</span></span><br><span class="line"><span class="attr">template:</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">terminationGracePeriodSeconds:</span> <span class="number">30</span></span><br><span class="line"><span class="attr">dnsConfig:</span></span><br><span class="line"><span class="attr">nameservers:</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">8.8</span><span class="number">.8</span><span class="number">.8</span></span><br><span class="line"><span class="attr">domain:</span></span><br><span class="line"><span class="attr">resources:</span></span><br><span class="line"><span class="attr">requests:</span></span><br><span class="line"><span class="attr">memory:</span> <span class="string">1024M</span></span><br><span class="line"><span class="attr">devices:</span></span><br><span class="line"><span class="attr">disks:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">containerdisk</span></span><br><span class="line"><span class="attr">disk:</span></span><br><span class="line"><span class="attr">bus:</span> <span class="string">virtio</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">emptydisk</span></span><br><span class="line"><span class="attr">disk:</span></span><br><span class="line"><span class="attr">bus:</span> <span class="string">virtio</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">disk:</span></span><br><span class="line"><span class="attr">bus:</span> <span class="string">virtio</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">cloudinitdisk</span></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">containerdisk</span></span><br><span class="line"><span class="attr">containerDisk:</span></span><br><span class="line"><span class="attr">image:</span> <span class="string">kubevirt/fedora-cloud-container-disk-demo:latest</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">emptydisk</span></span><br><span class="line"><span class="attr">emptyDisk:</span></span><br><span class="line"><span class="attr">capacity:</span> <span class="string">&quot;2Gi&quot;</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">cloudinitdisk</span></span><br><span class="line"><span class="attr">cloudInitNoCloud:</span></span><br><span class="line"><span class="attr">userData:</span> <span class="string">|-</span></span><br><span class="line"><span class="comment">#cloud-config</span></span><br><span class="line"><span class="attr">password:</span> <span class="string">fedora</span></span><br><span class="line"><span class="attr">chpasswd:</span> &#123; <span class="attr">expire:</span> <span class="literal">False</span> &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>apply it to run the vm</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f init_vm.yaml</span><br><span class="line">kubectl get vm</span><br><span class="line">kubectl get vmi</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>to interact with the vm</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">virtctl console &lt;vm_name&gt;</span><br><span class="line"><span class="comment"># ssh config is stored at: ~/.ssh/kube_known_hosts</span></span><br><span class="line">virtctl ssh &lt;user&gt;@&lt;vm_name&gt;</span><br><span class="line"><span class="comment"># run this under gui, with `vncviewer` in path</span></span><br><span class="line"><span class="comment"># install with `apt install tigervnc-viewer`</span></span><br><span class="line">virtctl vnc &lt;vm_name&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/07/24/287e1737-26f8-4db2-867c-6bf4a900940b/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-07-08 </div>
+			<div class="article-title"><a href="/blog/2024/07/08/20625e39-4b27-4bc8-a98a-cbe6cb80e411/" title="This article provides a comprehensive guide on how to daemonize applications with PM2. It covers the process of setting up unbuffered output, installing and configuring PM2, running processes as daemons, and monitoring them using monit.">Daemonizing Applications With Pm2: A Step-By-Step Guide</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="PM2-daemonize-any-app"><a href="#PM2-daemonize-any-app" class="headerlink" title="PM2 daemonize any app"></a>PM2 daemonize any app</h1><p>remember to set unbuffered output flag <code>-u</code> before running any python script, otherwise there will be no output in <code>pm2 log</code></p>
+<hr>
+<p>install and setup pm2 as daemon:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install npm</span><br><span class="line">sudo npm config <span class="built_in">set</span> registry https://registry.npmmirror.com</span><br><span class="line">sudo npm install -g pm2</span><br><span class="line">pm2 startup</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>run program as daemon:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pm2 start -n &lt;process_name&gt; &lt;executable_name&gt; -- &lt;process_arguments&gt;</span><br><span class="line"><span class="comment"># save all processes</span></span><br><span class="line">pm2 save</span><br><span class="line">pm2 monit</span><br><span class="line">pm2 logs</span><br><span class="line">pm2 <span class="built_in">ls</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/07/08/20625e39-4b27-4bc8-a98a-cbe6cb80e411/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-06-03 </div>
+			<div class="article-title"><a href="/blog/2024/06/03/8ff9b102-8c68-44a7-8ce7-d09ce877842a/" title="Discover how to route network interfaces to specific apps using Firejail or Dante and Proxychains-ng, while preventing dual WiFi connections. The guide offers step-by-step instructions for installation, configuration, and usage.">Route Network Interface To Specific Application</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>It is not advised to do so with dual WiFi connections, which is a pain in the ass in daily usage (only one of them will be used at a time).</p>
+<p>Ethernet and WiFi dual connections seem fine with <code>firejail</code> but failed with <code>dante</code>.</p>
+<hr>
+<p>Use <code>firejail</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo firejail --net=wlan0 --ip=dhcp --noprofile &lt;program cmd&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>Use <code>dante</code> and <code>proxychains-ng</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install dante-server proxychains-ng</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Now edit the <code>dante</code> config file at <code>/etc/dante.conf</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">internal: eth0 port = 1080</span><br><span class="line">external: wlan0</span><br><span class="line">socksmethod: username</span><br><span class="line">user.privileged: root</span><br><span class="line">user.unprivileged: nobody</span><br><span class="line">user.libwrap: nobody</span><br><span class="line">client pass &#123;</span><br><span class="line">from: 0/0 to: 0/0</span><br><span class="line">&#125;</span><br><span class="line">socks pass &#123;</span><br><span class="line">from: 0/0 to: 0/0</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Run the daemon by:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">danted</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Find the <code>[ProxyList]</code> section and add the following line in <code>/etc/proxychains.conf</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">socks5 127.0.0.1 1080 root &lt;root_password&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Run the program with proxychains-ng:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">proxychains &lt;program cmd&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>You can test your configuration like:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -x socks5://root:root@127.0.0.1:1080 https://www.baidu.com</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>If you run <code>danted</code> like <code>systemctl start danted</code>, you can configure a separate user for authentication. You have to change <code>/etc/danted.conf</code> and <code>/etc/proxychains.conf</code> accordingly.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo useradd -r -s /bin/false your_dante_user</span><br><span class="line">sudo passwd your_dante_user</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/06/03/8ff9b102-8c68-44a7-8ce7-d09ce877842a/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-05-03 </div>
+			<div class="article-title"><a href="/blog/2024/05/03/f402f2b2-b41c-4b72-81d5-144346debf5c/" title="This article provides step-by-step instructions for setting up the Fcitx input method with a reliable Google-Pinyin module for Chinese language support on your system. Additionally, it offers guidance on utilizing tools like systemd or &#39;Session and Startup&#39; to ensure Fcitx runs after system startup if alternative methods do not work.">Setting Up Fcitx With Reliable Google-Pinyin For Chinese Input</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="Fcitx-setup"><a href="#Fcitx-setup" class="headerlink" title="Fcitx setup"></a>Fcitx setup</h1><p>Fcitx contains google-pinyin, which is the most reliable Chinese input method of all times.</p>
+<p>You need to configure it after installation like described <a target="_blank" rel="noopener" href="https://christopher.sg/posts/manjaro-chinese-input-fcitx">here</a>.</p>
+<p>If all methods failed, please consider use tools like systemd or “Session and Startup” to force running command <code>fcitx</code> after startup.</p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/05/03/f402f2b2-b41c-4b72-81d5-144346debf5c/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2022-08-26 </div>
 			<div class="article-title"><a href="/blog/2022/08/26/6d619fa1-df90-49cb-8f3f-7492efbd5d6c/" title="In this article, you will learn how to install and use im2latex with TensorFlow and PyTorch. Additionally, the article covers important safety precautions and potential hardware damage considerations when running &#39;im2latex-tensorflow&#39;. By following these instructions, you can ensure a safe and successful implementation of im2latex in your TensorFlow or PyTorch projects.">On Building The Lua Torch Library</a></div>
 		</h3>

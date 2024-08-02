@@ -116,6 +116,100 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2024-06-21 </div>
+			<div class="article-title"><a href="/blog/2024/06/21/769c7273-8398-4fdc-b09b-ebd46896349c/" title="This guide outlines the process of relocating Conda&#39;s user data directory to a different disk, creating a symbolic link, and updating configuration files without disrupting functionality. Users are urged to back up their data beforehand, while also addressing the need for appropriate permissions and manual or scripted fixes for broken symlinks.">Migrate Conda Installation Folder</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>To copy the entire Conda user data directory to another disk and then create a symbolic link back to the original place, you can follow these steps:</p>
+<p>Identify the Conda user data directory: This is typically located at <code>~/.conda</code> or <code>~/miniconda3</code> or <code>~/anaconda3</code>, depending on how you installed Conda. You can find the exact path by running <code>conda info --envs</code> and looking for the envs dirs entry.</p>
+<p>Copy the directory to the new location: Use rsync to copy the directory, as it will preserve the file permissions and symbolic links. Here’s an example command:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rsync -avh --progress ~/.conda /path/to/new/location/conda_data_backup</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Replace <code>/path/to/new/location/conda_data_backup</code> with the actual path where you want to copy the directory on the other disk.</p>
+<p>Create a symbolic link: Once the copy is complete, you can create a symbolic link from the original location to the new one. First, you may need to remove the original directory or move it to a different name. Here’s how you can do it:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> ~/.conda ~/.conda_old  <span class="comment"># Rename the original directory</span></span><br><span class="line"><span class="built_in">ln</span> -s /path/to/new/location/conda_data_backup ~/.conda  <span class="comment"># Create the symlink</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Make sure to replace <code>~/.conda</code> with the actual path to your Conda user data directory and <code>/path/to/new/location/conda_data_backup</code> with the path to the copied directory on the new disk.</p>
+<p>Test the setup: Before deleting the old directory, test your new setup to ensure everything is working correctly. Activate your Conda environments and run some commands to verify that packages are accessible and that you can install new ones.</p>
+<p>Clean up: If everything works as expected, you can now delete the old directory:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf ~/.conda_old</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Update Conda’s configuration: Conda may have configuration files that reference the old directory. You should update these to reflect the new location. You can find Conda configuration files in <code>~/.condarc</code> or <code>~/condarc</code> and in the Conda environment directories themselves.</p>
+<p>Verify the symlinks within the directory: If there are relative symlinks within the Conda user data directory that are now broken due to the move, you will need to fix them. You can use the find command to locate broken symlinks:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find /path/to/new/location/conda_data_backup -<span class="built_in">type</span> l -<span class="built_in">ls</span> | grep <span class="string">&#x27; No such file or directory&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Then, you can either manually fix these symlinks or use a script to update their paths accordingly.</p>
+<p>By following these steps, you should be able to move your Conda user data directory to another disk and create a symbolic link back to the original location without losing any functionality. Remember to back up your data before making any changes, and ensure that you have the necessary permissions to create symbolic links and write to the new location.</p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/06/21/769c7273-8398-4fdc-b09b-ebd46896349c/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-03-31 </div>
+			<div class="article-title"><a href="/blog/2024/03/31/8da24805-6532-40b1-bb36-23edc91406c5/" title="This article provides a solution to decompress an Electron asar file without encountering the &#39;unable to find xxx in app.asar.unpacked&#39; issue. It explains the process of extracting the file without moving it, and then offers commands for both decompression and moving the file to its desired location.">解压Electron Asar文件注意</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>解压asar的时候 注意不要移动<code>app.asar</code>的位置 解压完毕之后再移动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># to prevent &#x27;unable to find xxx in app.asar.unpacked&#x27; issue, do not move app.asar yet.</span></span><br><span class="line">asar e app.asar app</span><br><span class="line"><span class="built_in">mkdir</span> asar</span><br><span class="line"><span class="built_in">cp</span> app.asar asar</span><br><span class="line"><span class="built_in">rm</span> app.asar</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/03/31/8da24805-6532-40b1-bb36-23edc91406c5/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-02-01 </div>
+			<div class="article-title"><a href="/blog/2024/02/01/8f79499d-186b-4163-b9e4-7b40a70f2ceb/" title="This article provides a solution to fix Telegram crashing on opening after viewing a strange image. It suggests deleting the cache4.db file with root permissions in the files folder and recommends using third-party services for phone calls and SMS if necessary.">Telegram 闪退修复</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>电报偶然一次打开了一个莫名其妙的图片 然后导致每次打开都崩溃</p>
+<p>用root权限 在<code>/data/data/org.telegram.messager/files</code>下面删除<code>cache4.db</code></p>
+<p>最近登陆电报不能给国内手机发短信或者打电话了 新注册账号可能需要借助某宝</p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/02/01/8f79499d-186b-4163-b9e4-7b40a70f2ceb/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2023-12-21 </div>
 			<div class="article-title"><a href="/blog/2023/12/21/2cbfa8d5-63ac-4696-bb14-58f5385ceb27/" title="This article provides step-by-step instructions for installing Waydroid on Ubuntu and offers troubleshooting tips for network issues. It explains how to enable firewalld or ufw to resolve connectivity problems, while also clarifying the difference between the wifi switch and its effect on connectivity.">Waydroid Installation Steps</a></div>
 		</h3>
@@ -362,44 +456,22 @@
 </div>
 
 	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2021-12-20 </div>
-			<div class="article-title"><a href="/blog/2021/12/20/c0a2ff3b-8a78-4642-bd6d-bd6ad5040bc4/" title="In this article, the author provides a step-by-step guide on how to reinstall Termux and troubleshoot common issues like granting required permissions, fixing the brightness bug by uninstalling a settings app, and removing the Termux banner for a customized experience.">After Termux Reinstallation</a></div>
-		</h3>
-	
-
-
-		     
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p>grant permission for termux:api</p>
-<p>android.permission.WRITE_SETTINGS can only be granted in settings tab.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/TilesOrganization/support/wiki/How-to-use-ADB-to-grant-permissions">https://github.com/TilesOrganization/support/wiki/How-to-use-ADB-to-grant-permissions</a></p>
-<p>adb shell pm grant com.rascarlo.quick.settings.tiles android.permission.WRITE_SECURE_SETTINGS</p>
-<p>pm grant com.termux.api android.permission.WRITE_SECURE_SETTINGS</p>
-<p>pm list packages</p>
-<p>the brightness bug is solved by uninstalling the unintended settings app. i don’t know if this will cause more problems.</p>
-<p>to remove termux banner&#x2F; termux welcome message:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> .. &amp;&amp; <span class="built_in">cd</span> usr/etc &amp;&amp; <span class="built_in">rm</span> -rf motd</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/blog/2021/12/20/c0a2ff3b-8a78-4642-bd6d-bd6ad5040bc4/#more" class="btn btn-default more">Read More</a>
-</div>
-
-	       
 	     </div>
 	     <div>
 	       <center>
 	         <div class="pagination">
 <ul class="pagination">
 	 
+		
+          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+        
+
+        <li><a href="/blog/"><i class="fa fa-home"></i>Home</a></li>
+
+		
+		   <li class="next"> <a href="/blog/categories/Troubleshooting/page/2/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a> </li>
+        
+	
 </ul>
 </div>
 

@@ -123,8 +123,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-09-16 </div>
-			<div class="article-title"><a href="/blog/2023/09/16/ad1e6f73-c43f-4c35-bf4f-97376e326ee8/" title="This article explores the challenges of syncing notes across multiple platforms and devices. It proposes using webhooks or comparing Git&#39;s latest HEAD hash at regular intervals as potential solutions for achieving efficient synchronization.">Sync Notes Between Multiple Platforms/Devices</a></div>
+			<div class="date"> 2024-06-07 </div>
+			<div class="article-title"><a href="/blog/2024/06/07/ce98c955-6e9c-430d-ad60-6b65768cdf52/" title="Jina AI introduces &#39;reader&#39;, a webpage reading tool accessible via URLs such as `curl https://r.jina.ai/$URL` and `curl https://s.jina.ai/$QUERY`. This tool allows users to access webpage content easily, making it convenient for data extraction and analysis.">Ai Webpage Reader</a></div>
 		</h3>
 	
 
@@ -135,11 +135,13 @@
   <div class="row">
 	
 	
-		<p>make webhooks or make git get latest HEAD hash every interval and compare</p>
+		<p>use <a target="_blank" rel="noopener" href="https://jina.ai/reader">reader</a> from jina</p>
+<p>visit like:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl https://r.jina.ai/<span class="variable">$URL</span></span><br><span class="line">curl https://s.jina.ai/<span class="variable">$QUERY</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 	
 	</div>
-  <a type="button" href="/blog/2023/09/16/ad1e6f73-c43f-4c35-bf4f-97376e326ee8/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2024/06/07/ce98c955-6e9c-430d-ad60-6b65768cdf52/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -149,8 +151,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-09-10 </div>
-			<div class="article-title"><a href="/blog/2023/09/10/b856e82f-cfe6-4eb5-bf30-4531aef166cf/" title="This text explores the file name issues encountered with Lexar M1 and offers a solution using Rclone&#39;s custom encoding rules specifically designed for SMB connections.">Filename Issue On Lexar M1</a></div>
+			<div class="date"> 2024-06-03 </div>
+			<div class="article-title"><a href="/blog/2024/06/03/8ff9b102-8c68-44a7-8ce7-d09ce877842a/" title="Discover how to route network interfaces to specific apps using Firejail or Dante and Proxychains-ng, while preventing dual WiFi connections. The guide offers step-by-step instructions for installation, configuration, and usage.">Route Network Interface To Specific Application</a></div>
 		</h3>
 	
 
@@ -161,56 +163,186 @@
   <div class="row">
 	
 	
-		<p>this server forbids usage of leftperiod.</p>
-<p>we can use <a target="_blank" rel="noopener" href="https://rclone.org/overview/#encoding">custom encoding rules</a> in rclone:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rclone <span class="built_in">sync</span> --smb-encoding=Slash,LtGt,DoubleQuote,Colon,Question,Asterisk,Pipe,BackSlash,Ctl,RightSpace,RightPeriod,InvalidUtf8,Dot,LeftPeriod &lt;<span class="built_in">source</span>&gt; &lt;target&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/blog/2023/09/10/b856e82f-cfe6-4eb5-bf30-4531aef166cf/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2023-09-09 </div>
-			<div class="article-title"><a href="/blog/2023/09/09/e09cbe3f-3ef3-46f4-b7f2-01263134c6e8/" title="This article discusses the importance of fire prevention in distributed computing, highlighting the use of smart switches and safety measures to protect data and devices. Additionally, it touches upon the concepts of firebots and firerolls, as well as considering human safety.">Fire Prevention And Smart Switches</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p>锂电池充电防爆箱</p>
+		<p>It is not advised to do so with dual WiFi connections, which is a pain in the ass in daily usage (only one of them will be used at a time).</p>
+<p>Ethernet and WiFi dual connections seem fine with <code>firejail</code> but failed with <code>dante</code>.</p>
 <hr>
-<p>use fire preventing sheets, use high quality cabels, use fire preventing cabel protectors around coils, spray fire preventing liquid</p>
+<p>Use <code>firejail</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo firejail --net=wlan0 --ip=dhcp --noprofile &lt;program cmd&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <hr>
-<p>fire is detected multiple times and is now the major concern of all. even if you somehow find a little purpose from the machine, the machine can always burn for no reason at all. you need to stop it.</p>
-<p>if the source is battery-less, cutting off the power can solve the problem. if it has battery, then you need to wait till its battery being drained (usually shortcut) and then ditch it.</p>
-<p>fire or shortcut usually happens around those plugged or charged devices. unmanaged ones can cause dramatic catastrophics.</p>
-<p>if you want distributed computing, safety need to be put into first place.</p>
-<p>you need to always make sure that message service is always available to the supervisor.</p>
+<p>Use <code>dante</code> and <code>proxychains-ng</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install dante-server proxychains-ng</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Now edit the <code>dante</code> config file at <code>/etc/dante.conf</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">internal: eth0 port = 1080</span><br><span class="line">external: wlan0</span><br><span class="line">socksmethod: username</span><br><span class="line">user.privileged: root</span><br><span class="line">user.unprivileged: nobody</span><br><span class="line">user.libwrap: nobody</span><br><span class="line">client pass &#123;</span><br><span class="line">from: 0/0 to: 0/0</span><br><span class="line">&#125;</span><br><span class="line">socks pass &#123;</span><br><span class="line">from: 0/0 to: 0/0</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Run the daemon by:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">danted</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Find the <code>[ProxyList]</code> section and add the following line in <code>/etc/proxychains.conf</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">socks5 127.0.0.1 1080 root &lt;root_password&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Run the program with proxychains-ng:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">proxychains &lt;program cmd&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>You can test your configuration like:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -x socks5://root:root@127.0.0.1:1080 https://www.baidu.com</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>If you run <code>danted</code> like <code>systemctl start danted</code>, you can configure a separate user for authentication. You have to change <code>/etc/danted.conf</code> and <code>/etc/proxychains.conf</code> accordingly.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo useradd -r -s /bin/false your_dante_user</span><br><span class="line">sudo passwd your_dante_user</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/06/03/8ff9b102-8c68-44a7-8ce7-d09ce877842a/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-05-29 </div>
+			<div class="article-title"><a href="/blog/2024/05/29/5d443ff2-665d-42a0-a3d1-8cf09c27035d/" title="This article discusses a problem with the ParrotSec security image in Docker, where executing `msfconsole` is not possible. The solution provided involves changing directories and running the binary from its correct location.">Strange Behavior Within Docker Containers</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>The default directory after starting parrotsec container is the filesystem root directory, which cannot run <code>msfconsole</code>. Change to home directory using <code>cd</code> and run metasploit afterwards.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run --<span class="built_in">rm</span> -it -w /root parrotsec/security</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <hr>
-<p>we introduce some chain reaction like mechanism, to turn off corresponding wifi-connected switches when specific signal is received.</p>
-<p>put temperature &amp; smoke detectors and fireballs around many places, especially for those long-running machines. once fire detected, send alarm notification and switch off the main power controller.</p>
-<p>homeassistant adaptor on ups &amp; nanopi &amp; 4g networks</p>
-<p>fire countermeasure shall be linked to smart power switches (once triggered, cut off the power), and placed evenly to potential area</p>
-<p>also human presence sensor shall be placed, to create more advanced logic, along with physical switches &amp; power level based logic.</p>
+<p>Symlinked files are not working properly from the start. Taking <code>msfconsole</code> for example, when running container from image <code>parrotsec/security</code>, it will get stuck if we immediately execute <code>msfconsole</code> once logged in, but we can mitigate the problem by first change into the directory where <code>msfconsole</code> really locates, then execute it from there.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">docker run --<span class="built_in">rm</span> -it parrotsec/security</span><br><span class="line"><span class="comment"># it will stuck</span></span><br><span class="line">msfconsole</span><br><span class="line"><span class="comment"># note the following will also stuck</span></span><br><span class="line">/usr/share/metasploit-framework/msfconsole</span><br><span class="line"><span class="comment"># instead let&#x27;s first change directory</span></span><br><span class="line"><span class="built_in">cd</span> /usr/share/metasploit-framework</span><br><span class="line"><span class="comment"># then invoke the binary</span></span><br><span class="line">./msfconsole</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/05/29/5d443ff2-665d-42a0-a3d1-8cf09c27035d/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-05-27 </div>
+			<div class="article-title"><a href="/blog/2024/05/27/76b2608e-7bfe-499f-b909-9f1912569ad1/" title="This tutorial guide provides an in-depth exploration of utilizing the Discord Search Engine And Osint methods, such as Google dorks and online directories like discordservers.com, to effectively discover and connect with Discord communities.">Discord search engine and OSINT</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h2 id="Tutorial"><a href="#Tutorial" class="headerlink" title="Tutorial"></a>Tutorial</h2><p><a target="_blank" rel="noopener" href="https://www.authentic8.com/blog/collecting-osint-discord-guide">https://www.authentic8.com/blog/collecting-osint-discord-guide</a></p>
+<h2 id="Google-dork"><a href="#Google-dork" class="headerlink" title="Google dork"></a>Google dork</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">“search term” site:discord.com</span><br><span class="line">“search term” allinurl:discord.com</span><br><span class="line">intext:&quot;discord&quot; intext:&quot;Join&quot; -site:discord.com</span><br><span class="line">intext:&quot;Discord&quot; intext:&quot;#community&quot; -site:discord.com</span><br><span class="line">intext:&quot;Discord&quot; intext:&quot;OSINT Community&quot; -site:discord.com</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Websites"><a href="#Websites" class="headerlink" title="Websites"></a>Websites</h2><p><a target="_blank" rel="noopener" href="https://discordservers.com/">https://discordservers.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://disboard.org/servers">https://disboard.org/servers</a></p>
+<p><a target="_blank" rel="noopener" href="https://discord.me/servers">https://discord.me/servers</a></p>
+<p><a target="_blank" rel="noopener" href="https://top.gg/servers">https://top.gg/servers</a></p>
+<p><a target="_blank" rel="noopener" href="https://discadia.com/server/furlough/">https://discadia.com/server/furlough/</a></p>
+<p><a target="_blank" rel="noopener" href="https://discordbotlist.com/">https://discordbotlist.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://discordbee.com/">https://discordbee.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://discord.center/">https://discord.center/</a></p>
+<p><a target="_blank" rel="noopener" href="https://discordservers.com/browse">https://discordservers.com/browse</a></p>
+<p><a target="_blank" rel="noopener" href="https://discordleaks.unicornriot.ninja/discord/">https://discordleaks.unicornriot.ninja/discord/</a></p>
+<p><a target="_blank" rel="noopener" href="https://dht.chylex.com/">https://dht.chylex.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://discord.com/servers">https://discord.com/servers</a></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/05/27/76b2608e-7bfe-499f-b909-9f1912569ad1/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-05-27 </div>
+			<div class="article-title"><a href="/blog/2024/05/27/dcad9c73-f1a8-49ce-8bc0-867d4dee1a7f/" title="This article provides a tutorial on finding an IP address and retrieving its geo information using Python. It includes instructions for obtaining your own IP address and demonstrates how to use the ip2location package to retrieve the country associated with any given IP address.">Ip Info Collect</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>Tutorial:</p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/24678308/how-to-find-location-with-ip-address-in-python">https://stackoverflow.com/questions/24678308/how-to-find-location-with-ip-address-in-python</a></p>
+<p>To obtain IP of ourselves, we can visit:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl https://api.ipify.org</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>To get geo info of our IP, visit:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl https://ipinfo.io | jq .country</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>TO get geo info of any IP, use:</p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/IP2Location/">https://pypi.org/project/IP2Location/</a></p>
+<p><a target="_blank" rel="noopener" href="https://ip2location-python.readthedocs.io/en/latest/quickstart.html">https://ip2location-python.readthedocs.io/en/latest/quickstart.html</a></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/05/27/dcad9c73-f1a8-49ce-8bc0-867d4dee1a7f/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-05-27 </div>
+			<div class="article-title"><a href="/blog/2024/05/27/72b43039-86e6-4bb6-a438-27927eb45991/" title="This article explores anonymous browsing techniques, such as utilizing container-based and remote desktop connected browsers, Docker images for Firefox, and configuring fonts for Unicode support. It also provides guidance on various online resources related to anonymous browsing.">Anonymous Browsers</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>hysteria protocol is currently uncensored and undetected.</p>
 <hr>
-<p>although it might be less likely to have devastating fire catastrophies inside if procedure mentioned above is done correctly, fire outside the domesticated area is also concerned.</p>
-<p>we shall first make sure living objects can escape in time. once fire outside the room is detected, all important files shall be uploaded to the cloud. if fire is inside, cut off the power and use UPS to continue execution. make sure important data and devices can be carried around, and active countermeasures like firebots and firerolls will stop the propagation of fire (to isolate air from fire, even if fire is inside)</p>
+<p>There are three kinds of anonymous browsers.</p>
+<ul>
+<li>Container based, remote desktop connected browsers</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">docker pull linuxserver/firefox</span><br><span class="line"><span class="comment"># valina base image, without Unicode support</span></span><br><span class="line">docker run -d --name firefox_browser --<span class="built_in">rm</span> --expose 3000:3000 linuxserver/firefox</span><br><span class="line"><span class="comment"># configure `/System/Library/Fonts` to be available in Docker.app first then run this command</span></span><br><span class="line">docker run -v /System/Library/Fonts:/usr/share/fonts:ro --name firefox_browser -d --<span class="built_in">rm</span> -p 3000:3000 linuxserver/firefox</span><br><span class="line"><span class="comment"># Ubuntu and other Linux</span></span><br><span class="line">docker run -v /usr/share/fonts:/usr/share/fonts:ro --name firefox_browser -d --<span class="built_in">rm</span> -p 3000:3000 linuxserver/firefox</span><br><span class="line"><span class="comment"># official Unicode support</span></span><br><span class="line">docker run -e DOCKER_MODS=linuxserver/mods:universal-package-install -e INSTALL_PACKAGES=font-noto-cjk -e LC_ALL=zh_CN.UTF-8 --name firefox_browser -d --<span class="built_in">rm</span> -p 3000:3000 linuxserver/firefox</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Container based, browser-in-browser emulation</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://github.com/titaniumnetwork-dev/Ultraviolet-App/wiki/Deploy-via-terminal">https://github.com/titaniumnetwork-dev/Ultraviolet-App/wiki/Deploy-via-terminal</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/BrowserBox/BrowserBox">https://github.com/BrowserBox/BrowserBox</a></p>
+<p><a target="_blank" rel="noopener" href="https://browse.cloudtabs.net/signupless_session">https://browse.cloudtabs.net/signupless_session</a></p>
+<ul>
+<li>Builtin anonymous browser like Tor browser</li>
+</ul>
 
 	
 	</div>
-  <a type="button" href="/blog/2023/09/09/e09cbe3f-3ef3-46f4-b7f2-01263134c6e8/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2024/05/27/72b43039-86e6-4bb6-a438-27927eb45991/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -220,8 +352,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-09-04 </div>
-			<div class="article-title"><a href="/blog/2023/09/04/ba2db5d8-fc28-4ced-adb6-4755613fdc24/" title="Captchas, designed as public automated Turing tests, serve the purpose of evaluating capabilities rather than behaviors.">Understanding Captchas: Assessing Capabilities, Not Behaviors</a></div>
+			<div class="date"> 2024-05-23 </div>
+			<div class="article-title"><a href="/blog/2024/05/23/4262df70-9b69-490a-b475-cb84b854e4c3/" title="This article discusses a browser compatibility test tool called &#39;Browsersync&#39;. The tool can be found on its associated website and helps ensure websites work properly across different browsers.">Mastering Cross-Browser Compatibility With Browsersync</a></div>
 		</h3>
 	
 
@@ -232,12 +364,11 @@
   <div class="row">
 	
 	
-		<h1 id="captcha-for-turing-test"><a href="#captcha-for-turing-test" class="headerlink" title="captcha for turing test"></a>captcha for turing test</h1><p>captchas are used for public automated turing tests</p>
-<p>however, it is not behavior based but rather like capability&#x2F;skill based.</p>
+		<h1 id="Browser-compatibility-test"><a href="#Browser-compatibility-test" class="headerlink" title="Browser compatibility test"></a>Browser compatibility test</h1><p><a target="_blank" rel="noopener" href="https://browsersync.io/">browsersync</a></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2023/09/04/ba2db5d8-fc28-4ced-adb6-4755613fdc24/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2024/05/23/4262df70-9b69-490a-b475-cb84b854e4c3/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -247,8 +378,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-09-03 </div>
-			<div class="article-title"><a href="/blog/2023/09/03/4a958713-a97e-415e-93af-ddcafa646af4/" title="This article discusses the process of brainwave translation, which aims to convert information from dreams into various forms such as text, audio, visuals, and melodies. The technique potentially offers a way to access valuable insights and experiences from the subconscious mind.">Unlocking The Secrets Of Dreams: Brainwave Translation Explained</a></div>
+			<div class="date"> 2024-05-22 </div>
+			<div class="article-title"><a href="/blog/2024/05/22/eefa4708-4dd3-49a2-9d2b-ec9477abac50/" title="Hashcat is a high-speed password cracking tool that utilizes GPU acceleration and surpasses John the Ripper in terms of speed. While Hashcat does not support the yescript algorithm, it offers several mask generation engines accessible through `apt`. In contrast, John the Ripper initially provides limited formats but can be expanded using `john-jumbo` for additional options. Markov chain-based rainbow table generators are beneficial for cracking passwords with discernible patterns.">Hashcat And John The Ripper</a></div>
 		</h3>
 	
 
@@ -259,12 +390,14 @@
   <div class="row">
 	
 	
-		<h1 id="brainwave-translation"><a href="#brainwave-translation" class="headerlink" title="brainwave translation"></a>brainwave translation</h1><p>interesting dreams were found</p>
-<p>extract text,  audio, visual, melody</p>
+		<p>Hashcat does not support yescript, which is a very slow hashing algorithm developed by some member in JtE. It can crack common password hashes quickly with GPU.</p>
+<p>There are plenty of mask generation engines for hashcat. Find them with <code>apt</code>.</p>
+<p>John the Ripper only provides few formats by default. To get more formats, install <code>john-jumbo</code> instead.</p>
+<p>If the password somehow follows a pattern, use Markov chain based rainbow table generator.</p>
 
 	
 	</div>
-  <a type="button" href="/blog/2023/09/03/4a958713-a97e-415e-93af-ddcafa646af4/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2024/05/22/eefa4708-4dd3-49a2-9d2b-ec9477abac50/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -274,8 +407,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-08-19 </div>
-			<div class="article-title"><a href="/blog/2023/08/19/08f3ffb0-7168-44c7-b57f-a211c8218085/" title="Learn how to empty the trash on MacOS using a terminal and discover an alternative cross-platform CLI tool called &#39;trash-cli&#39; for managing your personal recycle bin. Additionally, explore other related tools such as cmdutils, cmd-recycle, and nircmd for Windows.">Recycle Bin, Trash Can Cli Alternative</a></div>
+			<div class="date"> 2024-05-21 </div>
+			<div class="article-title"><a href="/blog/2024/05/21/4bc1717d-2283-4915-a93e-14369fce5dfa/" title="This article discusses open-source alternatives to GPT-4V, such as Llama3-v, MiniCPM-V, Video-LLaVA, InternVL, CogVLM2, and PaliGemma. These alternatives are specifically designed for multimodal tasks and provide more information about their usage through the provided links.">Gpt-4V Open Source Alternative</a></div>
 		</h3>
 	
 
@@ -286,22 +419,24 @@
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://github.com/sindresorhus/trash">trash-cli</a> (with <a target="_blank" rel="noopener" href="https://github.com/sindresorhus/trash-cli">python binding</a>) may work cross-platform, but manage its own recycle bin instead of the system if using windows or macos.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/sindresorhus/empty-trash-cli">empty-trash-cli</a></p>
-<h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><p><a target="_blank" rel="noopener" href="http://www.maddogsw.com/cmdutils/">cmdutils</a> which has <code>recycle</code> and <code>bin</code> commands</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/kizzx2/cmd-recycle/">cmd-recycle</a></p>
-<p><a target="_blank" rel="noopener" href="http://www.nirsoft.net/utils/nircmd.html">nircmd</a></p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nircmd moverecyclebin *.tmp</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="macos"><a href="#macos" class="headerlink" title="macos"></a>macos</h2><p>do this manually:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># i don&#x27;t trust this.</span></span><br><span class="line"><span class="comment">#rm -rf ~/.Trash/*</span></span><br><span class="line">osascript -e <span class="string">&#x27;tell app &quot;Finder&quot; to empty&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://hasseg.org/trash/">trash</a></p>
-<p>rmtrash in <a target="_blank" rel="noopener" href="http://www.nightproductions.net/cli.htm">nightproductions’s cli tools</a></p>
+		<p>with llama3-v inside</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/OpenBMB/MiniCPM-V">https://github.com/OpenBMB/MiniCPM-V</a></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://github.com/mbzuai-oryx/Video-LLaVA">https://github.com/mbzuai-oryx/Video-LLaVA</a></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://github.com/OpenGVLab/InternVL">https://github.com/OpenGVLab/InternVL</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/THUDM/CogVLM2">https://github.com/THUDM/CogVLM2</a></p>
+<hr>
+<p>PaliGemma (multimodal) from Google:</p>
+<p><a target="_blank" rel="noopener" href="https://hf-mirror.com/google/paligemma-3b-pt-224">https://hf-mirror.com/google/paligemma-3b-pt-224</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/google-research/big_vision/blob/main/big_vision/configs/proj/paligemma/README.md">https://github.com/google-research/big_vision/blob/main/big_vision/configs/proj/paligemma/README.md</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/huggingface/blog/blob/main/paligemma.md">https://github.com/huggingface/blog/blob/main/paligemma.md</a></p>
+<p>lots of open source models can be found at:</p>
+<p><a target="_blank" rel="noopener" href="https://hf-mirror.com/google">https://hf-mirror.com/google</a></p>
 
 	
 	</div>
-  <a type="button" href="/blog/2023/08/19/08f3ffb0-7168-44c7-b57f-a211c8218085/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2024/05/21/4bc1717d-2283-4915-a93e-14369fce5dfa/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -311,8 +446,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-08-17 </div>
-			<div class="article-title"><a href="/blog/2023/08/17/dbfb02c3-0a31-4d5d-bdd5-bc804329021b/" title="This text introduces &#39;catfs&#39;, a Filesystem Cache built in Rust, and highlights that rclone, a file management tool, now supports a &#39;cache&#39; backend for remote caching.">filesystem cache</a></div>
+			<div class="date"> 2024-05-20 </div>
+			<div class="article-title"><a href="/blog/2024/05/20/55062a6f-19ca-4384-834e-80954d5176ef/" title="This text explains the process of decompiling a single JAR file using jd-cli, a command line tool. It covers steps such as serial processing and skipping resources, and provides output options including console, directory, structured directory, or ZIP file with customizable paths.">Decompiling A Jar File With Jd-Cli: Processes And Output Options</a></div>
 		</h3>
 	
 
@@ -323,93 +458,17 @@
   <div class="row">
 	
 	
-		<p><a target="_blank" rel="noopener" href="https://github.com/kahing/catfs">catfs</a> in rust</p>
-<p>rclone supports ‘cache’ backend for remote cache</p>
+		<h1 id="Java-jar-file-decompiler"><a href="#Java-jar-file-decompiler" class="headerlink" title="Java jar file decompiler"></a>Java jar file decompiler</h1><p>To decompile a single jar file we need more than just jd-core, which is a commandline tool to decompile a single class file at a time.</p>
+<p>Use <a target="_blank" rel="noopener" href="https://github.com/intoolswetrust/jd-cli">jd-cli</a> which is downloadable at <a target="_blank" rel="noopener" href="https://github.com/intoolswetrust/jd-cli/releases/download/jd-cli-1.2.0/jd-cli-1.2.0-dist.tar.gz">here</a>.</p>
+<p>Commandline usage:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># without docker</span></span><br><span class="line">java -jar jd-cli.jar file-to-decompile.jar -ods decompiled-src</span><br><span class="line"><span class="comment"># with docker</span></span><br><span class="line">docker run -it --<span class="built_in">rm</span> -v `<span class="built_in">pwd</span>`:/mnt --user $(<span class="built_in">id</span> -u):$(<span class="built_in">id</span> -g) \</span><br><span class="line">kwart/jd-cli /mnt/file-to-decompile.jar -ods /mnt/decompiled-src</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Full syntax:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">Usage: java -jar jd-cli.jar [options] [Files to decompile]</span><br><span class="line">Options:</span><br><span class="line">--displayLineNumbers, -n</span><br><span class="line">displays line numbers <span class="keyword">in</span> decompiled classes</span><br><span class="line">Default: <span class="literal">false</span></span><br><span class="line">--escapeUnicodeCharacters, -eu</span><br><span class="line">escape unicode characters <span class="keyword">in</span> decompiled classes</span><br><span class="line">Default: <span class="literal">false</span></span><br><span class="line">--<span class="built_in">help</span>, -h</span><br><span class="line">shows this <span class="built_in">help</span></span><br><span class="line">Default: <span class="literal">false</span></span><br><span class="line">--logLevel, -g</span><br><span class="line">takes [level] as parameter and sets it as the CLI <span class="built_in">log</span> level. Possible</span><br><span class="line">values are: ALL, TRACE, DEBUG, INFO, WARN, ERROR, OFF</span><br><span class="line">Default: INFO</span><br><span class="line">--outputConsole, -oc</span><br><span class="line">enables output to system output stream</span><br><span class="line">Default: <span class="literal">false</span></span><br><span class="line">--outputDir, -<span class="built_in">od</span></span><br><span class="line">takes a [directoryPath] as a parameter and configures a flat DIR output</span><br><span class="line"><span class="keyword">for</span> this path</span><br><span class="line">--outputDirStructured, -ods</span><br><span class="line">takes a [directoryPath] as a parameter and configures a structured DIR</span><br><span class="line">output <span class="keyword">for</span> this path</span><br><span class="line">--outputZipFile, -oz</span><br><span class="line">takes a [zipFilePath] as a parameter and configures ZIP output <span class="keyword">for</span> this</span><br><span class="line">path</span><br><span class="line">--pattern, -p</span><br><span class="line">RegExp pattern <span class="built_in">which</span> the to-be-decompiled file has to match. Not matching</span><br><span class="line">entries are skipped.</span><br><span class="line">--serialProcessing, -sp</span><br><span class="line">don<span class="string">&#x27;t use parallel processing</span></span><br><span class="line"><span class="string">Default: false</span></span><br><span class="line"><span class="string">--skipResources, -sr</span></span><br><span class="line"><span class="string">skips processing resources</span></span><br><span class="line"><span class="string">Default: false</span></span><br><span class="line"><span class="string">--version, -v</span></span><br><span class="line"><span class="string">shows the version</span></span><br><span class="line"><span class="string">Default: false</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
 
 	
 	</div>
-  <a type="button" href="/blog/2023/08/17/dbfb02c3-0a31-4d5d-bdd5-bc804329021b/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2023-08-16 </div>
-			<div class="article-title"><a href="/blog/2023/08/16/8322c697-be5a-4f16-bf5c-cdbff433f771/" title="This article provides a step-by-step guide on how to reset a Windows Server password when it cannot be fixed by `chntpw`. The process involves swapping `Utilman.exe` with `cmd.exe`, accessing the command prompt through widgets, and using the `net user` command to reset the password.">Reset Windows Server Password</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p><code>chntpw</code> does not work this time. it will auto restore</p>
-<p>the SAM file.</p>
-<p>instead, under directory <code>C:\Windows\System32</code>, swap <code>Utilman.exe</code> (remember to back it up) with <code>cmd.exe</code> then click widgets in login window to popup command prompt, type <code>net user &lt;username&gt; &lt;password&gt;</code> to reset.</p>
-<p><a target="_blank" rel="noopener" href="https://www.top-password.com/blog/reset-forgotten-windows-server-2016-password/">reference</a></p>
-
-	
-	</div>
-  <a type="button" href="/blog/2023/08/16/8322c697-be5a-4f16-bf5c-cdbff433f771/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2023-08-13 </div>
-			<div class="article-title"><a href="/blog/2023/08/13/c69512a3-e382-4ae7-ac79-6f927d4885a8/" title="This Resource Utilization Monitor Tool is specifically designed for Linux systems, providing features such as htop to track RAM usage and processes, along with s-tui for monitoring CPU/GPU temperatures. It is a helpful tool for keeping an eye on system resources in real-time.">resource utilization monitor tool</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><p><a target="_blank" rel="noopener" href="https://htop.dev/">htop</a> for ram and processes. <a target="_blank" rel="noopener" href="https://github.com/amanusk/s-tui">s-tui</a> for cpu&#x2F;gpu temperatures</p>
-
-	
-	</div>
-  <a type="button" href="/blog/2023/08/13/c69512a3-e382-4ae7-ac79-6f927d4885a8/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2023-08-12 </div>
-			<div class="article-title"><a href="/blog/2023/08/12/5a798d49-b06a-4284-aaf1-3326eb7b0718/" title="This article provides tips on how to avoid slashes in note names to prevent syncing program issues. By following these guidelines, users can ensure that their notes are properly synced across different devices and platforms without encountering any problems.">Notable Tips</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p>do not use slash in note names, which might cause issues for our syncing program.</p>
-
-	
-	</div>
-  <a type="button" href="/blog/2023/08/12/5a798d49-b06a-4284-aaf1-3326eb7b0718/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2024/05/20/55062a6f-19ca-4384-834e-80954d5176ef/#more" class="btn btn-default more">Read More</a>
 </div>
 
            

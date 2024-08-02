@@ -116,6 +116,36 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2024-05-20 </div>
+			<div class="article-title"><a href="/blog/2024/05/20/55062a6f-19ca-4384-834e-80954d5176ef/" title="This text explains the process of decompiling a single JAR file using jd-cli, a command line tool. It covers steps such as serial processing and skipping resources, and provides output options including console, directory, structured directory, or ZIP file with customizable paths.">Decompiling A Jar File With Jd-Cli: Processes And Output Options</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="Java-jar-file-decompiler"><a href="#Java-jar-file-decompiler" class="headerlink" title="Java jar file decompiler"></a>Java jar file decompiler</h1><p>To decompile a single jar file we need more than just jd-core, which is a commandline tool to decompile a single class file at a time.</p>
+<p>Use <a target="_blank" rel="noopener" href="https://github.com/intoolswetrust/jd-cli">jd-cli</a> which is downloadable at <a target="_blank" rel="noopener" href="https://github.com/intoolswetrust/jd-cli/releases/download/jd-cli-1.2.0/jd-cli-1.2.0-dist.tar.gz">here</a>.</p>
+<p>Commandline usage:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># without docker</span></span><br><span class="line">java -jar jd-cli.jar file-to-decompile.jar -ods decompiled-src</span><br><span class="line"><span class="comment"># with docker</span></span><br><span class="line">docker run -it --<span class="built_in">rm</span> -v `<span class="built_in">pwd</span>`:/mnt --user $(<span class="built_in">id</span> -u):$(<span class="built_in">id</span> -g) \</span><br><span class="line">kwart/jd-cli /mnt/file-to-decompile.jar -ods /mnt/decompiled-src</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Full syntax:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">Usage: java -jar jd-cli.jar [options] [Files to decompile]</span><br><span class="line">Options:</span><br><span class="line">--displayLineNumbers, -n</span><br><span class="line">displays line numbers <span class="keyword">in</span> decompiled classes</span><br><span class="line">Default: <span class="literal">false</span></span><br><span class="line">--escapeUnicodeCharacters, -eu</span><br><span class="line">escape unicode characters <span class="keyword">in</span> decompiled classes</span><br><span class="line">Default: <span class="literal">false</span></span><br><span class="line">--<span class="built_in">help</span>, -h</span><br><span class="line">shows this <span class="built_in">help</span></span><br><span class="line">Default: <span class="literal">false</span></span><br><span class="line">--logLevel, -g</span><br><span class="line">takes [level] as parameter and sets it as the CLI <span class="built_in">log</span> level. Possible</span><br><span class="line">values are: ALL, TRACE, DEBUG, INFO, WARN, ERROR, OFF</span><br><span class="line">Default: INFO</span><br><span class="line">--outputConsole, -oc</span><br><span class="line">enables output to system output stream</span><br><span class="line">Default: <span class="literal">false</span></span><br><span class="line">--outputDir, -<span class="built_in">od</span></span><br><span class="line">takes a [directoryPath] as a parameter and configures a flat DIR output</span><br><span class="line"><span class="keyword">for</span> this path</span><br><span class="line">--outputDirStructured, -ods</span><br><span class="line">takes a [directoryPath] as a parameter and configures a structured DIR</span><br><span class="line">output <span class="keyword">for</span> this path</span><br><span class="line">--outputZipFile, -oz</span><br><span class="line">takes a [zipFilePath] as a parameter and configures ZIP output <span class="keyword">for</span> this</span><br><span class="line">path</span><br><span class="line">--pattern, -p</span><br><span class="line">RegExp pattern <span class="built_in">which</span> the to-be-decompiled file has to match. Not matching</span><br><span class="line">entries are skipped.</span><br><span class="line">--serialProcessing, -sp</span><br><span class="line">don<span class="string">&#x27;t use parallel processing</span></span><br><span class="line"><span class="string">Default: false</span></span><br><span class="line"><span class="string">--skipResources, -sr</span></span><br><span class="line"><span class="string">skips processing resources</span></span><br><span class="line"><span class="string">Default: false</span></span><br><span class="line"><span class="string">--version, -v</span></span><br><span class="line"><span class="string">shows the version</span></span><br><span class="line"><span class="string">Default: false</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/05/20/55062a6f-19ca-4384-834e-80954d5176ef/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2022-12-06 </div>
 			<div class="article-title"><a href="/blog/2022/12/06/26cb109f-bc27-4499-b54f-a74f3ea429fb/" title="Both comments address the issue of Taobao&#39;s npm mirror sites blocking specific IP ranges, leading to the need for proxies. They offer potential solutions such as using topsap or configuring pip with a new index URL.">Mirror Sites Change</a></div>
 		</h3>

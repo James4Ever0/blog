@@ -116,6 +116,68 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2024-05-27 </div>
+			<div class="article-title"><a href="/blog/2024/05/27/dcad9c73-f1a8-49ce-8bc0-867d4dee1a7f/" title="This article provides a tutorial on finding an IP address and retrieving its geo information using Python. It includes instructions for obtaining your own IP address and demonstrates how to use the ip2location package to retrieve the country associated with any given IP address.">Ip Info Collect</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>Tutorial:</p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/24678308/how-to-find-location-with-ip-address-in-python">https://stackoverflow.com/questions/24678308/how-to-find-location-with-ip-address-in-python</a></p>
+<p>To obtain IP of ourselves, we can visit:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl https://api.ipify.org</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>To get geo info of our IP, visit:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl https://ipinfo.io | jq .country</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>TO get geo info of any IP, use:</p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/IP2Location/">https://pypi.org/project/IP2Location/</a></p>
+<p><a target="_blank" rel="noopener" href="https://ip2location-python.readthedocs.io/en/latest/quickstart.html">https://ip2location-python.readthedocs.io/en/latest/quickstart.html</a></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/05/27/dcad9c73-f1a8-49ce-8bc0-867d4dee1a7f/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2023-12-27 </div>
+			<div class="article-title"><a href="/blog/2023/12/27/c4cbb9ef-385e-4d6a-bbcb-359d3d41cc32/" title="This text provides an explanation on utilizing Python&#39;s `defaultdict` and `Counter` for efficient dictionary usage. It demonstrates how to set a default value if a key is not found, count the occurrences of items in a collection, initialize and update `defaultdict`, making it convenient for managing such tasks efficiently.">Defaultdict And Counter</a></div>
+		</h3>
+	
+
+
+		     
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<pre><code class="python">from collections import defaultdict, Counter
+mydict = defaultdict(Counter) # remember to put callable or none as argument of defaultdict
+mydict = defaultdict(lambda: defaultdict(lambda: 0)) # alternative
+mydict[&#39;k1&#39;][&#39;k2&#39;] += 1 # two is ok, but not one or three
+</code></pre>
+
+	
+	</div>
+  <a type="button" href="/blog/2023/12/27/c4cbb9ef-385e-4d6a-bbcb-359d3d41cc32/#more" class="btn btn-default more">Read More</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2022-12-18 </div>
 			<div class="article-title"><a href="/blog/2022/12/18/174f7e21-1db4-4ddb-b009-9c025323a08a/" title="The Elo rating system is a widely-used method for evaluating the relative skills of players in two-player games such as chess. It assigns ratings to players and updates them based on the results of their matches. The Python code provided here demonstrates how to implement the Elo rating system, taking into account a k-factor that determines the magnitude of the change in player ratings.">Elo Rating System</a></div>
 		</h3>

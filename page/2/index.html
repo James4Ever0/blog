@@ -123,8 +123,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-12-01 </div>
-			<div class="article-title"><a href="/blog/2023/12/01/9b153935-754c-4bbc-82cc-077836bcdbaa/" title="This article provides a step-by-step guide on how to modify Chrome and Chromium policies from the Snap Store by accessing specific directories: `/var/snap/chromium/current/policies/` for Chrome and `/var/snap/chromium/current/policies/managed/` for Chromium.">Modify Chrome/Chromium Policies From Snap Store</a></div>
+			<div class="date"> 2024-07-24 </div>
+			<div class="article-title"><a href="/blog/2024/07/24/39ca99f1-e47a-4b86-b113-a908bb03ef11/" title="This comprehensive guide provides detailed instructions on setting up a Kubernetes isolated pod proxy with Clash using tun mode, while ensuring restricted intranet access through NetworkPolicy. Additionally, it walks you through the process of creating a VPN, routing traffic via the VPN, and configuring Clash for an isolated proxy server.">Setting Up Isolated Pod Proxy With Clash And Vpn In Kubernetes</a></div>
 		</h3>
 	
 
@@ -135,158 +135,48 @@
   <div class="row">
 	
 	
-		<p>use <code>/var/snap/chromium/current/policies/</code> if chrome, <code>/var/snap/chromium/current/policies/managed/</code> if chromium</p>
+		<h1 id="k8s-isolated-pod-proxy-setup"><a href="#k8s-isolated-pod-proxy-setup" class="headerlink" title="k8s isolated pod proxy setup"></a>k8s isolated pod proxy setup</h1><p>you need to disable intranet access with <code>NetworkPolicy</code></p>
+<p>find more info about intranet ranges here:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/langgenius/dify/blob/main/docker/ssrf_proxy/squid.conf.template">https://github.com/langgenius/dify/blob/main/docker/ssrf_proxy/squid.conf.template</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.squid-cache.org/Doc/config/acl/">http://www.squid-cache.org/Doc/config/acl/</a></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">networking.k8s.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">NetworkPolicy</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">deny-intranet-egress</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">podSelector:</span></span><br><span class="line"><span class="attr">matchLabels:</span></span><br><span class="line"><span class="attr">app:</span> <span class="string">hello-world</span></span><br><span class="line"><span class="attr">policyTypes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">Egress</span></span><br><span class="line"><span class="attr">egress:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">to:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">ipBlock:</span></span><br><span class="line"><span class="attr">cidr:</span> <span class="string">::/0</span></span><br><span class="line"><span class="attr">except:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">fc00::/7</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">fe80::/10</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">ipBlock:</span></span><br><span class="line"><span class="attr">cidr:</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span><span class="string">/0</span></span><br><span class="line"><span class="attr">except:</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span><span class="string">/8</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">10.0</span><span class="number">.0</span><span class="number">.0</span><span class="string">/8</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">100.64</span><span class="number">.0</span><span class="number">.0</span><span class="string">/10</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">169.254</span><span class="number">.0</span><span class="number">.0</span><span class="string">/16</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">172.16</span><span class="number">.0</span><span class="number">.0</span><span class="string">/12</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">192.168</span><span class="number">.0</span><span class="number">.0</span><span class="string">/16</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-	
-	</div>
-  <a type="button" href="/blog/2023/12/01/9b153935-754c-4bbc-82cc-077836bcdbaa/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2023-12-01 </div>
-			<div class="article-title"><a href="/blog/2023/12/01/0fb411cf-42af-414a-b2b7-c241324fb04d/" title="This article provides step-by-step instructions on how to update Magisk and install Shizuku, a third-party app for Android that allows users to run apps as system applications. The guide also explains how to enable whitelist mode for enhanced functionality.">Hide Magisk</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p>You need to update to latest magisk by patching the unmodified kernel and <a target="_blank" rel="noopener" href="https://github.com/RikkaApps/Shizuku/blob/master/README.md">install shizuku</a></p>
-<p>enable <a target="_blank" rel="noopener" href="https://shizuku.rikka.app/">whitelist mode</a></p>
-
-	
-	</div>
-  <a type="button" href="/blog/2023/12/01/0fb411cf-42af-414a-b2b7-c241324fb04d/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2023-12-01 </div>
-			<div class="article-title"><a href="/blog/2023/12/01/b4935670-cff3-4424-8dc8-a81bc325826b/" title="This article discusses the utilization of TensorFlow.js for code documentation and client-side computations, leveraging precomputed vector spaces for search functionality, and employing local storage for customization purposes.">Document Your Code With Ai, And Use Client-Side Compute Resources</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p>Use <code>tensorflow.js</code> for the query and llm.</p>
-<p>Use precomputed vector space for searching.</p>
-<p>Use local storage for customization.</p>
-
-	
-	</div>
-  <a type="button" href="/blog/2023/12/01/b4935670-cff3-4424-8dc8-a81bc325826b/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2023-11-30 </div>
-			<div class="article-title"><a href="/blog/2023/11/30/410f1734-5de6-4f73-ad85-2ff995166052/" title="This text discusses a Discord channel named &#39;Cybergod&#39; which can be joined using the invitation link https://discord.gg/y9BrdMfA. It is set to be integrated into an agi-computer-control repository, suggesting collaboration and communication among its members.">Cybergod Discord Channel</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p>join at: <a target="_blank" rel="noopener" href="https://discord.gg/y9BrdMfA">https://discord.gg/y9BrdMfA</a></p>
-<p>i plan to intergrate it to my agi-computer-control repo.</p>
-
-	
-	</div>
-  <a type="button" href="/blog/2023/11/30/410f1734-5de6-4f73-ad85-2ff995166052/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2023-11-27 </div>
-			<div class="article-title"><a href="/blog/2023/11/27/5732c2c3-ab92-48dd-a453-520ec0ce9495/" title="Gooey is a powerful tool that enables users to transform command-line programs into user-friendly GUI applications. By providing an intuitive graphical interface, Gooey simplifies the interaction with these programs and makes them more accessible for non-technical users.">Gooey: Argparse As Gui</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p>Directly convert commandline programs as GUI programs.</p>
-<p>This goofy name “<a target="_blank" rel="noopener" href="https://github.com/chriskiehl/Gooey">Gooey</a>“ is so strange that even ChatGPT and search engine like Bing have both failed to retrieve.</p>
-<p>Yet we manage to recover it from our legacy codebase <code>AGI/AutoUP/generator/transcribe</code> by  <code>rg -g *.cmd pyinstaller36</code> and <code>find . | rg time | rg tracker</code>.</p>
-<p>Is this fate?</p>
-<p>Is this the end, or the new beginning?</p>
-
-	
-	</div>
-  <a type="button" href="/blog/2023/11/27/5732c2c3-ab92-48dd-a453-520ec0ce9495/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2023-11-14 </div>
-			<div class="article-title"><a href="/blog/2023/11/14/34d9a570-54f4-4073-a2ff-3405f9cf2b03/" title="This text explains the process of creating a sparse matrix-based liquid state machine using tensorly and torch libraries. It focuses on efficient data processing for intricate datasets such as brain neurons.">Create Sparse Matrix Based Liquid State Machine</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p>use <code>tensorly</code> to create random sparse tensor and eye sparse tensor with ease, which could be numpy only, and requires the <code>sparse</code> package.</p>
-<p><code>scipy</code>, <code>pytorch</code>, <code>tensorflow</code>, <code>jax</code> all support sparse tensor construction but advanced apis are not.</p>
-<p>use <code>eye</code> to create bias and input matrix, extract node values. use random sparse tensor to initialize weight matrix. use self matrix multiplication to perform propagation.</p>
+<p>if you do not want to use <code>tun</code> routing and rely on application specific proxy adaptors, you can <code>export</code> environment variables at:</p>
+<ul>
+<li><p><code>/etc/profile</code> or <code>/etc/profile.d/proxy.sh</code></p>
+</li>
+<li><p><code>~/.bashrc</code></p>
+</li>
+</ul>
 <hr>
-<p>the human brain has roughly 87 billion neurons, and every one of them has thousands of synapses.</p>
+<p>use clash tun mode by <code>config.yaml</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">interface-name:</span> <span class="string">en0</span> <span class="comment"># 与 `tun.auto-detect-interface` 冲突</span></span><br><span class="line"><span class="attr">tun:</span></span><br><span class="line"><span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">stack:</span> <span class="string">system</span> <span class="comment"># or gvisor</span></span><br><span class="line"><span class="comment"># dns-hijack:</span></span><br><span class="line"><span class="comment">#   - 8.8.8.8:53</span></span><br><span class="line"><span class="comment">#   - tcp://8.8.8.8:53</span></span><br><span class="line"><span class="comment">#   - any:53</span></span><br><span class="line"><span class="comment">#   - tcp://any:53</span></span><br><span class="line"><span class="attr">auto-route:</span> <span class="literal">true</span> <span class="comment"># manage `ip route` and `ip rules`</span></span><br><span class="line"><span class="attr">auto-redir:</span> <span class="literal">true</span> <span class="comment"># manage nftable REDIRECT</span></span><br><span class="line"><span class="attr">auto-detect-interface:</span> <span class="literal">true</span> <span class="comment"># 与 `interface-name` 冲突</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>ref:</p>
+<p><a target="_blank" rel="noopener" href="https://clash.wiki/premium/tun-device.html">https://clash.wiki/premium/tun-device.html</a></p>
 <hr>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">large_number = <span class="number">1_000_000</span></span><br><span class="line">torch.arange(large_number).unsqueeze(<span class="number">0</span>).repeat(<span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">index_arr = torch.arange(large_number).unsqueeze(<span class="number">0</span>).repeat(<span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">val_arr = torch.ones(large_number)</span><br><span class="line">sparse_eye = torch.sparse_coo_tensor(index_arr, val_arr, (large_number, large_number))</span><br><span class="line"><span class="comment"># sparse_eye.to(&#x27;cuda&#x27;)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>by the most you would create a <code>tun</code> device, then route all traffic to the device after you have installed necessary softwares.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ip tuntap add mode tun dev tun0</span><br><span class="line">ip addr add 198.18.0.1/15 dev tun0</span><br><span class="line">ip <span class="built_in">link</span> <span class="built_in">set</span> dev tun0 up</span><br><span class="line"><span class="comment"># download tun2socks</span></span><br><span class="line"><span class="comment"># https://github.com/xjasonlyu/tun2socks</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>alternatively:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> tensorly.contrib.sparse <span class="keyword">as</span> tsl_sp</span><br><span class="line">large_number = <span class="number">1_000_000</span></span><br><span class="line">numpy_eye = tsl_sp.eye(large_number)</span><br><span class="line">torch_eye = torch.sparse_coo_tensor(numpy_eye.coords, numpy_eye.data, numpy_eye.shape)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>you need to use the default gateway otherwise you will not be able to reach the dns.</p>
+<p>the default gateway will differ from nodes. it is recommended to fetch it from <code>ip route</code></p>
+<p>for ubuntu containers you would run <code>apt install iproute2</code> first</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">DNS_IP=8.8.8.8</span><br><span class="line">GATEWAY_IP=$(ip route | grep default | grep -oE <span class="string">&quot;\b([0-9]&#123;1,3&#125;\.)&#123;3&#125;[0-9]&#123;1,3&#125;\b&quot;</span>)</span><br><span class="line">DEFAULT_ROUTE=$(ip route | grep default | sed -E <span class="string">&#x27;s/( metric.*)?$/ metric 100/g;&#x27;</span>)</span><br><span class="line">DEFAULT_NET_DEVICE=$(ip route | grep default | grep -oP <span class="string">&#x27;(?&lt;=dev )\w+&#x27;</span>)</span><br><span class="line"><span class="comment"># run with root privilege</span></span><br><span class="line">ip route delete default</span><br><span class="line">ip route add <span class="variable">$DEFAULT_ROUTE</span></span><br><span class="line">ip route add default dev via 198.18.0.1 tun0</span><br><span class="line">ip route add <span class="variable">$DNS_IP</span> via <span class="variable">$GATEWAY_IP</span> dev <span class="variable">$DEFAULT_NET_DEVICE</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>then launch <code>tun2socks</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./tun2socks -interface <span class="variable">$DEFAULT_NET_DEVICE</span> -device tun://tun0 -proxy &lt;proxy_protocol&gt;://&lt;proxy_address&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>to disable the tun network you can run:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ip route delete default dev tun0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>you need to configure the <code>dnsPolicy</code> to <code>None</code> in manifest otherwise it would add the cluster dns ip to <code>/etc/resolv.conf</code>, slowing down the lookup process and making it very hard to change during the runtime.</p>
+<p>not every domain shall be reached via public proxies, unless it is graranteed to not be discovered by the gfw.</p>
+<p>the full network isolation scheme can be shown below:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">internet interface</span><br><span class="line">|</span><br><span class="line">intranet-isolated proxy server (hysteria)</span><br><span class="line">|</span><br><span class="line">cluster service with clusterIP</span><br><span class="line">|</span><br><span class="line">isolated socks5 server with only access</span><br><span class="line">to the hysteria service clusterIP and port</span><br><span class="line">|</span><br><span class="line">local socks5 service with clusterIP</span><br><span class="line">|</span><br><span class="line">isolated tun-routed pod with only access</span><br><span class="line">to socks5 service clusterIP and port</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 	
 	</div>
-  <a type="button" href="/blog/2023/11/14/34d9a570-54f4-4073-a2ff-3405f9cf2b03/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2024/07/24/39ca99f1-e47a-4b86-b113-a908bb03ef11/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
@@ -296,8 +186,8 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2023-11-06 </div>
-			<div class="article-title"><a href="/blog/2023/11/06/c8579cd8-805b-43db-bd7d-9b6e9a642bf5/" title="This text provides instructions on how to clean up Chocolatey&#39;s cache by running a PowerShell script called &#39;choco-cleaner.ps1&#39;.">How To Clean Up Chocolatey&#39;S Cache With The Choco-Cleaner.Ps1 Script</a></div>
+			<div class="date"> 2024-07-24 </div>
+			<div class="article-title"><a href="/blog/2024/07/24/287e1737-26f8-4db2-867c-6bf4a900940b/" title="This article outlines the steps and considerations for installing Kubevirt, a virtual machine platform built on Kubernetes. It covers crucial components, installation procedures, and compatibility considerations when using Microk8s as the underlying Kubernetes distribution.">Installing And Configuring Kubevirt On Microk8S</a></div>
 		</h3>
 	
 
@@ -308,108 +198,342 @@
   <div class="row">
 	
 	
-		<h1 id="Chocolatey-cleanup-cache"><a href="#Chocolatey-cleanup-cache" class="headerlink" title="Chocolatey cleanup cache"></a>Chocolatey cleanup cache</h1><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">powershell choco-cleaner.ps1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-	
-	</div>
-  <a type="button" href="/blog/2023/11/06/c8579cd8-805b-43db-bd7d-9b6e9a642bf5/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2023-11-05 </div>
-			<div class="article-title"><a href="/blog/2023/11/05/40556f26-3fd8-4c7a-82ec-dbc6fcd9ae1b/" title="This article guides you through the installation and setup process of Home Assistant using flashable .iso images or virtual machines. It covers essential steps such as creating backups, updating supervisor settings, troubleshooting with `ha banner`, and recommends utilizing OpenClash, OpenWrt, and NanoPi R2S for a more seamless experience.">Home Assistant Installation &amp; Setups</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p>Fully functional HA mainly comes into two forms: flashable supervised <code>.iso</code> images, and virtual machines (not docker container).</p>
-<p>Remember to create backup of HA after successful initialization. You can create an iso for the entire disk or just using backup utility builtin.</p>
-<p>Supervisor need to be updated before other components. It is also the troublemaker. Set auto update of supervisor to false by:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ha supervisor options --auto-update=<span class="literal">false</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>Since its heavy reliance on docker and github, one need to use <a target="_blank" rel="noopener" href="https://github.com/vernesong/OpenClash">OpenClash</a> along with <a target="_blank" rel="noopener" href="https://openwrt.org/">OpenWrt</a> flashed in one dedicated router like <a target="_blank" rel="noopener" href="https://openwrt.org/toh/friendlyarm/nanopi_r2s">NanoPi R2S</a> to smooth the installation process.</p>
-<p>Use video capture card and OBS studio to observe the RPI terminal. Attach to keyboard to type commands.</p>
-<p><code>ha banner</code> sometimes resolves issues.</p>
-<p>To prevent addon installation limits, you can enter <a target="_blank" rel="noopener" href="https://developers.home-assistant.io/docs/operating-system/debugging/">debug mode</a>, edit the following file <code>/mnt/data/supervisor/jobs.json</code> into:</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line"><span class="attr">&quot;ignore_conditions&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line"><span class="string">&quot;healthy&quot;</span></span><br><span class="line"><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>Some files like <code>/etc/docker/daemon.json</code>, <code>/etc/hosts</code> cannot be changed after boot. You can change them before boot using card reader.</p>
-
-	
-	</div>
-  <a type="button" href="/blog/2023/11/05/40556f26-3fd8-4c7a-82ec-dbc6fcd9ae1b/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2023-10-10 </div>
-			<div class="article-title"><a href="/blog/2023/10/10/1a302f7a-16bb-4627-a871-e1744bf92f04/" title="This article provides a detailed explanation of how to run scripts before and after system events such as startup, suspend, and shutdown. It covers using the `@reboot` command with `crontab -e` for startup event management and explains how to write scripts in `/lib/systemd/system-*` directories for handling other system events.">Mastering System Events: Script Execution With @Reboot And Systemd</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<h1 id="execute-script-before-after-system-events-like-startup-suspend-shutdown"><a href="#execute-script-before-after-system-events-like-startup-suspend-shutdown" class="headerlink" title="execute script before &amp; after system events like startup, suspend &amp; shutdown"></a>execute script before &amp; after system events like startup, suspend &amp; shutdown</h1><p>for startup use <code>@reboot</code> with <code>crontab -e</code></p>
-<p>for others, write scripts under <code>/lib/systemd/system-*</code></p>
-
-	
-	</div>
-  <a type="button" href="/blog/2023/10/10/1a302f7a-16bb-4627-a871-e1744bf92f04/#more" class="btn btn-default more">Read More</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2023-10-10 </div>
-			<div class="article-title"><a href="/blog/2023/10/10/82746164-6c4e-4447-a40c-f4747b7d74d1/" title="This article addresses the challenges faced while using AMDGPU, ROCM, and PyTorch. It proposes alternative solutions such as Vulkan/OpenGL or DirectML for integrated graphics cards instead of ROCM, and advises checking the Pytorch nightly repo for up-to-date builds.">Amdgpu, Rocm And Pytorch</a></div>
-		</h3>
-	
-
-
-			  
-<div class="entry">
-
-  <div class="row">
-	
-	
-		<p>rocm is trash to apu. use vulkan or opengl (alternative backends)</p>
+		<h1 id="install-kubevirt"><a href="#install-kubevirt" class="headerlink" title="install kubevirt"></a>install kubevirt</h1><p>do not install it on microk8s</p>
 <hr>
-<p>find latest build in pytorch nightly repo</p>
-<p>use sudo before invoking amdgpu related commands, otherwise unavailable</p>
+<p>install windows on kubevirt:</p>
+<p><a target="_blank" rel="noopener" href="https://charlottemach.com/2020/11/03/windows-kubevirt-k3s.html">https://charlottemach.com/2020/11/03/windows-kubevirt-k3s.html</a></p>
 <hr>
-<p>use directml (pytorch, tensorflow) instead. need windows.</p>
-<p>you need to set the shared graphical memory to a larger value.</p>
-<p>rocm does not work for integrated graphic cards (even if you build it and configured the card name), and supported amd cards are limited.</p>
+<p><code>VirtualMachine</code> is like <code>Deployment</code> while <code>VirtualMachineInstance</code> is like <code>Pod</code></p>
+<hr>
+<p>export kubeconfig file path to <code>~/.bashrc</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> KUBECONFIG=&lt;kubeconfig_filepath&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>download and modify the manifests</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># prefer ustc and azure mirrors of quay.io</span></span><br><span class="line"><span class="built_in">export</span> VERSION=$(curl -s https://api.github.com/repos/kubevirt/kubevirt/releases | grep tag_name | grep -v -- <span class="string">&#x27;-rc&#x27;</span> | <span class="built_in">head</span> -1 | awk -F<span class="string">&#x27;: &#x27;</span> <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | sed <span class="string">&#x27;s/,//&#x27;</span> | xargs)</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$VERSION</span></span><br><span class="line">curl -OLk https://github.com/kubevirt/kubevirt/releases/download/<span class="variable">$&#123;VERSION&#125;</span>/kubevirt-operator.yaml</span><br><span class="line">curl -OLk https://github.com/kubevirt/kubevirt/releases/download/<span class="variable">$&#123;VERSION&#125;</span>/kubevirt-cr.yaml</span><br><span class="line"><span class="built_in">export</span> VERSION=$(curl -s https://api.github.com/repos/kubevirt/containerized-data-importer/releases | grep tag_name | grep -v -- <span class="string">&#x27;-rc&#x27;</span> | <span class="built_in">head</span> -1 | awk -F<span class="string">&#x27;: &#x27;</span> <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | sed <span class="string">&#x27;s/,//&#x27;</span> | xargs)</span><br><span class="line">curl -LkO https://ghproxy.net/github.com/kubevirt/containerized-data-importer/releases/download/<span class="variable">$VERSION</span>/cdi-operator.yaml</span><br><span class="line">curl -LkO https://ghproxy.net/github.com/kubevirt/containerized-data-importer/releases/download/<span class="variable">$VERSION</span>/cdi-cr.yaml</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>check if it works</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl get pods -n kubevirt</span><br><span class="line">kubectl get vmi</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>install virtctl</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># get the download address from: https://github.com/kubevirt/kubevirt/releases/</span></span><br><span class="line">curl -LkO &lt;download_address&gt;</span><br><span class="line">sudo <span class="built_in">mv</span> &lt;downloaded_binary&gt; /usr/bin/virtctl</span><br><span class="line">sudo <span class="built_in">chmod</span> +x /usr/bin/virtctl</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>create vm (already with tun device inside)</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># init_vm.yaml</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">kubevirt.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">VirtualMachine</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">&lt;vm_name&gt;</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">runStrategy:</span> <span class="string">Always</span></span><br><span class="line"><span class="attr">template:</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">terminationGracePeriodSeconds:</span> <span class="number">30</span></span><br><span class="line"><span class="attr">dnsConfig:</span></span><br><span class="line"><span class="attr">nameservers:</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">8.8</span><span class="number">.8</span><span class="number">.8</span></span><br><span class="line"><span class="attr">domain:</span></span><br><span class="line"><span class="attr">resources:</span></span><br><span class="line"><span class="attr">requests:</span></span><br><span class="line"><span class="attr">memory:</span> <span class="string">1024M</span></span><br><span class="line"><span class="attr">devices:</span></span><br><span class="line"><span class="attr">disks:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">containerdisk</span></span><br><span class="line"><span class="attr">disk:</span></span><br><span class="line"><span class="attr">bus:</span> <span class="string">virtio</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">emptydisk</span></span><br><span class="line"><span class="attr">disk:</span></span><br><span class="line"><span class="attr">bus:</span> <span class="string">virtio</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">disk:</span></span><br><span class="line"><span class="attr">bus:</span> <span class="string">virtio</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">cloudinitdisk</span></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">containerdisk</span></span><br><span class="line"><span class="attr">containerDisk:</span></span><br><span class="line"><span class="attr">image:</span> <span class="string">kubevirt/fedora-cloud-container-disk-demo:latest</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">emptydisk</span></span><br><span class="line"><span class="attr">emptyDisk:</span></span><br><span class="line"><span class="attr">capacity:</span> <span class="string">&quot;2Gi&quot;</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">cloudinitdisk</span></span><br><span class="line"><span class="attr">cloudInitNoCloud:</span></span><br><span class="line"><span class="attr">userData:</span> <span class="string">|-</span></span><br><span class="line"><span class="comment">#cloud-config</span></span><br><span class="line"><span class="attr">password:</span> <span class="string">fedora</span></span><br><span class="line"><span class="attr">chpasswd:</span> &#123; <span class="attr">expire:</span> <span class="literal">False</span> &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>apply it to run the vm</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f init_vm.yaml</span><br><span class="line">kubectl get vm</span><br><span class="line">kubectl get vmi</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>to interact with the vm</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">virtctl console &lt;vm_name&gt;</span><br><span class="line"><span class="comment"># ssh config is stored at: ~/.ssh/kube_known_hosts</span></span><br><span class="line">virtctl ssh &lt;user&gt;@&lt;vm_name&gt;</span><br><span class="line"><span class="comment"># run this under gui, with `vncviewer` in path</span></span><br><span class="line"><span class="comment"># install with `apt install tigervnc-viewer`</span></span><br><span class="line">virtctl vnc &lt;vm_name&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 	
 	</div>
-  <a type="button" href="/blog/2023/10/10/82746164-6c4e-4447-a40c-f4747b7d74d1/#more" class="btn btn-default more">Read More</a>
+  <a type="button" href="/blog/2024/07/24/287e1737-26f8-4db2-867c-6bf4a900940b/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-07-21 </div>
+			<div class="article-title"><a href="/blog/2024/07/21/cf60c137-bc18-49af-9985-080e62ba10e8/" title="This article provides a detailed guide on installing the official Kubernetes Python library, setting up configuration paths, and showcasing its usage through code examples. It also includes an example of listing pods&#39; IP addresses across different namespaces using CoreV1Api.">Mastering Kubernetes Python Library: Installation, Configuration, And Pods Listing Examples</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="k8s-python-api-library"><a href="#k8s-python-api-library" class="headerlink" title="k8s python api library"></a>k8s python api library</h1><p>install the official library with <code>pip install kubernetes</code></p>
+<hr>
+<p>the default api config path for k8s is at <code>~/.kube/config</code></p>
+<p><code>k3s</code> is at <code>/etc/rancher/k3s/k3s.yaml</code></p>
+<p><code>microk8s</code> is at <code>/var/snap/microk8s/current/credentials/kubelet.config</code></p>
+<p>you can also set <code>KUBECONFIG</code> environment variable to let <code>kubernetes</code> python library know where the config is</p>
+<hr>
+<p>to use it:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/kubernetes-client/python/blob/master/kubernetes/README.md">https://github.com/kubernetes-client/python/blob/master/kubernetes/README.md</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> kubernetes <span class="keyword">import</span> client, config</span><br><span class="line"><span class="comment"># Configs can be set in Configuration class directly or using helper utility</span></span><br><span class="line">config_path = ...</span><br><span class="line">config.load_kube_config(config_path)</span><br><span class="line">v1 = client.CoreV1Api()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Listing pods with their IPs:&quot;</span>)</span><br><span class="line">ret = v1.list_pod_for_all_namespaces(watch=<span class="literal">False</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> ret.items:</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;%s\t%s\t%s&quot;</span> % (i.status.pod_ip, i.metadata.namespace, i.metadata.name))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/07/21/cf60c137-bc18-49af-9985-080e62ba10e8/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-07-21 </div>
+			<div class="article-title"><a href="/blog/2024/07/21/a69fab8e-7e2a-4fac-a632-dc730f339eca/" title="This article focuses on Kubernetes (k8s) security, offering resources for understanding how to secure a Kubernetes cluster. It references the Snyk IoT guide and official Kubernetes documentation as valuable learning materials.">K8S Security</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p><a target="_blank" rel="noopener" href="https://snyk.io/learn/kubernetes-security/">https://snyk.io/learn/kubernetes-security/</a></p>
+<p><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/tasks/administer-cluster/securing-a-cluster/">https://kubernetes.io/docs/tasks/administer-cluster/securing-a-cluster/</a></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/07/21/a69fab8e-7e2a-4fac-a632-dc730f339eca/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-07-21 </div>
+			<div class="article-title"><a href="/blog/2024/07/21/7e278413-28ba-4422-8cd1-1145ab1c2f2c/" title="This article provides a comprehensive guide on building, uploading, and loading Docker images for Kubernetes-based microk8s or Minikube. Additionally, it covers the process of importing images specifically for lightweight K3s distribution that utilizes the Docker container runtime.">K8S Load Docker Image</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>first of all, you can build and upload docker image to registry.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker login</span><br><span class="line">docker build -t &lt;username&gt;/&lt;imagename&gt;:&lt;tag&gt; -f &lt;dockerfile&gt; &lt;resource_path&gt;</span><br><span class="line">docker push &lt;username&gt;/&lt;imagename&gt;:&lt;tag&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>you can upload to docker.io or microk8s provided local registry.</p>
+<p><a target="_blank" rel="noopener" href="https://microk8s.io/docs/registry-built-in">https://microk8s.io/docs/registry-built-in</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># for microk8s the registry address is localhost:32000</span></span><br><span class="line">docker tag &lt;imagename&gt; &lt;registry_addr&gt;/&lt;imagename&gt;</span><br><span class="line">docker push &lt;registry_addr&gt;/&lt;imagename&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>you can also build image with minikube:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">minikube image build -t &lt;imagename&gt; -f &lt;dockerfile_path&gt; &lt;resource_path&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>load image exported with <code>docker save &lt;image&gt;:&lt;tag&gt;</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ref: https://minikube.sigs.k8s.io/docs/commands/image/</span></span><br><span class="line"><span class="comment"># remember to set a tag to the image imported</span></span><br><span class="line"><span class="comment"># or set the imagePullPolicy to Never</span></span><br><span class="line"><span class="comment"># ref: https://iximiuz.com/en/posts/kubernetes-kind-load-docker-image/</span></span><br><span class="line">minikube image load &lt;image_filepath&gt;/&lt;docker_image_name&gt;</span><br><span class="line">microk8s images import &lt;image_filepath&gt;</span><br><span class="line">microk8s ctr image import &lt;image_filepath&gt;</span><br><span class="line">k3s ctr image import &lt;image_filepath&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://blog.scottlowe.org/2020/01/25/manually-loading-container-images-with-containerd/">https://blog.scottlowe.org/2020/01/25/manually-loading-container-images-with-containerd/</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.k3s.io/installation/registry-mirror#pushing-images">https://docs.k3s.io/installation/registry-mirror#pushing-images</a></p>
+<hr>
+<p>you can also configure k8s to use docker as container runtime instead.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/canonical/microk8s/issues/287">https://github.com/canonical/microk8s/issues/287</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.k3s.io/advanced#using-docker-as-the-container-runtime">https://docs.k3s.io/advanced#using-docker-as-the-container-runtime</a></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/07/21/7e278413-28ba-4422-8cd1-1145ab1c2f2c/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-07-20 </div>
+			<div class="article-title"><a href="/blog/2024/07/20/5f4542dd-3492-4971-86e0-43210ce66510/" title="This article discusses the importance of securing Kubernetes and managing resources using distribution-specific methods. It also covers preventing intranet access through network policies, and considering manual/automatic cleanup for storage limits. Hardening guidelines are followed, and additional resources are provided for further information on available tools.">K8S Deny Intranet Access From All Containers</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>constrain pod resources:</p>
+<p><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/">https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/</a></p>
+<hr>
+<p>to manually exceed the ephermal storage limit run:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fallocate -l 10G /bigfile</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>the pod will be evicted, volume and container will be purged, but the record is not automatically removed.</p>
+<p>to cleanup the mess one may run a scheduled job like:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">microk8s kubectl delete pods --field-selector=status.phase=Failed</span><br><span class="line">microk8s kubectl delete pods --field-selector=status.phase=Unknown</span><br><span class="line"><span class="built_in">sleep</span> 60</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>or configure implementation dependent <code>kube-controller-manager</code> startup argument <code>terminated-pod-gc-threshold=1</code>.</p>
+<p>for <code>k3s</code> edit <code>/etc/rancher/k3s/config.yaml</code> like:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">kube-controller-manager-arg:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">&#x27;terminated-pod-gc-threshold=1&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>for <code>microk8s</code>, edit <code>/var/snap/microk8s/current/args/kube-controller-manager</code></p>
+<p>references:</p>
+<p><a target="_blank" rel="noopener" href="https://kubernetes.io/docs/reference/command-line-tools-reference/kube-controller-manager/">https://kubernetes.io/docs/reference/command-line-tools-reference/kube-controller-manager/</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.k3s.io/security/hardening-guide">https://docs.k3s.io/security/hardening-guide</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/k3s-io/k3s/issues/10448">https://github.com/k3s-io/k3s/issues/10448</a></p>
+<hr>
+<p>make sure you have a networkpolicy enabled cni first. usually included but be careful with minikube since that is a different story</p>
+<p>apply these configs with <code>kubectl apply -f &lt;config_path&gt;</code></p>
+<p>interact with <code>kubectl exec &lt;pod_name&gt; -it -- /bin/sh</code></p>
+<p>deployment config:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">apps/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Deployment</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">hello-world</span></span><br><span class="line"><span class="attr">labels:</span></span><br><span class="line"><span class="attr">app:</span> <span class="string">hello-world</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">replicas:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">selector:</span></span><br><span class="line"><span class="attr">matchLabels:</span></span><br><span class="line"><span class="attr">app:</span> <span class="string">hello-world</span></span><br><span class="line"><span class="attr">template:</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">labels:</span></span><br><span class="line"><span class="attr">app:</span> <span class="string">hello-world</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">containers:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">alpine-container</span></span><br><span class="line"><span class="attr">image:</span> <span class="string">alpine:3.7</span></span><br><span class="line"><span class="attr">command:</span> [<span class="string">&quot;tail&quot;</span>, <span class="string">&quot;-f&quot;</span>, <span class="string">&quot;/dev/null&quot;</span>]</span><br><span class="line"><span class="attr">resources:</span></span><br><span class="line"><span class="attr">limits:</span></span><br><span class="line"><span class="attr">ephemeral-storage:</span> <span class="string">&quot;4Gi&quot;</span></span><br><span class="line"><span class="attr">dnsPolicy:</span> <span class="string">None</span></span><br><span class="line"><span class="attr">dnsConfig:</span></span><br><span class="line"><span class="attr">nameservers:</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">8.8</span><span class="number">.8</span><span class="number">.8</span></span><br><span class="line"><span class="attr">terminationGracePeriodSeconds:</span> <span class="number">0</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>network policy config:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">networking.k8s.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">NetworkPolicy</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">deny-intranet-egress</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line"><span class="attr">podSelector:</span></span><br><span class="line"><span class="attr">matchLabels:</span></span><br><span class="line"><span class="attr">app:</span> <span class="string">hello-world</span></span><br><span class="line"><span class="attr">policyTypes:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">Egress</span></span><br><span class="line"><span class="attr">egress:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">to:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">ipBlock:</span></span><br><span class="line"><span class="attr">cidr:</span> <span class="string">::/0</span></span><br><span class="line"><span class="attr">except:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">fc00::/7</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">fe80::/10</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">ipBlock:</span></span><br><span class="line"><span class="attr">cidr:</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span><span class="string">/0</span></span><br><span class="line"><span class="attr">except:</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span><span class="string">/8</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">10.0</span><span class="number">.0</span><span class="number">.0</span><span class="string">/8</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">100.64</span><span class="number">.0</span><span class="number">.0</span><span class="string">/10</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">169.254</span><span class="number">.0</span><span class="number">.0</span><span class="string">/16</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">172.16</span><span class="number">.0</span><span class="number">.0</span><span class="string">/12</span></span><br><span class="line"><span class="bullet">-</span> <span class="number">192.168</span><span class="number">.0</span><span class="number">.0</span><span class="string">/16</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/07/20/5f4542dd-3492-4971-86e0-43210ce66510/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-07-19 </div>
+			<div class="article-title"><a href="/blog/2024/07/19/32f77638-8d8b-4c48-9ecb-a519adfc6fbe/" title="This guide walks you through installing lightweight Kubernetes clusters, either microk8s or k0s. It covers enabling DNS and multiple registries, provides recommendations for mirror sites in different regions, offers runtime configurations, and gives troubleshooting tips to ensure a smooth setup process.">Install Microk8S</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p>network policy:</p>
+<p><a target="_blank" rel="noopener" href="https://minikube.sigs.k8s.io/docs/handbook/network_policy/">https://minikube.sigs.k8s.io/docs/handbook/network_policy/</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.tigera.io/calico/latest/network-policy/get-started/calico-policy/calico-network-policy">https://docs.tigera.io/calico/latest/network-policy/get-started/calico-policy/calico-network-policy</a></p>
+<p>persistent volume:</p>
+<p><a target="_blank" rel="noopener" href="https://minikube.sigs.k8s.io/docs/handbook/persistent_volumes/">https://minikube.sigs.k8s.io/docs/handbook/persistent_volumes/</a></p>
+<hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo snap install --classic microk8s</span><br><span class="line">sudo microk8s <span class="built_in">enable</span> dns:&lt;dns_ip&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>config files are at <code>/var/snap/microk8s/current</code>, and you need to replace all <code>docker.io</code> with some docker mirror to prevent init errors.</p>
+<p>run <code>microk8s inspect</code> to get errors like hostname casing, and missing file like <code>/var/snap/microk8s/current/var/kubernetes/backend/localnode.yaml</code></p>
+<p>you need to configure multiple registries for <code>docker.io</code> and <code>registry.k8s.io</code> under <code>/var/snap/microk8s/current/args/certs.d</code></p>
+<p>in order to use some mirror site which does not support <code>/v2</code> url, you have to add <code>override_path = true</code> in config</p>
+<p>mirror sites:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/docker-mirrors/website">https://github.com/docker-mirrors/website</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/cmliu/CF-Workers-docker.io/issues/8">https://github.com/cmliu/CF-Workers-docker.io/issues/8</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/kubesre/docker-registry-mirrors">https://github.com/kubesre/docker-registry-mirrors</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lawrenceching/gitbook/blob/master/docker-repositories-in-china.md">https://github.com/lawrenceching/gitbook/blob/master/docker-repositories-in-china.md</a></p>
+<p>reference:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/containerd/containerd/blob/main/docs/hosts.md">https://github.com/containerd/containerd/blob/main/docs/hosts.md</a></p>
+<p><a target="_blank" rel="noopener" href="https://microk8s.io/docs/registry-private">https://microk8s.io/docs/registry-private</a></p>
+<hr>
+<p>install k3s</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -sfL https://get.k3s.io &gt; k3s_setup.sh</span><br><span class="line"><span class="comment"># replace the line if GITHUB_URL to some github mirror instead</span></span><br><span class="line">bash k3s_setup.sh</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>k3s mirror</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -sfL https://rancher-mirror.rancher.cn/k3s/k3s-install.sh | INSTALL_K3S_MIRROR=cn sh -​</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>registry config:</p>
+<p><a target="_blank" rel="noopener" href="https://docs.k3s.io/installation/private-registry">https://docs.k3s.io/installation/private-registry</a></p>
+<hr>
+<p>k0s install:</p>
+<p><a target="_blank" rel="noopener" href="https://docs.k0sproject.io/stable/install/">https://docs.k0sproject.io/stable/install/</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -sSLf https://get.k0s.sh | sudo sh</span><br><span class="line">sudo k0s install controller --single</span><br><span class="line">sudo k0s start</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>config:</p>
+<p><a target="_blank" rel="noopener" href="https://docs.k0sproject.io/stable/runtime/">https://docs.k0sproject.io/stable/runtime/</a></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/07/19/32f77638-8d8b-4c48-9ecb-a519adfc6fbe/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-07-08 </div>
+			<div class="article-title"><a href="/blog/2024/07/08/20625e39-4b27-4bc8-a98a-cbe6cb80e411/" title="This article provides a comprehensive guide on how to daemonize applications with PM2. It covers the process of setting up unbuffered output, installing and configuring PM2, running processes as daemons, and monitoring them using monit.">Daemonizing Applications With Pm2: A Step-By-Step Guide</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<h1 id="PM2-daemonize-any-app"><a href="#PM2-daemonize-any-app" class="headerlink" title="PM2 daemonize any app"></a>PM2 daemonize any app</h1><p>remember to set unbuffered output flag <code>-u</code> before running any python script, otherwise there will be no output in <code>pm2 log</code></p>
+<hr>
+<p>install and setup pm2 as daemon:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install npm</span><br><span class="line">sudo npm config <span class="built_in">set</span> registry https://registry.npmmirror.com</span><br><span class="line">sudo npm install -g pm2</span><br><span class="line">pm2 startup</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>run program as daemon:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pm2 start -n &lt;process_name&gt; &lt;executable_name&gt; -- &lt;process_arguments&gt;</span><br><span class="line"><span class="comment"># save all processes</span></span><br><span class="line">pm2 save</span><br><span class="line">pm2 monit</span><br><span class="line">pm2 logs</span><br><span class="line">pm2 <span class="built_in">ls</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/07/08/20625e39-4b27-4bc8-a98a-cbe6cb80e411/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-07-05 </div>
+			<div class="article-title"><a href="/blog/2024/07/05/93353a18-6021-468b-ab22-c278cc5cc38d/" title="Pixi is a Rust library designed for efficient data processing, offering faster performance compared to existing Conda packages. It can be accessed on GitHub at https://github.com/prefix-dev/pixi.">Pixi (In Rust), Faster Conda, Mamba Alternavive</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<p><a target="_blank" rel="noopener" href="https://github.com/prefix-dev/pixi">https://github.com/prefix-dev/pixi</a></p>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/07/05/93353a18-6021-468b-ab22-c278cc5cc38d/#more" class="btn btn-default more">Read More</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2024-07-04 </div>
+			<div class="article-title"><a href="/blog/2024/07/04/2fa65266-e8d2-46cc-827a-5f6a744295f9/" title="The text outlines several methods to keep a Docker container continuously operational using commands like &#39;docker run -d&#39;, &#39;tail -f /dev/null&#39;, &#39;sleep infinity&#39;, and &#39;nc -l -p &lt;port&gt;&#39;. These commands help maintain the Docker container&#39;s functionality and ensure that it remains running without stopping or terminating.">Keep Docker Container Running</a></div>
+		</h3>
+	
+
+
+			  
+<div class="entry">
+
+  <div class="row">
+	
+	
+		<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -d &lt;image_name&gt; <span class="built_in">tail</span> -f /dev/null</span><br><span class="line">docker run -d &lt;image_name&gt; <span class="built_in">sleep</span> infinity</span><br><span class="line">docker run -dt &lt;image_name&gt;</span><br><span class="line">docker run -dt &lt;image_name&gt; <span class="built_in">cat</span></span><br><span class="line">docker run -d &lt;image_name&gt; nc -l -p &lt;port&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/blog/2024/07/04/2fa65266-e8d2-46cc-827a-5f6a744295f9/#more" class="btn btn-default more">Read More</a>
 </div>
 
            
